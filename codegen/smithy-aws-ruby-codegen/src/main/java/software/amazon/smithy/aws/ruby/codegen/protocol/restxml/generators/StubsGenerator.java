@@ -278,8 +278,8 @@ public class StubsGenerator extends RestStubsGeneratorBase {
         }
 
         private void rubyFloat() {
-            writer.write("xml << $T.new($L, Hearth::NumberHelper.serialize($L).to_s$L)$L",
-                    Hearth.XML_NODE, nodeName, inputGetter, xmlnsAttribute(), checkRequired());
+            writer.write("xml << $T.new($L, $T.serialize($L).to_s$L)$L",
+                    Hearth.XML_NODE, nodeName, Hearth.NUMBER_HELPER, inputGetter, xmlnsAttribute(), checkRequired());
         }
 
         @Override
@@ -296,8 +296,9 @@ public class StubsGenerator extends RestStubsGeneratorBase {
 
         @Override
         public Void blobShape(BlobShape shape) {
-            writer.write("xml << $T.new($L, Base64::encode64($L).strip$L)$L",
-                    Hearth.XML_NODE, nodeName, inputGetter, xmlnsAttribute(), checkRequired());
+            writer.write("xml << $T.new($L, $T::encode64($L).strip$L)$L",
+                    Hearth.XML_NODE, nodeName, RubyImportContainer.BASE64,
+                    inputGetter, xmlnsAttribute(), checkRequired());
             return null;
         }
 
@@ -475,7 +476,7 @@ public class StubsGenerator extends RestStubsGeneratorBase {
         public Void stringShape(StringShape shape) {
             writer
                     .write("http_resp.headers['Content-Type'] = 'text/plain'")
-                    .write("http_resp.body = StringIO.new($L || '')", inputGetter);
+                    .write("http_resp.body = $T.new($L || '')", RubyImportContainer.STRING_IO, inputGetter);
             return null;
         }
 
@@ -489,7 +490,7 @@ public class StubsGenerator extends RestStubsGeneratorBase {
 
             writer
                     .write("http_resp.headers['Content-Type'] = '$L'", mediaType)
-                    .write("http_resp.body = StringIO.new($L || '')", inputGetter);
+                    .write("http_resp.body = $T.new($L || '')", RubyImportContainer.STRING_IO, inputGetter);
             return null;
         }
 
@@ -541,7 +542,7 @@ public class StubsGenerator extends RestStubsGeneratorBase {
                                     "xml");
                         }
                     })
-                    .write("http_resp.body = StringIO.new(xml.to_str)");
+                    .write("http_resp.body = $T.new(xml.to_str)", RubyImportContainer.STRING_IO);
         }
 
     }

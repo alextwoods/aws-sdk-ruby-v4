@@ -60,7 +60,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
                 .write("params['Action'] = '$L'", symbolProvider.toSymbol(operation).getName())
                 .write("params['Version'] = '$L'", context.service().getVersion())
                 .call(() -> renderMemberBuilders(inputShape))
-                .write("http_req.body = StringIO.new(params.to_s)")
+                .write("http_req.body = $T.new(params.to_s)", RubyImportContainer.STRING_IO)
                 .closeBlock("end");
     }
 

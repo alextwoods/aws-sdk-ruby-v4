@@ -443,7 +443,7 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
         public Void stringShape(StringShape shape) {
             writer
                     .write("http_req.headers['Content-Type'] = 'text/plain'")
-                    .write("http_req.body = StringIO.new($L || '')", inputGetter);
+                    .write("http_req.body = $T.new($L || '')", RubyImportContainer.STRING_IO, inputGetter);
             return null;
         }
 
@@ -457,7 +457,7 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
 
             writer
                     .write("http_req.headers['Content-Type'] = '$L'", mediaType)
-                    .write("http_req.body = StringIO.new($L || '')", inputGetter);
+                    .write("http_req.body = $T.new($L || '')", RubyImportContainer.STRING_IO, inputGetter);
             return null;
         }
 
@@ -509,7 +509,7 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
                                     "xml");
                         }
                     })
-                    .write("http_req.body = StringIO.new(xml.to_str)");
+                    .write("http_req.body = $T.new(xml.to_str)", RubyImportContainer.STRING_IO);
         }
 
     }

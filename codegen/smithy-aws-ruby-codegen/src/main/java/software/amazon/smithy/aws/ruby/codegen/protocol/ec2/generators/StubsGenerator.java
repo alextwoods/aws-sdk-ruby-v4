@@ -182,7 +182,7 @@ public class StubsGenerator extends StubsGeneratorBase {
                     }
                 })
                 .call(() -> renderMemberBuilders(outputShape))
-                .write("http_resp.body = StringIO.new(xml.to_str)")
+                .write("http_resp.body = $T.new(xml.to_str)", RubyImportContainer.STRING_IO)
                 .write("http_resp.status = 200")
                 .closeBlock("end");
     }
