@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-$LOAD_PATH.unshift(File.expand_path('../../../aws-sigv4/lib', __FILE__))
+$LOAD_PATH.unshift(File.expand_path('../../aws-sigv4/lib', __dir__))
 
 require 'simplecov'
 SimpleCov.start do

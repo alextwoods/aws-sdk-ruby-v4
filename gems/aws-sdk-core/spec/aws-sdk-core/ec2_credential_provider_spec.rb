@@ -154,7 +154,7 @@ module AWS::SDK::Core
           expect(creds.access_key_id).to eq('akid')
           expect(creds.secret_access_key).to eq('secret')
           expect(creds.session_token).to eq('token')
-          expect(creds.expiration). to eq(expired)
+          expect(creds.expiration).to eq(expired)
 
           # successive requests/credential gets don't result in more calls
           subject.credentials
@@ -179,7 +179,7 @@ module AWS::SDK::Core
           expect(creds.access_key_id).to eq('akid-2')
           expect(creds.secret_access_key).to eq('secret-2')
           expect(creds.session_token).to eq('token-2')
-          expect(creds.expiration). to eq(near_expiration)
+          expect(creds.expiration).to eq(near_expiration)
         end
 
         it 'uses expired credentials during a refresh and warns' do
@@ -199,7 +199,7 @@ module AWS::SDK::Core
           expect(creds.access_key_id).to eq('akid')
           expect(creds.secret_access_key).to eq('secret')
           expect(creds.session_token).to eq('token')
-          expect(creds.expiration). to eq(expired)
+          expect(creds.expiration).to eq(expired)
         end
       end
     end
