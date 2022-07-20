@@ -7,20 +7,22 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Synthetics
   module Validators
 
     class ArtifactConfigInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ArtifactConfigInput, context: context)
-        Validators::S3EncryptionConfig.validate!(input[:s3_encryption], context: "#{context}[:s3_encryption]") unless input[:s3_encryption].nil?
+        S3EncryptionConfig.validate!(input[:s3_encryption], context: "#{context}[:s3_encryption]") unless input[:s3_encryption].nil?
       end
     end
 
     class ArtifactConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ArtifactConfigOutput, context: context)
-        Validators::S3EncryptionConfig.validate!(input[:s3_encryption], context: "#{context}[:s3_encryption]") unless input[:s3_encryption].nil?
+        S3EncryptionConfig.validate!(input[:s3_encryption], context: "#{context}[:s3_encryption]") unless input[:s3_encryption].nil?
       end
     end
 
@@ -28,7 +30,7 @@ module AWS::SDK::Synthetics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BaseScreenshot, context: context)
         Hearth::Validator.validate!(input[:screenshot_name], ::String, context: "#{context}[:screenshot_name]")
-        Validators::BaseScreenshotIgnoreCoordinates.validate!(input[:ignore_coordinates], context: "#{context}[:ignore_coordinates]") unless input[:ignore_coordinates].nil?
+        BaseScreenshotIgnoreCoordinates.validate!(input[:ignore_coordinates], context: "#{context}[:ignore_coordinates]") unless input[:ignore_coordinates].nil?
       end
     end
 
@@ -45,7 +47,7 @@ module AWS::SDK::Synthetics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BaseScreenshot.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BaseScreenshot.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -54,7 +56,7 @@ module AWS::SDK::Synthetics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Canary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Canary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -63,7 +65,7 @@ module AWS::SDK::Synthetics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CanaryLastRun.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CanaryLastRun.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -73,21 +75,21 @@ module AWS::SDK::Synthetics
         Hearth::Validator.validate!(input, Types::Canary, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::CanaryCodeOutput.validate!(input[:code], context: "#{context}[:code]") unless input[:code].nil?
+        CanaryCodeOutput.validate!(input[:code], context: "#{context}[:code]") unless input[:code].nil?
         Hearth::Validator.validate!(input[:execution_role_arn], ::String, context: "#{context}[:execution_role_arn]")
-        Validators::CanaryScheduleOutput.validate!(input[:schedule], context: "#{context}[:schedule]") unless input[:schedule].nil?
-        Validators::CanaryRunConfigOutput.validate!(input[:run_config], context: "#{context}[:run_config]") unless input[:run_config].nil?
+        CanaryScheduleOutput.validate!(input[:schedule], context: "#{context}[:schedule]") unless input[:schedule].nil?
+        CanaryRunConfigOutput.validate!(input[:run_config], context: "#{context}[:run_config]") unless input[:run_config].nil?
         Hearth::Validator.validate!(input[:success_retention_period_in_days], ::Integer, context: "#{context}[:success_retention_period_in_days]")
         Hearth::Validator.validate!(input[:failure_retention_period_in_days], ::Integer, context: "#{context}[:failure_retention_period_in_days]")
-        Validators::CanaryStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
-        Validators::CanaryTimeline.validate!(input[:timeline], context: "#{context}[:timeline]") unless input[:timeline].nil?
+        CanaryStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        CanaryTimeline.validate!(input[:timeline], context: "#{context}[:timeline]") unless input[:timeline].nil?
         Hearth::Validator.validate!(input[:artifact_s3_location], ::String, context: "#{context}[:artifact_s3_location]")
         Hearth::Validator.validate!(input[:engine_arn], ::String, context: "#{context}[:engine_arn]")
         Hearth::Validator.validate!(input[:runtime_version], ::String, context: "#{context}[:runtime_version]")
-        Validators::VpcConfigOutput.validate!(input[:vpc_config], context: "#{context}[:vpc_config]") unless input[:vpc_config].nil?
-        Validators::VisualReferenceOutput.validate!(input[:visual_reference], context: "#{context}[:visual_reference]") unless input[:visual_reference].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::ArtifactConfigOutput.validate!(input[:artifact_config], context: "#{context}[:artifact_config]") unless input[:artifact_config].nil?
+        VpcConfigOutput.validate!(input[:vpc_config], context: "#{context}[:vpc_config]") unless input[:vpc_config].nil?
+        VisualReferenceOutput.validate!(input[:visual_reference], context: "#{context}[:visual_reference]") unless input[:visual_reference].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ArtifactConfigOutput.validate!(input[:artifact_config], context: "#{context}[:artifact_config]") unless input[:artifact_config].nil?
       end
     end
 
@@ -114,7 +116,7 @@ module AWS::SDK::Synthetics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CanaryLastRun, context: context)
         Hearth::Validator.validate!(input[:canary_name], ::String, context: "#{context}[:canary_name]")
-        Validators::CanaryRun.validate!(input[:last_run], context: "#{context}[:last_run]") unless input[:last_run].nil?
+        CanaryRun.validate!(input[:last_run], context: "#{context}[:last_run]") unless input[:last_run].nil?
       end
     end
 
@@ -123,8 +125,8 @@ module AWS::SDK::Synthetics
         Hearth::Validator.validate!(input, Types::CanaryRun, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::CanaryRunStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
-        Validators::CanaryRunTimeline.validate!(input[:timeline], context: "#{context}[:timeline]") unless input[:timeline].nil?
+        CanaryRunStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        CanaryRunTimeline.validate!(input[:timeline], context: "#{context}[:timeline]") unless input[:timeline].nil?
         Hearth::Validator.validate!(input[:artifact_s3_location], ::String, context: "#{context}[:artifact_s3_location]")
       end
     end
@@ -135,7 +137,7 @@ module AWS::SDK::Synthetics
         Hearth::Validator.validate!(input[:timeout_in_seconds], ::Integer, context: "#{context}[:timeout_in_seconds]")
         Hearth::Validator.validate!(input[:memory_in_mb], ::Integer, context: "#{context}[:memory_in_mb]")
         Hearth::Validator.validate!(input[:active_tracing], ::TrueClass, ::FalseClass, context: "#{context}[:active_tracing]")
-        Validators::EnvironmentVariablesMap.validate!(input[:environment_variables], context: "#{context}[:environment_variables]") unless input[:environment_variables].nil?
+        EnvironmentVariablesMap.validate!(input[:environment_variables], context: "#{context}[:environment_variables]") unless input[:environment_variables].nil?
       end
     end
 
@@ -169,7 +171,7 @@ module AWS::SDK::Synthetics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CanaryRun.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CanaryRun.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -220,24 +222,24 @@ module AWS::SDK::Synthetics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateCanaryInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::CanaryCodeInput.validate!(input[:code], context: "#{context}[:code]") unless input[:code].nil?
+        CanaryCodeInput.validate!(input[:code], context: "#{context}[:code]") unless input[:code].nil?
         Hearth::Validator.validate!(input[:artifact_s3_location], ::String, context: "#{context}[:artifact_s3_location]")
         Hearth::Validator.validate!(input[:execution_role_arn], ::String, context: "#{context}[:execution_role_arn]")
-        Validators::CanaryScheduleInput.validate!(input[:schedule], context: "#{context}[:schedule]") unless input[:schedule].nil?
-        Validators::CanaryRunConfigInput.validate!(input[:run_config], context: "#{context}[:run_config]") unless input[:run_config].nil?
+        CanaryScheduleInput.validate!(input[:schedule], context: "#{context}[:schedule]") unless input[:schedule].nil?
+        CanaryRunConfigInput.validate!(input[:run_config], context: "#{context}[:run_config]") unless input[:run_config].nil?
         Hearth::Validator.validate!(input[:success_retention_period_in_days], ::Integer, context: "#{context}[:success_retention_period_in_days]")
         Hearth::Validator.validate!(input[:failure_retention_period_in_days], ::Integer, context: "#{context}[:failure_retention_period_in_days]")
         Hearth::Validator.validate!(input[:runtime_version], ::String, context: "#{context}[:runtime_version]")
-        Validators::VpcConfigInput.validate!(input[:vpc_config], context: "#{context}[:vpc_config]") unless input[:vpc_config].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::ArtifactConfigInput.validate!(input[:artifact_config], context: "#{context}[:artifact_config]") unless input[:artifact_config].nil?
+        VpcConfigInput.validate!(input[:vpc_config], context: "#{context}[:vpc_config]") unless input[:vpc_config].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ArtifactConfigInput.validate!(input[:artifact_config], context: "#{context}[:artifact_config]") unless input[:artifact_config].nil?
       end
     end
 
     class CreateCanaryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateCanaryOutput, context: context)
-        Validators::Canary.validate!(input[:canary], context: "#{context}[:canary]") unless input[:canary].nil?
+        Canary.validate!(input[:canary], context: "#{context}[:canary]") unless input[:canary].nil?
       end
     end
 
@@ -260,7 +262,7 @@ module AWS::SDK::Synthetics
         Hearth::Validator.validate!(input, Types::DescribeCanariesInput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::DescribeCanariesNameFilter.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
+        DescribeCanariesNameFilter.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
       end
     end
 
@@ -269,7 +271,7 @@ module AWS::SDK::Synthetics
         Hearth::Validator.validate!(input, Types::DescribeCanariesLastRunInput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::DescribeCanariesLastRunNameFilter.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
+        DescribeCanariesLastRunNameFilter.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
       end
     end
 
@@ -285,7 +287,7 @@ module AWS::SDK::Synthetics
     class DescribeCanariesLastRunOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeCanariesLastRunOutput, context: context)
-        Validators::CanariesLastRun.validate!(input[:canaries_last_run], context: "#{context}[:canaries_last_run]") unless input[:canaries_last_run].nil?
+        CanariesLastRun.validate!(input[:canaries_last_run], context: "#{context}[:canaries_last_run]") unless input[:canaries_last_run].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -302,7 +304,7 @@ module AWS::SDK::Synthetics
     class DescribeCanariesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeCanariesOutput, context: context)
-        Validators::Canaries.validate!(input[:canaries], context: "#{context}[:canaries]") unless input[:canaries].nil?
+        Canaries.validate!(input[:canaries], context: "#{context}[:canaries]") unless input[:canaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -318,7 +320,7 @@ module AWS::SDK::Synthetics
     class DescribeRuntimeVersionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeRuntimeVersionsOutput, context: context)
-        Validators::RuntimeVersionList.validate!(input[:runtime_versions], context: "#{context}[:runtime_versions]") unless input[:runtime_versions].nil?
+        RuntimeVersionList.validate!(input[:runtime_versions], context: "#{context}[:runtime_versions]") unless input[:runtime_versions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -343,7 +345,7 @@ module AWS::SDK::Synthetics
     class GetCanaryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetCanaryOutput, context: context)
-        Validators::Canary.validate!(input[:canary], context: "#{context}[:canary]") unless input[:canary].nil?
+        Canary.validate!(input[:canary], context: "#{context}[:canary]") unless input[:canary].nil?
       end
     end
 
@@ -359,7 +361,7 @@ module AWS::SDK::Synthetics
     class GetCanaryRunsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetCanaryRunsOutput, context: context)
-        Validators::CanaryRuns.validate!(input[:canary_runs], context: "#{context}[:canary_runs]") unless input[:canary_runs].nil?
+        CanaryRuns.validate!(input[:canary_runs], context: "#{context}[:canary_runs]") unless input[:canary_runs].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -381,7 +383,7 @@ module AWS::SDK::Synthetics
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -413,7 +415,7 @@ module AWS::SDK::Synthetics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RuntimeVersion.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RuntimeVersion.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -493,7 +495,7 @@ module AWS::SDK::Synthetics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -507,7 +509,7 @@ module AWS::SDK::Synthetics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -521,17 +523,17 @@ module AWS::SDK::Synthetics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateCanaryInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::CanaryCodeInput.validate!(input[:code], context: "#{context}[:code]") unless input[:code].nil?
+        CanaryCodeInput.validate!(input[:code], context: "#{context}[:code]") unless input[:code].nil?
         Hearth::Validator.validate!(input[:execution_role_arn], ::String, context: "#{context}[:execution_role_arn]")
         Hearth::Validator.validate!(input[:runtime_version], ::String, context: "#{context}[:runtime_version]")
-        Validators::CanaryScheduleInput.validate!(input[:schedule], context: "#{context}[:schedule]") unless input[:schedule].nil?
-        Validators::CanaryRunConfigInput.validate!(input[:run_config], context: "#{context}[:run_config]") unless input[:run_config].nil?
+        CanaryScheduleInput.validate!(input[:schedule], context: "#{context}[:schedule]") unless input[:schedule].nil?
+        CanaryRunConfigInput.validate!(input[:run_config], context: "#{context}[:run_config]") unless input[:run_config].nil?
         Hearth::Validator.validate!(input[:success_retention_period_in_days], ::Integer, context: "#{context}[:success_retention_period_in_days]")
         Hearth::Validator.validate!(input[:failure_retention_period_in_days], ::Integer, context: "#{context}[:failure_retention_period_in_days]")
-        Validators::VpcConfigInput.validate!(input[:vpc_config], context: "#{context}[:vpc_config]") unless input[:vpc_config].nil?
-        Validators::VisualReferenceInput.validate!(input[:visual_reference], context: "#{context}[:visual_reference]") unless input[:visual_reference].nil?
+        VpcConfigInput.validate!(input[:vpc_config], context: "#{context}[:vpc_config]") unless input[:vpc_config].nil?
+        VisualReferenceInput.validate!(input[:visual_reference], context: "#{context}[:visual_reference]") unless input[:visual_reference].nil?
         Hearth::Validator.validate!(input[:artifact_s3_location], ::String, context: "#{context}[:artifact_s3_location]")
-        Validators::ArtifactConfigInput.validate!(input[:artifact_config], context: "#{context}[:artifact_config]") unless input[:artifact_config].nil?
+        ArtifactConfigInput.validate!(input[:artifact_config], context: "#{context}[:artifact_config]") unless input[:artifact_config].nil?
       end
     end
 
@@ -551,7 +553,7 @@ module AWS::SDK::Synthetics
     class VisualReferenceInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VisualReferenceInput, context: context)
-        Validators::BaseScreenshots.validate!(input[:base_screenshots], context: "#{context}[:base_screenshots]") unless input[:base_screenshots].nil?
+        BaseScreenshots.validate!(input[:base_screenshots], context: "#{context}[:base_screenshots]") unless input[:base_screenshots].nil?
         Hearth::Validator.validate!(input[:base_canary_run_id], ::String, context: "#{context}[:base_canary_run_id]")
       end
     end
@@ -559,7 +561,7 @@ module AWS::SDK::Synthetics
     class VisualReferenceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VisualReferenceOutput, context: context)
-        Validators::BaseScreenshots.validate!(input[:base_screenshots], context: "#{context}[:base_screenshots]") unless input[:base_screenshots].nil?
+        BaseScreenshots.validate!(input[:base_screenshots], context: "#{context}[:base_screenshots]") unless input[:base_screenshots].nil?
         Hearth::Validator.validate!(input[:base_canary_run_id], ::String, context: "#{context}[:base_canary_run_id]")
       end
     end
@@ -567,8 +569,8 @@ module AWS::SDK::Synthetics
     class VpcConfigInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VpcConfigInput, context: context)
-        Validators::SubnetIds.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
-        Validators::SecurityGroupIds.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        SubnetIds.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        SecurityGroupIds.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
       end
     end
 
@@ -576,8 +578,8 @@ module AWS::SDK::Synthetics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VpcConfigOutput, context: context)
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
-        Validators::SubnetIds.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
-        Validators::SecurityGroupIds.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        SubnetIds.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        SecurityGroupIds.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
       end
     end
 

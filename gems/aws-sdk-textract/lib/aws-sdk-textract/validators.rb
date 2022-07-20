@@ -21,19 +21,19 @@ module AWS::SDK::Textract
     class AnalyzeDocumentInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AnalyzeDocumentInput, context: context)
-        Validators::Document.validate!(input[:document], context: "#{context}[:document]") unless input[:document].nil?
-        Validators::FeatureTypes.validate!(input[:feature_types], context: "#{context}[:feature_types]") unless input[:feature_types].nil?
-        Validators::HumanLoopConfig.validate!(input[:human_loop_config], context: "#{context}[:human_loop_config]") unless input[:human_loop_config].nil?
-        Validators::QueriesConfig.validate!(input[:queries_config], context: "#{context}[:queries_config]") unless input[:queries_config].nil?
+        Document.validate!(input[:document], context: "#{context}[:document]") unless input[:document].nil?
+        FeatureTypes.validate!(input[:feature_types], context: "#{context}[:feature_types]") unless input[:feature_types].nil?
+        HumanLoopConfig.validate!(input[:human_loop_config], context: "#{context}[:human_loop_config]") unless input[:human_loop_config].nil?
+        QueriesConfig.validate!(input[:queries_config], context: "#{context}[:queries_config]") unless input[:queries_config].nil?
       end
     end
 
     class AnalyzeDocumentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AnalyzeDocumentOutput, context: context)
-        Validators::DocumentMetadata.validate!(input[:document_metadata], context: "#{context}[:document_metadata]") unless input[:document_metadata].nil?
-        Validators::BlockList.validate!(input[:blocks], context: "#{context}[:blocks]") unless input[:blocks].nil?
-        Validators::HumanLoopActivationOutput.validate!(input[:human_loop_activation_output], context: "#{context}[:human_loop_activation_output]") unless input[:human_loop_activation_output].nil?
+        DocumentMetadata.validate!(input[:document_metadata], context: "#{context}[:document_metadata]") unless input[:document_metadata].nil?
+        BlockList.validate!(input[:blocks], context: "#{context}[:blocks]") unless input[:blocks].nil?
+        HumanLoopActivationOutput.validate!(input[:human_loop_activation_output], context: "#{context}[:human_loop_activation_output]") unless input[:human_loop_activation_output].nil?
         Hearth::Validator.validate!(input[:analyze_document_model_version], ::String, context: "#{context}[:analyze_document_model_version]")
       end
     end
@@ -41,15 +41,15 @@ module AWS::SDK::Textract
     class AnalyzeExpenseInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AnalyzeExpenseInput, context: context)
-        Validators::Document.validate!(input[:document], context: "#{context}[:document]") unless input[:document].nil?
+        Document.validate!(input[:document], context: "#{context}[:document]") unless input[:document].nil?
       end
     end
 
     class AnalyzeExpenseOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AnalyzeExpenseOutput, context: context)
-        Validators::DocumentMetadata.validate!(input[:document_metadata], context: "#{context}[:document_metadata]") unless input[:document_metadata].nil?
-        Validators::ExpenseDocumentList.validate!(input[:expense_documents], context: "#{context}[:expense_documents]") unless input[:expense_documents].nil?
+        DocumentMetadata.validate!(input[:document_metadata], context: "#{context}[:document_metadata]") unless input[:document_metadata].nil?
+        ExpenseDocumentList.validate!(input[:expense_documents], context: "#{context}[:expense_documents]") unless input[:expense_documents].nil?
       end
     end
 
@@ -57,7 +57,7 @@ module AWS::SDK::Textract
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AnalyzeIDDetections, context: context)
         Hearth::Validator.validate!(input[:text], ::String, context: "#{context}[:text]")
-        Validators::NormalizedValue.validate!(input[:normalized_value], context: "#{context}[:normalized_value]") unless input[:normalized_value].nil?
+        NormalizedValue.validate!(input[:normalized_value], context: "#{context}[:normalized_value]") unless input[:normalized_value].nil?
         Hearth::Validator.validate!(input[:confidence], ::Float, context: "#{context}[:confidence]")
       end
     end
@@ -65,15 +65,15 @@ module AWS::SDK::Textract
     class AnalyzeIDInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AnalyzeIDInput, context: context)
-        Validators::DocumentPages.validate!(input[:document_pages], context: "#{context}[:document_pages]") unless input[:document_pages].nil?
+        DocumentPages.validate!(input[:document_pages], context: "#{context}[:document_pages]") unless input[:document_pages].nil?
       end
     end
 
     class AnalyzeIDOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AnalyzeIDOutput, context: context)
-        Validators::IdentityDocumentList.validate!(input[:identity_documents], context: "#{context}[:identity_documents]") unless input[:identity_documents].nil?
-        Validators::DocumentMetadata.validate!(input[:document_metadata], context: "#{context}[:document_metadata]") unless input[:document_metadata].nil?
+        IdentityDocumentList.validate!(input[:identity_documents], context: "#{context}[:identity_documents]") unless input[:identity_documents].nil?
+        DocumentMetadata.validate!(input[:document_metadata], context: "#{context}[:document_metadata]") unless input[:document_metadata].nil?
         Hearth::Validator.validate!(input[:analyze_id_model_version], ::String, context: "#{context}[:analyze_id_model_version]")
       end
     end
@@ -97,13 +97,13 @@ module AWS::SDK::Textract
         Hearth::Validator.validate!(input[:column_index], ::Integer, context: "#{context}[:column_index]")
         Hearth::Validator.validate!(input[:row_span], ::Integer, context: "#{context}[:row_span]")
         Hearth::Validator.validate!(input[:column_span], ::Integer, context: "#{context}[:column_span]")
-        Validators::Geometry.validate!(input[:geometry], context: "#{context}[:geometry]") unless input[:geometry].nil?
+        Geometry.validate!(input[:geometry], context: "#{context}[:geometry]") unless input[:geometry].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::RelationshipList.validate!(input[:relationships], context: "#{context}[:relationships]") unless input[:relationships].nil?
-        Validators::EntityTypes.validate!(input[:entity_types], context: "#{context}[:entity_types]") unless input[:entity_types].nil?
+        RelationshipList.validate!(input[:relationships], context: "#{context}[:relationships]") unless input[:relationships].nil?
+        EntityTypes.validate!(input[:entity_types], context: "#{context}[:entity_types]") unless input[:entity_types].nil?
         Hearth::Validator.validate!(input[:selection_status], ::String, context: "#{context}[:selection_status]")
         Hearth::Validator.validate!(input[:page], ::Integer, context: "#{context}[:page]")
-        Validators::Query.validate!(input[:query], context: "#{context}[:query]") unless input[:query].nil?
+        Query.validate!(input[:query], context: "#{context}[:query]") unless input[:query].nil?
       end
     end
 
@@ -111,7 +111,7 @@ module AWS::SDK::Textract
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Block.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Block.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -138,15 +138,15 @@ module AWS::SDK::Textract
     class DetectDocumentTextInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DetectDocumentTextInput, context: context)
-        Validators::Document.validate!(input[:document], context: "#{context}[:document]") unless input[:document].nil?
+        Document.validate!(input[:document], context: "#{context}[:document]") unless input[:document].nil?
       end
     end
 
     class DetectDocumentTextOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DetectDocumentTextOutput, context: context)
-        Validators::DocumentMetadata.validate!(input[:document_metadata], context: "#{context}[:document_metadata]") unless input[:document_metadata].nil?
-        Validators::BlockList.validate!(input[:blocks], context: "#{context}[:blocks]") unless input[:blocks].nil?
+        DocumentMetadata.validate!(input[:document_metadata], context: "#{context}[:document_metadata]") unless input[:document_metadata].nil?
+        BlockList.validate!(input[:blocks], context: "#{context}[:blocks]") unless input[:blocks].nil?
         Hearth::Validator.validate!(input[:detect_document_text_model_version], ::String, context: "#{context}[:detect_document_text_model_version]")
       end
     end
@@ -155,14 +155,14 @@ module AWS::SDK::Textract
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Document, context: context)
         Hearth::Validator.validate!(input[:bytes], ::String, context: "#{context}[:bytes]")
-        Validators::S3Object.validate!(input[:s3_object], context: "#{context}[:s3_object]") unless input[:s3_object].nil?
+        S3Object.validate!(input[:s3_object], context: "#{context}[:s3_object]") unless input[:s3_object].nil?
       end
     end
 
     class DocumentLocation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DocumentLocation, context: context)
-        Validators::S3Object.validate!(input[:s3_object], context: "#{context}[:s3_object]") unless input[:s3_object].nil?
+        S3Object.validate!(input[:s3_object], context: "#{context}[:s3_object]") unless input[:s3_object].nil?
       end
     end
 
@@ -177,7 +177,7 @@ module AWS::SDK::Textract
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Document.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Document.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -203,7 +203,7 @@ module AWS::SDK::Textract
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExpenseDetection, context: context)
         Hearth::Validator.validate!(input[:text], ::String, context: "#{context}[:text]")
-        Validators::Geometry.validate!(input[:geometry], context: "#{context}[:geometry]") unless input[:geometry].nil?
+        Geometry.validate!(input[:geometry], context: "#{context}[:geometry]") unless input[:geometry].nil?
         Hearth::Validator.validate!(input[:confidence], ::Float, context: "#{context}[:confidence]")
       end
     end
@@ -212,8 +212,8 @@ module AWS::SDK::Textract
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExpenseDocument, context: context)
         Hearth::Validator.validate!(input[:expense_index], ::Integer, context: "#{context}[:expense_index]")
-        Validators::ExpenseFieldList.validate!(input[:summary_fields], context: "#{context}[:summary_fields]") unless input[:summary_fields].nil?
-        Validators::LineItemGroupList.validate!(input[:line_item_groups], context: "#{context}[:line_item_groups]") unless input[:line_item_groups].nil?
+        ExpenseFieldList.validate!(input[:summary_fields], context: "#{context}[:summary_fields]") unless input[:summary_fields].nil?
+        LineItemGroupList.validate!(input[:line_item_groups], context: "#{context}[:line_item_groups]") unless input[:line_item_groups].nil?
       end
     end
 
@@ -221,7 +221,7 @@ module AWS::SDK::Textract
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ExpenseDocument.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ExpenseDocument.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -229,9 +229,9 @@ module AWS::SDK::Textract
     class ExpenseField
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExpenseField, context: context)
-        Validators::ExpenseType.validate!(input[:type], context: "#{context}[:type]") unless input[:type].nil?
-        Validators::ExpenseDetection.validate!(input[:label_detection], context: "#{context}[:label_detection]") unless input[:label_detection].nil?
-        Validators::ExpenseDetection.validate!(input[:value_detection], context: "#{context}[:value_detection]") unless input[:value_detection].nil?
+        ExpenseType.validate!(input[:type], context: "#{context}[:type]") unless input[:type].nil?
+        ExpenseDetection.validate!(input[:label_detection], context: "#{context}[:label_detection]") unless input[:label_detection].nil?
+        ExpenseDetection.validate!(input[:value_detection], context: "#{context}[:value_detection]") unless input[:value_detection].nil?
         Hearth::Validator.validate!(input[:page_number], ::Integer, context: "#{context}[:page_number]")
       end
     end
@@ -240,7 +240,7 @@ module AWS::SDK::Textract
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ExpenseField.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ExpenseField.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -265,8 +265,8 @@ module AWS::SDK::Textract
     class Geometry
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Geometry, context: context)
-        Validators::BoundingBox.validate!(input[:bounding_box], context: "#{context}[:bounding_box]") unless input[:bounding_box].nil?
-        Validators::Polygon.validate!(input[:polygon], context: "#{context}[:polygon]") unless input[:polygon].nil?
+        BoundingBox.validate!(input[:bounding_box], context: "#{context}[:bounding_box]") unless input[:bounding_box].nil?
+        Polygon.validate!(input[:polygon], context: "#{context}[:polygon]") unless input[:polygon].nil?
       end
     end
 
@@ -282,11 +282,11 @@ module AWS::SDK::Textract
     class GetDocumentAnalysisOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDocumentAnalysisOutput, context: context)
-        Validators::DocumentMetadata.validate!(input[:document_metadata], context: "#{context}[:document_metadata]") unless input[:document_metadata].nil?
+        DocumentMetadata.validate!(input[:document_metadata], context: "#{context}[:document_metadata]") unless input[:document_metadata].nil?
         Hearth::Validator.validate!(input[:job_status], ::String, context: "#{context}[:job_status]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::BlockList.validate!(input[:blocks], context: "#{context}[:blocks]") unless input[:blocks].nil?
-        Validators::Warnings.validate!(input[:warnings], context: "#{context}[:warnings]") unless input[:warnings].nil?
+        BlockList.validate!(input[:blocks], context: "#{context}[:blocks]") unless input[:blocks].nil?
+        Warnings.validate!(input[:warnings], context: "#{context}[:warnings]") unless input[:warnings].nil?
         Hearth::Validator.validate!(input[:status_message], ::String, context: "#{context}[:status_message]")
         Hearth::Validator.validate!(input[:analyze_document_model_version], ::String, context: "#{context}[:analyze_document_model_version]")
       end
@@ -304,11 +304,11 @@ module AWS::SDK::Textract
     class GetDocumentTextDetectionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDocumentTextDetectionOutput, context: context)
-        Validators::DocumentMetadata.validate!(input[:document_metadata], context: "#{context}[:document_metadata]") unless input[:document_metadata].nil?
+        DocumentMetadata.validate!(input[:document_metadata], context: "#{context}[:document_metadata]") unless input[:document_metadata].nil?
         Hearth::Validator.validate!(input[:job_status], ::String, context: "#{context}[:job_status]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::BlockList.validate!(input[:blocks], context: "#{context}[:blocks]") unless input[:blocks].nil?
-        Validators::Warnings.validate!(input[:warnings], context: "#{context}[:warnings]") unless input[:warnings].nil?
+        BlockList.validate!(input[:blocks], context: "#{context}[:blocks]") unless input[:blocks].nil?
+        Warnings.validate!(input[:warnings], context: "#{context}[:warnings]") unless input[:warnings].nil?
         Hearth::Validator.validate!(input[:status_message], ::String, context: "#{context}[:status_message]")
         Hearth::Validator.validate!(input[:detect_document_text_model_version], ::String, context: "#{context}[:detect_document_text_model_version]")
       end
@@ -326,11 +326,11 @@ module AWS::SDK::Textract
     class GetExpenseAnalysisOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetExpenseAnalysisOutput, context: context)
-        Validators::DocumentMetadata.validate!(input[:document_metadata], context: "#{context}[:document_metadata]") unless input[:document_metadata].nil?
+        DocumentMetadata.validate!(input[:document_metadata], context: "#{context}[:document_metadata]") unless input[:document_metadata].nil?
         Hearth::Validator.validate!(input[:job_status], ::String, context: "#{context}[:job_status]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ExpenseDocumentList.validate!(input[:expense_documents], context: "#{context}[:expense_documents]") unless input[:expense_documents].nil?
-        Validators::Warnings.validate!(input[:warnings], context: "#{context}[:warnings]") unless input[:warnings].nil?
+        ExpenseDocumentList.validate!(input[:expense_documents], context: "#{context}[:expense_documents]") unless input[:expense_documents].nil?
+        Warnings.validate!(input[:warnings], context: "#{context}[:warnings]") unless input[:warnings].nil?
         Hearth::Validator.validate!(input[:status_message], ::String, context: "#{context}[:status_message]")
         Hearth::Validator.validate!(input[:analyze_expense_model_version], ::String, context: "#{context}[:analyze_expense_model_version]")
       end
@@ -340,7 +340,7 @@ module AWS::SDK::Textract
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HumanLoopActivationOutput, context: context)
         Hearth::Validator.validate!(input[:human_loop_arn], ::String, context: "#{context}[:human_loop_arn]")
-        Validators::HumanLoopActivationReasons.validate!(input[:human_loop_activation_reasons], context: "#{context}[:human_loop_activation_reasons]") unless input[:human_loop_activation_reasons].nil?
+        HumanLoopActivationReasons.validate!(input[:human_loop_activation_reasons], context: "#{context}[:human_loop_activation_reasons]") unless input[:human_loop_activation_reasons].nil?
         Hearth::Validator.validate!(input[:human_loop_activation_conditions_evaluation_results], ::String, context: "#{context}[:human_loop_activation_conditions_evaluation_results]")
       end
     end
@@ -359,14 +359,14 @@ module AWS::SDK::Textract
         Hearth::Validator.validate!(input, Types::HumanLoopConfig, context: context)
         Hearth::Validator.validate!(input[:human_loop_name], ::String, context: "#{context}[:human_loop_name]")
         Hearth::Validator.validate!(input[:flow_definition_arn], ::String, context: "#{context}[:flow_definition_arn]")
-        Validators::HumanLoopDataAttributes.validate!(input[:data_attributes], context: "#{context}[:data_attributes]") unless input[:data_attributes].nil?
+        HumanLoopDataAttributes.validate!(input[:data_attributes], context: "#{context}[:data_attributes]") unless input[:data_attributes].nil?
       end
     end
 
     class HumanLoopDataAttributes
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HumanLoopDataAttributes, context: context)
-        Validators::ContentClassifiers.validate!(input[:content_classifiers], context: "#{context}[:content_classifiers]") unless input[:content_classifiers].nil?
+        ContentClassifiers.validate!(input[:content_classifiers], context: "#{context}[:content_classifiers]") unless input[:content_classifiers].nil?
       end
     end
 
@@ -402,15 +402,15 @@ module AWS::SDK::Textract
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::IdentityDocument, context: context)
         Hearth::Validator.validate!(input[:document_index], ::Integer, context: "#{context}[:document_index]")
-        Validators::IdentityDocumentFieldList.validate!(input[:identity_document_fields], context: "#{context}[:identity_document_fields]") unless input[:identity_document_fields].nil?
+        IdentityDocumentFieldList.validate!(input[:identity_document_fields], context: "#{context}[:identity_document_fields]") unless input[:identity_document_fields].nil?
       end
     end
 
     class IdentityDocumentField
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::IdentityDocumentField, context: context)
-        Validators::AnalyzeIDDetections.validate!(input[:type], context: "#{context}[:type]") unless input[:type].nil?
-        Validators::AnalyzeIDDetections.validate!(input[:value_detection], context: "#{context}[:value_detection]") unless input[:value_detection].nil?
+        AnalyzeIDDetections.validate!(input[:type], context: "#{context}[:type]") unless input[:type].nil?
+        AnalyzeIDDetections.validate!(input[:value_detection], context: "#{context}[:value_detection]") unless input[:value_detection].nil?
       end
     end
 
@@ -418,7 +418,7 @@ module AWS::SDK::Textract
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::IdentityDocumentField.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          IdentityDocumentField.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -427,7 +427,7 @@ module AWS::SDK::Textract
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::IdentityDocument.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          IdentityDocument.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -483,7 +483,7 @@ module AWS::SDK::Textract
     class LineItemFields
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LineItemFields, context: context)
-        Validators::ExpenseFieldList.validate!(input[:line_item_expense_fields], context: "#{context}[:line_item_expense_fields]") unless input[:line_item_expense_fields].nil?
+        ExpenseFieldList.validate!(input[:line_item_expense_fields], context: "#{context}[:line_item_expense_fields]") unless input[:line_item_expense_fields].nil?
       end
     end
 
@@ -491,7 +491,7 @@ module AWS::SDK::Textract
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LineItemGroup, context: context)
         Hearth::Validator.validate!(input[:line_item_group_index], ::Integer, context: "#{context}[:line_item_group_index]")
-        Validators::LineItemList.validate!(input[:line_items], context: "#{context}[:line_items]") unless input[:line_items].nil?
+        LineItemList.validate!(input[:line_items], context: "#{context}[:line_items]") unless input[:line_items].nil?
       end
     end
 
@@ -499,7 +499,7 @@ module AWS::SDK::Textract
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LineItemGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LineItemGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -508,7 +508,7 @@ module AWS::SDK::Textract
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LineItemFields.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LineItemFields.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -558,7 +558,7 @@ module AWS::SDK::Textract
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Point.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Point.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -575,7 +575,7 @@ module AWS::SDK::Textract
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Query.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Query.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -583,7 +583,7 @@ module AWS::SDK::Textract
     class QueriesConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::QueriesConfig, context: context)
-        Validators::Queries.validate!(input[:queries], context: "#{context}[:queries]") unless input[:queries].nil?
+        Queries.validate!(input[:queries], context: "#{context}[:queries]") unless input[:queries].nil?
       end
     end
 
@@ -592,7 +592,7 @@ module AWS::SDK::Textract
         Hearth::Validator.validate!(input, Types::Query, context: context)
         Hearth::Validator.validate!(input[:text], ::String, context: "#{context}[:text]")
         Hearth::Validator.validate!(input[:alias], ::String, context: "#{context}[:alias]")
-        Validators::QueryPages.validate!(input[:pages], context: "#{context}[:pages]") unless input[:pages].nil?
+        QueryPages.validate!(input[:pages], context: "#{context}[:pages]") unless input[:pages].nil?
       end
     end
 
@@ -609,7 +609,7 @@ module AWS::SDK::Textract
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Relationship, context: context)
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::IdList.validate!(input[:ids], context: "#{context}[:ids]") unless input[:ids].nil?
+        IdList.validate!(input[:ids], context: "#{context}[:ids]") unless input[:ids].nil?
       end
     end
 
@@ -617,7 +617,7 @@ module AWS::SDK::Textract
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Relationship.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Relationship.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -634,14 +634,14 @@ module AWS::SDK::Textract
     class StartDocumentAnalysisInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartDocumentAnalysisInput, context: context)
-        Validators::DocumentLocation.validate!(input[:document_location], context: "#{context}[:document_location]") unless input[:document_location].nil?
-        Validators::FeatureTypes.validate!(input[:feature_types], context: "#{context}[:feature_types]") unless input[:feature_types].nil?
+        DocumentLocation.validate!(input[:document_location], context: "#{context}[:document_location]") unless input[:document_location].nil?
+        FeatureTypes.validate!(input[:feature_types], context: "#{context}[:feature_types]") unless input[:feature_types].nil?
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
         Hearth::Validator.validate!(input[:job_tag], ::String, context: "#{context}[:job_tag]")
-        Validators::NotificationChannel.validate!(input[:notification_channel], context: "#{context}[:notification_channel]") unless input[:notification_channel].nil?
-        Validators::OutputConfig.validate!(input[:output_config], context: "#{context}[:output_config]") unless input[:output_config].nil?
+        NotificationChannel.validate!(input[:notification_channel], context: "#{context}[:notification_channel]") unless input[:notification_channel].nil?
+        OutputConfig.validate!(input[:output_config], context: "#{context}[:output_config]") unless input[:output_config].nil?
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
-        Validators::QueriesConfig.validate!(input[:queries_config], context: "#{context}[:queries_config]") unless input[:queries_config].nil?
+        QueriesConfig.validate!(input[:queries_config], context: "#{context}[:queries_config]") unless input[:queries_config].nil?
       end
     end
 
@@ -655,11 +655,11 @@ module AWS::SDK::Textract
     class StartDocumentTextDetectionInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartDocumentTextDetectionInput, context: context)
-        Validators::DocumentLocation.validate!(input[:document_location], context: "#{context}[:document_location]") unless input[:document_location].nil?
+        DocumentLocation.validate!(input[:document_location], context: "#{context}[:document_location]") unless input[:document_location].nil?
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
         Hearth::Validator.validate!(input[:job_tag], ::String, context: "#{context}[:job_tag]")
-        Validators::NotificationChannel.validate!(input[:notification_channel], context: "#{context}[:notification_channel]") unless input[:notification_channel].nil?
-        Validators::OutputConfig.validate!(input[:output_config], context: "#{context}[:output_config]") unless input[:output_config].nil?
+        NotificationChannel.validate!(input[:notification_channel], context: "#{context}[:notification_channel]") unless input[:notification_channel].nil?
+        OutputConfig.validate!(input[:output_config], context: "#{context}[:output_config]") unless input[:output_config].nil?
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
       end
     end
@@ -674,11 +674,11 @@ module AWS::SDK::Textract
     class StartExpenseAnalysisInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartExpenseAnalysisInput, context: context)
-        Validators::DocumentLocation.validate!(input[:document_location], context: "#{context}[:document_location]") unless input[:document_location].nil?
+        DocumentLocation.validate!(input[:document_location], context: "#{context}[:document_location]") unless input[:document_location].nil?
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
         Hearth::Validator.validate!(input[:job_tag], ::String, context: "#{context}[:job_tag]")
-        Validators::NotificationChannel.validate!(input[:notification_channel], context: "#{context}[:notification_channel]") unless input[:notification_channel].nil?
-        Validators::OutputConfig.validate!(input[:output_config], context: "#{context}[:output_config]") unless input[:output_config].nil?
+        NotificationChannel.validate!(input[:notification_channel], context: "#{context}[:notification_channel]") unless input[:notification_channel].nil?
+        OutputConfig.validate!(input[:output_config], context: "#{context}[:output_config]") unless input[:output_config].nil?
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
       end
     end
@@ -710,7 +710,7 @@ module AWS::SDK::Textract
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Warning, context: context)
         Hearth::Validator.validate!(input[:error_code], ::String, context: "#{context}[:error_code]")
-        Validators::Pages.validate!(input[:pages], context: "#{context}[:pages]") unless input[:pages].nil?
+        Pages.validate!(input[:pages], context: "#{context}[:pages]") unless input[:pages].nil?
       end
     end
 
@@ -718,7 +718,7 @@ module AWS::SDK::Textract
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Warning.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Warning.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

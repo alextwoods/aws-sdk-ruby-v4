@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::IoT1ClickProjects
@@ -71,7 +73,7 @@ module AWS::SDK::IoT1ClickProjects
     def associate_device_with_placement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateDeviceWithPlacementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateDeviceWithPlacementInput,
         validate_input: @config.validate_input
@@ -150,7 +152,7 @@ module AWS::SDK::IoT1ClickProjects
     def create_placement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePlacementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePlacementInput,
         validate_input: @config.validate_input
@@ -250,7 +252,7 @@ module AWS::SDK::IoT1ClickProjects
     def create_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateProjectInput,
         validate_input: @config.validate_input
@@ -326,7 +328,7 @@ module AWS::SDK::IoT1ClickProjects
     def delete_placement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePlacementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePlacementInput,
         validate_input: @config.validate_input
@@ -397,7 +399,7 @@ module AWS::SDK::IoT1ClickProjects
     def delete_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteProjectInput,
         validate_input: @config.validate_input
@@ -475,7 +477,7 @@ module AWS::SDK::IoT1ClickProjects
     def describe_placement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePlacementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePlacementInput,
         validate_input: @config.validate_input
@@ -558,7 +560,7 @@ module AWS::SDK::IoT1ClickProjects
     def describe_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeProjectInput,
         validate_input: @config.validate_input
@@ -633,7 +635,7 @@ module AWS::SDK::IoT1ClickProjects
     def disassociate_device_from_placement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateDeviceFromPlacementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateDeviceFromPlacementInput,
         validate_input: @config.validate_input
@@ -706,7 +708,7 @@ module AWS::SDK::IoT1ClickProjects
     def get_devices_in_placement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDevicesInPlacementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDevicesInPlacementInput,
         validate_input: @config.validate_input
@@ -789,7 +791,7 @@ module AWS::SDK::IoT1ClickProjects
     def list_placements(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPlacementsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPlacementsInput,
         validate_input: @config.validate_input
@@ -870,7 +872,7 @@ module AWS::SDK::IoT1ClickProjects
     def list_projects(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListProjectsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListProjectsInput,
         validate_input: @config.validate_input
@@ -939,7 +941,7 @@ module AWS::SDK::IoT1ClickProjects
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -1015,7 +1017,7 @@ module AWS::SDK::IoT1ClickProjects
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -1089,7 +1091,7 @@ module AWS::SDK::IoT1ClickProjects
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -1168,7 +1170,7 @@ module AWS::SDK::IoT1ClickProjects
     def update_placement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePlacementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePlacementInput,
         validate_input: @config.validate_input
@@ -1262,7 +1264,7 @@ module AWS::SDK::IoT1ClickProjects
     def update_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateProjectInput,
         validate_input: @config.validate_input

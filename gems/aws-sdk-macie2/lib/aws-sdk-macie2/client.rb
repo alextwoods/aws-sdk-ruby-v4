@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Macie2
@@ -65,7 +67,7 @@ module AWS::SDK::Macie2
     def accept_invitation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AcceptInvitationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AcceptInvitationInput,
         validate_input: @config.validate_input
@@ -145,7 +147,7 @@ module AWS::SDK::Macie2
     def batch_get_custom_data_identifiers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetCustomDataIdentifiersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetCustomDataIdentifiersInput,
         validate_input: @config.validate_input
@@ -320,7 +322,7 @@ module AWS::SDK::Macie2
     def create_classification_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateClassificationJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateClassificationJobInput,
         validate_input: @config.validate_input
@@ -429,7 +431,7 @@ module AWS::SDK::Macie2
     def create_custom_data_identifier(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCustomDataIdentifierInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCustomDataIdentifierInput,
         validate_input: @config.validate_input
@@ -537,7 +539,7 @@ module AWS::SDK::Macie2
     def create_findings_filter(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFindingsFilterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFindingsFilterInput,
         validate_input: @config.validate_input
@@ -620,7 +622,7 @@ module AWS::SDK::Macie2
     def create_invitations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateInvitationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateInvitationsInput,
         validate_input: @config.validate_input
@@ -698,7 +700,7 @@ module AWS::SDK::Macie2
     def create_member(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateMemberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateMemberInput,
         validate_input: @config.validate_input
@@ -768,7 +770,7 @@ module AWS::SDK::Macie2
     def create_sample_findings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSampleFindingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSampleFindingsInput,
         validate_input: @config.validate_input
@@ -843,7 +845,7 @@ module AWS::SDK::Macie2
     def decline_invitations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeclineInvitationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeclineInvitationsInput,
         validate_input: @config.validate_input
@@ -911,7 +913,7 @@ module AWS::SDK::Macie2
     def delete_custom_data_identifier(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCustomDataIdentifierInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCustomDataIdentifierInput,
         validate_input: @config.validate_input
@@ -978,7 +980,7 @@ module AWS::SDK::Macie2
     def delete_findings_filter(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFindingsFilterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFindingsFilterInput,
         validate_input: @config.validate_input
@@ -1052,7 +1054,7 @@ module AWS::SDK::Macie2
     def delete_invitations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteInvitationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteInvitationsInput,
         validate_input: @config.validate_input
@@ -1120,7 +1122,7 @@ module AWS::SDK::Macie2
     def delete_member(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteMemberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMemberInput,
         validate_input: @config.validate_input
@@ -1277,7 +1279,7 @@ module AWS::SDK::Macie2
     def describe_buckets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeBucketsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeBucketsInput,
         validate_input: @config.validate_input
@@ -1414,7 +1416,7 @@ module AWS::SDK::Macie2
     def describe_classification_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeClassificationJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeClassificationJobInput,
         validate_input: @config.validate_input
@@ -1478,7 +1480,7 @@ module AWS::SDK::Macie2
     def describe_organization_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeOrganizationConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeOrganizationConfigurationInput,
         validate_input: @config.validate_input
@@ -1540,7 +1542,7 @@ module AWS::SDK::Macie2
     def disable_macie(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableMacieInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableMacieInput,
         validate_input: @config.validate_input
@@ -1607,7 +1609,7 @@ module AWS::SDK::Macie2
     def disable_organization_admin_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableOrganizationAdminAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableOrganizationAdminAccountInput,
         validate_input: @config.validate_input
@@ -1669,7 +1671,7 @@ module AWS::SDK::Macie2
     def disassociate_from_administrator_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateFromAdministratorAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateFromAdministratorAccountInput,
         validate_input: @config.validate_input
@@ -1731,7 +1733,7 @@ module AWS::SDK::Macie2
     def disassociate_from_master_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateFromMasterAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateFromMasterAccountInput,
         validate_input: @config.validate_input
@@ -1798,7 +1800,7 @@ module AWS::SDK::Macie2
     def disassociate_member(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateMemberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateMemberInput,
         validate_input: @config.validate_input
@@ -1873,7 +1875,7 @@ module AWS::SDK::Macie2
     def enable_macie(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableMacieInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableMacieInput,
         validate_input: @config.validate_input
@@ -1945,7 +1947,7 @@ module AWS::SDK::Macie2
     def enable_organization_admin_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableOrganizationAdminAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableOrganizationAdminAccountInput,
         validate_input: @config.validate_input
@@ -2013,7 +2015,7 @@ module AWS::SDK::Macie2
     def get_administrator_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAdministratorAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAdministratorAccountInput,
         validate_input: @config.validate_input
@@ -2111,7 +2113,7 @@ module AWS::SDK::Macie2
     def get_bucket_statistics(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBucketStatisticsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBucketStatisticsInput,
         validate_input: @config.validate_input
@@ -2179,7 +2181,7 @@ module AWS::SDK::Macie2
     def get_classification_export_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetClassificationExportConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetClassificationExportConfigurationInput,
         validate_input: @config.validate_input
@@ -2263,7 +2265,7 @@ module AWS::SDK::Macie2
     def get_custom_data_identifier(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCustomDataIdentifierInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCustomDataIdentifierInput,
         validate_input: @config.validate_input
@@ -2361,7 +2363,7 @@ module AWS::SDK::Macie2
     def get_finding_statistics(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFindingStatisticsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFindingStatisticsInput,
         validate_input: @config.validate_input
@@ -2616,7 +2618,7 @@ module AWS::SDK::Macie2
     def get_findings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFindingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFindingsInput,
         validate_input: @config.validate_input
@@ -2703,7 +2705,7 @@ module AWS::SDK::Macie2
     def get_findings_filter(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFindingsFilterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFindingsFilterInput,
         validate_input: @config.validate_input
@@ -2768,7 +2770,7 @@ module AWS::SDK::Macie2
     def get_findings_publication_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFindingsPublicationConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFindingsPublicationConfigurationInput,
         validate_input: @config.validate_input
@@ -2831,7 +2833,7 @@ module AWS::SDK::Macie2
     def get_invitations_count(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetInvitationsCountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetInvitationsCountInput,
         validate_input: @config.validate_input
@@ -2898,7 +2900,7 @@ module AWS::SDK::Macie2
     def get_macie_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMacieSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMacieSessionInput,
         validate_input: @config.validate_input
@@ -2965,7 +2967,7 @@ module AWS::SDK::Macie2
     def get_master_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMasterAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMasterAccountInput,
         validate_input: @config.validate_input
@@ -3042,7 +3044,7 @@ module AWS::SDK::Macie2
     def get_member(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMemberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMemberInput,
         validate_input: @config.validate_input
@@ -3151,7 +3153,7 @@ module AWS::SDK::Macie2
     def get_usage_statistics(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetUsageStatisticsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetUsageStatisticsInput,
         validate_input: @config.validate_input
@@ -3225,7 +3227,7 @@ module AWS::SDK::Macie2
     def get_usage_totals(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetUsageTotalsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetUsageTotalsInput,
         validate_input: @config.validate_input
@@ -3351,7 +3353,7 @@ module AWS::SDK::Macie2
     def list_classification_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListClassificationJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListClassificationJobsInput,
         validate_input: @config.validate_input
@@ -3431,7 +3433,7 @@ module AWS::SDK::Macie2
     def list_custom_data_identifiers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCustomDataIdentifiersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCustomDataIdentifiersInput,
         validate_input: @config.validate_input
@@ -3529,7 +3531,7 @@ module AWS::SDK::Macie2
     def list_findings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFindingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFindingsInput,
         validate_input: @config.validate_input
@@ -3610,7 +3612,7 @@ module AWS::SDK::Macie2
     def list_findings_filters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFindingsFiltersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFindingsFiltersInput,
         validate_input: @config.validate_input
@@ -3688,7 +3690,7 @@ module AWS::SDK::Macie2
     def list_invitations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListInvitationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListInvitationsInput,
         validate_input: @config.validate_input
@@ -3760,7 +3762,7 @@ module AWS::SDK::Macie2
     def list_managed_data_identifiers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListManagedDataIdentifiersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListManagedDataIdentifiersInput,
         validate_input: @config.validate_input
@@ -3849,7 +3851,7 @@ module AWS::SDK::Macie2
     def list_members(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMembersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMembersInput,
         validate_input: @config.validate_input
@@ -3925,7 +3927,7 @@ module AWS::SDK::Macie2
     def list_organization_admin_accounts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListOrganizationAdminAccountsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListOrganizationAdminAccountsInput,
         validate_input: @config.validate_input
@@ -3994,7 +3996,7 @@ module AWS::SDK::Macie2
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -4072,7 +4074,7 @@ module AWS::SDK::Macie2
     def put_classification_export_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutClassificationExportConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutClassificationExportConfigurationInput,
         validate_input: @config.validate_input
@@ -4147,7 +4149,7 @@ module AWS::SDK::Macie2
     def put_findings_publication_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutFindingsPublicationConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutFindingsPublicationConfigurationInput,
         validate_input: @config.validate_input
@@ -4282,7 +4284,7 @@ module AWS::SDK::Macie2
     def search_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchResourcesInput,
         validate_input: @config.validate_input
@@ -4356,7 +4358,7 @@ module AWS::SDK::Macie2
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -4442,7 +4444,7 @@ module AWS::SDK::Macie2
     def test_custom_data_identifier(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TestCustomDataIdentifierInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TestCustomDataIdentifierInput,
         validate_input: @config.validate_input
@@ -4516,7 +4518,7 @@ module AWS::SDK::Macie2
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -4587,7 +4589,7 @@ module AWS::SDK::Macie2
     def update_classification_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateClassificationJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateClassificationJobInput,
         validate_input: @config.validate_input
@@ -4693,7 +4695,7 @@ module AWS::SDK::Macie2
     def update_findings_filter(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFindingsFilterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFindingsFilterInput,
         validate_input: @config.validate_input
@@ -4765,7 +4767,7 @@ module AWS::SDK::Macie2
     def update_macie_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateMacieSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateMacieSessionInput,
         validate_input: @config.validate_input
@@ -4837,7 +4839,7 @@ module AWS::SDK::Macie2
     def update_member_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateMemberSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateMemberSessionInput,
         validate_input: @config.validate_input
@@ -4905,7 +4907,7 @@ module AWS::SDK::Macie2
     def update_organization_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateOrganizationConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateOrganizationConfigurationInput,
         validate_input: @config.validate_input

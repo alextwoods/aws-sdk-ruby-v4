@@ -14,13 +14,13 @@ module AWS::SDK::QLDBSession
     class SendCommand
       def self.default(visited=[])
         {
-          start_session: Stubs::StartSessionResult.default(visited),
-          start_transaction: Stubs::StartTransactionResult.default(visited),
-          end_session: Stubs::EndSessionResult.default(visited),
-          commit_transaction: Stubs::CommitTransactionResult.default(visited),
-          abort_transaction: Stubs::AbortTransactionResult.default(visited),
-          execute_statement: Stubs::ExecuteStatementResult.default(visited),
-          fetch_page: Stubs::FetchPageResult.default(visited),
+          start_session: StartSessionResult.default(visited),
+          start_transaction: StartTransactionResult.default(visited),
+          end_session: EndSessionResult.default(visited),
+          commit_transaction: CommitTransactionResult.default(visited),
+          abort_transaction: AbortTransactionResult.default(visited),
+          execute_statement: ExecuteStatementResult.default(visited),
+          fetch_page: FetchPageResult.default(visited),
         }
       end
 
@@ -44,9 +44,9 @@ module AWS::SDK::QLDBSession
         return nil if visited.include?('FetchPageResult')
         visited = visited + ['FetchPageResult']
         {
-          page: Stubs::Page.default(visited),
-          timing_information: Stubs::TimingInformation.default(visited),
-          consumed_i_os: Stubs::IOUsage.default(visited),
+          page: Page.default(visited),
+          timing_information: TimingInformation.default(visited),
+          consumed_i_os: IOUsage.default(visited),
         }
       end
 
@@ -104,7 +104,7 @@ module AWS::SDK::QLDBSession
         return nil if visited.include?('Page')
         visited = visited + ['Page']
         {
-          values: Stubs::ValueHolders.default(visited),
+          values: ValueHolders.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -124,7 +124,7 @@ module AWS::SDK::QLDBSession
         return nil if visited.include?('ValueHolders')
         visited = visited + ['ValueHolders']
         [
-          Stubs::ValueHolder.default(visited)
+          ValueHolder.default(visited)
         ]
       end
 
@@ -164,9 +164,9 @@ module AWS::SDK::QLDBSession
         return nil if visited.include?('ExecuteStatementResult')
         visited = visited + ['ExecuteStatementResult']
         {
-          first_page: Stubs::Page.default(visited),
-          timing_information: Stubs::TimingInformation.default(visited),
-          consumed_i_os: Stubs::IOUsage.default(visited),
+          first_page: Page.default(visited),
+          timing_information: TimingInformation.default(visited),
+          consumed_i_os: IOUsage.default(visited),
         }
       end
 
@@ -186,7 +186,7 @@ module AWS::SDK::QLDBSession
         return nil if visited.include?('AbortTransactionResult')
         visited = visited + ['AbortTransactionResult']
         {
-          timing_information: Stubs::TimingInformation.default(visited),
+          timing_information: TimingInformation.default(visited),
         }
       end
 
@@ -206,8 +206,8 @@ module AWS::SDK::QLDBSession
         {
           transaction_id: 'transaction_id',
           commit_digest: 'commit_digest',
-          timing_information: Stubs::TimingInformation.default(visited),
-          consumed_i_os: Stubs::IOUsage.default(visited),
+          timing_information: TimingInformation.default(visited),
+          consumed_i_os: IOUsage.default(visited),
         }
       end
 
@@ -228,7 +228,7 @@ module AWS::SDK::QLDBSession
         return nil if visited.include?('EndSessionResult')
         visited = visited + ['EndSessionResult']
         {
-          timing_information: Stubs::TimingInformation.default(visited),
+          timing_information: TimingInformation.default(visited),
         }
       end
 
@@ -247,7 +247,7 @@ module AWS::SDK::QLDBSession
         visited = visited + ['StartTransactionResult']
         {
           transaction_id: 'transaction_id',
-          timing_information: Stubs::TimingInformation.default(visited),
+          timing_information: TimingInformation.default(visited),
         }
       end
 
@@ -267,7 +267,7 @@ module AWS::SDK::QLDBSession
         visited = visited + ['StartSessionResult']
         {
           session_token: 'session_token',
-          timing_information: Stubs::TimingInformation.default(visited),
+          timing_information: TimingInformation.default(visited),
         }
       end
 

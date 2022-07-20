@@ -56,7 +56,7 @@ module AWS::SDK::ApplicationAutoScaling
     class DescribeScalableTargets
       def self.default(visited=[])
         {
-          scalable_targets: Stubs::ScalableTargets.default(visited),
+          scalable_targets: ScalableTargets.default(visited),
           next_token: 'next_token',
         }
       end
@@ -76,7 +76,7 @@ module AWS::SDK::ApplicationAutoScaling
         return nil if visited.include?('ScalableTargets')
         visited = visited + ['ScalableTargets']
         [
-          Stubs::ScalableTarget.default(visited)
+          ScalableTarget.default(visited)
         ]
       end
 
@@ -103,7 +103,7 @@ module AWS::SDK::ApplicationAutoScaling
           max_capacity: 1,
           role_arn: 'role_arn',
           creation_time: Time.now,
-          suspended_state: Stubs::SuspendedState.default(visited),
+          suspended_state: SuspendedState.default(visited),
         }
       end
 
@@ -148,7 +148,7 @@ module AWS::SDK::ApplicationAutoScaling
     class DescribeScalingActivities
       def self.default(visited=[])
         {
-          scaling_activities: Stubs::ScalingActivities.default(visited),
+          scaling_activities: ScalingActivities.default(visited),
           next_token: 'next_token',
         }
       end
@@ -168,7 +168,7 @@ module AWS::SDK::ApplicationAutoScaling
         return nil if visited.include?('ScalingActivities')
         visited = visited + ['ScalingActivities']
         [
-          Stubs::ScalingActivity.default(visited)
+          ScalingActivity.default(visited)
         ]
       end
 
@@ -224,7 +224,7 @@ module AWS::SDK::ApplicationAutoScaling
     class DescribeScalingPolicies
       def self.default(visited=[])
         {
-          scaling_policies: Stubs::ScalingPolicies.default(visited),
+          scaling_policies: ScalingPolicies.default(visited),
           next_token: 'next_token',
         }
       end
@@ -244,7 +244,7 @@ module AWS::SDK::ApplicationAutoScaling
         return nil if visited.include?('ScalingPolicies')
         visited = visited + ['ScalingPolicies']
         [
-          Stubs::ScalingPolicy.default(visited)
+          ScalingPolicy.default(visited)
         ]
       end
 
@@ -270,9 +270,9 @@ module AWS::SDK::ApplicationAutoScaling
           resource_id: 'resource_id',
           scalable_dimension: 'scalable_dimension',
           policy_type: 'policy_type',
-          step_scaling_policy_configuration: Stubs::StepScalingPolicyConfiguration.default(visited),
-          target_tracking_scaling_policy_configuration: Stubs::TargetTrackingScalingPolicyConfiguration.default(visited),
-          alarms: Stubs::Alarms.default(visited),
+          step_scaling_policy_configuration: StepScalingPolicyConfiguration.default(visited),
+          target_tracking_scaling_policy_configuration: TargetTrackingScalingPolicyConfiguration.default(visited),
+          alarms: Alarms.default(visited),
           creation_time: Time.now,
         }
       end
@@ -300,7 +300,7 @@ module AWS::SDK::ApplicationAutoScaling
         return nil if visited.include?('Alarms')
         visited = visited + ['Alarms']
         [
-          Stubs::Alarm.default(visited)
+          Alarm.default(visited)
         ]
       end
 
@@ -341,8 +341,8 @@ module AWS::SDK::ApplicationAutoScaling
         visited = visited + ['TargetTrackingScalingPolicyConfiguration']
         {
           target_value: 1.0,
-          predefined_metric_specification: Stubs::PredefinedMetricSpecification.default(visited),
-          customized_metric_specification: Stubs::CustomizedMetricSpecification.default(visited),
+          predefined_metric_specification: PredefinedMetricSpecification.default(visited),
+          customized_metric_specification: CustomizedMetricSpecification.default(visited),
           scale_out_cooldown: 1,
           scale_in_cooldown: 1,
           disable_scale_in: false,
@@ -370,7 +370,7 @@ module AWS::SDK::ApplicationAutoScaling
         {
           metric_name: 'metric_name',
           namespace: 'namespace',
-          dimensions: Stubs::MetricDimensions.default(visited),
+          dimensions: MetricDimensions.default(visited),
           statistic: 'statistic',
           unit: 'unit',
         }
@@ -394,7 +394,7 @@ module AWS::SDK::ApplicationAutoScaling
         return nil if visited.include?('MetricDimensions')
         visited = visited + ['MetricDimensions']
         [
-          Stubs::MetricDimension.default(visited)
+          MetricDimension.default(visited)
         ]
       end
 
@@ -455,7 +455,7 @@ module AWS::SDK::ApplicationAutoScaling
         visited = visited + ['StepScalingPolicyConfiguration']
         {
           adjustment_type: 'adjustment_type',
-          step_adjustments: Stubs::StepAdjustments.default(visited),
+          step_adjustments: StepAdjustments.default(visited),
           min_adjustment_magnitude: 1,
           cooldown: 1,
           metric_aggregation_type: 'metric_aggregation_type',
@@ -480,7 +480,7 @@ module AWS::SDK::ApplicationAutoScaling
         return nil if visited.include?('StepAdjustments')
         visited = visited + ['StepAdjustments']
         [
-          Stubs::StepAdjustment.default(visited)
+          StepAdjustment.default(visited)
         ]
       end
 
@@ -520,7 +520,7 @@ module AWS::SDK::ApplicationAutoScaling
     class DescribeScheduledActions
       def self.default(visited=[])
         {
-          scheduled_actions: Stubs::ScheduledActions.default(visited),
+          scheduled_actions: ScheduledActions.default(visited),
           next_token: 'next_token',
         }
       end
@@ -540,7 +540,7 @@ module AWS::SDK::ApplicationAutoScaling
         return nil if visited.include?('ScheduledActions')
         visited = visited + ['ScheduledActions']
         [
-          Stubs::ScheduledAction.default(visited)
+          ScheduledAction.default(visited)
         ]
       end
 
@@ -569,7 +569,7 @@ module AWS::SDK::ApplicationAutoScaling
           scalable_dimension: 'scalable_dimension',
           start_time: Time.now,
           end_time: Time.now,
-          scalable_target_action: Stubs::ScalableTargetAction.default(visited),
+          scalable_target_action: ScalableTargetAction.default(visited),
           creation_time: Time.now,
         }
       end
@@ -617,7 +617,7 @@ module AWS::SDK::ApplicationAutoScaling
       def self.default(visited=[])
         {
           policy_arn: 'policy_arn',
-          alarms: Stubs::Alarms.default(visited),
+          alarms: Alarms.default(visited),
         }
       end
 

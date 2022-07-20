@@ -48,7 +48,7 @@ module AWS::SDK::CodestarNotifications
         type.resource = params[:resource]
         type.targets = Targets.build(params[:targets], context: "#{context}[:targets]") unless params[:targets].nil?
         type.detail_type = params[:detail_type]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.tags = Tags.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type.status = params[:status]
         type

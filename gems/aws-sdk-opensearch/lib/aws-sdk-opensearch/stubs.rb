@@ -14,7 +14,7 @@ module AWS::SDK::OpenSearch
     class AcceptInboundConnection
       def self.default(visited=[])
         {
-          connection: Stubs::InboundConnection.default(visited),
+          connection: InboundConnection.default(visited),
         }
       end
 
@@ -33,10 +33,10 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('InboundConnection')
         visited = visited + ['InboundConnection']
         {
-          local_domain_info: Stubs::DomainInformationContainer.default(visited),
-          remote_domain_info: Stubs::DomainInformationContainer.default(visited),
+          local_domain_info: DomainInformationContainer.default(visited),
+          remote_domain_info: DomainInformationContainer.default(visited),
           connection_id: 'connection_id',
-          connection_status: Stubs::InboundConnectionStatus.default(visited),
+          connection_status: InboundConnectionStatus.default(visited),
         }
       end
 
@@ -77,7 +77,7 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('DomainInformationContainer')
         visited = visited + ['DomainInformationContainer']
         {
-          aws_domain_information: Stubs::AWSDomainInformation.default(visited),
+          aws_domain_information: AWSDomainInformation.default(visited),
         }
       end
 
@@ -128,7 +128,7 @@ module AWS::SDK::OpenSearch
     class AssociatePackage
       def self.default(visited=[])
         {
-          domain_package_details: Stubs::DomainPackageDetails.default(visited),
+          domain_package_details: DomainPackageDetails.default(visited),
         }
       end
 
@@ -155,7 +155,7 @@ module AWS::SDK::OpenSearch
           domain_package_status: 'domain_package_status',
           package_version: 'package_version',
           reference_path: 'reference_path',
-          error_details: Stubs::ErrorDetails.default(visited),
+          error_details: ErrorDetails.default(visited),
         }
       end
 
@@ -199,7 +199,7 @@ module AWS::SDK::OpenSearch
     class CancelServiceSoftwareUpdate
       def self.default(visited=[])
         {
-          service_software_options: Stubs::ServiceSoftwareOptions.default(visited),
+          service_software_options: ServiceSoftwareOptions.default(visited),
         }
       end
 
@@ -248,7 +248,7 @@ module AWS::SDK::OpenSearch
     class CreateDomain
       def self.default(visited=[])
         {
-          domain_status: Stubs::DomainStatus.default(visited),
+          domain_status: DomainStatus.default(visited),
         }
       end
 
@@ -273,25 +273,25 @@ module AWS::SDK::OpenSearch
           created: false,
           deleted: false,
           endpoint: 'endpoint',
-          endpoints: Stubs::EndpointsMap.default(visited),
+          endpoints: EndpointsMap.default(visited),
           processing: false,
           upgrade_processing: false,
           engine_version: 'engine_version',
-          cluster_config: Stubs::ClusterConfig.default(visited),
-          ebs_options: Stubs::EBSOptions.default(visited),
+          cluster_config: ClusterConfig.default(visited),
+          ebs_options: EBSOptions.default(visited),
           access_policies: 'access_policies',
-          snapshot_options: Stubs::SnapshotOptions.default(visited),
-          vpc_options: Stubs::VPCDerivedInfo.default(visited),
-          cognito_options: Stubs::CognitoOptions.default(visited),
-          encryption_at_rest_options: Stubs::EncryptionAtRestOptions.default(visited),
-          node_to_node_encryption_options: Stubs::NodeToNodeEncryptionOptions.default(visited),
-          advanced_options: Stubs::AdvancedOptions.default(visited),
-          log_publishing_options: Stubs::LogPublishingOptions.default(visited),
-          service_software_options: Stubs::ServiceSoftwareOptions.default(visited),
-          domain_endpoint_options: Stubs::DomainEndpointOptions.default(visited),
-          advanced_security_options: Stubs::AdvancedSecurityOptions.default(visited),
-          auto_tune_options: Stubs::AutoTuneOptionsOutput.default(visited),
-          change_progress_details: Stubs::ChangeProgressDetails.default(visited),
+          snapshot_options: SnapshotOptions.default(visited),
+          vpc_options: VPCDerivedInfo.default(visited),
+          cognito_options: CognitoOptions.default(visited),
+          encryption_at_rest_options: EncryptionAtRestOptions.default(visited),
+          node_to_node_encryption_options: NodeToNodeEncryptionOptions.default(visited),
+          advanced_options: AdvancedOptions.default(visited),
+          log_publishing_options: LogPublishingOptions.default(visited),
+          service_software_options: ServiceSoftwareOptions.default(visited),
+          domain_endpoint_options: DomainEndpointOptions.default(visited),
+          advanced_security_options: AdvancedSecurityOptions.default(visited),
+          auto_tune_options: AutoTuneOptionsOutput.default(visited),
+          change_progress_details: ChangeProgressDetails.default(visited),
         }
       end
 
@@ -375,7 +375,7 @@ module AWS::SDK::OpenSearch
         {
           enabled: false,
           internal_user_database_enabled: false,
-          saml_options: Stubs::SAMLOptionsOutput.default(visited),
+          saml_options: SAMLOptionsOutput.default(visited),
           anonymous_auth_disable_date: Time.now,
           anonymous_auth_enabled: false,
         }
@@ -400,7 +400,7 @@ module AWS::SDK::OpenSearch
         visited = visited + ['SAMLOptionsOutput']
         {
           enabled: false,
-          idp: Stubs::SAMLIdp.default(visited),
+          idp: SAMLIdp.default(visited),
           subject_key: 'subject_key',
           roles_key: 'roles_key',
           session_timeout_minutes: 1,
@@ -471,7 +471,7 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('LogPublishingOptions')
         visited = visited + ['LogPublishingOptions']
         {
-          test_key: Stubs::LogPublishingOption.default(visited)
+          test_key: LogPublishingOption.default(visited)
         }
       end
 
@@ -594,9 +594,9 @@ module AWS::SDK::OpenSearch
         visited = visited + ['VPCDerivedInfo']
         {
           vpc_id: 'vpc_id',
-          subnet_ids: Stubs::StringList.default(visited),
-          availability_zones: Stubs::StringList.default(visited),
-          security_group_ids: Stubs::StringList.default(visited),
+          subnet_ids: StringList.default(visited),
+          availability_zones: StringList.default(visited),
+          security_group_ids: StringList.default(visited),
         }
       end
 
@@ -683,13 +683,13 @@ module AWS::SDK::OpenSearch
           instance_count: 1,
           dedicated_master_enabled: false,
           zone_awareness_enabled: false,
-          zone_awareness_config: Stubs::ZoneAwarenessConfig.default(visited),
+          zone_awareness_config: ZoneAwarenessConfig.default(visited),
           dedicated_master_type: 'dedicated_master_type',
           dedicated_master_count: 1,
           warm_enabled: false,
           warm_type: 'warm_type',
           warm_count: 1,
-          cold_storage_options: Stubs::ColdStorageOptions.default(visited),
+          cold_storage_options: ColdStorageOptions.default(visited),
         }
       end
 
@@ -771,10 +771,10 @@ module AWS::SDK::OpenSearch
     class CreateOutboundConnection
       def self.default(visited=[])
         {
-          local_domain_info: Stubs::DomainInformationContainer.default(visited),
-          remote_domain_info: Stubs::DomainInformationContainer.default(visited),
+          local_domain_info: DomainInformationContainer.default(visited),
+          remote_domain_info: DomainInformationContainer.default(visited),
           connection_alias: 'connection_alias',
-          connection_status: Stubs::OutboundConnectionStatus.default(visited),
+          connection_status: OutboundConnectionStatus.default(visited),
           connection_id: 'connection_id',
         }
       end
@@ -816,7 +816,7 @@ module AWS::SDK::OpenSearch
     class CreatePackage
       def self.default(visited=[])
         {
-          package_details: Stubs::PackageDetails.default(visited),
+          package_details: PackageDetails.default(visited),
         }
       end
 
@@ -843,7 +843,7 @@ module AWS::SDK::OpenSearch
           created_at: Time.now,
           last_updated_at: Time.now,
           available_package_version: 'available_package_version',
-          error_details: Stubs::ErrorDetails.default(visited),
+          error_details: ErrorDetails.default(visited),
         }
       end
 
@@ -867,7 +867,7 @@ module AWS::SDK::OpenSearch
     class DeleteDomain
       def self.default(visited=[])
         {
-          domain_status: Stubs::DomainStatus.default(visited),
+          domain_status: DomainStatus.default(visited),
         }
       end
 
@@ -884,7 +884,7 @@ module AWS::SDK::OpenSearch
     class DeleteInboundConnection
       def self.default(visited=[])
         {
-          connection: Stubs::InboundConnection.default(visited),
+          connection: InboundConnection.default(visited),
         }
       end
 
@@ -901,7 +901,7 @@ module AWS::SDK::OpenSearch
     class DeleteOutboundConnection
       def self.default(visited=[])
         {
-          connection: Stubs::OutboundConnection.default(visited),
+          connection: OutboundConnection.default(visited),
         }
       end
 
@@ -920,11 +920,11 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('OutboundConnection')
         visited = visited + ['OutboundConnection']
         {
-          local_domain_info: Stubs::DomainInformationContainer.default(visited),
-          remote_domain_info: Stubs::DomainInformationContainer.default(visited),
+          local_domain_info: DomainInformationContainer.default(visited),
+          remote_domain_info: DomainInformationContainer.default(visited),
           connection_id: 'connection_id',
           connection_alias: 'connection_alias',
-          connection_status: Stubs::OutboundConnectionStatus.default(visited),
+          connection_status: OutboundConnectionStatus.default(visited),
         }
       end
 
@@ -944,7 +944,7 @@ module AWS::SDK::OpenSearch
     class DeletePackage
       def self.default(visited=[])
         {
-          package_details: Stubs::PackageDetails.default(visited),
+          package_details: PackageDetails.default(visited),
         }
       end
 
@@ -961,7 +961,7 @@ module AWS::SDK::OpenSearch
     class DescribeDomain
       def self.default(visited=[])
         {
-          domain_status: Stubs::DomainStatus.default(visited),
+          domain_status: DomainStatus.default(visited),
         }
       end
 
@@ -978,7 +978,7 @@ module AWS::SDK::OpenSearch
     class DescribeDomainAutoTunes
       def self.default(visited=[])
         {
-          auto_tunes: Stubs::AutoTuneList.default(visited),
+          auto_tunes: AutoTuneList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -999,7 +999,7 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('AutoTuneList')
         visited = visited + ['AutoTuneList']
         [
-          Stubs::AutoTune.default(visited)
+          AutoTune.default(visited)
         ]
       end
 
@@ -1020,7 +1020,7 @@ module AWS::SDK::OpenSearch
         visited = visited + ['AutoTune']
         {
           auto_tune_type: 'auto_tune_type',
-          auto_tune_details: Stubs::AutoTuneDetails.default(visited),
+          auto_tune_details: AutoTuneDetails.default(visited),
         }
       end
 
@@ -1039,7 +1039,7 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('AutoTuneDetails')
         visited = visited + ['AutoTuneDetails']
         {
-          scheduled_auto_tune_details: Stubs::ScheduledAutoTuneDetails.default(visited),
+          scheduled_auto_tune_details: ScheduledAutoTuneDetails.default(visited),
         }
       end
 
@@ -1079,7 +1079,7 @@ module AWS::SDK::OpenSearch
     class DescribeDomainChangeProgress
       def self.default(visited=[])
         {
-          change_progress_status: Stubs::ChangeProgressStatusDetails.default(visited),
+          change_progress_status: ChangeProgressStatusDetails.default(visited),
         }
       end
 
@@ -1101,10 +1101,10 @@ module AWS::SDK::OpenSearch
           change_id: 'change_id',
           start_time: Time.now,
           status: 'status',
-          pending_properties: Stubs::StringList.default(visited),
-          completed_properties: Stubs::StringList.default(visited),
+          pending_properties: StringList.default(visited),
+          completed_properties: StringList.default(visited),
           total_number_of_stages: 1,
-          change_progress_stages: Stubs::ChangeProgressStageList.default(visited),
+          change_progress_stages: ChangeProgressStageList.default(visited),
         }
       end
 
@@ -1128,7 +1128,7 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('ChangeProgressStageList')
         visited = visited + ['ChangeProgressStageList']
         [
-          Stubs::ChangeProgressStage.default(visited)
+          ChangeProgressStage.default(visited)
         ]
       end
 
@@ -1170,7 +1170,7 @@ module AWS::SDK::OpenSearch
     class DescribeDomainConfig
       def self.default(visited=[])
         {
-          domain_config: Stubs::DomainConfig.default(visited),
+          domain_config: DomainConfig.default(visited),
         }
       end
 
@@ -1189,21 +1189,21 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('DomainConfig')
         visited = visited + ['DomainConfig']
         {
-          engine_version: Stubs::VersionStatus.default(visited),
-          cluster_config: Stubs::ClusterConfigStatus.default(visited),
-          ebs_options: Stubs::EBSOptionsStatus.default(visited),
-          access_policies: Stubs::AccessPoliciesStatus.default(visited),
-          snapshot_options: Stubs::SnapshotOptionsStatus.default(visited),
-          vpc_options: Stubs::VPCDerivedInfoStatus.default(visited),
-          cognito_options: Stubs::CognitoOptionsStatus.default(visited),
-          encryption_at_rest_options: Stubs::EncryptionAtRestOptionsStatus.default(visited),
-          node_to_node_encryption_options: Stubs::NodeToNodeEncryptionOptionsStatus.default(visited),
-          advanced_options: Stubs::AdvancedOptionsStatus.default(visited),
-          log_publishing_options: Stubs::LogPublishingOptionsStatus.default(visited),
-          domain_endpoint_options: Stubs::DomainEndpointOptionsStatus.default(visited),
-          advanced_security_options: Stubs::AdvancedSecurityOptionsStatus.default(visited),
-          auto_tune_options: Stubs::AutoTuneOptionsStatus.default(visited),
-          change_progress_details: Stubs::ChangeProgressDetails.default(visited),
+          engine_version: VersionStatus.default(visited),
+          cluster_config: ClusterConfigStatus.default(visited),
+          ebs_options: EBSOptionsStatus.default(visited),
+          access_policies: AccessPoliciesStatus.default(visited),
+          snapshot_options: SnapshotOptionsStatus.default(visited),
+          vpc_options: VPCDerivedInfoStatus.default(visited),
+          cognito_options: CognitoOptionsStatus.default(visited),
+          encryption_at_rest_options: EncryptionAtRestOptionsStatus.default(visited),
+          node_to_node_encryption_options: NodeToNodeEncryptionOptionsStatus.default(visited),
+          advanced_options: AdvancedOptionsStatus.default(visited),
+          log_publishing_options: LogPublishingOptionsStatus.default(visited),
+          domain_endpoint_options: DomainEndpointOptionsStatus.default(visited),
+          advanced_security_options: AdvancedSecurityOptionsStatus.default(visited),
+          auto_tune_options: AutoTuneOptionsStatus.default(visited),
+          change_progress_details: ChangeProgressDetails.default(visited),
         }
       end
 
@@ -1235,8 +1235,8 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('AutoTuneOptionsStatus')
         visited = visited + ['AutoTuneOptionsStatus']
         {
-          options: Stubs::AutoTuneOptions.default(visited),
-          status: Stubs::AutoTuneStatus.default(visited),
+          options: AutoTuneOptions.default(visited),
+          status: AutoTuneStatus.default(visited),
         }
       end
 
@@ -1285,7 +1285,7 @@ module AWS::SDK::OpenSearch
         {
           desired_state: 'desired_state',
           rollback_on_disable: 'rollback_on_disable',
-          maintenance_schedules: Stubs::AutoTuneMaintenanceScheduleList.default(visited),
+          maintenance_schedules: AutoTuneMaintenanceScheduleList.default(visited),
         }
       end
 
@@ -1305,7 +1305,7 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('AutoTuneMaintenanceScheduleList')
         visited = visited + ['AutoTuneMaintenanceScheduleList']
         [
-          Stubs::AutoTuneMaintenanceSchedule.default(visited)
+          AutoTuneMaintenanceSchedule.default(visited)
         ]
       end
 
@@ -1326,7 +1326,7 @@ module AWS::SDK::OpenSearch
         visited = visited + ['AutoTuneMaintenanceSchedule']
         {
           start_at: Time.now,
-          duration: Stubs::Duration.default(visited),
+          duration: Duration.default(visited),
           cron_expression_for_recurrence: 'cron_expression_for_recurrence',
         }
       end
@@ -1367,8 +1367,8 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('AdvancedSecurityOptionsStatus')
         visited = visited + ['AdvancedSecurityOptionsStatus']
         {
-          options: Stubs::AdvancedSecurityOptions.default(visited),
-          status: Stubs::OptionStatus.default(visited),
+          options: AdvancedSecurityOptions.default(visited),
+          status: OptionStatus.default(visited),
         }
       end
 
@@ -1413,8 +1413,8 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('DomainEndpointOptionsStatus')
         visited = visited + ['DomainEndpointOptionsStatus']
         {
-          options: Stubs::DomainEndpointOptions.default(visited),
-          status: Stubs::OptionStatus.default(visited),
+          options: DomainEndpointOptions.default(visited),
+          status: OptionStatus.default(visited),
         }
       end
 
@@ -1433,8 +1433,8 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('LogPublishingOptionsStatus')
         visited = visited + ['LogPublishingOptionsStatus']
         {
-          options: Stubs::LogPublishingOptions.default(visited),
-          status: Stubs::OptionStatus.default(visited),
+          options: LogPublishingOptions.default(visited),
+          status: OptionStatus.default(visited),
         }
       end
 
@@ -1453,8 +1453,8 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('AdvancedOptionsStatus')
         visited = visited + ['AdvancedOptionsStatus']
         {
-          options: Stubs::AdvancedOptions.default(visited),
-          status: Stubs::OptionStatus.default(visited),
+          options: AdvancedOptions.default(visited),
+          status: OptionStatus.default(visited),
         }
       end
 
@@ -1473,8 +1473,8 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('NodeToNodeEncryptionOptionsStatus')
         visited = visited + ['NodeToNodeEncryptionOptionsStatus']
         {
-          options: Stubs::NodeToNodeEncryptionOptions.default(visited),
-          status: Stubs::OptionStatus.default(visited),
+          options: NodeToNodeEncryptionOptions.default(visited),
+          status: OptionStatus.default(visited),
         }
       end
 
@@ -1493,8 +1493,8 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('EncryptionAtRestOptionsStatus')
         visited = visited + ['EncryptionAtRestOptionsStatus']
         {
-          options: Stubs::EncryptionAtRestOptions.default(visited),
-          status: Stubs::OptionStatus.default(visited),
+          options: EncryptionAtRestOptions.default(visited),
+          status: OptionStatus.default(visited),
         }
       end
 
@@ -1513,8 +1513,8 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('CognitoOptionsStatus')
         visited = visited + ['CognitoOptionsStatus']
         {
-          options: Stubs::CognitoOptions.default(visited),
-          status: Stubs::OptionStatus.default(visited),
+          options: CognitoOptions.default(visited),
+          status: OptionStatus.default(visited),
         }
       end
 
@@ -1533,8 +1533,8 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('VPCDerivedInfoStatus')
         visited = visited + ['VPCDerivedInfoStatus']
         {
-          options: Stubs::VPCDerivedInfo.default(visited),
-          status: Stubs::OptionStatus.default(visited),
+          options: VPCDerivedInfo.default(visited),
+          status: OptionStatus.default(visited),
         }
       end
 
@@ -1553,8 +1553,8 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('SnapshotOptionsStatus')
         visited = visited + ['SnapshotOptionsStatus']
         {
-          options: Stubs::SnapshotOptions.default(visited),
-          status: Stubs::OptionStatus.default(visited),
+          options: SnapshotOptions.default(visited),
+          status: OptionStatus.default(visited),
         }
       end
 
@@ -1574,7 +1574,7 @@ module AWS::SDK::OpenSearch
         visited = visited + ['AccessPoliciesStatus']
         {
           options: 'options',
-          status: Stubs::OptionStatus.default(visited),
+          status: OptionStatus.default(visited),
         }
       end
 
@@ -1593,8 +1593,8 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('EBSOptionsStatus')
         visited = visited + ['EBSOptionsStatus']
         {
-          options: Stubs::EBSOptions.default(visited),
-          status: Stubs::OptionStatus.default(visited),
+          options: EBSOptions.default(visited),
+          status: OptionStatus.default(visited),
         }
       end
 
@@ -1613,8 +1613,8 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('ClusterConfigStatus')
         visited = visited + ['ClusterConfigStatus']
         {
-          options: Stubs::ClusterConfig.default(visited),
-          status: Stubs::OptionStatus.default(visited),
+          options: ClusterConfig.default(visited),
+          status: OptionStatus.default(visited),
         }
       end
 
@@ -1634,7 +1634,7 @@ module AWS::SDK::OpenSearch
         visited = visited + ['VersionStatus']
         {
           options: 'options',
-          status: Stubs::OptionStatus.default(visited),
+          status: OptionStatus.default(visited),
         }
       end
 
@@ -1651,7 +1651,7 @@ module AWS::SDK::OpenSearch
     class DescribeDomains
       def self.default(visited=[])
         {
-          domain_status_list: Stubs::DomainStatusList.default(visited),
+          domain_status_list: DomainStatusList.default(visited),
         }
       end
 
@@ -1670,7 +1670,7 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('DomainStatusList')
         visited = visited + ['DomainStatusList']
         [
-          Stubs::DomainStatus.default(visited)
+          DomainStatus.default(visited)
         ]
       end
 
@@ -1688,7 +1688,7 @@ module AWS::SDK::OpenSearch
     class DescribeInboundConnections
       def self.default(visited=[])
         {
-          connections: Stubs::InboundConnections.default(visited),
+          connections: InboundConnections.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1709,7 +1709,7 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('InboundConnections')
         visited = visited + ['InboundConnections']
         [
-          Stubs::InboundConnection.default(visited)
+          InboundConnection.default(visited)
         ]
       end
 
@@ -1727,7 +1727,7 @@ module AWS::SDK::OpenSearch
     class DescribeInstanceTypeLimits
       def self.default(visited=[])
         {
-          limits_by_role: Stubs::LimitsByRole.default(visited),
+          limits_by_role: LimitsByRole.default(visited),
         }
       end
 
@@ -1746,7 +1746,7 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('LimitsByRole')
         visited = visited + ['LimitsByRole']
         {
-          test_key: Stubs::Limits.default(visited)
+          test_key: Limits.default(visited)
         }
       end
 
@@ -1766,9 +1766,9 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('Limits')
         visited = visited + ['Limits']
         {
-          storage_types: Stubs::StorageTypeList.default(visited),
-          instance_limits: Stubs::InstanceLimits.default(visited),
-          additional_limits: Stubs::AdditionalLimitList.default(visited),
+          storage_types: StorageTypeList.default(visited),
+          instance_limits: InstanceLimits.default(visited),
+          additional_limits: AdditionalLimitList.default(visited),
         }
       end
 
@@ -1788,7 +1788,7 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('AdditionalLimitList')
         visited = visited + ['AdditionalLimitList']
         [
-          Stubs::AdditionalLimit.default(visited)
+          AdditionalLimit.default(visited)
         ]
       end
 
@@ -1809,7 +1809,7 @@ module AWS::SDK::OpenSearch
         visited = visited + ['AdditionalLimit']
         {
           limit_name: 'limit_name',
-          limit_values: Stubs::LimitValueList.default(visited),
+          limit_values: LimitValueList.default(visited),
         }
       end
 
@@ -1848,7 +1848,7 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('InstanceLimits')
         visited = visited + ['InstanceLimits']
         {
-          instance_count_limits: Stubs::InstanceCountLimits.default(visited),
+          instance_count_limits: InstanceCountLimits.default(visited),
         }
       end
 
@@ -1886,7 +1886,7 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('StorageTypeList')
         visited = visited + ['StorageTypeList']
         [
-          Stubs::StorageType.default(visited)
+          StorageType.default(visited)
         ]
       end
 
@@ -1908,7 +1908,7 @@ module AWS::SDK::OpenSearch
         {
           storage_type_name: 'storage_type_name',
           storage_sub_type_name: 'storage_sub_type_name',
-          storage_type_limits: Stubs::StorageTypeLimitList.default(visited),
+          storage_type_limits: StorageTypeLimitList.default(visited),
         }
       end
 
@@ -1928,7 +1928,7 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('StorageTypeLimitList')
         visited = visited + ['StorageTypeLimitList']
         [
-          Stubs::StorageTypeLimit.default(visited)
+          StorageTypeLimit.default(visited)
         ]
       end
 
@@ -1949,7 +1949,7 @@ module AWS::SDK::OpenSearch
         visited = visited + ['StorageTypeLimit']
         {
           limit_name: 'limit_name',
-          limit_values: Stubs::LimitValueList.default(visited),
+          limit_values: LimitValueList.default(visited),
         }
       end
 
@@ -1966,7 +1966,7 @@ module AWS::SDK::OpenSearch
     class DescribeOutboundConnections
       def self.default(visited=[])
         {
-          connections: Stubs::OutboundConnections.default(visited),
+          connections: OutboundConnections.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1987,7 +1987,7 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('OutboundConnections')
         visited = visited + ['OutboundConnections']
         [
-          Stubs::OutboundConnection.default(visited)
+          OutboundConnection.default(visited)
         ]
       end
 
@@ -2005,7 +2005,7 @@ module AWS::SDK::OpenSearch
     class DescribePackages
       def self.default(visited=[])
         {
-          package_details_list: Stubs::PackageDetailsList.default(visited),
+          package_details_list: PackageDetailsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2026,7 +2026,7 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('PackageDetailsList')
         visited = visited + ['PackageDetailsList']
         [
-          Stubs::PackageDetails.default(visited)
+          PackageDetails.default(visited)
         ]
       end
 
@@ -2045,7 +2045,7 @@ module AWS::SDK::OpenSearch
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          reserved_instance_offerings: Stubs::ReservedInstanceOfferingList.default(visited),
+          reserved_instance_offerings: ReservedInstanceOfferingList.default(visited),
         }
       end
 
@@ -2065,7 +2065,7 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('ReservedInstanceOfferingList')
         visited = visited + ['ReservedInstanceOfferingList']
         [
-          Stubs::ReservedInstanceOffering.default(visited)
+          ReservedInstanceOffering.default(visited)
         ]
       end
 
@@ -2092,7 +2092,7 @@ module AWS::SDK::OpenSearch
           usage_price: 1.0,
           currency_code: 'currency_code',
           payment_option: 'payment_option',
-          recurring_charges: Stubs::RecurringChargeList.default(visited),
+          recurring_charges: RecurringChargeList.default(visited),
         }
       end
 
@@ -2117,7 +2117,7 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('RecurringChargeList')
         visited = visited + ['RecurringChargeList']
         [
-          Stubs::RecurringCharge.default(visited)
+          RecurringCharge.default(visited)
         ]
       end
 
@@ -2156,7 +2156,7 @@ module AWS::SDK::OpenSearch
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          reserved_instances: Stubs::ReservedInstanceList.default(visited),
+          reserved_instances: ReservedInstanceList.default(visited),
         }
       end
 
@@ -2176,7 +2176,7 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('ReservedInstanceList')
         visited = visited + ['ReservedInstanceList']
         [
-          Stubs::ReservedInstance.default(visited)
+          ReservedInstance.default(visited)
         ]
       end
 
@@ -2209,7 +2209,7 @@ module AWS::SDK::OpenSearch
           instance_count: 1,
           state: 'state',
           payment_option: 'payment_option',
-          recurring_charges: Stubs::RecurringChargeList.default(visited),
+          recurring_charges: RecurringChargeList.default(visited),
         }
       end
 
@@ -2238,7 +2238,7 @@ module AWS::SDK::OpenSearch
     class DissociatePackage
       def self.default(visited=[])
         {
-          domain_package_details: Stubs::DomainPackageDetails.default(visited),
+          domain_package_details: DomainPackageDetails.default(visited),
         }
       end
 
@@ -2255,7 +2255,7 @@ module AWS::SDK::OpenSearch
     class GetCompatibleVersions
       def self.default(visited=[])
         {
-          compatible_versions: Stubs::CompatibleVersionsList.default(visited),
+          compatible_versions: CompatibleVersionsList.default(visited),
         }
       end
 
@@ -2274,7 +2274,7 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('CompatibleVersionsList')
         visited = visited + ['CompatibleVersionsList']
         [
-          Stubs::CompatibleVersionsMap.default(visited)
+          CompatibleVersionsMap.default(visited)
         ]
       end
 
@@ -2295,7 +2295,7 @@ module AWS::SDK::OpenSearch
         visited = visited + ['CompatibleVersionsMap']
         {
           source_version: 'source_version',
-          target_versions: Stubs::VersionList.default(visited),
+          target_versions: VersionList.default(visited),
         }
       end
 
@@ -2333,7 +2333,7 @@ module AWS::SDK::OpenSearch
       def self.default(visited=[])
         {
           package_id: 'package_id',
-          package_version_history_list: Stubs::PackageVersionHistoryList.default(visited),
+          package_version_history_list: PackageVersionHistoryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2355,7 +2355,7 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('PackageVersionHistoryList')
         visited = visited + ['PackageVersionHistoryList']
         [
-          Stubs::PackageVersionHistory.default(visited)
+          PackageVersionHistory.default(visited)
         ]
       end
 
@@ -2395,7 +2395,7 @@ module AWS::SDK::OpenSearch
     class GetUpgradeHistory
       def self.default(visited=[])
         {
-          upgrade_histories: Stubs::UpgradeHistoryList.default(visited),
+          upgrade_histories: UpgradeHistoryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2416,7 +2416,7 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('UpgradeHistoryList')
         visited = visited + ['UpgradeHistoryList']
         [
-          Stubs::UpgradeHistory.default(visited)
+          UpgradeHistory.default(visited)
         ]
       end
 
@@ -2439,7 +2439,7 @@ module AWS::SDK::OpenSearch
           upgrade_name: 'upgrade_name',
           start_timestamp: Time.now,
           upgrade_status: 'upgrade_status',
-          steps_list: Stubs::UpgradeStepsList.default(visited),
+          steps_list: UpgradeStepsList.default(visited),
         }
       end
 
@@ -2460,7 +2460,7 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('UpgradeStepsList')
         visited = visited + ['UpgradeStepsList']
         [
-          Stubs::UpgradeStepItem.default(visited)
+          UpgradeStepItem.default(visited)
         ]
       end
 
@@ -2482,7 +2482,7 @@ module AWS::SDK::OpenSearch
         {
           upgrade_step: 'upgrade_step',
           upgrade_step_status: 'upgrade_step_status',
-          issues: Stubs::Issues.default(visited),
+          issues: Issues.default(visited),
           progress_percent: 1.0,
         }
       end
@@ -2543,7 +2543,7 @@ module AWS::SDK::OpenSearch
     class ListDomainNames
       def self.default(visited=[])
         {
-          domain_names: Stubs::DomainInfoList.default(visited),
+          domain_names: DomainInfoList.default(visited),
         }
       end
 
@@ -2562,7 +2562,7 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('DomainInfoList')
         visited = visited + ['DomainInfoList']
         [
-          Stubs::DomainInfo.default(visited)
+          DomainInfo.default(visited)
         ]
       end
 
@@ -2600,7 +2600,7 @@ module AWS::SDK::OpenSearch
     class ListDomainsForPackage
       def self.default(visited=[])
         {
-          domain_package_details_list: Stubs::DomainPackageDetailsList.default(visited),
+          domain_package_details_list: DomainPackageDetailsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2621,7 +2621,7 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('DomainPackageDetailsList')
         visited = visited + ['DomainPackageDetailsList']
         [
-          Stubs::DomainPackageDetails.default(visited)
+          DomainPackageDetails.default(visited)
         ]
       end
 
@@ -2639,7 +2639,7 @@ module AWS::SDK::OpenSearch
     class ListInstanceTypeDetails
       def self.default(visited=[])
         {
-          instance_type_details: Stubs::InstanceTypeDetailsList.default(visited),
+          instance_type_details: InstanceTypeDetailsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2660,7 +2660,7 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('InstanceTypeDetailsList')
         visited = visited + ['InstanceTypeDetailsList']
         [
-          Stubs::InstanceTypeDetails.default(visited)
+          InstanceTypeDetails.default(visited)
         ]
       end
 
@@ -2686,7 +2686,7 @@ module AWS::SDK::OpenSearch
           app_logs_enabled: false,
           advanced_security_enabled: false,
           warm_enabled: false,
-          instance_role: Stubs::InstanceRoleList.default(visited),
+          instance_role: InstanceRoleList.default(visited),
         }
       end
 
@@ -2728,7 +2728,7 @@ module AWS::SDK::OpenSearch
     class ListPackagesForDomain
       def self.default(visited=[])
         {
-          domain_package_details_list: Stubs::DomainPackageDetailsList.default(visited),
+          domain_package_details_list: DomainPackageDetailsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2747,7 +2747,7 @@ module AWS::SDK::OpenSearch
     class ListTags
       def self.default(visited=[])
         {
-          tag_list: Stubs::TagList.default(visited),
+          tag_list: TagList.default(visited),
         }
       end
 
@@ -2766,7 +2766,7 @@ module AWS::SDK::OpenSearch
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -2804,7 +2804,7 @@ module AWS::SDK::OpenSearch
     class ListVersions
       def self.default(visited=[])
         {
-          versions: Stubs::VersionList.default(visited),
+          versions: VersionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2842,7 +2842,7 @@ module AWS::SDK::OpenSearch
     class RejectInboundConnection
       def self.default(visited=[])
         {
-          connection: Stubs::InboundConnection.default(visited),
+          connection: InboundConnection.default(visited),
         }
       end
 
@@ -2872,7 +2872,7 @@ module AWS::SDK::OpenSearch
     class StartServiceSoftwareUpdate
       def self.default(visited=[])
         {
-          service_software_options: Stubs::ServiceSoftwareOptions.default(visited),
+          service_software_options: ServiceSoftwareOptions.default(visited),
         }
       end
 
@@ -2889,8 +2889,8 @@ module AWS::SDK::OpenSearch
     class UpdateDomainConfig
       def self.default(visited=[])
         {
-          domain_config: Stubs::DomainConfig.default(visited),
-          dry_run_results: Stubs::DryRunResults.default(visited),
+          domain_config: DomainConfig.default(visited),
+          dry_run_results: DryRunResults.default(visited),
         }
       end
 
@@ -2928,7 +2928,7 @@ module AWS::SDK::OpenSearch
     class UpdatePackage
       def self.default(visited=[])
         {
-          package_details: Stubs::PackageDetails.default(visited),
+          package_details: PackageDetails.default(visited),
         }
       end
 
@@ -2949,8 +2949,8 @@ module AWS::SDK::OpenSearch
           domain_name: 'domain_name',
           target_version: 'target_version',
           perform_check_only: false,
-          advanced_options: Stubs::AdvancedOptions.default(visited),
-          change_progress_details: Stubs::ChangeProgressDetails.default(visited),
+          advanced_options: AdvancedOptions.default(visited),
+          change_progress_details: ChangeProgressDetails.default(visited),
         }
       end
 

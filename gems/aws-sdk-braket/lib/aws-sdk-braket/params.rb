@@ -55,7 +55,7 @@ module AWS::SDK::Braket
         Hearth::Validator.validate!(params, ::Hash, Types::CancelQuantumTaskInput, context: context)
         type = Types::CancelQuantumTaskInput.new
         type.quantum_task_arn = params[:quantum_task_arn]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -92,7 +92,7 @@ module AWS::SDK::Braket
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateJobInput, context: context)
         type = Types::CreateJobInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.algorithm_specification = AlgorithmSpecification.build(params[:algorithm_specification], context: "#{context}[:algorithm_specification]") unless params[:algorithm_specification].nil?
         type.input_data_config = InputConfigList.build(params[:input_data_config], context: "#{context}[:input_data_config]") unless params[:input_data_config].nil?
         type.output_data_config = JobOutputDataConfig.build(params[:output_data_config], context: "#{context}[:output_data_config]") unless params[:output_data_config].nil?
@@ -121,7 +121,7 @@ module AWS::SDK::Braket
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateQuantumTaskInput, context: context)
         type = Types::CreateQuantumTaskInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.device_arn = params[:device_arn]
         type.device_parameters = params[:device_parameters]
         type.shots = params[:shots]

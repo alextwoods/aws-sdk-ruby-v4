@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::SNS
   module Validators
 
@@ -24,8 +26,8 @@ module AWS::SDK::SNS
         Hearth::Validator.validate!(input, Types::AddPermissionInput, context: context)
         Hearth::Validator.validate!(input[:topic_arn], ::String, context: "#{context}[:topic_arn]")
         Hearth::Validator.validate!(input[:label], ::String, context: "#{context}[:label]")
-        Validators::DelegatesList.validate!(input[:aws_account_id], context: "#{context}[:aws_account_id]") unless input[:aws_account_id].nil?
-        Validators::ActionsList.validate!(input[:action_name], context: "#{context}[:action_name]") unless input[:action_name].nil?
+        DelegatesList.validate!(input[:aws_account_id], context: "#{context}[:aws_account_id]") unless input[:aws_account_id].nil?
+        ActionsList.validate!(input[:action_name], context: "#{context}[:action_name]") unless input[:action_name].nil?
       end
     end
 
@@ -70,7 +72,7 @@ module AWS::SDK::SNS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchResultErrorEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchResultErrorEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -117,7 +119,7 @@ module AWS::SDK::SNS
         Hearth::Validator.validate!(input, Types::CreatePlatformApplicationInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:platform], ::String, context: "#{context}[:platform]")
-        Validators::MapStringToString.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        MapStringToString.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
@@ -134,7 +136,7 @@ module AWS::SDK::SNS
         Hearth::Validator.validate!(input[:platform_application_arn], ::String, context: "#{context}[:platform_application_arn]")
         Hearth::Validator.validate!(input[:token], ::String, context: "#{context}[:token]")
         Hearth::Validator.validate!(input[:custom_user_data], ::String, context: "#{context}[:custom_user_data]")
-        Validators::MapStringToString.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        MapStringToString.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
@@ -163,8 +165,8 @@ module AWS::SDK::SNS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateTopicInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::TopicAttributesMap.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TopicAttributesMap.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -247,7 +249,7 @@ module AWS::SDK::SNS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Endpoint, context: context)
         Hearth::Validator.validate!(input[:endpoint_arn], ::String, context: "#{context}[:endpoint_arn]")
-        Validators::MapStringToString.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        MapStringToString.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
@@ -275,7 +277,7 @@ module AWS::SDK::SNS
     class GetEndpointAttributesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetEndpointAttributesOutput, context: context)
-        Validators::MapStringToString.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        MapStringToString.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
@@ -289,21 +291,21 @@ module AWS::SDK::SNS
     class GetPlatformApplicationAttributesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetPlatformApplicationAttributesOutput, context: context)
-        Validators::MapStringToString.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        MapStringToString.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
     class GetSMSAttributesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSMSAttributesInput, context: context)
-        Validators::ListString.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        ListString.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
     class GetSMSAttributesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSMSAttributesOutput, context: context)
-        Validators::MapStringToString.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        MapStringToString.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
@@ -330,7 +332,7 @@ module AWS::SDK::SNS
     class GetSubscriptionAttributesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSubscriptionAttributesOutput, context: context)
-        Validators::SubscriptionAttributesMap.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        SubscriptionAttributesMap.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
@@ -344,7 +346,7 @@ module AWS::SDK::SNS
     class GetTopicAttributesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetTopicAttributesOutput, context: context)
-        Validators::TopicAttributesMap.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        TopicAttributesMap.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
@@ -436,7 +438,7 @@ module AWS::SDK::SNS
     class ListEndpointsByPlatformApplicationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEndpointsByPlatformApplicationOutput, context: context)
-        Validators::ListOfEndpoints.validate!(input[:endpoints], context: "#{context}[:endpoints]") unless input[:endpoints].nil?
+        ListOfEndpoints.validate!(input[:endpoints], context: "#{context}[:endpoints]") unless input[:endpoints].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -445,7 +447,7 @@ module AWS::SDK::SNS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Endpoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Endpoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -454,7 +456,7 @@ module AWS::SDK::SNS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PlatformApplication.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PlatformApplication.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -471,7 +473,7 @@ module AWS::SDK::SNS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListOriginationNumbersOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::PhoneNumberInformationList.validate!(input[:phone_numbers], context: "#{context}[:phone_numbers]") unless input[:phone_numbers].nil?
+        PhoneNumberInformationList.validate!(input[:phone_numbers], context: "#{context}[:phone_numbers]") unless input[:phone_numbers].nil?
       end
     end
 
@@ -485,7 +487,7 @@ module AWS::SDK::SNS
     class ListPhoneNumbersOptedOutOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPhoneNumbersOptedOutOutput, context: context)
-        Validators::PhoneNumberList.validate!(input[:phone_numbers], context: "#{context}[:phone_numbers]") unless input[:phone_numbers].nil?
+        PhoneNumberList.validate!(input[:phone_numbers], context: "#{context}[:phone_numbers]") unless input[:phone_numbers].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -500,7 +502,7 @@ module AWS::SDK::SNS
     class ListPlatformApplicationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPlatformApplicationsOutput, context: context)
-        Validators::ListOfPlatformApplications.validate!(input[:platform_applications], context: "#{context}[:platform_applications]") unless input[:platform_applications].nil?
+        ListOfPlatformApplications.validate!(input[:platform_applications], context: "#{context}[:platform_applications]") unless input[:platform_applications].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -516,7 +518,7 @@ module AWS::SDK::SNS
     class ListSMSSandboxPhoneNumbersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSMSSandboxPhoneNumbersOutput, context: context)
-        Validators::SMSSandboxPhoneNumberList.validate!(input[:phone_numbers], context: "#{context}[:phone_numbers]") unless input[:phone_numbers].nil?
+        SMSSandboxPhoneNumberList.validate!(input[:phone_numbers], context: "#{context}[:phone_numbers]") unless input[:phone_numbers].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -541,7 +543,7 @@ module AWS::SDK::SNS
     class ListSubscriptionsByTopicOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSubscriptionsByTopicOutput, context: context)
-        Validators::SubscriptionsList.validate!(input[:subscriptions], context: "#{context}[:subscriptions]") unless input[:subscriptions].nil?
+        SubscriptionsList.validate!(input[:subscriptions], context: "#{context}[:subscriptions]") unless input[:subscriptions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -556,7 +558,7 @@ module AWS::SDK::SNS
     class ListSubscriptionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSubscriptionsOutput, context: context)
-        Validators::SubscriptionsList.validate!(input[:subscriptions], context: "#{context}[:subscriptions]") unless input[:subscriptions].nil?
+        SubscriptionsList.validate!(input[:subscriptions], context: "#{context}[:subscriptions]") unless input[:subscriptions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -571,7 +573,7 @@ module AWS::SDK::SNS
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -585,7 +587,7 @@ module AWS::SDK::SNS
     class ListTopicsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTopicsOutput, context: context)
-        Validators::TopicsList.validate!(input[:topics], context: "#{context}[:topics]") unless input[:topics].nil?
+        TopicsList.validate!(input[:topics], context: "#{context}[:topics]") unless input[:topics].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -605,7 +607,7 @@ module AWS::SDK::SNS
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::MessageAttributeValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          MessageAttributeValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -663,7 +665,7 @@ module AWS::SDK::SNS
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:iso2_country_code], ::String, context: "#{context}[:iso2_country_code]")
         Hearth::Validator.validate!(input[:route_type], ::String, context: "#{context}[:route_type]")
-        Validators::NumberCapabilityList.validate!(input[:number_capabilities], context: "#{context}[:number_capabilities]") unless input[:number_capabilities].nil?
+        NumberCapabilityList.validate!(input[:number_capabilities], context: "#{context}[:number_capabilities]") unless input[:number_capabilities].nil?
       end
     end
 
@@ -671,7 +673,7 @@ module AWS::SDK::SNS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PhoneNumberInformation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PhoneNumberInformation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -689,7 +691,7 @@ module AWS::SDK::SNS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PlatformApplication, context: context)
         Hearth::Validator.validate!(input[:platform_application_arn], ::String, context: "#{context}[:platform_application_arn]")
-        Validators::MapStringToString.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        MapStringToString.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
@@ -704,15 +706,15 @@ module AWS::SDK::SNS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PublishBatchInput, context: context)
         Hearth::Validator.validate!(input[:topic_arn], ::String, context: "#{context}[:topic_arn]")
-        Validators::PublishBatchRequestEntryList.validate!(input[:publish_batch_request_entries], context: "#{context}[:publish_batch_request_entries]") unless input[:publish_batch_request_entries].nil?
+        PublishBatchRequestEntryList.validate!(input[:publish_batch_request_entries], context: "#{context}[:publish_batch_request_entries]") unless input[:publish_batch_request_entries].nil?
       end
     end
 
     class PublishBatchOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PublishBatchOutput, context: context)
-        Validators::PublishBatchResultEntryList.validate!(input[:successful], context: "#{context}[:successful]") unless input[:successful].nil?
-        Validators::BatchResultErrorEntryList.validate!(input[:failed], context: "#{context}[:failed]") unless input[:failed].nil?
+        PublishBatchResultEntryList.validate!(input[:successful], context: "#{context}[:successful]") unless input[:successful].nil?
+        BatchResultErrorEntryList.validate!(input[:failed], context: "#{context}[:failed]") unless input[:failed].nil?
       end
     end
 
@@ -723,7 +725,7 @@ module AWS::SDK::SNS
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:subject], ::String, context: "#{context}[:subject]")
         Hearth::Validator.validate!(input[:message_structure], ::String, context: "#{context}[:message_structure]")
-        Validators::MessageAttributeMap.validate!(input[:message_attributes], context: "#{context}[:message_attributes]") unless input[:message_attributes].nil?
+        MessageAttributeMap.validate!(input[:message_attributes], context: "#{context}[:message_attributes]") unless input[:message_attributes].nil?
         Hearth::Validator.validate!(input[:message_deduplication_id], ::String, context: "#{context}[:message_deduplication_id]")
         Hearth::Validator.validate!(input[:message_group_id], ::String, context: "#{context}[:message_group_id]")
       end
@@ -733,7 +735,7 @@ module AWS::SDK::SNS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PublishBatchRequestEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PublishBatchRequestEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -751,7 +753,7 @@ module AWS::SDK::SNS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PublishBatchResultEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PublishBatchResultEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -765,7 +767,7 @@ module AWS::SDK::SNS
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:subject], ::String, context: "#{context}[:subject]")
         Hearth::Validator.validate!(input[:message_structure], ::String, context: "#{context}[:message_structure]")
-        Validators::MessageAttributeMap.validate!(input[:message_attributes], context: "#{context}[:message_attributes]") unless input[:message_attributes].nil?
+        MessageAttributeMap.validate!(input[:message_attributes], context: "#{context}[:message_attributes]") unless input[:message_attributes].nil?
         Hearth::Validator.validate!(input[:message_deduplication_id], ::String, context: "#{context}[:message_deduplication_id]")
         Hearth::Validator.validate!(input[:message_group_id], ::String, context: "#{context}[:message_group_id]")
       end
@@ -812,7 +814,7 @@ module AWS::SDK::SNS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SMSSandboxPhoneNumber.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SMSSandboxPhoneNumber.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -821,7 +823,7 @@ module AWS::SDK::SNS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SetEndpointAttributesInput, context: context)
         Hearth::Validator.validate!(input[:endpoint_arn], ::String, context: "#{context}[:endpoint_arn]")
-        Validators::MapStringToString.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        MapStringToString.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
@@ -835,7 +837,7 @@ module AWS::SDK::SNS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SetPlatformApplicationAttributesInput, context: context)
         Hearth::Validator.validate!(input[:platform_application_arn], ::String, context: "#{context}[:platform_application_arn]")
-        Validators::MapStringToString.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        MapStringToString.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
@@ -848,7 +850,7 @@ module AWS::SDK::SNS
     class SetSMSAttributesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SetSMSAttributesInput, context: context)
-        Validators::MapStringToString.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        MapStringToString.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
@@ -901,7 +903,7 @@ module AWS::SDK::SNS
         Hearth::Validator.validate!(input[:topic_arn], ::String, context: "#{context}[:topic_arn]")
         Hearth::Validator.validate!(input[:protocol], ::String, context: "#{context}[:protocol]")
         Hearth::Validator.validate!(input[:endpoint], ::String, context: "#{context}[:endpoint]")
-        Validators::SubscriptionAttributesMap.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        SubscriptionAttributesMap.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
         Hearth::Validator.validate!(input[:return_subscription_arn], ::TrueClass, ::FalseClass, context: "#{context}[:return_subscription_arn]")
       end
     end
@@ -945,7 +947,7 @@ module AWS::SDK::SNS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Subscription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Subscription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -978,7 +980,7 @@ module AWS::SDK::SNS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -994,7 +996,7 @@ module AWS::SDK::SNS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1046,7 +1048,7 @@ module AWS::SDK::SNS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Topic.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Topic.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1068,7 +1070,7 @@ module AWS::SDK::SNS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 

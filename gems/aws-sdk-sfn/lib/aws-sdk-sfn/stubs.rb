@@ -105,9 +105,9 @@ module AWS::SDK::SFN
           start_date: Time.now,
           stop_date: Time.now,
           input: 'input',
-          input_details: Stubs::CloudWatchEventsExecutionDataDetails.default(visited),
+          input_details: CloudWatchEventsExecutionDataDetails.default(visited),
           output: 'output',
-          output_details: Stubs::CloudWatchEventsExecutionDataDetails.default(visited),
+          output_details: CloudWatchEventsExecutionDataDetails.default(visited),
           trace_header: 'trace_header',
         }
       end
@@ -159,8 +159,8 @@ module AWS::SDK::SFN
           role_arn: 'role_arn',
           type: 'type',
           creation_date: Time.now,
-          logging_configuration: Stubs::LoggingConfiguration.default(visited),
-          tracing_configuration: Stubs::TracingConfiguration.default(visited),
+          logging_configuration: LoggingConfiguration.default(visited),
+          tracing_configuration: TracingConfiguration.default(visited),
         }
       end
 
@@ -206,7 +206,7 @@ module AWS::SDK::SFN
         {
           level: 'level',
           include_execution_data: false,
-          destinations: Stubs::LogDestinationList.default(visited),
+          destinations: LogDestinationList.default(visited),
         }
       end
 
@@ -226,7 +226,7 @@ module AWS::SDK::SFN
         return nil if visited.include?('LogDestinationList')
         visited = visited + ['LogDestinationList']
         [
-          Stubs::LogDestination.default(visited)
+          LogDestination.default(visited)
         ]
       end
 
@@ -246,7 +246,7 @@ module AWS::SDK::SFN
         return nil if visited.include?('LogDestination')
         visited = visited + ['LogDestination']
         {
-          cloud_watch_logs_log_group: Stubs::CloudWatchLogsLogGroup.default(visited),
+          cloud_watch_logs_log_group: CloudWatchLogsLogGroup.default(visited),
         }
       end
 
@@ -285,8 +285,8 @@ module AWS::SDK::SFN
           definition: 'definition',
           role_arn: 'role_arn',
           update_date: Time.now,
-          logging_configuration: Stubs::LoggingConfiguration.default(visited),
-          tracing_configuration: Stubs::TracingConfiguration.default(visited),
+          logging_configuration: LoggingConfiguration.default(visited),
+          tracing_configuration: TracingConfiguration.default(visited),
         }
       end
 
@@ -326,7 +326,7 @@ module AWS::SDK::SFN
     class GetExecutionHistory
       def self.default(visited=[])
         {
-          events: Stubs::HistoryEventList.default(visited),
+          events: HistoryEventList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -346,7 +346,7 @@ module AWS::SDK::SFN
         return nil if visited.include?('HistoryEventList')
         visited = visited + ['HistoryEventList']
         [
-          Stubs::HistoryEvent.default(visited)
+          HistoryEvent.default(visited)
         ]
       end
 
@@ -370,38 +370,38 @@ module AWS::SDK::SFN
           type: 'type',
           id: 1,
           previous_event_id: 1,
-          activity_failed_event_details: Stubs::ActivityFailedEventDetails.default(visited),
-          activity_schedule_failed_event_details: Stubs::ActivityScheduleFailedEventDetails.default(visited),
-          activity_scheduled_event_details: Stubs::ActivityScheduledEventDetails.default(visited),
-          activity_started_event_details: Stubs::ActivityStartedEventDetails.default(visited),
-          activity_succeeded_event_details: Stubs::ActivitySucceededEventDetails.default(visited),
-          activity_timed_out_event_details: Stubs::ActivityTimedOutEventDetails.default(visited),
-          task_failed_event_details: Stubs::TaskFailedEventDetails.default(visited),
-          task_scheduled_event_details: Stubs::TaskScheduledEventDetails.default(visited),
-          task_start_failed_event_details: Stubs::TaskStartFailedEventDetails.default(visited),
-          task_started_event_details: Stubs::TaskStartedEventDetails.default(visited),
-          task_submit_failed_event_details: Stubs::TaskSubmitFailedEventDetails.default(visited),
-          task_submitted_event_details: Stubs::TaskSubmittedEventDetails.default(visited),
-          task_succeeded_event_details: Stubs::TaskSucceededEventDetails.default(visited),
-          task_timed_out_event_details: Stubs::TaskTimedOutEventDetails.default(visited),
-          execution_failed_event_details: Stubs::ExecutionFailedEventDetails.default(visited),
-          execution_started_event_details: Stubs::ExecutionStartedEventDetails.default(visited),
-          execution_succeeded_event_details: Stubs::ExecutionSucceededEventDetails.default(visited),
-          execution_aborted_event_details: Stubs::ExecutionAbortedEventDetails.default(visited),
-          execution_timed_out_event_details: Stubs::ExecutionTimedOutEventDetails.default(visited),
-          map_state_started_event_details: Stubs::MapStateStartedEventDetails.default(visited),
-          map_iteration_started_event_details: Stubs::MapIterationEventDetails.default(visited),
-          map_iteration_succeeded_event_details: Stubs::MapIterationEventDetails.default(visited),
-          map_iteration_failed_event_details: Stubs::MapIterationEventDetails.default(visited),
-          map_iteration_aborted_event_details: Stubs::MapIterationEventDetails.default(visited),
-          lambda_function_failed_event_details: Stubs::LambdaFunctionFailedEventDetails.default(visited),
-          lambda_function_schedule_failed_event_details: Stubs::LambdaFunctionScheduleFailedEventDetails.default(visited),
-          lambda_function_scheduled_event_details: Stubs::LambdaFunctionScheduledEventDetails.default(visited),
-          lambda_function_start_failed_event_details: Stubs::LambdaFunctionStartFailedEventDetails.default(visited),
-          lambda_function_succeeded_event_details: Stubs::LambdaFunctionSucceededEventDetails.default(visited),
-          lambda_function_timed_out_event_details: Stubs::LambdaFunctionTimedOutEventDetails.default(visited),
-          state_entered_event_details: Stubs::StateEnteredEventDetails.default(visited),
-          state_exited_event_details: Stubs::StateExitedEventDetails.default(visited),
+          activity_failed_event_details: ActivityFailedEventDetails.default(visited),
+          activity_schedule_failed_event_details: ActivityScheduleFailedEventDetails.default(visited),
+          activity_scheduled_event_details: ActivityScheduledEventDetails.default(visited),
+          activity_started_event_details: ActivityStartedEventDetails.default(visited),
+          activity_succeeded_event_details: ActivitySucceededEventDetails.default(visited),
+          activity_timed_out_event_details: ActivityTimedOutEventDetails.default(visited),
+          task_failed_event_details: TaskFailedEventDetails.default(visited),
+          task_scheduled_event_details: TaskScheduledEventDetails.default(visited),
+          task_start_failed_event_details: TaskStartFailedEventDetails.default(visited),
+          task_started_event_details: TaskStartedEventDetails.default(visited),
+          task_submit_failed_event_details: TaskSubmitFailedEventDetails.default(visited),
+          task_submitted_event_details: TaskSubmittedEventDetails.default(visited),
+          task_succeeded_event_details: TaskSucceededEventDetails.default(visited),
+          task_timed_out_event_details: TaskTimedOutEventDetails.default(visited),
+          execution_failed_event_details: ExecutionFailedEventDetails.default(visited),
+          execution_started_event_details: ExecutionStartedEventDetails.default(visited),
+          execution_succeeded_event_details: ExecutionSucceededEventDetails.default(visited),
+          execution_aborted_event_details: ExecutionAbortedEventDetails.default(visited),
+          execution_timed_out_event_details: ExecutionTimedOutEventDetails.default(visited),
+          map_state_started_event_details: MapStateStartedEventDetails.default(visited),
+          map_iteration_started_event_details: MapIterationEventDetails.default(visited),
+          map_iteration_succeeded_event_details: MapIterationEventDetails.default(visited),
+          map_iteration_failed_event_details: MapIterationEventDetails.default(visited),
+          map_iteration_aborted_event_details: MapIterationEventDetails.default(visited),
+          lambda_function_failed_event_details: LambdaFunctionFailedEventDetails.default(visited),
+          lambda_function_schedule_failed_event_details: LambdaFunctionScheduleFailedEventDetails.default(visited),
+          lambda_function_scheduled_event_details: LambdaFunctionScheduledEventDetails.default(visited),
+          lambda_function_start_failed_event_details: LambdaFunctionStartFailedEventDetails.default(visited),
+          lambda_function_succeeded_event_details: LambdaFunctionSucceededEventDetails.default(visited),
+          lambda_function_timed_out_event_details: LambdaFunctionTimedOutEventDetails.default(visited),
+          state_entered_event_details: StateEnteredEventDetails.default(visited),
+          state_exited_event_details: StateExitedEventDetails.default(visited),
         }
       end
 
@@ -456,7 +456,7 @@ module AWS::SDK::SFN
         {
           name: 'name',
           output: 'output',
-          output_details: Stubs::HistoryEventExecutionDataDetails.default(visited),
+          output_details: HistoryEventExecutionDataDetails.default(visited),
         }
       end
 
@@ -496,7 +496,7 @@ module AWS::SDK::SFN
         {
           name: 'name',
           input: 'input',
-          input_details: Stubs::HistoryEventExecutionDataDetails.default(visited),
+          input_details: HistoryEventExecutionDataDetails.default(visited),
         }
       end
 
@@ -537,7 +537,7 @@ module AWS::SDK::SFN
         visited = visited + ['LambdaFunctionSucceededEventDetails']
         {
           output: 'output',
-          output_details: Stubs::HistoryEventExecutionDataDetails.default(visited),
+          output_details: HistoryEventExecutionDataDetails.default(visited),
         }
       end
 
@@ -578,7 +578,7 @@ module AWS::SDK::SFN
         {
           resource: 'resource',
           input: 'input',
-          input_details: Stubs::HistoryEventExecutionDataDetails.default(visited),
+          input_details: HistoryEventExecutionDataDetails.default(visited),
           timeout_in_seconds: 1,
         }
       end
@@ -719,7 +719,7 @@ module AWS::SDK::SFN
         visited = visited + ['ExecutionSucceededEventDetails']
         {
           output: 'output',
-          output_details: Stubs::HistoryEventExecutionDataDetails.default(visited),
+          output_details: HistoryEventExecutionDataDetails.default(visited),
         }
       end
 
@@ -739,7 +739,7 @@ module AWS::SDK::SFN
         visited = visited + ['ExecutionStartedEventDetails']
         {
           input: 'input',
-          input_details: Stubs::HistoryEventExecutionDataDetails.default(visited),
+          input_details: HistoryEventExecutionDataDetails.default(visited),
           role_arn: 'role_arn',
         }
       end
@@ -807,7 +807,7 @@ module AWS::SDK::SFN
           resource_type: 'resource_type',
           resource: 'resource',
           output: 'output',
-          output_details: Stubs::HistoryEventExecutionDataDetails.default(visited),
+          output_details: HistoryEventExecutionDataDetails.default(visited),
         }
       end
 
@@ -831,7 +831,7 @@ module AWS::SDK::SFN
           resource_type: 'resource_type',
           resource: 'resource',
           output: 'output',
-          output_details: Stubs::HistoryEventExecutionDataDetails.default(visited),
+          output_details: HistoryEventExecutionDataDetails.default(visited),
         }
       end
 
@@ -993,7 +993,7 @@ module AWS::SDK::SFN
         visited = visited + ['ActivitySucceededEventDetails']
         {
           output: 'output',
-          output_details: Stubs::HistoryEventExecutionDataDetails.default(visited),
+          output_details: HistoryEventExecutionDataDetails.default(visited),
         }
       end
 
@@ -1032,7 +1032,7 @@ module AWS::SDK::SFN
         {
           resource: 'resource',
           input: 'input',
-          input_details: Stubs::HistoryEventExecutionDataDetails.default(visited),
+          input_details: HistoryEventExecutionDataDetails.default(visited),
           timeout_in_seconds: 1,
           heartbeat_in_seconds: 1,
         }
@@ -1094,7 +1094,7 @@ module AWS::SDK::SFN
     class ListActivities
       def self.default(visited=[])
         {
-          activities: Stubs::ActivityList.default(visited),
+          activities: ActivityList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1114,7 +1114,7 @@ module AWS::SDK::SFN
         return nil if visited.include?('ActivityList')
         visited = visited + ['ActivityList']
         [
-          Stubs::ActivityListItem.default(visited)
+          ActivityListItem.default(visited)
         ]
       end
 
@@ -1154,7 +1154,7 @@ module AWS::SDK::SFN
     class ListExecutions
       def self.default(visited=[])
         {
-          executions: Stubs::ExecutionList.default(visited),
+          executions: ExecutionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1174,7 +1174,7 @@ module AWS::SDK::SFN
         return nil if visited.include?('ExecutionList')
         visited = visited + ['ExecutionList']
         [
-          Stubs::ExecutionListItem.default(visited)
+          ExecutionListItem.default(visited)
         ]
       end
 
@@ -1220,7 +1220,7 @@ module AWS::SDK::SFN
     class ListStateMachines
       def self.default(visited=[])
         {
-          state_machines: Stubs::StateMachineList.default(visited),
+          state_machines: StateMachineList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1240,7 +1240,7 @@ module AWS::SDK::SFN
         return nil if visited.include?('StateMachineList')
         visited = visited + ['StateMachineList']
         [
-          Stubs::StateMachineListItem.default(visited)
+          StateMachineListItem.default(visited)
         ]
       end
 
@@ -1282,7 +1282,7 @@ module AWS::SDK::SFN
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -1300,7 +1300,7 @@ module AWS::SDK::SFN
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -1407,11 +1407,11 @@ module AWS::SDK::SFN
           error: 'error',
           cause: 'cause',
           input: 'input',
-          input_details: Stubs::CloudWatchEventsExecutionDataDetails.default(visited),
+          input_details: CloudWatchEventsExecutionDataDetails.default(visited),
           output: 'output',
-          output_details: Stubs::CloudWatchEventsExecutionDataDetails.default(visited),
+          output_details: CloudWatchEventsExecutionDataDetails.default(visited),
           trace_header: 'trace_header',
-          billing_details: Stubs::BillingDetails.default(visited),
+          billing_details: BillingDetails.default(visited),
         }
       end
 

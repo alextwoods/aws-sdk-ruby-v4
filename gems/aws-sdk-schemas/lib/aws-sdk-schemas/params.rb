@@ -844,7 +844,7 @@ module AWS::SDK::Schemas
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::UpdateSchemaInput, context: context)
         type = Types::UpdateSchemaInput.new
-        type.client_token_id = params[:client_token_id] || SecureRandom.uuid
+        type.client_token_id = params[:client_token_id] || ::SecureRandom.uuid
         type.content = params[:content]
         type.description = params[:description]
         type.registry_name = params[:registry_name]

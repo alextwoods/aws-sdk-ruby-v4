@@ -98,7 +98,7 @@ module AWS::SDK::ServiceCatalog
     class BatchAssociateServiceActionWithProvisioningArtifact
       def self.default(visited=[])
         {
-          failed_service_action_associations: Stubs::FailedServiceActionAssociations.default(visited),
+          failed_service_action_associations: FailedServiceActionAssociations.default(visited),
         }
       end
 
@@ -116,7 +116,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('FailedServiceActionAssociations')
         visited = visited + ['FailedServiceActionAssociations']
         [
-          Stubs::FailedServiceActionAssociation.default(visited)
+          FailedServiceActionAssociation.default(visited)
         ]
       end
 
@@ -160,7 +160,7 @@ module AWS::SDK::ServiceCatalog
     class BatchDisassociateServiceActionFromProvisioningArtifact
       def self.default(visited=[])
         {
-          failed_service_action_associations: Stubs::FailedServiceActionAssociations.default(visited),
+          failed_service_action_associations: FailedServiceActionAssociations.default(visited),
         }
       end
 
@@ -192,7 +192,7 @@ module AWS::SDK::ServiceCatalog
     class CreateConstraint
       def self.default(visited=[])
         {
-          constraint_detail: Stubs::ConstraintDetail.default(visited),
+          constraint_detail: ConstraintDetail.default(visited),
           constraint_parameters: 'constraint_parameters',
           status: 'status',
         }
@@ -240,8 +240,8 @@ module AWS::SDK::ServiceCatalog
     class CreatePortfolio
       def self.default(visited=[])
         {
-          portfolio_detail: Stubs::PortfolioDetail.default(visited),
-          tags: Stubs::Tags.default(visited),
+          portfolio_detail: PortfolioDetail.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -260,7 +260,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('Tags')
         visited = visited + ['Tags']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -342,9 +342,9 @@ module AWS::SDK::ServiceCatalog
     class CreateProduct
       def self.default(visited=[])
         {
-          product_view_detail: Stubs::ProductViewDetail.default(visited),
-          provisioning_artifact_detail: Stubs::ProvisioningArtifactDetail.default(visited),
-          tags: Stubs::Tags.default(visited),
+          product_view_detail: ProductViewDetail.default(visited),
+          provisioning_artifact_detail: ProvisioningArtifactDetail.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -394,7 +394,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('ProductViewDetail')
         visited = visited + ['ProductViewDetail']
         {
-          product_view_summary: Stubs::ProductViewSummary.default(visited),
+          product_view_summary: ProductViewSummary.default(visited),
           status: 'status',
           product_arn: 'product_arn',
           created_time: Time.now,
@@ -478,8 +478,8 @@ module AWS::SDK::ServiceCatalog
     class CreateProvisioningArtifact
       def self.default(visited=[])
         {
-          provisioning_artifact_detail: Stubs::ProvisioningArtifactDetail.default(visited),
-          info: Stubs::ProvisioningArtifactInfo.default(visited),
+          provisioning_artifact_detail: ProvisioningArtifactDetail.default(visited),
+          info: ProvisioningArtifactInfo.default(visited),
           status: 'status',
         }
       end
@@ -518,7 +518,7 @@ module AWS::SDK::ServiceCatalog
     class CreateServiceAction
       def self.default(visited=[])
         {
-          service_action_detail: Stubs::ServiceActionDetail.default(visited),
+          service_action_detail: ServiceActionDetail.default(visited),
         }
       end
 
@@ -536,8 +536,8 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('ServiceActionDetail')
         visited = visited + ['ServiceActionDetail']
         {
-          service_action_summary: Stubs::ServiceActionSummary.default(visited),
-          definition: Stubs::ServiceActionDefinitionMap.default(visited),
+          service_action_summary: ServiceActionSummary.default(visited),
+          definition: ServiceActionDefinitionMap.default(visited),
         }
       end
 
@@ -598,7 +598,7 @@ module AWS::SDK::ServiceCatalog
     class CreateTagOption
       def self.default(visited=[])
         {
-          tag_option_detail: Stubs::TagOptionDetail.default(visited),
+          tag_option_detail: TagOptionDetail.default(visited),
         }
       end
 
@@ -754,7 +754,7 @@ module AWS::SDK::ServiceCatalog
     class DescribeConstraint
       def self.default(visited=[])
         {
-          constraint_detail: Stubs::ConstraintDetail.default(visited),
+          constraint_detail: ConstraintDetail.default(visited),
           constraint_parameters: 'constraint_parameters',
           status: 'status',
         }
@@ -794,10 +794,10 @@ module AWS::SDK::ServiceCatalog
     class DescribePortfolio
       def self.default(visited=[])
         {
-          portfolio_detail: Stubs::PortfolioDetail.default(visited),
-          tags: Stubs::Tags.default(visited),
-          tag_options: Stubs::TagOptionDetails.default(visited),
-          budgets: Stubs::Budgets.default(visited),
+          portfolio_detail: PortfolioDetail.default(visited),
+          tags: Tags.default(visited),
+          tag_options: TagOptionDetails.default(visited),
+          budgets: Budgets.default(visited),
         }
       end
 
@@ -818,7 +818,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('Budgets')
         visited = visited + ['Budgets']
         [
-          Stubs::BudgetDetail.default(visited)
+          BudgetDetail.default(visited)
         ]
       end
 
@@ -856,7 +856,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('TagOptionDetails')
         visited = visited + ['TagOptionDetails']
         [
-          Stubs::TagOptionDetail.default(visited)
+          TagOptionDetail.default(visited)
         ]
       end
 
@@ -878,7 +878,7 @@ module AWS::SDK::ServiceCatalog
           portfolio_id: 'portfolio_id',
           organization_node_value: 'organization_node_value',
           status: 'status',
-          share_details: Stubs::ShareDetails.default(visited),
+          share_details: ShareDetails.default(visited),
         }
       end
 
@@ -900,8 +900,8 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('ShareDetails')
         visited = visited + ['ShareDetails']
         {
-          successful_shares: Stubs::SuccessfulShares.default(visited),
-          share_errors: Stubs::ShareErrors.default(visited),
+          successful_shares: SuccessfulShares.default(visited),
+          share_errors: ShareErrors.default(visited),
         }
       end
 
@@ -920,7 +920,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('ShareErrors')
         visited = visited + ['ShareErrors']
         [
-          Stubs::ShareError.default(visited)
+          ShareError.default(visited)
         ]
       end
 
@@ -940,7 +940,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('ShareError')
         visited = visited + ['ShareError']
         {
-          accounts: Stubs::Namespaces.default(visited),
+          accounts: Namespaces.default(visited),
           message: 'message',
           error: 'error',
         }
@@ -1001,7 +1001,7 @@ module AWS::SDK::ServiceCatalog
       def self.default(visited=[])
         {
           next_page_token: 'next_page_token',
-          portfolio_share_details: Stubs::PortfolioShareDetails.default(visited),
+          portfolio_share_details: PortfolioShareDetails.default(visited),
         }
       end
 
@@ -1020,7 +1020,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('PortfolioShareDetails')
         visited = visited + ['PortfolioShareDetails']
         [
-          Stubs::PortfolioShareDetail.default(visited)
+          PortfolioShareDetail.default(visited)
         ]
       end
 
@@ -1062,10 +1062,10 @@ module AWS::SDK::ServiceCatalog
     class DescribeProduct
       def self.default(visited=[])
         {
-          product_view_summary: Stubs::ProductViewSummary.default(visited),
-          provisioning_artifacts: Stubs::ProvisioningArtifacts.default(visited),
-          budgets: Stubs::Budgets.default(visited),
-          launch_paths: Stubs::LaunchPaths.default(visited),
+          product_view_summary: ProductViewSummary.default(visited),
+          provisioning_artifacts: ProvisioningArtifacts.default(visited),
+          budgets: Budgets.default(visited),
+          launch_paths: LaunchPaths.default(visited),
         }
       end
 
@@ -1086,7 +1086,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('LaunchPaths')
         visited = visited + ['LaunchPaths']
         [
-          Stubs::LaunchPath.default(visited)
+          LaunchPath.default(visited)
         ]
       end
 
@@ -1126,7 +1126,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('ProvisioningArtifacts')
         visited = visited + ['ProvisioningArtifacts']
         [
-          Stubs::ProvisioningArtifact.default(visited)
+          ProvisioningArtifact.default(visited)
         ]
       end
 
@@ -1170,11 +1170,11 @@ module AWS::SDK::ServiceCatalog
     class DescribeProductAsAdmin
       def self.default(visited=[])
         {
-          product_view_detail: Stubs::ProductViewDetail.default(visited),
-          provisioning_artifact_summaries: Stubs::ProvisioningArtifactSummaries.default(visited),
-          tags: Stubs::Tags.default(visited),
-          tag_options: Stubs::TagOptionDetails.default(visited),
-          budgets: Stubs::Budgets.default(visited),
+          product_view_detail: ProductViewDetail.default(visited),
+          provisioning_artifact_summaries: ProvisioningArtifactSummaries.default(visited),
+          tags: Tags.default(visited),
+          tag_options: TagOptionDetails.default(visited),
+          budgets: Budgets.default(visited),
         }
       end
 
@@ -1196,7 +1196,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('ProvisioningArtifactSummaries')
         visited = visited + ['ProvisioningArtifactSummaries']
         [
-          Stubs::ProvisioningArtifactSummary.default(visited)
+          ProvisioningArtifactSummary.default(visited)
         ]
       end
 
@@ -1220,7 +1220,7 @@ module AWS::SDK::ServiceCatalog
           name: 'name',
           description: 'description',
           created_time: Time.now,
-          provisioning_artifact_metadata: Stubs::ProvisioningArtifactInfo.default(visited),
+          provisioning_artifact_metadata: ProvisioningArtifactInfo.default(visited),
         }
       end
 
@@ -1240,8 +1240,8 @@ module AWS::SDK::ServiceCatalog
     class DescribeProductView
       def self.default(visited=[])
         {
-          product_view_summary: Stubs::ProductViewSummary.default(visited),
-          provisioning_artifacts: Stubs::ProvisioningArtifacts.default(visited),
+          product_view_summary: ProductViewSummary.default(visited),
+          provisioning_artifacts: ProvisioningArtifacts.default(visited),
         }
       end
 
@@ -1258,8 +1258,8 @@ module AWS::SDK::ServiceCatalog
     class DescribeProvisionedProduct
       def self.default(visited=[])
         {
-          provisioned_product_detail: Stubs::ProvisionedProductDetail.default(visited),
-          cloud_watch_dashboards: Stubs::CloudWatchDashboards.default(visited),
+          provisioned_product_detail: ProvisionedProductDetail.default(visited),
+          cloud_watch_dashboards: CloudWatchDashboards.default(visited),
         }
       end
 
@@ -1278,7 +1278,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('CloudWatchDashboards')
         visited = visited + ['CloudWatchDashboards']
         [
-          Stubs::CloudWatchDashboard.default(visited)
+          CloudWatchDashboard.default(visited)
         ]
       end
 
@@ -1358,8 +1358,8 @@ module AWS::SDK::ServiceCatalog
     class DescribeProvisionedProductPlan
       def self.default(visited=[])
         {
-          provisioned_product_plan_details: Stubs::ProvisionedProductPlanDetails.default(visited),
-          resource_changes: Stubs::ResourceChanges.default(visited),
+          provisioned_product_plan_details: ProvisionedProductPlanDetails.default(visited),
+          resource_changes: ResourceChanges.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -1380,7 +1380,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('ResourceChanges')
         visited = visited + ['ResourceChanges']
         [
-          Stubs::ResourceChange.default(visited)
+          ResourceChange.default(visited)
         ]
       end
 
@@ -1405,8 +1405,8 @@ module AWS::SDK::ServiceCatalog
           physical_resource_id: 'physical_resource_id',
           resource_type: 'resource_type',
           replacement: 'replacement',
-          scope: Stubs::Scope.default(visited),
-          details: Stubs::ResourceChangeDetails.default(visited),
+          scope: Scope.default(visited),
+          details: ResourceChangeDetails.default(visited),
         }
       end
 
@@ -1430,7 +1430,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('ResourceChangeDetails')
         visited = visited + ['ResourceChangeDetails']
         [
-          Stubs::ResourceChangeDetail.default(visited)
+          ResourceChangeDetail.default(visited)
         ]
       end
 
@@ -1450,7 +1450,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('ResourceChangeDetail')
         visited = visited + ['ResourceChangeDetail']
         {
-          target: Stubs::ResourceTargetDefinition.default(visited),
+          target: ResourceTargetDefinition.default(visited),
           evaluation: 'evaluation',
           causing_entity: 'causing_entity',
         }
@@ -1525,9 +1525,9 @@ module AWS::SDK::ServiceCatalog
           provisioning_artifact_id: 'provisioning_artifact_id',
           status: 'status',
           updated_time: Time.now,
-          notification_arns: Stubs::NotificationArns.default(visited),
-          provisioning_parameters: Stubs::UpdateProvisioningParameters.default(visited),
-          tags: Stubs::Tags.default(visited),
+          notification_arns: NotificationArns.default(visited),
+          provisioning_parameters: UpdateProvisioningParameters.default(visited),
+          tags: Tags.default(visited),
           status_message: 'status_message',
         }
       end
@@ -1560,7 +1560,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('UpdateProvisioningParameters')
         visited = visited + ['UpdateProvisioningParameters']
         [
-          Stubs::UpdateProvisioningParameter.default(visited)
+          UpdateProvisioningParameter.default(visited)
         ]
       end
 
@@ -1620,8 +1620,8 @@ module AWS::SDK::ServiceCatalog
     class DescribeProvisioningArtifact
       def self.default(visited=[])
         {
-          provisioning_artifact_detail: Stubs::ProvisioningArtifactDetail.default(visited),
-          info: Stubs::ProvisioningArtifactInfo.default(visited),
+          provisioning_artifact_detail: ProvisioningArtifactDetail.default(visited),
+          info: ProvisioningArtifactInfo.default(visited),
           status: 'status',
         }
       end
@@ -1640,13 +1640,13 @@ module AWS::SDK::ServiceCatalog
     class DescribeProvisioningParameters
       def self.default(visited=[])
         {
-          provisioning_artifact_parameters: Stubs::ProvisioningArtifactParameters.default(visited),
-          constraint_summaries: Stubs::ConstraintSummaries.default(visited),
-          usage_instructions: Stubs::UsageInstructions.default(visited),
-          tag_options: Stubs::TagOptionSummaries.default(visited),
-          provisioning_artifact_preferences: Stubs::ProvisioningArtifactPreferences.default(visited),
-          provisioning_artifact_outputs: Stubs::ProvisioningArtifactOutputs.default(visited),
-          provisioning_artifact_output_keys: Stubs::ProvisioningArtifactOutputs.default(visited),
+          provisioning_artifact_parameters: ProvisioningArtifactParameters.default(visited),
+          constraint_summaries: ConstraintSummaries.default(visited),
+          usage_instructions: UsageInstructions.default(visited),
+          tag_options: TagOptionSummaries.default(visited),
+          provisioning_artifact_preferences: ProvisioningArtifactPreferences.default(visited),
+          provisioning_artifact_outputs: ProvisioningArtifactOutputs.default(visited),
+          provisioning_artifact_output_keys: ProvisioningArtifactOutputs.default(visited),
         }
       end
 
@@ -1670,7 +1670,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('ProvisioningArtifactOutputs')
         visited = visited + ['ProvisioningArtifactOutputs']
         [
-          Stubs::ProvisioningArtifactOutput.default(visited)
+          ProvisioningArtifactOutput.default(visited)
         ]
       end
 
@@ -1710,8 +1710,8 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('ProvisioningArtifactPreferences')
         visited = visited + ['ProvisioningArtifactPreferences']
         {
-          stack_set_accounts: Stubs::StackSetAccounts.default(visited),
-          stack_set_regions: Stubs::StackSetRegions.default(visited),
+          stack_set_accounts: StackSetAccounts.default(visited),
+          stack_set_regions: StackSetRegions.default(visited),
         }
       end
 
@@ -1770,7 +1770,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('TagOptionSummaries')
         visited = visited + ['TagOptionSummaries']
         [
-          Stubs::TagOptionSummary.default(visited)
+          TagOptionSummary.default(visited)
         ]
       end
 
@@ -1791,7 +1791,7 @@ module AWS::SDK::ServiceCatalog
         visited = visited + ['TagOptionSummary']
         {
           key: 'key',
-          values: Stubs::TagOptionValues.default(visited),
+          values: TagOptionValues.default(visited),
         }
       end
 
@@ -1830,7 +1830,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('UsageInstructions')
         visited = visited + ['UsageInstructions']
         [
-          Stubs::UsageInstruction.default(visited)
+          UsageInstruction.default(visited)
         ]
       end
 
@@ -1870,7 +1870,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('ConstraintSummaries')
         visited = visited + ['ConstraintSummaries']
         [
-          Stubs::ConstraintSummary.default(visited)
+          ConstraintSummary.default(visited)
         ]
       end
 
@@ -1910,7 +1910,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('ProvisioningArtifactParameters')
         visited = visited + ['ProvisioningArtifactParameters']
         [
-          Stubs::ProvisioningArtifactParameter.default(visited)
+          ProvisioningArtifactParameter.default(visited)
         ]
       end
 
@@ -1935,7 +1935,7 @@ module AWS::SDK::ServiceCatalog
           parameter_type: 'parameter_type',
           is_no_echo: false,
           description: 'description',
-          parameter_constraints: Stubs::ParameterConstraints.default(visited),
+          parameter_constraints: ParameterConstraints.default(visited),
         }
       end
 
@@ -1958,7 +1958,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('ParameterConstraints')
         visited = visited + ['ParameterConstraints']
         {
-          allowed_values: Stubs::AllowedValues.default(visited),
+          allowed_values: AllowedValues.default(visited),
           allowed_pattern: 'allowed_pattern',
           constraint_description: 'constraint_description',
           max_length: 'max_length',
@@ -2006,8 +2006,8 @@ module AWS::SDK::ServiceCatalog
     class DescribeRecord
       def self.default(visited=[])
         {
-          record_detail: Stubs::RecordDetail.default(visited),
-          record_outputs: Stubs::RecordOutputs.default(visited),
+          record_detail: RecordDetail.default(visited),
+          record_outputs: RecordOutputs.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -2028,7 +2028,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('RecordOutputs')
         visited = visited + ['RecordOutputs']
         [
-          Stubs::RecordOutput.default(visited)
+          RecordOutput.default(visited)
         ]
       end
 
@@ -2081,8 +2081,8 @@ module AWS::SDK::ServiceCatalog
           product_id: 'product_id',
           provisioning_artifact_id: 'provisioning_artifact_id',
           path_id: 'path_id',
-          record_errors: Stubs::RecordErrors.default(visited),
-          record_tags: Stubs::RecordTags.default(visited),
+          record_errors: RecordErrors.default(visited),
+          record_tags: RecordTags.default(visited),
           launch_role_arn: 'launch_role_arn',
         }
       end
@@ -2114,7 +2114,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('RecordTags')
         visited = visited + ['RecordTags']
         [
-          Stubs::RecordTag.default(visited)
+          RecordTag.default(visited)
         ]
       end
 
@@ -2154,7 +2154,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('RecordErrors')
         visited = visited + ['RecordErrors']
         [
-          Stubs::RecordError.default(visited)
+          RecordError.default(visited)
         ]
       end
 
@@ -2192,7 +2192,7 @@ module AWS::SDK::ServiceCatalog
     class DescribeServiceAction
       def self.default(visited=[])
         {
-          service_action_detail: Stubs::ServiceActionDetail.default(visited),
+          service_action_detail: ServiceActionDetail.default(visited),
         }
       end
 
@@ -2208,7 +2208,7 @@ module AWS::SDK::ServiceCatalog
     class DescribeServiceActionExecutionParameters
       def self.default(visited=[])
         {
-          service_action_parameters: Stubs::ExecutionParameters.default(visited),
+          service_action_parameters: ExecutionParameters.default(visited),
         }
       end
 
@@ -2226,7 +2226,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('ExecutionParameters')
         visited = visited + ['ExecutionParameters']
         [
-          Stubs::ExecutionParameter.default(visited)
+          ExecutionParameter.default(visited)
         ]
       end
 
@@ -2248,7 +2248,7 @@ module AWS::SDK::ServiceCatalog
         {
           name: 'name',
           type: 'type',
-          default_values: Stubs::ExecutionParameterValueList.default(visited),
+          default_values: ExecutionParameterValueList.default(visited),
         }
       end
 
@@ -2286,7 +2286,7 @@ module AWS::SDK::ServiceCatalog
     class DescribeTagOption
       def self.default(visited=[])
         {
-          tag_option_detail: Stubs::TagOptionDetail.default(visited),
+          tag_option_detail: TagOptionDetail.default(visited),
         }
       end
 
@@ -2400,7 +2400,7 @@ module AWS::SDK::ServiceCatalog
     class ExecuteProvisionedProductPlan
       def self.default(visited=[])
         {
-          record_detail: Stubs::RecordDetail.default(visited),
+          record_detail: RecordDetail.default(visited),
         }
       end
 
@@ -2416,7 +2416,7 @@ module AWS::SDK::ServiceCatalog
     class ExecuteProvisionedProductServiceAction
       def self.default(visited=[])
         {
-          record_detail: Stubs::RecordDetail.default(visited),
+          record_detail: RecordDetail.default(visited),
         }
       end
 
@@ -2448,7 +2448,7 @@ module AWS::SDK::ServiceCatalog
     class GetProvisionedProductOutputs
       def self.default(visited=[])
         {
-          outputs: Stubs::RecordOutputs.default(visited),
+          outputs: RecordOutputs.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -2466,7 +2466,7 @@ module AWS::SDK::ServiceCatalog
     class ImportAsProvisionedProduct
       def self.default(visited=[])
         {
-          record_detail: Stubs::RecordDetail.default(visited),
+          record_detail: RecordDetail.default(visited),
         }
       end
 
@@ -2482,7 +2482,7 @@ module AWS::SDK::ServiceCatalog
     class ListAcceptedPortfolioShares
       def self.default(visited=[])
         {
-          portfolio_details: Stubs::PortfolioDetails.default(visited),
+          portfolio_details: PortfolioDetails.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -2502,7 +2502,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('PortfolioDetails')
         visited = visited + ['PortfolioDetails']
         [
-          Stubs::PortfolioDetail.default(visited)
+          PortfolioDetail.default(visited)
         ]
       end
 
@@ -2520,7 +2520,7 @@ module AWS::SDK::ServiceCatalog
     class ListBudgetsForResource
       def self.default(visited=[])
         {
-          budgets: Stubs::Budgets.default(visited),
+          budgets: Budgets.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -2538,7 +2538,7 @@ module AWS::SDK::ServiceCatalog
     class ListConstraintsForPortfolio
       def self.default(visited=[])
         {
-          constraint_details: Stubs::ConstraintDetails.default(visited),
+          constraint_details: ConstraintDetails.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -2558,7 +2558,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('ConstraintDetails')
         visited = visited + ['ConstraintDetails']
         [
-          Stubs::ConstraintDetail.default(visited)
+          ConstraintDetail.default(visited)
         ]
       end
 
@@ -2576,7 +2576,7 @@ module AWS::SDK::ServiceCatalog
     class ListLaunchPaths
       def self.default(visited=[])
         {
-          launch_path_summaries: Stubs::LaunchPathSummaries.default(visited),
+          launch_path_summaries: LaunchPathSummaries.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -2596,7 +2596,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('LaunchPathSummaries')
         visited = visited + ['LaunchPathSummaries']
         [
-          Stubs::LaunchPathSummary.default(visited)
+          LaunchPathSummary.default(visited)
         ]
       end
 
@@ -2617,8 +2617,8 @@ module AWS::SDK::ServiceCatalog
         visited = visited + ['LaunchPathSummary']
         {
           id: 'id',
-          constraint_summaries: Stubs::ConstraintSummaries.default(visited),
-          tags: Stubs::Tags.default(visited),
+          constraint_summaries: ConstraintSummaries.default(visited),
+          tags: Tags.default(visited),
           name: 'name',
         }
       end
@@ -2638,7 +2638,7 @@ module AWS::SDK::ServiceCatalog
     class ListOrganizationPortfolioAccess
       def self.default(visited=[])
         {
-          organization_nodes: Stubs::OrganizationNodes.default(visited),
+          organization_nodes: OrganizationNodes.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -2658,7 +2658,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('OrganizationNodes')
         visited = visited + ['OrganizationNodes']
         [
-          Stubs::OrganizationNode.default(visited)
+          OrganizationNode.default(visited)
         ]
       end
 
@@ -2696,7 +2696,7 @@ module AWS::SDK::ServiceCatalog
     class ListPortfolioAccess
       def self.default(visited=[])
         {
-          account_ids: Stubs::AccountIds.default(visited),
+          account_ids: AccountIds.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -2734,7 +2734,7 @@ module AWS::SDK::ServiceCatalog
     class ListPortfolios
       def self.default(visited=[])
         {
-          portfolio_details: Stubs::PortfolioDetails.default(visited),
+          portfolio_details: PortfolioDetails.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -2752,7 +2752,7 @@ module AWS::SDK::ServiceCatalog
     class ListPortfoliosForProduct
       def self.default(visited=[])
         {
-          portfolio_details: Stubs::PortfolioDetails.default(visited),
+          portfolio_details: PortfolioDetails.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -2770,7 +2770,7 @@ module AWS::SDK::ServiceCatalog
     class ListPrincipalsForPortfolio
       def self.default(visited=[])
         {
-          principals: Stubs::Principals.default(visited),
+          principals: Principals.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -2790,7 +2790,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('Principals')
         visited = visited + ['Principals']
         [
-          Stubs::Principal.default(visited)
+          Principal.default(visited)
         ]
       end
 
@@ -2828,7 +2828,7 @@ module AWS::SDK::ServiceCatalog
     class ListProvisionedProductPlans
       def self.default(visited=[])
         {
-          provisioned_product_plans: Stubs::ProvisionedProductPlans.default(visited),
+          provisioned_product_plans: ProvisionedProductPlans.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -2848,7 +2848,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('ProvisionedProductPlans')
         visited = visited + ['ProvisionedProductPlans']
         [
-          Stubs::ProvisionedProductPlanSummary.default(visited)
+          ProvisionedProductPlanSummary.default(visited)
         ]
       end
 
@@ -2894,7 +2894,7 @@ module AWS::SDK::ServiceCatalog
     class ListProvisioningArtifacts
       def self.default(visited=[])
         {
-          provisioning_artifact_details: Stubs::ProvisioningArtifactDetails.default(visited),
+          provisioning_artifact_details: ProvisioningArtifactDetails.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -2914,7 +2914,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('ProvisioningArtifactDetails')
         visited = visited + ['ProvisioningArtifactDetails']
         [
-          Stubs::ProvisioningArtifactDetail.default(visited)
+          ProvisioningArtifactDetail.default(visited)
         ]
       end
 
@@ -2932,7 +2932,7 @@ module AWS::SDK::ServiceCatalog
     class ListProvisioningArtifactsForServiceAction
       def self.default(visited=[])
         {
-          provisioning_artifact_views: Stubs::ProvisioningArtifactViews.default(visited),
+          provisioning_artifact_views: ProvisioningArtifactViews.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -2952,7 +2952,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('ProvisioningArtifactViews')
         visited = visited + ['ProvisioningArtifactViews']
         [
-          Stubs::ProvisioningArtifactView.default(visited)
+          ProvisioningArtifactView.default(visited)
         ]
       end
 
@@ -2972,8 +2972,8 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('ProvisioningArtifactView')
         visited = visited + ['ProvisioningArtifactView']
         {
-          product_view_summary: Stubs::ProductViewSummary.default(visited),
-          provisioning_artifact: Stubs::ProvisioningArtifact.default(visited),
+          product_view_summary: ProductViewSummary.default(visited),
+          provisioning_artifact: ProvisioningArtifact.default(visited),
         }
       end
 
@@ -2990,7 +2990,7 @@ module AWS::SDK::ServiceCatalog
     class ListRecordHistory
       def self.default(visited=[])
         {
-          record_details: Stubs::RecordDetails.default(visited),
+          record_details: RecordDetails.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -3010,7 +3010,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('RecordDetails')
         visited = visited + ['RecordDetails']
         [
-          Stubs::RecordDetail.default(visited)
+          RecordDetail.default(visited)
         ]
       end
 
@@ -3028,7 +3028,7 @@ module AWS::SDK::ServiceCatalog
     class ListResourcesForTagOption
       def self.default(visited=[])
         {
-          resource_details: Stubs::ResourceDetails.default(visited),
+          resource_details: ResourceDetails.default(visited),
           page_token: 'page_token',
         }
       end
@@ -3048,7 +3048,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('ResourceDetails')
         visited = visited + ['ResourceDetails']
         [
-          Stubs::ResourceDetail.default(visited)
+          ResourceDetail.default(visited)
         ]
       end
 
@@ -3092,7 +3092,7 @@ module AWS::SDK::ServiceCatalog
     class ListServiceActions
       def self.default(visited=[])
         {
-          service_action_summaries: Stubs::ServiceActionSummaries.default(visited),
+          service_action_summaries: ServiceActionSummaries.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -3112,7 +3112,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('ServiceActionSummaries')
         visited = visited + ['ServiceActionSummaries']
         [
-          Stubs::ServiceActionSummary.default(visited)
+          ServiceActionSummary.default(visited)
         ]
       end
 
@@ -3130,7 +3130,7 @@ module AWS::SDK::ServiceCatalog
     class ListServiceActionsForProvisioningArtifact
       def self.default(visited=[])
         {
-          service_action_summaries: Stubs::ServiceActionSummaries.default(visited),
+          service_action_summaries: ServiceActionSummaries.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -3148,7 +3148,7 @@ module AWS::SDK::ServiceCatalog
     class ListStackInstancesForProvisionedProduct
       def self.default(visited=[])
         {
-          stack_instances: Stubs::StackInstances.default(visited),
+          stack_instances: StackInstances.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -3168,7 +3168,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('StackInstances')
         visited = visited + ['StackInstances']
         [
-          Stubs::StackInstance.default(visited)
+          StackInstance.default(visited)
         ]
       end
 
@@ -3208,7 +3208,7 @@ module AWS::SDK::ServiceCatalog
     class ListTagOptions
       def self.default(visited=[])
         {
-          tag_option_details: Stubs::TagOptionDetails.default(visited),
+          tag_option_details: TagOptionDetails.default(visited),
           page_token: 'page_token',
         }
       end
@@ -3226,7 +3226,7 @@ module AWS::SDK::ServiceCatalog
     class ProvisionProduct
       def self.default(visited=[])
         {
-          record_detail: Stubs::RecordDetail.default(visited),
+          record_detail: RecordDetail.default(visited),
         }
       end
 
@@ -3256,7 +3256,7 @@ module AWS::SDK::ServiceCatalog
     class ScanProvisionedProducts
       def self.default(visited=[])
         {
-          provisioned_products: Stubs::ProvisionedProductDetails.default(visited),
+          provisioned_products: ProvisionedProductDetails.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -3276,7 +3276,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('ProvisionedProductDetails')
         visited = visited + ['ProvisionedProductDetails']
         [
-          Stubs::ProvisionedProductDetail.default(visited)
+          ProvisionedProductDetail.default(visited)
         ]
       end
 
@@ -3294,8 +3294,8 @@ module AWS::SDK::ServiceCatalog
     class SearchProducts
       def self.default(visited=[])
         {
-          product_view_summaries: Stubs::ProductViewSummaries.default(visited),
-          product_view_aggregations: Stubs::ProductViewAggregations.default(visited),
+          product_view_summaries: ProductViewSummaries.default(visited),
+          product_view_aggregations: ProductViewAggregations.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -3316,7 +3316,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('ProductViewAggregations')
         visited = visited + ['ProductViewAggregations']
         {
-          test_key: Stubs::ProductViewAggregationValues.default(visited)
+          test_key: ProductViewAggregationValues.default(visited)
         }
       end
 
@@ -3336,7 +3336,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('ProductViewAggregationValues')
         visited = visited + ['ProductViewAggregationValues']
         [
-          Stubs::ProductViewAggregationValue.default(visited)
+          ProductViewAggregationValue.default(visited)
         ]
       end
 
@@ -3376,7 +3376,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('ProductViewSummaries')
         visited = visited + ['ProductViewSummaries']
         [
-          Stubs::ProductViewSummary.default(visited)
+          ProductViewSummary.default(visited)
         ]
       end
 
@@ -3394,7 +3394,7 @@ module AWS::SDK::ServiceCatalog
     class SearchProductsAsAdmin
       def self.default(visited=[])
         {
-          product_view_details: Stubs::ProductViewDetails.default(visited),
+          product_view_details: ProductViewDetails.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -3414,7 +3414,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('ProductViewDetails')
         visited = visited + ['ProductViewDetails']
         [
-          Stubs::ProductViewDetail.default(visited)
+          ProductViewDetail.default(visited)
         ]
       end
 
@@ -3432,7 +3432,7 @@ module AWS::SDK::ServiceCatalog
     class SearchProvisionedProducts
       def self.default(visited=[])
         {
-          provisioned_products: Stubs::ProvisionedProductAttributes.default(visited),
+          provisioned_products: ProvisionedProductAttributes.default(visited),
           total_results_count: 1,
           next_page_token: 'next_page_token',
         }
@@ -3454,7 +3454,7 @@ module AWS::SDK::ServiceCatalog
         return nil if visited.include?('ProvisionedProductAttributes')
         visited = visited + ['ProvisionedProductAttributes']
         [
-          Stubs::ProvisionedProductAttribute.default(visited)
+          ProvisionedProductAttribute.default(visited)
         ]
       end
 
@@ -3485,7 +3485,7 @@ module AWS::SDK::ServiceCatalog
           last_record_id: 'last_record_id',
           last_provisioning_record_id: 'last_provisioning_record_id',
           last_successful_provisioning_record_id: 'last_successful_provisioning_record_id',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           physical_id: 'physical_id',
           product_id: 'product_id',
           product_name: 'product_name',
@@ -3526,7 +3526,7 @@ module AWS::SDK::ServiceCatalog
     class TerminateProvisionedProduct
       def self.default(visited=[])
         {
-          record_detail: Stubs::RecordDetail.default(visited),
+          record_detail: RecordDetail.default(visited),
         }
       end
 
@@ -3542,7 +3542,7 @@ module AWS::SDK::ServiceCatalog
     class UpdateConstraint
       def self.default(visited=[])
         {
-          constraint_detail: Stubs::ConstraintDetail.default(visited),
+          constraint_detail: ConstraintDetail.default(visited),
           constraint_parameters: 'constraint_parameters',
           status: 'status',
         }
@@ -3562,8 +3562,8 @@ module AWS::SDK::ServiceCatalog
     class UpdatePortfolio
       def self.default(visited=[])
         {
-          portfolio_detail: Stubs::PortfolioDetail.default(visited),
-          tags: Stubs::Tags.default(visited),
+          portfolio_detail: PortfolioDetail.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -3598,8 +3598,8 @@ module AWS::SDK::ServiceCatalog
     class UpdateProduct
       def self.default(visited=[])
         {
-          product_view_detail: Stubs::ProductViewDetail.default(visited),
-          tags: Stubs::Tags.default(visited),
+          product_view_detail: ProductViewDetail.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -3616,7 +3616,7 @@ module AWS::SDK::ServiceCatalog
     class UpdateProvisionedProduct
       def self.default(visited=[])
         {
-          record_detail: Stubs::RecordDetail.default(visited),
+          record_detail: RecordDetail.default(visited),
         }
       end
 
@@ -3633,7 +3633,7 @@ module AWS::SDK::ServiceCatalog
       def self.default(visited=[])
         {
           provisioned_product_id: 'provisioned_product_id',
-          provisioned_product_properties: Stubs::ProvisionedProductProperties.default(visited),
+          provisioned_product_properties: ProvisionedProductProperties.default(visited),
           record_id: 'record_id',
           status: 'status',
         }
@@ -3674,8 +3674,8 @@ module AWS::SDK::ServiceCatalog
     class UpdateProvisioningArtifact
       def self.default(visited=[])
         {
-          provisioning_artifact_detail: Stubs::ProvisioningArtifactDetail.default(visited),
-          info: Stubs::ProvisioningArtifactInfo.default(visited),
+          provisioning_artifact_detail: ProvisioningArtifactDetail.default(visited),
+          info: ProvisioningArtifactInfo.default(visited),
           status: 'status',
         }
       end
@@ -3694,7 +3694,7 @@ module AWS::SDK::ServiceCatalog
     class UpdateServiceAction
       def self.default(visited=[])
         {
-          service_action_detail: Stubs::ServiceActionDetail.default(visited),
+          service_action_detail: ServiceActionDetail.default(visited),
         }
       end
 
@@ -3710,7 +3710,7 @@ module AWS::SDK::ServiceCatalog
     class UpdateTagOption
       def self.default(visited=[])
         {
-          tag_option_detail: Stubs::TagOptionDetail.default(visited),
+          tag_option_detail: TagOptionDetail.default(visited),
         }
       end
 

@@ -36,7 +36,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
     class GetComplianceSummary
       def self.default(visited=[])
         {
-          summary_list: Stubs::SummaryList.default(visited),
+          summary_list: SummaryList.default(visited),
           pagination_token: 'pagination_token',
         }
       end
@@ -56,7 +56,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
         return nil if visited.include?('SummaryList')
         visited = visited + ['SummaryList']
         [
-          Stubs::Summary.default(visited)
+          Summary.default(visited)
         ]
       end
 
@@ -103,7 +103,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
       def self.default(visited=[])
         {
           pagination_token: 'pagination_token',
-          resource_tag_mapping_list: Stubs::ResourceTagMappingList.default(visited),
+          resource_tag_mapping_list: ResourceTagMappingList.default(visited),
         }
       end
 
@@ -122,7 +122,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
         return nil if visited.include?('ResourceTagMappingList')
         visited = visited + ['ResourceTagMappingList']
         [
-          Stubs::ResourceTagMapping.default(visited)
+          ResourceTagMapping.default(visited)
         ]
       end
 
@@ -143,8 +143,8 @@ module AWS::SDK::ResourceGroupsTaggingAPI
         visited = visited + ['ResourceTagMapping']
         {
           resource_arn: 'resource_arn',
-          tags: Stubs::TagList.default(visited),
-          compliance_details: Stubs::ComplianceDetails.default(visited),
+          tags: TagList.default(visited),
+          compliance_details: ComplianceDetails.default(visited),
         }
       end
 
@@ -164,8 +164,8 @@ module AWS::SDK::ResourceGroupsTaggingAPI
         return nil if visited.include?('ComplianceDetails')
         visited = visited + ['ComplianceDetails']
         {
-          noncompliant_keys: Stubs::TagKeyList.default(visited),
-          keys_with_noncompliant_values: Stubs::TagKeyList.default(visited),
+          noncompliant_keys: TagKeyList.default(visited),
+          keys_with_noncompliant_values: TagKeyList.default(visited),
           compliance_status: false,
         }
       end
@@ -206,7 +206,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -245,7 +245,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
       def self.default(visited=[])
         {
           pagination_token: 'pagination_token',
-          tag_keys: Stubs::TagKeyList.default(visited),
+          tag_keys: TagKeyList.default(visited),
         }
       end
 
@@ -263,7 +263,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
       def self.default(visited=[])
         {
           pagination_token: 'pagination_token',
-          tag_values: Stubs::TagValuesOutputList.default(visited),
+          tag_values: TagValuesOutputList.default(visited),
         }
       end
 
@@ -314,7 +314,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
     class TagResources
       def self.default(visited=[])
         {
-          failed_resources_map: Stubs::FailedResourcesMap.default(visited),
+          failed_resources_map: FailedResourcesMap.default(visited),
         }
       end
 
@@ -332,7 +332,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
         return nil if visited.include?('FailedResourcesMap')
         visited = visited + ['FailedResourcesMap']
         {
-          test_key: Stubs::FailureInfo.default(visited)
+          test_key: FailureInfo.default(visited)
         }
       end
 
@@ -372,7 +372,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
     class UntagResources
       def self.default(visited=[])
         {
-          failed_resources_map: Stubs::FailedResourcesMap.default(visited),
+          failed_resources_map: FailedResourcesMap.default(visited),
         }
       end
 

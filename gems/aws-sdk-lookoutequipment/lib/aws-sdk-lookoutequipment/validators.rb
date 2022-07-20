@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::LookoutEquipment
   module Validators
 
@@ -44,10 +46,10 @@ module AWS::SDK::LookoutEquipment
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateDatasetInput, context: context)
         Hearth::Validator.validate!(input[:dataset_name], ::String, context: "#{context}[:dataset_name]")
-        Validators::DatasetSchema.validate!(input[:dataset_schema], context: "#{context}[:dataset_schema]") unless input[:dataset_schema].nil?
+        DatasetSchema.validate!(input[:dataset_schema], context: "#{context}[:dataset_schema]") unless input[:dataset_schema].nil?
         Hearth::Validator.validate!(input[:server_side_kms_key_id], ::String, context: "#{context}[:server_side_kms_key_id]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -67,12 +69,12 @@ module AWS::SDK::LookoutEquipment
         Hearth::Validator.validate!(input[:inference_scheduler_name], ::String, context: "#{context}[:inference_scheduler_name]")
         Hearth::Validator.validate!(input[:data_delay_offset_in_minutes], ::Integer, context: "#{context}[:data_delay_offset_in_minutes]")
         Hearth::Validator.validate!(input[:data_upload_frequency], ::String, context: "#{context}[:data_upload_frequency]")
-        Validators::InferenceInputConfiguration.validate!(input[:data_input_configuration], context: "#{context}[:data_input_configuration]") unless input[:data_input_configuration].nil?
-        Validators::InferenceOutputConfiguration.validate!(input[:data_output_configuration], context: "#{context}[:data_output_configuration]") unless input[:data_output_configuration].nil?
+        InferenceInputConfiguration.validate!(input[:data_input_configuration], context: "#{context}[:data_input_configuration]") unless input[:data_input_configuration].nil?
+        InferenceOutputConfiguration.validate!(input[:data_output_configuration], context: "#{context}[:data_output_configuration]") unless input[:data_output_configuration].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:server_side_kms_key_id], ::String, context: "#{context}[:server_side_kms_key_id]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -90,17 +92,17 @@ module AWS::SDK::LookoutEquipment
         Hearth::Validator.validate!(input, Types::CreateModelInput, context: context)
         Hearth::Validator.validate!(input[:model_name], ::String, context: "#{context}[:model_name]")
         Hearth::Validator.validate!(input[:dataset_name], ::String, context: "#{context}[:dataset_name]")
-        Validators::DatasetSchema.validate!(input[:dataset_schema], context: "#{context}[:dataset_schema]") unless input[:dataset_schema].nil?
-        Validators::LabelsInputConfiguration.validate!(input[:labels_input_configuration], context: "#{context}[:labels_input_configuration]") unless input[:labels_input_configuration].nil?
+        DatasetSchema.validate!(input[:dataset_schema], context: "#{context}[:dataset_schema]") unless input[:dataset_schema].nil?
+        LabelsInputConfiguration.validate!(input[:labels_input_configuration], context: "#{context}[:labels_input_configuration]") unless input[:labels_input_configuration].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:training_data_start_time], ::Time, context: "#{context}[:training_data_start_time]")
         Hearth::Validator.validate!(input[:training_data_end_time], ::Time, context: "#{context}[:training_data_end_time]")
         Hearth::Validator.validate!(input[:evaluation_data_start_time], ::Time, context: "#{context}[:evaluation_data_start_time]")
         Hearth::Validator.validate!(input[:evaluation_data_end_time], ::Time, context: "#{context}[:evaluation_data_end_time]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::DataPreProcessingConfiguration.validate!(input[:data_pre_processing_configuration], context: "#{context}[:data_pre_processing_configuration]") unless input[:data_pre_processing_configuration].nil?
+        DataPreProcessingConfiguration.validate!(input[:data_pre_processing_configuration], context: "#{context}[:data_pre_processing_configuration]") unless input[:data_pre_processing_configuration].nil?
         Hearth::Validator.validate!(input[:server_side_kms_key_id], ::String, context: "#{context}[:server_side_kms_key_id]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:off_condition], ::String, context: "#{context}[:off_condition]")
       end
     end
@@ -117,7 +119,7 @@ module AWS::SDK::LookoutEquipment
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DataIngestionJobSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DataIngestionJobSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -128,7 +130,7 @@ module AWS::SDK::LookoutEquipment
         Hearth::Validator.validate!(input[:job_id], ::String, context: "#{context}[:job_id]")
         Hearth::Validator.validate!(input[:dataset_name], ::String, context: "#{context}[:dataset_name]")
         Hearth::Validator.validate!(input[:dataset_arn], ::String, context: "#{context}[:dataset_arn]")
-        Validators::IngestionInputConfiguration.validate!(input[:ingestion_input_configuration], context: "#{context}[:ingestion_input_configuration]") unless input[:ingestion_input_configuration].nil?
+        IngestionInputConfiguration.validate!(input[:ingestion_input_configuration], context: "#{context}[:ingestion_input_configuration]") unless input[:ingestion_input_configuration].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
       end
     end
@@ -143,11 +145,11 @@ module AWS::SDK::LookoutEquipment
     class DataQualitySummary
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DataQualitySummary, context: context)
-        Validators::InsufficientSensorData.validate!(input[:insufficient_sensor_data], context: "#{context}[:insufficient_sensor_data]") unless input[:insufficient_sensor_data].nil?
-        Validators::MissingSensorData.validate!(input[:missing_sensor_data], context: "#{context}[:missing_sensor_data]") unless input[:missing_sensor_data].nil?
-        Validators::InvalidSensorData.validate!(input[:invalid_sensor_data], context: "#{context}[:invalid_sensor_data]") unless input[:invalid_sensor_data].nil?
-        Validators::UnsupportedTimestamps.validate!(input[:unsupported_timestamps], context: "#{context}[:unsupported_timestamps]") unless input[:unsupported_timestamps].nil?
-        Validators::DuplicateTimestamps.validate!(input[:duplicate_timestamps], context: "#{context}[:duplicate_timestamps]") unless input[:duplicate_timestamps].nil?
+        InsufficientSensorData.validate!(input[:insufficient_sensor_data], context: "#{context}[:insufficient_sensor_data]") unless input[:insufficient_sensor_data].nil?
+        MissingSensorData.validate!(input[:missing_sensor_data], context: "#{context}[:missing_sensor_data]") unless input[:missing_sensor_data].nil?
+        InvalidSensorData.validate!(input[:invalid_sensor_data], context: "#{context}[:invalid_sensor_data]") unless input[:invalid_sensor_data].nil?
+        UnsupportedTimestamps.validate!(input[:unsupported_timestamps], context: "#{context}[:unsupported_timestamps]") unless input[:unsupported_timestamps].nil?
+        DuplicateTimestamps.validate!(input[:duplicate_timestamps], context: "#{context}[:duplicate_timestamps]") unless input[:duplicate_timestamps].nil?
       end
     end
 
@@ -162,7 +164,7 @@ module AWS::SDK::LookoutEquipment
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DatasetSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DatasetSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -228,13 +230,13 @@ module AWS::SDK::LookoutEquipment
         Hearth::Validator.validate!(input, Types::DescribeDataIngestionJobOutput, context: context)
         Hearth::Validator.validate!(input[:job_id], ::String, context: "#{context}[:job_id]")
         Hearth::Validator.validate!(input[:dataset_arn], ::String, context: "#{context}[:dataset_arn]")
-        Validators::IngestionInputConfiguration.validate!(input[:ingestion_input_configuration], context: "#{context}[:ingestion_input_configuration]") unless input[:ingestion_input_configuration].nil?
+        IngestionInputConfiguration.validate!(input[:ingestion_input_configuration], context: "#{context}[:ingestion_input_configuration]") unless input[:ingestion_input_configuration].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:failed_reason], ::String, context: "#{context}[:failed_reason]")
-        Validators::DataQualitySummary.validate!(input[:data_quality_summary], context: "#{context}[:data_quality_summary]") unless input[:data_quality_summary].nil?
-        Validators::IngestedFilesSummary.validate!(input[:ingested_files_summary], context: "#{context}[:ingested_files_summary]") unless input[:ingested_files_summary].nil?
+        DataQualitySummary.validate!(input[:data_quality_summary], context: "#{context}[:data_quality_summary]") unless input[:data_quality_summary].nil?
+        IngestedFilesSummary.validate!(input[:ingested_files_summary], context: "#{context}[:ingested_files_summary]") unless input[:ingested_files_summary].nil?
         Hearth::Validator.validate!(input[:status_detail], ::String, context: "#{context}[:status_detail]")
         Hearth::Validator.validate!(input[:ingested_data_size], ::Integer, context: "#{context}[:ingested_data_size]")
         Hearth::Validator.validate!(input[:data_start_time], ::Time, context: "#{context}[:data_start_time]")
@@ -259,9 +261,9 @@ module AWS::SDK::LookoutEquipment
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:schema], ::String, context: "#{context}[:schema]")
         Hearth::Validator.validate!(input[:server_side_kms_key_id], ::String, context: "#{context}[:server_side_kms_key_id]")
-        Validators::IngestionInputConfiguration.validate!(input[:ingestion_input_configuration], context: "#{context}[:ingestion_input_configuration]") unless input[:ingestion_input_configuration].nil?
-        Validators::DataQualitySummary.validate!(input[:data_quality_summary], context: "#{context}[:data_quality_summary]") unless input[:data_quality_summary].nil?
-        Validators::IngestedFilesSummary.validate!(input[:ingested_files_summary], context: "#{context}[:ingested_files_summary]") unless input[:ingested_files_summary].nil?
+        IngestionInputConfiguration.validate!(input[:ingestion_input_configuration], context: "#{context}[:ingestion_input_configuration]") unless input[:ingestion_input_configuration].nil?
+        DataQualitySummary.validate!(input[:data_quality_summary], context: "#{context}[:data_quality_summary]") unless input[:data_quality_summary].nil?
+        IngestedFilesSummary.validate!(input[:ingested_files_summary], context: "#{context}[:ingested_files_summary]") unless input[:ingested_files_summary].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:data_start_time], ::Time, context: "#{context}[:data_start_time]")
         Hearth::Validator.validate!(input[:data_end_time], ::Time, context: "#{context}[:data_end_time]")
@@ -287,8 +289,8 @@ module AWS::SDK::LookoutEquipment
         Hearth::Validator.validate!(input[:data_upload_frequency], ::String, context: "#{context}[:data_upload_frequency]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
-        Validators::InferenceInputConfiguration.validate!(input[:data_input_configuration], context: "#{context}[:data_input_configuration]") unless input[:data_input_configuration].nil?
-        Validators::InferenceOutputConfiguration.validate!(input[:data_output_configuration], context: "#{context}[:data_output_configuration]") unless input[:data_output_configuration].nil?
+        InferenceInputConfiguration.validate!(input[:data_input_configuration], context: "#{context}[:data_input_configuration]") unless input[:data_input_configuration].nil?
+        InferenceOutputConfiguration.validate!(input[:data_output_configuration], context: "#{context}[:data_output_configuration]") unless input[:data_output_configuration].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:server_side_kms_key_id], ::String, context: "#{context}[:server_side_kms_key_id]")
       end
@@ -309,13 +311,13 @@ module AWS::SDK::LookoutEquipment
         Hearth::Validator.validate!(input[:dataset_name], ::String, context: "#{context}[:dataset_name]")
         Hearth::Validator.validate!(input[:dataset_arn], ::String, context: "#{context}[:dataset_arn]")
         Hearth::Validator.validate!(input[:schema], ::String, context: "#{context}[:schema]")
-        Validators::LabelsInputConfiguration.validate!(input[:labels_input_configuration], context: "#{context}[:labels_input_configuration]") unless input[:labels_input_configuration].nil?
+        LabelsInputConfiguration.validate!(input[:labels_input_configuration], context: "#{context}[:labels_input_configuration]") unless input[:labels_input_configuration].nil?
         Hearth::Validator.validate!(input[:training_data_start_time], ::Time, context: "#{context}[:training_data_start_time]")
         Hearth::Validator.validate!(input[:training_data_end_time], ::Time, context: "#{context}[:training_data_end_time]")
         Hearth::Validator.validate!(input[:evaluation_data_start_time], ::Time, context: "#{context}[:evaluation_data_start_time]")
         Hearth::Validator.validate!(input[:evaluation_data_end_time], ::Time, context: "#{context}[:evaluation_data_end_time]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::DataPreProcessingConfiguration.validate!(input[:data_pre_processing_configuration], context: "#{context}[:data_pre_processing_configuration]") unless input[:data_pre_processing_configuration].nil?
+        DataPreProcessingConfiguration.validate!(input[:data_pre_processing_configuration], context: "#{context}[:data_pre_processing_configuration]") unless input[:data_pre_processing_configuration].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:training_execution_start_time], ::Time, context: "#{context}[:training_execution_start_time]")
         Hearth::Validator.validate!(input[:training_execution_end_time], ::Time, context: "#{context}[:training_execution_end_time]")
@@ -339,7 +341,7 @@ module AWS::SDK::LookoutEquipment
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InferenceExecutionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InferenceExecutionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -354,9 +356,9 @@ module AWS::SDK::LookoutEquipment
         Hearth::Validator.validate!(input[:scheduled_start_time], ::Time, context: "#{context}[:scheduled_start_time]")
         Hearth::Validator.validate!(input[:data_start_time], ::Time, context: "#{context}[:data_start_time]")
         Hearth::Validator.validate!(input[:data_end_time], ::Time, context: "#{context}[:data_end_time]")
-        Validators::InferenceInputConfiguration.validate!(input[:data_input_configuration], context: "#{context}[:data_input_configuration]") unless input[:data_input_configuration].nil?
-        Validators::InferenceOutputConfiguration.validate!(input[:data_output_configuration], context: "#{context}[:data_output_configuration]") unless input[:data_output_configuration].nil?
-        Validators::S3Object.validate!(input[:customer_result_object], context: "#{context}[:customer_result_object]") unless input[:customer_result_object].nil?
+        InferenceInputConfiguration.validate!(input[:data_input_configuration], context: "#{context}[:data_input_configuration]") unless input[:data_input_configuration].nil?
+        InferenceOutputConfiguration.validate!(input[:data_output_configuration], context: "#{context}[:data_output_configuration]") unless input[:data_output_configuration].nil?
+        S3Object.validate!(input[:customer_result_object], context: "#{context}[:customer_result_object]") unless input[:customer_result_object].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:failed_reason], ::String, context: "#{context}[:failed_reason]")
       end
@@ -365,9 +367,9 @@ module AWS::SDK::LookoutEquipment
     class InferenceInputConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InferenceInputConfiguration, context: context)
-        Validators::InferenceS3InputConfiguration.validate!(input[:s3_input_configuration], context: "#{context}[:s3_input_configuration]") unless input[:s3_input_configuration].nil?
+        InferenceS3InputConfiguration.validate!(input[:s3_input_configuration], context: "#{context}[:s3_input_configuration]") unless input[:s3_input_configuration].nil?
         Hearth::Validator.validate!(input[:input_time_zone_offset], ::String, context: "#{context}[:input_time_zone_offset]")
-        Validators::InferenceInputNameConfiguration.validate!(input[:inference_input_name_configuration], context: "#{context}[:inference_input_name_configuration]") unless input[:inference_input_name_configuration].nil?
+        InferenceInputNameConfiguration.validate!(input[:inference_input_name_configuration], context: "#{context}[:inference_input_name_configuration]") unless input[:inference_input_name_configuration].nil?
       end
     end
 
@@ -382,7 +384,7 @@ module AWS::SDK::LookoutEquipment
     class InferenceOutputConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InferenceOutputConfiguration, context: context)
-        Validators::InferenceS3OutputConfiguration.validate!(input[:s3_output_configuration], context: "#{context}[:s3_output_configuration]") unless input[:s3_output_configuration].nil?
+        InferenceS3OutputConfiguration.validate!(input[:s3_output_configuration], context: "#{context}[:s3_output_configuration]") unless input[:s3_output_configuration].nil?
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
       end
     end
@@ -407,7 +409,7 @@ module AWS::SDK::LookoutEquipment
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InferenceSchedulerSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InferenceSchedulerSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -430,14 +432,14 @@ module AWS::SDK::LookoutEquipment
         Hearth::Validator.validate!(input, Types::IngestedFilesSummary, context: context)
         Hearth::Validator.validate!(input[:total_number_of_files], ::Integer, context: "#{context}[:total_number_of_files]")
         Hearth::Validator.validate!(input[:ingested_number_of_files], ::Integer, context: "#{context}[:ingested_number_of_files]")
-        Validators::ListOfDiscardedFiles.validate!(input[:discarded_files], context: "#{context}[:discarded_files]") unless input[:discarded_files].nil?
+        ListOfDiscardedFiles.validate!(input[:discarded_files], context: "#{context}[:discarded_files]") unless input[:discarded_files].nil?
       end
     end
 
     class IngestionInputConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::IngestionInputConfiguration, context: context)
-        Validators::IngestionS3InputConfiguration.validate!(input[:s3_input_configuration], context: "#{context}[:s3_input_configuration]") unless input[:s3_input_configuration].nil?
+        IngestionS3InputConfiguration.validate!(input[:s3_input_configuration], context: "#{context}[:s3_input_configuration]") unless input[:s3_input_configuration].nil?
       end
     end
 
@@ -453,8 +455,8 @@ module AWS::SDK::LookoutEquipment
     class InsufficientSensorData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InsufficientSensorData, context: context)
-        Validators::MissingCompleteSensorData.validate!(input[:missing_complete_sensor_data], context: "#{context}[:missing_complete_sensor_data]") unless input[:missing_complete_sensor_data].nil?
-        Validators::SensorsWithShortDateRange.validate!(input[:sensors_with_short_date_range], context: "#{context}[:sensors_with_short_date_range]") unless input[:sensors_with_short_date_range].nil?
+        MissingCompleteSensorData.validate!(input[:missing_complete_sensor_data], context: "#{context}[:missing_complete_sensor_data]") unless input[:missing_complete_sensor_data].nil?
+        SensorsWithShortDateRange.validate!(input[:sensors_with_short_date_range], context: "#{context}[:sensors_with_short_date_range]") unless input[:sensors_with_short_date_range].nil?
       end
     end
 
@@ -476,7 +478,7 @@ module AWS::SDK::LookoutEquipment
     class LabelsInputConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LabelsInputConfiguration, context: context)
-        Validators::LabelsS3InputConfiguration.validate!(input[:s3_input_configuration], context: "#{context}[:s3_input_configuration]") unless input[:s3_input_configuration].nil?
+        LabelsS3InputConfiguration.validate!(input[:s3_input_configuration], context: "#{context}[:s3_input_configuration]") unless input[:s3_input_configuration].nil?
       end
     end
 
@@ -511,7 +513,7 @@ module AWS::SDK::LookoutEquipment
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDataIngestionJobsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::DataIngestionJobSummaries.validate!(input[:data_ingestion_job_summaries], context: "#{context}[:data_ingestion_job_summaries]") unless input[:data_ingestion_job_summaries].nil?
+        DataIngestionJobSummaries.validate!(input[:data_ingestion_job_summaries], context: "#{context}[:data_ingestion_job_summaries]") unless input[:data_ingestion_job_summaries].nil?
       end
     end
 
@@ -528,7 +530,7 @@ module AWS::SDK::LookoutEquipment
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDatasetsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::DatasetSummaries.validate!(input[:dataset_summaries], context: "#{context}[:dataset_summaries]") unless input[:dataset_summaries].nil?
+        DatasetSummaries.validate!(input[:dataset_summaries], context: "#{context}[:dataset_summaries]") unless input[:dataset_summaries].nil?
       end
     end
 
@@ -548,7 +550,7 @@ module AWS::SDK::LookoutEquipment
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListInferenceExecutionsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::InferenceExecutionSummaries.validate!(input[:inference_execution_summaries], context: "#{context}[:inference_execution_summaries]") unless input[:inference_execution_summaries].nil?
+        InferenceExecutionSummaries.validate!(input[:inference_execution_summaries], context: "#{context}[:inference_execution_summaries]") unless input[:inference_execution_summaries].nil?
       end
     end
 
@@ -566,7 +568,7 @@ module AWS::SDK::LookoutEquipment
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListInferenceSchedulersOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::InferenceSchedulerSummaries.validate!(input[:inference_scheduler_summaries], context: "#{context}[:inference_scheduler_summaries]") unless input[:inference_scheduler_summaries].nil?
+        InferenceSchedulerSummaries.validate!(input[:inference_scheduler_summaries], context: "#{context}[:inference_scheduler_summaries]") unless input[:inference_scheduler_summaries].nil?
       end
     end
 
@@ -585,7 +587,7 @@ module AWS::SDK::LookoutEquipment
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListModelsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ModelSummaries.validate!(input[:model_summaries], context: "#{context}[:model_summaries]") unless input[:model_summaries].nil?
+        ModelSummaries.validate!(input[:model_summaries], context: "#{context}[:model_summaries]") unless input[:model_summaries].nil?
       end
     end
 
@@ -593,7 +595,7 @@ module AWS::SDK::LookoutEquipment
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::S3Object.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          S3Object.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -611,7 +613,7 @@ module AWS::SDK::LookoutEquipment
     class ListSensorStatisticsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSensorStatisticsOutput, context: context)
-        Validators::SensorStatisticsSummaries.validate!(input[:sensor_statistics_summaries], context: "#{context}[:sensor_statistics_summaries]") unless input[:sensor_statistics_summaries].nil?
+        SensorStatisticsSummaries.validate!(input[:sensor_statistics_summaries], context: "#{context}[:sensor_statistics_summaries]") unless input[:sensor_statistics_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -626,7 +628,7 @@ module AWS::SDK::LookoutEquipment
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -649,7 +651,7 @@ module AWS::SDK::LookoutEquipment
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ModelSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ModelSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -700,7 +702,7 @@ module AWS::SDK::LookoutEquipment
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SensorStatisticsSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SensorStatisticsSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -711,14 +713,14 @@ module AWS::SDK::LookoutEquipment
         Hearth::Validator.validate!(input[:component_name], ::String, context: "#{context}[:component_name]")
         Hearth::Validator.validate!(input[:sensor_name], ::String, context: "#{context}[:sensor_name]")
         Hearth::Validator.validate!(input[:data_exists], ::TrueClass, ::FalseClass, context: "#{context}[:data_exists]")
-        Validators::CountPercent.validate!(input[:missing_values], context: "#{context}[:missing_values]") unless input[:missing_values].nil?
-        Validators::CountPercent.validate!(input[:invalid_values], context: "#{context}[:invalid_values]") unless input[:invalid_values].nil?
-        Validators::CountPercent.validate!(input[:invalid_date_entries], context: "#{context}[:invalid_date_entries]") unless input[:invalid_date_entries].nil?
-        Validators::CountPercent.validate!(input[:duplicate_timestamps], context: "#{context}[:duplicate_timestamps]") unless input[:duplicate_timestamps].nil?
-        Validators::CategoricalValues.validate!(input[:categorical_values], context: "#{context}[:categorical_values]") unless input[:categorical_values].nil?
-        Validators::MultipleOperatingModes.validate!(input[:multiple_operating_modes], context: "#{context}[:multiple_operating_modes]") unless input[:multiple_operating_modes].nil?
-        Validators::LargeTimestampGaps.validate!(input[:large_timestamp_gaps], context: "#{context}[:large_timestamp_gaps]") unless input[:large_timestamp_gaps].nil?
-        Validators::MonotonicValues.validate!(input[:monotonic_values], context: "#{context}[:monotonic_values]") unless input[:monotonic_values].nil?
+        CountPercent.validate!(input[:missing_values], context: "#{context}[:missing_values]") unless input[:missing_values].nil?
+        CountPercent.validate!(input[:invalid_values], context: "#{context}[:invalid_values]") unless input[:invalid_values].nil?
+        CountPercent.validate!(input[:invalid_date_entries], context: "#{context}[:invalid_date_entries]") unless input[:invalid_date_entries].nil?
+        CountPercent.validate!(input[:duplicate_timestamps], context: "#{context}[:duplicate_timestamps]") unless input[:duplicate_timestamps].nil?
+        CategoricalValues.validate!(input[:categorical_values], context: "#{context}[:categorical_values]") unless input[:categorical_values].nil?
+        MultipleOperatingModes.validate!(input[:multiple_operating_modes], context: "#{context}[:multiple_operating_modes]") unless input[:multiple_operating_modes].nil?
+        LargeTimestampGaps.validate!(input[:large_timestamp_gaps], context: "#{context}[:large_timestamp_gaps]") unless input[:large_timestamp_gaps].nil?
+        MonotonicValues.validate!(input[:monotonic_values], context: "#{context}[:monotonic_values]") unless input[:monotonic_values].nil?
         Hearth::Validator.validate!(input[:data_start_time], ::Time, context: "#{context}[:data_start_time]")
         Hearth::Validator.validate!(input[:data_end_time], ::Time, context: "#{context}[:data_end_time]")
       end
@@ -742,7 +744,7 @@ module AWS::SDK::LookoutEquipment
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartDataIngestionJobInput, context: context)
         Hearth::Validator.validate!(input[:dataset_name], ::String, context: "#{context}[:dataset_name]")
-        Validators::IngestionInputConfiguration.validate!(input[:ingestion_input_configuration], context: "#{context}[:ingestion_input_configuration]") unless input[:ingestion_input_configuration].nil?
+        IngestionInputConfiguration.validate!(input[:ingestion_input_configuration], context: "#{context}[:ingestion_input_configuration]") unless input[:ingestion_input_configuration].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
@@ -813,7 +815,7 @@ module AWS::SDK::LookoutEquipment
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -822,7 +824,7 @@ module AWS::SDK::LookoutEquipment
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -850,7 +852,7 @@ module AWS::SDK::LookoutEquipment
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -866,8 +868,8 @@ module AWS::SDK::LookoutEquipment
         Hearth::Validator.validate!(input[:inference_scheduler_name], ::String, context: "#{context}[:inference_scheduler_name]")
         Hearth::Validator.validate!(input[:data_delay_offset_in_minutes], ::Integer, context: "#{context}[:data_delay_offset_in_minutes]")
         Hearth::Validator.validate!(input[:data_upload_frequency], ::String, context: "#{context}[:data_upload_frequency]")
-        Validators::InferenceInputConfiguration.validate!(input[:data_input_configuration], context: "#{context}[:data_input_configuration]") unless input[:data_input_configuration].nil?
-        Validators::InferenceOutputConfiguration.validate!(input[:data_output_configuration], context: "#{context}[:data_output_configuration]") unless input[:data_output_configuration].nil?
+        InferenceInputConfiguration.validate!(input[:data_input_configuration], context: "#{context}[:data_input_configuration]") unless input[:data_input_configuration].nil?
+        InferenceOutputConfiguration.validate!(input[:data_output_configuration], context: "#{context}[:data_output_configuration]") unless input[:data_output_configuration].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
       end
     end

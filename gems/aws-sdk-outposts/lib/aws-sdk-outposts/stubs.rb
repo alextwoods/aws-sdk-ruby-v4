@@ -27,7 +27,7 @@ module AWS::SDK::Outposts
     class CreateOrder
       def self.default(visited=[])
         {
-          order: Stubs::Order.default(visited),
+          order: Order.default(visited),
         }
       end
 
@@ -49,7 +49,7 @@ module AWS::SDK::Outposts
           outpost_id: 'outpost_id',
           order_id: 'order_id',
           status: 'status',
-          line_items: Stubs::LineItemListDefinition.default(visited),
+          line_items: LineItemListDefinition.default(visited),
           payment_option: 'payment_option',
           order_submission_date: Time.now,
           order_fulfilled_date: Time.now,
@@ -76,7 +76,7 @@ module AWS::SDK::Outposts
         return nil if visited.include?('LineItemListDefinition')
         visited = visited + ['LineItemListDefinition']
         [
-          Stubs::LineItem.default(visited)
+          LineItem.default(visited)
         ]
       end
 
@@ -118,7 +118,7 @@ module AWS::SDK::Outposts
     class CreateOutpost
       def self.default(visited=[])
         {
-          outpost: Stubs::Outpost.default(visited),
+          outpost: Outpost.default(visited),
         }
       end
 
@@ -146,7 +146,7 @@ module AWS::SDK::Outposts
           life_cycle_status: 'life_cycle_status',
           availability_zone: 'availability_zone',
           availability_zone_id: 'availability_zone_id',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
           site_arn: 'site_arn',
           supported_hardware_type: 'supported_hardware_type',
         }
@@ -195,7 +195,7 @@ module AWS::SDK::Outposts
     class CreateSite
       def self.default(visited=[])
         {
-          site: Stubs::Site.default(visited),
+          site: Site.default(visited),
         }
       end
 
@@ -218,13 +218,13 @@ module AWS::SDK::Outposts
           account_id: 'account_id',
           name: 'name',
           description: 'description',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
           site_arn: 'site_arn',
           notes: 'notes',
           operating_address_country_code: 'operating_address_country_code',
           operating_address_state_or_region: 'operating_address_state_or_region',
           operating_address_city: 'operating_address_city',
-          rack_physical_properties: Stubs::RackPhysicalProperties.default(visited),
+          rack_physical_properties: RackPhysicalProperties.default(visited),
         }
       end
 
@@ -310,7 +310,7 @@ module AWS::SDK::Outposts
     class GetCatalogItem
       def self.default(visited=[])
         {
-          catalog_item: Stubs::CatalogItem.default(visited),
+          catalog_item: CatalogItem.default(visited),
         }
       end
 
@@ -331,11 +331,11 @@ module AWS::SDK::Outposts
         {
           catalog_item_id: 'catalog_item_id',
           item_status: 'item_status',
-          ec2_capacities: Stubs::EC2CapacityListDefinition.default(visited),
+          ec2_capacities: EC2CapacityListDefinition.default(visited),
           power_kva: 1.0,
           weight_lbs: 1,
-          supported_uplink_gbps: Stubs::SupportedUplinkGbpsListDefinition.default(visited),
-          supported_storage: Stubs::SupportedStorageList.default(visited),
+          supported_uplink_gbps: SupportedUplinkGbpsListDefinition.default(visited),
+          supported_storage: SupportedStorageList.default(visited),
         }
       end
 
@@ -399,7 +399,7 @@ module AWS::SDK::Outposts
         return nil if visited.include?('EC2CapacityListDefinition')
         visited = visited + ['EC2CapacityListDefinition']
         [
-          Stubs::EC2Capacity.default(visited)
+          EC2Capacity.default(visited)
         ]
       end
 
@@ -440,7 +440,7 @@ module AWS::SDK::Outposts
       def self.default(visited=[])
         {
           connection_id: 'connection_id',
-          connection_details: Stubs::ConnectionDetails.default(visited),
+          connection_details: ConnectionDetails.default(visited),
         }
       end
 
@@ -465,7 +465,7 @@ module AWS::SDK::Outposts
           server_endpoint: 'server_endpoint',
           client_tunnel_address: 'client_tunnel_address',
           server_tunnel_address: 'server_tunnel_address',
-          allowed_ips: Stubs::CIDRList.default(visited),
+          allowed_ips: CIDRList.default(visited),
         }
       end
 
@@ -506,7 +506,7 @@ module AWS::SDK::Outposts
     class GetOrder
       def self.default(visited=[])
         {
-          order: Stubs::Order.default(visited),
+          order: Order.default(visited),
         }
       end
 
@@ -523,7 +523,7 @@ module AWS::SDK::Outposts
     class GetOutpost
       def self.default(visited=[])
         {
-          outpost: Stubs::Outpost.default(visited),
+          outpost: Outpost.default(visited),
         }
       end
 
@@ -540,7 +540,7 @@ module AWS::SDK::Outposts
     class GetOutpostInstanceTypes
       def self.default(visited=[])
         {
-          instance_types: Stubs::InstanceTypeListDefinition.default(visited),
+          instance_types: InstanceTypeListDefinition.default(visited),
           next_token: 'next_token',
           outpost_id: 'outpost_id',
           outpost_arn: 'outpost_arn',
@@ -565,7 +565,7 @@ module AWS::SDK::Outposts
         return nil if visited.include?('InstanceTypeListDefinition')
         visited = visited + ['InstanceTypeListDefinition']
         [
-          Stubs::InstanceTypeItem.default(visited)
+          InstanceTypeItem.default(visited)
         ]
       end
 
@@ -601,7 +601,7 @@ module AWS::SDK::Outposts
     class GetSite
       def self.default(visited=[])
         {
-          site: Stubs::Site.default(visited),
+          site: Site.default(visited),
         }
       end
 
@@ -620,7 +620,7 @@ module AWS::SDK::Outposts
         {
           site_id: 'site_id',
           address_type: 'address_type',
-          address: Stubs::Address.default(visited),
+          address: Address.default(visited),
         }
       end
 
@@ -677,7 +677,7 @@ module AWS::SDK::Outposts
     class ListAssets
       def self.default(visited=[])
         {
-          assets: Stubs::AssetListDefinition.default(visited),
+          assets: AssetListDefinition.default(visited),
           next_token: 'next_token',
         }
       end
@@ -698,7 +698,7 @@ module AWS::SDK::Outposts
         return nil if visited.include?('AssetListDefinition')
         visited = visited + ['AssetListDefinition']
         [
-          Stubs::AssetInfo.default(visited)
+          AssetInfo.default(visited)
         ]
       end
 
@@ -721,7 +721,7 @@ module AWS::SDK::Outposts
           asset_id: 'asset_id',
           rack_id: 'rack_id',
           asset_type: 'asset_type',
-          compute_attributes: Stubs::ComputeAttributes.default(visited),
+          compute_attributes: ComputeAttributes.default(visited),
         }
       end
 
@@ -758,7 +758,7 @@ module AWS::SDK::Outposts
     class ListCatalogItems
       def self.default(visited=[])
         {
-          catalog_items: Stubs::CatalogItemListDefinition.default(visited),
+          catalog_items: CatalogItemListDefinition.default(visited),
           next_token: 'next_token',
         }
       end
@@ -779,7 +779,7 @@ module AWS::SDK::Outposts
         return nil if visited.include?('CatalogItemListDefinition')
         visited = visited + ['CatalogItemListDefinition']
         [
-          Stubs::CatalogItem.default(visited)
+          CatalogItem.default(visited)
         ]
       end
 
@@ -797,7 +797,7 @@ module AWS::SDK::Outposts
     class ListOrders
       def self.default(visited=[])
         {
-          orders: Stubs::OrderSummaryListDefinition.default(visited),
+          orders: OrderSummaryListDefinition.default(visited),
           next_token: 'next_token',
         }
       end
@@ -818,7 +818,7 @@ module AWS::SDK::Outposts
         return nil if visited.include?('OrderSummaryListDefinition')
         visited = visited + ['OrderSummaryListDefinition']
         [
-          Stubs::OrderSummary.default(visited)
+          OrderSummary.default(visited)
         ]
       end
 
@@ -842,7 +842,7 @@ module AWS::SDK::Outposts
           order_id: 'order_id',
           order_type: 'order_type',
           status: 'status',
-          line_item_counts_by_status: Stubs::LineItemStatusCounts.default(visited),
+          line_item_counts_by_status: LineItemStatusCounts.default(visited),
           order_submission_date: Time.now,
           order_fulfilled_date: Time.now,
         }
@@ -886,7 +886,7 @@ module AWS::SDK::Outposts
     class ListOutposts
       def self.default(visited=[])
         {
-          outposts: Stubs::OutpostListDefinition.default(visited),
+          outposts: OutpostListDefinition.default(visited),
           next_token: 'next_token',
         }
       end
@@ -907,7 +907,7 @@ module AWS::SDK::Outposts
         return nil if visited.include?('OutpostListDefinition')
         visited = visited + ['OutpostListDefinition']
         [
-          Stubs::Outpost.default(visited)
+          Outpost.default(visited)
         ]
       end
 
@@ -925,7 +925,7 @@ module AWS::SDK::Outposts
     class ListSites
       def self.default(visited=[])
         {
-          sites: Stubs::SiteListDefinition.default(visited),
+          sites: SiteListDefinition.default(visited),
           next_token: 'next_token',
         }
       end
@@ -946,7 +946,7 @@ module AWS::SDK::Outposts
         return nil if visited.include?('SiteListDefinition')
         visited = visited + ['SiteListDefinition']
         [
-          Stubs::Site.default(visited)
+          Site.default(visited)
         ]
       end
 
@@ -964,7 +964,7 @@ module AWS::SDK::Outposts
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1026,7 +1026,7 @@ module AWS::SDK::Outposts
     class UpdateOutpost
       def self.default(visited=[])
         {
-          outpost: Stubs::Outpost.default(visited),
+          outpost: Outpost.default(visited),
         }
       end
 
@@ -1043,7 +1043,7 @@ module AWS::SDK::Outposts
     class UpdateSite
       def self.default(visited=[])
         {
-          site: Stubs::Site.default(visited),
+          site: Site.default(visited),
         }
       end
 
@@ -1061,7 +1061,7 @@ module AWS::SDK::Outposts
       def self.default(visited=[])
         {
           address_type: 'address_type',
-          address: Stubs::Address.default(visited),
+          address: Address.default(visited),
         }
       end
 
@@ -1079,7 +1079,7 @@ module AWS::SDK::Outposts
     class UpdateSiteRackPhysicalProperties
       def self.default(visited=[])
         {
-          site: Stubs::Site.default(visited),
+          site: Site.default(visited),
         }
       end
 

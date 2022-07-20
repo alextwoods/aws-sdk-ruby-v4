@@ -730,11 +730,11 @@ module AWS::SDK::LookoutVision
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_anomalous ||= false
       end
-
     end
 
     # <p>Configuration information for the AWS IoT Greengrass component created in a model packaging job.
@@ -915,11 +915,11 @@ module AWS::SDK::LookoutVision
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.retry_after_seconds ||= 0
       end
-
     end
 
     # @!attribute project_name
@@ -2180,11 +2180,11 @@ module AWS::SDK::LookoutVision
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.retry_after_seconds ||= 0
       end
-
     end
 
     # @!attribute resource_arn

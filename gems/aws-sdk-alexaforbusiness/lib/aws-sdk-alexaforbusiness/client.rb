@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::AlexaForBusiness
@@ -65,7 +67,7 @@ module AWS::SDK::AlexaForBusiness
     def approve_skill(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ApproveSkillInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ApproveSkillInput,
         validate_input: @config.validate_input
@@ -137,7 +139,7 @@ module AWS::SDK::AlexaForBusiness
     def associate_contact_with_address_book(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateContactWithAddressBookInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateContactWithAddressBookInput,
         validate_input: @config.validate_input
@@ -209,7 +211,7 @@ module AWS::SDK::AlexaForBusiness
     def associate_device_with_network_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateDeviceWithNetworkProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateDeviceWithNetworkProfileInput,
         validate_input: @config.validate_input
@@ -283,7 +285,7 @@ module AWS::SDK::AlexaForBusiness
     def associate_device_with_room(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateDeviceWithRoomInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateDeviceWithRoomInput,
         validate_input: @config.validate_input
@@ -356,7 +358,7 @@ module AWS::SDK::AlexaForBusiness
     def associate_skill_group_with_room(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateSkillGroupWithRoomInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateSkillGroupWithRoomInput,
         validate_input: @config.validate_input
@@ -428,7 +430,7 @@ module AWS::SDK::AlexaForBusiness
     def associate_skill_with_skill_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateSkillWithSkillGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateSkillWithSkillGroupInput,
         validate_input: @config.validate_input
@@ -496,7 +498,7 @@ module AWS::SDK::AlexaForBusiness
     def associate_skill_with_users(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateSkillWithUsersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateSkillWithUsersInput,
         validate_input: @config.validate_input
@@ -583,7 +585,7 @@ module AWS::SDK::AlexaForBusiness
     def create_address_book(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAddressBookInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAddressBookInput,
         validate_input: @config.validate_input
@@ -693,7 +695,7 @@ module AWS::SDK::AlexaForBusiness
     def create_business_report_schedule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBusinessReportScheduleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBusinessReportScheduleInput,
         validate_input: @config.validate_input
@@ -801,7 +803,7 @@ module AWS::SDK::AlexaForBusiness
     def create_conference_provider(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateConferenceProviderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateConferenceProviderInput,
         validate_input: @config.validate_input
@@ -918,7 +920,7 @@ module AWS::SDK::AlexaForBusiness
     def create_contact(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateContactInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateContactInput,
         validate_input: @config.validate_input
@@ -1004,7 +1006,7 @@ module AWS::SDK::AlexaForBusiness
     def create_gateway_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateGatewayGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateGatewayGroupInput,
         validate_input: @config.validate_input
@@ -1126,7 +1128,7 @@ module AWS::SDK::AlexaForBusiness
     def create_network_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateNetworkProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateNetworkProfileInput,
         validate_input: @config.validate_input
@@ -1269,7 +1271,7 @@ module AWS::SDK::AlexaForBusiness
     def create_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateProfileInput,
         validate_input: @config.validate_input
@@ -1364,7 +1366,7 @@ module AWS::SDK::AlexaForBusiness
     def create_room(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRoomInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRoomInput,
         validate_input: @config.validate_input
@@ -1451,7 +1453,7 @@ module AWS::SDK::AlexaForBusiness
     def create_skill_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSkillGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSkillGroupInput,
         validate_input: @config.validate_input
@@ -1546,7 +1548,7 @@ module AWS::SDK::AlexaForBusiness
     def create_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateUserInput,
         validate_input: @config.validate_input
@@ -1614,7 +1616,7 @@ module AWS::SDK::AlexaForBusiness
     def delete_address_book(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAddressBookInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAddressBookInput,
         validate_input: @config.validate_input
@@ -1683,7 +1685,7 @@ module AWS::SDK::AlexaForBusiness
     def delete_business_report_schedule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBusinessReportScheduleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBusinessReportScheduleInput,
         validate_input: @config.validate_input
@@ -1751,7 +1753,7 @@ module AWS::SDK::AlexaForBusiness
     def delete_conference_provider(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteConferenceProviderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteConferenceProviderInput,
         validate_input: @config.validate_input
@@ -1819,7 +1821,7 @@ module AWS::SDK::AlexaForBusiness
     def delete_contact(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteContactInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteContactInput,
         validate_input: @config.validate_input
@@ -1887,7 +1889,7 @@ module AWS::SDK::AlexaForBusiness
     def delete_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDeviceInput,
         validate_input: @config.validate_input
@@ -1961,7 +1963,7 @@ module AWS::SDK::AlexaForBusiness
     def delete_device_usage_data(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDeviceUsageDataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDeviceUsageDataInput,
         validate_input: @config.validate_input
@@ -2029,7 +2031,7 @@ module AWS::SDK::AlexaForBusiness
     def delete_gateway_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteGatewayGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteGatewayGroupInput,
         validate_input: @config.validate_input
@@ -2097,7 +2099,7 @@ module AWS::SDK::AlexaForBusiness
     def delete_network_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteNetworkProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteNetworkProfileInput,
         validate_input: @config.validate_input
@@ -2165,7 +2167,7 @@ module AWS::SDK::AlexaForBusiness
     def delete_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteProfileInput,
         validate_input: @config.validate_input
@@ -2233,7 +2235,7 @@ module AWS::SDK::AlexaForBusiness
     def delete_room(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRoomInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRoomInput,
         validate_input: @config.validate_input
@@ -2309,7 +2311,7 @@ module AWS::SDK::AlexaForBusiness
     def delete_room_skill_parameter(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRoomSkillParameterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRoomSkillParameterInput,
         validate_input: @config.validate_input
@@ -2381,7 +2383,7 @@ module AWS::SDK::AlexaForBusiness
     def delete_skill_authorization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSkillAuthorizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSkillAuthorizationInput,
         validate_input: @config.validate_input
@@ -2449,7 +2451,7 @@ module AWS::SDK::AlexaForBusiness
     def delete_skill_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSkillGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSkillGroupInput,
         validate_input: @config.validate_input
@@ -2521,7 +2523,7 @@ module AWS::SDK::AlexaForBusiness
     def delete_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteUserInput,
         validate_input: @config.validate_input
@@ -2593,7 +2595,7 @@ module AWS::SDK::AlexaForBusiness
     def disassociate_contact_from_address_book(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateContactFromAddressBookInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateContactFromAddressBookInput,
         validate_input: @config.validate_input
@@ -2663,7 +2665,7 @@ module AWS::SDK::AlexaForBusiness
     def disassociate_device_from_room(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateDeviceFromRoomInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateDeviceFromRoomInput,
         validate_input: @config.validate_input
@@ -2735,7 +2737,7 @@ module AWS::SDK::AlexaForBusiness
     def disassociate_skill_from_skill_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateSkillFromSkillGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateSkillFromSkillGroupInput,
         validate_input: @config.validate_input
@@ -2804,7 +2806,7 @@ module AWS::SDK::AlexaForBusiness
     def disassociate_skill_from_users(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateSkillFromUsersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateSkillFromUsersInput,
         validate_input: @config.validate_input
@@ -2878,7 +2880,7 @@ module AWS::SDK::AlexaForBusiness
     def disassociate_skill_group_from_room(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateSkillGroupFromRoomInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateSkillGroupFromRoomInput,
         validate_input: @config.validate_input
@@ -2946,7 +2948,7 @@ module AWS::SDK::AlexaForBusiness
     def forget_smart_home_appliances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ForgetSmartHomeAppliancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ForgetSmartHomeAppliancesInput,
         validate_input: @config.validate_input
@@ -3018,7 +3020,7 @@ module AWS::SDK::AlexaForBusiness
     def get_address_book(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAddressBookInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAddressBookInput,
         validate_input: @config.validate_input
@@ -3083,7 +3085,7 @@ module AWS::SDK::AlexaForBusiness
     def get_conference_preference(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetConferencePreferenceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetConferencePreferenceInput,
         validate_input: @config.validate_input
@@ -3165,7 +3167,7 @@ module AWS::SDK::AlexaForBusiness
     def get_conference_provider(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetConferenceProviderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetConferenceProviderInput,
         validate_input: @config.validate_input
@@ -3247,7 +3249,7 @@ module AWS::SDK::AlexaForBusiness
     def get_contact(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetContactInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetContactInput,
         validate_input: @config.validate_input
@@ -3335,7 +3337,7 @@ module AWS::SDK::AlexaForBusiness
     def get_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDeviceInput,
         validate_input: @config.validate_input
@@ -3409,7 +3411,7 @@ module AWS::SDK::AlexaForBusiness
     def get_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetGatewayInput,
         validate_input: @config.validate_input
@@ -3481,7 +3483,7 @@ module AWS::SDK::AlexaForBusiness
     def get_gateway_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetGatewayGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetGatewayGroupInput,
         validate_input: @config.validate_input
@@ -3549,7 +3551,7 @@ module AWS::SDK::AlexaForBusiness
     def get_invitation_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetInvitationConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetInvitationConfigurationInput,
         validate_input: @config.validate_input
@@ -3629,7 +3631,7 @@ module AWS::SDK::AlexaForBusiness
     def get_network_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetNetworkProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetNetworkProfileInput,
         validate_input: @config.validate_input
@@ -3725,7 +3727,7 @@ module AWS::SDK::AlexaForBusiness
     def get_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetProfileInput,
         validate_input: @config.validate_input
@@ -3799,7 +3801,7 @@ module AWS::SDK::AlexaForBusiness
     def get_room(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRoomInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRoomInput,
         validate_input: @config.validate_input
@@ -3879,7 +3881,7 @@ module AWS::SDK::AlexaForBusiness
     def get_room_skill_parameter(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRoomSkillParameterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRoomSkillParameterInput,
         validate_input: @config.validate_input
@@ -3951,7 +3953,7 @@ module AWS::SDK::AlexaForBusiness
     def get_skill_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSkillGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSkillGroupInput,
         validate_input: @config.validate_input
@@ -4043,7 +4045,7 @@ module AWS::SDK::AlexaForBusiness
     def list_business_report_schedules(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBusinessReportSchedulesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBusinessReportSchedulesInput,
         validate_input: @config.validate_input
@@ -4132,7 +4134,7 @@ module AWS::SDK::AlexaForBusiness
     def list_conference_providers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListConferenceProvidersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListConferenceProvidersInput,
         validate_input: @config.validate_input
@@ -4227,7 +4229,7 @@ module AWS::SDK::AlexaForBusiness
     def list_device_events(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDeviceEventsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDeviceEventsInput,
         validate_input: @config.validate_input
@@ -4306,7 +4308,7 @@ module AWS::SDK::AlexaForBusiness
     def list_gateway_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListGatewayGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListGatewayGroupsInput,
         validate_input: @config.validate_input
@@ -4392,7 +4394,7 @@ module AWS::SDK::AlexaForBusiness
     def list_gateways(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListGatewaysInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListGatewaysInput,
         validate_input: @config.validate_input
@@ -4488,7 +4490,7 @@ module AWS::SDK::AlexaForBusiness
     def list_skills(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSkillsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSkillsInput,
         validate_input: @config.validate_input
@@ -4565,7 +4567,7 @@ module AWS::SDK::AlexaForBusiness
     def list_skills_store_categories(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSkillsStoreCategoriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSkillsStoreCategoriesInput,
         validate_input: @config.validate_input
@@ -4672,7 +4674,7 @@ module AWS::SDK::AlexaForBusiness
     def list_skills_store_skills_by_category(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSkillsStoreSkillsByCategoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSkillsStoreSkillsByCategoryInput,
         validate_input: @config.validate_input
@@ -4754,7 +4756,7 @@ module AWS::SDK::AlexaForBusiness
     def list_smart_home_appliances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSmartHomeAppliancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSmartHomeAppliancesInput,
         validate_input: @config.validate_input
@@ -4839,7 +4841,7 @@ module AWS::SDK::AlexaForBusiness
     def list_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsInput,
         validate_input: @config.validate_input
@@ -4910,7 +4912,7 @@ module AWS::SDK::AlexaForBusiness
     def put_conference_preference(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutConferencePreferenceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutConferencePreferenceInput,
         validate_input: @config.validate_input
@@ -4991,7 +4993,7 @@ module AWS::SDK::AlexaForBusiness
     def put_invitation_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutInvitationConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutInvitationConfigurationInput,
         validate_input: @config.validate_input
@@ -5071,7 +5073,7 @@ module AWS::SDK::AlexaForBusiness
     def put_room_skill_parameter(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutRoomSkillParameterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutRoomSkillParameterInput,
         validate_input: @config.validate_input
@@ -5152,7 +5154,7 @@ module AWS::SDK::AlexaForBusiness
     def put_skill_authorization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutSkillAuthorizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutSkillAuthorizationInput,
         validate_input: @config.validate_input
@@ -5256,7 +5258,7 @@ module AWS::SDK::AlexaForBusiness
     def register_avs_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterAVSDeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterAVSDeviceInput,
         validate_input: @config.validate_input
@@ -5326,7 +5328,7 @@ module AWS::SDK::AlexaForBusiness
     def reject_skill(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RejectSkillInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RejectSkillInput,
         validate_input: @config.validate_input
@@ -5410,7 +5412,7 @@ module AWS::SDK::AlexaForBusiness
     def resolve_room(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResolveRoomInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResolveRoomInput,
         validate_input: @config.validate_input
@@ -5482,7 +5484,7 @@ module AWS::SDK::AlexaForBusiness
     def revoke_invitation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RevokeInvitationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RevokeInvitationInput,
         validate_input: @config.validate_input
@@ -5588,7 +5590,7 @@ module AWS::SDK::AlexaForBusiness
     def search_address_books(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchAddressBooksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchAddressBooksInput,
         validate_input: @config.validate_input
@@ -5704,7 +5706,7 @@ module AWS::SDK::AlexaForBusiness
     def search_contacts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchContactsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchContactsInput,
         validate_input: @config.validate_input
@@ -5828,7 +5830,7 @@ module AWS::SDK::AlexaForBusiness
     def search_devices(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchDevicesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchDevicesInput,
         validate_input: @config.validate_input
@@ -5938,7 +5940,7 @@ module AWS::SDK::AlexaForBusiness
     def search_network_profiles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchNetworkProfilesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchNetworkProfilesInput,
         validate_input: @config.validate_input
@@ -6050,7 +6052,7 @@ module AWS::SDK::AlexaForBusiness
     def search_profiles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchProfilesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchProfilesInput,
         validate_input: @config.validate_input
@@ -6159,7 +6161,7 @@ module AWS::SDK::AlexaForBusiness
     def search_rooms(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchRoomsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchRoomsInput,
         validate_input: @config.validate_input
@@ -6266,7 +6268,7 @@ module AWS::SDK::AlexaForBusiness
     def search_skill_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchSkillGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchSkillGroupsInput,
         validate_input: @config.validate_input
@@ -6376,7 +6378,7 @@ module AWS::SDK::AlexaForBusiness
     def search_users(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchUsersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchUsersInput,
         validate_input: @config.validate_input
@@ -6485,7 +6487,7 @@ module AWS::SDK::AlexaForBusiness
     def send_announcement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendAnnouncementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendAnnouncementInput,
         validate_input: @config.validate_input
@@ -6554,7 +6556,7 @@ module AWS::SDK::AlexaForBusiness
     def send_invitation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendInvitationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendInvitationInput,
         validate_input: @config.validate_input
@@ -6653,7 +6655,7 @@ module AWS::SDK::AlexaForBusiness
     def start_device_sync(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartDeviceSyncInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartDeviceSyncInput,
         validate_input: @config.validate_input
@@ -6722,7 +6724,7 @@ module AWS::SDK::AlexaForBusiness
     def start_smart_home_appliance_discovery(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartSmartHomeApplianceDiscoveryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartSmartHomeApplianceDiscoveryInput,
         validate_input: @config.validate_input
@@ -6800,7 +6802,7 @@ module AWS::SDK::AlexaForBusiness
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -6875,7 +6877,7 @@ module AWS::SDK::AlexaForBusiness
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -6951,7 +6953,7 @@ module AWS::SDK::AlexaForBusiness
     def update_address_book(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAddressBookInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAddressBookInput,
         validate_input: @config.validate_input
@@ -7043,7 +7045,7 @@ module AWS::SDK::AlexaForBusiness
     def update_business_report_schedule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateBusinessReportScheduleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateBusinessReportScheduleInput,
         validate_input: @config.validate_input
@@ -7137,7 +7139,7 @@ module AWS::SDK::AlexaForBusiness
     def update_conference_provider(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateConferenceProviderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateConferenceProviderInput,
         validate_input: @config.validate_input
@@ -7241,7 +7243,7 @@ module AWS::SDK::AlexaForBusiness
     def update_contact(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateContactInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateContactInput,
         validate_input: @config.validate_input
@@ -7313,7 +7315,7 @@ module AWS::SDK::AlexaForBusiness
     def update_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDeviceInput,
         validate_input: @config.validate_input
@@ -7395,7 +7397,7 @@ module AWS::SDK::AlexaForBusiness
     def update_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGatewayInput,
         validate_input: @config.validate_input
@@ -7472,7 +7474,7 @@ module AWS::SDK::AlexaForBusiness
     def update_gateway_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGatewayGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGatewayGroupInput,
         validate_input: @config.validate_input
@@ -7570,7 +7572,7 @@ module AWS::SDK::AlexaForBusiness
     def update_network_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateNetworkProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateNetworkProfileInput,
         validate_input: @config.validate_input
@@ -7708,7 +7710,7 @@ module AWS::SDK::AlexaForBusiness
     def update_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateProfileInput,
         validate_input: @config.validate_input
@@ -7792,7 +7794,7 @@ module AWS::SDK::AlexaForBusiness
     def update_room(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRoomInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRoomInput,
         validate_input: @config.validate_input
@@ -7868,7 +7870,7 @@ module AWS::SDK::AlexaForBusiness
     def update_skill_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSkillGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSkillGroupInput,
         validate_input: @config.validate_input

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::ComprehendMedical
@@ -80,7 +82,7 @@ module AWS::SDK::ComprehendMedical
     def describe_entities_detection_v2_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEntitiesDetectionV2JobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEntitiesDetectionV2JobInput,
         validate_input: @config.validate_input
@@ -169,7 +171,7 @@ module AWS::SDK::ComprehendMedical
     def describe_icd10_cm_inference_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeICD10CMInferenceJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeICD10CMInferenceJobInput,
         validate_input: @config.validate_input
@@ -258,7 +260,7 @@ module AWS::SDK::ComprehendMedical
     def describe_phi_detection_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePHIDetectionJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePHIDetectionJobInput,
         validate_input: @config.validate_input
@@ -347,7 +349,7 @@ module AWS::SDK::ComprehendMedical
     def describe_rx_norm_inference_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRxNormInferenceJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRxNormInferenceJobInput,
         validate_input: @config.validate_input
@@ -438,7 +440,7 @@ module AWS::SDK::ComprehendMedical
     def describe_snomedct_inference_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSNOMEDCTInferenceJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSNOMEDCTInferenceJobInput,
         validate_input: @config.validate_input
@@ -544,7 +546,7 @@ module AWS::SDK::ComprehendMedical
     def detect_entities(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetectEntitiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetectEntitiesInput,
         validate_input: @config.validate_input
@@ -653,7 +655,7 @@ module AWS::SDK::ComprehendMedical
     def detect_entities_v2(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetectEntitiesV2Input.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetectEntitiesV2Input,
         validate_input: @config.validate_input
@@ -751,7 +753,7 @@ module AWS::SDK::ComprehendMedical
     def detect_phi(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetectPHIInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetectPHIInput,
         validate_input: @config.validate_input
@@ -855,7 +857,7 @@ module AWS::SDK::ComprehendMedical
     def infer_icd10_cm(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::InferICD10CMInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::InferICD10CMInput,
         validate_input: @config.validate_input
@@ -956,7 +958,7 @@ module AWS::SDK::ComprehendMedical
     def infer_rx_norm(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::InferRxNormInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::InferRxNormInput,
         validate_input: @config.validate_input
@@ -1066,7 +1068,7 @@ module AWS::SDK::ComprehendMedical
     def infer_snomedct(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::InferSNOMEDCTInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::InferSNOMEDCTInput,
         validate_input: @config.validate_input
@@ -1169,7 +1171,7 @@ module AWS::SDK::ComprehendMedical
     def list_entities_detection_v2_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEntitiesDetectionV2JobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEntitiesDetectionV2JobsInput,
         validate_input: @config.validate_input
@@ -1272,7 +1274,7 @@ module AWS::SDK::ComprehendMedical
     def list_icd10_cm_inference_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListICD10CMInferenceJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListICD10CMInferenceJobsInput,
         validate_input: @config.validate_input
@@ -1376,7 +1378,7 @@ module AWS::SDK::ComprehendMedical
     def list_phi_detection_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPHIDetectionJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPHIDetectionJobsInput,
         validate_input: @config.validate_input
@@ -1479,7 +1481,7 @@ module AWS::SDK::ComprehendMedical
     def list_rx_norm_inference_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRxNormInferenceJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRxNormInferenceJobsInput,
         validate_input: @config.validate_input
@@ -1587,7 +1589,7 @@ module AWS::SDK::ComprehendMedical
     def list_snomedct_inference_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSNOMEDCTInferenceJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSNOMEDCTInferenceJobsInput,
         validate_input: @config.validate_input
@@ -1690,7 +1692,7 @@ module AWS::SDK::ComprehendMedical
     def start_entities_detection_v2_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartEntitiesDetectionV2JobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartEntitiesDetectionV2JobInput,
         validate_input: @config.validate_input
@@ -1794,7 +1796,7 @@ module AWS::SDK::ComprehendMedical
     def start_icd10_cm_inference_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartICD10CMInferenceJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartICD10CMInferenceJobInput,
         validate_input: @config.validate_input
@@ -1897,7 +1899,7 @@ module AWS::SDK::ComprehendMedical
     def start_phi_detection_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartPHIDetectionJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartPHIDetectionJobInput,
         validate_input: @config.validate_input
@@ -2001,7 +2003,7 @@ module AWS::SDK::ComprehendMedical
     def start_rx_norm_inference_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartRxNormInferenceJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartRxNormInferenceJobInput,
         validate_input: @config.validate_input
@@ -2113,7 +2115,7 @@ module AWS::SDK::ComprehendMedical
     def start_snomedct_inference_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartSNOMEDCTInferenceJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartSNOMEDCTInferenceJobInput,
         validate_input: @config.validate_input
@@ -2182,7 +2184,7 @@ module AWS::SDK::ComprehendMedical
     def stop_entities_detection_v2_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopEntitiesDetectionV2JobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopEntitiesDetectionV2JobInput,
         validate_input: @config.validate_input
@@ -2251,7 +2253,7 @@ module AWS::SDK::ComprehendMedical
     def stop_icd10_cm_inference_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopICD10CMInferenceJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopICD10CMInferenceJobInput,
         validate_input: @config.validate_input
@@ -2320,7 +2322,7 @@ module AWS::SDK::ComprehendMedical
     def stop_phi_detection_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopPHIDetectionJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopPHIDetectionJobInput,
         validate_input: @config.validate_input
@@ -2389,7 +2391,7 @@ module AWS::SDK::ComprehendMedical
     def stop_rx_norm_inference_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopRxNormInferenceJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopRxNormInferenceJobInput,
         validate_input: @config.validate_input
@@ -2462,7 +2464,7 @@ module AWS::SDK::ComprehendMedical
     def stop_snomedct_inference_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopSNOMEDCTInferenceJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopSNOMEDCTInferenceJobInput,
         validate_input: @config.validate_input

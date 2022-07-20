@@ -110,7 +110,7 @@ module AWS::SDK::CostExplorer
     class DescribeCostCategoryDefinition
       def self.default(visited=[])
         {
-          cost_category: Stubs::CostCategory.default(visited),
+          cost_category: CostCategory.default(visited),
         }
       end
 
@@ -133,9 +133,9 @@ module AWS::SDK::CostExplorer
           effective_end: 'effective_end',
           name: 'name',
           rule_version: 'rule_version',
-          rules: Stubs::CostCategoryRulesList.default(visited),
-          split_charge_rules: Stubs::CostCategorySplitChargeRulesList.default(visited),
-          processing_status: Stubs::CostCategoryProcessingStatusList.default(visited),
+          rules: CostCategoryRulesList.default(visited),
+          split_charge_rules: CostCategorySplitChargeRulesList.default(visited),
+          processing_status: CostCategoryProcessingStatusList.default(visited),
           default_value: 'default_value',
         }
       end
@@ -162,7 +162,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('CostCategoryProcessingStatusList')
         visited = visited + ['CostCategoryProcessingStatusList']
         [
-          Stubs::CostCategoryProcessingStatus.default(visited)
+          CostCategoryProcessingStatus.default(visited)
         ]
       end
 
@@ -202,7 +202,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('CostCategorySplitChargeRulesList')
         visited = visited + ['CostCategorySplitChargeRulesList']
         [
-          Stubs::CostCategorySplitChargeRule.default(visited)
+          CostCategorySplitChargeRule.default(visited)
         ]
       end
 
@@ -223,9 +223,9 @@ module AWS::SDK::CostExplorer
         visited = visited + ['CostCategorySplitChargeRule']
         {
           source: 'source',
-          targets: Stubs::CostCategorySplitChargeRuleTargetsList.default(visited),
+          targets: CostCategorySplitChargeRuleTargetsList.default(visited),
           member_method: 'member_method',
-          parameters: Stubs::CostCategorySplitChargeRuleParametersList.default(visited),
+          parameters: CostCategorySplitChargeRuleParametersList.default(visited),
         }
       end
 
@@ -246,7 +246,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('CostCategorySplitChargeRuleParametersList')
         visited = visited + ['CostCategorySplitChargeRuleParametersList']
         [
-          Stubs::CostCategorySplitChargeRuleParameter.default(visited)
+          CostCategorySplitChargeRuleParameter.default(visited)
         ]
       end
 
@@ -267,7 +267,7 @@ module AWS::SDK::CostExplorer
         visited = visited + ['CostCategorySplitChargeRuleParameter']
         {
           type: 'type',
-          values: Stubs::CostCategorySplitChargeRuleParameterValuesList.default(visited),
+          values: CostCategorySplitChargeRuleParameterValuesList.default(visited),
         }
       end
 
@@ -326,7 +326,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('CostCategoryRulesList')
         visited = visited + ['CostCategoryRulesList']
         [
-          Stubs::CostCategoryRule.default(visited)
+          CostCategoryRule.default(visited)
         ]
       end
 
@@ -347,8 +347,8 @@ module AWS::SDK::CostExplorer
         visited = visited + ['CostCategoryRule']
         {
           value: 'value',
-          rule: Stubs::Expression.default(visited),
-          inherited_value: Stubs::CostCategoryInheritedValueDimension.default(visited),
+          rule: Expression.default(visited),
+          inherited_value: CostCategoryInheritedValueDimension.default(visited),
           type: 'type',
         }
       end
@@ -390,12 +390,12 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('Expression')
         visited = visited + ['Expression']
         {
-          or: Stubs::Expressions.default(visited),
-          and: Stubs::Expressions.default(visited),
-          not: Stubs::Expression.default(visited),
-          dimensions: Stubs::DimensionValues.default(visited),
-          tags: Stubs::TagValues.default(visited),
-          cost_categories: Stubs::CostCategoryValues.default(visited),
+          or: Expressions.default(visited),
+          and: Expressions.default(visited),
+          not: Expression.default(visited),
+          dimensions: DimensionValues.default(visited),
+          tags: TagValues.default(visited),
+          cost_categories: CostCategoryValues.default(visited),
         }
       end
 
@@ -419,8 +419,8 @@ module AWS::SDK::CostExplorer
         visited = visited + ['CostCategoryValues']
         {
           key: 'key',
-          values: Stubs::Values.default(visited),
-          match_options: Stubs::MatchOptions.default(visited),
+          values: Values.default(visited),
+          match_options: MatchOptions.default(visited),
         }
       end
 
@@ -481,8 +481,8 @@ module AWS::SDK::CostExplorer
         visited = visited + ['TagValues']
         {
           key: 'key',
-          values: Stubs::Values.default(visited),
-          match_options: Stubs::MatchOptions.default(visited),
+          values: Values.default(visited),
+          match_options: MatchOptions.default(visited),
         }
       end
 
@@ -503,8 +503,8 @@ module AWS::SDK::CostExplorer
         visited = visited + ['DimensionValues']
         {
           key: 'key',
-          values: Stubs::Values.default(visited),
-          match_options: Stubs::MatchOptions.default(visited),
+          values: Values.default(visited),
+          match_options: MatchOptions.default(visited),
         }
       end
 
@@ -524,7 +524,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('Expressions')
         visited = visited + ['Expressions']
         [
-          Stubs::Expression.default(visited)
+          Expression.default(visited)
         ]
       end
 
@@ -542,7 +542,7 @@ module AWS::SDK::CostExplorer
     class GetAnomalies
       def self.default(visited=[])
         {
-          anomalies: Stubs::Anomalies.default(visited),
+          anomalies: Anomalies.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -562,7 +562,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('Anomalies')
         visited = visited + ['Anomalies']
         [
-          Stubs::Anomaly.default(visited)
+          Anomaly.default(visited)
         ]
       end
 
@@ -586,9 +586,9 @@ module AWS::SDK::CostExplorer
           anomaly_start_date: 'anomaly_start_date',
           anomaly_end_date: 'anomaly_end_date',
           dimension_value: 'dimension_value',
-          root_causes: Stubs::RootCauses.default(visited),
-          anomaly_score: Stubs::AnomalyScore.default(visited),
-          impact: Stubs::Impact.default(visited),
+          root_causes: RootCauses.default(visited),
+          anomaly_score: AnomalyScore.default(visited),
+          impact: Impact.default(visited),
           monitor_arn: 'monitor_arn',
           feedback: 'feedback',
         }
@@ -656,7 +656,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('RootCauses')
         visited = visited + ['RootCauses']
         [
-          Stubs::RootCause.default(visited)
+          RootCause.default(visited)
         ]
       end
 
@@ -698,7 +698,7 @@ module AWS::SDK::CostExplorer
     class GetAnomalyMonitors
       def self.default(visited=[])
         {
-          anomaly_monitors: Stubs::AnomalyMonitors.default(visited),
+          anomaly_monitors: AnomalyMonitors.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -718,7 +718,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('AnomalyMonitors')
         visited = visited + ['AnomalyMonitors']
         [
-          Stubs::AnomalyMonitor.default(visited)
+          AnomalyMonitor.default(visited)
         ]
       end
 
@@ -745,7 +745,7 @@ module AWS::SDK::CostExplorer
           last_evaluated_date: 'last_evaluated_date',
           monitor_type: 'monitor_type',
           monitor_dimension: 'monitor_dimension',
-          monitor_specification: Stubs::Expression.default(visited),
+          monitor_specification: Expression.default(visited),
           dimensional_value_count: 1,
         }
       end
@@ -770,7 +770,7 @@ module AWS::SDK::CostExplorer
     class GetAnomalySubscriptions
       def self.default(visited=[])
         {
-          anomaly_subscriptions: Stubs::AnomalySubscriptions.default(visited),
+          anomaly_subscriptions: AnomalySubscriptions.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -790,7 +790,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('AnomalySubscriptions')
         visited = visited + ['AnomalySubscriptions']
         [
-          Stubs::AnomalySubscription.default(visited)
+          AnomalySubscription.default(visited)
         ]
       end
 
@@ -812,8 +812,8 @@ module AWS::SDK::CostExplorer
         {
           subscription_arn: 'subscription_arn',
           account_id: 'account_id',
-          monitor_arn_list: Stubs::MonitorArnList.default(visited),
-          subscribers: Stubs::Subscribers.default(visited),
+          monitor_arn_list: MonitorArnList.default(visited),
+          subscribers: Subscribers.default(visited),
           threshold: 1.0,
           frequency: 'frequency',
           subscription_name: 'subscription_name',
@@ -840,7 +840,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('Subscribers')
         visited = visited + ['Subscribers']
         [
-          Stubs::Subscriber.default(visited)
+          Subscriber.default(visited)
         ]
       end
 
@@ -901,9 +901,9 @@ module AWS::SDK::CostExplorer
       def self.default(visited=[])
         {
           next_page_token: 'next_page_token',
-          group_definitions: Stubs::GroupDefinitions.default(visited),
-          results_by_time: Stubs::ResultsByTime.default(visited),
-          dimension_value_attributes: Stubs::DimensionValuesWithAttributesList.default(visited),
+          group_definitions: GroupDefinitions.default(visited),
+          results_by_time: ResultsByTime.default(visited),
+          dimension_value_attributes: DimensionValuesWithAttributesList.default(visited),
         }
       end
 
@@ -924,7 +924,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('DimensionValuesWithAttributesList')
         visited = visited + ['DimensionValuesWithAttributesList']
         [
-          Stubs::DimensionValuesWithAttributes.default(visited)
+          DimensionValuesWithAttributes.default(visited)
         ]
       end
 
@@ -945,7 +945,7 @@ module AWS::SDK::CostExplorer
         visited = visited + ['DimensionValuesWithAttributes']
         {
           value: 'value',
-          attributes: Stubs::Attributes.default(visited),
+          attributes: Attributes.default(visited),
         }
       end
 
@@ -984,7 +984,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('ResultsByTime')
         visited = visited + ['ResultsByTime']
         [
-          Stubs::ResultByTime.default(visited)
+          ResultByTime.default(visited)
         ]
       end
 
@@ -1004,9 +1004,9 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('ResultByTime')
         visited = visited + ['ResultByTime']
         {
-          time_period: Stubs::DateInterval.default(visited),
-          total: Stubs::Metrics.default(visited),
-          groups: Stubs::Groups.default(visited),
+          time_period: DateInterval.default(visited),
+          total: Metrics.default(visited),
+          groups: Groups.default(visited),
           estimated: false,
         }
       end
@@ -1028,7 +1028,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('Groups')
         visited = visited + ['Groups']
         [
-          Stubs::Group.default(visited)
+          Group.default(visited)
         ]
       end
 
@@ -1048,8 +1048,8 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('Group')
         visited = visited + ['Group']
         {
-          keys: Stubs::Keys.default(visited),
-          metrics: Stubs::Metrics.default(visited),
+          keys: Keys.default(visited),
+          metrics: Metrics.default(visited),
         }
       end
 
@@ -1068,7 +1068,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('Metrics')
         visited = visited + ['Metrics']
         {
-          test_key: Stubs::MetricValue.default(visited)
+          test_key: MetricValue.default(visited)
         }
       end
 
@@ -1148,7 +1148,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('GroupDefinitions')
         visited = visited + ['GroupDefinitions']
         [
-          Stubs::GroupDefinition.default(visited)
+          GroupDefinition.default(visited)
         ]
       end
 
@@ -1187,9 +1187,9 @@ module AWS::SDK::CostExplorer
       def self.default(visited=[])
         {
           next_page_token: 'next_page_token',
-          group_definitions: Stubs::GroupDefinitions.default(visited),
-          results_by_time: Stubs::ResultsByTime.default(visited),
-          dimension_value_attributes: Stubs::DimensionValuesWithAttributesList.default(visited),
+          group_definitions: GroupDefinitions.default(visited),
+          results_by_time: ResultsByTime.default(visited),
+          dimension_value_attributes: DimensionValuesWithAttributesList.default(visited),
         }
       end
 
@@ -1209,8 +1209,8 @@ module AWS::SDK::CostExplorer
       def self.default(visited=[])
         {
           next_page_token: 'next_page_token',
-          cost_category_names: Stubs::CostCategoryNamesList.default(visited),
-          cost_category_values: Stubs::CostCategoryValuesList.default(visited),
+          cost_category_names: CostCategoryNamesList.default(visited),
+          cost_category_values: CostCategoryValuesList.default(visited),
           return_size: 1,
           total_size: 1,
         }
@@ -1272,8 +1272,8 @@ module AWS::SDK::CostExplorer
     class GetCostForecast
       def self.default(visited=[])
         {
-          total: Stubs::MetricValue.default(visited),
-          forecast_results_by_time: Stubs::ForecastResultsByTime.default(visited),
+          total: MetricValue.default(visited),
+          forecast_results_by_time: ForecastResultsByTime.default(visited),
         }
       end
 
@@ -1292,7 +1292,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('ForecastResultsByTime')
         visited = visited + ['ForecastResultsByTime']
         [
-          Stubs::ForecastResult.default(visited)
+          ForecastResult.default(visited)
         ]
       end
 
@@ -1312,7 +1312,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('ForecastResult')
         visited = visited + ['ForecastResult']
         {
-          time_period: Stubs::DateInterval.default(visited),
+          time_period: DateInterval.default(visited),
           mean_value: 'mean_value',
           prediction_interval_lower_bound: 'prediction_interval_lower_bound',
           prediction_interval_upper_bound: 'prediction_interval_upper_bound',
@@ -1334,7 +1334,7 @@ module AWS::SDK::CostExplorer
     class GetDimensionValues
       def self.default(visited=[])
         {
-          dimension_values: Stubs::DimensionValuesWithAttributesList.default(visited),
+          dimension_values: DimensionValuesWithAttributesList.default(visited),
           return_size: 1,
           total_size: 1,
           next_page_token: 'next_page_token',
@@ -1356,8 +1356,8 @@ module AWS::SDK::CostExplorer
     class GetReservationCoverage
       def self.default(visited=[])
         {
-          coverages_by_time: Stubs::CoveragesByTime.default(visited),
-          total: Stubs::Coverage.default(visited),
+          coverages_by_time: CoveragesByTime.default(visited),
+          total: Coverage.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -1378,9 +1378,9 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('Coverage')
         visited = visited + ['Coverage']
         {
-          coverage_hours: Stubs::CoverageHours.default(visited),
-          coverage_normalized_units: Stubs::CoverageNormalizedUnits.default(visited),
-          coverage_cost: Stubs::CoverageCost.default(visited),
+          coverage_hours: CoverageHours.default(visited),
+          coverage_normalized_units: CoverageNormalizedUnits.default(visited),
+          coverage_cost: CoverageCost.default(visited),
         }
       end
 
@@ -1466,7 +1466,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('CoveragesByTime')
         visited = visited + ['CoveragesByTime']
         [
-          Stubs::CoverageByTime.default(visited)
+          CoverageByTime.default(visited)
         ]
       end
 
@@ -1486,9 +1486,9 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('CoverageByTime')
         visited = visited + ['CoverageByTime']
         {
-          time_period: Stubs::DateInterval.default(visited),
-          groups: Stubs::ReservationCoverageGroups.default(visited),
-          total: Stubs::Coverage.default(visited),
+          time_period: DateInterval.default(visited),
+          groups: ReservationCoverageGroups.default(visited),
+          total: Coverage.default(visited),
         }
       end
 
@@ -1508,7 +1508,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('ReservationCoverageGroups')
         visited = visited + ['ReservationCoverageGroups']
         [
-          Stubs::ReservationCoverageGroup.default(visited)
+          ReservationCoverageGroup.default(visited)
         ]
       end
 
@@ -1528,8 +1528,8 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('ReservationCoverageGroup')
         visited = visited + ['ReservationCoverageGroup']
         {
-          attributes: Stubs::Attributes.default(visited),
-          coverage: Stubs::Coverage.default(visited),
+          attributes: Attributes.default(visited),
+          coverage: Coverage.default(visited),
         }
       end
 
@@ -1546,8 +1546,8 @@ module AWS::SDK::CostExplorer
     class GetReservationPurchaseRecommendation
       def self.default(visited=[])
         {
-          metadata: Stubs::ReservationPurchaseRecommendationMetadata.default(visited),
-          recommendations: Stubs::ReservationPurchaseRecommendations.default(visited),
+          metadata: ReservationPurchaseRecommendationMetadata.default(visited),
+          recommendations: ReservationPurchaseRecommendations.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -1568,7 +1568,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('ReservationPurchaseRecommendations')
         visited = visited + ['ReservationPurchaseRecommendations']
         [
-          Stubs::ReservationPurchaseRecommendation.default(visited)
+          ReservationPurchaseRecommendation.default(visited)
         ]
       end
 
@@ -1592,9 +1592,9 @@ module AWS::SDK::CostExplorer
           lookback_period_in_days: 'lookback_period_in_days',
           term_in_years: 'term_in_years',
           payment_option: 'payment_option',
-          service_specification: Stubs::ServiceSpecification.default(visited),
-          recommendation_details: Stubs::ReservationPurchaseRecommendationDetails.default(visited),
-          recommendation_summary: Stubs::ReservationPurchaseRecommendationSummary.default(visited),
+          service_specification: ServiceSpecification.default(visited),
+          recommendation_details: ReservationPurchaseRecommendationDetails.default(visited),
+          recommendation_summary: ReservationPurchaseRecommendationSummary.default(visited),
         }
       end
 
@@ -1640,7 +1640,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('ReservationPurchaseRecommendationDetails')
         visited = visited + ['ReservationPurchaseRecommendationDetails']
         [
-          Stubs::ReservationPurchaseRecommendationDetail.default(visited)
+          ReservationPurchaseRecommendationDetail.default(visited)
         ]
       end
 
@@ -1661,7 +1661,7 @@ module AWS::SDK::CostExplorer
         visited = visited + ['ReservationPurchaseRecommendationDetail']
         {
           account_id: 'account_id',
-          instance_details: Stubs::InstanceDetails.default(visited),
+          instance_details: InstanceDetails.default(visited),
           recommended_number_of_instances_to_purchase: 'recommended_number_of_instances_to_purchase',
           recommended_normalized_units_to_purchase: 'recommended_normalized_units_to_purchase',
           minimum_number_of_instances_used_per_hour: 'minimum_number_of_instances_used_per_hour',
@@ -1714,11 +1714,11 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('InstanceDetails')
         visited = visited + ['InstanceDetails']
         {
-          ec2_instance_details: Stubs::EC2InstanceDetails.default(visited),
-          rds_instance_details: Stubs::RDSInstanceDetails.default(visited),
-          redshift_instance_details: Stubs::RedshiftInstanceDetails.default(visited),
-          elasti_cache_instance_details: Stubs::ElastiCacheInstanceDetails.default(visited),
-          es_instance_details: Stubs::ESInstanceDetails.default(visited),
+          ec2_instance_details: EC2InstanceDetails.default(visited),
+          rds_instance_details: RDSInstanceDetails.default(visited),
+          redshift_instance_details: RedshiftInstanceDetails.default(visited),
+          elasti_cache_instance_details: ElastiCacheInstanceDetails.default(visited),
+          es_instance_details: ESInstanceDetails.default(visited),
         }
       end
 
@@ -1886,7 +1886,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('ServiceSpecification')
         visited = visited + ['ServiceSpecification']
         {
-          ec2_specification: Stubs::EC2Specification.default(visited),
+          ec2_specification: EC2Specification.default(visited),
         }
       end
 
@@ -1940,8 +1940,8 @@ module AWS::SDK::CostExplorer
     class GetReservationUtilization
       def self.default(visited=[])
         {
-          utilizations_by_time: Stubs::UtilizationsByTime.default(visited),
-          total: Stubs::ReservationAggregates.default(visited),
+          utilizations_by_time: UtilizationsByTime.default(visited),
+          total: ReservationAggregates.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -2012,7 +2012,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('UtilizationsByTime')
         visited = visited + ['UtilizationsByTime']
         [
-          Stubs::UtilizationByTime.default(visited)
+          UtilizationByTime.default(visited)
         ]
       end
 
@@ -2032,9 +2032,9 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('UtilizationByTime')
         visited = visited + ['UtilizationByTime']
         {
-          time_period: Stubs::DateInterval.default(visited),
-          groups: Stubs::ReservationUtilizationGroups.default(visited),
-          total: Stubs::ReservationAggregates.default(visited),
+          time_period: DateInterval.default(visited),
+          groups: ReservationUtilizationGroups.default(visited),
+          total: ReservationAggregates.default(visited),
         }
       end
 
@@ -2054,7 +2054,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('ReservationUtilizationGroups')
         visited = visited + ['ReservationUtilizationGroups']
         [
-          Stubs::ReservationUtilizationGroup.default(visited)
+          ReservationUtilizationGroup.default(visited)
         ]
       end
 
@@ -2076,8 +2076,8 @@ module AWS::SDK::CostExplorer
         {
           key: 'key',
           value: 'value',
-          attributes: Stubs::Attributes.default(visited),
-          utilization: Stubs::ReservationAggregates.default(visited),
+          attributes: Attributes.default(visited),
+          utilization: ReservationAggregates.default(visited),
         }
       end
 
@@ -2096,11 +2096,11 @@ module AWS::SDK::CostExplorer
     class GetRightsizingRecommendation
       def self.default(visited=[])
         {
-          metadata: Stubs::RightsizingRecommendationMetadata.default(visited),
-          summary: Stubs::RightsizingRecommendationSummary.default(visited),
-          rightsizing_recommendations: Stubs::RightsizingRecommendationList.default(visited),
+          metadata: RightsizingRecommendationMetadata.default(visited),
+          summary: RightsizingRecommendationSummary.default(visited),
+          rightsizing_recommendations: RightsizingRecommendationList.default(visited),
           next_page_token: 'next_page_token',
-          configuration: Stubs::RightsizingRecommendationConfiguration.default(visited),
+          configuration: RightsizingRecommendationConfiguration.default(visited),
         }
       end
 
@@ -2142,7 +2142,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('RightsizingRecommendationList')
         visited = visited + ['RightsizingRecommendationList']
         [
-          Stubs::RightsizingRecommendation.default(visited)
+          RightsizingRecommendation.default(visited)
         ]
       end
 
@@ -2163,11 +2163,11 @@ module AWS::SDK::CostExplorer
         visited = visited + ['RightsizingRecommendation']
         {
           account_id: 'account_id',
-          current_instance: Stubs::CurrentInstance.default(visited),
+          current_instance: CurrentInstance.default(visited),
           rightsizing_type: 'rightsizing_type',
-          modify_recommendation_detail: Stubs::ModifyRecommendationDetail.default(visited),
-          terminate_recommendation_detail: Stubs::TerminateRecommendationDetail.default(visited),
-          finding_reason_codes: Stubs::FindingReasonCodes.default(visited),
+          modify_recommendation_detail: ModifyRecommendationDetail.default(visited),
+          terminate_recommendation_detail: TerminateRecommendationDetail.default(visited),
+          finding_reason_codes: FindingReasonCodes.default(visited),
         }
       end
 
@@ -2230,7 +2230,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('ModifyRecommendationDetail')
         visited = visited + ['ModifyRecommendationDetail']
         {
-          target_instances: Stubs::TargetInstancesList.default(visited),
+          target_instances: TargetInstancesList.default(visited),
         }
       end
 
@@ -2248,7 +2248,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('TargetInstancesList')
         visited = visited + ['TargetInstancesList']
         [
-          Stubs::TargetInstance.default(visited)
+          TargetInstance.default(visited)
         ]
       end
 
@@ -2272,9 +2272,9 @@ module AWS::SDK::CostExplorer
           estimated_monthly_savings: 'estimated_monthly_savings',
           currency_code: 'currency_code',
           default_target_instance: false,
-          resource_details: Stubs::ResourceDetails.default(visited),
-          expected_resource_utilization: Stubs::ResourceUtilization.default(visited),
-          platform_differences: Stubs::PlatformDifferences.default(visited),
+          resource_details: ResourceDetails.default(visited),
+          expected_resource_utilization: ResourceUtilization.default(visited),
+          platform_differences: PlatformDifferences.default(visited),
         }
       end
 
@@ -2318,7 +2318,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('ResourceUtilization')
         visited = visited + ['ResourceUtilization']
         {
-          ec2_resource_utilization: Stubs::EC2ResourceUtilization.default(visited),
+          ec2_resource_utilization: EC2ResourceUtilization.default(visited),
         }
       end
 
@@ -2339,9 +2339,9 @@ module AWS::SDK::CostExplorer
           max_cpu_utilization_percentage: 'max_cpu_utilization_percentage',
           max_memory_utilization_percentage: 'max_memory_utilization_percentage',
           max_storage_utilization_percentage: 'max_storage_utilization_percentage',
-          ebs_resource_utilization: Stubs::EBSResourceUtilization.default(visited),
-          disk_resource_utilization: Stubs::DiskResourceUtilization.default(visited),
-          network_resource_utilization: Stubs::NetworkResourceUtilization.default(visited),
+          ebs_resource_utilization: EBSResourceUtilization.default(visited),
+          disk_resource_utilization: DiskResourceUtilization.default(visited),
+          network_resource_utilization: NetworkResourceUtilization.default(visited),
         }
       end
 
@@ -2436,7 +2436,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('ResourceDetails')
         visited = visited + ['ResourceDetails']
         {
-          ec2_resource_details: Stubs::EC2ResourceDetails.default(visited),
+          ec2_resource_details: EC2ResourceDetails.default(visited),
         }
       end
 
@@ -2490,9 +2490,9 @@ module AWS::SDK::CostExplorer
         {
           resource_id: 'resource_id',
           instance_name: 'instance_name',
-          tags: Stubs::TagValuesList.default(visited),
-          resource_details: Stubs::ResourceDetails.default(visited),
-          resource_utilization: Stubs::ResourceUtilization.default(visited),
+          tags: TagValuesList.default(visited),
+          resource_details: ResourceDetails.default(visited),
+          resource_utilization: ResourceUtilization.default(visited),
           reservation_covered_hours_in_lookback_period: 'reservation_covered_hours_in_lookback_period',
           savings_plans_covered_hours_in_lookback_period: 'savings_plans_covered_hours_in_lookback_period',
           on_demand_hours_in_lookback_period: 'on_demand_hours_in_lookback_period',
@@ -2526,7 +2526,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('TagValuesList')
         visited = visited + ['TagValuesList']
         [
-          Stubs::TagValues.default(visited)
+          TagValues.default(visited)
         ]
       end
 
@@ -2592,7 +2592,7 @@ module AWS::SDK::CostExplorer
     class GetSavingsPlansCoverage
       def self.default(visited=[])
         {
-          savings_plans_coverages: Stubs::SavingsPlansCoverages.default(visited),
+          savings_plans_coverages: SavingsPlansCoverages.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2612,7 +2612,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('SavingsPlansCoverages')
         visited = visited + ['SavingsPlansCoverages']
         [
-          Stubs::SavingsPlansCoverage.default(visited)
+          SavingsPlansCoverage.default(visited)
         ]
       end
 
@@ -2632,9 +2632,9 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('SavingsPlansCoverage')
         visited = visited + ['SavingsPlansCoverage']
         {
-          attributes: Stubs::Attributes.default(visited),
-          coverage: Stubs::SavingsPlansCoverageData.default(visited),
-          time_period: Stubs::DateInterval.default(visited),
+          attributes: Attributes.default(visited),
+          coverage: SavingsPlansCoverageData.default(visited),
+          time_period: DateInterval.default(visited),
         }
       end
 
@@ -2676,8 +2676,8 @@ module AWS::SDK::CostExplorer
     class GetSavingsPlansPurchaseRecommendation
       def self.default(visited=[])
         {
-          metadata: Stubs::SavingsPlansPurchaseRecommendationMetadata.default(visited),
-          savings_plans_purchase_recommendation: Stubs::SavingsPlansPurchaseRecommendation.default(visited),
+          metadata: SavingsPlansPurchaseRecommendationMetadata.default(visited),
+          savings_plans_purchase_recommendation: SavingsPlansPurchaseRecommendation.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -2703,8 +2703,8 @@ module AWS::SDK::CostExplorer
           term_in_years: 'term_in_years',
           payment_option: 'payment_option',
           lookback_period_in_days: 'lookback_period_in_days',
-          savings_plans_purchase_recommendation_details: Stubs::SavingsPlansPurchaseRecommendationDetailList.default(visited),
-          savings_plans_purchase_recommendation_summary: Stubs::SavingsPlansPurchaseRecommendationSummary.default(visited),
+          savings_plans_purchase_recommendation_details: SavingsPlansPurchaseRecommendationDetailList.default(visited),
+          savings_plans_purchase_recommendation_summary: SavingsPlansPurchaseRecommendationSummary.default(visited),
         }
       end
 
@@ -2766,7 +2766,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('SavingsPlansPurchaseRecommendationDetailList')
         visited = visited + ['SavingsPlansPurchaseRecommendationDetailList']
         [
-          Stubs::SavingsPlansPurchaseRecommendationDetail.default(visited)
+          SavingsPlansPurchaseRecommendationDetail.default(visited)
         ]
       end
 
@@ -2786,7 +2786,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('SavingsPlansPurchaseRecommendationDetail')
         visited = visited + ['SavingsPlansPurchaseRecommendationDetail']
         {
-          savings_plans_details: Stubs::SavingsPlansDetails.default(visited),
+          savings_plans_details: SavingsPlansDetails.default(visited),
           account_id: 'account_id',
           upfront_cost: 'upfront_cost',
           estimated_roi: 'estimated_roi',
@@ -2876,8 +2876,8 @@ module AWS::SDK::CostExplorer
     class GetSavingsPlansUtilization
       def self.default(visited=[])
         {
-          savings_plans_utilizations_by_time: Stubs::SavingsPlansUtilizationsByTime.default(visited),
-          total: Stubs::SavingsPlansUtilizationAggregates.default(visited),
+          savings_plans_utilizations_by_time: SavingsPlansUtilizationsByTime.default(visited),
+          total: SavingsPlansUtilizationAggregates.default(visited),
         }
       end
 
@@ -2896,9 +2896,9 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('SavingsPlansUtilizationAggregates')
         visited = visited + ['SavingsPlansUtilizationAggregates']
         {
-          utilization: Stubs::SavingsPlansUtilization.default(visited),
-          savings: Stubs::SavingsPlansSavings.default(visited),
-          amortized_commitment: Stubs::SavingsPlansAmortizedCommitment.default(visited),
+          utilization: SavingsPlansUtilization.default(visited),
+          savings: SavingsPlansSavings.default(visited),
+          amortized_commitment: SavingsPlansAmortizedCommitment.default(visited),
         }
       end
 
@@ -2984,7 +2984,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('SavingsPlansUtilizationsByTime')
         visited = visited + ['SavingsPlansUtilizationsByTime']
         [
-          Stubs::SavingsPlansUtilizationByTime.default(visited)
+          SavingsPlansUtilizationByTime.default(visited)
         ]
       end
 
@@ -3004,10 +3004,10 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('SavingsPlansUtilizationByTime')
         visited = visited + ['SavingsPlansUtilizationByTime']
         {
-          time_period: Stubs::DateInterval.default(visited),
-          utilization: Stubs::SavingsPlansUtilization.default(visited),
-          savings: Stubs::SavingsPlansSavings.default(visited),
-          amortized_commitment: Stubs::SavingsPlansAmortizedCommitment.default(visited),
+          time_period: DateInterval.default(visited),
+          utilization: SavingsPlansUtilization.default(visited),
+          savings: SavingsPlansSavings.default(visited),
+          amortized_commitment: SavingsPlansAmortizedCommitment.default(visited),
         }
       end
 
@@ -3026,9 +3026,9 @@ module AWS::SDK::CostExplorer
     class GetSavingsPlansUtilizationDetails
       def self.default(visited=[])
         {
-          savings_plans_utilization_details: Stubs::SavingsPlansUtilizationDetails.default(visited),
-          total: Stubs::SavingsPlansUtilizationAggregates.default(visited),
-          time_period: Stubs::DateInterval.default(visited),
+          savings_plans_utilization_details: SavingsPlansUtilizationDetails.default(visited),
+          total: SavingsPlansUtilizationAggregates.default(visited),
+          time_period: DateInterval.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3050,7 +3050,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('SavingsPlansUtilizationDetails')
         visited = visited + ['SavingsPlansUtilizationDetails']
         [
-          Stubs::SavingsPlansUtilizationDetail.default(visited)
+          SavingsPlansUtilizationDetail.default(visited)
         ]
       end
 
@@ -3071,10 +3071,10 @@ module AWS::SDK::CostExplorer
         visited = visited + ['SavingsPlansUtilizationDetail']
         {
           savings_plan_arn: 'savings_plan_arn',
-          attributes: Stubs::Attributes.default(visited),
-          utilization: Stubs::SavingsPlansUtilization.default(visited),
-          savings: Stubs::SavingsPlansSavings.default(visited),
-          amortized_commitment: Stubs::SavingsPlansAmortizedCommitment.default(visited),
+          attributes: Attributes.default(visited),
+          utilization: SavingsPlansUtilization.default(visited),
+          savings: SavingsPlansSavings.default(visited),
+          amortized_commitment: SavingsPlansAmortizedCommitment.default(visited),
         }
       end
 
@@ -3095,7 +3095,7 @@ module AWS::SDK::CostExplorer
       def self.default(visited=[])
         {
           next_page_token: 'next_page_token',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           return_size: 1,
           total_size: 1,
         }
@@ -3136,8 +3136,8 @@ module AWS::SDK::CostExplorer
     class GetUsageForecast
       def self.default(visited=[])
         {
-          total: Stubs::MetricValue.default(visited),
-          forecast_results_by_time: Stubs::ForecastResultsByTime.default(visited),
+          total: MetricValue.default(visited),
+          forecast_results_by_time: ForecastResultsByTime.default(visited),
         }
       end
 
@@ -3154,7 +3154,7 @@ module AWS::SDK::CostExplorer
     class ListCostAllocationTags
       def self.default(visited=[])
         {
-          cost_allocation_tags: Stubs::CostAllocationTagList.default(visited),
+          cost_allocation_tags: CostAllocationTagList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3174,7 +3174,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('CostAllocationTagList')
         visited = visited + ['CostAllocationTagList']
         [
-          Stubs::CostAllocationTag.default(visited)
+          CostAllocationTag.default(visited)
         ]
       end
 
@@ -3214,7 +3214,7 @@ module AWS::SDK::CostExplorer
     class ListCostCategoryDefinitions
       def self.default(visited=[])
         {
-          cost_category_references: Stubs::CostCategoryReferencesList.default(visited),
+          cost_category_references: CostCategoryReferencesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3234,7 +3234,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('CostCategoryReferencesList')
         visited = visited + ['CostCategoryReferencesList']
         [
-          Stubs::CostCategoryReference.default(visited)
+          CostCategoryReference.default(visited)
         ]
       end
 
@@ -3259,8 +3259,8 @@ module AWS::SDK::CostExplorer
           effective_start: 'effective_start',
           effective_end: 'effective_end',
           number_of_rules: 1,
-          processing_status: Stubs::CostCategoryProcessingStatusList.default(visited),
-          values: Stubs::CostCategoryValuesList.default(visited),
+          processing_status: CostCategoryProcessingStatusList.default(visited),
+          values: CostCategoryValuesList.default(visited),
           default_value: 'default_value',
         }
       end
@@ -3284,7 +3284,7 @@ module AWS::SDK::CostExplorer
     class ListTagsForResource
       def self.default(visited=[])
         {
-          resource_tags: Stubs::ResourceTagList.default(visited),
+          resource_tags: ResourceTagList.default(visited),
         }
       end
 
@@ -3302,7 +3302,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('ResourceTagList')
         visited = visited + ['ResourceTagList']
         [
-          Stubs::ResourceTag.default(visited)
+          ResourceTag.default(visited)
         ]
       end
 
@@ -3416,7 +3416,7 @@ module AWS::SDK::CostExplorer
     class UpdateCostAllocationTagsStatus
       def self.default(visited=[])
         {
-          errors: Stubs::UpdateCostAllocationTagsStatusErrors.default(visited),
+          errors: UpdateCostAllocationTagsStatusErrors.default(visited),
         }
       end
 
@@ -3434,7 +3434,7 @@ module AWS::SDK::CostExplorer
         return nil if visited.include?('UpdateCostAllocationTagsStatusErrors')
         visited = visited + ['UpdateCostAllocationTagsStatusErrors']
         [
-          Stubs::UpdateCostAllocationTagsStatusError.default(visited)
+          UpdateCostAllocationTagsStatusError.default(visited)
         ]
       end
 

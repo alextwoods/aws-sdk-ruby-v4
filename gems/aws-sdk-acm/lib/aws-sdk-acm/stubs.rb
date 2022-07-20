@@ -42,7 +42,7 @@ module AWS::SDK::ACM
     class DescribeCertificate
       def self.default(visited=[])
         {
-          certificate: Stubs::CertificateDetail.default(visited),
+          certificate: CertificateDetail.default(visited),
         }
       end
 
@@ -62,8 +62,8 @@ module AWS::SDK::ACM
         {
           certificate_arn: 'certificate_arn',
           domain_name: 'domain_name',
-          subject_alternative_names: Stubs::DomainList.default(visited),
-          domain_validation_options: Stubs::DomainValidationList.default(visited),
+          subject_alternative_names: DomainList.default(visited),
+          domain_validation_options: DomainValidationList.default(visited),
           serial: 'serial',
           subject: 'subject',
           issuer: 'issuer',
@@ -77,15 +77,15 @@ module AWS::SDK::ACM
           not_after: Time.now,
           key_algorithm: 'key_algorithm',
           signature_algorithm: 'signature_algorithm',
-          in_use_by: Stubs::InUseList.default(visited),
+          in_use_by: InUseList.default(visited),
           failure_reason: 'failure_reason',
           type: 'type',
-          renewal_summary: Stubs::RenewalSummary.default(visited),
-          key_usages: Stubs::KeyUsageList.default(visited),
-          extended_key_usages: Stubs::ExtendedKeyUsageList.default(visited),
+          renewal_summary: RenewalSummary.default(visited),
+          key_usages: KeyUsageList.default(visited),
+          extended_key_usages: ExtendedKeyUsageList.default(visited),
           certificate_authority_arn: 'certificate_authority_arn',
           renewal_eligibility: 'renewal_eligibility',
-          options: Stubs::CertificateOptions.default(visited),
+          options: CertificateOptions.default(visited),
         }
       end
 
@@ -146,7 +146,7 @@ module AWS::SDK::ACM
         return nil if visited.include?('ExtendedKeyUsageList')
         visited = visited + ['ExtendedKeyUsageList']
         [
-          Stubs::ExtendedKeyUsage.default(visited)
+          ExtendedKeyUsage.default(visited)
         ]
       end
 
@@ -186,7 +186,7 @@ module AWS::SDK::ACM
         return nil if visited.include?('KeyUsageList')
         visited = visited + ['KeyUsageList']
         [
-          Stubs::KeyUsage.default(visited)
+          KeyUsage.default(visited)
         ]
       end
 
@@ -225,7 +225,7 @@ module AWS::SDK::ACM
         visited = visited + ['RenewalSummary']
         {
           renewal_status: 'renewal_status',
-          domain_validation_options: Stubs::DomainValidationList.default(visited),
+          domain_validation_options: DomainValidationList.default(visited),
           renewal_status_reason: 'renewal_status_reason',
           updated_at: Time.now,
         }
@@ -248,7 +248,7 @@ module AWS::SDK::ACM
         return nil if visited.include?('DomainValidationList')
         visited = visited + ['DomainValidationList']
         [
-          Stubs::DomainValidation.default(visited)
+          DomainValidation.default(visited)
         ]
       end
 
@@ -269,10 +269,10 @@ module AWS::SDK::ACM
         visited = visited + ['DomainValidation']
         {
           domain_name: 'domain_name',
-          validation_emails: Stubs::ValidationEmailList.default(visited),
+          validation_emails: ValidationEmailList.default(visited),
           validation_domain: 'validation_domain',
           validation_status: 'validation_status',
-          resource_record: Stubs::ResourceRecord.default(visited),
+          resource_record: ResourceRecord.default(visited),
           validation_method: 'validation_method',
         }
       end
@@ -396,7 +396,7 @@ module AWS::SDK::ACM
     class GetAccountConfiguration
       def self.default(visited=[])
         {
-          expiry_events: Stubs::ExpiryEventsConfiguration.default(visited),
+          expiry_events: ExpiryEventsConfiguration.default(visited),
         }
       end
 
@@ -465,7 +465,7 @@ module AWS::SDK::ACM
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          certificate_summary_list: Stubs::CertificateSummaryList.default(visited),
+          certificate_summary_list: CertificateSummaryList.default(visited),
         }
       end
 
@@ -484,7 +484,7 @@ module AWS::SDK::ACM
         return nil if visited.include?('CertificateSummaryList')
         visited = visited + ['CertificateSummaryList']
         [
-          Stubs::CertificateSummary.default(visited)
+          CertificateSummary.default(visited)
         ]
       end
 
@@ -522,7 +522,7 @@ module AWS::SDK::ACM
     class ListTagsForCertificate
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -540,7 +540,7 @@ module AWS::SDK::ACM
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 

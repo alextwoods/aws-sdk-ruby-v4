@@ -46,8 +46,8 @@ module AWS::SDK::CodePipeline
     class CreateCustomActionType
       def self.default(visited=[])
         {
-          action_type: Stubs::ActionType.default(visited),
-          tags: Stubs::TagList.default(visited),
+          action_type: ActionType.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -66,7 +66,7 @@ module AWS::SDK::CodePipeline
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -106,11 +106,11 @@ module AWS::SDK::CodePipeline
         return nil if visited.include?('ActionType')
         visited = visited + ['ActionType']
         {
-          id: Stubs::ActionTypeId.default(visited),
-          settings: Stubs::ActionTypeSettings.default(visited),
-          action_configuration_properties: Stubs::ActionConfigurationPropertyList.default(visited),
-          input_artifact_details: Stubs::ArtifactDetails.default(visited),
-          output_artifact_details: Stubs::ArtifactDetails.default(visited),
+          id: ActionTypeId.default(visited),
+          settings: ActionTypeSettings.default(visited),
+          action_configuration_properties: ActionConfigurationPropertyList.default(visited),
+          input_artifact_details: ArtifactDetails.default(visited),
+          output_artifact_details: ArtifactDetails.default(visited),
         }
       end
 
@@ -152,7 +152,7 @@ module AWS::SDK::CodePipeline
         return nil if visited.include?('ActionConfigurationPropertyList')
         visited = visited + ['ActionConfigurationPropertyList']
         [
-          Stubs::ActionConfigurationProperty.default(visited)
+          ActionConfigurationProperty.default(visited)
         ]
       end
 
@@ -248,8 +248,8 @@ module AWS::SDK::CodePipeline
     class CreatePipeline
       def self.default(visited=[])
         {
-          pipeline: Stubs::PipelineDeclaration.default(visited),
-          tags: Stubs::TagList.default(visited),
+          pipeline: PipelineDeclaration.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -270,9 +270,9 @@ module AWS::SDK::CodePipeline
         {
           name: 'name',
           role_arn: 'role_arn',
-          artifact_store: Stubs::ArtifactStore.default(visited),
-          artifact_stores: Stubs::ArtifactStoreMap.default(visited),
-          stages: Stubs::PipelineStageDeclarationList.default(visited),
+          artifact_store: ArtifactStore.default(visited),
+          artifact_stores: ArtifactStoreMap.default(visited),
+          stages: PipelineStageDeclarationList.default(visited),
           version: 1,
         }
       end
@@ -296,7 +296,7 @@ module AWS::SDK::CodePipeline
         return nil if visited.include?('PipelineStageDeclarationList')
         visited = visited + ['PipelineStageDeclarationList']
         [
-          Stubs::StageDeclaration.default(visited)
+          StageDeclaration.default(visited)
         ]
       end
 
@@ -317,8 +317,8 @@ module AWS::SDK::CodePipeline
         visited = visited + ['StageDeclaration']
         {
           name: 'name',
-          blockers: Stubs::StageBlockerDeclarationList.default(visited),
-          actions: Stubs::StageActionDeclarationList.default(visited),
+          blockers: StageBlockerDeclarationList.default(visited),
+          actions: StageActionDeclarationList.default(visited),
         }
       end
 
@@ -338,7 +338,7 @@ module AWS::SDK::CodePipeline
         return nil if visited.include?('StageActionDeclarationList')
         visited = visited + ['StageActionDeclarationList']
         [
-          Stubs::ActionDeclaration.default(visited)
+          ActionDeclaration.default(visited)
         ]
       end
 
@@ -359,11 +359,11 @@ module AWS::SDK::CodePipeline
         visited = visited + ['ActionDeclaration']
         {
           name: 'name',
-          action_type_id: Stubs::ActionTypeId.default(visited),
+          action_type_id: ActionTypeId.default(visited),
           run_order: 1,
-          configuration: Stubs::ActionConfigurationMap.default(visited),
-          output_artifacts: Stubs::OutputArtifactList.default(visited),
-          input_artifacts: Stubs::InputArtifactList.default(visited),
+          configuration: ActionConfigurationMap.default(visited),
+          output_artifacts: OutputArtifactList.default(visited),
+          input_artifacts: InputArtifactList.default(visited),
           role_arn: 'role_arn',
           region: 'region',
           namespace: 'namespace',
@@ -392,7 +392,7 @@ module AWS::SDK::CodePipeline
         return nil if visited.include?('InputArtifactList')
         visited = visited + ['InputArtifactList']
         [
-          Stubs::InputArtifact.default(visited)
+          InputArtifact.default(visited)
         ]
       end
 
@@ -430,7 +430,7 @@ module AWS::SDK::CodePipeline
         return nil if visited.include?('OutputArtifactList')
         visited = visited + ['OutputArtifactList']
         [
-          Stubs::OutputArtifact.default(visited)
+          OutputArtifact.default(visited)
         ]
       end
 
@@ -488,7 +488,7 @@ module AWS::SDK::CodePipeline
         return nil if visited.include?('StageBlockerDeclarationList')
         visited = visited + ['StageBlockerDeclarationList']
         [
-          Stubs::BlockerDeclaration.default(visited)
+          BlockerDeclaration.default(visited)
         ]
       end
 
@@ -528,7 +528,7 @@ module AWS::SDK::CodePipeline
         return nil if visited.include?('ArtifactStoreMap')
         visited = visited + ['ArtifactStoreMap']
         {
-          test_key: Stubs::ArtifactStore.default(visited)
+          test_key: ArtifactStore.default(visited)
         }
       end
 
@@ -550,7 +550,7 @@ module AWS::SDK::CodePipeline
         {
           type: 'type',
           location: 'location',
-          encryption_key: Stubs::EncryptionKey.default(visited),
+          encryption_key: EncryptionKey.default(visited),
         }
       end
 
@@ -672,7 +672,7 @@ module AWS::SDK::CodePipeline
     class GetActionType
       def self.default(visited=[])
         {
-          action_type: Stubs::ActionTypeDeclaration.default(visited),
+          action_type: ActionTypeDeclaration.default(visited),
         }
       end
 
@@ -691,13 +691,13 @@ module AWS::SDK::CodePipeline
         visited = visited + ['ActionTypeDeclaration']
         {
           description: 'description',
-          executor: Stubs::ActionTypeExecutor.default(visited),
-          id: Stubs::ActionTypeIdentifier.default(visited),
-          input_artifact_details: Stubs::ActionTypeArtifactDetails.default(visited),
-          output_artifact_details: Stubs::ActionTypeArtifactDetails.default(visited),
-          permissions: Stubs::ActionTypePermissions.default(visited),
-          properties: Stubs::ActionTypeProperties.default(visited),
-          urls: Stubs::ActionTypeUrls.default(visited),
+          executor: ActionTypeExecutor.default(visited),
+          id: ActionTypeIdentifier.default(visited),
+          input_artifact_details: ActionTypeArtifactDetails.default(visited),
+          output_artifact_details: ActionTypeArtifactDetails.default(visited),
+          permissions: ActionTypePermissions.default(visited),
+          properties: ActionTypeProperties.default(visited),
+          urls: ActionTypeUrls.default(visited),
         }
       end
 
@@ -746,7 +746,7 @@ module AWS::SDK::CodePipeline
         return nil if visited.include?('ActionTypeProperties')
         visited = visited + ['ActionTypeProperties']
         [
-          Stubs::ActionTypeProperty.default(visited)
+          ActionTypeProperty.default(visited)
         ]
       end
 
@@ -794,7 +794,7 @@ module AWS::SDK::CodePipeline
         return nil if visited.include?('ActionTypePermissions')
         visited = visited + ['ActionTypePermissions']
         {
-          allowed_accounts: Stubs::AllowedAccounts.default(visited),
+          allowed_accounts: AllowedAccounts.default(visited),
         }
       end
 
@@ -876,7 +876,7 @@ module AWS::SDK::CodePipeline
         return nil if visited.include?('ActionTypeExecutor')
         visited = visited + ['ActionTypeExecutor']
         {
-          configuration: Stubs::ExecutorConfiguration.default(visited),
+          configuration: ExecutorConfiguration.default(visited),
           type: 'type',
           policy_statements_template: 'policy_statements_template',
           job_timeout: 1,
@@ -900,8 +900,8 @@ module AWS::SDK::CodePipeline
         return nil if visited.include?('ExecutorConfiguration')
         visited = visited + ['ExecutorConfiguration']
         {
-          lambda_executor_configuration: Stubs::LambdaExecutorConfiguration.default(visited),
-          job_worker_executor_configuration: Stubs::JobWorkerExecutorConfiguration.default(visited),
+          lambda_executor_configuration: LambdaExecutorConfiguration.default(visited),
+          job_worker_executor_configuration: JobWorkerExecutorConfiguration.default(visited),
         }
       end
 
@@ -920,8 +920,8 @@ module AWS::SDK::CodePipeline
         return nil if visited.include?('JobWorkerExecutorConfiguration')
         visited = visited + ['JobWorkerExecutorConfiguration']
         {
-          polling_accounts: Stubs::PollingAccountList.default(visited),
-          polling_service_principals: Stubs::PollingServicePrincipalList.default(visited),
+          polling_accounts: PollingAccountList.default(visited),
+          polling_service_principals: PollingServicePrincipalList.default(visited),
         }
       end
 
@@ -996,7 +996,7 @@ module AWS::SDK::CodePipeline
     class GetJobDetails
       def self.default(visited=[])
         {
-          job_details: Stubs::JobDetails.default(visited),
+          job_details: JobDetails.default(visited),
         }
       end
 
@@ -1015,7 +1015,7 @@ module AWS::SDK::CodePipeline
         visited = visited + ['JobDetails']
         {
           id: 'id',
-          data: Stubs::JobData.default(visited),
+          data: JobData.default(visited),
           account_id: 'account_id',
         }
       end
@@ -1036,14 +1036,14 @@ module AWS::SDK::CodePipeline
         return nil if visited.include?('JobData')
         visited = visited + ['JobData']
         {
-          action_type_id: Stubs::ActionTypeId.default(visited),
-          action_configuration: Stubs::ActionConfiguration.default(visited),
-          pipeline_context: Stubs::PipelineContext.default(visited),
-          input_artifacts: Stubs::ArtifactList.default(visited),
-          output_artifacts: Stubs::ArtifactList.default(visited),
-          artifact_credentials: Stubs::AWSSessionCredentials.default(visited),
+          action_type_id: ActionTypeId.default(visited),
+          action_configuration: ActionConfiguration.default(visited),
+          pipeline_context: PipelineContext.default(visited),
+          input_artifacts: ArtifactList.default(visited),
+          output_artifacts: ArtifactList.default(visited),
+          artifact_credentials: AWSSessionCredentials.default(visited),
           continuation_token: 'continuation_token',
-          encryption_key: Stubs::EncryptionKey.default(visited),
+          encryption_key: EncryptionKey.default(visited),
         }
       end
 
@@ -1090,7 +1090,7 @@ module AWS::SDK::CodePipeline
         return nil if visited.include?('ArtifactList')
         visited = visited + ['ArtifactList']
         [
-          Stubs::Artifact.default(visited)
+          Artifact.default(visited)
         ]
       end
 
@@ -1112,7 +1112,7 @@ module AWS::SDK::CodePipeline
         {
           name: 'name',
           revision: 'revision',
-          location: Stubs::ArtifactLocation.default(visited),
+          location: ArtifactLocation.default(visited),
         }
       end
 
@@ -1133,7 +1133,7 @@ module AWS::SDK::CodePipeline
         visited = visited + ['ArtifactLocation']
         {
           type: 'type',
-          s3_location: Stubs::S3ArtifactLocation.default(visited),
+          s3_location: S3ArtifactLocation.default(visited),
         }
       end
 
@@ -1173,8 +1173,8 @@ module AWS::SDK::CodePipeline
         visited = visited + ['PipelineContext']
         {
           pipeline_name: 'pipeline_name',
-          stage: Stubs::StageContext.default(visited),
-          action: Stubs::ActionContext.default(visited),
+          stage: StageContext.default(visited),
+          action: ActionContext.default(visited),
           pipeline_arn: 'pipeline_arn',
           pipeline_execution_id: 'pipeline_execution_id',
         }
@@ -1236,7 +1236,7 @@ module AWS::SDK::CodePipeline
         return nil if visited.include?('ActionConfiguration')
         visited = visited + ['ActionConfiguration']
         {
-          configuration: Stubs::ActionConfigurationMap.default(visited),
+          configuration: ActionConfigurationMap.default(visited),
         }
       end
 
@@ -1252,8 +1252,8 @@ module AWS::SDK::CodePipeline
     class GetPipeline
       def self.default(visited=[])
         {
-          pipeline: Stubs::PipelineDeclaration.default(visited),
-          metadata: Stubs::PipelineMetadata.default(visited),
+          pipeline: PipelineDeclaration.default(visited),
+          metadata: PipelineMetadata.default(visited),
         }
       end
 
@@ -1292,7 +1292,7 @@ module AWS::SDK::CodePipeline
     class GetPipelineExecution
       def self.default(visited=[])
         {
-          pipeline_execution: Stubs::PipelineExecution.default(visited),
+          pipeline_execution: PipelineExecution.default(visited),
         }
       end
 
@@ -1315,7 +1315,7 @@ module AWS::SDK::CodePipeline
           pipeline_execution_id: 'pipeline_execution_id',
           status: 'status',
           status_summary: 'status_summary',
-          artifact_revisions: Stubs::ArtifactRevisionList.default(visited),
+          artifact_revisions: ArtifactRevisionList.default(visited),
         }
       end
 
@@ -1338,7 +1338,7 @@ module AWS::SDK::CodePipeline
         return nil if visited.include?('ArtifactRevisionList')
         visited = visited + ['ArtifactRevisionList']
         [
-          Stubs::ArtifactRevision.default(visited)
+          ArtifactRevision.default(visited)
         ]
       end
 
@@ -1386,7 +1386,7 @@ module AWS::SDK::CodePipeline
         {
           pipeline_name: 'pipeline_name',
           pipeline_version: 1,
-          stage_states: Stubs::StageStateList.default(visited),
+          stage_states: StageStateList.default(visited),
           created: Time.now,
           updated: Time.now,
         }
@@ -1410,7 +1410,7 @@ module AWS::SDK::CodePipeline
         return nil if visited.include?('StageStateList')
         visited = visited + ['StageStateList']
         [
-          Stubs::StageState.default(visited)
+          StageState.default(visited)
         ]
       end
 
@@ -1431,10 +1431,10 @@ module AWS::SDK::CodePipeline
         visited = visited + ['StageState']
         {
           stage_name: 'stage_name',
-          inbound_execution: Stubs::StageExecution.default(visited),
-          inbound_transition_state: Stubs::TransitionState.default(visited),
-          action_states: Stubs::ActionStateList.default(visited),
-          latest_execution: Stubs::StageExecution.default(visited),
+          inbound_execution: StageExecution.default(visited),
+          inbound_transition_state: TransitionState.default(visited),
+          action_states: ActionStateList.default(visited),
+          latest_execution: StageExecution.default(visited),
         }
       end
 
@@ -1476,7 +1476,7 @@ module AWS::SDK::CodePipeline
         return nil if visited.include?('ActionStateList')
         visited = visited + ['ActionStateList']
         [
-          Stubs::ActionState.default(visited)
+          ActionState.default(visited)
         ]
       end
 
@@ -1497,8 +1497,8 @@ module AWS::SDK::CodePipeline
         visited = visited + ['ActionState']
         {
           action_name: 'action_name',
-          current_revision: Stubs::ActionRevision.default(visited),
-          latest_execution: Stubs::ActionExecution.default(visited),
+          current_revision: ActionRevision.default(visited),
+          latest_execution: ActionExecution.default(visited),
           entity_url: 'entity_url',
           revision_url: 'revision_url',
         }
@@ -1531,7 +1531,7 @@ module AWS::SDK::CodePipeline
           external_execution_id: 'external_execution_id',
           external_execution_url: 'external_execution_url',
           percent_complete: 1,
-          error_details: Stubs::ErrorDetails.default(visited),
+          error_details: ErrorDetails.default(visited),
         }
       end
 
@@ -1622,7 +1622,7 @@ module AWS::SDK::CodePipeline
     class GetThirdPartyJobDetails
       def self.default(visited=[])
         {
-          job_details: Stubs::ThirdPartyJobDetails.default(visited),
+          job_details: ThirdPartyJobDetails.default(visited),
         }
       end
 
@@ -1641,7 +1641,7 @@ module AWS::SDK::CodePipeline
         visited = visited + ['ThirdPartyJobDetails']
         {
           id: 'id',
-          data: Stubs::ThirdPartyJobData.default(visited),
+          data: ThirdPartyJobData.default(visited),
           nonce: 'nonce',
         }
       end
@@ -1662,14 +1662,14 @@ module AWS::SDK::CodePipeline
         return nil if visited.include?('ThirdPartyJobData')
         visited = visited + ['ThirdPartyJobData']
         {
-          action_type_id: Stubs::ActionTypeId.default(visited),
-          action_configuration: Stubs::ActionConfiguration.default(visited),
-          pipeline_context: Stubs::PipelineContext.default(visited),
-          input_artifacts: Stubs::ArtifactList.default(visited),
-          output_artifacts: Stubs::ArtifactList.default(visited),
-          artifact_credentials: Stubs::AWSSessionCredentials.default(visited),
+          action_type_id: ActionTypeId.default(visited),
+          action_configuration: ActionConfiguration.default(visited),
+          pipeline_context: PipelineContext.default(visited),
+          input_artifacts: ArtifactList.default(visited),
+          output_artifacts: ArtifactList.default(visited),
+          artifact_credentials: AWSSessionCredentials.default(visited),
           continuation_token: 'continuation_token',
-          encryption_key: Stubs::EncryptionKey.default(visited),
+          encryption_key: EncryptionKey.default(visited),
         }
       end
 
@@ -1692,7 +1692,7 @@ module AWS::SDK::CodePipeline
     class ListActionExecutions
       def self.default(visited=[])
         {
-          action_execution_details: Stubs::ActionExecutionDetailList.default(visited),
+          action_execution_details: ActionExecutionDetailList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1712,7 +1712,7 @@ module AWS::SDK::CodePipeline
         return nil if visited.include?('ActionExecutionDetailList')
         visited = visited + ['ActionExecutionDetailList']
         [
-          Stubs::ActionExecutionDetail.default(visited)
+          ActionExecutionDetail.default(visited)
         ]
       end
 
@@ -1740,8 +1740,8 @@ module AWS::SDK::CodePipeline
           start_time: Time.now,
           last_update_time: Time.now,
           status: 'status',
-          input: Stubs::ActionExecutionInput.default(visited),
-          output: Stubs::ActionExecutionOutput.default(visited),
+          input: ActionExecutionInput.default(visited),
+          output: ActionExecutionOutput.default(visited),
         }
       end
 
@@ -1768,9 +1768,9 @@ module AWS::SDK::CodePipeline
         return nil if visited.include?('ActionExecutionOutput')
         visited = visited + ['ActionExecutionOutput']
         {
-          output_artifacts: Stubs::ArtifactDetailList.default(visited),
-          execution_result: Stubs::ActionExecutionResult.default(visited),
-          output_variables: Stubs::OutputVariablesMap.default(visited),
+          output_artifacts: ArtifactDetailList.default(visited),
+          execution_result: ActionExecutionResult.default(visited),
+          output_variables: OutputVariablesMap.default(visited),
         }
       end
 
@@ -1832,7 +1832,7 @@ module AWS::SDK::CodePipeline
         return nil if visited.include?('ArtifactDetailList')
         visited = visited + ['ArtifactDetailList']
         [
-          Stubs::ArtifactDetail.default(visited)
+          ArtifactDetail.default(visited)
         ]
       end
 
@@ -1853,7 +1853,7 @@ module AWS::SDK::CodePipeline
         visited = visited + ['ArtifactDetail']
         {
           name: 'name',
-          s3location: Stubs::S3Location.default(visited),
+          s3location: S3Location.default(visited),
         }
       end
 
@@ -1892,12 +1892,12 @@ module AWS::SDK::CodePipeline
         return nil if visited.include?('ActionExecutionInput')
         visited = visited + ['ActionExecutionInput']
         {
-          action_type_id: Stubs::ActionTypeId.default(visited),
-          configuration: Stubs::ActionConfigurationMap.default(visited),
-          resolved_configuration: Stubs::ResolvedActionConfigurationMap.default(visited),
+          action_type_id: ActionTypeId.default(visited),
+          configuration: ActionConfigurationMap.default(visited),
+          resolved_configuration: ResolvedActionConfigurationMap.default(visited),
           role_arn: 'role_arn',
           region: 'region',
-          input_artifacts: Stubs::ArtifactDetailList.default(visited),
+          input_artifacts: ArtifactDetailList.default(visited),
           namespace: 'namespace',
         }
       end
@@ -1940,7 +1940,7 @@ module AWS::SDK::CodePipeline
     class ListActionTypes
       def self.default(visited=[])
         {
-          action_types: Stubs::ActionTypeList.default(visited),
+          action_types: ActionTypeList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1960,7 +1960,7 @@ module AWS::SDK::CodePipeline
         return nil if visited.include?('ActionTypeList')
         visited = visited + ['ActionTypeList']
         [
-          Stubs::ActionType.default(visited)
+          ActionType.default(visited)
         ]
       end
 
@@ -1978,7 +1978,7 @@ module AWS::SDK::CodePipeline
     class ListPipelineExecutions
       def self.default(visited=[])
         {
-          pipeline_execution_summaries: Stubs::PipelineExecutionSummaryList.default(visited),
+          pipeline_execution_summaries: PipelineExecutionSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1998,7 +1998,7 @@ module AWS::SDK::CodePipeline
         return nil if visited.include?('PipelineExecutionSummaryList')
         visited = visited + ['PipelineExecutionSummaryList']
         [
-          Stubs::PipelineExecutionSummary.default(visited)
+          PipelineExecutionSummary.default(visited)
         ]
       end
 
@@ -2022,9 +2022,9 @@ module AWS::SDK::CodePipeline
           status: 'status',
           start_time: Time.now,
           last_update_time: Time.now,
-          source_revisions: Stubs::SourceRevisionList.default(visited),
-          trigger: Stubs::ExecutionTrigger.default(visited),
-          stop_trigger: Stubs::StopExecutionTrigger.default(visited),
+          source_revisions: SourceRevisionList.default(visited),
+          trigger: ExecutionTrigger.default(visited),
+          stop_trigger: StopExecutionTrigger.default(visited),
         }
       end
 
@@ -2086,7 +2086,7 @@ module AWS::SDK::CodePipeline
         return nil if visited.include?('SourceRevisionList')
         visited = visited + ['SourceRevisionList']
         [
-          Stubs::SourceRevision.default(visited)
+          SourceRevision.default(visited)
         ]
       end
 
@@ -2128,7 +2128,7 @@ module AWS::SDK::CodePipeline
     class ListPipelines
       def self.default(visited=[])
         {
-          pipelines: Stubs::PipelineList.default(visited),
+          pipelines: PipelineList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2148,7 +2148,7 @@ module AWS::SDK::CodePipeline
         return nil if visited.include?('PipelineList')
         visited = visited + ['PipelineList']
         [
-          Stubs::PipelineSummary.default(visited)
+          PipelineSummary.default(visited)
         ]
       end
 
@@ -2190,7 +2190,7 @@ module AWS::SDK::CodePipeline
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2208,7 +2208,7 @@ module AWS::SDK::CodePipeline
     class ListWebhooks
       def self.default(visited=[])
         {
-          webhooks: Stubs::WebhookList.default(visited),
+          webhooks: WebhookList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2228,7 +2228,7 @@ module AWS::SDK::CodePipeline
         return nil if visited.include?('WebhookList')
         visited = visited + ['WebhookList']
         [
-          Stubs::ListWebhookItem.default(visited)
+          ListWebhookItem.default(visited)
         ]
       end
 
@@ -2248,13 +2248,13 @@ module AWS::SDK::CodePipeline
         return nil if visited.include?('ListWebhookItem')
         visited = visited + ['ListWebhookItem']
         {
-          definition: Stubs::WebhookDefinition.default(visited),
+          definition: WebhookDefinition.default(visited),
           url: 'url',
           error_message: 'error_message',
           error_code: 'error_code',
           last_triggered: Time.now,
           arn: 'arn',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -2281,9 +2281,9 @@ module AWS::SDK::CodePipeline
           name: 'name',
           target_pipeline: 'target_pipeline',
           target_action: 'target_action',
-          filters: Stubs::WebhookFilters.default(visited),
+          filters: WebhookFilters.default(visited),
           authentication: 'authentication',
-          authentication_configuration: Stubs::WebhookAuthConfiguration.default(visited),
+          authentication_configuration: WebhookAuthConfiguration.default(visited),
         }
       end
 
@@ -2326,7 +2326,7 @@ module AWS::SDK::CodePipeline
         return nil if visited.include?('WebhookFilters')
         visited = visited + ['WebhookFilters']
         [
-          Stubs::WebhookFilterRule.default(visited)
+          WebhookFilterRule.default(visited)
         ]
       end
 
@@ -2364,7 +2364,7 @@ module AWS::SDK::CodePipeline
     class PollForJobs
       def self.default(visited=[])
         {
-          jobs: Stubs::JobList.default(visited),
+          jobs: JobList.default(visited),
         }
       end
 
@@ -2382,7 +2382,7 @@ module AWS::SDK::CodePipeline
         return nil if visited.include?('JobList')
         visited = visited + ['JobList']
         [
-          Stubs::Job.default(visited)
+          Job.default(visited)
         ]
       end
 
@@ -2403,7 +2403,7 @@ module AWS::SDK::CodePipeline
         visited = visited + ['Job']
         {
           id: 'id',
-          data: Stubs::JobData.default(visited),
+          data: JobData.default(visited),
           nonce: 'nonce',
           account_id: 'account_id',
         }
@@ -2424,7 +2424,7 @@ module AWS::SDK::CodePipeline
     class PollForThirdPartyJobs
       def self.default(visited=[])
         {
-          jobs: Stubs::ThirdPartyJobList.default(visited),
+          jobs: ThirdPartyJobList.default(visited),
         }
       end
 
@@ -2442,7 +2442,7 @@ module AWS::SDK::CodePipeline
         return nil if visited.include?('ThirdPartyJobList')
         visited = visited + ['ThirdPartyJobList']
         [
-          Stubs::ThirdPartyJob.default(visited)
+          ThirdPartyJob.default(visited)
         ]
       end
 
@@ -2570,7 +2570,7 @@ module AWS::SDK::CodePipeline
     class PutWebhook
       def self.default(visited=[])
         {
-          webhook: Stubs::ListWebhookItem.default(visited),
+          webhook: ListWebhookItem.default(visited),
         }
       end
 
@@ -2690,7 +2690,7 @@ module AWS::SDK::CodePipeline
     class UpdatePipeline
       def self.default(visited=[])
         {
-          pipeline: Stubs::PipelineDeclaration.default(visited),
+          pipeline: PipelineDeclaration.default(visited),
         }
       end
 

@@ -14,8 +14,8 @@ module AWS::SDK::Ivs
     class BatchGetChannel
       def self.default(visited=[])
         {
-          channels: Stubs::Channels.default(visited),
-          errors: Stubs::BatchErrors.default(visited),
+          channels: Channels.default(visited),
+          errors: BatchErrors.default(visited),
         }
       end
 
@@ -35,7 +35,7 @@ module AWS::SDK::Ivs
         return nil if visited.include?('BatchErrors')
         visited = visited + ['BatchErrors']
         [
-          Stubs::BatchError.default(visited)
+          BatchError.default(visited)
         ]
       end
 
@@ -77,7 +77,7 @@ module AWS::SDK::Ivs
         return nil if visited.include?('Channels')
         visited = visited + ['Channels']
         [
-          Stubs::Channel.default(visited)
+          Channel.default(visited)
         ]
       end
 
@@ -105,7 +105,7 @@ module AWS::SDK::Ivs
           ingest_endpoint: 'ingest_endpoint',
           playback_url: 'playback_url',
           authorized: false,
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -149,8 +149,8 @@ module AWS::SDK::Ivs
     class BatchGetStreamKey
       def self.default(visited=[])
         {
-          stream_keys: Stubs::StreamKeys.default(visited),
-          errors: Stubs::BatchErrors.default(visited),
+          stream_keys: StreamKeys.default(visited),
+          errors: BatchErrors.default(visited),
         }
       end
 
@@ -170,7 +170,7 @@ module AWS::SDK::Ivs
         return nil if visited.include?('StreamKeys')
         visited = visited + ['StreamKeys']
         [
-          Stubs::StreamKey.default(visited)
+          StreamKey.default(visited)
         ]
       end
 
@@ -193,7 +193,7 @@ module AWS::SDK::Ivs
           arn: 'arn',
           value: 'value',
           channel_arn: 'channel_arn',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -212,8 +212,8 @@ module AWS::SDK::Ivs
     class CreateChannel
       def self.default(visited=[])
         {
-          channel: Stubs::Channel.default(visited),
-          stream_key: Stubs::StreamKey.default(visited),
+          channel: Channel.default(visited),
+          stream_key: StreamKey.default(visited),
         }
       end
 
@@ -231,7 +231,7 @@ module AWS::SDK::Ivs
     class CreateRecordingConfiguration
       def self.default(visited=[])
         {
-          recording_configuration: Stubs::RecordingConfiguration.default(visited),
+          recording_configuration: RecordingConfiguration.default(visited),
         }
       end
 
@@ -252,10 +252,10 @@ module AWS::SDK::Ivs
         {
           arn: 'arn',
           name: 'name',
-          destination_configuration: Stubs::DestinationConfiguration.default(visited),
+          destination_configuration: DestinationConfiguration.default(visited),
           state: 'state',
-          tags: Stubs::Tags.default(visited),
-          thumbnail_configuration: Stubs::ThumbnailConfiguration.default(visited),
+          tags: Tags.default(visited),
+          thumbnail_configuration: ThumbnailConfiguration.default(visited),
         }
       end
 
@@ -298,7 +298,7 @@ module AWS::SDK::Ivs
         return nil if visited.include?('DestinationConfiguration')
         visited = visited + ['DestinationConfiguration']
         {
-          s3: Stubs::S3DestinationConfiguration.default(visited),
+          s3: S3DestinationConfiguration.default(visited),
         }
       end
 
@@ -332,7 +332,7 @@ module AWS::SDK::Ivs
     class CreateStreamKey
       def self.default(visited=[])
         {
-          stream_key: Stubs::StreamKey.default(visited),
+          stream_key: StreamKey.default(visited),
         }
       end
 
@@ -401,7 +401,7 @@ module AWS::SDK::Ivs
     class GetChannel
       def self.default(visited=[])
         {
-          channel: Stubs::Channel.default(visited),
+          channel: Channel.default(visited),
         }
       end
 
@@ -418,7 +418,7 @@ module AWS::SDK::Ivs
     class GetPlaybackKeyPair
       def self.default(visited=[])
         {
-          key_pair: Stubs::PlaybackKeyPair.default(visited),
+          key_pair: PlaybackKeyPair.default(visited),
         }
       end
 
@@ -440,7 +440,7 @@ module AWS::SDK::Ivs
           arn: 'arn',
           name: 'name',
           fingerprint: 'fingerprint',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -459,7 +459,7 @@ module AWS::SDK::Ivs
     class GetRecordingConfiguration
       def self.default(visited=[])
         {
-          recording_configuration: Stubs::RecordingConfiguration.default(visited),
+          recording_configuration: RecordingConfiguration.default(visited),
         }
       end
 
@@ -476,7 +476,7 @@ module AWS::SDK::Ivs
     class GetStream
       def self.default(visited=[])
         {
-          stream: Stubs::Stream.default(visited),
+          stream: Stream.default(visited),
         }
       end
 
@@ -523,7 +523,7 @@ module AWS::SDK::Ivs
     class GetStreamKey
       def self.default(visited=[])
         {
-          stream_key: Stubs::StreamKey.default(visited),
+          stream_key: StreamKey.default(visited),
         }
       end
 
@@ -540,7 +540,7 @@ module AWS::SDK::Ivs
     class GetStreamSession
       def self.default(visited=[])
         {
-          stream_session: Stubs::StreamSession.default(visited),
+          stream_session: StreamSession.default(visited),
         }
       end
 
@@ -562,10 +562,10 @@ module AWS::SDK::Ivs
           stream_id: 'stream_id',
           start_time: Time.now,
           end_time: Time.now,
-          channel: Stubs::Channel.default(visited),
-          ingest_configuration: Stubs::IngestConfiguration.default(visited),
-          recording_configuration: Stubs::RecordingConfiguration.default(visited),
-          truncated_events: Stubs::StreamEvents.default(visited),
+          channel: Channel.default(visited),
+          ingest_configuration: IngestConfiguration.default(visited),
+          recording_configuration: RecordingConfiguration.default(visited),
+          truncated_events: StreamEvents.default(visited),
         }
       end
 
@@ -589,7 +589,7 @@ module AWS::SDK::Ivs
         return nil if visited.include?('StreamEvents')
         visited = visited + ['StreamEvents']
         [
-          Stubs::StreamEvent.default(visited)
+          StreamEvent.default(visited)
         ]
       end
 
@@ -631,8 +631,8 @@ module AWS::SDK::Ivs
         return nil if visited.include?('IngestConfiguration')
         visited = visited + ['IngestConfiguration']
         {
-          video: Stubs::VideoConfiguration.default(visited),
-          audio: Stubs::AudioConfiguration.default(visited),
+          video: VideoConfiguration.default(visited),
+          audio: AudioConfiguration.default(visited),
         }
       end
 
@@ -705,7 +705,7 @@ module AWS::SDK::Ivs
     class ImportPlaybackKeyPair
       def self.default(visited=[])
         {
-          key_pair: Stubs::PlaybackKeyPair.default(visited),
+          key_pair: PlaybackKeyPair.default(visited),
         }
       end
 
@@ -722,7 +722,7 @@ module AWS::SDK::Ivs
     class ListChannels
       def self.default(visited=[])
         {
-          channels: Stubs::ChannelList.default(visited),
+          channels: ChannelList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -743,7 +743,7 @@ module AWS::SDK::Ivs
         return nil if visited.include?('ChannelList')
         visited = visited + ['ChannelList']
         [
-          Stubs::ChannelSummary.default(visited)
+          ChannelSummary.default(visited)
         ]
       end
 
@@ -768,7 +768,7 @@ module AWS::SDK::Ivs
           latency_mode: 'latency_mode',
           authorized: false,
           recording_configuration_arn: 'recording_configuration_arn',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -789,7 +789,7 @@ module AWS::SDK::Ivs
     class ListPlaybackKeyPairs
       def self.default(visited=[])
         {
-          key_pairs: Stubs::PlaybackKeyPairList.default(visited),
+          key_pairs: PlaybackKeyPairList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -810,7 +810,7 @@ module AWS::SDK::Ivs
         return nil if visited.include?('PlaybackKeyPairList')
         visited = visited + ['PlaybackKeyPairList']
         [
-          Stubs::PlaybackKeyPairSummary.default(visited)
+          PlaybackKeyPairSummary.default(visited)
         ]
       end
 
@@ -832,7 +832,7 @@ module AWS::SDK::Ivs
         {
           arn: 'arn',
           name: 'name',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -850,7 +850,7 @@ module AWS::SDK::Ivs
     class ListRecordingConfigurations
       def self.default(visited=[])
         {
-          recording_configurations: Stubs::RecordingConfigurationList.default(visited),
+          recording_configurations: RecordingConfigurationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -871,7 +871,7 @@ module AWS::SDK::Ivs
         return nil if visited.include?('RecordingConfigurationList')
         visited = visited + ['RecordingConfigurationList']
         [
-          Stubs::RecordingConfigurationSummary.default(visited)
+          RecordingConfigurationSummary.default(visited)
         ]
       end
 
@@ -893,9 +893,9 @@ module AWS::SDK::Ivs
         {
           arn: 'arn',
           name: 'name',
-          destination_configuration: Stubs::DestinationConfiguration.default(visited),
+          destination_configuration: DestinationConfiguration.default(visited),
           state: 'state',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -915,7 +915,7 @@ module AWS::SDK::Ivs
     class ListStreamKeys
       def self.default(visited=[])
         {
-          stream_keys: Stubs::StreamKeyList.default(visited),
+          stream_keys: StreamKeyList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -936,7 +936,7 @@ module AWS::SDK::Ivs
         return nil if visited.include?('StreamKeyList')
         visited = visited + ['StreamKeyList']
         [
-          Stubs::StreamKeySummary.default(visited)
+          StreamKeySummary.default(visited)
         ]
       end
 
@@ -958,7 +958,7 @@ module AWS::SDK::Ivs
         {
           arn: 'arn',
           channel_arn: 'channel_arn',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -976,7 +976,7 @@ module AWS::SDK::Ivs
     class ListStreamSessions
       def self.default(visited=[])
         {
-          stream_sessions: Stubs::StreamSessionList.default(visited),
+          stream_sessions: StreamSessionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -997,7 +997,7 @@ module AWS::SDK::Ivs
         return nil if visited.include?('StreamSessionList')
         visited = visited + ['StreamSessionList']
         [
-          Stubs::StreamSessionSummary.default(visited)
+          StreamSessionSummary.default(visited)
         ]
       end
 
@@ -1039,7 +1039,7 @@ module AWS::SDK::Ivs
     class ListStreams
       def self.default(visited=[])
         {
-          streams: Stubs::StreamList.default(visited),
+          streams: StreamList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1060,7 +1060,7 @@ module AWS::SDK::Ivs
         return nil if visited.include?('StreamList')
         visited = visited + ['StreamList']
         [
-          Stubs::StreamSummary.default(visited)
+          StreamSummary.default(visited)
         ]
       end
 
@@ -1106,7 +1106,7 @@ module AWS::SDK::Ivs
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -1175,7 +1175,7 @@ module AWS::SDK::Ivs
     class UpdateChannel
       def self.default(visited=[])
         {
-          channel: Stubs::Channel.default(visited),
+          channel: Channel.default(visited),
         }
       end
 

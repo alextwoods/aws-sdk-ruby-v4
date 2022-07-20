@@ -1005,11 +1005,11 @@ module AWS::SDK::Outposts
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.quantity ||= 0
       end
-
     end
 
     # <p>Information about a line item request.</p>
@@ -1030,11 +1030,11 @@ module AWS::SDK::Outposts
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.quantity ||= 0
       end
-
     end
 
     # Includes enum constants for LineItemStatus
@@ -2138,11 +2138,11 @@ module AWS::SDK::Outposts
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.network_interface_device_index ||= 0
       end
-
     end
 
     # @!attribute connection_id

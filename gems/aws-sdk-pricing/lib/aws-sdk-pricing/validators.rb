@@ -30,7 +30,7 @@ module AWS::SDK::Pricing
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AttributeValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AttributeValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -48,7 +48,7 @@ module AWS::SDK::Pricing
     class DescribeServicesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeServicesOutput, context: context)
-        Validators::ServiceList.validate!(input[:services], context: "#{context}[:services]") unless input[:services].nil?
+        ServiceList.validate!(input[:services], context: "#{context}[:services]") unless input[:services].nil?
         Hearth::Validator.validate!(input[:format_version], ::String, context: "#{context}[:format_version]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -74,7 +74,7 @@ module AWS::SDK::Pricing
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -92,7 +92,7 @@ module AWS::SDK::Pricing
     class GetAttributeValuesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAttributeValuesOutput, context: context)
-        Validators::AttributeValueList.validate!(input[:attribute_values], context: "#{context}[:attribute_values]") unless input[:attribute_values].nil?
+        AttributeValueList.validate!(input[:attribute_values], context: "#{context}[:attribute_values]") unless input[:attribute_values].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -101,7 +101,7 @@ module AWS::SDK::Pricing
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetProductsInput, context: context)
         Hearth::Validator.validate!(input[:service_code], ::String, context: "#{context}[:service_code]")
-        Validators::Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:format_version], ::String, context: "#{context}[:format_version]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
@@ -112,7 +112,7 @@ module AWS::SDK::Pricing
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetProductsOutput, context: context)
         Hearth::Validator.validate!(input[:format_version], ::String, context: "#{context}[:format_version]")
-        Validators::PriceList.validate!(input[:price_list], context: "#{context}[:price_list]") unless input[:price_list].nil?
+        PriceList.validate!(input[:price_list], context: "#{context}[:price_list]") unless input[:price_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -158,7 +158,7 @@ module AWS::SDK::Pricing
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Service, context: context)
         Hearth::Validator.validate!(input[:service_code], ::String, context: "#{context}[:service_code]")
-        Validators::AttributeNameList.validate!(input[:attribute_names], context: "#{context}[:attribute_names]") unless input[:attribute_names].nil?
+        AttributeNameList.validate!(input[:attribute_names], context: "#{context}[:attribute_names]") unless input[:attribute_names].nil?
       end
     end
 
@@ -166,7 +166,7 @@ module AWS::SDK::Pricing
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Service.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Service.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

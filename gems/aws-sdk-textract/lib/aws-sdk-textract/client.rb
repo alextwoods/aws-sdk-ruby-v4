@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Textract
@@ -184,7 +186,7 @@ module AWS::SDK::Textract
     def analyze_document(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AnalyzeDocumentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AnalyzeDocumentInput,
         validate_input: @config.validate_input
@@ -320,7 +322,7 @@ module AWS::SDK::Textract
     def analyze_expense(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AnalyzeExpenseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AnalyzeExpenseInput,
         validate_input: @config.validate_input
@@ -415,7 +417,7 @@ module AWS::SDK::Textract
     def analyze_id(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AnalyzeIDInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AnalyzeIDInput,
         validate_input: @config.validate_input
@@ -542,7 +544,7 @@ module AWS::SDK::Textract
     def detect_document_text(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetectDocumentTextInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetectDocumentTextInput,
         validate_input: @config.validate_input
@@ -715,7 +717,7 @@ module AWS::SDK::Textract
     def get_document_analysis(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDocumentAnalysisInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDocumentAnalysisInput,
         validate_input: @config.validate_input
@@ -865,7 +867,7 @@ module AWS::SDK::Textract
     def get_document_text_detection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDocumentTextDetectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDocumentTextDetectionInput,
         validate_input: @config.validate_input
@@ -1001,7 +1003,7 @@ module AWS::SDK::Textract
     def get_expense_analysis(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetExpenseAnalysisInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetExpenseAnalysisInput,
         validate_input: @config.validate_input
@@ -1157,7 +1159,7 @@ module AWS::SDK::Textract
     def start_document_analysis(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartDocumentAnalysisInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartDocumentAnalysisInput,
         validate_input: @config.validate_input
@@ -1287,7 +1289,7 @@ module AWS::SDK::Textract
     def start_document_text_detection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartDocumentTextDetectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartDocumentTextDetectionInput,
         validate_input: @config.validate_input
@@ -1416,7 +1418,7 @@ module AWS::SDK::Textract
     def start_expense_analysis(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartExpenseAnalysisInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartExpenseAnalysisInput,
         validate_input: @config.validate_input

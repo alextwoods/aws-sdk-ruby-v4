@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::CloudFront
@@ -74,7 +76,7 @@ module AWS::SDK::CloudFront
     def associate_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateAliasInput,
         validate_input: @config.validate_input
@@ -231,7 +233,7 @@ module AWS::SDK::CloudFront
     def create_cache_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCachePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCachePolicyInput,
         validate_input: @config.validate_input
@@ -313,7 +315,7 @@ module AWS::SDK::CloudFront
     def create_cloud_front_origin_access_identity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCloudFrontOriginAccessIdentityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCloudFrontOriginAccessIdentityInput,
         validate_input: @config.validate_input
@@ -805,7 +807,7 @@ module AWS::SDK::CloudFront
     def create_distribution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDistributionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDistributionInput,
         validate_input: @config.validate_input
@@ -1295,7 +1297,7 @@ module AWS::SDK::CloudFront
     def create_distribution_with_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDistributionWithTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDistributionWithTagsInput,
         validate_input: @config.validate_input
@@ -1416,7 +1418,7 @@ module AWS::SDK::CloudFront
     def create_field_level_encryption_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFieldLevelEncryptionConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFieldLevelEncryptionConfigInput,
         validate_input: @config.validate_input
@@ -1522,7 +1524,7 @@ module AWS::SDK::CloudFront
     def create_field_level_encryption_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFieldLevelEncryptionProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFieldLevelEncryptionProfileInput,
         validate_input: @config.validate_input
@@ -1626,7 +1628,7 @@ module AWS::SDK::CloudFront
     def create_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFunctionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFunctionInput,
         validate_input: @config.validate_input
@@ -1717,7 +1719,7 @@ module AWS::SDK::CloudFront
     def create_invalidation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateInvalidationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateInvalidationInput,
         validate_input: @config.validate_input
@@ -1808,7 +1810,7 @@ module AWS::SDK::CloudFront
     def create_key_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateKeyGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateKeyGroupInput,
         validate_input: @config.validate_input
@@ -1891,7 +1893,7 @@ module AWS::SDK::CloudFront
     def create_monitoring_subscription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateMonitoringSubscriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateMonitoringSubscriptionInput,
         validate_input: @config.validate_input
@@ -2039,7 +2041,7 @@ module AWS::SDK::CloudFront
     def create_origin_request_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateOriginRequestPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateOriginRequestPolicyInput,
         validate_input: @config.validate_input
@@ -2122,7 +2124,7 @@ module AWS::SDK::CloudFront
     def create_public_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePublicKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePublicKeyInput,
         validate_input: @config.validate_input
@@ -2232,7 +2234,7 @@ module AWS::SDK::CloudFront
     def create_realtime_log_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRealtimeLogConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRealtimeLogConfigInput,
         validate_input: @config.validate_input
@@ -2443,7 +2445,7 @@ module AWS::SDK::CloudFront
     def create_response_headers_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateResponseHeadersPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateResponseHeadersPolicyInput,
         validate_input: @config.validate_input
@@ -2579,7 +2581,7 @@ module AWS::SDK::CloudFront
     def create_streaming_distribution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateStreamingDistributionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateStreamingDistributionInput,
         validate_input: @config.validate_input
@@ -2725,7 +2727,7 @@ module AWS::SDK::CloudFront
     def create_streaming_distribution_with_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateStreamingDistributionWithTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateStreamingDistributionWithTagsInput,
         validate_input: @config.validate_input
@@ -2807,7 +2809,7 @@ module AWS::SDK::CloudFront
     def delete_cache_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCachePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCachePolicyInput,
         validate_input: @config.validate_input
@@ -2880,7 +2882,7 @@ module AWS::SDK::CloudFront
     def delete_cloud_front_origin_access_identity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCloudFrontOriginAccessIdentityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCloudFrontOriginAccessIdentityInput,
         validate_input: @config.validate_input
@@ -2953,7 +2955,7 @@ module AWS::SDK::CloudFront
     def delete_distribution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDistributionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDistributionInput,
         validate_input: @config.validate_input
@@ -3026,7 +3028,7 @@ module AWS::SDK::CloudFront
     def delete_field_level_encryption_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFieldLevelEncryptionConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFieldLevelEncryptionConfigInput,
         validate_input: @config.validate_input
@@ -3099,7 +3101,7 @@ module AWS::SDK::CloudFront
     def delete_field_level_encryption_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFieldLevelEncryptionProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFieldLevelEncryptionProfileInput,
         validate_input: @config.validate_input
@@ -3178,7 +3180,7 @@ module AWS::SDK::CloudFront
     def delete_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFunctionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFunctionInput,
         validate_input: @config.validate_input
@@ -3259,7 +3261,7 @@ module AWS::SDK::CloudFront
     def delete_key_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteKeyGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteKeyGroupInput,
         validate_input: @config.validate_input
@@ -3327,7 +3329,7 @@ module AWS::SDK::CloudFront
     def delete_monitoring_subscription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteMonitoringSubscriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMonitoringSubscriptionInput,
         validate_input: @config.validate_input
@@ -3409,7 +3411,7 @@ module AWS::SDK::CloudFront
     def delete_origin_request_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteOriginRequestPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteOriginRequestPolicyInput,
         validate_input: @config.validate_input
@@ -3482,7 +3484,7 @@ module AWS::SDK::CloudFront
     def delete_public_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePublicKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePublicKeyInput,
         validate_input: @config.validate_input
@@ -3560,7 +3562,7 @@ module AWS::SDK::CloudFront
     def delete_realtime_log_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRealtimeLogConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRealtimeLogConfigInput,
         validate_input: @config.validate_input
@@ -3643,7 +3645,7 @@ module AWS::SDK::CloudFront
     def delete_response_headers_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteResponseHeadersPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteResponseHeadersPolicyInput,
         validate_input: @config.validate_input
@@ -3763,7 +3765,7 @@ module AWS::SDK::CloudFront
     def delete_streaming_distribution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteStreamingDistributionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteStreamingDistributionInput,
         validate_input: @config.validate_input
@@ -3851,7 +3853,7 @@ module AWS::SDK::CloudFront
     def describe_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFunctionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFunctionInput,
         validate_input: @config.validate_input
@@ -3967,7 +3969,7 @@ module AWS::SDK::CloudFront
     def get_cache_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCachePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCachePolicyInput,
         validate_input: @config.validate_input
@@ -4072,7 +4074,7 @@ module AWS::SDK::CloudFront
     def get_cache_policy_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCachePolicyConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCachePolicyConfigInput,
         validate_input: @config.validate_input
@@ -4147,7 +4149,7 @@ module AWS::SDK::CloudFront
     def get_cloud_front_origin_access_identity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCloudFrontOriginAccessIdentityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCloudFrontOriginAccessIdentityInput,
         validate_input: @config.validate_input
@@ -4219,7 +4221,7 @@ module AWS::SDK::CloudFront
     def get_cloud_front_origin_access_identity_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCloudFrontOriginAccessIdentityConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCloudFrontOriginAccessIdentityConfigInput,
         validate_input: @config.validate_input
@@ -4483,7 +4485,7 @@ module AWS::SDK::CloudFront
     def get_distribution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDistributionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDistributionInput,
         validate_input: @config.validate_input
@@ -4719,7 +4721,7 @@ module AWS::SDK::CloudFront
     def get_distribution_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDistributionConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDistributionConfigInput,
         validate_input: @config.validate_input
@@ -4811,7 +4813,7 @@ module AWS::SDK::CloudFront
     def get_field_level_encryption(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFieldLevelEncryptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFieldLevelEncryptionInput,
         validate_input: @config.validate_input
@@ -4900,7 +4902,7 @@ module AWS::SDK::CloudFront
     def get_field_level_encryption_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFieldLevelEncryptionConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFieldLevelEncryptionConfigInput,
         validate_input: @config.validate_input
@@ -4986,7 +4988,7 @@ module AWS::SDK::CloudFront
     def get_field_level_encryption_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFieldLevelEncryptionProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFieldLevelEncryptionProfileInput,
         validate_input: @config.validate_input
@@ -5069,7 +5071,7 @@ module AWS::SDK::CloudFront
     def get_field_level_encryption_profile_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFieldLevelEncryptionProfileConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFieldLevelEncryptionProfileConfigInput,
         validate_input: @config.validate_input
@@ -5147,7 +5149,7 @@ module AWS::SDK::CloudFront
     def get_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFunctionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFunctionInput,
         validate_input: @config.validate_input
@@ -5230,7 +5232,7 @@ module AWS::SDK::CloudFront
     def get_invalidation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetInvalidationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetInvalidationInput,
         validate_input: @config.validate_input
@@ -5313,7 +5315,7 @@ module AWS::SDK::CloudFront
     def get_key_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetKeyGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetKeyGroupInput,
         validate_input: @config.validate_input
@@ -5393,7 +5395,7 @@ module AWS::SDK::CloudFront
     def get_key_group_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetKeyGroupConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetKeyGroupConfigInput,
         validate_input: @config.validate_input
@@ -5465,7 +5467,7 @@ module AWS::SDK::CloudFront
     def get_monitoring_subscription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMonitoringSubscriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMonitoringSubscriptionInput,
         validate_input: @config.validate_input
@@ -5575,7 +5577,7 @@ module AWS::SDK::CloudFront
     def get_origin_request_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetOriginRequestPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetOriginRequestPolicyInput,
         validate_input: @config.validate_input
@@ -5675,7 +5677,7 @@ module AWS::SDK::CloudFront
     def get_origin_request_policy_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetOriginRequestPolicyConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetOriginRequestPolicyConfigInput,
         validate_input: @config.validate_input
@@ -5752,7 +5754,7 @@ module AWS::SDK::CloudFront
     def get_public_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPublicKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPublicKeyInput,
         validate_input: @config.validate_input
@@ -5826,7 +5828,7 @@ module AWS::SDK::CloudFront
     def get_public_key_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPublicKeyConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPublicKeyConfigInput,
         validate_input: @config.validate_input
@@ -5913,7 +5915,7 @@ module AWS::SDK::CloudFront
     def get_realtime_log_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRealtimeLogConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRealtimeLogConfigInput,
         validate_input: @config.validate_input
@@ -6052,7 +6054,7 @@ module AWS::SDK::CloudFront
     def get_response_headers_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResponseHeadersPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResponseHeadersPolicyInput,
         validate_input: @config.validate_input
@@ -6187,7 +6189,7 @@ module AWS::SDK::CloudFront
     def get_response_headers_policy_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResponseHeadersPolicyConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResponseHeadersPolicyConfigInput,
         validate_input: @config.validate_input
@@ -6293,7 +6295,7 @@ module AWS::SDK::CloudFront
     def get_streaming_distribution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetStreamingDistributionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetStreamingDistributionInput,
         validate_input: @config.validate_input
@@ -6383,7 +6385,7 @@ module AWS::SDK::CloudFront
     def get_streaming_distribution_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetStreamingDistributionConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetStreamingDistributionConfigInput,
         validate_input: @config.validate_input
@@ -6517,7 +6519,7 @@ module AWS::SDK::CloudFront
     def list_cache_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCachePoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCachePoliciesInput,
         validate_input: @config.validate_input
@@ -6605,7 +6607,7 @@ module AWS::SDK::CloudFront
     def list_cloud_front_origin_access_identities(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCloudFrontOriginAccessIdentitiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCloudFrontOriginAccessIdentitiesInput,
         validate_input: @config.validate_input
@@ -6720,7 +6722,7 @@ module AWS::SDK::CloudFront
     def list_conflicting_aliases(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListConflictingAliasesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListConflictingAliasesInput,
         validate_input: @config.validate_input
@@ -6972,7 +6974,7 @@ module AWS::SDK::CloudFront
     def list_distributions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDistributionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDistributionsInput,
         validate_input: @config.validate_input
@@ -7065,7 +7067,7 @@ module AWS::SDK::CloudFront
     def list_distributions_by_cache_policy_id(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDistributionsByCachePolicyIdInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDistributionsByCachePolicyIdInput,
         validate_input: @config.validate_input
@@ -7158,7 +7160,7 @@ module AWS::SDK::CloudFront
     def list_distributions_by_key_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDistributionsByKeyGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDistributionsByKeyGroupInput,
         validate_input: @config.validate_input
@@ -7252,7 +7254,7 @@ module AWS::SDK::CloudFront
     def list_distributions_by_origin_request_policy_id(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDistributionsByOriginRequestPolicyIdInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDistributionsByOriginRequestPolicyIdInput,
         validate_input: @config.validate_input
@@ -7522,7 +7524,7 @@ module AWS::SDK::CloudFront
     def list_distributions_by_realtime_log_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDistributionsByRealtimeLogConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDistributionsByRealtimeLogConfigInput,
         validate_input: @config.validate_input
@@ -7616,7 +7618,7 @@ module AWS::SDK::CloudFront
     def list_distributions_by_response_headers_policy_id(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDistributionsByResponseHeadersPolicyIdInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDistributionsByResponseHeadersPolicyIdInput,
         validate_input: @config.validate_input
@@ -7875,7 +7877,7 @@ module AWS::SDK::CloudFront
     def list_distributions_by_web_acl_id(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDistributionsByWebACLIdInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDistributionsByWebACLIdInput,
         validate_input: @config.validate_input
@@ -7975,7 +7977,7 @@ module AWS::SDK::CloudFront
     def list_field_level_encryption_configs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFieldLevelEncryptionConfigsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFieldLevelEncryptionConfigsInput,
         validate_input: @config.validate_input
@@ -8069,7 +8071,7 @@ module AWS::SDK::CloudFront
     def list_field_level_encryption_profiles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFieldLevelEncryptionProfilesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFieldLevelEncryptionProfilesInput,
         validate_input: @config.validate_input
@@ -8172,7 +8174,7 @@ module AWS::SDK::CloudFront
     def list_functions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFunctionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFunctionsInput,
         validate_input: @config.validate_input
@@ -8265,7 +8267,7 @@ module AWS::SDK::CloudFront
     def list_invalidations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListInvalidationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListInvalidationsInput,
         validate_input: @config.validate_input
@@ -8359,7 +8361,7 @@ module AWS::SDK::CloudFront
     def list_key_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListKeyGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListKeyGroupsInput,
         validate_input: @config.validate_input
@@ -8487,7 +8489,7 @@ module AWS::SDK::CloudFront
     def list_origin_request_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListOriginRequestPoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListOriginRequestPoliciesInput,
         validate_input: @config.validate_input
@@ -8572,7 +8574,7 @@ module AWS::SDK::CloudFront
     def list_public_keys(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPublicKeysInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPublicKeysInput,
         validate_input: @config.validate_input
@@ -8670,7 +8672,7 @@ module AWS::SDK::CloudFront
     def list_realtime_log_configs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRealtimeLogConfigsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRealtimeLogConfigsInput,
         validate_input: @config.validate_input
@@ -8833,7 +8835,7 @@ module AWS::SDK::CloudFront
     def list_response_headers_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListResponseHeadersPoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListResponseHeadersPoliciesInput,
         validate_input: @config.validate_input
@@ -8933,7 +8935,7 @@ module AWS::SDK::CloudFront
     def list_streaming_distributions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListStreamingDistributionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListStreamingDistributionsInput,
         validate_input: @config.validate_input
@@ -9006,7 +9008,7 @@ module AWS::SDK::CloudFront
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -9098,7 +9100,7 @@ module AWS::SDK::CloudFront
     def publish_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PublishFunctionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PublishFunctionInput,
         validate_input: @config.validate_input
@@ -9177,7 +9179,7 @@ module AWS::SDK::CloudFront
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -9286,7 +9288,7 @@ module AWS::SDK::CloudFront
     def test_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TestFunctionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TestFunctionInput,
         validate_input: @config.validate_input
@@ -9362,7 +9364,7 @@ module AWS::SDK::CloudFront
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -9527,7 +9529,7 @@ module AWS::SDK::CloudFront
     def update_cache_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateCachePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateCachePolicyInput,
         validate_input: @config.validate_input
@@ -9614,7 +9616,7 @@ module AWS::SDK::CloudFront
     def update_cloud_front_origin_access_identity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateCloudFrontOriginAccessIdentityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateCloudFrontOriginAccessIdentityInput,
         validate_input: @config.validate_input
@@ -10180,7 +10182,7 @@ module AWS::SDK::CloudFront
     def update_distribution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDistributionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDistributionInput,
         validate_input: @config.validate_input
@@ -10309,7 +10311,7 @@ module AWS::SDK::CloudFront
     def update_field_level_encryption_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFieldLevelEncryptionConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFieldLevelEncryptionConfigInput,
         validate_input: @config.validate_input
@@ -10423,7 +10425,7 @@ module AWS::SDK::CloudFront
     def update_field_level_encryption_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFieldLevelEncryptionProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFieldLevelEncryptionProfileInput,
         validate_input: @config.validate_input
@@ -10525,7 +10527,7 @@ module AWS::SDK::CloudFront
     def update_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFunctionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFunctionInput,
         validate_input: @config.validate_input
@@ -10634,7 +10636,7 @@ module AWS::SDK::CloudFront
     def update_key_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateKeyGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateKeyGroupInput,
         validate_input: @config.validate_input
@@ -10786,7 +10788,7 @@ module AWS::SDK::CloudFront
     def update_origin_request_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateOriginRequestPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateOriginRequestPolicyInput,
         validate_input: @config.validate_input
@@ -10877,7 +10879,7 @@ module AWS::SDK::CloudFront
     def update_public_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePublicKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePublicKeyInput,
         validate_input: @config.validate_input
@@ -11008,7 +11010,7 @@ module AWS::SDK::CloudFront
     def update_realtime_log_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRealtimeLogConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRealtimeLogConfigInput,
         validate_input: @config.validate_input
@@ -11238,7 +11240,7 @@ module AWS::SDK::CloudFront
     def update_response_headers_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateResponseHeadersPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateResponseHeadersPolicyInput,
         validate_input: @config.validate_input
@@ -11380,7 +11382,7 @@ module AWS::SDK::CloudFront
     def update_streaming_distribution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateStreamingDistributionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateStreamingDistributionInput,
         validate_input: @config.validate_input

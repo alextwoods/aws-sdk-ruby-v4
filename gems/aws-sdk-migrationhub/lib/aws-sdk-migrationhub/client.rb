@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::MigrationHub
@@ -98,7 +100,7 @@ module AWS::SDK::MigrationHub
     def associate_created_artifact(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateCreatedArtifactInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateCreatedArtifactInput,
         validate_input: @config.validate_input
@@ -185,7 +187,7 @@ module AWS::SDK::MigrationHub
     def associate_discovered_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateDiscoveredResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateDiscoveredResourceInput,
         validate_input: @config.validate_input
@@ -264,7 +266,7 @@ module AWS::SDK::MigrationHub
     def create_progress_update_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateProgressUpdateStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateProgressUpdateStreamInput,
         validate_input: @config.validate_input
@@ -369,7 +371,7 @@ module AWS::SDK::MigrationHub
     def delete_progress_update_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteProgressUpdateStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteProgressUpdateStreamInput,
         validate_input: @config.validate_input
@@ -440,7 +442,7 @@ module AWS::SDK::MigrationHub
     def describe_application_state(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeApplicationStateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeApplicationStateInput,
         validate_input: @config.validate_input
@@ -526,7 +528,7 @@ module AWS::SDK::MigrationHub
     def describe_migration_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeMigrationTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeMigrationTaskInput,
         validate_input: @config.validate_input
@@ -626,7 +628,7 @@ module AWS::SDK::MigrationHub
     def disassociate_created_artifact(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateCreatedArtifactInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateCreatedArtifactInput,
         validate_input: @config.validate_input
@@ -711,7 +713,7 @@ module AWS::SDK::MigrationHub
     def disassociate_discovered_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateDiscoveredResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateDiscoveredResourceInput,
         validate_input: @config.validate_input
@@ -793,7 +795,7 @@ module AWS::SDK::MigrationHub
     def import_migration_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ImportMigrationTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ImportMigrationTaskInput,
         validate_input: @config.validate_input
@@ -882,7 +884,7 @@ module AWS::SDK::MigrationHub
     def list_application_states(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListApplicationStatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListApplicationStatesInput,
         validate_input: @config.validate_input
@@ -985,7 +987,7 @@ module AWS::SDK::MigrationHub
     def list_created_artifacts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCreatedArtifactsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCreatedArtifactsInput,
         validate_input: @config.validate_input
@@ -1074,7 +1076,7 @@ module AWS::SDK::MigrationHub
     def list_discovered_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDiscoveredResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDiscoveredResourcesInput,
         validate_input: @config.validate_input
@@ -1174,7 +1176,7 @@ module AWS::SDK::MigrationHub
     def list_migration_tasks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMigrationTasksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMigrationTasksInput,
         validate_input: @config.validate_input
@@ -1252,7 +1254,7 @@ module AWS::SDK::MigrationHub
     def list_progress_update_streams(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListProgressUpdateStreamsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListProgressUpdateStreamsInput,
         validate_input: @config.validate_input
@@ -1337,7 +1339,7 @@ module AWS::SDK::MigrationHub
     def notify_application_state(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::NotifyApplicationStateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::NotifyApplicationStateInput,
         validate_input: @config.validate_input
@@ -1451,7 +1453,7 @@ module AWS::SDK::MigrationHub
     def notify_migration_task_state(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::NotifyMigrationTaskStateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::NotifyMigrationTaskStateInput,
         validate_input: @config.validate_input
@@ -1591,7 +1593,7 @@ module AWS::SDK::MigrationHub
     def put_resource_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutResourceAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutResourceAttributesInput,
         validate_input: @config.validate_input

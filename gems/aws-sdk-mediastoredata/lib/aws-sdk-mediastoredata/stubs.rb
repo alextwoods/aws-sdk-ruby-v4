@@ -79,7 +79,7 @@ module AWS::SDK::MediaStoreData
     class ListItems
       def self.default(visited=[])
         {
-          items: Stubs::ItemList.default(visited),
+          items: ItemList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -100,7 +100,7 @@ module AWS::SDK::MediaStoreData
         return nil if visited.include?('ItemList')
         visited = visited + ['ItemList']
         [
-          Stubs::Item.default(visited)
+          Item.default(visited)
         ]
       end
 

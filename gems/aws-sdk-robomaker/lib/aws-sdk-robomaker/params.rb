@@ -202,7 +202,7 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(params, ::Hash, Types::CreateDeploymentJobInput, context: context)
         type = Types::CreateDeploymentJobInput.new
         type.deployment_config = DeploymentConfig.build(params[:deployment_config], context: "#{context}[:deployment_config]") unless params[:deployment_config].nil?
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.fleet = params[:fleet]
         type.deployment_application_configs = DeploymentApplicationConfigs.build(params[:deployment_application_configs], context: "#{context}[:deployment_application_configs]") unless params[:deployment_application_configs].nil?
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
@@ -401,7 +401,7 @@ module AWS::SDK::RoboMaker
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateSimulationJobInput, context: context)
         type = Types::CreateSimulationJobInput.new
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.output_location = OutputLocation.build(params[:output_location], context: "#{context}[:output_location]") unless params[:output_location].nil?
         type.logging_config = LoggingConfig.build(params[:logging_config], context: "#{context}[:logging_config]") unless params[:logging_config].nil?
         type.max_job_duration_in_seconds = params[:max_job_duration_in_seconds]
@@ -458,7 +458,7 @@ module AWS::SDK::RoboMaker
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateWorldExportJobInput, context: context)
         type = Types::CreateWorldExportJobInput.new
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.worlds = Arns.build(params[:worlds], context: "#{context}[:worlds]") unless params[:worlds].nil?
         type.output_location = OutputLocation.build(params[:output_location], context: "#{context}[:output_location]") unless params[:output_location].nil?
         type.iam_role = params[:iam_role]
@@ -487,7 +487,7 @@ module AWS::SDK::RoboMaker
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateWorldGenerationJobInput, context: context)
         type = Types::CreateWorldGenerationJobInput.new
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.template = params[:template]
         type.world_count = WorldCount.build(params[:world_count], context: "#{context}[:world_count]") unless params[:world_count].nil?
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
@@ -2097,7 +2097,7 @@ module AWS::SDK::RoboMaker
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::StartSimulationJobBatchInput, context: context)
         type = Types::StartSimulationJobBatchInput.new
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.batch_policy = BatchPolicy.build(params[:batch_policy], context: "#{context}[:batch_policy]") unless params[:batch_policy].nil?
         type.create_simulation_job_requests = CreateSimulationJobRequests.build(params[:create_simulation_job_requests], context: "#{context}[:create_simulation_job_requests]") unless params[:create_simulation_job_requests].nil?
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
@@ -2139,7 +2139,7 @@ module AWS::SDK::RoboMaker
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::SyncDeploymentJobInput, context: context)
         type = Types::SyncDeploymentJobInput.new
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.fleet = params[:fleet]
         type
       end

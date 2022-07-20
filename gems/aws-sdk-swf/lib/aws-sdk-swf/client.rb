@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::SWF
@@ -195,7 +197,7 @@ module AWS::SDK::SWF
     def count_closed_workflow_executions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CountClosedWorkflowExecutionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CountClosedWorkflowExecutionsInput,
         validate_input: @config.validate_input
@@ -355,7 +357,7 @@ module AWS::SDK::SWF
     def count_open_workflow_executions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CountOpenWorkflowExecutionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CountOpenWorkflowExecutionsInput,
         validate_input: @config.validate_input
@@ -458,7 +460,7 @@ module AWS::SDK::SWF
     def count_pending_activity_tasks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CountPendingActivityTasksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CountPendingActivityTasksInput,
         validate_input: @config.validate_input
@@ -561,7 +563,7 @@ module AWS::SDK::SWF
     def count_pending_decision_tasks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CountPendingDecisionTasksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CountPendingDecisionTasksInput,
         validate_input: @config.validate_input
@@ -678,7 +680,7 @@ module AWS::SDK::SWF
     def deprecate_activity_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeprecateActivityTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeprecateActivityTypeInput,
         validate_input: @config.validate_input
@@ -777,7 +779,7 @@ module AWS::SDK::SWF
     def deprecate_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeprecateDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeprecateDomainInput,
         validate_input: @config.validate_input
@@ -895,7 +897,7 @@ module AWS::SDK::SWF
     def deprecate_workflow_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeprecateWorkflowTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeprecateWorkflowTypeInput,
         validate_input: @config.validate_input
@@ -1026,7 +1028,7 @@ module AWS::SDK::SWF
     def describe_activity_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeActivityTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeActivityTypeInput,
         validate_input: @config.validate_input
@@ -1125,7 +1127,7 @@ module AWS::SDK::SWF
     def describe_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDomainInput,
         validate_input: @config.validate_input
@@ -1259,7 +1261,7 @@ module AWS::SDK::SWF
     def describe_workflow_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeWorkflowExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeWorkflowExecutionInput,
         validate_input: @config.validate_input
@@ -1388,7 +1390,7 @@ module AWS::SDK::SWF
     def describe_workflow_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeWorkflowTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeWorkflowTypeInput,
         validate_input: @config.validate_input
@@ -1798,7 +1800,7 @@ module AWS::SDK::SWF
     def get_workflow_execution_history(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetWorkflowExecutionHistoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetWorkflowExecutionHistoryInput,
         validate_input: @config.validate_input
@@ -1933,7 +1935,7 @@ module AWS::SDK::SWF
     def list_activity_types(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListActivityTypesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListActivityTypesInput,
         validate_input: @config.validate_input
@@ -2164,7 +2166,7 @@ module AWS::SDK::SWF
     def list_closed_workflow_executions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListClosedWorkflowExecutionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListClosedWorkflowExecutionsInput,
         validate_input: @config.validate_input
@@ -2292,7 +2294,7 @@ module AWS::SDK::SWF
     def list_domains(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDomainsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDomainsInput,
         validate_input: @config.validate_input
@@ -2489,7 +2491,7 @@ module AWS::SDK::SWF
     def list_open_workflow_executions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListOpenWorkflowExecutionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListOpenWorkflowExecutionsInput,
         validate_input: @config.validate_input
@@ -2561,7 +2563,7 @@ module AWS::SDK::SWF
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2693,7 +2695,7 @@ module AWS::SDK::SWF
     def list_workflow_types(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListWorkflowTypesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListWorkflowTypesInput,
         validate_input: @config.validate_input
@@ -2823,7 +2825,7 @@ module AWS::SDK::SWF
     def poll_for_activity_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PollForActivityTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PollForActivityTaskInput,
         validate_input: @config.validate_input
@@ -3274,7 +3276,7 @@ module AWS::SDK::SWF
     def poll_for_decision_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PollForDecisionTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PollForDecisionTaskInput,
         validate_input: @config.validate_input
@@ -3400,7 +3402,7 @@ module AWS::SDK::SWF
     def record_activity_task_heartbeat(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RecordActivityTaskHeartbeatInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RecordActivityTaskHeartbeatInput,
         validate_input: @config.validate_input
@@ -3599,7 +3601,7 @@ module AWS::SDK::SWF
     def register_activity_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterActivityTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterActivityTypeInput,
         validate_input: @config.validate_input
@@ -3722,7 +3724,7 @@ module AWS::SDK::SWF
     def register_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterDomainInput,
         validate_input: @config.validate_input
@@ -3939,7 +3941,7 @@ module AWS::SDK::SWF
     def register_workflow_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterWorkflowTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterWorkflowTypeInput,
         validate_input: @config.validate_input
@@ -4053,7 +4055,7 @@ module AWS::SDK::SWF
     def request_cancel_workflow_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RequestCancelWorkflowExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RequestCancelWorkflowExecutionInput,
         validate_input: @config.validate_input
@@ -4172,7 +4174,7 @@ module AWS::SDK::SWF
     def respond_activity_task_canceled(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RespondActivityTaskCanceledInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RespondActivityTaskCanceledInput,
         validate_input: @config.validate_input
@@ -4290,7 +4292,7 @@ module AWS::SDK::SWF
     def respond_activity_task_completed(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RespondActivityTaskCompletedInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RespondActivityTaskCompletedInput,
         validate_input: @config.validate_input
@@ -4405,7 +4407,7 @@ module AWS::SDK::SWF
     def respond_activity_task_failed(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RespondActivityTaskFailedInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RespondActivityTaskFailedInput,
         validate_input: @config.validate_input
@@ -4599,7 +4601,7 @@ module AWS::SDK::SWF
     def respond_decision_task_completed(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RespondDecisionTaskCompletedInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RespondDecisionTaskCompletedInput,
         validate_input: @config.validate_input
@@ -4722,7 +4724,7 @@ module AWS::SDK::SWF
     def signal_workflow_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SignalWorkflowExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SignalWorkflowExecutionInput,
         validate_input: @config.validate_input
@@ -4990,7 +4992,7 @@ module AWS::SDK::SWF
     def start_workflow_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartWorkflowExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartWorkflowExecutionInput,
         validate_input: @config.validate_input
@@ -5071,7 +5073,7 @@ module AWS::SDK::SWF
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -5228,7 +5230,7 @@ module AWS::SDK::SWF
     def terminate_workflow_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TerminateWorkflowExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TerminateWorkflowExecutionInput,
         validate_input: @config.validate_input
@@ -5344,7 +5346,7 @@ module AWS::SDK::SWF
     def undeprecate_activity_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UndeprecateActivityTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UndeprecateActivityTypeInput,
         validate_input: @config.validate_input
@@ -5440,7 +5442,7 @@ module AWS::SDK::SWF
     def undeprecate_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UndeprecateDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UndeprecateDomainInput,
         validate_input: @config.validate_input
@@ -5556,7 +5558,7 @@ module AWS::SDK::SWF
     def undeprecate_workflow_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UndeprecateWorkflowTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UndeprecateWorkflowTypeInput,
         validate_input: @config.validate_input
@@ -5630,7 +5632,7 @@ module AWS::SDK::SWF
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input

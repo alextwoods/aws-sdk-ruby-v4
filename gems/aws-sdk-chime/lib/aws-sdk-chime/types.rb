@@ -1482,6 +1482,7 @@ module AWS::SDK::Chime
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.redacted ||= false
@@ -1577,6 +1578,7 @@ module AWS::SDK::Chime
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.redacted ||= false

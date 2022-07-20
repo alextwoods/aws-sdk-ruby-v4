@@ -15,7 +15,7 @@ module AWS::SDK::DataBrew
       def self.default(visited=[])
         {
           name: 'name',
-          errors: Stubs::RecipeErrorList.default(visited),
+          errors: RecipeErrorList.default(visited),
         }
       end
 
@@ -35,7 +35,7 @@ module AWS::SDK::DataBrew
         return nil if visited.include?('RecipeErrorList')
         visited = visited + ['RecipeErrorList']
         [
-          Stubs::RecipeVersionErrorDetail.default(visited)
+          RecipeVersionErrorDetail.default(visited)
         ]
       end
 
@@ -302,13 +302,13 @@ module AWS::SDK::DataBrew
           create_date: Time.now,
           name: 'name',
           format: 'format',
-          format_options: Stubs::FormatOptions.default(visited),
-          input: Stubs::Input.default(visited),
+          format_options: FormatOptions.default(visited),
+          input: Input.default(visited),
           last_modified_date: Time.now,
           last_modified_by: 'last_modified_by',
           source: 'source',
-          path_options: Stubs::PathOptions.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          path_options: PathOptions.default(visited),
+          tags: TagMap.default(visited),
           resource_arn: 'resource_arn',
         }
       end
@@ -359,9 +359,9 @@ module AWS::SDK::DataBrew
         return nil if visited.include?('PathOptions')
         visited = visited + ['PathOptions']
         {
-          last_modified_date_condition: Stubs::FilterExpression.default(visited),
-          files_limit: Stubs::FilesLimit.default(visited),
-          parameters: Stubs::PathParametersMap.default(visited),
+          last_modified_date_condition: FilterExpression.default(visited),
+          files_limit: FilesLimit.default(visited),
+          parameters: PathParametersMap.default(visited),
         }
       end
 
@@ -381,7 +381,7 @@ module AWS::SDK::DataBrew
         return nil if visited.include?('PathParametersMap')
         visited = visited + ['PathParametersMap']
         {
-          test_key: Stubs::DatasetParameter.default(visited)
+          test_key: DatasetParameter.default(visited)
         }
       end
 
@@ -403,9 +403,9 @@ module AWS::SDK::DataBrew
         {
           name: 'name',
           type: 'type',
-          datetime_options: Stubs::DatetimeOptions.default(visited),
+          datetime_options: DatetimeOptions.default(visited),
           create_column: false,
-          filter: Stubs::FilterExpression.default(visited),
+          filter: FilterExpression.default(visited),
         }
       end
 
@@ -428,7 +428,7 @@ module AWS::SDK::DataBrew
         visited = visited + ['FilterExpression']
         {
           expression: 'expression',
-          values_map: Stubs::ValuesMap.default(visited),
+          values_map: ValuesMap.default(visited),
         }
       end
 
@@ -511,10 +511,10 @@ module AWS::SDK::DataBrew
         return nil if visited.include?('Input')
         visited = visited + ['Input']
         {
-          s3_input_definition: Stubs::S3Location.default(visited),
-          data_catalog_input_definition: Stubs::DataCatalogInputDefinition.default(visited),
-          database_input_definition: Stubs::DatabaseInputDefinition.default(visited),
-          metadata: Stubs::Metadata.default(visited),
+          s3_input_definition: S3Location.default(visited),
+          data_catalog_input_definition: DataCatalogInputDefinition.default(visited),
+          database_input_definition: DatabaseInputDefinition.default(visited),
+          metadata: Metadata.default(visited),
         }
       end
 
@@ -555,7 +555,7 @@ module AWS::SDK::DataBrew
         {
           glue_connection_name: 'glue_connection_name',
           database_table_name: 'database_table_name',
-          temp_directory: Stubs::S3Location.default(visited),
+          temp_directory: S3Location.default(visited),
           query_string: 'query_string',
         }
       end
@@ -602,7 +602,7 @@ module AWS::SDK::DataBrew
           catalog_id: 'catalog_id',
           database_name: 'database_name',
           table_name: 'table_name',
-          temp_directory: Stubs::S3Location.default(visited),
+          temp_directory: S3Location.default(visited),
         }
       end
 
@@ -623,9 +623,9 @@ module AWS::SDK::DataBrew
         return nil if visited.include?('FormatOptions')
         visited = visited + ['FormatOptions']
         {
-          json: Stubs::JsonOptions.default(visited),
-          excel: Stubs::ExcelOptions.default(visited),
-          csv: Stubs::CsvOptions.default(visited),
+          json: JsonOptions.default(visited),
+          excel: ExcelOptions.default(visited),
+          csv: CsvOptions.default(visited),
         }
       end
 
@@ -665,8 +665,8 @@ module AWS::SDK::DataBrew
         return nil if visited.include?('ExcelOptions')
         visited = visited + ['ExcelOptions']
         {
-          sheet_names: Stubs::SheetNameList.default(visited),
-          sheet_indexes: Stubs::SheetIndexList.default(visited),
+          sheet_names: SheetNameList.default(visited),
+          sheet_indexes: SheetIndexList.default(visited),
           header_row: false,
         }
       end
@@ -755,18 +755,18 @@ module AWS::SDK::DataBrew
           log_subscription: 'log_subscription',
           max_capacity: 1,
           max_retries: 1,
-          outputs: Stubs::OutputList.default(visited),
-          data_catalog_outputs: Stubs::DataCatalogOutputList.default(visited),
-          database_outputs: Stubs::DatabaseOutputList.default(visited),
+          outputs: OutputList.default(visited),
+          data_catalog_outputs: DataCatalogOutputList.default(visited),
+          database_outputs: DatabaseOutputList.default(visited),
           project_name: 'project_name',
-          profile_configuration: Stubs::ProfileConfiguration.default(visited),
-          validation_configurations: Stubs::ValidationConfigurationList.default(visited),
-          recipe_reference: Stubs::RecipeReference.default(visited),
+          profile_configuration: ProfileConfiguration.default(visited),
+          validation_configurations: ValidationConfigurationList.default(visited),
+          recipe_reference: RecipeReference.default(visited),
           resource_arn: 'resource_arn',
           role_arn: 'role_arn',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
           timeout: 1,
-          job_sample: Stubs::JobSample.default(visited),
+          job_sample: JobSample.default(visited),
         }
       end
 
@@ -848,7 +848,7 @@ module AWS::SDK::DataBrew
         return nil if visited.include?('ValidationConfigurationList')
         visited = visited + ['ValidationConfigurationList']
         [
-          Stubs::ValidationConfiguration.default(visited)
+          ValidationConfiguration.default(visited)
         ]
       end
 
@@ -888,10 +888,10 @@ module AWS::SDK::DataBrew
         return nil if visited.include?('ProfileConfiguration')
         visited = visited + ['ProfileConfiguration']
         {
-          dataset_statistics_configuration: Stubs::StatisticsConfiguration.default(visited),
-          profile_columns: Stubs::ColumnSelectorList.default(visited),
-          column_statistics_configurations: Stubs::ColumnStatisticsConfigurationList.default(visited),
-          entity_detector_configuration: Stubs::EntityDetectorConfiguration.default(visited),
+          dataset_statistics_configuration: StatisticsConfiguration.default(visited),
+          profile_columns: ColumnSelectorList.default(visited),
+          column_statistics_configurations: ColumnStatisticsConfigurationList.default(visited),
+          entity_detector_configuration: EntityDetectorConfiguration.default(visited),
         }
       end
 
@@ -912,8 +912,8 @@ module AWS::SDK::DataBrew
         return nil if visited.include?('EntityDetectorConfiguration')
         visited = visited + ['EntityDetectorConfiguration']
         {
-          entity_types: Stubs::EntityTypeList.default(visited),
-          allowed_statistics: Stubs::AllowedStatisticList.default(visited),
+          entity_types: EntityTypeList.default(visited),
+          allowed_statistics: AllowedStatisticList.default(visited),
         }
       end
 
@@ -932,7 +932,7 @@ module AWS::SDK::DataBrew
         return nil if visited.include?('AllowedStatisticList')
         visited = visited + ['AllowedStatisticList']
         [
-          Stubs::AllowedStatistics.default(visited)
+          AllowedStatistics.default(visited)
         ]
       end
 
@@ -952,7 +952,7 @@ module AWS::SDK::DataBrew
         return nil if visited.include?('AllowedStatistics')
         visited = visited + ['AllowedStatistics']
         {
-          statistics: Stubs::StatisticList.default(visited),
+          statistics: StatisticList.default(visited),
         }
       end
 
@@ -1010,7 +1010,7 @@ module AWS::SDK::DataBrew
         return nil if visited.include?('ColumnStatisticsConfigurationList')
         visited = visited + ['ColumnStatisticsConfigurationList']
         [
-          Stubs::ColumnStatisticsConfiguration.default(visited)
+          ColumnStatisticsConfiguration.default(visited)
         ]
       end
 
@@ -1030,8 +1030,8 @@ module AWS::SDK::DataBrew
         return nil if visited.include?('ColumnStatisticsConfiguration')
         visited = visited + ['ColumnStatisticsConfiguration']
         {
-          selectors: Stubs::ColumnSelectorList.default(visited),
-          statistics: Stubs::StatisticsConfiguration.default(visited),
+          selectors: ColumnSelectorList.default(visited),
+          statistics: StatisticsConfiguration.default(visited),
         }
       end
 
@@ -1050,8 +1050,8 @@ module AWS::SDK::DataBrew
         return nil if visited.include?('StatisticsConfiguration')
         visited = visited + ['StatisticsConfiguration']
         {
-          included_statistics: Stubs::StatisticList.default(visited),
-          overrides: Stubs::StatisticOverrideList.default(visited),
+          included_statistics: StatisticList.default(visited),
+          overrides: StatisticOverrideList.default(visited),
         }
       end
 
@@ -1070,7 +1070,7 @@ module AWS::SDK::DataBrew
         return nil if visited.include?('StatisticOverrideList')
         visited = visited + ['StatisticOverrideList']
         [
-          Stubs::StatisticOverride.default(visited)
+          StatisticOverride.default(visited)
         ]
       end
 
@@ -1091,7 +1091,7 @@ module AWS::SDK::DataBrew
         visited = visited + ['StatisticOverride']
         {
           statistic: 'statistic',
-          parameters: Stubs::ParameterMap.default(visited),
+          parameters: ParameterMap.default(visited),
         }
       end
 
@@ -1130,7 +1130,7 @@ module AWS::SDK::DataBrew
         return nil if visited.include?('ColumnSelectorList')
         visited = visited + ['ColumnSelectorList']
         [
-          Stubs::ColumnSelector.default(visited)
+          ColumnSelector.default(visited)
         ]
       end
 
@@ -1170,7 +1170,7 @@ module AWS::SDK::DataBrew
         return nil if visited.include?('DatabaseOutputList')
         visited = visited + ['DatabaseOutputList']
         [
-          Stubs::DatabaseOutput.default(visited)
+          DatabaseOutput.default(visited)
         ]
       end
 
@@ -1191,7 +1191,7 @@ module AWS::SDK::DataBrew
         visited = visited + ['DatabaseOutput']
         {
           glue_connection_name: 'glue_connection_name',
-          database_options: Stubs::DatabaseTableOutputOptions.default(visited),
+          database_options: DatabaseTableOutputOptions.default(visited),
           database_output_mode: 'database_output_mode',
         }
       end
@@ -1212,7 +1212,7 @@ module AWS::SDK::DataBrew
         return nil if visited.include?('DatabaseTableOutputOptions')
         visited = visited + ['DatabaseTableOutputOptions']
         {
-          temp_directory: Stubs::S3Location.default(visited),
+          temp_directory: S3Location.default(visited),
           table_name: 'table_name',
         }
       end
@@ -1232,7 +1232,7 @@ module AWS::SDK::DataBrew
         return nil if visited.include?('DataCatalogOutputList')
         visited = visited + ['DataCatalogOutputList']
         [
-          Stubs::DataCatalogOutput.default(visited)
+          DataCatalogOutput.default(visited)
         ]
       end
 
@@ -1255,8 +1255,8 @@ module AWS::SDK::DataBrew
           catalog_id: 'catalog_id',
           database_name: 'database_name',
           table_name: 'table_name',
-          s3_options: Stubs::S3TableOutputOptions.default(visited),
-          database_options: Stubs::DatabaseTableOutputOptions.default(visited),
+          s3_options: S3TableOutputOptions.default(visited),
+          database_options: DatabaseTableOutputOptions.default(visited),
           overwrite: false,
         }
       end
@@ -1280,7 +1280,7 @@ module AWS::SDK::DataBrew
         return nil if visited.include?('S3TableOutputOptions')
         visited = visited + ['S3TableOutputOptions']
         {
-          location: Stubs::S3Location.default(visited),
+          location: S3Location.default(visited),
         }
       end
 
@@ -1298,7 +1298,7 @@ module AWS::SDK::DataBrew
         return nil if visited.include?('OutputList')
         visited = visited + ['OutputList']
         [
-          Stubs::Output.default(visited)
+          Output.default(visited)
         ]
       end
 
@@ -1320,10 +1320,10 @@ module AWS::SDK::DataBrew
         {
           compression_format: 'compression_format',
           format: 'format',
-          partition_columns: Stubs::ColumnNameList.default(visited),
-          location: Stubs::S3Location.default(visited),
+          partition_columns: ColumnNameList.default(visited),
+          location: S3Location.default(visited),
           overwrite: false,
-          format_options: Stubs::OutputFormatOptions.default(visited),
+          format_options: OutputFormatOptions.default(visited),
           max_output_files: 1,
         }
       end
@@ -1348,7 +1348,7 @@ module AWS::SDK::DataBrew
         return nil if visited.include?('OutputFormatOptions')
         visited = visited + ['OutputFormatOptions']
         {
-          csv: Stubs::CsvOutputOptions.default(visited),
+          csv: CsvOutputOptions.default(visited),
         }
       end
 
@@ -1408,19 +1408,19 @@ module AWS::SDK::DataBrew
           error_message: 'error_message',
           execution_time: 1,
           job_name: 'job_name',
-          profile_configuration: Stubs::ProfileConfiguration.default(visited),
-          validation_configurations: Stubs::ValidationConfigurationList.default(visited),
+          profile_configuration: ProfileConfiguration.default(visited),
+          validation_configurations: ValidationConfigurationList.default(visited),
           run_id: 'run_id',
           state: 'state',
           log_subscription: 'log_subscription',
           log_group_name: 'log_group_name',
-          outputs: Stubs::OutputList.default(visited),
-          data_catalog_outputs: Stubs::DataCatalogOutputList.default(visited),
-          database_outputs: Stubs::DatabaseOutputList.default(visited),
-          recipe_reference: Stubs::RecipeReference.default(visited),
+          outputs: OutputList.default(visited),
+          data_catalog_outputs: DataCatalogOutputList.default(visited),
+          database_outputs: DatabaseOutputList.default(visited),
+          recipe_reference: RecipeReference.default(visited),
           started_by: 'started_by',
           started_on: Time.now,
-          job_sample: Stubs::JobSample.default(visited),
+          job_sample: JobSample.default(visited),
         }
       end
 
@@ -1463,9 +1463,9 @@ module AWS::SDK::DataBrew
           name: 'name',
           recipe_name: 'recipe_name',
           resource_arn: 'resource_arn',
-          sample: Stubs::Sample.default(visited),
+          sample: Sample.default(visited),
           role_arn: 'role_arn',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
           session_status: 'session_status',
           opened_by: 'opened_by',
           open_date: Time.now,
@@ -1527,8 +1527,8 @@ module AWS::SDK::DataBrew
           published_date: Time.now,
           description: 'description',
           name: 'name',
-          steps: Stubs::RecipeStepList.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          steps: RecipeStepList.default(visited),
+          tags: TagMap.default(visited),
           resource_arn: 'resource_arn',
           recipe_version: 'recipe_version',
         }
@@ -1561,7 +1561,7 @@ module AWS::SDK::DataBrew
         return nil if visited.include?('RecipeStepList')
         visited = visited + ['RecipeStepList']
         [
-          Stubs::RecipeStep.default(visited)
+          RecipeStep.default(visited)
         ]
       end
 
@@ -1581,8 +1581,8 @@ module AWS::SDK::DataBrew
         return nil if visited.include?('RecipeStep')
         visited = visited + ['RecipeStep']
         {
-          action: Stubs::RecipeAction.default(visited),
-          condition_expressions: Stubs::ConditionExpressionList.default(visited),
+          action: RecipeAction.default(visited),
+          condition_expressions: ConditionExpressionList.default(visited),
         }
       end
 
@@ -1601,7 +1601,7 @@ module AWS::SDK::DataBrew
         return nil if visited.include?('ConditionExpressionList')
         visited = visited + ['ConditionExpressionList']
         [
-          Stubs::ConditionExpression.default(visited)
+          ConditionExpression.default(visited)
         ]
       end
 
@@ -1644,7 +1644,7 @@ module AWS::SDK::DataBrew
         visited = visited + ['RecipeAction']
         {
           operation: 'operation',
-          parameters: Stubs::ParameterMap.default(visited),
+          parameters: ParameterMap.default(visited),
         }
       end
 
@@ -1664,13 +1664,13 @@ module AWS::SDK::DataBrew
           name: 'name',
           description: 'description',
           target_arn: 'target_arn',
-          rules: Stubs::RuleList.default(visited),
+          rules: RuleList.default(visited),
           create_date: Time.now,
           created_by: 'created_by',
           last_modified_by: 'last_modified_by',
           last_modified_date: Time.now,
           resource_arn: 'resource_arn',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1698,7 +1698,7 @@ module AWS::SDK::DataBrew
         return nil if visited.include?('RuleList')
         visited = visited + ['RuleList']
         [
-          Stubs::Rule.default(visited)
+          Rule.default(visited)
         ]
       end
 
@@ -1721,9 +1721,9 @@ module AWS::SDK::DataBrew
           name: 'name',
           disabled: false,
           check_expression: 'check_expression',
-          substitution_map: Stubs::ValuesMap.default(visited),
-          threshold: Stubs::Threshold.default(visited),
-          column_selectors: Stubs::ColumnSelectorList.default(visited),
+          substitution_map: ValuesMap.default(visited),
+          threshold: Threshold.default(visited),
+          column_selectors: ColumnSelectorList.default(visited),
         }
       end
 
@@ -1768,12 +1768,12 @@ module AWS::SDK::DataBrew
         {
           create_date: Time.now,
           created_by: 'created_by',
-          job_names: Stubs::JobNameList.default(visited),
+          job_names: JobNameList.default(visited),
           last_modified_by: 'last_modified_by',
           last_modified_date: Time.now,
           resource_arn: 'resource_arn',
           cron_expression: 'cron_expression',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
           name: 'name',
         }
       end
@@ -1819,7 +1819,7 @@ module AWS::SDK::DataBrew
     class ListDatasets
       def self.default(visited=[])
         {
-          datasets: Stubs::DatasetList.default(visited),
+          datasets: DatasetList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1840,7 +1840,7 @@ module AWS::SDK::DataBrew
         return nil if visited.include?('DatasetList')
         visited = visited + ['DatasetList']
         [
-          Stubs::Dataset.default(visited)
+          Dataset.default(visited)
         ]
       end
 
@@ -1865,13 +1865,13 @@ module AWS::SDK::DataBrew
           create_date: Time.now,
           name: 'name',
           format: 'format',
-          format_options: Stubs::FormatOptions.default(visited),
-          input: Stubs::Input.default(visited),
+          format_options: FormatOptions.default(visited),
+          input: Input.default(visited),
           last_modified_date: Time.now,
           last_modified_by: 'last_modified_by',
           source: 'source',
-          path_options: Stubs::PathOptions.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          path_options: PathOptions.default(visited),
+          tags: TagMap.default(visited),
           resource_arn: 'resource_arn',
         }
       end
@@ -1900,7 +1900,7 @@ module AWS::SDK::DataBrew
     class ListJobRuns
       def self.default(visited=[])
         {
-          job_runs: Stubs::JobRunList.default(visited),
+          job_runs: JobRunList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1921,7 +1921,7 @@ module AWS::SDK::DataBrew
         return nil if visited.include?('JobRunList')
         visited = visited + ['JobRunList']
         [
-          Stubs::JobRun.default(visited)
+          JobRun.default(visited)
         ]
       end
 
@@ -1951,14 +1951,14 @@ module AWS::SDK::DataBrew
           state: 'state',
           log_subscription: 'log_subscription',
           log_group_name: 'log_group_name',
-          outputs: Stubs::OutputList.default(visited),
-          data_catalog_outputs: Stubs::DataCatalogOutputList.default(visited),
-          database_outputs: Stubs::DatabaseOutputList.default(visited),
-          recipe_reference: Stubs::RecipeReference.default(visited),
+          outputs: OutputList.default(visited),
+          data_catalog_outputs: DataCatalogOutputList.default(visited),
+          database_outputs: DatabaseOutputList.default(visited),
+          recipe_reference: RecipeReference.default(visited),
           started_by: 'started_by',
           started_on: Time.now,
-          job_sample: Stubs::JobSample.default(visited),
-          validation_configurations: Stubs::ValidationConfigurationList.default(visited),
+          job_sample: JobSample.default(visited),
+          validation_configurations: ValidationConfigurationList.default(visited),
         }
       end
 
@@ -1991,7 +1991,7 @@ module AWS::SDK::DataBrew
     class ListJobs
       def self.default(visited=[])
         {
-          jobs: Stubs::JobList.default(visited),
+          jobs: JobList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2012,7 +2012,7 @@ module AWS::SDK::DataBrew
         return nil if visited.include?('JobList')
         visited = visited + ['JobList']
         [
-          Stubs::Job.default(visited)
+          Job.default(visited)
         ]
       end
 
@@ -2045,17 +2045,17 @@ module AWS::SDK::DataBrew
           log_subscription: 'log_subscription',
           max_capacity: 1,
           max_retries: 1,
-          outputs: Stubs::OutputList.default(visited),
-          data_catalog_outputs: Stubs::DataCatalogOutputList.default(visited),
-          database_outputs: Stubs::DatabaseOutputList.default(visited),
+          outputs: OutputList.default(visited),
+          data_catalog_outputs: DataCatalogOutputList.default(visited),
+          database_outputs: DatabaseOutputList.default(visited),
           project_name: 'project_name',
-          recipe_reference: Stubs::RecipeReference.default(visited),
+          recipe_reference: RecipeReference.default(visited),
           resource_arn: 'resource_arn',
           role_arn: 'role_arn',
           timeout: 1,
-          tags: Stubs::TagMap.default(visited),
-          job_sample: Stubs::JobSample.default(visited),
-          validation_configurations: Stubs::ValidationConfigurationList.default(visited),
+          tags: TagMap.default(visited),
+          job_sample: JobSample.default(visited),
+          validation_configurations: ValidationConfigurationList.default(visited),
         }
       end
 
@@ -2094,7 +2094,7 @@ module AWS::SDK::DataBrew
     class ListProjects
       def self.default(visited=[])
         {
-          projects: Stubs::ProjectList.default(visited),
+          projects: ProjectList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2115,7 +2115,7 @@ module AWS::SDK::DataBrew
         return nil if visited.include?('ProjectList')
         visited = visited + ['ProjectList']
         [
-          Stubs::Project.default(visited)
+          Project.default(visited)
         ]
       end
 
@@ -2144,8 +2144,8 @@ module AWS::SDK::DataBrew
           name: 'name',
           recipe_name: 'recipe_name',
           resource_arn: 'resource_arn',
-          sample: Stubs::Sample.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          sample: Sample.default(visited),
+          tags: TagMap.default(visited),
           role_arn: 'role_arn',
           opened_by: 'opened_by',
           open_date: Time.now,
@@ -2178,7 +2178,7 @@ module AWS::SDK::DataBrew
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          recipes: Stubs::RecipeList.default(visited),
+          recipes: RecipeList.default(visited),
         }
       end
 
@@ -2198,7 +2198,7 @@ module AWS::SDK::DataBrew
         return nil if visited.include?('RecipeList')
         visited = visited + ['RecipeList']
         [
-          Stubs::Recipe.default(visited)
+          Recipe.default(visited)
         ]
       end
 
@@ -2228,8 +2228,8 @@ module AWS::SDK::DataBrew
           description: 'description',
           name: 'name',
           resource_arn: 'resource_arn',
-          steps: Stubs::RecipeStepList.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          steps: RecipeStepList.default(visited),
+          tags: TagMap.default(visited),
           recipe_version: 'recipe_version',
         }
       end
@@ -2258,7 +2258,7 @@ module AWS::SDK::DataBrew
     class ListRecipes
       def self.default(visited=[])
         {
-          recipes: Stubs::RecipeList.default(visited),
+          recipes: RecipeList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2277,7 +2277,7 @@ module AWS::SDK::DataBrew
     class ListRulesets
       def self.default(visited=[])
         {
-          rulesets: Stubs::RulesetItemList.default(visited),
+          rulesets: RulesetItemList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2298,7 +2298,7 @@ module AWS::SDK::DataBrew
         return nil if visited.include?('RulesetItemList')
         visited = visited + ['RulesetItemList']
         [
-          Stubs::RulesetItem.default(visited)
+          RulesetItem.default(visited)
         ]
       end
 
@@ -2327,7 +2327,7 @@ module AWS::SDK::DataBrew
           name: 'name',
           resource_arn: 'resource_arn',
           rule_count: 1,
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
           target_arn: 'target_arn',
         }
       end
@@ -2354,7 +2354,7 @@ module AWS::SDK::DataBrew
     class ListSchedules
       def self.default(visited=[])
         {
-          schedules: Stubs::ScheduleList.default(visited),
+          schedules: ScheduleList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2375,7 +2375,7 @@ module AWS::SDK::DataBrew
         return nil if visited.include?('ScheduleList')
         visited = visited + ['ScheduleList']
         [
-          Stubs::Schedule.default(visited)
+          Schedule.default(visited)
         ]
       end
 
@@ -2398,12 +2398,12 @@ module AWS::SDK::DataBrew
           account_id: 'account_id',
           created_by: 'created_by',
           create_date: Time.now,
-          job_names: Stubs::JobNameList.default(visited),
+          job_names: JobNameList.default(visited),
           last_modified_by: 'last_modified_by',
           last_modified_date: Time.now,
           resource_arn: 'resource_arn',
           cron_expression: 'cron_expression',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
           name: 'name',
         }
       end
@@ -2429,7 +2429,7 @@ module AWS::SDK::DataBrew
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 

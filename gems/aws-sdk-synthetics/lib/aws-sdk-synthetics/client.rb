@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Synthetics
@@ -271,7 +273,7 @@ module AWS::SDK::Synthetics
     def create_canary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCanaryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCanaryInput,
         validate_input: @config.validate_input
@@ -377,7 +379,7 @@ module AWS::SDK::Synthetics
     def delete_canary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCanaryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCanaryInput,
         validate_input: @config.validate_input
@@ -523,7 +525,7 @@ module AWS::SDK::Synthetics
     def describe_canaries(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCanariesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCanariesInput,
         validate_input: @config.validate_input
@@ -636,7 +638,7 @@ module AWS::SDK::Synthetics
     def describe_canaries_last_run(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCanariesLastRunInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCanariesLastRunInput,
         validate_input: @config.validate_input
@@ -720,7 +722,7 @@ module AWS::SDK::Synthetics
     def describe_runtime_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRuntimeVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRuntimeVersionsInput,
         validate_input: @config.validate_input
@@ -837,7 +839,7 @@ module AWS::SDK::Synthetics
     def get_canary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCanaryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCanaryInput,
         validate_input: @config.validate_input
@@ -928,7 +930,7 @@ module AWS::SDK::Synthetics
     def get_canary_runs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCanaryRunsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCanaryRunsInput,
         validate_input: @config.validate_input
@@ -1001,7 +1003,7 @@ module AWS::SDK::Synthetics
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -1071,7 +1073,7 @@ module AWS::SDK::Synthetics
     def start_canary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartCanaryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartCanaryInput,
         validate_input: @config.validate_input
@@ -1144,7 +1146,7 @@ module AWS::SDK::Synthetics
     def stop_canary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopCanaryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopCanaryInput,
         validate_input: @config.validate_input
@@ -1229,7 +1231,7 @@ module AWS::SDK::Synthetics
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -1306,7 +1308,7 @@ module AWS::SDK::Synthetics
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -1521,7 +1523,7 @@ module AWS::SDK::Synthetics
     def update_canary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateCanaryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateCanaryInput,
         validate_input: @config.validate_input

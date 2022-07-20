@@ -16,7 +16,7 @@ module AWS::SDK::ChimeSDKMeetings
         Hearth::Validator.validate!(input[:external_user_id], ::String, context: "#{context}[:external_user_id]")
         Hearth::Validator.validate!(input[:attendee_id], ::String, context: "#{context}[:attendee_id]")
         Hearth::Validator.validate!(input[:join_token], ::String, context: "#{context}[:join_token]")
-        Validators::AttendeeCapabilities.validate!(input[:capabilities], context: "#{context}[:capabilities]") unless input[:capabilities].nil?
+        AttendeeCapabilities.validate!(input[:capabilities], context: "#{context}[:capabilities]") unless input[:capabilities].nil?
       end
     end
 
@@ -40,7 +40,7 @@ module AWS::SDK::ChimeSDKMeetings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AttendeeIdItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AttendeeIdItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -49,7 +49,7 @@ module AWS::SDK::ChimeSDKMeetings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Attendee.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Attendee.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -74,7 +74,7 @@ module AWS::SDK::ChimeSDKMeetings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CreateAttendeeError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CreateAttendeeError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -83,15 +83,15 @@ module AWS::SDK::ChimeSDKMeetings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchCreateAttendeeInput, context: context)
         Hearth::Validator.validate!(input[:meeting_id], ::String, context: "#{context}[:meeting_id]")
-        Validators::CreateAttendeeRequestItemList.validate!(input[:attendees], context: "#{context}[:attendees]") unless input[:attendees].nil?
+        CreateAttendeeRequestItemList.validate!(input[:attendees], context: "#{context}[:attendees]") unless input[:attendees].nil?
       end
     end
 
     class BatchCreateAttendeeOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchCreateAttendeeOutput, context: context)
-        Validators::AttendeeList.validate!(input[:attendees], context: "#{context}[:attendees]") unless input[:attendees].nil?
-        Validators::BatchCreateAttendeeErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        AttendeeList.validate!(input[:attendees], context: "#{context}[:attendees]") unless input[:attendees].nil?
+        BatchCreateAttendeeErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
       end
     end
 
@@ -99,8 +99,8 @@ module AWS::SDK::ChimeSDKMeetings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchUpdateAttendeeCapabilitiesExceptInput, context: context)
         Hearth::Validator.validate!(input[:meeting_id], ::String, context: "#{context}[:meeting_id]")
-        Validators::AttendeeIdsList.validate!(input[:excluded_attendee_ids], context: "#{context}[:excluded_attendee_ids]") unless input[:excluded_attendee_ids].nil?
-        Validators::AttendeeCapabilities.validate!(input[:capabilities], context: "#{context}[:capabilities]") unless input[:capabilities].nil?
+        AttendeeIdsList.validate!(input[:excluded_attendee_ids], context: "#{context}[:excluded_attendee_ids]") unless input[:excluded_attendee_ids].nil?
+        AttendeeCapabilities.validate!(input[:capabilities], context: "#{context}[:capabilities]") unless input[:capabilities].nil?
       end
     end
 
@@ -133,14 +133,14 @@ module AWS::SDK::ChimeSDKMeetings
         Hearth::Validator.validate!(input, Types::CreateAttendeeInput, context: context)
         Hearth::Validator.validate!(input[:meeting_id], ::String, context: "#{context}[:meeting_id]")
         Hearth::Validator.validate!(input[:external_user_id], ::String, context: "#{context}[:external_user_id]")
-        Validators::AttendeeCapabilities.validate!(input[:capabilities], context: "#{context}[:capabilities]") unless input[:capabilities].nil?
+        AttendeeCapabilities.validate!(input[:capabilities], context: "#{context}[:capabilities]") unless input[:capabilities].nil?
       end
     end
 
     class CreateAttendeeOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateAttendeeOutput, context: context)
-        Validators::Attendee.validate!(input[:attendee], context: "#{context}[:attendee]") unless input[:attendee].nil?
+        Attendee.validate!(input[:attendee], context: "#{context}[:attendee]") unless input[:attendee].nil?
       end
     end
 
@@ -148,7 +148,7 @@ module AWS::SDK::ChimeSDKMeetings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateAttendeeRequestItem, context: context)
         Hearth::Validator.validate!(input[:external_user_id], ::String, context: "#{context}[:external_user_id]")
-        Validators::AttendeeCapabilities.validate!(input[:capabilities], context: "#{context}[:capabilities]") unless input[:capabilities].nil?
+        AttendeeCapabilities.validate!(input[:capabilities], context: "#{context}[:capabilities]") unless input[:capabilities].nil?
       end
     end
 
@@ -156,7 +156,7 @@ module AWS::SDK::ChimeSDKMeetings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CreateAttendeeRequestItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CreateAttendeeRequestItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -168,8 +168,8 @@ module AWS::SDK::ChimeSDKMeetings
         Hearth::Validator.validate!(input[:media_region], ::String, context: "#{context}[:media_region]")
         Hearth::Validator.validate!(input[:meeting_host_id], ::String, context: "#{context}[:meeting_host_id]")
         Hearth::Validator.validate!(input[:external_meeting_id], ::String, context: "#{context}[:external_meeting_id]")
-        Validators::NotificationsConfiguration.validate!(input[:notifications_configuration], context: "#{context}[:notifications_configuration]") unless input[:notifications_configuration].nil?
-        Validators::MeetingFeaturesConfiguration.validate!(input[:meeting_features], context: "#{context}[:meeting_features]") unless input[:meeting_features].nil?
+        NotificationsConfiguration.validate!(input[:notifications_configuration], context: "#{context}[:notifications_configuration]") unless input[:notifications_configuration].nil?
+        MeetingFeaturesConfiguration.validate!(input[:meeting_features], context: "#{context}[:meeting_features]") unless input[:meeting_features].nil?
         Hearth::Validator.validate!(input[:primary_meeting_id], ::String, context: "#{context}[:primary_meeting_id]")
       end
     end
@@ -177,7 +177,7 @@ module AWS::SDK::ChimeSDKMeetings
     class CreateMeetingOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateMeetingOutput, context: context)
-        Validators::Meeting.validate!(input[:meeting], context: "#{context}[:meeting]") unless input[:meeting].nil?
+        Meeting.validate!(input[:meeting], context: "#{context}[:meeting]") unless input[:meeting].nil?
       end
     end
 
@@ -188,9 +188,9 @@ module AWS::SDK::ChimeSDKMeetings
         Hearth::Validator.validate!(input[:media_region], ::String, context: "#{context}[:media_region]")
         Hearth::Validator.validate!(input[:meeting_host_id], ::String, context: "#{context}[:meeting_host_id]")
         Hearth::Validator.validate!(input[:external_meeting_id], ::String, context: "#{context}[:external_meeting_id]")
-        Validators::MeetingFeaturesConfiguration.validate!(input[:meeting_features], context: "#{context}[:meeting_features]") unless input[:meeting_features].nil?
-        Validators::NotificationsConfiguration.validate!(input[:notifications_configuration], context: "#{context}[:notifications_configuration]") unless input[:notifications_configuration].nil?
-        Validators::CreateMeetingWithAttendeesRequestItemList.validate!(input[:attendees], context: "#{context}[:attendees]") unless input[:attendees].nil?
+        MeetingFeaturesConfiguration.validate!(input[:meeting_features], context: "#{context}[:meeting_features]") unless input[:meeting_features].nil?
+        NotificationsConfiguration.validate!(input[:notifications_configuration], context: "#{context}[:notifications_configuration]") unless input[:notifications_configuration].nil?
+        CreateMeetingWithAttendeesRequestItemList.validate!(input[:attendees], context: "#{context}[:attendees]") unless input[:attendees].nil?
         Hearth::Validator.validate!(input[:primary_meeting_id], ::String, context: "#{context}[:primary_meeting_id]")
       end
     end
@@ -198,9 +198,9 @@ module AWS::SDK::ChimeSDKMeetings
     class CreateMeetingWithAttendeesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateMeetingWithAttendeesOutput, context: context)
-        Validators::Meeting.validate!(input[:meeting], context: "#{context}[:meeting]") unless input[:meeting].nil?
-        Validators::AttendeeList.validate!(input[:attendees], context: "#{context}[:attendees]") unless input[:attendees].nil?
-        Validators::BatchCreateAttendeeErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        Meeting.validate!(input[:meeting], context: "#{context}[:meeting]") unless input[:meeting].nil?
+        AttendeeList.validate!(input[:attendees], context: "#{context}[:attendees]") unless input[:attendees].nil?
+        BatchCreateAttendeeErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
       end
     end
 
@@ -208,7 +208,7 @@ module AWS::SDK::ChimeSDKMeetings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CreateAttendeeRequestItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CreateAttendeeRequestItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -292,7 +292,7 @@ module AWS::SDK::ChimeSDKMeetings
     class GetAttendeeOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAttendeeOutput, context: context)
-        Validators::Attendee.validate!(input[:attendee], context: "#{context}[:attendee]") unless input[:attendee].nil?
+        Attendee.validate!(input[:attendee], context: "#{context}[:attendee]") unless input[:attendee].nil?
       end
     end
 
@@ -306,7 +306,7 @@ module AWS::SDK::ChimeSDKMeetings
     class GetMeetingOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetMeetingOutput, context: context)
-        Validators::Meeting.validate!(input[:meeting], context: "#{context}[:meeting]") unless input[:meeting].nil?
+        Meeting.validate!(input[:meeting], context: "#{context}[:meeting]") unless input[:meeting].nil?
       end
     end
 
@@ -331,7 +331,7 @@ module AWS::SDK::ChimeSDKMeetings
     class ListAttendeesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAttendeesOutput, context: context)
-        Validators::AttendeeList.validate!(input[:attendees], context: "#{context}[:attendees]") unless input[:attendees].nil?
+        AttendeeList.validate!(input[:attendees], context: "#{context}[:attendees]") unless input[:attendees].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -357,8 +357,8 @@ module AWS::SDK::ChimeSDKMeetings
         Hearth::Validator.validate!(input[:meeting_host_id], ::String, context: "#{context}[:meeting_host_id]")
         Hearth::Validator.validate!(input[:external_meeting_id], ::String, context: "#{context}[:external_meeting_id]")
         Hearth::Validator.validate!(input[:media_region], ::String, context: "#{context}[:media_region]")
-        Validators::MediaPlacement.validate!(input[:media_placement], context: "#{context}[:media_placement]") unless input[:media_placement].nil?
-        Validators::MeetingFeaturesConfiguration.validate!(input[:meeting_features], context: "#{context}[:meeting_features]") unless input[:meeting_features].nil?
+        MediaPlacement.validate!(input[:media_placement], context: "#{context}[:media_placement]") unless input[:media_placement].nil?
+        MeetingFeaturesConfiguration.validate!(input[:meeting_features], context: "#{context}[:meeting_features]") unless input[:meeting_features].nil?
         Hearth::Validator.validate!(input[:primary_meeting_id], ::String, context: "#{context}[:primary_meeting_id]")
       end
     end
@@ -366,7 +366,7 @@ module AWS::SDK::ChimeSDKMeetings
     class MeetingFeaturesConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MeetingFeaturesConfiguration, context: context)
-        Validators::AudioFeatures.validate!(input[:audio], context: "#{context}[:audio]") unless input[:audio].nil?
+        AudioFeatures.validate!(input[:audio], context: "#{context}[:audio]") unless input[:audio].nil?
       end
     end
 
@@ -411,7 +411,7 @@ module AWS::SDK::ChimeSDKMeetings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartMeetingTranscriptionInput, context: context)
         Hearth::Validator.validate!(input[:meeting_id], ::String, context: "#{context}[:meeting_id]")
-        Validators::TranscriptionConfiguration.validate!(input[:transcription_configuration], context: "#{context}[:transcription_configuration]") unless input[:transcription_configuration].nil?
+        TranscriptionConfiguration.validate!(input[:transcription_configuration], context: "#{context}[:transcription_configuration]") unless input[:transcription_configuration].nil?
       end
     end
 
@@ -446,8 +446,8 @@ module AWS::SDK::ChimeSDKMeetings
     class TranscriptionConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TranscriptionConfiguration, context: context)
-        Validators::EngineTranscribeSettings.validate!(input[:engine_transcribe_settings], context: "#{context}[:engine_transcribe_settings]") unless input[:engine_transcribe_settings].nil?
-        Validators::EngineTranscribeMedicalSettings.validate!(input[:engine_transcribe_medical_settings], context: "#{context}[:engine_transcribe_medical_settings]") unless input[:engine_transcribe_medical_settings].nil?
+        EngineTranscribeSettings.validate!(input[:engine_transcribe_settings], context: "#{context}[:engine_transcribe_settings]") unless input[:engine_transcribe_settings].nil?
+        EngineTranscribeMedicalSettings.validate!(input[:engine_transcribe_medical_settings], context: "#{context}[:engine_transcribe_medical_settings]") unless input[:engine_transcribe_medical_settings].nil?
       end
     end
 
@@ -474,14 +474,14 @@ module AWS::SDK::ChimeSDKMeetings
         Hearth::Validator.validate!(input, Types::UpdateAttendeeCapabilitiesInput, context: context)
         Hearth::Validator.validate!(input[:meeting_id], ::String, context: "#{context}[:meeting_id]")
         Hearth::Validator.validate!(input[:attendee_id], ::String, context: "#{context}[:attendee_id]")
-        Validators::AttendeeCapabilities.validate!(input[:capabilities], context: "#{context}[:capabilities]") unless input[:capabilities].nil?
+        AttendeeCapabilities.validate!(input[:capabilities], context: "#{context}[:capabilities]") unless input[:capabilities].nil?
       end
     end
 
     class UpdateAttendeeCapabilitiesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateAttendeeCapabilitiesOutput, context: context)
-        Validators::Attendee.validate!(input[:attendee], context: "#{context}[:attendee]") unless input[:attendee].nil?
+        Attendee.validate!(input[:attendee], context: "#{context}[:attendee]") unless input[:attendee].nil?
       end
     end
 

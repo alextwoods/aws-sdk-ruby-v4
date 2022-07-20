@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::ECRPUBLIC
@@ -91,7 +93,7 @@ module AWS::SDK::ECRPUBLIC
     def batch_check_layer_availability(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchCheckLayerAvailabilityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchCheckLayerAvailabilityInput,
         validate_input: @config.validate_input
@@ -189,7 +191,7 @@ module AWS::SDK::ECRPUBLIC
     def batch_delete_image(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchDeleteImageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchDeleteImageInput,
         validate_input: @config.validate_input
@@ -285,7 +287,7 @@ module AWS::SDK::ECRPUBLIC
     def complete_layer_upload(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CompleteLayerUploadInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CompleteLayerUploadInput,
         validate_input: @config.validate_input
@@ -400,7 +402,7 @@ module AWS::SDK::ECRPUBLIC
     def create_repository(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRepositoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRepositoryInput,
         validate_input: @config.validate_input
@@ -485,7 +487,7 @@ module AWS::SDK::ECRPUBLIC
     def delete_repository(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRepositoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRepositoryInput,
         validate_input: @config.validate_input
@@ -562,7 +564,7 @@ module AWS::SDK::ECRPUBLIC
     def delete_repository_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRepositoryPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRepositoryPolicyInput,
         validate_input: @config.validate_input
@@ -667,7 +669,7 @@ module AWS::SDK::ECRPUBLIC
     def describe_image_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeImageTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeImageTagsInput,
         validate_input: @config.validate_input
@@ -788,7 +790,7 @@ module AWS::SDK::ECRPUBLIC
     def describe_images(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeImagesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeImagesInput,
         validate_input: @config.validate_input
@@ -887,7 +889,7 @@ module AWS::SDK::ECRPUBLIC
     def describe_registries(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRegistriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRegistriesInput,
         validate_input: @config.validate_input
@@ -996,7 +998,7 @@ module AWS::SDK::ECRPUBLIC
     def describe_repositories(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRepositoriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRepositoriesInput,
         validate_input: @config.validate_input
@@ -1066,7 +1068,7 @@ module AWS::SDK::ECRPUBLIC
     def get_authorization_token(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAuthorizationTokenInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAuthorizationTokenInput,
         validate_input: @config.validate_input
@@ -1131,7 +1133,7 @@ module AWS::SDK::ECRPUBLIC
     def get_registry_catalog_data(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRegistryCatalogDataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRegistryCatalogDataInput,
         validate_input: @config.validate_input
@@ -1215,7 +1217,7 @@ module AWS::SDK::ECRPUBLIC
     def get_repository_catalog_data(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRepositoryCatalogDataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRepositoryCatalogDataInput,
         validate_input: @config.validate_input
@@ -1291,7 +1293,7 @@ module AWS::SDK::ECRPUBLIC
     def get_repository_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRepositoryPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRepositoryPolicyInput,
         validate_input: @config.validate_input
@@ -1372,7 +1374,7 @@ module AWS::SDK::ECRPUBLIC
     def initiate_layer_upload(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::InitiateLayerUploadInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::InitiateLayerUploadInput,
         validate_input: @config.validate_input
@@ -1445,7 +1447,7 @@ module AWS::SDK::ECRPUBLIC
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -1552,7 +1554,7 @@ module AWS::SDK::ECRPUBLIC
     def put_image(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutImageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutImageInput,
         validate_input: @config.validate_input
@@ -1627,7 +1629,7 @@ module AWS::SDK::ECRPUBLIC
     def put_registry_catalog_data(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutRegistryCatalogDataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutRegistryCatalogDataInput,
         validate_input: @config.validate_input
@@ -1726,7 +1728,7 @@ module AWS::SDK::ECRPUBLIC
     def put_repository_catalog_data(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutRepositoryCatalogDataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutRepositoryCatalogDataInput,
         validate_input: @config.validate_input
@@ -1816,7 +1818,7 @@ module AWS::SDK::ECRPUBLIC
     def set_repository_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetRepositoryPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetRepositoryPolicyInput,
         validate_input: @config.validate_input
@@ -1898,7 +1900,7 @@ module AWS::SDK::ECRPUBLIC
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -1973,7 +1975,7 @@ module AWS::SDK::ECRPUBLIC
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2073,7 +2075,7 @@ module AWS::SDK::ECRPUBLIC
     def upload_layer_part(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UploadLayerPartInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UploadLayerPartInput,
         validate_input: @config.validate_input

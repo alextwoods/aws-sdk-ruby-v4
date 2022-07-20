@@ -126,7 +126,7 @@ module AWS::SDK::Fis
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateExperimentTemplateInput, context: context)
         type = Types::CreateExperimentTemplateInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.description = params[:description]
         type.stop_conditions = CreateExperimentTemplateStopConditionInputList.build(params[:stop_conditions], context: "#{context}[:stop_conditions]") unless params[:stop_conditions].nil?
         type.targets = CreateExperimentTemplateTargetInputMap.build(params[:targets], context: "#{context}[:targets]") unless params[:targets].nil?
@@ -926,7 +926,7 @@ module AWS::SDK::Fis
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::StartExperimentInput, context: context)
         type = Types::StartExperimentInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.experiment_template_id = params[:experiment_template_id]
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type

@@ -7,13 +7,15 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::CognitoIdentityProvider
   module Validators
 
     class AccountRecoverySettingType
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AccountRecoverySettingType, context: context)
-        Validators::RecoveryMechanismsType.validate!(input[:recovery_mechanisms], context: "#{context}[:recovery_mechanisms]") unless input[:recovery_mechanisms].nil?
+        RecoveryMechanismsType.validate!(input[:recovery_mechanisms], context: "#{context}[:recovery_mechanisms]") unless input[:recovery_mechanisms].nil?
       end
     end
 
@@ -28,17 +30,17 @@ module AWS::SDK::CognitoIdentityProvider
     class AccountTakeoverActionsType
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AccountTakeoverActionsType, context: context)
-        Validators::AccountTakeoverActionType.validate!(input[:low_action], context: "#{context}[:low_action]") unless input[:low_action].nil?
-        Validators::AccountTakeoverActionType.validate!(input[:medium_action], context: "#{context}[:medium_action]") unless input[:medium_action].nil?
-        Validators::AccountTakeoverActionType.validate!(input[:high_action], context: "#{context}[:high_action]") unless input[:high_action].nil?
+        AccountTakeoverActionType.validate!(input[:low_action], context: "#{context}[:low_action]") unless input[:low_action].nil?
+        AccountTakeoverActionType.validate!(input[:medium_action], context: "#{context}[:medium_action]") unless input[:medium_action].nil?
+        AccountTakeoverActionType.validate!(input[:high_action], context: "#{context}[:high_action]") unless input[:high_action].nil?
       end
     end
 
     class AccountTakeoverRiskConfigurationType
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AccountTakeoverRiskConfigurationType, context: context)
-        Validators::NotifyConfigurationType.validate!(input[:notify_configuration], context: "#{context}[:notify_configuration]") unless input[:notify_configuration].nil?
-        Validators::AccountTakeoverActionsType.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
+        NotifyConfigurationType.validate!(input[:notify_configuration], context: "#{context}[:notify_configuration]") unless input[:notify_configuration].nil?
+        AccountTakeoverActionsType.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
       end
     end
 
@@ -46,7 +48,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddCustomAttributesInput, context: context)
         Hearth::Validator.validate!(input[:user_pool_id], ::String, context: "#{context}[:user_pool_id]")
-        Validators::CustomAttributesListType.validate!(input[:custom_attributes], context: "#{context}[:custom_attributes]") unless input[:custom_attributes].nil?
+        CustomAttributesListType.validate!(input[:custom_attributes], context: "#{context}[:custom_attributes]") unless input[:custom_attributes].nil?
       end
     end
 
@@ -76,7 +78,7 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input, Types::AdminConfirmSignUpInput, context: context)
         Hearth::Validator.validate!(input[:user_pool_id], ::String, context: "#{context}[:user_pool_id]")
         Hearth::Validator.validate!(input[:username], ::String, context: "#{context}[:username]")
-        Validators::ClientMetadataType.validate!(input[:client_metadata], context: "#{context}[:client_metadata]") unless input[:client_metadata].nil?
+        ClientMetadataType.validate!(input[:client_metadata], context: "#{context}[:client_metadata]") unless input[:client_metadata].nil?
       end
     end
 
@@ -91,7 +93,7 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input, Types::AdminCreateUserConfigType, context: context)
         Hearth::Validator.validate!(input[:allow_admin_create_user_only], ::TrueClass, ::FalseClass, context: "#{context}[:allow_admin_create_user_only]")
         Hearth::Validator.validate!(input[:unused_account_validity_days], ::Integer, context: "#{context}[:unused_account_validity_days]")
-        Validators::MessageTemplateType.validate!(input[:invite_message_template], context: "#{context}[:invite_message_template]") unless input[:invite_message_template].nil?
+        MessageTemplateType.validate!(input[:invite_message_template], context: "#{context}[:invite_message_template]") unless input[:invite_message_template].nil?
       end
     end
 
@@ -100,20 +102,20 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input, Types::AdminCreateUserInput, context: context)
         Hearth::Validator.validate!(input[:user_pool_id], ::String, context: "#{context}[:user_pool_id]")
         Hearth::Validator.validate!(input[:username], ::String, context: "#{context}[:username]")
-        Validators::AttributeListType.validate!(input[:user_attributes], context: "#{context}[:user_attributes]") unless input[:user_attributes].nil?
-        Validators::AttributeListType.validate!(input[:validation_data], context: "#{context}[:validation_data]") unless input[:validation_data].nil?
+        AttributeListType.validate!(input[:user_attributes], context: "#{context}[:user_attributes]") unless input[:user_attributes].nil?
+        AttributeListType.validate!(input[:validation_data], context: "#{context}[:validation_data]") unless input[:validation_data].nil?
         Hearth::Validator.validate!(input[:temporary_password], ::String, context: "#{context}[:temporary_password]")
         Hearth::Validator.validate!(input[:force_alias_creation], ::TrueClass, ::FalseClass, context: "#{context}[:force_alias_creation]")
         Hearth::Validator.validate!(input[:message_action], ::String, context: "#{context}[:message_action]")
-        Validators::DeliveryMediumListType.validate!(input[:desired_delivery_mediums], context: "#{context}[:desired_delivery_mediums]") unless input[:desired_delivery_mediums].nil?
-        Validators::ClientMetadataType.validate!(input[:client_metadata], context: "#{context}[:client_metadata]") unless input[:client_metadata].nil?
+        DeliveryMediumListType.validate!(input[:desired_delivery_mediums], context: "#{context}[:desired_delivery_mediums]") unless input[:desired_delivery_mediums].nil?
+        ClientMetadataType.validate!(input[:client_metadata], context: "#{context}[:client_metadata]") unless input[:client_metadata].nil?
       end
     end
 
     class AdminCreateUserOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AdminCreateUserOutput, context: context)
-        Validators::UserType.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
+        UserType.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
       end
     end
 
@@ -122,7 +124,7 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input, Types::AdminDeleteUserAttributesInput, context: context)
         Hearth::Validator.validate!(input[:user_pool_id], ::String, context: "#{context}[:user_pool_id]")
         Hearth::Validator.validate!(input[:username], ::String, context: "#{context}[:username]")
-        Validators::AttributeNameListType.validate!(input[:user_attribute_names], context: "#{context}[:user_attribute_names]") unless input[:user_attribute_names].nil?
+        AttributeNameListType.validate!(input[:user_attribute_names], context: "#{context}[:user_attribute_names]") unless input[:user_attribute_names].nil?
       end
     end
 
@@ -150,7 +152,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AdminDisableProviderForUserInput, context: context)
         Hearth::Validator.validate!(input[:user_pool_id], ::String, context: "#{context}[:user_pool_id]")
-        Validators::ProviderUserIdentifierType.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
+        ProviderUserIdentifierType.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
       end
     end
 
@@ -215,7 +217,7 @@ module AWS::SDK::CognitoIdentityProvider
     class AdminGetDeviceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AdminGetDeviceOutput, context: context)
-        Validators::DeviceType.validate!(input[:device], context: "#{context}[:device]") unless input[:device].nil?
+        DeviceType.validate!(input[:device], context: "#{context}[:device]") unless input[:device].nil?
       end
     end
 
@@ -231,14 +233,14 @@ module AWS::SDK::CognitoIdentityProvider
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AdminGetUserOutput, context: context)
         Hearth::Validator.validate!(input[:username], ::String, context: "#{context}[:username]")
-        Validators::AttributeListType.validate!(input[:user_attributes], context: "#{context}[:user_attributes]") unless input[:user_attributes].nil?
+        AttributeListType.validate!(input[:user_attributes], context: "#{context}[:user_attributes]") unless input[:user_attributes].nil?
         Hearth::Validator.validate!(input[:user_create_date], ::Time, context: "#{context}[:user_create_date]")
         Hearth::Validator.validate!(input[:user_last_modified_date], ::Time, context: "#{context}[:user_last_modified_date]")
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
         Hearth::Validator.validate!(input[:user_status], ::String, context: "#{context}[:user_status]")
-        Validators::MFAOptionListType.validate!(input[:mfa_options], context: "#{context}[:mfa_options]") unless input[:mfa_options].nil?
+        MFAOptionListType.validate!(input[:mfa_options], context: "#{context}[:mfa_options]") unless input[:mfa_options].nil?
         Hearth::Validator.validate!(input[:preferred_mfa_setting], ::String, context: "#{context}[:preferred_mfa_setting]")
-        Validators::UserMFASettingListType.validate!(input[:user_mfa_setting_list], context: "#{context}[:user_mfa_setting_list]") unless input[:user_mfa_setting_list].nil?
+        UserMFASettingListType.validate!(input[:user_mfa_setting_list], context: "#{context}[:user_mfa_setting_list]") unless input[:user_mfa_setting_list].nil?
       end
     end
 
@@ -248,10 +250,10 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input[:user_pool_id], ::String, context: "#{context}[:user_pool_id]")
         Hearth::Validator.validate!(input[:client_id], ::String, context: "#{context}[:client_id]")
         Hearth::Validator.validate!(input[:auth_flow], ::String, context: "#{context}[:auth_flow]")
-        Validators::AuthParametersType.validate!(input[:auth_parameters], context: "#{context}[:auth_parameters]") unless input[:auth_parameters].nil?
-        Validators::ClientMetadataType.validate!(input[:client_metadata], context: "#{context}[:client_metadata]") unless input[:client_metadata].nil?
-        Validators::AnalyticsMetadataType.validate!(input[:analytics_metadata], context: "#{context}[:analytics_metadata]") unless input[:analytics_metadata].nil?
-        Validators::ContextDataType.validate!(input[:context_data], context: "#{context}[:context_data]") unless input[:context_data].nil?
+        AuthParametersType.validate!(input[:auth_parameters], context: "#{context}[:auth_parameters]") unless input[:auth_parameters].nil?
+        ClientMetadataType.validate!(input[:client_metadata], context: "#{context}[:client_metadata]") unless input[:client_metadata].nil?
+        AnalyticsMetadataType.validate!(input[:analytics_metadata], context: "#{context}[:analytics_metadata]") unless input[:analytics_metadata].nil?
+        ContextDataType.validate!(input[:context_data], context: "#{context}[:context_data]") unless input[:context_data].nil?
       end
     end
 
@@ -260,8 +262,8 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input, Types::AdminInitiateAuthOutput, context: context)
         Hearth::Validator.validate!(input[:challenge_name], ::String, context: "#{context}[:challenge_name]")
         Hearth::Validator.validate!(input[:session], ::String, context: "#{context}[:session]")
-        Validators::ChallengeParametersType.validate!(input[:challenge_parameters], context: "#{context}[:challenge_parameters]") unless input[:challenge_parameters].nil?
-        Validators::AuthenticationResultType.validate!(input[:authentication_result], context: "#{context}[:authentication_result]") unless input[:authentication_result].nil?
+        ChallengeParametersType.validate!(input[:challenge_parameters], context: "#{context}[:challenge_parameters]") unless input[:challenge_parameters].nil?
+        AuthenticationResultType.validate!(input[:authentication_result], context: "#{context}[:authentication_result]") unless input[:authentication_result].nil?
       end
     end
 
@@ -269,8 +271,8 @@ module AWS::SDK::CognitoIdentityProvider
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AdminLinkProviderForUserInput, context: context)
         Hearth::Validator.validate!(input[:user_pool_id], ::String, context: "#{context}[:user_pool_id]")
-        Validators::ProviderUserIdentifierType.validate!(input[:destination_user], context: "#{context}[:destination_user]") unless input[:destination_user].nil?
-        Validators::ProviderUserIdentifierType.validate!(input[:source_user], context: "#{context}[:source_user]") unless input[:source_user].nil?
+        ProviderUserIdentifierType.validate!(input[:destination_user], context: "#{context}[:destination_user]") unless input[:destination_user].nil?
+        ProviderUserIdentifierType.validate!(input[:source_user], context: "#{context}[:source_user]") unless input[:source_user].nil?
       end
     end
 
@@ -293,7 +295,7 @@ module AWS::SDK::CognitoIdentityProvider
     class AdminListDevicesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AdminListDevicesOutput, context: context)
-        Validators::DeviceListType.validate!(input[:devices], context: "#{context}[:devices]") unless input[:devices].nil?
+        DeviceListType.validate!(input[:devices], context: "#{context}[:devices]") unless input[:devices].nil?
         Hearth::Validator.validate!(input[:pagination_token], ::String, context: "#{context}[:pagination_token]")
       end
     end
@@ -311,7 +313,7 @@ module AWS::SDK::CognitoIdentityProvider
     class AdminListGroupsForUserOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AdminListGroupsForUserOutput, context: context)
-        Validators::GroupListType.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
+        GroupListType.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -329,7 +331,7 @@ module AWS::SDK::CognitoIdentityProvider
     class AdminListUserAuthEventsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AdminListUserAuthEventsOutput, context: context)
-        Validators::AuthEventsType.validate!(input[:auth_events], context: "#{context}[:auth_events]") unless input[:auth_events].nil?
+        AuthEventsType.validate!(input[:auth_events], context: "#{context}[:auth_events]") unless input[:auth_events].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -354,7 +356,7 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input, Types::AdminResetUserPasswordInput, context: context)
         Hearth::Validator.validate!(input[:user_pool_id], ::String, context: "#{context}[:user_pool_id]")
         Hearth::Validator.validate!(input[:username], ::String, context: "#{context}[:username]")
-        Validators::ClientMetadataType.validate!(input[:client_metadata], context: "#{context}[:client_metadata]") unless input[:client_metadata].nil?
+        ClientMetadataType.validate!(input[:client_metadata], context: "#{context}[:client_metadata]") unless input[:client_metadata].nil?
       end
     end
 
@@ -370,11 +372,11 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input[:user_pool_id], ::String, context: "#{context}[:user_pool_id]")
         Hearth::Validator.validate!(input[:client_id], ::String, context: "#{context}[:client_id]")
         Hearth::Validator.validate!(input[:challenge_name], ::String, context: "#{context}[:challenge_name]")
-        Validators::ChallengeResponsesType.validate!(input[:challenge_responses], context: "#{context}[:challenge_responses]") unless input[:challenge_responses].nil?
+        ChallengeResponsesType.validate!(input[:challenge_responses], context: "#{context}[:challenge_responses]") unless input[:challenge_responses].nil?
         Hearth::Validator.validate!(input[:session], ::String, context: "#{context}[:session]")
-        Validators::AnalyticsMetadataType.validate!(input[:analytics_metadata], context: "#{context}[:analytics_metadata]") unless input[:analytics_metadata].nil?
-        Validators::ContextDataType.validate!(input[:context_data], context: "#{context}[:context_data]") unless input[:context_data].nil?
-        Validators::ClientMetadataType.validate!(input[:client_metadata], context: "#{context}[:client_metadata]") unless input[:client_metadata].nil?
+        AnalyticsMetadataType.validate!(input[:analytics_metadata], context: "#{context}[:analytics_metadata]") unless input[:analytics_metadata].nil?
+        ContextDataType.validate!(input[:context_data], context: "#{context}[:context_data]") unless input[:context_data].nil?
+        ClientMetadataType.validate!(input[:client_metadata], context: "#{context}[:client_metadata]") unless input[:client_metadata].nil?
       end
     end
 
@@ -383,16 +385,16 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input, Types::AdminRespondToAuthChallengeOutput, context: context)
         Hearth::Validator.validate!(input[:challenge_name], ::String, context: "#{context}[:challenge_name]")
         Hearth::Validator.validate!(input[:session], ::String, context: "#{context}[:session]")
-        Validators::ChallengeParametersType.validate!(input[:challenge_parameters], context: "#{context}[:challenge_parameters]") unless input[:challenge_parameters].nil?
-        Validators::AuthenticationResultType.validate!(input[:authentication_result], context: "#{context}[:authentication_result]") unless input[:authentication_result].nil?
+        ChallengeParametersType.validate!(input[:challenge_parameters], context: "#{context}[:challenge_parameters]") unless input[:challenge_parameters].nil?
+        AuthenticationResultType.validate!(input[:authentication_result], context: "#{context}[:authentication_result]") unless input[:authentication_result].nil?
       end
     end
 
     class AdminSetUserMFAPreferenceInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AdminSetUserMFAPreferenceInput, context: context)
-        Validators::SMSMfaSettingsType.validate!(input[:sms_mfa_settings], context: "#{context}[:sms_mfa_settings]") unless input[:sms_mfa_settings].nil?
-        Validators::SoftwareTokenMfaSettingsType.validate!(input[:software_token_mfa_settings], context: "#{context}[:software_token_mfa_settings]") unless input[:software_token_mfa_settings].nil?
+        SMSMfaSettingsType.validate!(input[:sms_mfa_settings], context: "#{context}[:sms_mfa_settings]") unless input[:sms_mfa_settings].nil?
+        SoftwareTokenMfaSettingsType.validate!(input[:software_token_mfa_settings], context: "#{context}[:software_token_mfa_settings]") unless input[:software_token_mfa_settings].nil?
         Hearth::Validator.validate!(input[:username], ::String, context: "#{context}[:username]")
         Hearth::Validator.validate!(input[:user_pool_id], ::String, context: "#{context}[:user_pool_id]")
       end
@@ -425,7 +427,7 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input, Types::AdminSetUserSettingsInput, context: context)
         Hearth::Validator.validate!(input[:user_pool_id], ::String, context: "#{context}[:user_pool_id]")
         Hearth::Validator.validate!(input[:username], ::String, context: "#{context}[:username]")
-        Validators::MFAOptionListType.validate!(input[:mfa_options], context: "#{context}[:mfa_options]") unless input[:mfa_options].nil?
+        MFAOptionListType.validate!(input[:mfa_options], context: "#{context}[:mfa_options]") unless input[:mfa_options].nil?
       end
     end
 
@@ -472,8 +474,8 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input, Types::AdminUpdateUserAttributesInput, context: context)
         Hearth::Validator.validate!(input[:user_pool_id], ::String, context: "#{context}[:user_pool_id]")
         Hearth::Validator.validate!(input[:username], ::String, context: "#{context}[:username]")
-        Validators::AttributeListType.validate!(input[:user_attributes], context: "#{context}[:user_attributes]") unless input[:user_attributes].nil?
-        Validators::ClientMetadataType.validate!(input[:client_metadata], context: "#{context}[:client_metadata]") unless input[:client_metadata].nil?
+        AttributeListType.validate!(input[:user_attributes], context: "#{context}[:user_attributes]") unless input[:user_attributes].nil?
+        ClientMetadataType.validate!(input[:client_metadata], context: "#{context}[:client_metadata]") unless input[:client_metadata].nil?
       end
     end
 
@@ -551,7 +553,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AttributeType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AttributeType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -599,10 +601,10 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input[:event_type], ::String, context: "#{context}[:event_type]")
         Hearth::Validator.validate!(input[:creation_date], ::Time, context: "#{context}[:creation_date]")
         Hearth::Validator.validate!(input[:event_response], ::String, context: "#{context}[:event_response]")
-        Validators::EventRiskType.validate!(input[:event_risk], context: "#{context}[:event_risk]") unless input[:event_risk].nil?
-        Validators::ChallengeResponseListType.validate!(input[:challenge_responses], context: "#{context}[:challenge_responses]") unless input[:challenge_responses].nil?
-        Validators::EventContextDataType.validate!(input[:event_context_data], context: "#{context}[:event_context_data]") unless input[:event_context_data].nil?
-        Validators::EventFeedbackType.validate!(input[:event_feedback], context: "#{context}[:event_feedback]") unless input[:event_feedback].nil?
+        EventRiskType.validate!(input[:event_risk], context: "#{context}[:event_risk]") unless input[:event_risk].nil?
+        ChallengeResponseListType.validate!(input[:challenge_responses], context: "#{context}[:challenge_responses]") unless input[:challenge_responses].nil?
+        EventContextDataType.validate!(input[:event_context_data], context: "#{context}[:event_context_data]") unless input[:event_context_data].nil?
+        EventFeedbackType.validate!(input[:event_feedback], context: "#{context}[:event_feedback]") unless input[:event_feedback].nil?
       end
     end
 
@@ -610,7 +612,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AuthEventType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AuthEventType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -633,7 +635,7 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input[:token_type], ::String, context: "#{context}[:token_type]")
         Hearth::Validator.validate!(input[:refresh_token], ::String, context: "#{context}[:refresh_token]")
         Hearth::Validator.validate!(input[:id_token], ::String, context: "#{context}[:id_token]")
-        Validators::NewDeviceMetadataType.validate!(input[:new_device_metadata], context: "#{context}[:new_device_metadata]") unless input[:new_device_metadata].nil?
+        NewDeviceMetadataType.validate!(input[:new_device_metadata], context: "#{context}[:new_device_metadata]") unless input[:new_device_metadata].nil?
       end
     end
 
@@ -669,7 +671,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ChallengeResponseType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ChallengeResponseType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -730,7 +732,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CodeDeliveryDetailsType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CodeDeliveryDetailsType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -768,8 +770,8 @@ module AWS::SDK::CognitoIdentityProvider
     class CompromisedCredentialsRiskConfigurationType
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CompromisedCredentialsRiskConfigurationType, context: context)
-        Validators::EventFiltersType.validate!(input[:event_filter], context: "#{context}[:event_filter]") unless input[:event_filter].nil?
-        Validators::CompromisedCredentialsActionsType.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
+        EventFiltersType.validate!(input[:event_filter], context: "#{context}[:event_filter]") unless input[:event_filter].nil?
+        CompromisedCredentialsActionsType.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
       end
     end
 
@@ -785,7 +787,7 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input, Types::ConfirmDeviceInput, context: context)
         Hearth::Validator.validate!(input[:access_token], ::String, context: "#{context}[:access_token]")
         Hearth::Validator.validate!(input[:device_key], ::String, context: "#{context}[:device_key]")
-        Validators::DeviceSecretVerifierConfigType.validate!(input[:device_secret_verifier_config], context: "#{context}[:device_secret_verifier_config]") unless input[:device_secret_verifier_config].nil?
+        DeviceSecretVerifierConfigType.validate!(input[:device_secret_verifier_config], context: "#{context}[:device_secret_verifier_config]") unless input[:device_secret_verifier_config].nil?
         Hearth::Validator.validate!(input[:device_name], ::String, context: "#{context}[:device_name]")
       end
     end
@@ -805,9 +807,9 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input[:username], ::String, context: "#{context}[:username]")
         Hearth::Validator.validate!(input[:confirmation_code], ::String, context: "#{context}[:confirmation_code]")
         Hearth::Validator.validate!(input[:password], ::String, context: "#{context}[:password]")
-        Validators::AnalyticsMetadataType.validate!(input[:analytics_metadata], context: "#{context}[:analytics_metadata]") unless input[:analytics_metadata].nil?
-        Validators::UserContextDataType.validate!(input[:user_context_data], context: "#{context}[:user_context_data]") unless input[:user_context_data].nil?
-        Validators::ClientMetadataType.validate!(input[:client_metadata], context: "#{context}[:client_metadata]") unless input[:client_metadata].nil?
+        AnalyticsMetadataType.validate!(input[:analytics_metadata], context: "#{context}[:analytics_metadata]") unless input[:analytics_metadata].nil?
+        UserContextDataType.validate!(input[:user_context_data], context: "#{context}[:user_context_data]") unless input[:user_context_data].nil?
+        ClientMetadataType.validate!(input[:client_metadata], context: "#{context}[:client_metadata]") unless input[:client_metadata].nil?
       end
     end
 
@@ -825,9 +827,9 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input[:username], ::String, context: "#{context}[:username]")
         Hearth::Validator.validate!(input[:confirmation_code], ::String, context: "#{context}[:confirmation_code]")
         Hearth::Validator.validate!(input[:force_alias_creation], ::TrueClass, ::FalseClass, context: "#{context}[:force_alias_creation]")
-        Validators::AnalyticsMetadataType.validate!(input[:analytics_metadata], context: "#{context}[:analytics_metadata]") unless input[:analytics_metadata].nil?
-        Validators::UserContextDataType.validate!(input[:user_context_data], context: "#{context}[:user_context_data]") unless input[:user_context_data].nil?
-        Validators::ClientMetadataType.validate!(input[:client_metadata], context: "#{context}[:client_metadata]") unless input[:client_metadata].nil?
+        AnalyticsMetadataType.validate!(input[:analytics_metadata], context: "#{context}[:analytics_metadata]") unless input[:analytics_metadata].nil?
+        UserContextDataType.validate!(input[:user_context_data], context: "#{context}[:user_context_data]") unless input[:user_context_data].nil?
+        ClientMetadataType.validate!(input[:client_metadata], context: "#{context}[:client_metadata]") unless input[:client_metadata].nil?
       end
     end
 
@@ -843,7 +845,7 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input[:ip_address], ::String, context: "#{context}[:ip_address]")
         Hearth::Validator.validate!(input[:server_name], ::String, context: "#{context}[:server_name]")
         Hearth::Validator.validate!(input[:server_path], ::String, context: "#{context}[:server_path]")
-        Validators::HttpHeaderList.validate!(input[:http_headers], context: "#{context}[:http_headers]") unless input[:http_headers].nil?
+        HttpHeaderList.validate!(input[:http_headers], context: "#{context}[:http_headers]") unless input[:http_headers].nil?
         Hearth::Validator.validate!(input[:encoded_data], ::String, context: "#{context}[:encoded_data]")
       end
     end
@@ -862,7 +864,7 @@ module AWS::SDK::CognitoIdentityProvider
     class CreateGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateGroupOutput, context: context)
-        Validators::GroupType.validate!(input[:group], context: "#{context}[:group]") unless input[:group].nil?
+        GroupType.validate!(input[:group], context: "#{context}[:group]") unless input[:group].nil?
       end
     end
 
@@ -872,16 +874,16 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input[:user_pool_id], ::String, context: "#{context}[:user_pool_id]")
         Hearth::Validator.validate!(input[:provider_name], ::String, context: "#{context}[:provider_name]")
         Hearth::Validator.validate!(input[:provider_type], ::String, context: "#{context}[:provider_type]")
-        Validators::ProviderDetailsType.validate!(input[:provider_details], context: "#{context}[:provider_details]") unless input[:provider_details].nil?
-        Validators::AttributeMappingType.validate!(input[:attribute_mapping], context: "#{context}[:attribute_mapping]") unless input[:attribute_mapping].nil?
-        Validators::IdpIdentifiersListType.validate!(input[:idp_identifiers], context: "#{context}[:idp_identifiers]") unless input[:idp_identifiers].nil?
+        ProviderDetailsType.validate!(input[:provider_details], context: "#{context}[:provider_details]") unless input[:provider_details].nil?
+        AttributeMappingType.validate!(input[:attribute_mapping], context: "#{context}[:attribute_mapping]") unless input[:attribute_mapping].nil?
+        IdpIdentifiersListType.validate!(input[:idp_identifiers], context: "#{context}[:idp_identifiers]") unless input[:idp_identifiers].nil?
       end
     end
 
     class CreateIdentityProviderOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateIdentityProviderOutput, context: context)
-        Validators::IdentityProviderType.validate!(input[:identity_provider], context: "#{context}[:identity_provider]") unless input[:identity_provider].nil?
+        IdentityProviderType.validate!(input[:identity_provider], context: "#{context}[:identity_provider]") unless input[:identity_provider].nil?
       end
     end
 
@@ -891,14 +893,14 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input[:user_pool_id], ::String, context: "#{context}[:user_pool_id]")
         Hearth::Validator.validate!(input[:identifier], ::String, context: "#{context}[:identifier]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ResourceServerScopeListType.validate!(input[:scopes], context: "#{context}[:scopes]") unless input[:scopes].nil?
+        ResourceServerScopeListType.validate!(input[:scopes], context: "#{context}[:scopes]") unless input[:scopes].nil?
       end
     end
 
     class CreateResourceServerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateResourceServerOutput, context: context)
-        Validators::ResourceServerType.validate!(input[:resource_server], context: "#{context}[:resource_server]") unless input[:resource_server].nil?
+        ResourceServerType.validate!(input[:resource_server], context: "#{context}[:resource_server]") unless input[:resource_server].nil?
       end
     end
 
@@ -914,7 +916,7 @@ module AWS::SDK::CognitoIdentityProvider
     class CreateUserImportJobOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateUserImportJobOutput, context: context)
-        Validators::UserImportJobType.validate!(input[:user_import_job], context: "#{context}[:user_import_job]") unless input[:user_import_job].nil?
+        UserImportJobType.validate!(input[:user_import_job], context: "#{context}[:user_import_job]") unless input[:user_import_job].nil?
       end
     end
 
@@ -927,18 +929,18 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input[:refresh_token_validity], ::Integer, context: "#{context}[:refresh_token_validity]")
         Hearth::Validator.validate!(input[:access_token_validity], ::Integer, context: "#{context}[:access_token_validity]")
         Hearth::Validator.validate!(input[:id_token_validity], ::Integer, context: "#{context}[:id_token_validity]")
-        Validators::TokenValidityUnitsType.validate!(input[:token_validity_units], context: "#{context}[:token_validity_units]") unless input[:token_validity_units].nil?
-        Validators::ClientPermissionListType.validate!(input[:read_attributes], context: "#{context}[:read_attributes]") unless input[:read_attributes].nil?
-        Validators::ClientPermissionListType.validate!(input[:write_attributes], context: "#{context}[:write_attributes]") unless input[:write_attributes].nil?
-        Validators::ExplicitAuthFlowsListType.validate!(input[:explicit_auth_flows], context: "#{context}[:explicit_auth_flows]") unless input[:explicit_auth_flows].nil?
-        Validators::SupportedIdentityProvidersListType.validate!(input[:supported_identity_providers], context: "#{context}[:supported_identity_providers]") unless input[:supported_identity_providers].nil?
-        Validators::CallbackURLsListType.validate!(input[:callback_ur_ls], context: "#{context}[:callback_ur_ls]") unless input[:callback_ur_ls].nil?
-        Validators::LogoutURLsListType.validate!(input[:logout_ur_ls], context: "#{context}[:logout_ur_ls]") unless input[:logout_ur_ls].nil?
+        TokenValidityUnitsType.validate!(input[:token_validity_units], context: "#{context}[:token_validity_units]") unless input[:token_validity_units].nil?
+        ClientPermissionListType.validate!(input[:read_attributes], context: "#{context}[:read_attributes]") unless input[:read_attributes].nil?
+        ClientPermissionListType.validate!(input[:write_attributes], context: "#{context}[:write_attributes]") unless input[:write_attributes].nil?
+        ExplicitAuthFlowsListType.validate!(input[:explicit_auth_flows], context: "#{context}[:explicit_auth_flows]") unless input[:explicit_auth_flows].nil?
+        SupportedIdentityProvidersListType.validate!(input[:supported_identity_providers], context: "#{context}[:supported_identity_providers]") unless input[:supported_identity_providers].nil?
+        CallbackURLsListType.validate!(input[:callback_ur_ls], context: "#{context}[:callback_ur_ls]") unless input[:callback_ur_ls].nil?
+        LogoutURLsListType.validate!(input[:logout_ur_ls], context: "#{context}[:logout_ur_ls]") unless input[:logout_ur_ls].nil?
         Hearth::Validator.validate!(input[:default_redirect_uri], ::String, context: "#{context}[:default_redirect_uri]")
-        Validators::OAuthFlowsType.validate!(input[:allowed_o_auth_flows], context: "#{context}[:allowed_o_auth_flows]") unless input[:allowed_o_auth_flows].nil?
-        Validators::ScopeListType.validate!(input[:allowed_o_auth_scopes], context: "#{context}[:allowed_o_auth_scopes]") unless input[:allowed_o_auth_scopes].nil?
+        OAuthFlowsType.validate!(input[:allowed_o_auth_flows], context: "#{context}[:allowed_o_auth_flows]") unless input[:allowed_o_auth_flows].nil?
+        ScopeListType.validate!(input[:allowed_o_auth_scopes], context: "#{context}[:allowed_o_auth_scopes]") unless input[:allowed_o_auth_scopes].nil?
         Hearth::Validator.validate!(input[:allowed_o_auth_flows_user_pool_client], ::TrueClass, ::FalseClass, context: "#{context}[:allowed_o_auth_flows_user_pool_client]")
-        Validators::AnalyticsConfigurationType.validate!(input[:analytics_configuration], context: "#{context}[:analytics_configuration]") unless input[:analytics_configuration].nil?
+        AnalyticsConfigurationType.validate!(input[:analytics_configuration], context: "#{context}[:analytics_configuration]") unless input[:analytics_configuration].nil?
         Hearth::Validator.validate!(input[:prevent_user_existence_errors], ::String, context: "#{context}[:prevent_user_existence_errors]")
         Hearth::Validator.validate!(input[:enable_token_revocation], ::TrueClass, ::FalseClass, context: "#{context}[:enable_token_revocation]")
         Hearth::Validator.validate!(input[:enable_propagate_additional_user_context_data], ::TrueClass, ::FalseClass, context: "#{context}[:enable_propagate_additional_user_context_data]")
@@ -948,7 +950,7 @@ module AWS::SDK::CognitoIdentityProvider
     class CreateUserPoolClientOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateUserPoolClientOutput, context: context)
-        Validators::UserPoolClientType.validate!(input[:user_pool_client], context: "#{context}[:user_pool_client]") unless input[:user_pool_client].nil?
+        UserPoolClientType.validate!(input[:user_pool_client], context: "#{context}[:user_pool_client]") unless input[:user_pool_client].nil?
       end
     end
 
@@ -957,7 +959,7 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input, Types::CreateUserPoolDomainInput, context: context)
         Hearth::Validator.validate!(input[:domain], ::String, context: "#{context}[:domain]")
         Hearth::Validator.validate!(input[:user_pool_id], ::String, context: "#{context}[:user_pool_id]")
-        Validators::CustomDomainConfigType.validate!(input[:custom_domain_config], context: "#{context}[:custom_domain_config]") unless input[:custom_domain_config].nil?
+        CustomDomainConfigType.validate!(input[:custom_domain_config], context: "#{context}[:custom_domain_config]") unless input[:custom_domain_config].nil?
       end
     end
 
@@ -972,34 +974,34 @@ module AWS::SDK::CognitoIdentityProvider
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateUserPoolInput, context: context)
         Hearth::Validator.validate!(input[:pool_name], ::String, context: "#{context}[:pool_name]")
-        Validators::UserPoolPolicyType.validate!(input[:policies], context: "#{context}[:policies]") unless input[:policies].nil?
-        Validators::LambdaConfigType.validate!(input[:lambda_config], context: "#{context}[:lambda_config]") unless input[:lambda_config].nil?
-        Validators::VerifiedAttributesListType.validate!(input[:auto_verified_attributes], context: "#{context}[:auto_verified_attributes]") unless input[:auto_verified_attributes].nil?
-        Validators::AliasAttributesListType.validate!(input[:alias_attributes], context: "#{context}[:alias_attributes]") unless input[:alias_attributes].nil?
-        Validators::UsernameAttributesListType.validate!(input[:username_attributes], context: "#{context}[:username_attributes]") unless input[:username_attributes].nil?
+        UserPoolPolicyType.validate!(input[:policies], context: "#{context}[:policies]") unless input[:policies].nil?
+        LambdaConfigType.validate!(input[:lambda_config], context: "#{context}[:lambda_config]") unless input[:lambda_config].nil?
+        VerifiedAttributesListType.validate!(input[:auto_verified_attributes], context: "#{context}[:auto_verified_attributes]") unless input[:auto_verified_attributes].nil?
+        AliasAttributesListType.validate!(input[:alias_attributes], context: "#{context}[:alias_attributes]") unless input[:alias_attributes].nil?
+        UsernameAttributesListType.validate!(input[:username_attributes], context: "#{context}[:username_attributes]") unless input[:username_attributes].nil?
         Hearth::Validator.validate!(input[:sms_verification_message], ::String, context: "#{context}[:sms_verification_message]")
         Hearth::Validator.validate!(input[:email_verification_message], ::String, context: "#{context}[:email_verification_message]")
         Hearth::Validator.validate!(input[:email_verification_subject], ::String, context: "#{context}[:email_verification_subject]")
-        Validators::VerificationMessageTemplateType.validate!(input[:verification_message_template], context: "#{context}[:verification_message_template]") unless input[:verification_message_template].nil?
+        VerificationMessageTemplateType.validate!(input[:verification_message_template], context: "#{context}[:verification_message_template]") unless input[:verification_message_template].nil?
         Hearth::Validator.validate!(input[:sms_authentication_message], ::String, context: "#{context}[:sms_authentication_message]")
         Hearth::Validator.validate!(input[:mfa_configuration], ::String, context: "#{context}[:mfa_configuration]")
-        Validators::UserAttributeUpdateSettingsType.validate!(input[:user_attribute_update_settings], context: "#{context}[:user_attribute_update_settings]") unless input[:user_attribute_update_settings].nil?
-        Validators::DeviceConfigurationType.validate!(input[:device_configuration], context: "#{context}[:device_configuration]") unless input[:device_configuration].nil?
-        Validators::EmailConfigurationType.validate!(input[:email_configuration], context: "#{context}[:email_configuration]") unless input[:email_configuration].nil?
-        Validators::SmsConfigurationType.validate!(input[:sms_configuration], context: "#{context}[:sms_configuration]") unless input[:sms_configuration].nil?
-        Validators::UserPoolTagsType.validate!(input[:user_pool_tags], context: "#{context}[:user_pool_tags]") unless input[:user_pool_tags].nil?
-        Validators::AdminCreateUserConfigType.validate!(input[:admin_create_user_config], context: "#{context}[:admin_create_user_config]") unless input[:admin_create_user_config].nil?
-        Validators::SchemaAttributesListType.validate!(input[:schema], context: "#{context}[:schema]") unless input[:schema].nil?
-        Validators::UserPoolAddOnsType.validate!(input[:user_pool_add_ons], context: "#{context}[:user_pool_add_ons]") unless input[:user_pool_add_ons].nil?
-        Validators::UsernameConfigurationType.validate!(input[:username_configuration], context: "#{context}[:username_configuration]") unless input[:username_configuration].nil?
-        Validators::AccountRecoverySettingType.validate!(input[:account_recovery_setting], context: "#{context}[:account_recovery_setting]") unless input[:account_recovery_setting].nil?
+        UserAttributeUpdateSettingsType.validate!(input[:user_attribute_update_settings], context: "#{context}[:user_attribute_update_settings]") unless input[:user_attribute_update_settings].nil?
+        DeviceConfigurationType.validate!(input[:device_configuration], context: "#{context}[:device_configuration]") unless input[:device_configuration].nil?
+        EmailConfigurationType.validate!(input[:email_configuration], context: "#{context}[:email_configuration]") unless input[:email_configuration].nil?
+        SmsConfigurationType.validate!(input[:sms_configuration], context: "#{context}[:sms_configuration]") unless input[:sms_configuration].nil?
+        UserPoolTagsType.validate!(input[:user_pool_tags], context: "#{context}[:user_pool_tags]") unless input[:user_pool_tags].nil?
+        AdminCreateUserConfigType.validate!(input[:admin_create_user_config], context: "#{context}[:admin_create_user_config]") unless input[:admin_create_user_config].nil?
+        SchemaAttributesListType.validate!(input[:schema], context: "#{context}[:schema]") unless input[:schema].nil?
+        UserPoolAddOnsType.validate!(input[:user_pool_add_ons], context: "#{context}[:user_pool_add_ons]") unless input[:user_pool_add_ons].nil?
+        UsernameConfigurationType.validate!(input[:username_configuration], context: "#{context}[:username_configuration]") unless input[:username_configuration].nil?
+        AccountRecoverySettingType.validate!(input[:account_recovery_setting], context: "#{context}[:account_recovery_setting]") unless input[:account_recovery_setting].nil?
       end
     end
 
     class CreateUserPoolOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateUserPoolOutput, context: context)
-        Validators::UserPoolType.validate!(input[:user_pool], context: "#{context}[:user_pool]") unless input[:user_pool].nil?
+        UserPoolType.validate!(input[:user_pool], context: "#{context}[:user_pool]") unless input[:user_pool].nil?
       end
     end
 
@@ -1007,7 +1009,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SchemaAttributeType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SchemaAttributeType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1080,7 +1082,7 @@ module AWS::SDK::CognitoIdentityProvider
     class DeleteUserAttributesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteUserAttributesInput, context: context)
-        Validators::AttributeNameListType.validate!(input[:user_attribute_names], context: "#{context}[:user_attribute_names]") unless input[:user_attribute_names].nil?
+        AttributeNameListType.validate!(input[:user_attribute_names], context: "#{context}[:user_attribute_names]") unless input[:user_attribute_names].nil?
         Hearth::Validator.validate!(input[:access_token], ::String, context: "#{context}[:access_token]")
       end
     end
@@ -1165,7 +1167,7 @@ module AWS::SDK::CognitoIdentityProvider
     class DescribeIdentityProviderOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeIdentityProviderOutput, context: context)
-        Validators::IdentityProviderType.validate!(input[:identity_provider], context: "#{context}[:identity_provider]") unless input[:identity_provider].nil?
+        IdentityProviderType.validate!(input[:identity_provider], context: "#{context}[:identity_provider]") unless input[:identity_provider].nil?
       end
     end
 
@@ -1180,7 +1182,7 @@ module AWS::SDK::CognitoIdentityProvider
     class DescribeResourceServerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeResourceServerOutput, context: context)
-        Validators::ResourceServerType.validate!(input[:resource_server], context: "#{context}[:resource_server]") unless input[:resource_server].nil?
+        ResourceServerType.validate!(input[:resource_server], context: "#{context}[:resource_server]") unless input[:resource_server].nil?
       end
     end
 
@@ -1195,7 +1197,7 @@ module AWS::SDK::CognitoIdentityProvider
     class DescribeRiskConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeRiskConfigurationOutput, context: context)
-        Validators::RiskConfigurationType.validate!(input[:risk_configuration], context: "#{context}[:risk_configuration]") unless input[:risk_configuration].nil?
+        RiskConfigurationType.validate!(input[:risk_configuration], context: "#{context}[:risk_configuration]") unless input[:risk_configuration].nil?
       end
     end
 
@@ -1210,7 +1212,7 @@ module AWS::SDK::CognitoIdentityProvider
     class DescribeUserImportJobOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeUserImportJobOutput, context: context)
-        Validators::UserImportJobType.validate!(input[:user_import_job], context: "#{context}[:user_import_job]") unless input[:user_import_job].nil?
+        UserImportJobType.validate!(input[:user_import_job], context: "#{context}[:user_import_job]") unless input[:user_import_job].nil?
       end
     end
 
@@ -1225,7 +1227,7 @@ module AWS::SDK::CognitoIdentityProvider
     class DescribeUserPoolClientOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeUserPoolClientOutput, context: context)
-        Validators::UserPoolClientType.validate!(input[:user_pool_client], context: "#{context}[:user_pool_client]") unless input[:user_pool_client].nil?
+        UserPoolClientType.validate!(input[:user_pool_client], context: "#{context}[:user_pool_client]") unless input[:user_pool_client].nil?
       end
     end
 
@@ -1239,7 +1241,7 @@ module AWS::SDK::CognitoIdentityProvider
     class DescribeUserPoolDomainOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeUserPoolDomainOutput, context: context)
-        Validators::DomainDescriptionType.validate!(input[:domain_description], context: "#{context}[:domain_description]") unless input[:domain_description].nil?
+        DomainDescriptionType.validate!(input[:domain_description], context: "#{context}[:domain_description]") unless input[:domain_description].nil?
       end
     end
 
@@ -1253,7 +1255,7 @@ module AWS::SDK::CognitoIdentityProvider
     class DescribeUserPoolOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeUserPoolOutput, context: context)
-        Validators::UserPoolType.validate!(input[:user_pool], context: "#{context}[:user_pool]") unless input[:user_pool].nil?
+        UserPoolType.validate!(input[:user_pool], context: "#{context}[:user_pool]") unless input[:user_pool].nil?
       end
     end
 
@@ -1269,7 +1271,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DeviceType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DeviceType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1286,7 +1288,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeviceType, context: context)
         Hearth::Validator.validate!(input[:device_key], ::String, context: "#{context}[:device_key]")
-        Validators::AttributeListType.validate!(input[:device_attributes], context: "#{context}[:device_attributes]") unless input[:device_attributes].nil?
+        AttributeListType.validate!(input[:device_attributes], context: "#{context}[:device_attributes]") unless input[:device_attributes].nil?
         Hearth::Validator.validate!(input[:device_create_date], ::Time, context: "#{context}[:device_create_date]")
         Hearth::Validator.validate!(input[:device_last_modified_date], ::Time, context: "#{context}[:device_last_modified_date]")
         Hearth::Validator.validate!(input[:device_last_authenticated_date], ::Time, context: "#{context}[:device_last_authenticated_date]")
@@ -1303,7 +1305,7 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input[:cloud_front_distribution], ::String, context: "#{context}[:cloud_front_distribution]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::CustomDomainConfigType.validate!(input[:custom_domain_config], context: "#{context}[:custom_domain_config]") unless input[:custom_domain_config].nil?
+        CustomDomainConfigType.validate!(input[:custom_domain_config], context: "#{context}[:custom_domain_config]") unless input[:custom_domain_config].nil?
       end
     end
 
@@ -1405,17 +1407,17 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input, Types::ForgotPasswordInput, context: context)
         Hearth::Validator.validate!(input[:client_id], ::String, context: "#{context}[:client_id]")
         Hearth::Validator.validate!(input[:secret_hash], ::String, context: "#{context}[:secret_hash]")
-        Validators::UserContextDataType.validate!(input[:user_context_data], context: "#{context}[:user_context_data]") unless input[:user_context_data].nil?
+        UserContextDataType.validate!(input[:user_context_data], context: "#{context}[:user_context_data]") unless input[:user_context_data].nil?
         Hearth::Validator.validate!(input[:username], ::String, context: "#{context}[:username]")
-        Validators::AnalyticsMetadataType.validate!(input[:analytics_metadata], context: "#{context}[:analytics_metadata]") unless input[:analytics_metadata].nil?
-        Validators::ClientMetadataType.validate!(input[:client_metadata], context: "#{context}[:client_metadata]") unless input[:client_metadata].nil?
+        AnalyticsMetadataType.validate!(input[:analytics_metadata], context: "#{context}[:analytics_metadata]") unless input[:analytics_metadata].nil?
+        ClientMetadataType.validate!(input[:client_metadata], context: "#{context}[:client_metadata]") unless input[:client_metadata].nil?
       end
     end
 
     class ForgotPasswordOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ForgotPasswordOutput, context: context)
-        Validators::CodeDeliveryDetailsType.validate!(input[:code_delivery_details], context: "#{context}[:code_delivery_details]") unless input[:code_delivery_details].nil?
+        CodeDeliveryDetailsType.validate!(input[:code_delivery_details], context: "#{context}[:code_delivery_details]") unless input[:code_delivery_details].nil?
       end
     end
 
@@ -1430,7 +1432,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetCSVHeaderOutput, context: context)
         Hearth::Validator.validate!(input[:user_pool_id], ::String, context: "#{context}[:user_pool_id]")
-        Validators::ListOfStringTypes.validate!(input[:csv_header], context: "#{context}[:csv_header]") unless input[:csv_header].nil?
+        ListOfStringTypes.validate!(input[:csv_header], context: "#{context}[:csv_header]") unless input[:csv_header].nil?
       end
     end
 
@@ -1445,7 +1447,7 @@ module AWS::SDK::CognitoIdentityProvider
     class GetDeviceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDeviceOutput, context: context)
-        Validators::DeviceType.validate!(input[:device], context: "#{context}[:device]") unless input[:device].nil?
+        DeviceType.validate!(input[:device], context: "#{context}[:device]") unless input[:device].nil?
       end
     end
 
@@ -1460,7 +1462,7 @@ module AWS::SDK::CognitoIdentityProvider
     class GetGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetGroupOutput, context: context)
-        Validators::GroupType.validate!(input[:group], context: "#{context}[:group]") unless input[:group].nil?
+        GroupType.validate!(input[:group], context: "#{context}[:group]") unless input[:group].nil?
       end
     end
 
@@ -1475,7 +1477,7 @@ module AWS::SDK::CognitoIdentityProvider
     class GetIdentityProviderByIdentifierOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetIdentityProviderByIdentifierOutput, context: context)
-        Validators::IdentityProviderType.validate!(input[:identity_provider], context: "#{context}[:identity_provider]") unless input[:identity_provider].nil?
+        IdentityProviderType.validate!(input[:identity_provider], context: "#{context}[:identity_provider]") unless input[:identity_provider].nil?
       end
     end
 
@@ -1504,7 +1506,7 @@ module AWS::SDK::CognitoIdentityProvider
     class GetUICustomizationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetUICustomizationOutput, context: context)
-        Validators::UICustomizationType.validate!(input[:ui_customization], context: "#{context}[:ui_customization]") unless input[:ui_customization].nil?
+        UICustomizationType.validate!(input[:ui_customization], context: "#{context}[:ui_customization]") unless input[:ui_customization].nil?
       end
     end
 
@@ -1513,14 +1515,14 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input, Types::GetUserAttributeVerificationCodeInput, context: context)
         Hearth::Validator.validate!(input[:access_token], ::String, context: "#{context}[:access_token]")
         Hearth::Validator.validate!(input[:attribute_name], ::String, context: "#{context}[:attribute_name]")
-        Validators::ClientMetadataType.validate!(input[:client_metadata], context: "#{context}[:client_metadata]") unless input[:client_metadata].nil?
+        ClientMetadataType.validate!(input[:client_metadata], context: "#{context}[:client_metadata]") unless input[:client_metadata].nil?
       end
     end
 
     class GetUserAttributeVerificationCodeOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetUserAttributeVerificationCodeOutput, context: context)
-        Validators::CodeDeliveryDetailsType.validate!(input[:code_delivery_details], context: "#{context}[:code_delivery_details]") unless input[:code_delivery_details].nil?
+        CodeDeliveryDetailsType.validate!(input[:code_delivery_details], context: "#{context}[:code_delivery_details]") unless input[:code_delivery_details].nil?
       end
     end
 
@@ -1535,10 +1537,10 @@ module AWS::SDK::CognitoIdentityProvider
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetUserOutput, context: context)
         Hearth::Validator.validate!(input[:username], ::String, context: "#{context}[:username]")
-        Validators::AttributeListType.validate!(input[:user_attributes], context: "#{context}[:user_attributes]") unless input[:user_attributes].nil?
-        Validators::MFAOptionListType.validate!(input[:mfa_options], context: "#{context}[:mfa_options]") unless input[:mfa_options].nil?
+        AttributeListType.validate!(input[:user_attributes], context: "#{context}[:user_attributes]") unless input[:user_attributes].nil?
+        MFAOptionListType.validate!(input[:mfa_options], context: "#{context}[:mfa_options]") unless input[:mfa_options].nil?
         Hearth::Validator.validate!(input[:preferred_mfa_setting], ::String, context: "#{context}[:preferred_mfa_setting]")
-        Validators::UserMFASettingListType.validate!(input[:user_mfa_setting_list], context: "#{context}[:user_mfa_setting_list]") unless input[:user_mfa_setting_list].nil?
+        UserMFASettingListType.validate!(input[:user_mfa_setting_list], context: "#{context}[:user_mfa_setting_list]") unless input[:user_mfa_setting_list].nil?
       end
     end
 
@@ -1552,8 +1554,8 @@ module AWS::SDK::CognitoIdentityProvider
     class GetUserPoolMfaConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetUserPoolMfaConfigOutput, context: context)
-        Validators::SmsMfaConfigType.validate!(input[:sms_mfa_configuration], context: "#{context}[:sms_mfa_configuration]") unless input[:sms_mfa_configuration].nil?
-        Validators::SoftwareTokenMfaConfigType.validate!(input[:software_token_mfa_configuration], context: "#{context}[:software_token_mfa_configuration]") unless input[:software_token_mfa_configuration].nil?
+        SmsMfaConfigType.validate!(input[:sms_mfa_configuration], context: "#{context}[:sms_mfa_configuration]") unless input[:sms_mfa_configuration].nil?
+        SoftwareTokenMfaConfigType.validate!(input[:software_token_mfa_configuration], context: "#{context}[:software_token_mfa_configuration]") unless input[:software_token_mfa_configuration].nil?
         Hearth::Validator.validate!(input[:mfa_configuration], ::String, context: "#{context}[:mfa_configuration]")
       end
     end
@@ -1582,7 +1584,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GroupType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GroupType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1612,7 +1614,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::HttpHeader.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          HttpHeader.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1623,9 +1625,9 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input[:user_pool_id], ::String, context: "#{context}[:user_pool_id]")
         Hearth::Validator.validate!(input[:provider_name], ::String, context: "#{context}[:provider_name]")
         Hearth::Validator.validate!(input[:provider_type], ::String, context: "#{context}[:provider_type]")
-        Validators::ProviderDetailsType.validate!(input[:provider_details], context: "#{context}[:provider_details]") unless input[:provider_details].nil?
-        Validators::AttributeMappingType.validate!(input[:attribute_mapping], context: "#{context}[:attribute_mapping]") unless input[:attribute_mapping].nil?
-        Validators::IdpIdentifiersListType.validate!(input[:idp_identifiers], context: "#{context}[:idp_identifiers]") unless input[:idp_identifiers].nil?
+        ProviderDetailsType.validate!(input[:provider_details], context: "#{context}[:provider_details]") unless input[:provider_details].nil?
+        AttributeMappingType.validate!(input[:attribute_mapping], context: "#{context}[:attribute_mapping]") unless input[:attribute_mapping].nil?
+        IdpIdentifiersListType.validate!(input[:idp_identifiers], context: "#{context}[:idp_identifiers]") unless input[:idp_identifiers].nil?
         Hearth::Validator.validate!(input[:last_modified_date], ::Time, context: "#{context}[:last_modified_date]")
         Hearth::Validator.validate!(input[:creation_date], ::Time, context: "#{context}[:creation_date]")
       end
@@ -1644,11 +1646,11 @@ module AWS::SDK::CognitoIdentityProvider
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InitiateAuthInput, context: context)
         Hearth::Validator.validate!(input[:auth_flow], ::String, context: "#{context}[:auth_flow]")
-        Validators::AuthParametersType.validate!(input[:auth_parameters], context: "#{context}[:auth_parameters]") unless input[:auth_parameters].nil?
-        Validators::ClientMetadataType.validate!(input[:client_metadata], context: "#{context}[:client_metadata]") unless input[:client_metadata].nil?
+        AuthParametersType.validate!(input[:auth_parameters], context: "#{context}[:auth_parameters]") unless input[:auth_parameters].nil?
+        ClientMetadataType.validate!(input[:client_metadata], context: "#{context}[:client_metadata]") unless input[:client_metadata].nil?
         Hearth::Validator.validate!(input[:client_id], ::String, context: "#{context}[:client_id]")
-        Validators::AnalyticsMetadataType.validate!(input[:analytics_metadata], context: "#{context}[:analytics_metadata]") unless input[:analytics_metadata].nil?
-        Validators::UserContextDataType.validate!(input[:user_context_data], context: "#{context}[:user_context_data]") unless input[:user_context_data].nil?
+        AnalyticsMetadataType.validate!(input[:analytics_metadata], context: "#{context}[:analytics_metadata]") unless input[:analytics_metadata].nil?
+        UserContextDataType.validate!(input[:user_context_data], context: "#{context}[:user_context_data]") unless input[:user_context_data].nil?
       end
     end
 
@@ -1657,8 +1659,8 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input, Types::InitiateAuthOutput, context: context)
         Hearth::Validator.validate!(input[:challenge_name], ::String, context: "#{context}[:challenge_name]")
         Hearth::Validator.validate!(input[:session], ::String, context: "#{context}[:session]")
-        Validators::ChallengeParametersType.validate!(input[:challenge_parameters], context: "#{context}[:challenge_parameters]") unless input[:challenge_parameters].nil?
-        Validators::AuthenticationResultType.validate!(input[:authentication_result], context: "#{context}[:authentication_result]") unless input[:authentication_result].nil?
+        ChallengeParametersType.validate!(input[:challenge_parameters], context: "#{context}[:challenge_parameters]") unless input[:challenge_parameters].nil?
+        AuthenticationResultType.validate!(input[:authentication_result], context: "#{context}[:authentication_result]") unless input[:authentication_result].nil?
       end
     end
 
@@ -1738,8 +1740,8 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input[:verify_auth_challenge_response], ::String, context: "#{context}[:verify_auth_challenge_response]")
         Hearth::Validator.validate!(input[:pre_token_generation], ::String, context: "#{context}[:pre_token_generation]")
         Hearth::Validator.validate!(input[:user_migration], ::String, context: "#{context}[:user_migration]")
-        Validators::CustomSMSLambdaVersionConfigType.validate!(input[:custom_sms_sender], context: "#{context}[:custom_sms_sender]") unless input[:custom_sms_sender].nil?
-        Validators::CustomEmailLambdaVersionConfigType.validate!(input[:custom_email_sender], context: "#{context}[:custom_email_sender]") unless input[:custom_email_sender].nil?
+        CustomSMSLambdaVersionConfigType.validate!(input[:custom_sms_sender], context: "#{context}[:custom_sms_sender]") unless input[:custom_sms_sender].nil?
+        CustomEmailLambdaVersionConfigType.validate!(input[:custom_email_sender], context: "#{context}[:custom_email_sender]") unless input[:custom_email_sender].nil?
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
       end
     end
@@ -1763,7 +1765,7 @@ module AWS::SDK::CognitoIdentityProvider
     class ListDevicesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDevicesOutput, context: context)
-        Validators::DeviceListType.validate!(input[:devices], context: "#{context}[:devices]") unless input[:devices].nil?
+        DeviceListType.validate!(input[:devices], context: "#{context}[:devices]") unless input[:devices].nil?
         Hearth::Validator.validate!(input[:pagination_token], ::String, context: "#{context}[:pagination_token]")
       end
     end
@@ -1780,7 +1782,7 @@ module AWS::SDK::CognitoIdentityProvider
     class ListGroupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListGroupsOutput, context: context)
-        Validators::GroupListType.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
+        GroupListType.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1797,7 +1799,7 @@ module AWS::SDK::CognitoIdentityProvider
     class ListIdentityProvidersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListIdentityProvidersOutput, context: context)
-        Validators::ProvidersListType.validate!(input[:providers], context: "#{context}[:providers]") unless input[:providers].nil?
+        ProvidersListType.validate!(input[:providers], context: "#{context}[:providers]") unless input[:providers].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1823,7 +1825,7 @@ module AWS::SDK::CognitoIdentityProvider
     class ListResourceServersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListResourceServersOutput, context: context)
-        Validators::ResourceServersListType.validate!(input[:resource_servers], context: "#{context}[:resource_servers]") unless input[:resource_servers].nil?
+        ResourceServersListType.validate!(input[:resource_servers], context: "#{context}[:resource_servers]") unless input[:resource_servers].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1838,7 +1840,7 @@ module AWS::SDK::CognitoIdentityProvider
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::UserPoolTagsType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        UserPoolTagsType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1854,7 +1856,7 @@ module AWS::SDK::CognitoIdentityProvider
     class ListUserImportJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListUserImportJobsOutput, context: context)
-        Validators::UserImportJobsListType.validate!(input[:user_import_jobs], context: "#{context}[:user_import_jobs]") unless input[:user_import_jobs].nil?
+        UserImportJobsListType.validate!(input[:user_import_jobs], context: "#{context}[:user_import_jobs]") unless input[:user_import_jobs].nil?
         Hearth::Validator.validate!(input[:pagination_token], ::String, context: "#{context}[:pagination_token]")
       end
     end
@@ -1871,7 +1873,7 @@ module AWS::SDK::CognitoIdentityProvider
     class ListUserPoolClientsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListUserPoolClientsOutput, context: context)
-        Validators::UserPoolClientListType.validate!(input[:user_pool_clients], context: "#{context}[:user_pool_clients]") unless input[:user_pool_clients].nil?
+        UserPoolClientListType.validate!(input[:user_pool_clients], context: "#{context}[:user_pool_clients]") unless input[:user_pool_clients].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1887,7 +1889,7 @@ module AWS::SDK::CognitoIdentityProvider
     class ListUserPoolsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListUserPoolsOutput, context: context)
-        Validators::UserPoolListType.validate!(input[:user_pools], context: "#{context}[:user_pools]") unless input[:user_pools].nil?
+        UserPoolListType.validate!(input[:user_pools], context: "#{context}[:user_pools]") unless input[:user_pools].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1905,7 +1907,7 @@ module AWS::SDK::CognitoIdentityProvider
     class ListUsersInGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListUsersInGroupOutput, context: context)
-        Validators::UsersListType.validate!(input[:users], context: "#{context}[:users]") unless input[:users].nil?
+        UsersListType.validate!(input[:users], context: "#{context}[:users]") unless input[:users].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1914,7 +1916,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListUsersInput, context: context)
         Hearth::Validator.validate!(input[:user_pool_id], ::String, context: "#{context}[:user_pool_id]")
-        Validators::SearchedAttributeNamesListType.validate!(input[:attributes_to_get], context: "#{context}[:attributes_to_get]") unless input[:attributes_to_get].nil?
+        SearchedAttributeNamesListType.validate!(input[:attributes_to_get], context: "#{context}[:attributes_to_get]") unless input[:attributes_to_get].nil?
         Hearth::Validator.validate!(input[:limit], ::Integer, context: "#{context}[:limit]")
         Hearth::Validator.validate!(input[:pagination_token], ::String, context: "#{context}[:pagination_token]")
         Hearth::Validator.validate!(input[:filter], ::String, context: "#{context}[:filter]")
@@ -1924,7 +1926,7 @@ module AWS::SDK::CognitoIdentityProvider
     class ListUsersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListUsersOutput, context: context)
-        Validators::UsersListType.validate!(input[:users], context: "#{context}[:users]") unless input[:users].nil?
+        UsersListType.validate!(input[:users], context: "#{context}[:users]") unless input[:users].nil?
         Hearth::Validator.validate!(input[:pagination_token], ::String, context: "#{context}[:pagination_token]")
       end
     end
@@ -1949,7 +1951,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MFAOptionType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MFAOptionType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1992,9 +1994,9 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input[:from], ::String, context: "#{context}[:from]")
         Hearth::Validator.validate!(input[:reply_to], ::String, context: "#{context}[:reply_to]")
         Hearth::Validator.validate!(input[:source_arn], ::String, context: "#{context}[:source_arn]")
-        Validators::NotifyEmailType.validate!(input[:block_email], context: "#{context}[:block_email]") unless input[:block_email].nil?
-        Validators::NotifyEmailType.validate!(input[:no_action_email], context: "#{context}[:no_action_email]") unless input[:no_action_email].nil?
-        Validators::NotifyEmailType.validate!(input[:mfa_email], context: "#{context}[:mfa_email]") unless input[:mfa_email].nil?
+        NotifyEmailType.validate!(input[:block_email], context: "#{context}[:block_email]") unless input[:block_email].nil?
+        NotifyEmailType.validate!(input[:no_action_email], context: "#{context}[:no_action_email]") unless input[:no_action_email].nil?
+        NotifyEmailType.validate!(input[:mfa_email], context: "#{context}[:mfa_email]") unless input[:mfa_email].nil?
       end
     end
 
@@ -2083,7 +2085,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProviderDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProviderDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2092,7 +2094,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RecoveryOptionType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RecoveryOptionType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2110,17 +2112,17 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input, Types::ResendConfirmationCodeInput, context: context)
         Hearth::Validator.validate!(input[:client_id], ::String, context: "#{context}[:client_id]")
         Hearth::Validator.validate!(input[:secret_hash], ::String, context: "#{context}[:secret_hash]")
-        Validators::UserContextDataType.validate!(input[:user_context_data], context: "#{context}[:user_context_data]") unless input[:user_context_data].nil?
+        UserContextDataType.validate!(input[:user_context_data], context: "#{context}[:user_context_data]") unless input[:user_context_data].nil?
         Hearth::Validator.validate!(input[:username], ::String, context: "#{context}[:username]")
-        Validators::AnalyticsMetadataType.validate!(input[:analytics_metadata], context: "#{context}[:analytics_metadata]") unless input[:analytics_metadata].nil?
-        Validators::ClientMetadataType.validate!(input[:client_metadata], context: "#{context}[:client_metadata]") unless input[:client_metadata].nil?
+        AnalyticsMetadataType.validate!(input[:analytics_metadata], context: "#{context}[:analytics_metadata]") unless input[:analytics_metadata].nil?
+        ClientMetadataType.validate!(input[:client_metadata], context: "#{context}[:client_metadata]") unless input[:client_metadata].nil?
       end
     end
 
     class ResendConfirmationCodeOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResendConfirmationCodeOutput, context: context)
-        Validators::CodeDeliveryDetailsType.validate!(input[:code_delivery_details], context: "#{context}[:code_delivery_details]") unless input[:code_delivery_details].nil?
+        CodeDeliveryDetailsType.validate!(input[:code_delivery_details], context: "#{context}[:code_delivery_details]") unless input[:code_delivery_details].nil?
       end
     end
 
@@ -2135,7 +2137,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourceServerScopeType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourceServerScopeType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2154,7 +2156,7 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input[:user_pool_id], ::String, context: "#{context}[:user_pool_id]")
         Hearth::Validator.validate!(input[:identifier], ::String, context: "#{context}[:identifier]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ResourceServerScopeListType.validate!(input[:scopes], context: "#{context}[:scopes]") unless input[:scopes].nil?
+        ResourceServerScopeListType.validate!(input[:scopes], context: "#{context}[:scopes]") unless input[:scopes].nil?
       end
     end
 
@@ -2162,7 +2164,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourceServerType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourceServerType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2173,10 +2175,10 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input[:client_id], ::String, context: "#{context}[:client_id]")
         Hearth::Validator.validate!(input[:challenge_name], ::String, context: "#{context}[:challenge_name]")
         Hearth::Validator.validate!(input[:session], ::String, context: "#{context}[:session]")
-        Validators::ChallengeResponsesType.validate!(input[:challenge_responses], context: "#{context}[:challenge_responses]") unless input[:challenge_responses].nil?
-        Validators::AnalyticsMetadataType.validate!(input[:analytics_metadata], context: "#{context}[:analytics_metadata]") unless input[:analytics_metadata].nil?
-        Validators::UserContextDataType.validate!(input[:user_context_data], context: "#{context}[:user_context_data]") unless input[:user_context_data].nil?
-        Validators::ClientMetadataType.validate!(input[:client_metadata], context: "#{context}[:client_metadata]") unless input[:client_metadata].nil?
+        ChallengeResponsesType.validate!(input[:challenge_responses], context: "#{context}[:challenge_responses]") unless input[:challenge_responses].nil?
+        AnalyticsMetadataType.validate!(input[:analytics_metadata], context: "#{context}[:analytics_metadata]") unless input[:analytics_metadata].nil?
+        UserContextDataType.validate!(input[:user_context_data], context: "#{context}[:user_context_data]") unless input[:user_context_data].nil?
+        ClientMetadataType.validate!(input[:client_metadata], context: "#{context}[:client_metadata]") unless input[:client_metadata].nil?
       end
     end
 
@@ -2185,8 +2187,8 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input, Types::RespondToAuthChallengeOutput, context: context)
         Hearth::Validator.validate!(input[:challenge_name], ::String, context: "#{context}[:challenge_name]")
         Hearth::Validator.validate!(input[:session], ::String, context: "#{context}[:session]")
-        Validators::ChallengeParametersType.validate!(input[:challenge_parameters], context: "#{context}[:challenge_parameters]") unless input[:challenge_parameters].nil?
-        Validators::AuthenticationResultType.validate!(input[:authentication_result], context: "#{context}[:authentication_result]") unless input[:authentication_result].nil?
+        ChallengeParametersType.validate!(input[:challenge_parameters], context: "#{context}[:challenge_parameters]") unless input[:challenge_parameters].nil?
+        AuthenticationResultType.validate!(input[:authentication_result], context: "#{context}[:authentication_result]") unless input[:authentication_result].nil?
       end
     end
 
@@ -2210,9 +2212,9 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input, Types::RiskConfigurationType, context: context)
         Hearth::Validator.validate!(input[:user_pool_id], ::String, context: "#{context}[:user_pool_id]")
         Hearth::Validator.validate!(input[:client_id], ::String, context: "#{context}[:client_id]")
-        Validators::CompromisedCredentialsRiskConfigurationType.validate!(input[:compromised_credentials_risk_configuration], context: "#{context}[:compromised_credentials_risk_configuration]") unless input[:compromised_credentials_risk_configuration].nil?
-        Validators::AccountTakeoverRiskConfigurationType.validate!(input[:account_takeover_risk_configuration], context: "#{context}[:account_takeover_risk_configuration]") unless input[:account_takeover_risk_configuration].nil?
-        Validators::RiskExceptionConfigurationType.validate!(input[:risk_exception_configuration], context: "#{context}[:risk_exception_configuration]") unless input[:risk_exception_configuration].nil?
+        CompromisedCredentialsRiskConfigurationType.validate!(input[:compromised_credentials_risk_configuration], context: "#{context}[:compromised_credentials_risk_configuration]") unless input[:compromised_credentials_risk_configuration].nil?
+        AccountTakeoverRiskConfigurationType.validate!(input[:account_takeover_risk_configuration], context: "#{context}[:account_takeover_risk_configuration]") unless input[:account_takeover_risk_configuration].nil?
+        RiskExceptionConfigurationType.validate!(input[:risk_exception_configuration], context: "#{context}[:risk_exception_configuration]") unless input[:risk_exception_configuration].nil?
         Hearth::Validator.validate!(input[:last_modified_date], ::Time, context: "#{context}[:last_modified_date]")
       end
     end
@@ -2220,8 +2222,8 @@ module AWS::SDK::CognitoIdentityProvider
     class RiskExceptionConfigurationType
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RiskExceptionConfigurationType, context: context)
-        Validators::BlockedIPRangeListType.validate!(input[:blocked_ip_range_list], context: "#{context}[:blocked_ip_range_list]") unless input[:blocked_ip_range_list].nil?
-        Validators::SkippedIPRangeListType.validate!(input[:skipped_ip_range_list], context: "#{context}[:skipped_ip_range_list]") unless input[:skipped_ip_range_list].nil?
+        BlockedIPRangeListType.validate!(input[:blocked_ip_range_list], context: "#{context}[:blocked_ip_range_list]") unless input[:blocked_ip_range_list].nil?
+        SkippedIPRangeListType.validate!(input[:skipped_ip_range_list], context: "#{context}[:skipped_ip_range_list]") unless input[:skipped_ip_range_list].nil?
       end
     end
 
@@ -2241,8 +2243,8 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input[:developer_only_attribute], ::TrueClass, ::FalseClass, context: "#{context}[:developer_only_attribute]")
         Hearth::Validator.validate!(input[:mutable], ::TrueClass, ::FalseClass, context: "#{context}[:mutable]")
         Hearth::Validator.validate!(input[:required], ::TrueClass, ::FalseClass, context: "#{context}[:required]")
-        Validators::NumberAttributeConstraintsType.validate!(input[:number_attribute_constraints], context: "#{context}[:number_attribute_constraints]") unless input[:number_attribute_constraints].nil?
-        Validators::StringAttributeConstraintsType.validate!(input[:string_attribute_constraints], context: "#{context}[:string_attribute_constraints]") unless input[:string_attribute_constraints].nil?
+        NumberAttributeConstraintsType.validate!(input[:number_attribute_constraints], context: "#{context}[:number_attribute_constraints]") unless input[:number_attribute_constraints].nil?
+        StringAttributeConstraintsType.validate!(input[:string_attribute_constraints], context: "#{context}[:string_attribute_constraints]") unless input[:string_attribute_constraints].nil?
       end
     end
 
@@ -2250,7 +2252,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SchemaAttributeType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SchemaAttributeType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2285,16 +2287,16 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input, Types::SetRiskConfigurationInput, context: context)
         Hearth::Validator.validate!(input[:user_pool_id], ::String, context: "#{context}[:user_pool_id]")
         Hearth::Validator.validate!(input[:client_id], ::String, context: "#{context}[:client_id]")
-        Validators::CompromisedCredentialsRiskConfigurationType.validate!(input[:compromised_credentials_risk_configuration], context: "#{context}[:compromised_credentials_risk_configuration]") unless input[:compromised_credentials_risk_configuration].nil?
-        Validators::AccountTakeoverRiskConfigurationType.validate!(input[:account_takeover_risk_configuration], context: "#{context}[:account_takeover_risk_configuration]") unless input[:account_takeover_risk_configuration].nil?
-        Validators::RiskExceptionConfigurationType.validate!(input[:risk_exception_configuration], context: "#{context}[:risk_exception_configuration]") unless input[:risk_exception_configuration].nil?
+        CompromisedCredentialsRiskConfigurationType.validate!(input[:compromised_credentials_risk_configuration], context: "#{context}[:compromised_credentials_risk_configuration]") unless input[:compromised_credentials_risk_configuration].nil?
+        AccountTakeoverRiskConfigurationType.validate!(input[:account_takeover_risk_configuration], context: "#{context}[:account_takeover_risk_configuration]") unless input[:account_takeover_risk_configuration].nil?
+        RiskExceptionConfigurationType.validate!(input[:risk_exception_configuration], context: "#{context}[:risk_exception_configuration]") unless input[:risk_exception_configuration].nil?
       end
     end
 
     class SetRiskConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SetRiskConfigurationOutput, context: context)
-        Validators::RiskConfigurationType.validate!(input[:risk_configuration], context: "#{context}[:risk_configuration]") unless input[:risk_configuration].nil?
+        RiskConfigurationType.validate!(input[:risk_configuration], context: "#{context}[:risk_configuration]") unless input[:risk_configuration].nil?
       end
     end
 
@@ -2311,15 +2313,15 @@ module AWS::SDK::CognitoIdentityProvider
     class SetUICustomizationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SetUICustomizationOutput, context: context)
-        Validators::UICustomizationType.validate!(input[:ui_customization], context: "#{context}[:ui_customization]") unless input[:ui_customization].nil?
+        UICustomizationType.validate!(input[:ui_customization], context: "#{context}[:ui_customization]") unless input[:ui_customization].nil?
       end
     end
 
     class SetUserMFAPreferenceInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SetUserMFAPreferenceInput, context: context)
-        Validators::SMSMfaSettingsType.validate!(input[:sms_mfa_settings], context: "#{context}[:sms_mfa_settings]") unless input[:sms_mfa_settings].nil?
-        Validators::SoftwareTokenMfaSettingsType.validate!(input[:software_token_mfa_settings], context: "#{context}[:software_token_mfa_settings]") unless input[:software_token_mfa_settings].nil?
+        SMSMfaSettingsType.validate!(input[:sms_mfa_settings], context: "#{context}[:sms_mfa_settings]") unless input[:sms_mfa_settings].nil?
+        SoftwareTokenMfaSettingsType.validate!(input[:software_token_mfa_settings], context: "#{context}[:software_token_mfa_settings]") unless input[:software_token_mfa_settings].nil?
         Hearth::Validator.validate!(input[:access_token], ::String, context: "#{context}[:access_token]")
       end
     end
@@ -2334,8 +2336,8 @@ module AWS::SDK::CognitoIdentityProvider
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SetUserPoolMfaConfigInput, context: context)
         Hearth::Validator.validate!(input[:user_pool_id], ::String, context: "#{context}[:user_pool_id]")
-        Validators::SmsMfaConfigType.validate!(input[:sms_mfa_configuration], context: "#{context}[:sms_mfa_configuration]") unless input[:sms_mfa_configuration].nil?
-        Validators::SoftwareTokenMfaConfigType.validate!(input[:software_token_mfa_configuration], context: "#{context}[:software_token_mfa_configuration]") unless input[:software_token_mfa_configuration].nil?
+        SmsMfaConfigType.validate!(input[:sms_mfa_configuration], context: "#{context}[:sms_mfa_configuration]") unless input[:sms_mfa_configuration].nil?
+        SoftwareTokenMfaConfigType.validate!(input[:software_token_mfa_configuration], context: "#{context}[:software_token_mfa_configuration]") unless input[:software_token_mfa_configuration].nil?
         Hearth::Validator.validate!(input[:mfa_configuration], ::String, context: "#{context}[:mfa_configuration]")
       end
     end
@@ -2343,8 +2345,8 @@ module AWS::SDK::CognitoIdentityProvider
     class SetUserPoolMfaConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SetUserPoolMfaConfigOutput, context: context)
-        Validators::SmsMfaConfigType.validate!(input[:sms_mfa_configuration], context: "#{context}[:sms_mfa_configuration]") unless input[:sms_mfa_configuration].nil?
-        Validators::SoftwareTokenMfaConfigType.validate!(input[:software_token_mfa_configuration], context: "#{context}[:software_token_mfa_configuration]") unless input[:software_token_mfa_configuration].nil?
+        SmsMfaConfigType.validate!(input[:sms_mfa_configuration], context: "#{context}[:sms_mfa_configuration]") unless input[:sms_mfa_configuration].nil?
+        SoftwareTokenMfaConfigType.validate!(input[:software_token_mfa_configuration], context: "#{context}[:software_token_mfa_configuration]") unless input[:software_token_mfa_configuration].nil?
         Hearth::Validator.validate!(input[:mfa_configuration], ::String, context: "#{context}[:mfa_configuration]")
       end
     end
@@ -2353,7 +2355,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SetUserSettingsInput, context: context)
         Hearth::Validator.validate!(input[:access_token], ::String, context: "#{context}[:access_token]")
-        Validators::MFAOptionListType.validate!(input[:mfa_options], context: "#{context}[:mfa_options]") unless input[:mfa_options].nil?
+        MFAOptionListType.validate!(input[:mfa_options], context: "#{context}[:mfa_options]") unless input[:mfa_options].nil?
       end
     end
 
@@ -2370,11 +2372,11 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input[:secret_hash], ::String, context: "#{context}[:secret_hash]")
         Hearth::Validator.validate!(input[:username], ::String, context: "#{context}[:username]")
         Hearth::Validator.validate!(input[:password], ::String, context: "#{context}[:password]")
-        Validators::AttributeListType.validate!(input[:user_attributes], context: "#{context}[:user_attributes]") unless input[:user_attributes].nil?
-        Validators::AttributeListType.validate!(input[:validation_data], context: "#{context}[:validation_data]") unless input[:validation_data].nil?
-        Validators::AnalyticsMetadataType.validate!(input[:analytics_metadata], context: "#{context}[:analytics_metadata]") unless input[:analytics_metadata].nil?
-        Validators::UserContextDataType.validate!(input[:user_context_data], context: "#{context}[:user_context_data]") unless input[:user_context_data].nil?
-        Validators::ClientMetadataType.validate!(input[:client_metadata], context: "#{context}[:client_metadata]") unless input[:client_metadata].nil?
+        AttributeListType.validate!(input[:user_attributes], context: "#{context}[:user_attributes]") unless input[:user_attributes].nil?
+        AttributeListType.validate!(input[:validation_data], context: "#{context}[:validation_data]") unless input[:validation_data].nil?
+        AnalyticsMetadataType.validate!(input[:analytics_metadata], context: "#{context}[:analytics_metadata]") unless input[:analytics_metadata].nil?
+        UserContextDataType.validate!(input[:user_context_data], context: "#{context}[:user_context_data]") unless input[:user_context_data].nil?
+        ClientMetadataType.validate!(input[:client_metadata], context: "#{context}[:client_metadata]") unless input[:client_metadata].nil?
       end
     end
 
@@ -2382,7 +2384,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SignUpOutput, context: context)
         Hearth::Validator.validate!(input[:user_confirmed], ::TrueClass, ::FalseClass, context: "#{context}[:user_confirmed]")
-        Validators::CodeDeliveryDetailsType.validate!(input[:code_delivery_details], context: "#{context}[:code_delivery_details]") unless input[:code_delivery_details].nil?
+        CodeDeliveryDetailsType.validate!(input[:code_delivery_details], context: "#{context}[:code_delivery_details]") unless input[:code_delivery_details].nil?
         Hearth::Validator.validate!(input[:user_sub], ::String, context: "#{context}[:user_sub]")
       end
     end
@@ -2409,7 +2411,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SmsMfaConfigType, context: context)
         Hearth::Validator.validate!(input[:sms_authentication_message], ::String, context: "#{context}[:sms_authentication_message]")
-        Validators::SmsConfigurationType.validate!(input[:sms_configuration], context: "#{context}[:sms_configuration]") unless input[:sms_configuration].nil?
+        SmsConfigurationType.validate!(input[:sms_configuration], context: "#{context}[:sms_configuration]") unless input[:sms_configuration].nil?
       end
     end
 
@@ -2446,7 +2448,7 @@ module AWS::SDK::CognitoIdentityProvider
     class StartUserImportJobOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartUserImportJobOutput, context: context)
-        Validators::UserImportJobType.validate!(input[:user_import_job], context: "#{context}[:user_import_job]") unless input[:user_import_job].nil?
+        UserImportJobType.validate!(input[:user_import_job], context: "#{context}[:user_import_job]") unless input[:user_import_job].nil?
       end
     end
 
@@ -2461,7 +2463,7 @@ module AWS::SDK::CognitoIdentityProvider
     class StopUserImportJobOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StopUserImportJobOutput, context: context)
-        Validators::UserImportJobType.validate!(input[:user_import_job], context: "#{context}[:user_import_job]") unless input[:user_import_job].nil?
+        UserImportJobType.validate!(input[:user_import_job], context: "#{context}[:user_import_job]") unless input[:user_import_job].nil?
       end
     end
 
@@ -2486,7 +2488,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::UserPoolTagsType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        UserPoolTagsType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2578,7 +2580,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::UserPoolTagsListType.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        UserPoolTagsListType.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -2634,7 +2636,7 @@ module AWS::SDK::CognitoIdentityProvider
     class UpdateGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateGroupOutput, context: context)
-        Validators::GroupType.validate!(input[:group], context: "#{context}[:group]") unless input[:group].nil?
+        GroupType.validate!(input[:group], context: "#{context}[:group]") unless input[:group].nil?
       end
     end
 
@@ -2643,16 +2645,16 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input, Types::UpdateIdentityProviderInput, context: context)
         Hearth::Validator.validate!(input[:user_pool_id], ::String, context: "#{context}[:user_pool_id]")
         Hearth::Validator.validate!(input[:provider_name], ::String, context: "#{context}[:provider_name]")
-        Validators::ProviderDetailsType.validate!(input[:provider_details], context: "#{context}[:provider_details]") unless input[:provider_details].nil?
-        Validators::AttributeMappingType.validate!(input[:attribute_mapping], context: "#{context}[:attribute_mapping]") unless input[:attribute_mapping].nil?
-        Validators::IdpIdentifiersListType.validate!(input[:idp_identifiers], context: "#{context}[:idp_identifiers]") unless input[:idp_identifiers].nil?
+        ProviderDetailsType.validate!(input[:provider_details], context: "#{context}[:provider_details]") unless input[:provider_details].nil?
+        AttributeMappingType.validate!(input[:attribute_mapping], context: "#{context}[:attribute_mapping]") unless input[:attribute_mapping].nil?
+        IdpIdentifiersListType.validate!(input[:idp_identifiers], context: "#{context}[:idp_identifiers]") unless input[:idp_identifiers].nil?
       end
     end
 
     class UpdateIdentityProviderOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateIdentityProviderOutput, context: context)
-        Validators::IdentityProviderType.validate!(input[:identity_provider], context: "#{context}[:identity_provider]") unless input[:identity_provider].nil?
+        IdentityProviderType.validate!(input[:identity_provider], context: "#{context}[:identity_provider]") unless input[:identity_provider].nil?
       end
     end
 
@@ -2662,30 +2664,30 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input[:user_pool_id], ::String, context: "#{context}[:user_pool_id]")
         Hearth::Validator.validate!(input[:identifier], ::String, context: "#{context}[:identifier]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ResourceServerScopeListType.validate!(input[:scopes], context: "#{context}[:scopes]") unless input[:scopes].nil?
+        ResourceServerScopeListType.validate!(input[:scopes], context: "#{context}[:scopes]") unless input[:scopes].nil?
       end
     end
 
     class UpdateResourceServerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateResourceServerOutput, context: context)
-        Validators::ResourceServerType.validate!(input[:resource_server], context: "#{context}[:resource_server]") unless input[:resource_server].nil?
+        ResourceServerType.validate!(input[:resource_server], context: "#{context}[:resource_server]") unless input[:resource_server].nil?
       end
     end
 
     class UpdateUserAttributesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateUserAttributesInput, context: context)
-        Validators::AttributeListType.validate!(input[:user_attributes], context: "#{context}[:user_attributes]") unless input[:user_attributes].nil?
+        AttributeListType.validate!(input[:user_attributes], context: "#{context}[:user_attributes]") unless input[:user_attributes].nil?
         Hearth::Validator.validate!(input[:access_token], ::String, context: "#{context}[:access_token]")
-        Validators::ClientMetadataType.validate!(input[:client_metadata], context: "#{context}[:client_metadata]") unless input[:client_metadata].nil?
+        ClientMetadataType.validate!(input[:client_metadata], context: "#{context}[:client_metadata]") unless input[:client_metadata].nil?
       end
     end
 
     class UpdateUserAttributesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateUserAttributesOutput, context: context)
-        Validators::CodeDeliveryDetailsListType.validate!(input[:code_delivery_details_list], context: "#{context}[:code_delivery_details_list]") unless input[:code_delivery_details_list].nil?
+        CodeDeliveryDetailsListType.validate!(input[:code_delivery_details_list], context: "#{context}[:code_delivery_details_list]") unless input[:code_delivery_details_list].nil?
       end
     end
 
@@ -2698,18 +2700,18 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input[:refresh_token_validity], ::Integer, context: "#{context}[:refresh_token_validity]")
         Hearth::Validator.validate!(input[:access_token_validity], ::Integer, context: "#{context}[:access_token_validity]")
         Hearth::Validator.validate!(input[:id_token_validity], ::Integer, context: "#{context}[:id_token_validity]")
-        Validators::TokenValidityUnitsType.validate!(input[:token_validity_units], context: "#{context}[:token_validity_units]") unless input[:token_validity_units].nil?
-        Validators::ClientPermissionListType.validate!(input[:read_attributes], context: "#{context}[:read_attributes]") unless input[:read_attributes].nil?
-        Validators::ClientPermissionListType.validate!(input[:write_attributes], context: "#{context}[:write_attributes]") unless input[:write_attributes].nil?
-        Validators::ExplicitAuthFlowsListType.validate!(input[:explicit_auth_flows], context: "#{context}[:explicit_auth_flows]") unless input[:explicit_auth_flows].nil?
-        Validators::SupportedIdentityProvidersListType.validate!(input[:supported_identity_providers], context: "#{context}[:supported_identity_providers]") unless input[:supported_identity_providers].nil?
-        Validators::CallbackURLsListType.validate!(input[:callback_ur_ls], context: "#{context}[:callback_ur_ls]") unless input[:callback_ur_ls].nil?
-        Validators::LogoutURLsListType.validate!(input[:logout_ur_ls], context: "#{context}[:logout_ur_ls]") unless input[:logout_ur_ls].nil?
+        TokenValidityUnitsType.validate!(input[:token_validity_units], context: "#{context}[:token_validity_units]") unless input[:token_validity_units].nil?
+        ClientPermissionListType.validate!(input[:read_attributes], context: "#{context}[:read_attributes]") unless input[:read_attributes].nil?
+        ClientPermissionListType.validate!(input[:write_attributes], context: "#{context}[:write_attributes]") unless input[:write_attributes].nil?
+        ExplicitAuthFlowsListType.validate!(input[:explicit_auth_flows], context: "#{context}[:explicit_auth_flows]") unless input[:explicit_auth_flows].nil?
+        SupportedIdentityProvidersListType.validate!(input[:supported_identity_providers], context: "#{context}[:supported_identity_providers]") unless input[:supported_identity_providers].nil?
+        CallbackURLsListType.validate!(input[:callback_ur_ls], context: "#{context}[:callback_ur_ls]") unless input[:callback_ur_ls].nil?
+        LogoutURLsListType.validate!(input[:logout_ur_ls], context: "#{context}[:logout_ur_ls]") unless input[:logout_ur_ls].nil?
         Hearth::Validator.validate!(input[:default_redirect_uri], ::String, context: "#{context}[:default_redirect_uri]")
-        Validators::OAuthFlowsType.validate!(input[:allowed_o_auth_flows], context: "#{context}[:allowed_o_auth_flows]") unless input[:allowed_o_auth_flows].nil?
-        Validators::ScopeListType.validate!(input[:allowed_o_auth_scopes], context: "#{context}[:allowed_o_auth_scopes]") unless input[:allowed_o_auth_scopes].nil?
+        OAuthFlowsType.validate!(input[:allowed_o_auth_flows], context: "#{context}[:allowed_o_auth_flows]") unless input[:allowed_o_auth_flows].nil?
+        ScopeListType.validate!(input[:allowed_o_auth_scopes], context: "#{context}[:allowed_o_auth_scopes]") unless input[:allowed_o_auth_scopes].nil?
         Hearth::Validator.validate!(input[:allowed_o_auth_flows_user_pool_client], ::TrueClass, ::FalseClass, context: "#{context}[:allowed_o_auth_flows_user_pool_client]")
-        Validators::AnalyticsConfigurationType.validate!(input[:analytics_configuration], context: "#{context}[:analytics_configuration]") unless input[:analytics_configuration].nil?
+        AnalyticsConfigurationType.validate!(input[:analytics_configuration], context: "#{context}[:analytics_configuration]") unless input[:analytics_configuration].nil?
         Hearth::Validator.validate!(input[:prevent_user_existence_errors], ::String, context: "#{context}[:prevent_user_existence_errors]")
         Hearth::Validator.validate!(input[:enable_token_revocation], ::TrueClass, ::FalseClass, context: "#{context}[:enable_token_revocation]")
         Hearth::Validator.validate!(input[:enable_propagate_additional_user_context_data], ::TrueClass, ::FalseClass, context: "#{context}[:enable_propagate_additional_user_context_data]")
@@ -2719,7 +2721,7 @@ module AWS::SDK::CognitoIdentityProvider
     class UpdateUserPoolClientOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateUserPoolClientOutput, context: context)
-        Validators::UserPoolClientType.validate!(input[:user_pool_client], context: "#{context}[:user_pool_client]") unless input[:user_pool_client].nil?
+        UserPoolClientType.validate!(input[:user_pool_client], context: "#{context}[:user_pool_client]") unless input[:user_pool_client].nil?
       end
     end
 
@@ -2728,7 +2730,7 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input, Types::UpdateUserPoolDomainInput, context: context)
         Hearth::Validator.validate!(input[:domain], ::String, context: "#{context}[:domain]")
         Hearth::Validator.validate!(input[:user_pool_id], ::String, context: "#{context}[:user_pool_id]")
-        Validators::CustomDomainConfigType.validate!(input[:custom_domain_config], context: "#{context}[:custom_domain_config]") unless input[:custom_domain_config].nil?
+        CustomDomainConfigType.validate!(input[:custom_domain_config], context: "#{context}[:custom_domain_config]") unless input[:custom_domain_config].nil?
       end
     end
 
@@ -2743,23 +2745,23 @@ module AWS::SDK::CognitoIdentityProvider
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateUserPoolInput, context: context)
         Hearth::Validator.validate!(input[:user_pool_id], ::String, context: "#{context}[:user_pool_id]")
-        Validators::UserPoolPolicyType.validate!(input[:policies], context: "#{context}[:policies]") unless input[:policies].nil?
-        Validators::LambdaConfigType.validate!(input[:lambda_config], context: "#{context}[:lambda_config]") unless input[:lambda_config].nil?
-        Validators::VerifiedAttributesListType.validate!(input[:auto_verified_attributes], context: "#{context}[:auto_verified_attributes]") unless input[:auto_verified_attributes].nil?
+        UserPoolPolicyType.validate!(input[:policies], context: "#{context}[:policies]") unless input[:policies].nil?
+        LambdaConfigType.validate!(input[:lambda_config], context: "#{context}[:lambda_config]") unless input[:lambda_config].nil?
+        VerifiedAttributesListType.validate!(input[:auto_verified_attributes], context: "#{context}[:auto_verified_attributes]") unless input[:auto_verified_attributes].nil?
         Hearth::Validator.validate!(input[:sms_verification_message], ::String, context: "#{context}[:sms_verification_message]")
         Hearth::Validator.validate!(input[:email_verification_message], ::String, context: "#{context}[:email_verification_message]")
         Hearth::Validator.validate!(input[:email_verification_subject], ::String, context: "#{context}[:email_verification_subject]")
-        Validators::VerificationMessageTemplateType.validate!(input[:verification_message_template], context: "#{context}[:verification_message_template]") unless input[:verification_message_template].nil?
+        VerificationMessageTemplateType.validate!(input[:verification_message_template], context: "#{context}[:verification_message_template]") unless input[:verification_message_template].nil?
         Hearth::Validator.validate!(input[:sms_authentication_message], ::String, context: "#{context}[:sms_authentication_message]")
-        Validators::UserAttributeUpdateSettingsType.validate!(input[:user_attribute_update_settings], context: "#{context}[:user_attribute_update_settings]") unless input[:user_attribute_update_settings].nil?
+        UserAttributeUpdateSettingsType.validate!(input[:user_attribute_update_settings], context: "#{context}[:user_attribute_update_settings]") unless input[:user_attribute_update_settings].nil?
         Hearth::Validator.validate!(input[:mfa_configuration], ::String, context: "#{context}[:mfa_configuration]")
-        Validators::DeviceConfigurationType.validate!(input[:device_configuration], context: "#{context}[:device_configuration]") unless input[:device_configuration].nil?
-        Validators::EmailConfigurationType.validate!(input[:email_configuration], context: "#{context}[:email_configuration]") unless input[:email_configuration].nil?
-        Validators::SmsConfigurationType.validate!(input[:sms_configuration], context: "#{context}[:sms_configuration]") unless input[:sms_configuration].nil?
-        Validators::UserPoolTagsType.validate!(input[:user_pool_tags], context: "#{context}[:user_pool_tags]") unless input[:user_pool_tags].nil?
-        Validators::AdminCreateUserConfigType.validate!(input[:admin_create_user_config], context: "#{context}[:admin_create_user_config]") unless input[:admin_create_user_config].nil?
-        Validators::UserPoolAddOnsType.validate!(input[:user_pool_add_ons], context: "#{context}[:user_pool_add_ons]") unless input[:user_pool_add_ons].nil?
-        Validators::AccountRecoverySettingType.validate!(input[:account_recovery_setting], context: "#{context}[:account_recovery_setting]") unless input[:account_recovery_setting].nil?
+        DeviceConfigurationType.validate!(input[:device_configuration], context: "#{context}[:device_configuration]") unless input[:device_configuration].nil?
+        EmailConfigurationType.validate!(input[:email_configuration], context: "#{context}[:email_configuration]") unless input[:email_configuration].nil?
+        SmsConfigurationType.validate!(input[:sms_configuration], context: "#{context}[:sms_configuration]") unless input[:sms_configuration].nil?
+        UserPoolTagsType.validate!(input[:user_pool_tags], context: "#{context}[:user_pool_tags]") unless input[:user_pool_tags].nil?
+        AdminCreateUserConfigType.validate!(input[:admin_create_user_config], context: "#{context}[:admin_create_user_config]") unless input[:admin_create_user_config].nil?
+        UserPoolAddOnsType.validate!(input[:user_pool_add_ons], context: "#{context}[:user_pool_add_ons]") unless input[:user_pool_add_ons].nil?
+        AccountRecoverySettingType.validate!(input[:account_recovery_setting], context: "#{context}[:account_recovery_setting]") unless input[:account_recovery_setting].nil?
       end
     end
 
@@ -2772,7 +2774,7 @@ module AWS::SDK::CognitoIdentityProvider
     class UserAttributeUpdateSettingsType
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UserAttributeUpdateSettingsType, context: context)
-        Validators::AttributesRequireVerificationBeforeUpdateType.validate!(input[:attributes_require_verification_before_update], context: "#{context}[:attributes_require_verification_before_update]") unless input[:attributes_require_verification_before_update].nil?
+        AttributesRequireVerificationBeforeUpdateType.validate!(input[:attributes_require_verification_before_update], context: "#{context}[:attributes_require_verification_before_update]") unless input[:attributes_require_verification_before_update].nil?
       end
     end
 
@@ -2814,7 +2816,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UserImportJobType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UserImportJobType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2876,7 +2878,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UserPoolClientDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UserPoolClientDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2893,18 +2895,18 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input[:refresh_token_validity], ::Integer, context: "#{context}[:refresh_token_validity]")
         Hearth::Validator.validate!(input[:access_token_validity], ::Integer, context: "#{context}[:access_token_validity]")
         Hearth::Validator.validate!(input[:id_token_validity], ::Integer, context: "#{context}[:id_token_validity]")
-        Validators::TokenValidityUnitsType.validate!(input[:token_validity_units], context: "#{context}[:token_validity_units]") unless input[:token_validity_units].nil?
-        Validators::ClientPermissionListType.validate!(input[:read_attributes], context: "#{context}[:read_attributes]") unless input[:read_attributes].nil?
-        Validators::ClientPermissionListType.validate!(input[:write_attributes], context: "#{context}[:write_attributes]") unless input[:write_attributes].nil?
-        Validators::ExplicitAuthFlowsListType.validate!(input[:explicit_auth_flows], context: "#{context}[:explicit_auth_flows]") unless input[:explicit_auth_flows].nil?
-        Validators::SupportedIdentityProvidersListType.validate!(input[:supported_identity_providers], context: "#{context}[:supported_identity_providers]") unless input[:supported_identity_providers].nil?
-        Validators::CallbackURLsListType.validate!(input[:callback_ur_ls], context: "#{context}[:callback_ur_ls]") unless input[:callback_ur_ls].nil?
-        Validators::LogoutURLsListType.validate!(input[:logout_ur_ls], context: "#{context}[:logout_ur_ls]") unless input[:logout_ur_ls].nil?
+        TokenValidityUnitsType.validate!(input[:token_validity_units], context: "#{context}[:token_validity_units]") unless input[:token_validity_units].nil?
+        ClientPermissionListType.validate!(input[:read_attributes], context: "#{context}[:read_attributes]") unless input[:read_attributes].nil?
+        ClientPermissionListType.validate!(input[:write_attributes], context: "#{context}[:write_attributes]") unless input[:write_attributes].nil?
+        ExplicitAuthFlowsListType.validate!(input[:explicit_auth_flows], context: "#{context}[:explicit_auth_flows]") unless input[:explicit_auth_flows].nil?
+        SupportedIdentityProvidersListType.validate!(input[:supported_identity_providers], context: "#{context}[:supported_identity_providers]") unless input[:supported_identity_providers].nil?
+        CallbackURLsListType.validate!(input[:callback_ur_ls], context: "#{context}[:callback_ur_ls]") unless input[:callback_ur_ls].nil?
+        LogoutURLsListType.validate!(input[:logout_ur_ls], context: "#{context}[:logout_ur_ls]") unless input[:logout_ur_ls].nil?
         Hearth::Validator.validate!(input[:default_redirect_uri], ::String, context: "#{context}[:default_redirect_uri]")
-        Validators::OAuthFlowsType.validate!(input[:allowed_o_auth_flows], context: "#{context}[:allowed_o_auth_flows]") unless input[:allowed_o_auth_flows].nil?
-        Validators::ScopeListType.validate!(input[:allowed_o_auth_scopes], context: "#{context}[:allowed_o_auth_scopes]") unless input[:allowed_o_auth_scopes].nil?
+        OAuthFlowsType.validate!(input[:allowed_o_auth_flows], context: "#{context}[:allowed_o_auth_flows]") unless input[:allowed_o_auth_flows].nil?
+        ScopeListType.validate!(input[:allowed_o_auth_scopes], context: "#{context}[:allowed_o_auth_scopes]") unless input[:allowed_o_auth_scopes].nil?
         Hearth::Validator.validate!(input[:allowed_o_auth_flows_user_pool_client], ::TrueClass, ::FalseClass, context: "#{context}[:allowed_o_auth_flows_user_pool_client]")
-        Validators::AnalyticsConfigurationType.validate!(input[:analytics_configuration], context: "#{context}[:analytics_configuration]") unless input[:analytics_configuration].nil?
+        AnalyticsConfigurationType.validate!(input[:analytics_configuration], context: "#{context}[:analytics_configuration]") unless input[:analytics_configuration].nil?
         Hearth::Validator.validate!(input[:prevent_user_existence_errors], ::String, context: "#{context}[:prevent_user_existence_errors]")
         Hearth::Validator.validate!(input[:enable_token_revocation], ::TrueClass, ::FalseClass, context: "#{context}[:enable_token_revocation]")
         Hearth::Validator.validate!(input[:enable_propagate_additional_user_context_data], ::TrueClass, ::FalseClass, context: "#{context}[:enable_propagate_additional_user_context_data]")
@@ -2916,7 +2918,7 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input, Types::UserPoolDescriptionType, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::LambdaConfigType.validate!(input[:lambda_config], context: "#{context}[:lambda_config]") unless input[:lambda_config].nil?
+        LambdaConfigType.validate!(input[:lambda_config], context: "#{context}[:lambda_config]") unless input[:lambda_config].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:last_modified_date], ::Time, context: "#{context}[:last_modified_date]")
         Hearth::Validator.validate!(input[:creation_date], ::Time, context: "#{context}[:creation_date]")
@@ -2927,7 +2929,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UserPoolDescriptionType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UserPoolDescriptionType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2935,7 +2937,7 @@ module AWS::SDK::CognitoIdentityProvider
     class UserPoolPolicyType
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UserPoolPolicyType, context: context)
-        Validators::PasswordPolicyType.validate!(input[:password_policy], context: "#{context}[:password_policy]") unless input[:password_policy].nil?
+        PasswordPolicyType.validate!(input[:password_policy], context: "#{context}[:password_policy]") unless input[:password_policy].nil?
       end
     end
 
@@ -2970,36 +2972,36 @@ module AWS::SDK::CognitoIdentityProvider
         Hearth::Validator.validate!(input, Types::UserPoolType, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::UserPoolPolicyType.validate!(input[:policies], context: "#{context}[:policies]") unless input[:policies].nil?
-        Validators::LambdaConfigType.validate!(input[:lambda_config], context: "#{context}[:lambda_config]") unless input[:lambda_config].nil?
+        UserPoolPolicyType.validate!(input[:policies], context: "#{context}[:policies]") unless input[:policies].nil?
+        LambdaConfigType.validate!(input[:lambda_config], context: "#{context}[:lambda_config]") unless input[:lambda_config].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:last_modified_date], ::Time, context: "#{context}[:last_modified_date]")
         Hearth::Validator.validate!(input[:creation_date], ::Time, context: "#{context}[:creation_date]")
-        Validators::SchemaAttributesListType.validate!(input[:schema_attributes], context: "#{context}[:schema_attributes]") unless input[:schema_attributes].nil?
-        Validators::VerifiedAttributesListType.validate!(input[:auto_verified_attributes], context: "#{context}[:auto_verified_attributes]") unless input[:auto_verified_attributes].nil?
-        Validators::AliasAttributesListType.validate!(input[:alias_attributes], context: "#{context}[:alias_attributes]") unless input[:alias_attributes].nil?
-        Validators::UsernameAttributesListType.validate!(input[:username_attributes], context: "#{context}[:username_attributes]") unless input[:username_attributes].nil?
+        SchemaAttributesListType.validate!(input[:schema_attributes], context: "#{context}[:schema_attributes]") unless input[:schema_attributes].nil?
+        VerifiedAttributesListType.validate!(input[:auto_verified_attributes], context: "#{context}[:auto_verified_attributes]") unless input[:auto_verified_attributes].nil?
+        AliasAttributesListType.validate!(input[:alias_attributes], context: "#{context}[:alias_attributes]") unless input[:alias_attributes].nil?
+        UsernameAttributesListType.validate!(input[:username_attributes], context: "#{context}[:username_attributes]") unless input[:username_attributes].nil?
         Hearth::Validator.validate!(input[:sms_verification_message], ::String, context: "#{context}[:sms_verification_message]")
         Hearth::Validator.validate!(input[:email_verification_message], ::String, context: "#{context}[:email_verification_message]")
         Hearth::Validator.validate!(input[:email_verification_subject], ::String, context: "#{context}[:email_verification_subject]")
-        Validators::VerificationMessageTemplateType.validate!(input[:verification_message_template], context: "#{context}[:verification_message_template]") unless input[:verification_message_template].nil?
+        VerificationMessageTemplateType.validate!(input[:verification_message_template], context: "#{context}[:verification_message_template]") unless input[:verification_message_template].nil?
         Hearth::Validator.validate!(input[:sms_authentication_message], ::String, context: "#{context}[:sms_authentication_message]")
-        Validators::UserAttributeUpdateSettingsType.validate!(input[:user_attribute_update_settings], context: "#{context}[:user_attribute_update_settings]") unless input[:user_attribute_update_settings].nil?
+        UserAttributeUpdateSettingsType.validate!(input[:user_attribute_update_settings], context: "#{context}[:user_attribute_update_settings]") unless input[:user_attribute_update_settings].nil?
         Hearth::Validator.validate!(input[:mfa_configuration], ::String, context: "#{context}[:mfa_configuration]")
-        Validators::DeviceConfigurationType.validate!(input[:device_configuration], context: "#{context}[:device_configuration]") unless input[:device_configuration].nil?
+        DeviceConfigurationType.validate!(input[:device_configuration], context: "#{context}[:device_configuration]") unless input[:device_configuration].nil?
         Hearth::Validator.validate!(input[:estimated_number_of_users], ::Integer, context: "#{context}[:estimated_number_of_users]")
-        Validators::EmailConfigurationType.validate!(input[:email_configuration], context: "#{context}[:email_configuration]") unless input[:email_configuration].nil?
-        Validators::SmsConfigurationType.validate!(input[:sms_configuration], context: "#{context}[:sms_configuration]") unless input[:sms_configuration].nil?
-        Validators::UserPoolTagsType.validate!(input[:user_pool_tags], context: "#{context}[:user_pool_tags]") unless input[:user_pool_tags].nil?
+        EmailConfigurationType.validate!(input[:email_configuration], context: "#{context}[:email_configuration]") unless input[:email_configuration].nil?
+        SmsConfigurationType.validate!(input[:sms_configuration], context: "#{context}[:sms_configuration]") unless input[:sms_configuration].nil?
+        UserPoolTagsType.validate!(input[:user_pool_tags], context: "#{context}[:user_pool_tags]") unless input[:user_pool_tags].nil?
         Hearth::Validator.validate!(input[:sms_configuration_failure], ::String, context: "#{context}[:sms_configuration_failure]")
         Hearth::Validator.validate!(input[:email_configuration_failure], ::String, context: "#{context}[:email_configuration_failure]")
         Hearth::Validator.validate!(input[:domain], ::String, context: "#{context}[:domain]")
         Hearth::Validator.validate!(input[:custom_domain], ::String, context: "#{context}[:custom_domain]")
-        Validators::AdminCreateUserConfigType.validate!(input[:admin_create_user_config], context: "#{context}[:admin_create_user_config]") unless input[:admin_create_user_config].nil?
-        Validators::UserPoolAddOnsType.validate!(input[:user_pool_add_ons], context: "#{context}[:user_pool_add_ons]") unless input[:user_pool_add_ons].nil?
-        Validators::UsernameConfigurationType.validate!(input[:username_configuration], context: "#{context}[:username_configuration]") unless input[:username_configuration].nil?
+        AdminCreateUserConfigType.validate!(input[:admin_create_user_config], context: "#{context}[:admin_create_user_config]") unless input[:admin_create_user_config].nil?
+        UserPoolAddOnsType.validate!(input[:user_pool_add_ons], context: "#{context}[:user_pool_add_ons]") unless input[:user_pool_add_ons].nil?
+        UsernameConfigurationType.validate!(input[:username_configuration], context: "#{context}[:username_configuration]") unless input[:username_configuration].nil?
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::AccountRecoverySettingType.validate!(input[:account_recovery_setting], context: "#{context}[:account_recovery_setting]") unless input[:account_recovery_setting].nil?
+        AccountRecoverySettingType.validate!(input[:account_recovery_setting], context: "#{context}[:account_recovery_setting]") unless input[:account_recovery_setting].nil?
       end
     end
 
@@ -3007,12 +3009,12 @@ module AWS::SDK::CognitoIdentityProvider
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UserType, context: context)
         Hearth::Validator.validate!(input[:username], ::String, context: "#{context}[:username]")
-        Validators::AttributeListType.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        AttributeListType.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
         Hearth::Validator.validate!(input[:user_create_date], ::Time, context: "#{context}[:user_create_date]")
         Hearth::Validator.validate!(input[:user_last_modified_date], ::Time, context: "#{context}[:user_last_modified_date]")
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
         Hearth::Validator.validate!(input[:user_status], ::String, context: "#{context}[:user_status]")
-        Validators::MFAOptionListType.validate!(input[:mfa_options], context: "#{context}[:mfa_options]") unless input[:mfa_options].nil?
+        MFAOptionListType.validate!(input[:mfa_options], context: "#{context}[:mfa_options]") unless input[:mfa_options].nil?
       end
     end
 
@@ -3043,7 +3045,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UserType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UserType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

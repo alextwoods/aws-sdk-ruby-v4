@@ -16,7 +16,7 @@ module AWS::SDK::Resiliencehub
         {
           app_arn: 'app_arn',
           app_version: 'app_version',
-          resource_mappings: Stubs::ResourceMappingList.default(visited),
+          resource_mappings: ResourceMappingList.default(visited),
         }
       end
 
@@ -37,7 +37,7 @@ module AWS::SDK::Resiliencehub
         return nil if visited.include?('ResourceMappingList')
         visited = visited + ['ResourceMappingList']
         [
-          Stubs::ResourceMapping.default(visited)
+          ResourceMapping.default(visited)
         ]
       end
 
@@ -62,7 +62,7 @@ module AWS::SDK::Resiliencehub
           app_registry_app_name: 'app_registry_app_name',
           resource_group_name: 'resource_group_name',
           mapping_type: 'mapping_type',
-          physical_resource_id: Stubs::PhysicalResourceId.default(visited),
+          physical_resource_id: PhysicalResourceId.default(visited),
           terraform_source_name: 'terraform_source_name',
         }
       end
@@ -109,7 +109,7 @@ module AWS::SDK::Resiliencehub
     class CreateApp
       def self.default(visited=[])
         {
-          app: Stubs::App.default(visited),
+          app: App.default(visited),
         }
       end
 
@@ -138,7 +138,7 @@ module AWS::SDK::Resiliencehub
           last_app_compliance_evaluation_time: Time.now,
           resiliency_score: 1.0,
           last_resiliency_score_evaluation_time: Time.now,
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
           assessment_schedule: 'assessment_schedule',
         }
       end
@@ -186,7 +186,7 @@ module AWS::SDK::Resiliencehub
     class CreateRecommendationTemplate
       def self.default(visited=[])
         {
-          recommendation_template: Stubs::RecommendationTemplate.default(visited),
+          recommendation_template: RecommendationTemplate.default(visited),
         }
       end
 
@@ -205,11 +205,11 @@ module AWS::SDK::Resiliencehub
         return nil if visited.include?('RecommendationTemplate')
         visited = visited + ['RecommendationTemplate']
         {
-          templates_location: Stubs::S3Location.default(visited),
+          templates_location: S3Location.default(visited),
           assessment_arn: 'assessment_arn',
           app_arn: 'app_arn',
-          recommendation_ids: Stubs::RecommendationIdList.default(visited),
-          recommendation_types: Stubs::RenderRecommendationTypeList.default(visited),
+          recommendation_ids: RecommendationIdList.default(visited),
+          recommendation_types: RenderRecommendationTypeList.default(visited),
           format: 'format',
           recommendation_template_arn: 'recommendation_template_arn',
           message: 'message',
@@ -217,7 +217,7 @@ module AWS::SDK::Resiliencehub
           name: 'name',
           start_time: Time.now,
           end_time: Time.now,
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
           needs_replacements: false,
         }
       end
@@ -307,7 +307,7 @@ module AWS::SDK::Resiliencehub
     class CreateResiliencyPolicy
       def self.default(visited=[])
         {
-          policy: Stubs::ResiliencyPolicy.default(visited),
+          policy: ResiliencyPolicy.default(visited),
         }
       end
 
@@ -332,9 +332,9 @@ module AWS::SDK::Resiliencehub
           data_location_constraint: 'data_location_constraint',
           tier: 'tier',
           estimated_cost_tier: 'estimated_cost_tier',
-          policy: Stubs::DisruptionPolicy.default(visited),
+          policy: DisruptionPolicy.default(visited),
           creation_time: Time.now,
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -360,7 +360,7 @@ module AWS::SDK::Resiliencehub
         return nil if visited.include?('DisruptionPolicy')
         visited = visited + ['DisruptionPolicy']
         {
-          test_key: Stubs::FailurePolicy.default(visited)
+          test_key: FailurePolicy.default(visited)
         }
       end
 
@@ -470,7 +470,7 @@ module AWS::SDK::Resiliencehub
     class DescribeApp
       def self.default(visited=[])
         {
-          app: Stubs::App.default(visited),
+          app: App.default(visited),
         }
       end
 
@@ -487,7 +487,7 @@ module AWS::SDK::Resiliencehub
     class DescribeAppAssessment
       def self.default(visited=[])
         {
-          assessment: Stubs::AppAssessment.default(visited),
+          assessment: AppAssessment.default(visited),
         }
       end
 
@@ -509,9 +509,9 @@ module AWS::SDK::Resiliencehub
           app_arn: 'app_arn',
           app_version: 'app_version',
           invoker: 'invoker',
-          cost: Stubs::Cost.default(visited),
-          resiliency_score: Stubs::ResiliencyScore.default(visited),
-          compliance: Stubs::AssessmentCompliance.default(visited),
+          cost: Cost.default(visited),
+          resiliency_score: ResiliencyScore.default(visited),
+          compliance: AssessmentCompliance.default(visited),
           compliance_status: 'compliance_status',
           assessment_status: 'assessment_status',
           start_time: Time.now,
@@ -519,9 +519,9 @@ module AWS::SDK::Resiliencehub
           message: 'message',
           assessment_name: 'assessment_name',
           assessment_arn: 'assessment_arn',
-          policy: Stubs::ResiliencyPolicy.default(visited),
-          tags: Stubs::TagMap.default(visited),
-          resource_errors_details: Stubs::ResourceErrorsDetails.default(visited),
+          policy: ResiliencyPolicy.default(visited),
+          tags: TagMap.default(visited),
+          resource_errors_details: ResourceErrorsDetails.default(visited),
         }
       end
 
@@ -554,7 +554,7 @@ module AWS::SDK::Resiliencehub
         return nil if visited.include?('ResourceErrorsDetails')
         visited = visited + ['ResourceErrorsDetails']
         {
-          resource_errors: Stubs::ResourceErrorList.default(visited),
+          resource_errors: ResourceErrorList.default(visited),
           has_more_errors: false,
         }
       end
@@ -574,7 +574,7 @@ module AWS::SDK::Resiliencehub
         return nil if visited.include?('ResourceErrorList')
         visited = visited + ['ResourceErrorList']
         [
-          Stubs::ResourceError.default(visited)
+          ResourceError.default(visited)
         ]
       end
 
@@ -616,7 +616,7 @@ module AWS::SDK::Resiliencehub
         return nil if visited.include?('AssessmentCompliance')
         visited = visited + ['AssessmentCompliance']
         {
-          test_key: Stubs::DisruptionCompliance.default(visited)
+          test_key: DisruptionCompliance.default(visited)
         }
       end
 
@@ -673,7 +673,7 @@ module AWS::SDK::Resiliencehub
         visited = visited + ['ResiliencyScore']
         {
           score: 1.0,
-          disruption_score: Stubs::DisruptionResiliencyScore.default(visited),
+          disruption_score: DisruptionResiliencyScore.default(visited),
         }
       end
 
@@ -803,7 +803,7 @@ module AWS::SDK::Resiliencehub
     class DescribeResiliencyPolicy
       def self.default(visited=[])
         {
-          policy: Stubs::ResiliencyPolicy.default(visited),
+          policy: ResiliencyPolicy.default(visited),
         }
       end
 
@@ -822,9 +822,9 @@ module AWS::SDK::Resiliencehub
         {
           app_arn: 'app_arn',
           app_version: 'app_version',
-          source_arns: Stubs::ArnList.default(visited),
+          source_arns: ArnList.default(visited),
           status: 'status',
-          terraform_sources: Stubs::TerraformSourceList.default(visited),
+          terraform_sources: TerraformSourceList.default(visited),
         }
       end
 
@@ -847,7 +847,7 @@ module AWS::SDK::Resiliencehub
         return nil if visited.include?('TerraformSourceList')
         visited = visited + ['TerraformSourceList']
         [
-          Stubs::TerraformSource.default(visited)
+          TerraformSource.default(visited)
         ]
       end
 
@@ -903,7 +903,7 @@ module AWS::SDK::Resiliencehub
     class ListAlarmRecommendations
       def self.default(visited=[])
         {
-          alarm_recommendations: Stubs::AlarmRecommendationList.default(visited),
+          alarm_recommendations: AlarmRecommendationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -924,7 +924,7 @@ module AWS::SDK::Resiliencehub
         return nil if visited.include?('AlarmRecommendationList')
         visited = visited + ['AlarmRecommendationList']
         [
-          Stubs::AlarmRecommendation.default(visited)
+          AlarmRecommendation.default(visited)
         ]
       end
 
@@ -950,7 +950,7 @@ module AWS::SDK::Resiliencehub
           description: 'description',
           type: 'type',
           app_component_name: 'app_component_name',
-          items: Stubs::RecommendationItemList.default(visited),
+          items: RecommendationItemList.default(visited),
           prerequisite: 'prerequisite',
         }
       end
@@ -976,7 +976,7 @@ module AWS::SDK::Resiliencehub
         return nil if visited.include?('RecommendationItemList')
         visited = visited + ['RecommendationItemList']
         [
-          Stubs::RecommendationItem.default(visited)
+          RecommendationItem.default(visited)
         ]
       end
 
@@ -1019,7 +1019,7 @@ module AWS::SDK::Resiliencehub
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          assessment_summaries: Stubs::AppAssessmentSummaryList.default(visited),
+          assessment_summaries: AppAssessmentSummaryList.default(visited),
         }
       end
 
@@ -1039,7 +1039,7 @@ module AWS::SDK::Resiliencehub
         return nil if visited.include?('AppAssessmentSummaryList')
         visited = visited + ['AppAssessmentSummaryList']
         [
-          Stubs::AppAssessmentSummary.default(visited)
+          AppAssessmentSummary.default(visited)
         ]
       end
 
@@ -1069,7 +1069,7 @@ module AWS::SDK::Resiliencehub
           assessment_name: 'assessment_name',
           assessment_arn: 'assessment_arn',
           compliance_status: 'compliance_status',
-          cost: Stubs::Cost.default(visited),
+          cost: Cost.default(visited),
           resiliency_score: 1.0,
         }
       end
@@ -1097,7 +1097,7 @@ module AWS::SDK::Resiliencehub
     class ListAppComponentCompliances
       def self.default(visited=[])
         {
-          component_compliances: Stubs::ComponentCompliancesList.default(visited),
+          component_compliances: ComponentCompliancesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1118,7 +1118,7 @@ module AWS::SDK::Resiliencehub
         return nil if visited.include?('ComponentCompliancesList')
         visited = visited + ['ComponentCompliancesList']
         [
-          Stubs::AppComponentCompliance.default(visited)
+          AppComponentCompliance.default(visited)
         ]
       end
 
@@ -1138,12 +1138,12 @@ module AWS::SDK::Resiliencehub
         return nil if visited.include?('AppComponentCompliance')
         visited = visited + ['AppComponentCompliance']
         {
-          cost: Stubs::Cost.default(visited),
+          cost: Cost.default(visited),
           app_component_name: 'app_component_name',
-          compliance: Stubs::AssessmentCompliance.default(visited),
+          compliance: AssessmentCompliance.default(visited),
           message: 'message',
           status: 'status',
-          resiliency_score: Stubs::ResiliencyScore.default(visited),
+          resiliency_score: ResiliencyScore.default(visited),
         }
       end
 
@@ -1164,7 +1164,7 @@ module AWS::SDK::Resiliencehub
     class ListAppComponentRecommendations
       def self.default(visited=[])
         {
-          component_recommendations: Stubs::ComponentRecommendationList.default(visited),
+          component_recommendations: ComponentRecommendationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1185,7 +1185,7 @@ module AWS::SDK::Resiliencehub
         return nil if visited.include?('ComponentRecommendationList')
         visited = visited + ['ComponentRecommendationList']
         [
-          Stubs::ComponentRecommendation.default(visited)
+          ComponentRecommendation.default(visited)
         ]
       end
 
@@ -1207,7 +1207,7 @@ module AWS::SDK::Resiliencehub
         {
           app_component_name: 'app_component_name',
           recommendation_status: 'recommendation_status',
-          config_recommendations: Stubs::ConfigRecommendationList.default(visited),
+          config_recommendations: ConfigRecommendationList.default(visited),
         }
       end
 
@@ -1227,7 +1227,7 @@ module AWS::SDK::Resiliencehub
         return nil if visited.include?('ConfigRecommendationList')
         visited = visited + ['ConfigRecommendationList']
         [
-          Stubs::ConfigRecommendation.default(visited)
+          ConfigRecommendation.default(visited)
         ]
       end
 
@@ -1247,14 +1247,14 @@ module AWS::SDK::Resiliencehub
         return nil if visited.include?('ConfigRecommendation')
         visited = visited + ['ConfigRecommendation']
         {
-          cost: Stubs::Cost.default(visited),
+          cost: Cost.default(visited),
           app_component_name: 'app_component_name',
-          compliance: Stubs::AssessmentCompliance.default(visited),
-          recommendation_compliance: Stubs::RecommendationCompliance.default(visited),
+          compliance: AssessmentCompliance.default(visited),
+          recommendation_compliance: RecommendationCompliance.default(visited),
           optimization_type: 'optimization_type',
           name: 'name',
           description: 'description',
-          suggested_changes: Stubs::SuggestedChangesList.default(visited),
+          suggested_changes: SuggestedChangesList.default(visited),
           ha_architecture: 'ha_architecture',
           reference_id: 'reference_id',
         }
@@ -1303,7 +1303,7 @@ module AWS::SDK::Resiliencehub
         return nil if visited.include?('RecommendationCompliance')
         visited = visited + ['RecommendationCompliance']
         {
-          test_key: Stubs::RecommendationDisruptionCompliance.default(visited)
+          test_key: RecommendationDisruptionCompliance.default(visited)
         }
       end
 
@@ -1347,7 +1347,7 @@ module AWS::SDK::Resiliencehub
     class ListAppVersionResourceMappings
       def self.default(visited=[])
         {
-          resource_mappings: Stubs::ResourceMappingList.default(visited),
+          resource_mappings: ResourceMappingList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1366,7 +1366,7 @@ module AWS::SDK::Resiliencehub
     class ListAppVersionResources
       def self.default(visited=[])
         {
-          physical_resources: Stubs::PhysicalResourceList.default(visited),
+          physical_resources: PhysicalResourceList.default(visited),
           resolution_id: 'resolution_id',
           next_token: 'next_token',
         }
@@ -1389,7 +1389,7 @@ module AWS::SDK::Resiliencehub
         return nil if visited.include?('PhysicalResourceList')
         visited = visited + ['PhysicalResourceList']
         [
-          Stubs::PhysicalResource.default(visited)
+          PhysicalResource.default(visited)
         ]
       end
 
@@ -1410,10 +1410,10 @@ module AWS::SDK::Resiliencehub
         visited = visited + ['PhysicalResource']
         {
           resource_name: 'resource_name',
-          logical_resource_id: Stubs::LogicalResourceId.default(visited),
-          physical_resource_id: Stubs::PhysicalResourceId.default(visited),
+          logical_resource_id: LogicalResourceId.default(visited),
+          physical_resource_id: PhysicalResourceId.default(visited),
           resource_type: 'resource_type',
-          app_components: Stubs::AppComponentList.default(visited),
+          app_components: AppComponentList.default(visited),
         }
       end
 
@@ -1435,7 +1435,7 @@ module AWS::SDK::Resiliencehub
         return nil if visited.include?('AppComponentList')
         visited = visited + ['AppComponentList']
         [
-          Stubs::AppComponent.default(visited)
+          AppComponent.default(visited)
         ]
       end
 
@@ -1497,7 +1497,7 @@ module AWS::SDK::Resiliencehub
     class ListAppVersions
       def self.default(visited=[])
         {
-          app_versions: Stubs::AppVersionList.default(visited),
+          app_versions: AppVersionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1518,7 +1518,7 @@ module AWS::SDK::Resiliencehub
         return nil if visited.include?('AppVersionList')
         visited = visited + ['AppVersionList']
         [
-          Stubs::AppVersionSummary.default(visited)
+          AppVersionSummary.default(visited)
         ]
       end
 
@@ -1554,7 +1554,7 @@ module AWS::SDK::Resiliencehub
     class ListApps
       def self.default(visited=[])
         {
-          app_summaries: Stubs::AppSummaryList.default(visited),
+          app_summaries: AppSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1575,7 +1575,7 @@ module AWS::SDK::Resiliencehub
         return nil if visited.include?('AppSummaryList')
         visited = visited + ['AppSummaryList']
         [
-          Stubs::AppSummary.default(visited)
+          AppSummary.default(visited)
         ]
       end
 
@@ -1624,7 +1624,7 @@ module AWS::SDK::Resiliencehub
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          recommendation_templates: Stubs::RecommendationTemplateList.default(visited),
+          recommendation_templates: RecommendationTemplateList.default(visited),
         }
       end
 
@@ -1644,7 +1644,7 @@ module AWS::SDK::Resiliencehub
         return nil if visited.include?('RecommendationTemplateList')
         visited = visited + ['RecommendationTemplateList']
         [
-          Stubs::RecommendationTemplate.default(visited)
+          RecommendationTemplate.default(visited)
         ]
       end
 
@@ -1662,7 +1662,7 @@ module AWS::SDK::Resiliencehub
     class ListResiliencyPolicies
       def self.default(visited=[])
         {
-          resiliency_policies: Stubs::ResiliencyPolicies.default(visited),
+          resiliency_policies: ResiliencyPolicies.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1683,7 +1683,7 @@ module AWS::SDK::Resiliencehub
         return nil if visited.include?('ResiliencyPolicies')
         visited = visited + ['ResiliencyPolicies']
         [
-          Stubs::ResiliencyPolicy.default(visited)
+          ResiliencyPolicy.default(visited)
         ]
       end
 
@@ -1702,7 +1702,7 @@ module AWS::SDK::Resiliencehub
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          sop_recommendations: Stubs::SopRecommendationList.default(visited),
+          sop_recommendations: SopRecommendationList.default(visited),
         }
       end
 
@@ -1722,7 +1722,7 @@ module AWS::SDK::Resiliencehub
         return nil if visited.include?('SopRecommendationList')
         visited = visited + ['SopRecommendationList']
         [
-          Stubs::SopRecommendation.default(visited)
+          SopRecommendation.default(visited)
         ]
       end
 
@@ -1747,7 +1747,7 @@ module AWS::SDK::Resiliencehub
           description: 'description',
           recommendation_id: 'recommendation_id',
           name: 'name',
-          items: Stubs::RecommendationItemList.default(visited),
+          items: RecommendationItemList.default(visited),
           reference_id: 'reference_id',
           prerequisite: 'prerequisite',
         }
@@ -1772,7 +1772,7 @@ module AWS::SDK::Resiliencehub
     class ListSuggestedResiliencyPolicies
       def self.default(visited=[])
         {
-          resiliency_policies: Stubs::ResiliencyPolicies.default(visited),
+          resiliency_policies: ResiliencyPolicies.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1791,7 +1791,7 @@ module AWS::SDK::Resiliencehub
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1809,7 +1809,7 @@ module AWS::SDK::Resiliencehub
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          test_recommendations: Stubs::TestRecommendationList.default(visited),
+          test_recommendations: TestRecommendationList.default(visited),
         }
       end
 
@@ -1829,7 +1829,7 @@ module AWS::SDK::Resiliencehub
         return nil if visited.include?('TestRecommendationList')
         visited = visited + ['TestRecommendationList']
         [
-          Stubs::TestRecommendation.default(visited)
+          TestRecommendation.default(visited)
         ]
       end
 
@@ -1857,9 +1857,9 @@ module AWS::SDK::Resiliencehub
           risk: 'risk',
           type: 'type',
           description: 'description',
-          items: Stubs::RecommendationItemList.default(visited),
+          items: RecommendationItemList.default(visited),
           prerequisite: 'prerequisite',
-          depends_on_alarms: Stubs::AlarmReferenceIdList.default(visited),
+          depends_on_alarms: AlarmReferenceIdList.default(visited),
         }
       end
 
@@ -1905,7 +1905,7 @@ module AWS::SDK::Resiliencehub
     class ListUnsupportedAppVersionResources
       def self.default(visited=[])
         {
-          unsupported_resources: Stubs::UnsupportedResourceList.default(visited),
+          unsupported_resources: UnsupportedResourceList.default(visited),
           resolution_id: 'resolution_id',
           next_token: 'next_token',
         }
@@ -1928,7 +1928,7 @@ module AWS::SDK::Resiliencehub
         return nil if visited.include?('UnsupportedResourceList')
         visited = visited + ['UnsupportedResourceList']
         [
-          Stubs::UnsupportedResource.default(visited)
+          UnsupportedResource.default(visited)
         ]
       end
 
@@ -1948,8 +1948,8 @@ module AWS::SDK::Resiliencehub
         return nil if visited.include?('UnsupportedResource')
         visited = visited + ['UnsupportedResource']
         {
-          logical_resource_id: Stubs::LogicalResourceId.default(visited),
-          physical_resource_id: Stubs::PhysicalResourceId.default(visited),
+          logical_resource_id: LogicalResourceId.default(visited),
+          physical_resource_id: PhysicalResourceId.default(visited),
           resource_type: 'resource_type',
         }
       end
@@ -2048,7 +2048,7 @@ module AWS::SDK::Resiliencehub
     class StartAppAssessment
       def self.default(visited=[])
         {
-          assessment: Stubs::AppAssessment.default(visited),
+          assessment: AppAssessment.default(visited),
         }
       end
 
@@ -2091,7 +2091,7 @@ module AWS::SDK::Resiliencehub
     class UpdateApp
       def self.default(visited=[])
         {
-          app: Stubs::App.default(visited),
+          app: App.default(visited),
         }
       end
 
@@ -2108,7 +2108,7 @@ module AWS::SDK::Resiliencehub
     class UpdateResiliencyPolicy
       def self.default(visited=[])
         {
-          policy: Stubs::ResiliencyPolicy.default(visited),
+          policy: ResiliencyPolicy.default(visited),
         }
       end
 

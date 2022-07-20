@@ -14,7 +14,7 @@ module AWS::SDK::WAF
     class CreateByteMatchSet
       def self.default(visited=[])
         {
-          byte_match_set: Stubs::ByteMatchSet.default(visited),
+          byte_match_set: ByteMatchSet.default(visited),
           change_token: 'change_token',
         }
       end
@@ -36,7 +36,7 @@ module AWS::SDK::WAF
         {
           byte_match_set_id: 'byte_match_set_id',
           name: 'name',
-          byte_match_tuples: Stubs::ByteMatchTuples.default(visited),
+          byte_match_tuples: ByteMatchTuples.default(visited),
         }
       end
 
@@ -56,7 +56,7 @@ module AWS::SDK::WAF
         return nil if visited.include?('ByteMatchTuples')
         visited = visited + ['ByteMatchTuples']
         [
-          Stubs::ByteMatchTuple.default(visited)
+          ByteMatchTuple.default(visited)
         ]
       end
 
@@ -76,7 +76,7 @@ module AWS::SDK::WAF
         return nil if visited.include?('ByteMatchTuple')
         visited = visited + ['ByteMatchTuple']
         {
-          field_to_match: Stubs::FieldToMatch.default(visited),
+          field_to_match: FieldToMatch.default(visited),
           target_string: 'target_string',
           text_transformation: 'text_transformation',
           positional_constraint: 'positional_constraint',
@@ -118,7 +118,7 @@ module AWS::SDK::WAF
     class CreateGeoMatchSet
       def self.default(visited=[])
         {
-          geo_match_set: Stubs::GeoMatchSet.default(visited),
+          geo_match_set: GeoMatchSet.default(visited),
           change_token: 'change_token',
         }
       end
@@ -140,7 +140,7 @@ module AWS::SDK::WAF
         {
           geo_match_set_id: 'geo_match_set_id',
           name: 'name',
-          geo_match_constraints: Stubs::GeoMatchConstraints.default(visited),
+          geo_match_constraints: GeoMatchConstraints.default(visited),
         }
       end
 
@@ -160,7 +160,7 @@ module AWS::SDK::WAF
         return nil if visited.include?('GeoMatchConstraints')
         visited = visited + ['GeoMatchConstraints']
         [
-          Stubs::GeoMatchConstraint.default(visited)
+          GeoMatchConstraint.default(visited)
         ]
       end
 
@@ -198,7 +198,7 @@ module AWS::SDK::WAF
     class CreateIPSet
       def self.default(visited=[])
         {
-          ip_set: Stubs::IPSet.default(visited),
+          ip_set: IPSet.default(visited),
           change_token: 'change_token',
         }
       end
@@ -220,7 +220,7 @@ module AWS::SDK::WAF
         {
           ip_set_id: 'ip_set_id',
           name: 'name',
-          ip_set_descriptors: Stubs::IPSetDescriptors.default(visited),
+          ip_set_descriptors: IPSetDescriptors.default(visited),
         }
       end
 
@@ -240,7 +240,7 @@ module AWS::SDK::WAF
         return nil if visited.include?('IPSetDescriptors')
         visited = visited + ['IPSetDescriptors']
         [
-          Stubs::IPSetDescriptor.default(visited)
+          IPSetDescriptor.default(visited)
         ]
       end
 
@@ -278,7 +278,7 @@ module AWS::SDK::WAF
     class CreateRateBasedRule
       def self.default(visited=[])
         {
-          rule: Stubs::RateBasedRule.default(visited),
+          rule: RateBasedRule.default(visited),
           change_token: 'change_token',
         }
       end
@@ -301,7 +301,7 @@ module AWS::SDK::WAF
           rule_id: 'rule_id',
           name: 'name',
           metric_name: 'metric_name',
-          match_predicates: Stubs::Predicates.default(visited),
+          match_predicates: Predicates.default(visited),
           rate_key: 'rate_key',
           rate_limit: 1,
         }
@@ -326,7 +326,7 @@ module AWS::SDK::WAF
         return nil if visited.include?('Predicates')
         visited = visited + ['Predicates']
         [
-          Stubs::Predicate.default(visited)
+          Predicate.default(visited)
         ]
       end
 
@@ -366,7 +366,7 @@ module AWS::SDK::WAF
     class CreateRegexMatchSet
       def self.default(visited=[])
         {
-          regex_match_set: Stubs::RegexMatchSet.default(visited),
+          regex_match_set: RegexMatchSet.default(visited),
           change_token: 'change_token',
         }
       end
@@ -388,7 +388,7 @@ module AWS::SDK::WAF
         {
           regex_match_set_id: 'regex_match_set_id',
           name: 'name',
-          regex_match_tuples: Stubs::RegexMatchTuples.default(visited),
+          regex_match_tuples: RegexMatchTuples.default(visited),
         }
       end
 
@@ -408,7 +408,7 @@ module AWS::SDK::WAF
         return nil if visited.include?('RegexMatchTuples')
         visited = visited + ['RegexMatchTuples']
         [
-          Stubs::RegexMatchTuple.default(visited)
+          RegexMatchTuple.default(visited)
         ]
       end
 
@@ -428,7 +428,7 @@ module AWS::SDK::WAF
         return nil if visited.include?('RegexMatchTuple')
         visited = visited + ['RegexMatchTuple']
         {
-          field_to_match: Stubs::FieldToMatch.default(visited),
+          field_to_match: FieldToMatch.default(visited),
           text_transformation: 'text_transformation',
           regex_pattern_set_id: 'regex_pattern_set_id',
         }
@@ -448,7 +448,7 @@ module AWS::SDK::WAF
     class CreateRegexPatternSet
       def self.default(visited=[])
         {
-          regex_pattern_set: Stubs::RegexPatternSet.default(visited),
+          regex_pattern_set: RegexPatternSet.default(visited),
           change_token: 'change_token',
         }
       end
@@ -470,7 +470,7 @@ module AWS::SDK::WAF
         {
           regex_pattern_set_id: 'regex_pattern_set_id',
           name: 'name',
-          regex_pattern_strings: Stubs::RegexPatternStrings.default(visited),
+          regex_pattern_strings: RegexPatternStrings.default(visited),
         }
       end
 
@@ -508,7 +508,7 @@ module AWS::SDK::WAF
     class CreateRule
       def self.default(visited=[])
         {
-          rule: Stubs::Rule.default(visited),
+          rule: Rule.default(visited),
           change_token: 'change_token',
         }
       end
@@ -531,7 +531,7 @@ module AWS::SDK::WAF
           rule_id: 'rule_id',
           name: 'name',
           metric_name: 'metric_name',
-          predicates: Stubs::Predicates.default(visited),
+          predicates: Predicates.default(visited),
         }
       end
 
@@ -550,7 +550,7 @@ module AWS::SDK::WAF
     class CreateRuleGroup
       def self.default(visited=[])
         {
-          rule_group: Stubs::RuleGroup.default(visited),
+          rule_group: RuleGroup.default(visited),
           change_token: 'change_token',
         }
       end
@@ -590,7 +590,7 @@ module AWS::SDK::WAF
     class CreateSizeConstraintSet
       def self.default(visited=[])
         {
-          size_constraint_set: Stubs::SizeConstraintSet.default(visited),
+          size_constraint_set: SizeConstraintSet.default(visited),
           change_token: 'change_token',
         }
       end
@@ -612,7 +612,7 @@ module AWS::SDK::WAF
         {
           size_constraint_set_id: 'size_constraint_set_id',
           name: 'name',
-          size_constraints: Stubs::SizeConstraints.default(visited),
+          size_constraints: SizeConstraints.default(visited),
         }
       end
 
@@ -632,7 +632,7 @@ module AWS::SDK::WAF
         return nil if visited.include?('SizeConstraints')
         visited = visited + ['SizeConstraints']
         [
-          Stubs::SizeConstraint.default(visited)
+          SizeConstraint.default(visited)
         ]
       end
 
@@ -652,7 +652,7 @@ module AWS::SDK::WAF
         return nil if visited.include?('SizeConstraint')
         visited = visited + ['SizeConstraint']
         {
-          field_to_match: Stubs::FieldToMatch.default(visited),
+          field_to_match: FieldToMatch.default(visited),
           text_transformation: 'text_transformation',
           comparison_operator: 'comparison_operator',
           size: 1,
@@ -674,7 +674,7 @@ module AWS::SDK::WAF
     class CreateSqlInjectionMatchSet
       def self.default(visited=[])
         {
-          sql_injection_match_set: Stubs::SqlInjectionMatchSet.default(visited),
+          sql_injection_match_set: SqlInjectionMatchSet.default(visited),
           change_token: 'change_token',
         }
       end
@@ -696,7 +696,7 @@ module AWS::SDK::WAF
         {
           sql_injection_match_set_id: 'sql_injection_match_set_id',
           name: 'name',
-          sql_injection_match_tuples: Stubs::SqlInjectionMatchTuples.default(visited),
+          sql_injection_match_tuples: SqlInjectionMatchTuples.default(visited),
         }
       end
 
@@ -716,7 +716,7 @@ module AWS::SDK::WAF
         return nil if visited.include?('SqlInjectionMatchTuples')
         visited = visited + ['SqlInjectionMatchTuples']
         [
-          Stubs::SqlInjectionMatchTuple.default(visited)
+          SqlInjectionMatchTuple.default(visited)
         ]
       end
 
@@ -736,7 +736,7 @@ module AWS::SDK::WAF
         return nil if visited.include?('SqlInjectionMatchTuple')
         visited = visited + ['SqlInjectionMatchTuple']
         {
-          field_to_match: Stubs::FieldToMatch.default(visited),
+          field_to_match: FieldToMatch.default(visited),
           text_transformation: 'text_transformation',
         }
       end
@@ -754,7 +754,7 @@ module AWS::SDK::WAF
     class CreateWebACL
       def self.default(visited=[])
         {
-          web_acl: Stubs::WebACL.default(visited),
+          web_acl: WebACL.default(visited),
           change_token: 'change_token',
         }
       end
@@ -777,8 +777,8 @@ module AWS::SDK::WAF
           web_acl_id: 'web_acl_id',
           name: 'name',
           metric_name: 'metric_name',
-          default_action: Stubs::WafAction.default(visited),
-          rules: Stubs::ActivatedRules.default(visited),
+          default_action: WafAction.default(visited),
+          rules: ActivatedRules.default(visited),
           web_acl_arn: 'web_acl_arn',
         }
       end
@@ -802,7 +802,7 @@ module AWS::SDK::WAF
         return nil if visited.include?('ActivatedRules')
         visited = visited + ['ActivatedRules']
         [
-          Stubs::ActivatedRule.default(visited)
+          ActivatedRule.default(visited)
         ]
       end
 
@@ -824,10 +824,10 @@ module AWS::SDK::WAF
         {
           priority: 1,
           rule_id: 'rule_id',
-          action: Stubs::WafAction.default(visited),
-          override_action: Stubs::WafOverrideAction.default(visited),
+          action: WafAction.default(visited),
+          override_action: WafOverrideAction.default(visited),
           type: 'type',
-          excluded_rules: Stubs::ExcludedRules.default(visited),
+          excluded_rules: ExcludedRules.default(visited),
         }
       end
 
@@ -850,7 +850,7 @@ module AWS::SDK::WAF
         return nil if visited.include?('ExcludedRules')
         visited = visited + ['ExcludedRules']
         [
-          Stubs::ExcludedRule.default(visited)
+          ExcludedRule.default(visited)
         ]
       end
 
@@ -938,7 +938,7 @@ module AWS::SDK::WAF
     class CreateXssMatchSet
       def self.default(visited=[])
         {
-          xss_match_set: Stubs::XssMatchSet.default(visited),
+          xss_match_set: XssMatchSet.default(visited),
           change_token: 'change_token',
         }
       end
@@ -960,7 +960,7 @@ module AWS::SDK::WAF
         {
           xss_match_set_id: 'xss_match_set_id',
           name: 'name',
-          xss_match_tuples: Stubs::XssMatchTuples.default(visited),
+          xss_match_tuples: XssMatchTuples.default(visited),
         }
       end
 
@@ -980,7 +980,7 @@ module AWS::SDK::WAF
         return nil if visited.include?('XssMatchTuples')
         visited = visited + ['XssMatchTuples']
         [
-          Stubs::XssMatchTuple.default(visited)
+          XssMatchTuple.default(visited)
         ]
       end
 
@@ -1000,7 +1000,7 @@ module AWS::SDK::WAF
         return nil if visited.include?('XssMatchTuple')
         visited = visited + ['XssMatchTuple']
         {
-          field_to_match: Stubs::FieldToMatch.default(visited),
+          field_to_match: FieldToMatch.default(visited),
           text_transformation: 'text_transformation',
         }
       end
@@ -1238,7 +1238,7 @@ module AWS::SDK::WAF
     class GetByteMatchSet
       def self.default(visited=[])
         {
-          byte_match_set: Stubs::ByteMatchSet.default(visited),
+          byte_match_set: ByteMatchSet.default(visited),
         }
       end
 
@@ -1286,7 +1286,7 @@ module AWS::SDK::WAF
     class GetGeoMatchSet
       def self.default(visited=[])
         {
-          geo_match_set: Stubs::GeoMatchSet.default(visited),
+          geo_match_set: GeoMatchSet.default(visited),
         }
       end
 
@@ -1302,7 +1302,7 @@ module AWS::SDK::WAF
     class GetIPSet
       def self.default(visited=[])
         {
-          ip_set: Stubs::IPSet.default(visited),
+          ip_set: IPSet.default(visited),
         }
       end
 
@@ -1318,7 +1318,7 @@ module AWS::SDK::WAF
     class GetLoggingConfiguration
       def self.default(visited=[])
         {
-          logging_configuration: Stubs::LoggingConfiguration.default(visited),
+          logging_configuration: LoggingConfiguration.default(visited),
         }
       end
 
@@ -1337,8 +1337,8 @@ module AWS::SDK::WAF
         visited = visited + ['LoggingConfiguration']
         {
           resource_arn: 'resource_arn',
-          log_destination_configs: Stubs::LogDestinationConfigs.default(visited),
-          redacted_fields: Stubs::RedactedFields.default(visited),
+          log_destination_configs: LogDestinationConfigs.default(visited),
+          redacted_fields: RedactedFields.default(visited),
         }
       end
 
@@ -1358,7 +1358,7 @@ module AWS::SDK::WAF
         return nil if visited.include?('RedactedFields')
         visited = visited + ['RedactedFields']
         [
-          Stubs::FieldToMatch.default(visited)
+          FieldToMatch.default(visited)
         ]
       end
 
@@ -1412,7 +1412,7 @@ module AWS::SDK::WAF
     class GetRateBasedRule
       def self.default(visited=[])
         {
-          rule: Stubs::RateBasedRule.default(visited),
+          rule: RateBasedRule.default(visited),
         }
       end
 
@@ -1428,7 +1428,7 @@ module AWS::SDK::WAF
     class GetRateBasedRuleManagedKeys
       def self.default(visited=[])
         {
-          managed_keys: Stubs::ManagedKeys.default(visited),
+          managed_keys: ManagedKeys.default(visited),
           next_marker: 'next_marker',
         }
       end
@@ -1466,7 +1466,7 @@ module AWS::SDK::WAF
     class GetRegexMatchSet
       def self.default(visited=[])
         {
-          regex_match_set: Stubs::RegexMatchSet.default(visited),
+          regex_match_set: RegexMatchSet.default(visited),
         }
       end
 
@@ -1482,7 +1482,7 @@ module AWS::SDK::WAF
     class GetRegexPatternSet
       def self.default(visited=[])
         {
-          regex_pattern_set: Stubs::RegexPatternSet.default(visited),
+          regex_pattern_set: RegexPatternSet.default(visited),
         }
       end
 
@@ -1498,7 +1498,7 @@ module AWS::SDK::WAF
     class GetRule
       def self.default(visited=[])
         {
-          rule: Stubs::Rule.default(visited),
+          rule: Rule.default(visited),
         }
       end
 
@@ -1514,7 +1514,7 @@ module AWS::SDK::WAF
     class GetRuleGroup
       def self.default(visited=[])
         {
-          rule_group: Stubs::RuleGroup.default(visited),
+          rule_group: RuleGroup.default(visited),
         }
       end
 
@@ -1530,9 +1530,9 @@ module AWS::SDK::WAF
     class GetSampledRequests
       def self.default(visited=[])
         {
-          sampled_requests: Stubs::SampledHTTPRequests.default(visited),
+          sampled_requests: SampledHTTPRequests.default(visited),
           population_size: 1,
-          time_window: Stubs::TimeWindow.default(visited),
+          time_window: TimeWindow.default(visited),
         }
       end
 
@@ -1572,7 +1572,7 @@ module AWS::SDK::WAF
         return nil if visited.include?('SampledHTTPRequests')
         visited = visited + ['SampledHTTPRequests']
         [
-          Stubs::SampledHTTPRequest.default(visited)
+          SampledHTTPRequest.default(visited)
         ]
       end
 
@@ -1592,7 +1592,7 @@ module AWS::SDK::WAF
         return nil if visited.include?('SampledHTTPRequest')
         visited = visited + ['SampledHTTPRequest']
         {
-          request: Stubs::HTTPRequest.default(visited),
+          request: HTTPRequest.default(visited),
           weight: 1,
           timestamp: Time.now,
           action: 'action',
@@ -1623,7 +1623,7 @@ module AWS::SDK::WAF
           uri: 'uri',
           member_method: 'member_method',
           http_version: 'http_version',
-          headers: Stubs::HTTPHeaders.default(visited),
+          headers: HTTPHeaders.default(visited),
         }
       end
 
@@ -1646,7 +1646,7 @@ module AWS::SDK::WAF
         return nil if visited.include?('HTTPHeaders')
         visited = visited + ['HTTPHeaders']
         [
-          Stubs::HTTPHeader.default(visited)
+          HTTPHeader.default(visited)
         ]
       end
 
@@ -1684,7 +1684,7 @@ module AWS::SDK::WAF
     class GetSizeConstraintSet
       def self.default(visited=[])
         {
-          size_constraint_set: Stubs::SizeConstraintSet.default(visited),
+          size_constraint_set: SizeConstraintSet.default(visited),
         }
       end
 
@@ -1700,7 +1700,7 @@ module AWS::SDK::WAF
     class GetSqlInjectionMatchSet
       def self.default(visited=[])
         {
-          sql_injection_match_set: Stubs::SqlInjectionMatchSet.default(visited),
+          sql_injection_match_set: SqlInjectionMatchSet.default(visited),
         }
       end
 
@@ -1716,7 +1716,7 @@ module AWS::SDK::WAF
     class GetWebACL
       def self.default(visited=[])
         {
-          web_acl: Stubs::WebACL.default(visited),
+          web_acl: WebACL.default(visited),
         }
       end
 
@@ -1732,7 +1732,7 @@ module AWS::SDK::WAF
     class GetXssMatchSet
       def self.default(visited=[])
         {
-          xss_match_set: Stubs::XssMatchSet.default(visited),
+          xss_match_set: XssMatchSet.default(visited),
         }
       end
 
@@ -1749,7 +1749,7 @@ module AWS::SDK::WAF
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
-          activated_rules: Stubs::ActivatedRules.default(visited),
+          activated_rules: ActivatedRules.default(visited),
         }
       end
 
@@ -1767,7 +1767,7 @@ module AWS::SDK::WAF
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
-          byte_match_sets: Stubs::ByteMatchSetSummaries.default(visited),
+          byte_match_sets: ByteMatchSetSummaries.default(visited),
         }
       end
 
@@ -1786,7 +1786,7 @@ module AWS::SDK::WAF
         return nil if visited.include?('ByteMatchSetSummaries')
         visited = visited + ['ByteMatchSetSummaries']
         [
-          Stubs::ByteMatchSetSummary.default(visited)
+          ByteMatchSetSummary.default(visited)
         ]
       end
 
@@ -1825,7 +1825,7 @@ module AWS::SDK::WAF
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
-          geo_match_sets: Stubs::GeoMatchSetSummaries.default(visited),
+          geo_match_sets: GeoMatchSetSummaries.default(visited),
         }
       end
 
@@ -1844,7 +1844,7 @@ module AWS::SDK::WAF
         return nil if visited.include?('GeoMatchSetSummaries')
         visited = visited + ['GeoMatchSetSummaries']
         [
-          Stubs::GeoMatchSetSummary.default(visited)
+          GeoMatchSetSummary.default(visited)
         ]
       end
 
@@ -1883,7 +1883,7 @@ module AWS::SDK::WAF
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
-          ip_sets: Stubs::IPSetSummaries.default(visited),
+          ip_sets: IPSetSummaries.default(visited),
         }
       end
 
@@ -1902,7 +1902,7 @@ module AWS::SDK::WAF
         return nil if visited.include?('IPSetSummaries')
         visited = visited + ['IPSetSummaries']
         [
-          Stubs::IPSetSummary.default(visited)
+          IPSetSummary.default(visited)
         ]
       end
 
@@ -1940,7 +1940,7 @@ module AWS::SDK::WAF
     class ListLoggingConfigurations
       def self.default(visited=[])
         {
-          logging_configurations: Stubs::LoggingConfigurations.default(visited),
+          logging_configurations: LoggingConfigurations.default(visited),
           next_marker: 'next_marker',
         }
       end
@@ -1960,7 +1960,7 @@ module AWS::SDK::WAF
         return nil if visited.include?('LoggingConfigurations')
         visited = visited + ['LoggingConfigurations']
         [
-          Stubs::LoggingConfiguration.default(visited)
+          LoggingConfiguration.default(visited)
         ]
       end
 
@@ -1979,7 +1979,7 @@ module AWS::SDK::WAF
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
-          rules: Stubs::RuleSummaries.default(visited),
+          rules: RuleSummaries.default(visited),
         }
       end
 
@@ -1998,7 +1998,7 @@ module AWS::SDK::WAF
         return nil if visited.include?('RuleSummaries')
         visited = visited + ['RuleSummaries']
         [
-          Stubs::RuleSummary.default(visited)
+          RuleSummary.default(visited)
         ]
       end
 
@@ -2037,7 +2037,7 @@ module AWS::SDK::WAF
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
-          regex_match_sets: Stubs::RegexMatchSetSummaries.default(visited),
+          regex_match_sets: RegexMatchSetSummaries.default(visited),
         }
       end
 
@@ -2056,7 +2056,7 @@ module AWS::SDK::WAF
         return nil if visited.include?('RegexMatchSetSummaries')
         visited = visited + ['RegexMatchSetSummaries']
         [
-          Stubs::RegexMatchSetSummary.default(visited)
+          RegexMatchSetSummary.default(visited)
         ]
       end
 
@@ -2095,7 +2095,7 @@ module AWS::SDK::WAF
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
-          regex_pattern_sets: Stubs::RegexPatternSetSummaries.default(visited),
+          regex_pattern_sets: RegexPatternSetSummaries.default(visited),
         }
       end
 
@@ -2114,7 +2114,7 @@ module AWS::SDK::WAF
         return nil if visited.include?('RegexPatternSetSummaries')
         visited = visited + ['RegexPatternSetSummaries']
         [
-          Stubs::RegexPatternSetSummary.default(visited)
+          RegexPatternSetSummary.default(visited)
         ]
       end
 
@@ -2153,7 +2153,7 @@ module AWS::SDK::WAF
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
-          rule_groups: Stubs::RuleGroupSummaries.default(visited),
+          rule_groups: RuleGroupSummaries.default(visited),
         }
       end
 
@@ -2172,7 +2172,7 @@ module AWS::SDK::WAF
         return nil if visited.include?('RuleGroupSummaries')
         visited = visited + ['RuleGroupSummaries']
         [
-          Stubs::RuleGroupSummary.default(visited)
+          RuleGroupSummary.default(visited)
         ]
       end
 
@@ -2211,7 +2211,7 @@ module AWS::SDK::WAF
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
-          rules: Stubs::RuleSummaries.default(visited),
+          rules: RuleSummaries.default(visited),
         }
       end
 
@@ -2229,7 +2229,7 @@ module AWS::SDK::WAF
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
-          size_constraint_sets: Stubs::SizeConstraintSetSummaries.default(visited),
+          size_constraint_sets: SizeConstraintSetSummaries.default(visited),
         }
       end
 
@@ -2248,7 +2248,7 @@ module AWS::SDK::WAF
         return nil if visited.include?('SizeConstraintSetSummaries')
         visited = visited + ['SizeConstraintSetSummaries']
         [
-          Stubs::SizeConstraintSetSummary.default(visited)
+          SizeConstraintSetSummary.default(visited)
         ]
       end
 
@@ -2287,7 +2287,7 @@ module AWS::SDK::WAF
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
-          sql_injection_match_sets: Stubs::SqlInjectionMatchSetSummaries.default(visited),
+          sql_injection_match_sets: SqlInjectionMatchSetSummaries.default(visited),
         }
       end
 
@@ -2306,7 +2306,7 @@ module AWS::SDK::WAF
         return nil if visited.include?('SqlInjectionMatchSetSummaries')
         visited = visited + ['SqlInjectionMatchSetSummaries']
         [
-          Stubs::SqlInjectionMatchSetSummary.default(visited)
+          SqlInjectionMatchSetSummary.default(visited)
         ]
       end
 
@@ -2345,7 +2345,7 @@ module AWS::SDK::WAF
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
-          rule_groups: Stubs::SubscribedRuleGroupSummaries.default(visited),
+          rule_groups: SubscribedRuleGroupSummaries.default(visited),
         }
       end
 
@@ -2364,7 +2364,7 @@ module AWS::SDK::WAF
         return nil if visited.include?('SubscribedRuleGroupSummaries')
         visited = visited + ['SubscribedRuleGroupSummaries']
         [
-          Stubs::SubscribedRuleGroupSummary.default(visited)
+          SubscribedRuleGroupSummary.default(visited)
         ]
       end
 
@@ -2405,7 +2405,7 @@ module AWS::SDK::WAF
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
-          tag_info_for_resource: Stubs::TagInfoForResource.default(visited),
+          tag_info_for_resource: TagInfoForResource.default(visited),
         }
       end
 
@@ -2425,7 +2425,7 @@ module AWS::SDK::WAF
         visited = visited + ['TagInfoForResource']
         {
           resource_arn: 'resource_arn',
-          tag_list: Stubs::TagList.default(visited),
+          tag_list: TagList.default(visited),
         }
       end
 
@@ -2444,7 +2444,7 @@ module AWS::SDK::WAF
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -2483,7 +2483,7 @@ module AWS::SDK::WAF
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
-          web_ac_ls: Stubs::WebACLSummaries.default(visited),
+          web_ac_ls: WebACLSummaries.default(visited),
         }
       end
 
@@ -2502,7 +2502,7 @@ module AWS::SDK::WAF
         return nil if visited.include?('WebACLSummaries')
         visited = visited + ['WebACLSummaries']
         [
-          Stubs::WebACLSummary.default(visited)
+          WebACLSummary.default(visited)
         ]
       end
 
@@ -2541,7 +2541,7 @@ module AWS::SDK::WAF
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
-          xss_match_sets: Stubs::XssMatchSetSummaries.default(visited),
+          xss_match_sets: XssMatchSetSummaries.default(visited),
         }
       end
 
@@ -2560,7 +2560,7 @@ module AWS::SDK::WAF
         return nil if visited.include?('XssMatchSetSummaries')
         visited = visited + ['XssMatchSetSummaries']
         [
-          Stubs::XssMatchSetSummary.default(visited)
+          XssMatchSetSummary.default(visited)
         ]
       end
 
@@ -2598,7 +2598,7 @@ module AWS::SDK::WAF
     class PutLoggingConfiguration
       def self.default(visited=[])
         {
-          logging_configuration: Stubs::LoggingConfiguration.default(visited),
+          logging_configuration: LoggingConfiguration.default(visited),
         }
       end
 

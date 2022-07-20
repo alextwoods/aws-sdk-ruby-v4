@@ -57,7 +57,7 @@ module AWS::SDK::LookoutEquipment
         type.dataset_name = params[:dataset_name]
         type.dataset_schema = DatasetSchema.build(params[:dataset_schema], context: "#{context}[:dataset_schema]") unless params[:dataset_schema].nil?
         type.server_side_kms_key_id = params[:server_side_kms_key_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -86,7 +86,7 @@ module AWS::SDK::LookoutEquipment
         type.data_output_configuration = InferenceOutputConfiguration.build(params[:data_output_configuration], context: "#{context}[:data_output_configuration]") unless params[:data_output_configuration].nil?
         type.role_arn = params[:role_arn]
         type.server_side_kms_key_id = params[:server_side_kms_key_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -111,7 +111,7 @@ module AWS::SDK::LookoutEquipment
         type.dataset_name = params[:dataset_name]
         type.dataset_schema = DatasetSchema.build(params[:dataset_schema], context: "#{context}[:dataset_schema]") unless params[:dataset_schema].nil?
         type.labels_input_configuration = LabelsInputConfiguration.build(params[:labels_input_configuration], context: "#{context}[:labels_input_configuration]") unless params[:labels_input_configuration].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.training_data_start_time = params[:training_data_start_time]
         type.training_data_end_time = params[:training_data_end_time]
         type.evaluation_data_start_time = params[:evaluation_data_start_time]
@@ -901,7 +901,7 @@ module AWS::SDK::LookoutEquipment
         type.dataset_name = params[:dataset_name]
         type.ingestion_input_configuration = IngestionInputConfiguration.build(params[:ingestion_input_configuration], context: "#{context}[:ingestion_input_configuration]") unless params[:ingestion_input_configuration].nil?
         type.role_arn = params[:role_arn]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end

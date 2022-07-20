@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Lambda
@@ -158,7 +160,7 @@ module AWS::SDK::Lambda
     def add_layer_version_permission(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddLayerVersionPermissionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddLayerVersionPermissionInput,
         validate_input: @config.validate_input
@@ -310,7 +312,7 @@ module AWS::SDK::Lambda
     def add_permission(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddPermissionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddPermissionInput,
         validate_input: @config.validate_input
@@ -431,7 +433,7 @@ module AWS::SDK::Lambda
     def create_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAliasInput,
         validate_input: @config.validate_input
@@ -525,7 +527,7 @@ module AWS::SDK::Lambda
     def create_code_signing_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCodeSigningConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCodeSigningConfigInput,
         validate_input: @config.validate_input
@@ -911,7 +913,7 @@ module AWS::SDK::Lambda
     def create_event_source_mapping(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateEventSourceMappingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEventSourceMappingInput,
         validate_input: @config.validate_input
@@ -1246,7 +1248,7 @@ module AWS::SDK::Lambda
     def create_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFunctionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFunctionInput,
         validate_input: @config.validate_input
@@ -1375,7 +1377,7 @@ module AWS::SDK::Lambda
     def create_function_url_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFunctionUrlConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFunctionUrlConfigInput,
         validate_input: @config.validate_input
@@ -1466,7 +1468,7 @@ module AWS::SDK::Lambda
     def delete_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAliasInput,
         validate_input: @config.validate_input
@@ -1534,7 +1536,7 @@ module AWS::SDK::Lambda
     def delete_code_signing_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCodeSigningConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCodeSigningConfigInput,
         validate_input: @config.validate_input
@@ -1643,7 +1645,7 @@ module AWS::SDK::Lambda
     def delete_event_source_mapping(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEventSourceMappingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEventSourceMappingInput,
         validate_input: @config.validate_input
@@ -1738,7 +1740,7 @@ module AWS::SDK::Lambda
     def delete_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFunctionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFunctionInput,
         validate_input: @config.validate_input
@@ -1824,7 +1826,7 @@ module AWS::SDK::Lambda
     def delete_function_code_signing_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFunctionCodeSigningConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFunctionCodeSigningConfigInput,
         validate_input: @config.validate_input
@@ -1910,7 +1912,7 @@ module AWS::SDK::Lambda
     def delete_function_concurrency(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFunctionConcurrencyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFunctionConcurrencyInput,
         validate_input: @config.validate_input
@@ -2001,7 +2003,7 @@ module AWS::SDK::Lambda
     def delete_function_event_invoke_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFunctionEventInvokeConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFunctionEventInvokeConfigInput,
         validate_input: @config.validate_input
@@ -2092,7 +2094,7 @@ module AWS::SDK::Lambda
     def delete_function_url_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFunctionUrlConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFunctionUrlConfigInput,
         validate_input: @config.validate_input
@@ -2165,7 +2167,7 @@ module AWS::SDK::Lambda
     def delete_layer_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLayerVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLayerVersionInput,
         validate_input: @config.validate_input
@@ -2255,7 +2257,7 @@ module AWS::SDK::Lambda
     def delete_provisioned_concurrency_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteProvisionedConcurrencyConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteProvisionedConcurrencyConfigInput,
         validate_input: @config.validate_input
@@ -2326,7 +2328,7 @@ module AWS::SDK::Lambda
     def get_account_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAccountSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAccountSettingsInput,
         validate_input: @config.validate_input
@@ -2424,7 +2426,7 @@ module AWS::SDK::Lambda
     def get_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAliasInput,
         validate_input: @config.validate_input
@@ -2501,7 +2503,7 @@ module AWS::SDK::Lambda
     def get_code_signing_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCodeSigningConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCodeSigningConfigInput,
         validate_input: @config.validate_input
@@ -2608,7 +2610,7 @@ module AWS::SDK::Lambda
     def get_event_source_mapping(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEventSourceMappingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEventSourceMappingInput,
         validate_input: @config.validate_input
@@ -2773,7 +2775,7 @@ module AWS::SDK::Lambda
     def get_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFunctionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFunctionInput,
         validate_input: @config.validate_input
@@ -2861,7 +2863,7 @@ module AWS::SDK::Lambda
     def get_function_code_signing_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFunctionCodeSigningConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFunctionCodeSigningConfigInput,
         validate_input: @config.validate_input
@@ -2949,7 +2951,7 @@ module AWS::SDK::Lambda
     def get_function_concurrency(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFunctionConcurrencyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFunctionConcurrencyInput,
         validate_input: @config.validate_input
@@ -3104,7 +3106,7 @@ module AWS::SDK::Lambda
     def get_function_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFunctionConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFunctionConfigurationInput,
         validate_input: @config.validate_input
@@ -3204,7 +3206,7 @@ module AWS::SDK::Lambda
     def get_function_event_invoke_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFunctionEventInvokeConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFunctionEventInvokeConfigInput,
         validate_input: @config.validate_input
@@ -3309,7 +3311,7 @@ module AWS::SDK::Lambda
     def get_function_url_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFunctionUrlConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFunctionUrlConfigInput,
         validate_input: @config.validate_input
@@ -3398,7 +3400,7 @@ module AWS::SDK::Lambda
     def get_layer_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLayerVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLayerVersionInput,
         validate_input: @config.validate_input
@@ -3483,7 +3485,7 @@ module AWS::SDK::Lambda
     def get_layer_version_by_arn(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLayerVersionByArnInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLayerVersionByArnInput,
         validate_input: @config.validate_input
@@ -3557,7 +3559,7 @@ module AWS::SDK::Lambda
     def get_layer_version_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLayerVersionPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLayerVersionPolicyInput,
         validate_input: @config.validate_input
@@ -3649,7 +3651,7 @@ module AWS::SDK::Lambda
     def get_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPolicyInput,
         validate_input: @config.validate_input
@@ -3745,7 +3747,7 @@ module AWS::SDK::Lambda
     def get_provisioned_concurrency_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetProvisionedConcurrencyConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetProvisionedConcurrencyConfigInput,
         validate_input: @config.validate_input
@@ -3904,7 +3906,7 @@ module AWS::SDK::Lambda
     def invoke(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::InvokeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::InvokeInput,
         validate_input: @config.validate_input
@@ -4001,7 +4003,7 @@ module AWS::SDK::Lambda
     def invoke_async(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::InvokeAsyncInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::InvokeAsyncInput,
         validate_input: @config.validate_input
@@ -4112,7 +4114,7 @@ module AWS::SDK::Lambda
     def list_aliases(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAliasesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAliasesInput,
         validate_input: @config.validate_input
@@ -4197,7 +4199,7 @@ module AWS::SDK::Lambda
     def list_code_signing_configs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCodeSigningConfigsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCodeSigningConfigsInput,
         validate_input: @config.validate_input
@@ -4361,7 +4363,7 @@ module AWS::SDK::Lambda
     def list_event_source_mappings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEventSourceMappingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEventSourceMappingsInput,
         validate_input: @config.validate_input
@@ -4468,7 +4470,7 @@ module AWS::SDK::Lambda
     def list_function_event_invoke_configs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFunctionEventInvokeConfigsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFunctionEventInvokeConfigsInput,
         validate_input: @config.validate_input
@@ -4581,7 +4583,7 @@ module AWS::SDK::Lambda
     def list_function_url_configs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFunctionUrlConfigsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFunctionUrlConfigsInput,
         validate_input: @config.validate_input
@@ -4737,7 +4739,7 @@ module AWS::SDK::Lambda
     def list_functions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFunctionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFunctionsInput,
         validate_input: @config.validate_input
@@ -4816,7 +4818,7 @@ module AWS::SDK::Lambda
     def list_functions_by_code_signing_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFunctionsByCodeSigningConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFunctionsByCodeSigningConfigInput,
         validate_input: @config.validate_input
@@ -4915,7 +4917,7 @@ module AWS::SDK::Lambda
     def list_layer_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListLayerVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLayerVersionsInput,
         validate_input: @config.validate_input
@@ -5015,7 +5017,7 @@ module AWS::SDK::Lambda
     def list_layers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListLayersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLayersInput,
         validate_input: @config.validate_input
@@ -5119,7 +5121,7 @@ module AWS::SDK::Lambda
     def list_provisioned_concurrency_configs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListProvisionedConcurrencyConfigsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListProvisionedConcurrencyConfigsInput,
         validate_input: @config.validate_input
@@ -5190,7 +5192,7 @@ module AWS::SDK::Lambda
     def list_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsInput,
         validate_input: @config.validate_input
@@ -5352,7 +5354,7 @@ module AWS::SDK::Lambda
     def list_versions_by_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListVersionsByFunctionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListVersionsByFunctionInput,
         validate_input: @config.validate_input
@@ -5482,7 +5484,7 @@ module AWS::SDK::Lambda
     def publish_layer_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PublishLayerVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PublishLayerVersionInput,
         validate_input: @config.validate_input
@@ -5655,7 +5657,7 @@ module AWS::SDK::Lambda
     def publish_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PublishVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PublishVersionInput,
         validate_input: @config.validate_input
@@ -5749,7 +5751,7 @@ module AWS::SDK::Lambda
     def put_function_code_signing_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutFunctionCodeSigningConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutFunctionCodeSigningConfigInput,
         validate_input: @config.validate_input
@@ -5849,7 +5851,7 @@ module AWS::SDK::Lambda
     def put_function_concurrency(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutFunctionConcurrencyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutFunctionConcurrencyInput,
         validate_input: @config.validate_input
@@ -5999,7 +6001,7 @@ module AWS::SDK::Lambda
     def put_function_event_invoke_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutFunctionEventInvokeConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutFunctionEventInvokeConfigInput,
         validate_input: @config.validate_input
@@ -6100,7 +6102,7 @@ module AWS::SDK::Lambda
     def put_provisioned_concurrency_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutProvisionedConcurrencyConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutProvisionedConcurrencyConfigInput,
         validate_input: @config.validate_input
@@ -6183,7 +6185,7 @@ module AWS::SDK::Lambda
     def remove_layer_version_permission(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveLayerVersionPermissionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveLayerVersionPermissionInput,
         validate_input: @config.validate_input
@@ -6283,7 +6285,7 @@ module AWS::SDK::Lambda
     def remove_permission(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemovePermissionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemovePermissionInput,
         validate_input: @config.validate_input
@@ -6356,7 +6358,7 @@ module AWS::SDK::Lambda
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -6430,7 +6432,7 @@ module AWS::SDK::Lambda
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -6550,7 +6552,7 @@ module AWS::SDK::Lambda
     def update_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAliasInput,
         validate_input: @config.validate_input
@@ -6647,7 +6649,7 @@ module AWS::SDK::Lambda
     def update_code_signing_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateCodeSigningConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateCodeSigningConfigInput,
         validate_input: @config.validate_input
@@ -6983,7 +6985,7 @@ module AWS::SDK::Lambda
     def update_event_source_mapping(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateEventSourceMappingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateEventSourceMappingInput,
         validate_input: @config.validate_input
@@ -7199,7 +7201,7 @@ module AWS::SDK::Lambda
     def update_function_code(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFunctionCodeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFunctionCodeInput,
         validate_input: @config.validate_input
@@ -7471,7 +7473,7 @@ module AWS::SDK::Lambda
     def update_function_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFunctionConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFunctionConfigurationInput,
         validate_input: @config.validate_input
@@ -7612,7 +7614,7 @@ module AWS::SDK::Lambda
     def update_function_event_invoke_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFunctionEventInvokeConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFunctionEventInvokeConfigInput,
         validate_input: @config.validate_input
@@ -7741,7 +7743,7 @@ module AWS::SDK::Lambda
     def update_function_url_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFunctionUrlConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFunctionUrlConfigInput,
         validate_input: @config.validate_input

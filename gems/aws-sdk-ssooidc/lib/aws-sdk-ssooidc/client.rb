@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::SSOOIDC
@@ -115,7 +117,7 @@ module AWS::SDK::SSOOIDC
     def create_token(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTokenInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTokenInput,
         validate_input: @config.validate_input
@@ -201,7 +203,7 @@ module AWS::SDK::SSOOIDC
     def register_client(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterClientInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterClientInput,
         validate_input: @config.validate_input
@@ -287,7 +289,7 @@ module AWS::SDK::SSOOIDC
     def start_device_authorization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartDeviceAuthorizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartDeviceAuthorizationInput,
         validate_input: @config.validate_input

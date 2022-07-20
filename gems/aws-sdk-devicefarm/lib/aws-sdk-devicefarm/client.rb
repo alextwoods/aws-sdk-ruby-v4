@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::DeviceFarm
@@ -109,7 +111,7 @@ module AWS::SDK::DeviceFarm
     def create_device_pool(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDevicePoolInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDevicePoolInput,
         validate_input: @config.validate_input
@@ -209,7 +211,7 @@ module AWS::SDK::DeviceFarm
     def create_instance_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateInstanceProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateInstanceProfileInput,
         validate_input: @config.validate_input
@@ -342,7 +344,7 @@ module AWS::SDK::DeviceFarm
     def create_network_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateNetworkProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateNetworkProfileInput,
         validate_input: @config.validate_input
@@ -420,7 +422,7 @@ module AWS::SDK::DeviceFarm
     def create_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateProjectInput,
         validate_input: @config.validate_input
@@ -637,7 +639,7 @@ module AWS::SDK::DeviceFarm
     def create_remote_access_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRemoteAccessSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRemoteAccessSessionInput,
         validate_input: @config.validate_input
@@ -733,7 +735,7 @@ module AWS::SDK::DeviceFarm
     def create_test_grid_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTestGridProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTestGridProjectInput,
         validate_input: @config.validate_input
@@ -809,7 +811,7 @@ module AWS::SDK::DeviceFarm
     def create_test_grid_url(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTestGridUrlInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTestGridUrlInput,
         validate_input: @config.validate_input
@@ -1004,7 +1006,7 @@ module AWS::SDK::DeviceFarm
     def create_upload(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateUploadInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateUploadInput,
         validate_input: @config.validate_input
@@ -1093,7 +1095,7 @@ module AWS::SDK::DeviceFarm
     def create_vpce_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateVPCEConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateVPCEConfigurationInput,
         validate_input: @config.validate_input
@@ -1162,7 +1164,7 @@ module AWS::SDK::DeviceFarm
     def delete_device_pool(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDevicePoolInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDevicePoolInput,
         validate_input: @config.validate_input
@@ -1231,7 +1233,7 @@ module AWS::SDK::DeviceFarm
     def delete_instance_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteInstanceProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteInstanceProfileInput,
         validate_input: @config.validate_input
@@ -1299,7 +1301,7 @@ module AWS::SDK::DeviceFarm
     def delete_network_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteNetworkProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteNetworkProfileInput,
         validate_input: @config.validate_input
@@ -1368,7 +1370,7 @@ module AWS::SDK::DeviceFarm
     def delete_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteProjectInput,
         validate_input: @config.validate_input
@@ -1437,7 +1439,7 @@ module AWS::SDK::DeviceFarm
     def delete_remote_access_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRemoteAccessSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRemoteAccessSessionInput,
         validate_input: @config.validate_input
@@ -1506,7 +1508,7 @@ module AWS::SDK::DeviceFarm
     def delete_run(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRunInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRunInput,
         validate_input: @config.validate_input
@@ -1580,7 +1582,7 @@ module AWS::SDK::DeviceFarm
     def delete_test_grid_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTestGridProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTestGridProjectInput,
         validate_input: @config.validate_input
@@ -1648,7 +1650,7 @@ module AWS::SDK::DeviceFarm
     def delete_upload(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteUploadInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteUploadInput,
         validate_input: @config.validate_input
@@ -1717,7 +1719,7 @@ module AWS::SDK::DeviceFarm
     def delete_vpce_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVPCEConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVPCEConfigurationInput,
         validate_input: @config.validate_input
@@ -1794,7 +1796,7 @@ module AWS::SDK::DeviceFarm
     def get_account_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAccountSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAccountSettingsInput,
         validate_input: @config.validate_input
@@ -1904,7 +1906,7 @@ module AWS::SDK::DeviceFarm
     def get_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDeviceInput,
         validate_input: @config.validate_input
@@ -1988,7 +1990,7 @@ module AWS::SDK::DeviceFarm
     def get_device_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDeviceInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDeviceInstanceInput,
         validate_input: @config.validate_input
@@ -2067,7 +2069,7 @@ module AWS::SDK::DeviceFarm
     def get_device_pool(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDevicePoolInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDevicePoolInput,
         validate_input: @config.validate_input
@@ -2296,7 +2298,7 @@ module AWS::SDK::DeviceFarm
     def get_device_pool_compatibility(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDevicePoolCompatibilityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDevicePoolCompatibilityInput,
         validate_input: @config.validate_input
@@ -2372,7 +2374,7 @@ module AWS::SDK::DeviceFarm
     def get_instance_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetInstanceProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetInstanceProfileInput,
         validate_input: @config.validate_input
@@ -2507,7 +2509,7 @@ module AWS::SDK::DeviceFarm
     def get_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetJobInput,
         validate_input: @config.validate_input
@@ -2588,7 +2590,7 @@ module AWS::SDK::DeviceFarm
     def get_network_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetNetworkProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetNetworkProfileInput,
         validate_input: @config.validate_input
@@ -2678,7 +2680,7 @@ module AWS::SDK::DeviceFarm
     def get_offering_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetOfferingStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetOfferingStatusInput,
         validate_input: @config.validate_input
@@ -2751,7 +2753,7 @@ module AWS::SDK::DeviceFarm
     def get_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetProjectInput,
         validate_input: @config.validate_input
@@ -2886,7 +2888,7 @@ module AWS::SDK::DeviceFarm
     def get_remote_access_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRemoteAccessSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRemoteAccessSessionInput,
         validate_input: @config.validate_input
@@ -3028,7 +3030,7 @@ module AWS::SDK::DeviceFarm
     def get_run(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRunInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRunInput,
         validate_input: @config.validate_input
@@ -3118,7 +3120,7 @@ module AWS::SDK::DeviceFarm
     def get_suite(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSuiteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSuiteInput,
         validate_input: @config.validate_input
@@ -3208,7 +3210,7 @@ module AWS::SDK::DeviceFarm
     def get_test(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTestInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTestInput,
         validate_input: @config.validate_input
@@ -3287,7 +3289,7 @@ module AWS::SDK::DeviceFarm
     def get_test_grid_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTestGridProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTestGridProjectInput,
         validate_input: @config.validate_input
@@ -3379,7 +3381,7 @@ module AWS::SDK::DeviceFarm
     def get_test_grid_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTestGridSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTestGridSessionInput,
         validate_input: @config.validate_input
@@ -3458,7 +3460,7 @@ module AWS::SDK::DeviceFarm
     def get_upload(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetUploadInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetUploadInput,
         validate_input: @config.validate_input
@@ -3534,7 +3536,7 @@ module AWS::SDK::DeviceFarm
     def get_vpce_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetVPCEConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetVPCEConfigurationInput,
         validate_input: @config.validate_input
@@ -3620,7 +3622,7 @@ module AWS::SDK::DeviceFarm
     def install_to_remote_access_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::InstallToRemoteAccessSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::InstallToRemoteAccessSessionInput,
         validate_input: @config.validate_input
@@ -3717,7 +3719,7 @@ module AWS::SDK::DeviceFarm
     def list_artifacts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListArtifactsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListArtifactsInput,
         validate_input: @config.validate_input
@@ -3808,7 +3810,7 @@ module AWS::SDK::DeviceFarm
     def list_device_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDeviceInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDeviceInstancesInput,
         validate_input: @config.validate_input
@@ -3909,7 +3911,7 @@ module AWS::SDK::DeviceFarm
     def list_device_pools(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDevicePoolsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDevicePoolsInput,
         validate_input: @config.validate_input
@@ -4128,7 +4130,7 @@ module AWS::SDK::DeviceFarm
     def list_devices(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDevicesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDevicesInput,
         validate_input: @config.validate_input
@@ -4211,7 +4213,7 @@ module AWS::SDK::DeviceFarm
     def list_instance_profiles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListInstanceProfilesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListInstanceProfilesInput,
         validate_input: @config.validate_input
@@ -4353,7 +4355,7 @@ module AWS::SDK::DeviceFarm
     def list_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListJobsInput,
         validate_input: @config.validate_input
@@ -4446,7 +4448,7 @@ module AWS::SDK::DeviceFarm
     def list_network_profiles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListNetworkProfilesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListNetworkProfilesInput,
         validate_input: @config.validate_input
@@ -4522,7 +4524,7 @@ module AWS::SDK::DeviceFarm
     def list_offering_promotions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListOfferingPromotionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListOfferingPromotionsInput,
         validate_input: @config.validate_input
@@ -4616,7 +4618,7 @@ module AWS::SDK::DeviceFarm
     def list_offering_transactions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListOfferingTransactionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListOfferingTransactionsInput,
         validate_input: @config.validate_input
@@ -4701,7 +4703,7 @@ module AWS::SDK::DeviceFarm
     def list_offerings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListOfferingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListOfferingsInput,
         validate_input: @config.validate_input
@@ -4783,7 +4785,7 @@ module AWS::SDK::DeviceFarm
     def list_projects(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListProjectsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListProjectsInput,
         validate_input: @config.validate_input
@@ -4925,7 +4927,7 @@ module AWS::SDK::DeviceFarm
     def list_remote_access_sessions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRemoteAccessSessionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRemoteAccessSessionsInput,
         validate_input: @config.validate_input
@@ -5075,7 +5077,7 @@ module AWS::SDK::DeviceFarm
     def list_runs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRunsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRunsInput,
         validate_input: @config.validate_input
@@ -5154,7 +5156,7 @@ module AWS::SDK::DeviceFarm
     def list_samples(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSamplesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSamplesInput,
         validate_input: @config.validate_input
@@ -5251,7 +5253,7 @@ module AWS::SDK::DeviceFarm
     def list_suites(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSuitesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSuitesInput,
         validate_input: @config.validate_input
@@ -5327,7 +5329,7 @@ module AWS::SDK::DeviceFarm
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -5412,7 +5414,7 @@ module AWS::SDK::DeviceFarm
     def list_test_grid_projects(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTestGridProjectsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTestGridProjectsInput,
         validate_input: @config.validate_input
@@ -5496,7 +5498,7 @@ module AWS::SDK::DeviceFarm
     def list_test_grid_session_actions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTestGridSessionActionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTestGridSessionActionsInput,
         validate_input: @config.validate_input
@@ -5582,7 +5584,7 @@ module AWS::SDK::DeviceFarm
     def list_test_grid_session_artifacts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTestGridSessionArtifactsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTestGridSessionArtifactsInput,
         validate_input: @config.validate_input
@@ -5687,7 +5689,7 @@ module AWS::SDK::DeviceFarm
     def list_test_grid_sessions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTestGridSessionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTestGridSessionsInput,
         validate_input: @config.validate_input
@@ -5784,7 +5786,7 @@ module AWS::SDK::DeviceFarm
     def list_tests(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTestsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTestsInput,
         validate_input: @config.validate_input
@@ -5918,7 +5920,7 @@ module AWS::SDK::DeviceFarm
     def list_unique_problems(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListUniqueProblemsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListUniqueProblemsInput,
         validate_input: @config.validate_input
@@ -6108,7 +6110,7 @@ module AWS::SDK::DeviceFarm
     def list_uploads(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListUploadsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListUploadsInput,
         validate_input: @config.validate_input
@@ -6190,7 +6192,7 @@ module AWS::SDK::DeviceFarm
     def list_vpce_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListVPCEConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListVPCEConfigurationsInput,
         validate_input: @config.validate_input
@@ -6289,7 +6291,7 @@ module AWS::SDK::DeviceFarm
     def purchase_offering(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PurchaseOfferingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PurchaseOfferingInput,
         validate_input: @config.validate_input
@@ -6383,7 +6385,7 @@ module AWS::SDK::DeviceFarm
     def renew_offering(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RenewOfferingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RenewOfferingInput,
         validate_input: @config.validate_input
@@ -6616,7 +6618,7 @@ module AWS::SDK::DeviceFarm
     def schedule_run(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ScheduleRunInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ScheduleRunInput,
         validate_input: @config.validate_input
@@ -6754,7 +6756,7 @@ module AWS::SDK::DeviceFarm
     def stop_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopJobInput,
         validate_input: @config.validate_input
@@ -6888,7 +6890,7 @@ module AWS::SDK::DeviceFarm
     def stop_remote_access_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopRemoteAccessSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopRemoteAccessSessionInput,
         validate_input: @config.validate_input
@@ -7033,7 +7035,7 @@ module AWS::SDK::DeviceFarm
     def stop_run(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopRunInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopRunInput,
         validate_input: @config.validate_input
@@ -7117,7 +7119,7 @@ module AWS::SDK::DeviceFarm
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -7195,7 +7197,7 @@ module AWS::SDK::DeviceFarm
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -7288,7 +7290,7 @@ module AWS::SDK::DeviceFarm
     def update_device_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDeviceInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDeviceInstanceInput,
         validate_input: @config.validate_input
@@ -7408,7 +7410,7 @@ module AWS::SDK::DeviceFarm
     def update_device_pool(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDevicePoolInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDevicePoolInput,
         validate_input: @config.validate_input
@@ -7511,7 +7513,7 @@ module AWS::SDK::DeviceFarm
     def update_instance_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateInstanceProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateInstanceProfileInput,
         validate_input: @config.validate_input
@@ -7646,7 +7648,7 @@ module AWS::SDK::DeviceFarm
     def update_network_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateNetworkProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateNetworkProfileInput,
         validate_input: @config.validate_input
@@ -7728,7 +7730,7 @@ module AWS::SDK::DeviceFarm
     def update_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateProjectInput,
         validate_input: @config.validate_input
@@ -7827,7 +7829,7 @@ module AWS::SDK::DeviceFarm
     def update_test_grid_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTestGridProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTestGridProjectInput,
         validate_input: @config.validate_input
@@ -7919,7 +7921,7 @@ module AWS::SDK::DeviceFarm
     def update_upload(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateUploadInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateUploadInput,
         validate_input: @config.validate_input
@@ -8012,7 +8014,7 @@ module AWS::SDK::DeviceFarm
     def update_vpce_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateVPCEConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateVPCEConfigurationInput,
         validate_input: @config.validate_input

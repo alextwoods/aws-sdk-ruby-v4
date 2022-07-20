@@ -140,11 +140,11 @@ module AWS::SDK::SSOOIDC
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.expires_in ||= 0
       end
-
     end
 
     # <p>Indicates that the token issued by the service is expired and is no longer valid.</p>
@@ -343,12 +343,12 @@ module AWS::SDK::SSOOIDC
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.client_id_issued_at ||= 0
         self.client_secret_expires_at ||= 0
       end
-
     end
 
     # <p>Indicates that the client is making the request too frequently and is more than the service can handle. </p>
@@ -439,12 +439,12 @@ module AWS::SDK::SSOOIDC
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.expires_in ||= 0
         self.interval ||= 0
       end
-
     end
 
     # <p>Indicates that the client is not currently authorized to make the request. This can happen

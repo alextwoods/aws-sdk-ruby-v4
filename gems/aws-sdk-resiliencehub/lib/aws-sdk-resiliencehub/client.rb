@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Resiliencehub
@@ -103,7 +105,7 @@ module AWS::SDK::Resiliencehub
     def add_draft_app_version_resource_mappings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddDraftAppVersionResourceMappingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddDraftAppVersionResourceMappingsInput,
         validate_input: @config.validate_input
@@ -224,7 +226,7 @@ module AWS::SDK::Resiliencehub
     def create_app(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAppInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAppInput,
         validate_input: @config.validate_input
@@ -376,7 +378,7 @@ module AWS::SDK::Resiliencehub
     def create_recommendation_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRecommendationTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRecommendationTemplateInput,
         validate_input: @config.validate_input
@@ -494,7 +496,7 @@ module AWS::SDK::Resiliencehub
     def create_resiliency_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateResiliencyPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateResiliencyPolicyInput,
         validate_input: @config.validate_input
@@ -577,7 +579,7 @@ module AWS::SDK::Resiliencehub
     def delete_app(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAppInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAppInput,
         validate_input: @config.validate_input
@@ -657,7 +659,7 @@ module AWS::SDK::Resiliencehub
     def delete_app_assessment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAppAssessmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAppAssessmentInput,
         validate_input: @config.validate_input
@@ -733,7 +735,7 @@ module AWS::SDK::Resiliencehub
     def delete_recommendation_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRecommendationTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRecommendationTemplateInput,
         validate_input: @config.validate_input
@@ -811,7 +813,7 @@ module AWS::SDK::Resiliencehub
     def delete_resiliency_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteResiliencyPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteResiliencyPolicyInput,
         validate_input: @config.validate_input
@@ -897,7 +899,7 @@ module AWS::SDK::Resiliencehub
     def describe_app(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAppInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAppInput,
         validate_input: @config.validate_input
@@ -1022,7 +1024,7 @@ module AWS::SDK::Resiliencehub
     def describe_app_assessment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAppAssessmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAppAssessmentInput,
         validate_input: @config.validate_input
@@ -1109,7 +1111,7 @@ module AWS::SDK::Resiliencehub
     def describe_app_version_resources_resolution_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAppVersionResourcesResolutionStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAppVersionResourcesResolutionStatusInput,
         validate_input: @config.validate_input
@@ -1188,7 +1190,7 @@ module AWS::SDK::Resiliencehub
     def describe_app_version_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAppVersionTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAppVersionTemplateInput,
         validate_input: @config.validate_input
@@ -1265,7 +1267,7 @@ module AWS::SDK::Resiliencehub
     def describe_draft_app_version_resources_import_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDraftAppVersionResourcesImportStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDraftAppVersionResourcesImportStatusInput,
         validate_input: @config.validate_input
@@ -1353,7 +1355,7 @@ module AWS::SDK::Resiliencehub
     def describe_resiliency_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeResiliencyPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeResiliencyPolicyInput,
         validate_input: @config.validate_input
@@ -1450,7 +1452,7 @@ module AWS::SDK::Resiliencehub
     def import_resources_to_draft_app_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ImportResourcesToDraftAppVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ImportResourcesToDraftAppVersionInput,
         validate_input: @config.validate_input
@@ -1547,7 +1549,7 @@ module AWS::SDK::Resiliencehub
     def list_alarm_recommendations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAlarmRecommendationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAlarmRecommendationsInput,
         validate_input: @config.validate_input
@@ -1671,7 +1673,7 @@ module AWS::SDK::Resiliencehub
     def list_app_assessments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAppAssessmentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAppAssessmentsInput,
         validate_input: @config.validate_input
@@ -1777,7 +1779,7 @@ module AWS::SDK::Resiliencehub
     def list_app_component_compliances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAppComponentCompliancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAppComponentCompliancesInput,
         validate_input: @config.validate_input
@@ -1896,7 +1898,7 @@ module AWS::SDK::Resiliencehub
     def list_app_component_recommendations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAppComponentRecommendationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAppComponentRecommendationsInput,
         validate_input: @config.validate_input
@@ -1997,7 +1999,7 @@ module AWS::SDK::Resiliencehub
     def list_app_version_resource_mappings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAppVersionResourceMappingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAppVersionResourceMappingsInput,
         validate_input: @config.validate_input
@@ -2106,7 +2108,7 @@ module AWS::SDK::Resiliencehub
     def list_app_version_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAppVersionResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAppVersionResourcesInput,
         validate_input: @config.validate_input
@@ -2191,7 +2193,7 @@ module AWS::SDK::Resiliencehub
     def list_app_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAppVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAppVersionsInput,
         validate_input: @config.validate_input
@@ -2286,7 +2288,7 @@ module AWS::SDK::Resiliencehub
     def list_apps(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAppsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAppsInput,
         validate_input: @config.validate_input
@@ -2407,7 +2409,7 @@ module AWS::SDK::Resiliencehub
     def list_recommendation_templates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRecommendationTemplatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRecommendationTemplatesInput,
         validate_input: @config.validate_input
@@ -2499,7 +2501,7 @@ module AWS::SDK::Resiliencehub
     def list_resiliency_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListResiliencyPoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListResiliencyPoliciesInput,
         validate_input: @config.validate_input
@@ -2596,7 +2598,7 @@ module AWS::SDK::Resiliencehub
     def list_sop_recommendations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSopRecommendationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSopRecommendationsInput,
         validate_input: @config.validate_input
@@ -2685,7 +2687,7 @@ module AWS::SDK::Resiliencehub
     def list_suggested_resiliency_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSuggestedResiliencyPoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSuggestedResiliencyPoliciesInput,
         validate_input: @config.validate_input
@@ -2755,7 +2757,7 @@ module AWS::SDK::Resiliencehub
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2855,7 +2857,7 @@ module AWS::SDK::Resiliencehub
     def list_test_recommendations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTestRecommendationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTestRecommendationsInput,
         validate_input: @config.validate_input
@@ -2961,7 +2963,7 @@ module AWS::SDK::Resiliencehub
     def list_unsupported_app_version_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListUnsupportedAppVersionResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListUnsupportedAppVersionResourcesInput,
         validate_input: @config.validate_input
@@ -3035,7 +3037,7 @@ module AWS::SDK::Resiliencehub
     def publish_app_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PublishAppVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PublishAppVersionInput,
         validate_input: @config.validate_input
@@ -3113,7 +3115,7 @@ module AWS::SDK::Resiliencehub
     def put_draft_app_version_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutDraftAppVersionTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutDraftAppVersionTemplateInput,
         validate_input: @config.validate_input
@@ -3210,7 +3212,7 @@ module AWS::SDK::Resiliencehub
     def remove_draft_app_version_resource_mappings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveDraftAppVersionResourceMappingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveDraftAppVersionResourceMappingsInput,
         validate_input: @config.validate_input
@@ -3290,7 +3292,7 @@ module AWS::SDK::Resiliencehub
     def resolve_app_version_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResolveAppVersionResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResolveAppVersionResourcesInput,
         validate_input: @config.validate_input
@@ -3435,7 +3437,7 @@ module AWS::SDK::Resiliencehub
     def start_app_assessment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartAppAssessmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartAppAssessmentInput,
         validate_input: @config.validate_input
@@ -3509,7 +3511,7 @@ module AWS::SDK::Resiliencehub
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -3583,7 +3585,7 @@ module AWS::SDK::Resiliencehub
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -3690,7 +3692,7 @@ module AWS::SDK::Resiliencehub
     def update_app(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAppInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAppInput,
         validate_input: @config.validate_input
@@ -3804,7 +3806,7 @@ module AWS::SDK::Resiliencehub
     def update_resiliency_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateResiliencyPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateResiliencyPolicyInput,
         validate_input: @config.validate_input

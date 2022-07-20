@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::XRay
   module Validators
 
@@ -14,7 +16,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Alias, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::AliasNames.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
+        AliasNames.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
       end
     end
@@ -23,7 +25,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Alias.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Alias.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -77,7 +79,7 @@ module AWS::SDK::XRay
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::ValuesWithServiceIds.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          ValuesWithServiceIds.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -85,7 +87,7 @@ module AWS::SDK::XRay
     class AnomalousService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AnomalousService, context: context)
-        Validators::ServiceId.validate!(input[:service_id], context: "#{context}[:service_id]") unless input[:service_id].nil?
+        ServiceId.validate!(input[:service_id], context: "#{context}[:service_id]") unless input[:service_id].nil?
       end
     end
 
@@ -93,7 +95,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AnomalousService.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AnomalousService.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -130,7 +132,7 @@ module AWS::SDK::XRay
     class BatchGetTracesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetTracesInput, context: context)
-        Validators::TraceIdList.validate!(input[:trace_ids], context: "#{context}[:trace_ids]") unless input[:trace_ids].nil?
+        TraceIdList.validate!(input[:trace_ids], context: "#{context}[:trace_ids]") unless input[:trace_ids].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -138,8 +140,8 @@ module AWS::SDK::XRay
     class BatchGetTracesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetTracesOutput, context: context)
-        Validators::TraceList.validate!(input[:traces], context: "#{context}[:traces]") unless input[:traces].nil?
-        Validators::UnprocessedTraceIdList.validate!(input[:unprocessed_trace_ids], context: "#{context}[:unprocessed_trace_ids]") unless input[:unprocessed_trace_ids].nil?
+        TraceList.validate!(input[:traces], context: "#{context}[:traces]") unless input[:traces].nil?
+        UnprocessedTraceIdList.validate!(input[:unprocessed_trace_ids], context: "#{context}[:unprocessed_trace_ids]") unless input[:unprocessed_trace_ids].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -149,30 +151,30 @@ module AWS::SDK::XRay
         Hearth::Validator.validate!(input, Types::CreateGroupInput, context: context)
         Hearth::Validator.validate!(input[:group_name], ::String, context: "#{context}[:group_name]")
         Hearth::Validator.validate!(input[:filter_expression], ::String, context: "#{context}[:filter_expression]")
-        Validators::InsightsConfiguration.validate!(input[:insights_configuration], context: "#{context}[:insights_configuration]") unless input[:insights_configuration].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        InsightsConfiguration.validate!(input[:insights_configuration], context: "#{context}[:insights_configuration]") unless input[:insights_configuration].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateGroupOutput, context: context)
-        Validators::Group.validate!(input[:group], context: "#{context}[:group]") unless input[:group].nil?
+        Group.validate!(input[:group], context: "#{context}[:group]") unless input[:group].nil?
       end
     end
 
     class CreateSamplingRuleInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateSamplingRuleInput, context: context)
-        Validators::SamplingRule.validate!(input[:sampling_rule], context: "#{context}[:sampling_rule]") unless input[:sampling_rule].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        SamplingRule.validate!(input[:sampling_rule], context: "#{context}[:sampling_rule]") unless input[:sampling_rule].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateSamplingRuleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateSamplingRuleOutput, context: context)
-        Validators::SamplingRuleRecord.validate!(input[:sampling_rule_record], context: "#{context}[:sampling_rule_record]") unless input[:sampling_rule_record].nil?
+        SamplingRuleRecord.validate!(input[:sampling_rule_record], context: "#{context}[:sampling_rule_record]") unless input[:sampling_rule_record].nil?
       end
     end
 
@@ -201,7 +203,7 @@ module AWS::SDK::XRay
     class DeleteSamplingRuleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteSamplingRuleOutput, context: context)
-        Validators::SamplingRuleRecord.validate!(input[:sampling_rule_record], context: "#{context}[:sampling_rule_record]") unless input[:sampling_rule_record].nil?
+        SamplingRuleRecord.validate!(input[:sampling_rule_record], context: "#{context}[:sampling_rule_record]") unless input[:sampling_rule_record].nil?
       end
     end
 
@@ -211,9 +213,9 @@ module AWS::SDK::XRay
         Hearth::Validator.validate!(input[:reference_id], ::Integer, context: "#{context}[:reference_id]")
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
-        Validators::EdgeStatistics.validate!(input[:summary_statistics], context: "#{context}[:summary_statistics]") unless input[:summary_statistics].nil?
-        Validators::Histogram.validate!(input[:response_time_histogram], context: "#{context}[:response_time_histogram]") unless input[:response_time_histogram].nil?
-        Validators::AliasList.validate!(input[:aliases], context: "#{context}[:aliases]") unless input[:aliases].nil?
+        EdgeStatistics.validate!(input[:summary_statistics], context: "#{context}[:summary_statistics]") unless input[:summary_statistics].nil?
+        Histogram.validate!(input[:response_time_histogram], context: "#{context}[:response_time_histogram]") unless input[:response_time_histogram].nil?
+        AliasList.validate!(input[:aliases], context: "#{context}[:aliases]") unless input[:aliases].nil?
       end
     end
 
@@ -221,7 +223,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Edge.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Edge.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -230,8 +232,8 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EdgeStatistics, context: context)
         Hearth::Validator.validate!(input[:ok_count], ::Integer, context: "#{context}[:ok_count]")
-        Validators::ErrorStatistics.validate!(input[:error_statistics], context: "#{context}[:error_statistics]") unless input[:error_statistics].nil?
-        Validators::FaultStatistics.validate!(input[:fault_statistics], context: "#{context}[:fault_statistics]") unless input[:fault_statistics].nil?
+        ErrorStatistics.validate!(input[:error_statistics], context: "#{context}[:error_statistics]") unless input[:error_statistics].nil?
+        FaultStatistics.validate!(input[:fault_statistics], context: "#{context}[:fault_statistics]") unless input[:fault_statistics].nil?
         Hearth::Validator.validate!(input[:total_count], ::Integer, context: "#{context}[:total_count]")
         Hearth::Validator.validate!(input[:total_response_time], ::Float, context: "#{context}[:total_response_time]")
       end
@@ -249,7 +251,7 @@ module AWS::SDK::XRay
     class ErrorRootCause
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ErrorRootCause, context: context)
-        Validators::ErrorRootCauseServices.validate!(input[:services], context: "#{context}[:services]") unless input[:services].nil?
+        ErrorRootCauseServices.validate!(input[:services], context: "#{context}[:services]") unless input[:services].nil?
         Hearth::Validator.validate!(input[:client_impacting], ::TrueClass, ::FalseClass, context: "#{context}[:client_impacting]")
       end
     end
@@ -258,7 +260,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ErrorRootCauseEntity, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::RootCauseExceptions.validate!(input[:exceptions], context: "#{context}[:exceptions]") unless input[:exceptions].nil?
+        RootCauseExceptions.validate!(input[:exceptions], context: "#{context}[:exceptions]") unless input[:exceptions].nil?
         Hearth::Validator.validate!(input[:remote], ::TrueClass, ::FalseClass, context: "#{context}[:remote]")
       end
     end
@@ -267,7 +269,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ErrorRootCauseEntity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ErrorRootCauseEntity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -276,10 +278,10 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ErrorRootCauseService, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ServiceNames.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
+        ServiceNames.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
-        Validators::ErrorRootCauseEntityPath.validate!(input[:entity_path], context: "#{context}[:entity_path]") unless input[:entity_path].nil?
+        ErrorRootCauseEntityPath.validate!(input[:entity_path], context: "#{context}[:entity_path]") unless input[:entity_path].nil?
         Hearth::Validator.validate!(input[:inferred], ::TrueClass, ::FalseClass, context: "#{context}[:inferred]")
       end
     end
@@ -288,7 +290,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ErrorRootCauseService.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ErrorRootCauseService.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -297,7 +299,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ErrorRootCause.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ErrorRootCause.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -314,7 +316,7 @@ module AWS::SDK::XRay
     class FaultRootCause
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FaultRootCause, context: context)
-        Validators::FaultRootCauseServices.validate!(input[:services], context: "#{context}[:services]") unless input[:services].nil?
+        FaultRootCauseServices.validate!(input[:services], context: "#{context}[:services]") unless input[:services].nil?
         Hearth::Validator.validate!(input[:client_impacting], ::TrueClass, ::FalseClass, context: "#{context}[:client_impacting]")
       end
     end
@@ -323,7 +325,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FaultRootCauseEntity, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::RootCauseExceptions.validate!(input[:exceptions], context: "#{context}[:exceptions]") unless input[:exceptions].nil?
+        RootCauseExceptions.validate!(input[:exceptions], context: "#{context}[:exceptions]") unless input[:exceptions].nil?
         Hearth::Validator.validate!(input[:remote], ::TrueClass, ::FalseClass, context: "#{context}[:remote]")
       end
     end
@@ -332,7 +334,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FaultRootCauseEntity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FaultRootCauseEntity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -341,10 +343,10 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FaultRootCauseService, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ServiceNames.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
+        ServiceNames.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
-        Validators::FaultRootCauseEntityPath.validate!(input[:entity_path], context: "#{context}[:entity_path]") unless input[:entity_path].nil?
+        FaultRootCauseEntityPath.validate!(input[:entity_path], context: "#{context}[:entity_path]") unless input[:entity_path].nil?
         Hearth::Validator.validate!(input[:inferred], ::TrueClass, ::FalseClass, context: "#{context}[:inferred]")
       end
     end
@@ -353,7 +355,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FaultRootCauseService.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FaultRootCauseService.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -362,7 +364,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FaultRootCause.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FaultRootCause.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -392,7 +394,7 @@ module AWS::SDK::XRay
     class GetEncryptionConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetEncryptionConfigOutput, context: context)
-        Validators::EncryptionConfig.validate!(input[:encryption_config], context: "#{context}[:encryption_config]") unless input[:encryption_config].nil?
+        EncryptionConfig.validate!(input[:encryption_config], context: "#{context}[:encryption_config]") unless input[:encryption_config].nil?
       end
     end
 
@@ -407,7 +409,7 @@ module AWS::SDK::XRay
     class GetGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetGroupOutput, context: context)
-        Validators::Group.validate!(input[:group], context: "#{context}[:group]") unless input[:group].nil?
+        Group.validate!(input[:group], context: "#{context}[:group]") unless input[:group].nil?
       end
     end
 
@@ -421,7 +423,7 @@ module AWS::SDK::XRay
     class GetGroupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetGroupsOutput, context: context)
-        Validators::GroupSummaryList.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
+        GroupSummaryList.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -438,7 +440,7 @@ module AWS::SDK::XRay
     class GetInsightEventsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetInsightEventsOutput, context: context)
-        Validators::InsightEventList.validate!(input[:insight_events], context: "#{context}[:insight_events]") unless input[:insight_events].nil?
+        InsightEventList.validate!(input[:insight_events], context: "#{context}[:insight_events]") unless input[:insight_events].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -461,7 +463,7 @@ module AWS::SDK::XRay
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
         Hearth::Validator.validate!(input[:service_graph_start_time], ::Time, context: "#{context}[:service_graph_start_time]")
         Hearth::Validator.validate!(input[:service_graph_end_time], ::Time, context: "#{context}[:service_graph_end_time]")
-        Validators::InsightImpactGraphServiceList.validate!(input[:services], context: "#{context}[:services]") unless input[:services].nil?
+        InsightImpactGraphServiceList.validate!(input[:services], context: "#{context}[:services]") unless input[:services].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -476,14 +478,14 @@ module AWS::SDK::XRay
     class GetInsightOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetInsightOutput, context: context)
-        Validators::Insight.validate!(input[:insight], context: "#{context}[:insight]") unless input[:insight].nil?
+        Insight.validate!(input[:insight], context: "#{context}[:insight]") unless input[:insight].nil?
       end
     end
 
     class GetInsightSummariesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetInsightSummariesInput, context: context)
-        Validators::InsightStateList.validate!(input[:states], context: "#{context}[:states]") unless input[:states].nil?
+        InsightStateList.validate!(input[:states], context: "#{context}[:states]") unless input[:states].nil?
         Hearth::Validator.validate!(input[:group_arn], ::String, context: "#{context}[:group_arn]")
         Hearth::Validator.validate!(input[:group_name], ::String, context: "#{context}[:group_name]")
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
@@ -496,7 +498,7 @@ module AWS::SDK::XRay
     class GetInsightSummariesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetInsightSummariesOutput, context: context)
-        Validators::InsightSummaryList.validate!(input[:insight_summaries], context: "#{context}[:insight_summaries]") unless input[:insight_summaries].nil?
+        InsightSummaryList.validate!(input[:insight_summaries], context: "#{context}[:insight_summaries]") unless input[:insight_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -511,7 +513,7 @@ module AWS::SDK::XRay
     class GetSamplingRulesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSamplingRulesOutput, context: context)
-        Validators::SamplingRuleRecordList.validate!(input[:sampling_rule_records], context: "#{context}[:sampling_rule_records]") unless input[:sampling_rule_records].nil?
+        SamplingRuleRecordList.validate!(input[:sampling_rule_records], context: "#{context}[:sampling_rule_records]") unless input[:sampling_rule_records].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -526,7 +528,7 @@ module AWS::SDK::XRay
     class GetSamplingStatisticSummariesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSamplingStatisticSummariesOutput, context: context)
-        Validators::SamplingStatisticSummaryList.validate!(input[:sampling_statistic_summaries], context: "#{context}[:sampling_statistic_summaries]") unless input[:sampling_statistic_summaries].nil?
+        SamplingStatisticSummaryList.validate!(input[:sampling_statistic_summaries], context: "#{context}[:sampling_statistic_summaries]") unless input[:sampling_statistic_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -534,16 +536,16 @@ module AWS::SDK::XRay
     class GetSamplingTargetsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSamplingTargetsInput, context: context)
-        Validators::SamplingStatisticsDocumentList.validate!(input[:sampling_statistics_documents], context: "#{context}[:sampling_statistics_documents]") unless input[:sampling_statistics_documents].nil?
+        SamplingStatisticsDocumentList.validate!(input[:sampling_statistics_documents], context: "#{context}[:sampling_statistics_documents]") unless input[:sampling_statistics_documents].nil?
       end
     end
 
     class GetSamplingTargetsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSamplingTargetsOutput, context: context)
-        Validators::SamplingTargetDocumentList.validate!(input[:sampling_target_documents], context: "#{context}[:sampling_target_documents]") unless input[:sampling_target_documents].nil?
+        SamplingTargetDocumentList.validate!(input[:sampling_target_documents], context: "#{context}[:sampling_target_documents]") unless input[:sampling_target_documents].nil?
         Hearth::Validator.validate!(input[:last_rule_modification], ::Time, context: "#{context}[:last_rule_modification]")
-        Validators::UnprocessedStatisticsList.validate!(input[:unprocessed_statistics], context: "#{context}[:unprocessed_statistics]") unless input[:unprocessed_statistics].nil?
+        UnprocessedStatisticsList.validate!(input[:unprocessed_statistics], context: "#{context}[:unprocessed_statistics]") unless input[:unprocessed_statistics].nil?
       end
     end
 
@@ -563,7 +565,7 @@ module AWS::SDK::XRay
         Hearth::Validator.validate!(input, Types::GetServiceGraphOutput, context: context)
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
-        Validators::ServiceList.validate!(input[:services], context: "#{context}[:services]") unless input[:services].nil?
+        ServiceList.validate!(input[:services], context: "#{context}[:services]") unless input[:services].nil?
         Hearth::Validator.validate!(input[:contains_old_group_versions], ::TrueClass, ::FalseClass, context: "#{context}[:contains_old_group_versions]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -586,7 +588,7 @@ module AWS::SDK::XRay
     class GetTimeSeriesServiceStatisticsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetTimeSeriesServiceStatisticsOutput, context: context)
-        Validators::TimeSeriesServiceStatisticsList.validate!(input[:time_series_service_statistics], context: "#{context}[:time_series_service_statistics]") unless input[:time_series_service_statistics].nil?
+        TimeSeriesServiceStatisticsList.validate!(input[:time_series_service_statistics], context: "#{context}[:time_series_service_statistics]") unless input[:time_series_service_statistics].nil?
         Hearth::Validator.validate!(input[:contains_old_group_versions], ::TrueClass, ::FalseClass, context: "#{context}[:contains_old_group_versions]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -595,7 +597,7 @@ module AWS::SDK::XRay
     class GetTraceGraphInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetTraceGraphInput, context: context)
-        Validators::TraceIdList.validate!(input[:trace_ids], context: "#{context}[:trace_ids]") unless input[:trace_ids].nil?
+        TraceIdList.validate!(input[:trace_ids], context: "#{context}[:trace_ids]") unless input[:trace_ids].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -603,7 +605,7 @@ module AWS::SDK::XRay
     class GetTraceGraphOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetTraceGraphOutput, context: context)
-        Validators::ServiceList.validate!(input[:services], context: "#{context}[:services]") unless input[:services].nil?
+        ServiceList.validate!(input[:services], context: "#{context}[:services]") unless input[:services].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -615,7 +617,7 @@ module AWS::SDK::XRay
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
         Hearth::Validator.validate!(input[:time_range_type], ::String, context: "#{context}[:time_range_type]")
         Hearth::Validator.validate!(input[:sampling], ::TrueClass, ::FalseClass, context: "#{context}[:sampling]")
-        Validators::SamplingStrategy.validate!(input[:sampling_strategy], context: "#{context}[:sampling_strategy]") unless input[:sampling_strategy].nil?
+        SamplingStrategy.validate!(input[:sampling_strategy], context: "#{context}[:sampling_strategy]") unless input[:sampling_strategy].nil?
         Hearth::Validator.validate!(input[:filter_expression], ::String, context: "#{context}[:filter_expression]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -624,7 +626,7 @@ module AWS::SDK::XRay
     class GetTraceSummariesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetTraceSummariesOutput, context: context)
-        Validators::TraceSummaryList.validate!(input[:trace_summaries], context: "#{context}[:trace_summaries]") unless input[:trace_summaries].nil?
+        TraceSummaryList.validate!(input[:trace_summaries], context: "#{context}[:trace_summaries]") unless input[:trace_summaries].nil?
         Hearth::Validator.validate!(input[:approximate_time], ::Time, context: "#{context}[:approximate_time]")
         Hearth::Validator.validate!(input[:traces_processed_count], ::Integer, context: "#{context}[:traces_processed_count]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
@@ -637,7 +639,7 @@ module AWS::SDK::XRay
         Hearth::Validator.validate!(input[:group_name], ::String, context: "#{context}[:group_name]")
         Hearth::Validator.validate!(input[:group_arn], ::String, context: "#{context}[:group_arn]")
         Hearth::Validator.validate!(input[:filter_expression], ::String, context: "#{context}[:filter_expression]")
-        Validators::InsightsConfiguration.validate!(input[:insights_configuration], context: "#{context}[:insights_configuration]") unless input[:insights_configuration].nil?
+        InsightsConfiguration.validate!(input[:insights_configuration], context: "#{context}[:insights_configuration]") unless input[:insights_configuration].nil?
       end
     end
 
@@ -647,7 +649,7 @@ module AWS::SDK::XRay
         Hearth::Validator.validate!(input[:group_name], ::String, context: "#{context}[:group_name]")
         Hearth::Validator.validate!(input[:group_arn], ::String, context: "#{context}[:group_arn]")
         Hearth::Validator.validate!(input[:filter_expression], ::String, context: "#{context}[:filter_expression]")
-        Validators::InsightsConfiguration.validate!(input[:insights_configuration], context: "#{context}[:insights_configuration]") unless input[:insights_configuration].nil?
+        InsightsConfiguration.validate!(input[:insights_configuration], context: "#{context}[:insights_configuration]") unless input[:insights_configuration].nil?
       end
     end
 
@@ -655,7 +657,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GroupSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GroupSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -664,7 +666,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::HistogramEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          HistogramEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -694,15 +696,15 @@ module AWS::SDK::XRay
         Hearth::Validator.validate!(input[:insight_id], ::String, context: "#{context}[:insight_id]")
         Hearth::Validator.validate!(input[:group_arn], ::String, context: "#{context}[:group_arn]")
         Hearth::Validator.validate!(input[:group_name], ::String, context: "#{context}[:group_name]")
-        Validators::ServiceId.validate!(input[:root_cause_service_id], context: "#{context}[:root_cause_service_id]") unless input[:root_cause_service_id].nil?
-        Validators::InsightCategoryList.validate!(input[:categories], context: "#{context}[:categories]") unless input[:categories].nil?
+        ServiceId.validate!(input[:root_cause_service_id], context: "#{context}[:root_cause_service_id]") unless input[:root_cause_service_id].nil?
+        InsightCategoryList.validate!(input[:categories], context: "#{context}[:categories]") unless input[:categories].nil?
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
         Hearth::Validator.validate!(input[:summary], ::String, context: "#{context}[:summary]")
-        Validators::RequestImpactStatistics.validate!(input[:client_request_impact_statistics], context: "#{context}[:client_request_impact_statistics]") unless input[:client_request_impact_statistics].nil?
-        Validators::RequestImpactStatistics.validate!(input[:root_cause_service_request_impact_statistics], context: "#{context}[:root_cause_service_request_impact_statistics]") unless input[:root_cause_service_request_impact_statistics].nil?
-        Validators::AnomalousServiceList.validate!(input[:top_anomalous_services], context: "#{context}[:top_anomalous_services]") unless input[:top_anomalous_services].nil?
+        RequestImpactStatistics.validate!(input[:client_request_impact_statistics], context: "#{context}[:client_request_impact_statistics]") unless input[:client_request_impact_statistics].nil?
+        RequestImpactStatistics.validate!(input[:root_cause_service_request_impact_statistics], context: "#{context}[:root_cause_service_request_impact_statistics]") unless input[:root_cause_service_request_impact_statistics].nil?
+        AnomalousServiceList.validate!(input[:top_anomalous_services], context: "#{context}[:top_anomalous_services]") unless input[:top_anomalous_services].nil?
       end
     end
 
@@ -720,9 +722,9 @@ module AWS::SDK::XRay
         Hearth::Validator.validate!(input, Types::InsightEvent, context: context)
         Hearth::Validator.validate!(input[:summary], ::String, context: "#{context}[:summary]")
         Hearth::Validator.validate!(input[:event_time], ::Time, context: "#{context}[:event_time]")
-        Validators::RequestImpactStatistics.validate!(input[:client_request_impact_statistics], context: "#{context}[:client_request_impact_statistics]") unless input[:client_request_impact_statistics].nil?
-        Validators::RequestImpactStatistics.validate!(input[:root_cause_service_request_impact_statistics], context: "#{context}[:root_cause_service_request_impact_statistics]") unless input[:root_cause_service_request_impact_statistics].nil?
-        Validators::AnomalousServiceList.validate!(input[:top_anomalous_services], context: "#{context}[:top_anomalous_services]") unless input[:top_anomalous_services].nil?
+        RequestImpactStatistics.validate!(input[:client_request_impact_statistics], context: "#{context}[:client_request_impact_statistics]") unless input[:client_request_impact_statistics].nil?
+        RequestImpactStatistics.validate!(input[:root_cause_service_request_impact_statistics], context: "#{context}[:root_cause_service_request_impact_statistics]") unless input[:root_cause_service_request_impact_statistics].nil?
+        AnomalousServiceList.validate!(input[:top_anomalous_services], context: "#{context}[:top_anomalous_services]") unless input[:top_anomalous_services].nil?
       end
     end
 
@@ -730,7 +732,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InsightEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InsightEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -746,7 +748,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InsightImpactGraphEdge.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InsightImpactGraphEdge.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -757,9 +759,9 @@ module AWS::SDK::XRay
         Hearth::Validator.validate!(input[:reference_id], ::Integer, context: "#{context}[:reference_id]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ServiceNames.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
+        ServiceNames.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
-        Validators::InsightImpactGraphEdgeList.validate!(input[:edges], context: "#{context}[:edges]") unless input[:edges].nil?
+        InsightImpactGraphEdgeList.validate!(input[:edges], context: "#{context}[:edges]") unless input[:edges].nil?
       end
     end
 
@@ -767,7 +769,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InsightImpactGraphService.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InsightImpactGraphService.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -787,15 +789,15 @@ module AWS::SDK::XRay
         Hearth::Validator.validate!(input[:insight_id], ::String, context: "#{context}[:insight_id]")
         Hearth::Validator.validate!(input[:group_arn], ::String, context: "#{context}[:group_arn]")
         Hearth::Validator.validate!(input[:group_name], ::String, context: "#{context}[:group_name]")
-        Validators::ServiceId.validate!(input[:root_cause_service_id], context: "#{context}[:root_cause_service_id]") unless input[:root_cause_service_id].nil?
-        Validators::InsightCategoryList.validate!(input[:categories], context: "#{context}[:categories]") unless input[:categories].nil?
+        ServiceId.validate!(input[:root_cause_service_id], context: "#{context}[:root_cause_service_id]") unless input[:root_cause_service_id].nil?
+        InsightCategoryList.validate!(input[:categories], context: "#{context}[:categories]") unless input[:categories].nil?
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
         Hearth::Validator.validate!(input[:summary], ::String, context: "#{context}[:summary]")
-        Validators::RequestImpactStatistics.validate!(input[:client_request_impact_statistics], context: "#{context}[:client_request_impact_statistics]") unless input[:client_request_impact_statistics].nil?
-        Validators::RequestImpactStatistics.validate!(input[:root_cause_service_request_impact_statistics], context: "#{context}[:root_cause_service_request_impact_statistics]") unless input[:root_cause_service_request_impact_statistics].nil?
-        Validators::AnomalousServiceList.validate!(input[:top_anomalous_services], context: "#{context}[:top_anomalous_services]") unless input[:top_anomalous_services].nil?
+        RequestImpactStatistics.validate!(input[:client_request_impact_statistics], context: "#{context}[:client_request_impact_statistics]") unless input[:client_request_impact_statistics].nil?
+        RequestImpactStatistics.validate!(input[:root_cause_service_request_impact_statistics], context: "#{context}[:root_cause_service_request_impact_statistics]") unless input[:root_cause_service_request_impact_statistics].nil?
+        AnomalousServiceList.validate!(input[:top_anomalous_services], context: "#{context}[:top_anomalous_services]") unless input[:top_anomalous_services].nil?
         Hearth::Validator.validate!(input[:last_update_time], ::Time, context: "#{context}[:last_update_time]")
       end
     end
@@ -804,7 +806,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InsightSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InsightSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -842,7 +844,7 @@ module AWS::SDK::XRay
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -858,14 +860,14 @@ module AWS::SDK::XRay
     class PutEncryptionConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutEncryptionConfigOutput, context: context)
-        Validators::EncryptionConfig.validate!(input[:encryption_config], context: "#{context}[:encryption_config]") unless input[:encryption_config].nil?
+        EncryptionConfig.validate!(input[:encryption_config], context: "#{context}[:encryption_config]") unless input[:encryption_config].nil?
       end
     end
 
     class PutTelemetryRecordsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutTelemetryRecordsInput, context: context)
-        Validators::TelemetryRecordList.validate!(input[:telemetry_records], context: "#{context}[:telemetry_records]") unless input[:telemetry_records].nil?
+        TelemetryRecordList.validate!(input[:telemetry_records], context: "#{context}[:telemetry_records]") unless input[:telemetry_records].nil?
         Hearth::Validator.validate!(input[:ec2_instance_id], ::String, context: "#{context}[:ec2_instance_id]")
         Hearth::Validator.validate!(input[:hostname], ::String, context: "#{context}[:hostname]")
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
@@ -881,14 +883,14 @@ module AWS::SDK::XRay
     class PutTraceSegmentsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutTraceSegmentsInput, context: context)
-        Validators::TraceSegmentDocumentList.validate!(input[:trace_segment_documents], context: "#{context}[:trace_segment_documents]") unless input[:trace_segment_documents].nil?
+        TraceSegmentDocumentList.validate!(input[:trace_segment_documents], context: "#{context}[:trace_segment_documents]") unless input[:trace_segment_documents].nil?
       end
     end
 
     class PutTraceSegmentsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutTraceSegmentsOutput, context: context)
-        Validators::UnprocessedTraceSegmentList.validate!(input[:unprocessed_trace_segments], context: "#{context}[:unprocessed_trace_segments]") unless input[:unprocessed_trace_segments].nil?
+        UnprocessedTraceSegmentList.validate!(input[:unprocessed_trace_segments], context: "#{context}[:unprocessed_trace_segments]") unless input[:unprocessed_trace_segments].nil?
       end
     end
 
@@ -919,7 +921,7 @@ module AWS::SDK::XRay
     class ResponseTimeRootCause
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResponseTimeRootCause, context: context)
-        Validators::ResponseTimeRootCauseServices.validate!(input[:services], context: "#{context}[:services]") unless input[:services].nil?
+        ResponseTimeRootCauseServices.validate!(input[:services], context: "#{context}[:services]") unless input[:services].nil?
         Hearth::Validator.validate!(input[:client_impacting], ::TrueClass, ::FalseClass, context: "#{context}[:client_impacting]")
       end
     end
@@ -937,7 +939,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResponseTimeRootCauseEntity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResponseTimeRootCauseEntity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -946,10 +948,10 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResponseTimeRootCauseService, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ServiceNames.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
+        ServiceNames.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
-        Validators::ResponseTimeRootCauseEntityPath.validate!(input[:entity_path], context: "#{context}[:entity_path]") unless input[:entity_path].nil?
+        ResponseTimeRootCauseEntityPath.validate!(input[:entity_path], context: "#{context}[:entity_path]") unless input[:entity_path].nil?
         Hearth::Validator.validate!(input[:inferred], ::TrueClass, ::FalseClass, context: "#{context}[:inferred]")
       end
     end
@@ -958,7 +960,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResponseTimeRootCauseService.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResponseTimeRootCauseService.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -967,7 +969,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResponseTimeRootCause.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResponseTimeRootCause.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -984,7 +986,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RootCauseException.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RootCauseException.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1011,14 +1013,14 @@ module AWS::SDK::XRay
         Hearth::Validator.validate!(input[:http_method], ::String, context: "#{context}[:http_method]")
         Hearth::Validator.validate!(input[:url_path], ::String, context: "#{context}[:url_path]")
         Hearth::Validator.validate!(input[:version], ::Integer, context: "#{context}[:version]")
-        Validators::AttributeMap.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        AttributeMap.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
     class SamplingRuleRecord
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SamplingRuleRecord, context: context)
-        Validators::SamplingRule.validate!(input[:sampling_rule], context: "#{context}[:sampling_rule]") unless input[:sampling_rule].nil?
+        SamplingRule.validate!(input[:sampling_rule], context: "#{context}[:sampling_rule]") unless input[:sampling_rule].nil?
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:modified_at], ::Time, context: "#{context}[:modified_at]")
       end
@@ -1028,7 +1030,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SamplingRuleRecord.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SamplingRuleRecord.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1047,7 +1049,7 @@ module AWS::SDK::XRay
         Hearth::Validator.validate!(input[:service_type], ::String, context: "#{context}[:service_type]")
         Hearth::Validator.validate!(input[:http_method], ::String, context: "#{context}[:http_method]")
         Hearth::Validator.validate!(input[:url_path], ::String, context: "#{context}[:url_path]")
-        Validators::AttributeMap.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        AttributeMap.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
@@ -1066,7 +1068,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SamplingStatisticSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SamplingStatisticSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1087,7 +1089,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SamplingStatisticsDocument.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SamplingStatisticsDocument.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1115,7 +1117,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SamplingTargetDocument.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SamplingTargetDocument.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1132,7 +1134,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Segment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Segment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1142,17 +1144,17 @@ module AWS::SDK::XRay
         Hearth::Validator.validate!(input, Types::Service, context: context)
         Hearth::Validator.validate!(input[:reference_id], ::Integer, context: "#{context}[:reference_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ServiceNames.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
+        ServiceNames.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
         Hearth::Validator.validate!(input[:root], ::TrueClass, ::FalseClass, context: "#{context}[:root]")
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
-        Validators::EdgeList.validate!(input[:edges], context: "#{context}[:edges]") unless input[:edges].nil?
-        Validators::ServiceStatistics.validate!(input[:summary_statistics], context: "#{context}[:summary_statistics]") unless input[:summary_statistics].nil?
-        Validators::Histogram.validate!(input[:duration_histogram], context: "#{context}[:duration_histogram]") unless input[:duration_histogram].nil?
-        Validators::Histogram.validate!(input[:response_time_histogram], context: "#{context}[:response_time_histogram]") unless input[:response_time_histogram].nil?
+        EdgeList.validate!(input[:edges], context: "#{context}[:edges]") unless input[:edges].nil?
+        ServiceStatistics.validate!(input[:summary_statistics], context: "#{context}[:summary_statistics]") unless input[:summary_statistics].nil?
+        Histogram.validate!(input[:duration_histogram], context: "#{context}[:duration_histogram]") unless input[:duration_histogram].nil?
+        Histogram.validate!(input[:response_time_histogram], context: "#{context}[:response_time_histogram]") unless input[:response_time_histogram].nil?
       end
     end
 
@@ -1160,7 +1162,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ServiceId, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ServiceNames.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
+        ServiceNames.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
       end
@@ -1170,7 +1172,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ServiceId.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ServiceId.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1179,7 +1181,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Service.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Service.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1197,8 +1199,8 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ServiceStatistics, context: context)
         Hearth::Validator.validate!(input[:ok_count], ::Integer, context: "#{context}[:ok_count]")
-        Validators::ErrorStatistics.validate!(input[:error_statistics], context: "#{context}[:error_statistics]") unless input[:error_statistics].nil?
-        Validators::FaultStatistics.validate!(input[:fault_statistics], context: "#{context}[:fault_statistics]") unless input[:fault_statistics].nil?
+        ErrorStatistics.validate!(input[:error_statistics], context: "#{context}[:error_statistics]") unless input[:error_statistics].nil?
+        FaultStatistics.validate!(input[:fault_statistics], context: "#{context}[:fault_statistics]") unless input[:fault_statistics].nil?
         Hearth::Validator.validate!(input[:total_count], ::Integer, context: "#{context}[:total_count]")
         Hearth::Validator.validate!(input[:total_response_time], ::Float, context: "#{context}[:total_response_time]")
       end
@@ -1225,7 +1227,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1234,7 +1236,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1252,7 +1254,7 @@ module AWS::SDK::XRay
         Hearth::Validator.validate!(input[:segments_sent_count], ::Integer, context: "#{context}[:segments_sent_count]")
         Hearth::Validator.validate!(input[:segments_spillover_count], ::Integer, context: "#{context}[:segments_spillover_count]")
         Hearth::Validator.validate!(input[:segments_rejected_count], ::Integer, context: "#{context}[:segments_rejected_count]")
-        Validators::BackendConnectionErrors.validate!(input[:backend_connection_errors], context: "#{context}[:backend_connection_errors]") unless input[:backend_connection_errors].nil?
+        BackendConnectionErrors.validate!(input[:backend_connection_errors], context: "#{context}[:backend_connection_errors]") unless input[:backend_connection_errors].nil?
       end
     end
 
@@ -1260,7 +1262,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TelemetryRecord.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TelemetryRecord.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1276,10 +1278,10 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TimeSeriesServiceStatistics, context: context)
         Hearth::Validator.validate!(input[:timestamp], ::Time, context: "#{context}[:timestamp]")
-        Validators::EdgeStatistics.validate!(input[:edge_summary_statistics], context: "#{context}[:edge_summary_statistics]") unless input[:edge_summary_statistics].nil?
-        Validators::ServiceStatistics.validate!(input[:service_summary_statistics], context: "#{context}[:service_summary_statistics]") unless input[:service_summary_statistics].nil?
-        Validators::ForecastStatistics.validate!(input[:service_forecast_statistics], context: "#{context}[:service_forecast_statistics]") unless input[:service_forecast_statistics].nil?
-        Validators::Histogram.validate!(input[:response_time_histogram], context: "#{context}[:response_time_histogram]") unless input[:response_time_histogram].nil?
+        EdgeStatistics.validate!(input[:edge_summary_statistics], context: "#{context}[:edge_summary_statistics]") unless input[:edge_summary_statistics].nil?
+        ServiceStatistics.validate!(input[:service_summary_statistics], context: "#{context}[:service_summary_statistics]") unless input[:service_summary_statistics].nil?
+        ForecastStatistics.validate!(input[:service_forecast_statistics], context: "#{context}[:service_forecast_statistics]") unless input[:service_forecast_statistics].nil?
+        Histogram.validate!(input[:response_time_histogram], context: "#{context}[:response_time_histogram]") unless input[:response_time_histogram].nil?
       end
     end
 
@@ -1287,7 +1289,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TimeSeriesServiceStatistics.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TimeSeriesServiceStatistics.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1306,7 +1308,7 @@ module AWS::SDK::XRay
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:duration], ::Float, context: "#{context}[:duration]")
         Hearth::Validator.validate!(input[:limit_exceeded], ::TrueClass, ::FalseClass, context: "#{context}[:limit_exceeded]")
-        Validators::SegmentList.validate!(input[:segments], context: "#{context}[:segments]") unless input[:segments].nil?
+        SegmentList.validate!(input[:segments], context: "#{context}[:segments]") unless input[:segments].nil?
       end
     end
 
@@ -1314,7 +1316,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AvailabilityZoneDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AvailabilityZoneDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1332,7 +1334,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InstanceIdDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InstanceIdDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1341,7 +1343,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Trace.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Trace.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1350,7 +1352,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourceARNDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourceARNDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1374,17 +1376,17 @@ module AWS::SDK::XRay
         Hearth::Validator.validate!(input[:has_error], ::TrueClass, ::FalseClass, context: "#{context}[:has_error]")
         Hearth::Validator.validate!(input[:has_throttle], ::TrueClass, ::FalseClass, context: "#{context}[:has_throttle]")
         Hearth::Validator.validate!(input[:is_partial], ::TrueClass, ::FalseClass, context: "#{context}[:is_partial]")
-        Validators::Http.validate!(input[:http], context: "#{context}[:http]") unless input[:http].nil?
-        Validators::Annotations.validate!(input[:annotations], context: "#{context}[:annotations]") unless input[:annotations].nil?
-        Validators::TraceUsers.validate!(input[:users], context: "#{context}[:users]") unless input[:users].nil?
-        Validators::ServiceIds.validate!(input[:service_ids], context: "#{context}[:service_ids]") unless input[:service_ids].nil?
-        Validators::TraceResourceARNs.validate!(input[:resource_ar_ns], context: "#{context}[:resource_ar_ns]") unless input[:resource_ar_ns].nil?
-        Validators::TraceInstanceIds.validate!(input[:instance_ids], context: "#{context}[:instance_ids]") unless input[:instance_ids].nil?
-        Validators::TraceAvailabilityZones.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
-        Validators::ServiceId.validate!(input[:entry_point], context: "#{context}[:entry_point]") unless input[:entry_point].nil?
-        Validators::FaultRootCauses.validate!(input[:fault_root_causes], context: "#{context}[:fault_root_causes]") unless input[:fault_root_causes].nil?
-        Validators::ErrorRootCauses.validate!(input[:error_root_causes], context: "#{context}[:error_root_causes]") unless input[:error_root_causes].nil?
-        Validators::ResponseTimeRootCauses.validate!(input[:response_time_root_causes], context: "#{context}[:response_time_root_causes]") unless input[:response_time_root_causes].nil?
+        Http.validate!(input[:http], context: "#{context}[:http]") unless input[:http].nil?
+        Annotations.validate!(input[:annotations], context: "#{context}[:annotations]") unless input[:annotations].nil?
+        TraceUsers.validate!(input[:users], context: "#{context}[:users]") unless input[:users].nil?
+        ServiceIds.validate!(input[:service_ids], context: "#{context}[:service_ids]") unless input[:service_ids].nil?
+        TraceResourceARNs.validate!(input[:resource_ar_ns], context: "#{context}[:resource_ar_ns]") unless input[:resource_ar_ns].nil?
+        TraceInstanceIds.validate!(input[:instance_ids], context: "#{context}[:instance_ids]") unless input[:instance_ids].nil?
+        TraceAvailabilityZones.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
+        ServiceId.validate!(input[:entry_point], context: "#{context}[:entry_point]") unless input[:entry_point].nil?
+        FaultRootCauses.validate!(input[:fault_root_causes], context: "#{context}[:fault_root_causes]") unless input[:fault_root_causes].nil?
+        ErrorRootCauses.validate!(input[:error_root_causes], context: "#{context}[:error_root_causes]") unless input[:error_root_causes].nil?
+        ResponseTimeRootCauses.validate!(input[:response_time_root_causes], context: "#{context}[:response_time_root_causes]") unless input[:response_time_root_causes].nil?
         Hearth::Validator.validate!(input[:revision], ::Integer, context: "#{context}[:revision]")
         Hearth::Validator.validate!(input[:matched_event_time], ::Time, context: "#{context}[:matched_event_time]")
       end
@@ -1394,7 +1396,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TraceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TraceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1403,7 +1405,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TraceUser, context: context)
         Hearth::Validator.validate!(input[:user_name], ::String, context: "#{context}[:user_name]")
-        Validators::ServiceIds.validate!(input[:service_ids], context: "#{context}[:service_ids]") unless input[:service_ids].nil?
+        ServiceIds.validate!(input[:service_ids], context: "#{context}[:service_ids]") unless input[:service_ids].nil?
       end
     end
 
@@ -1411,7 +1413,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TraceUser.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TraceUser.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1429,7 +1431,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UnprocessedStatistics.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UnprocessedStatistics.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1456,7 +1458,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UnprocessedTraceSegment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UnprocessedTraceSegment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1465,7 +1467,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1481,36 +1483,36 @@ module AWS::SDK::XRay
         Hearth::Validator.validate!(input[:group_name], ::String, context: "#{context}[:group_name]")
         Hearth::Validator.validate!(input[:group_arn], ::String, context: "#{context}[:group_arn]")
         Hearth::Validator.validate!(input[:filter_expression], ::String, context: "#{context}[:filter_expression]")
-        Validators::InsightsConfiguration.validate!(input[:insights_configuration], context: "#{context}[:insights_configuration]") unless input[:insights_configuration].nil?
+        InsightsConfiguration.validate!(input[:insights_configuration], context: "#{context}[:insights_configuration]") unless input[:insights_configuration].nil?
       end
     end
 
     class UpdateGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateGroupOutput, context: context)
-        Validators::Group.validate!(input[:group], context: "#{context}[:group]") unless input[:group].nil?
+        Group.validate!(input[:group], context: "#{context}[:group]") unless input[:group].nil?
       end
     end
 
     class UpdateSamplingRuleInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateSamplingRuleInput, context: context)
-        Validators::SamplingRuleUpdate.validate!(input[:sampling_rule_update], context: "#{context}[:sampling_rule_update]") unless input[:sampling_rule_update].nil?
+        SamplingRuleUpdate.validate!(input[:sampling_rule_update], context: "#{context}[:sampling_rule_update]") unless input[:sampling_rule_update].nil?
       end
     end
 
     class UpdateSamplingRuleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateSamplingRuleOutput, context: context)
-        Validators::SamplingRuleRecord.validate!(input[:sampling_rule_record], context: "#{context}[:sampling_rule_record]") unless input[:sampling_rule_record].nil?
+        SamplingRuleRecord.validate!(input[:sampling_rule_record], context: "#{context}[:sampling_rule_record]") unless input[:sampling_rule_record].nil?
       end
     end
 
     class ValueWithServiceIds
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ValueWithServiceIds, context: context)
-        Validators::AnnotationValue.validate!(input[:annotation_value], context: "#{context}[:annotation_value]") unless input[:annotation_value].nil?
-        Validators::ServiceIds.validate!(input[:service_ids], context: "#{context}[:service_ids]") unless input[:service_ids].nil?
+        AnnotationValue.validate!(input[:annotation_value], context: "#{context}[:annotation_value]") unless input[:annotation_value].nil?
+        ServiceIds.validate!(input[:service_ids], context: "#{context}[:service_ids]") unless input[:service_ids].nil?
       end
     end
 
@@ -1518,7 +1520,7 @@ module AWS::SDK::XRay
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ValueWithServiceIds.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ValueWithServiceIds.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

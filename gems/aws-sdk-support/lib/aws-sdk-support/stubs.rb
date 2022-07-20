@@ -64,7 +64,7 @@ module AWS::SDK::Support
     class DescribeAttachment
       def self.default(visited=[])
         {
-          attachment: Stubs::Attachment.default(visited),
+          attachment: Attachment.default(visited),
         }
       end
 
@@ -100,7 +100,7 @@ module AWS::SDK::Support
     class DescribeCases
       def self.default(visited=[])
         {
-          cases: Stubs::CaseList.default(visited),
+          cases: CaseList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -120,7 +120,7 @@ module AWS::SDK::Support
         return nil if visited.include?('CaseList')
         visited = visited + ['CaseList']
         [
-          Stubs::CaseDetails.default(visited)
+          CaseDetails.default(visited)
         ]
       end
 
@@ -149,8 +149,8 @@ module AWS::SDK::Support
           severity_code: 'severity_code',
           submitted_by: 'submitted_by',
           time_created: 'time_created',
-          recent_communications: Stubs::RecentCaseCommunications.default(visited),
-          cc_email_addresses: Stubs::CcEmailAddressList.default(visited),
+          recent_communications: RecentCaseCommunications.default(visited),
+          cc_email_addresses: CcEmailAddressList.default(visited),
           language: 'language',
         }
       end
@@ -200,7 +200,7 @@ module AWS::SDK::Support
         return nil if visited.include?('RecentCaseCommunications')
         visited = visited + ['RecentCaseCommunications']
         {
-          communications: Stubs::CommunicationList.default(visited),
+          communications: CommunicationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -220,7 +220,7 @@ module AWS::SDK::Support
         return nil if visited.include?('CommunicationList')
         visited = visited + ['CommunicationList']
         [
-          Stubs::Communication.default(visited)
+          Communication.default(visited)
         ]
       end
 
@@ -244,7 +244,7 @@ module AWS::SDK::Support
           body: 'body',
           submitted_by: 'submitted_by',
           time_created: 'time_created',
-          attachment_set: Stubs::AttachmentSet.default(visited),
+          attachment_set: AttachmentSet.default(visited),
         }
       end
 
@@ -266,7 +266,7 @@ module AWS::SDK::Support
         return nil if visited.include?('AttachmentSet')
         visited = visited + ['AttachmentSet']
         [
-          Stubs::AttachmentDetails.default(visited)
+          AttachmentDetails.default(visited)
         ]
       end
 
@@ -304,7 +304,7 @@ module AWS::SDK::Support
     class DescribeCommunications
       def self.default(visited=[])
         {
-          communications: Stubs::CommunicationList.default(visited),
+          communications: CommunicationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -322,7 +322,7 @@ module AWS::SDK::Support
     class DescribeServices
       def self.default(visited=[])
         {
-          services: Stubs::ServiceList.default(visited),
+          services: ServiceList.default(visited),
         }
       end
 
@@ -340,7 +340,7 @@ module AWS::SDK::Support
         return nil if visited.include?('ServiceList')
         visited = visited + ['ServiceList']
         [
-          Stubs::Service.default(visited)
+          Service.default(visited)
         ]
       end
 
@@ -362,7 +362,7 @@ module AWS::SDK::Support
         {
           code: 'code',
           name: 'name',
-          categories: Stubs::CategoryList.default(visited),
+          categories: CategoryList.default(visited),
         }
       end
 
@@ -382,7 +382,7 @@ module AWS::SDK::Support
         return nil if visited.include?('CategoryList')
         visited = visited + ['CategoryList']
         [
-          Stubs::Category.default(visited)
+          Category.default(visited)
         ]
       end
 
@@ -420,7 +420,7 @@ module AWS::SDK::Support
     class DescribeSeverityLevels
       def self.default(visited=[])
         {
-          severity_levels: Stubs::SeverityLevelsList.default(visited),
+          severity_levels: SeverityLevelsList.default(visited),
         }
       end
 
@@ -438,7 +438,7 @@ module AWS::SDK::Support
         return nil if visited.include?('SeverityLevelsList')
         visited = visited + ['SeverityLevelsList']
         [
-          Stubs::SeverityLevel.default(visited)
+          SeverityLevel.default(visited)
         ]
       end
 
@@ -476,7 +476,7 @@ module AWS::SDK::Support
     class DescribeTrustedAdvisorCheckRefreshStatuses
       def self.default(visited=[])
         {
-          statuses: Stubs::TrustedAdvisorCheckRefreshStatusList.default(visited),
+          statuses: TrustedAdvisorCheckRefreshStatusList.default(visited),
         }
       end
 
@@ -494,7 +494,7 @@ module AWS::SDK::Support
         return nil if visited.include?('TrustedAdvisorCheckRefreshStatusList')
         visited = visited + ['TrustedAdvisorCheckRefreshStatusList']
         [
-          Stubs::TrustedAdvisorCheckRefreshStatus.default(visited)
+          TrustedAdvisorCheckRefreshStatus.default(visited)
         ]
       end
 
@@ -534,7 +534,7 @@ module AWS::SDK::Support
     class DescribeTrustedAdvisorCheckResult
       def self.default(visited=[])
         {
-          result: Stubs::TrustedAdvisorCheckResult.default(visited),
+          result: TrustedAdvisorCheckResult.default(visited),
         }
       end
 
@@ -555,9 +555,9 @@ module AWS::SDK::Support
           check_id: 'check_id',
           timestamp: 'timestamp',
           status: 'status',
-          resources_summary: Stubs::TrustedAdvisorResourcesSummary.default(visited),
-          category_specific_summary: Stubs::TrustedAdvisorCategorySpecificSummary.default(visited),
-          flagged_resources: Stubs::TrustedAdvisorResourceDetailList.default(visited),
+          resources_summary: TrustedAdvisorResourcesSummary.default(visited),
+          category_specific_summary: TrustedAdvisorCategorySpecificSummary.default(visited),
+          flagged_resources: TrustedAdvisorResourceDetailList.default(visited),
         }
       end
 
@@ -580,7 +580,7 @@ module AWS::SDK::Support
         return nil if visited.include?('TrustedAdvisorResourceDetailList')
         visited = visited + ['TrustedAdvisorResourceDetailList']
         [
-          Stubs::TrustedAdvisorResourceDetail.default(visited)
+          TrustedAdvisorResourceDetail.default(visited)
         ]
       end
 
@@ -604,7 +604,7 @@ module AWS::SDK::Support
           region: 'region',
           resource_id: 'resource_id',
           is_suppressed: false,
-          metadata: Stubs::StringList.default(visited),
+          metadata: StringList.default(visited),
         }
       end
 
@@ -646,7 +646,7 @@ module AWS::SDK::Support
         return nil if visited.include?('TrustedAdvisorCategorySpecificSummary')
         visited = visited + ['TrustedAdvisorCategorySpecificSummary']
         {
-          cost_optimizing: Stubs::TrustedAdvisorCostOptimizingSummary.default(visited),
+          cost_optimizing: TrustedAdvisorCostOptimizingSummary.default(visited),
         }
       end
 
@@ -706,7 +706,7 @@ module AWS::SDK::Support
     class DescribeTrustedAdvisorCheckSummaries
       def self.default(visited=[])
         {
-          summaries: Stubs::TrustedAdvisorCheckSummaryList.default(visited),
+          summaries: TrustedAdvisorCheckSummaryList.default(visited),
         }
       end
 
@@ -724,7 +724,7 @@ module AWS::SDK::Support
         return nil if visited.include?('TrustedAdvisorCheckSummaryList')
         visited = visited + ['TrustedAdvisorCheckSummaryList']
         [
-          Stubs::TrustedAdvisorCheckSummary.default(visited)
+          TrustedAdvisorCheckSummary.default(visited)
         ]
       end
 
@@ -748,8 +748,8 @@ module AWS::SDK::Support
           timestamp: 'timestamp',
           status: 'status',
           has_flagged_resources: false,
-          resources_summary: Stubs::TrustedAdvisorResourcesSummary.default(visited),
-          category_specific_summary: Stubs::TrustedAdvisorCategorySpecificSummary.default(visited),
+          resources_summary: TrustedAdvisorResourcesSummary.default(visited),
+          category_specific_summary: TrustedAdvisorCategorySpecificSummary.default(visited),
         }
       end
 
@@ -770,7 +770,7 @@ module AWS::SDK::Support
     class DescribeTrustedAdvisorChecks
       def self.default(visited=[])
         {
-          checks: Stubs::TrustedAdvisorCheckList.default(visited),
+          checks: TrustedAdvisorCheckList.default(visited),
         }
       end
 
@@ -788,7 +788,7 @@ module AWS::SDK::Support
         return nil if visited.include?('TrustedAdvisorCheckList')
         visited = visited + ['TrustedAdvisorCheckList']
         [
-          Stubs::TrustedAdvisorCheckDescription.default(visited)
+          TrustedAdvisorCheckDescription.default(visited)
         ]
       end
 
@@ -812,7 +812,7 @@ module AWS::SDK::Support
           name: 'name',
           description: 'description',
           category: 'category',
-          metadata: Stubs::StringList.default(visited),
+          metadata: StringList.default(visited),
         }
       end
 
@@ -832,7 +832,7 @@ module AWS::SDK::Support
     class RefreshTrustedAdvisorCheck
       def self.default(visited=[])
         {
-          status: Stubs::TrustedAdvisorCheckRefreshStatus.default(visited),
+          status: TrustedAdvisorCheckRefreshStatus.default(visited),
         }
       end
 

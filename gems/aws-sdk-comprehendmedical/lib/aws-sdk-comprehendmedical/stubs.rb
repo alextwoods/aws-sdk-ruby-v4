@@ -14,7 +14,7 @@ module AWS::SDK::ComprehendMedical
     class DescribeEntitiesDetectionV2Job
       def self.default(visited=[])
         {
-          comprehend_medical_async_job_properties: Stubs::ComprehendMedicalAsyncJobProperties.default(visited),
+          comprehend_medical_async_job_properties: ComprehendMedicalAsyncJobProperties.default(visited),
         }
       end
 
@@ -39,8 +39,8 @@ module AWS::SDK::ComprehendMedical
           submit_time: Time.now,
           end_time: Time.now,
           expiration_time: Time.now,
-          input_data_config: Stubs::InputDataConfig.default(visited),
-          output_data_config: Stubs::OutputDataConfig.default(visited),
+          input_data_config: InputDataConfig.default(visited),
+          output_data_config: OutputDataConfig.default(visited),
           language_code: 'language_code',
           data_access_role_arn: 'data_access_role_arn',
           manifest_file_path: 'manifest_file_path',
@@ -114,7 +114,7 @@ module AWS::SDK::ComprehendMedical
     class DescribeICD10CMInferenceJob
       def self.default(visited=[])
         {
-          comprehend_medical_async_job_properties: Stubs::ComprehendMedicalAsyncJobProperties.default(visited),
+          comprehend_medical_async_job_properties: ComprehendMedicalAsyncJobProperties.default(visited),
         }
       end
 
@@ -130,7 +130,7 @@ module AWS::SDK::ComprehendMedical
     class DescribePHIDetectionJob
       def self.default(visited=[])
         {
-          comprehend_medical_async_job_properties: Stubs::ComprehendMedicalAsyncJobProperties.default(visited),
+          comprehend_medical_async_job_properties: ComprehendMedicalAsyncJobProperties.default(visited),
         }
       end
 
@@ -146,7 +146,7 @@ module AWS::SDK::ComprehendMedical
     class DescribeRxNormInferenceJob
       def self.default(visited=[])
         {
-          comprehend_medical_async_job_properties: Stubs::ComprehendMedicalAsyncJobProperties.default(visited),
+          comprehend_medical_async_job_properties: ComprehendMedicalAsyncJobProperties.default(visited),
         }
       end
 
@@ -162,7 +162,7 @@ module AWS::SDK::ComprehendMedical
     class DescribeSNOMEDCTInferenceJob
       def self.default(visited=[])
         {
-          comprehend_medical_async_job_properties: Stubs::ComprehendMedicalAsyncJobProperties.default(visited),
+          comprehend_medical_async_job_properties: ComprehendMedicalAsyncJobProperties.default(visited),
         }
       end
 
@@ -178,8 +178,8 @@ module AWS::SDK::ComprehendMedical
     class DetectEntities
       def self.default(visited=[])
         {
-          entities: Stubs::EntityList.default(visited),
-          unmapped_attributes: Stubs::UnmappedAttributeList.default(visited),
+          entities: EntityList.default(visited),
+          unmapped_attributes: UnmappedAttributeList.default(visited),
           pagination_token: 'pagination_token',
           model_version: 'model_version',
         }
@@ -202,7 +202,7 @@ module AWS::SDK::ComprehendMedical
         return nil if visited.include?('UnmappedAttributeList')
         visited = visited + ['UnmappedAttributeList']
         [
-          Stubs::UnmappedAttribute.default(visited)
+          UnmappedAttribute.default(visited)
         ]
       end
 
@@ -223,7 +223,7 @@ module AWS::SDK::ComprehendMedical
         visited = visited + ['UnmappedAttribute']
         {
           type: 'type',
-          attribute: Stubs::Attribute.default(visited),
+          attribute: Attribute.default(visited),
         }
       end
 
@@ -251,7 +251,7 @@ module AWS::SDK::ComprehendMedical
           end_offset: 1,
           text: 'text',
           category: 'category',
-          traits: Stubs::TraitList.default(visited),
+          traits: TraitList.default(visited),
         }
       end
 
@@ -278,7 +278,7 @@ module AWS::SDK::ComprehendMedical
         return nil if visited.include?('TraitList')
         visited = visited + ['TraitList']
         [
-          Stubs::Trait.default(visited)
+          Trait.default(visited)
         ]
       end
 
@@ -318,7 +318,7 @@ module AWS::SDK::ComprehendMedical
         return nil if visited.include?('EntityList')
         visited = visited + ['EntityList']
         [
-          Stubs::Entity.default(visited)
+          Entity.default(visited)
         ]
       end
 
@@ -345,8 +345,8 @@ module AWS::SDK::ComprehendMedical
           text: 'text',
           category: 'category',
           type: 'type',
-          traits: Stubs::TraitList.default(visited),
-          attributes: Stubs::AttributeList.default(visited),
+          traits: TraitList.default(visited),
+          attributes: AttributeList.default(visited),
         }
       end
 
@@ -372,7 +372,7 @@ module AWS::SDK::ComprehendMedical
         return nil if visited.include?('AttributeList')
         visited = visited + ['AttributeList']
         [
-          Stubs::Attribute.default(visited)
+          Attribute.default(visited)
         ]
       end
 
@@ -390,8 +390,8 @@ module AWS::SDK::ComprehendMedical
     class DetectEntitiesV2
       def self.default(visited=[])
         {
-          entities: Stubs::EntityList.default(visited),
-          unmapped_attributes: Stubs::UnmappedAttributeList.default(visited),
+          entities: EntityList.default(visited),
+          unmapped_attributes: UnmappedAttributeList.default(visited),
           pagination_token: 'pagination_token',
           model_version: 'model_version',
         }
@@ -412,7 +412,7 @@ module AWS::SDK::ComprehendMedical
     class DetectPHI
       def self.default(visited=[])
         {
-          entities: Stubs::EntityList.default(visited),
+          entities: EntityList.default(visited),
           pagination_token: 'pagination_token',
           model_version: 'model_version',
         }
@@ -432,7 +432,7 @@ module AWS::SDK::ComprehendMedical
     class InferICD10CM
       def self.default(visited=[])
         {
-          entities: Stubs::ICD10CMEntityList.default(visited),
+          entities: ICD10CMEntityList.default(visited),
           pagination_token: 'pagination_token',
           model_version: 'model_version',
         }
@@ -454,7 +454,7 @@ module AWS::SDK::ComprehendMedical
         return nil if visited.include?('ICD10CMEntityList')
         visited = visited + ['ICD10CMEntityList']
         [
-          Stubs::ICD10CMEntity.default(visited)
+          ICD10CMEntity.default(visited)
         ]
       end
 
@@ -481,9 +481,9 @@ module AWS::SDK::ComprehendMedical
           score: 1.0,
           begin_offset: 1,
           end_offset: 1,
-          attributes: Stubs::ICD10CMAttributeList.default(visited),
-          traits: Stubs::ICD10CMTraitList.default(visited),
-          icd10_cm_concepts: Stubs::ICD10CMConceptList.default(visited),
+          attributes: ICD10CMAttributeList.default(visited),
+          traits: ICD10CMTraitList.default(visited),
+          icd10_cm_concepts: ICD10CMConceptList.default(visited),
         }
       end
 
@@ -510,7 +510,7 @@ module AWS::SDK::ComprehendMedical
         return nil if visited.include?('ICD10CMConceptList')
         visited = visited + ['ICD10CMConceptList']
         [
-          Stubs::ICD10CMConcept.default(visited)
+          ICD10CMConcept.default(visited)
         ]
       end
 
@@ -552,7 +552,7 @@ module AWS::SDK::ComprehendMedical
         return nil if visited.include?('ICD10CMTraitList')
         visited = visited + ['ICD10CMTraitList']
         [
-          Stubs::ICD10CMTrait.default(visited)
+          ICD10CMTrait.default(visited)
         ]
       end
 
@@ -592,7 +592,7 @@ module AWS::SDK::ComprehendMedical
         return nil if visited.include?('ICD10CMAttributeList')
         visited = visited + ['ICD10CMAttributeList']
         [
-          Stubs::ICD10CMAttribute.default(visited)
+          ICD10CMAttribute.default(visited)
         ]
       end
 
@@ -619,7 +619,7 @@ module AWS::SDK::ComprehendMedical
           begin_offset: 1,
           end_offset: 1,
           text: 'text',
-          traits: Stubs::ICD10CMTraitList.default(visited),
+          traits: ICD10CMTraitList.default(visited),
           category: 'category',
           relationship_type: 'relationship_type',
         }
@@ -646,7 +646,7 @@ module AWS::SDK::ComprehendMedical
     class InferRxNorm
       def self.default(visited=[])
         {
-          entities: Stubs::RxNormEntityList.default(visited),
+          entities: RxNormEntityList.default(visited),
           pagination_token: 'pagination_token',
           model_version: 'model_version',
         }
@@ -668,7 +668,7 @@ module AWS::SDK::ComprehendMedical
         return nil if visited.include?('RxNormEntityList')
         visited = visited + ['RxNormEntityList']
         [
-          Stubs::RxNormEntity.default(visited)
+          RxNormEntity.default(visited)
         ]
       end
 
@@ -695,9 +695,9 @@ module AWS::SDK::ComprehendMedical
           score: 1.0,
           begin_offset: 1,
           end_offset: 1,
-          attributes: Stubs::RxNormAttributeList.default(visited),
-          traits: Stubs::RxNormTraitList.default(visited),
-          rx_norm_concepts: Stubs::RxNormConceptList.default(visited),
+          attributes: RxNormAttributeList.default(visited),
+          traits: RxNormTraitList.default(visited),
+          rx_norm_concepts: RxNormConceptList.default(visited),
         }
       end
 
@@ -724,7 +724,7 @@ module AWS::SDK::ComprehendMedical
         return nil if visited.include?('RxNormConceptList')
         visited = visited + ['RxNormConceptList']
         [
-          Stubs::RxNormConcept.default(visited)
+          RxNormConcept.default(visited)
         ]
       end
 
@@ -766,7 +766,7 @@ module AWS::SDK::ComprehendMedical
         return nil if visited.include?('RxNormTraitList')
         visited = visited + ['RxNormTraitList']
         [
-          Stubs::RxNormTrait.default(visited)
+          RxNormTrait.default(visited)
         ]
       end
 
@@ -806,7 +806,7 @@ module AWS::SDK::ComprehendMedical
         return nil if visited.include?('RxNormAttributeList')
         visited = visited + ['RxNormAttributeList']
         [
-          Stubs::RxNormAttribute.default(visited)
+          RxNormAttribute.default(visited)
         ]
       end
 
@@ -833,7 +833,7 @@ module AWS::SDK::ComprehendMedical
           begin_offset: 1,
           end_offset: 1,
           text: 'text',
-          traits: Stubs::RxNormTraitList.default(visited),
+          traits: RxNormTraitList.default(visited),
         }
       end
 
@@ -856,11 +856,11 @@ module AWS::SDK::ComprehendMedical
     class InferSNOMEDCT
       def self.default(visited=[])
         {
-          entities: Stubs::SNOMEDCTEntityList.default(visited),
+          entities: SNOMEDCTEntityList.default(visited),
           pagination_token: 'pagination_token',
           model_version: 'model_version',
-          snomedct_details: Stubs::SNOMEDCTDetails.default(visited),
-          characters: Stubs::Characters.default(visited),
+          snomedct_details: SNOMEDCTDetails.default(visited),
+          characters: Characters.default(visited),
         }
       end
 
@@ -922,7 +922,7 @@ module AWS::SDK::ComprehendMedical
         return nil if visited.include?('SNOMEDCTEntityList')
         visited = visited + ['SNOMEDCTEntityList']
         [
-          Stubs::SNOMEDCTEntity.default(visited)
+          SNOMEDCTEntity.default(visited)
         ]
       end
 
@@ -949,9 +949,9 @@ module AWS::SDK::ComprehendMedical
           score: 1.0,
           begin_offset: 1,
           end_offset: 1,
-          attributes: Stubs::SNOMEDCTAttributeList.default(visited),
-          traits: Stubs::SNOMEDCTTraitList.default(visited),
-          snomedct_concepts: Stubs::SNOMEDCTConceptList.default(visited),
+          attributes: SNOMEDCTAttributeList.default(visited),
+          traits: SNOMEDCTTraitList.default(visited),
+          snomedct_concepts: SNOMEDCTConceptList.default(visited),
         }
       end
 
@@ -978,7 +978,7 @@ module AWS::SDK::ComprehendMedical
         return nil if visited.include?('SNOMEDCTConceptList')
         visited = visited + ['SNOMEDCTConceptList']
         [
-          Stubs::SNOMEDCTConcept.default(visited)
+          SNOMEDCTConcept.default(visited)
         ]
       end
 
@@ -1020,7 +1020,7 @@ module AWS::SDK::ComprehendMedical
         return nil if visited.include?('SNOMEDCTTraitList')
         visited = visited + ['SNOMEDCTTraitList']
         [
-          Stubs::SNOMEDCTTrait.default(visited)
+          SNOMEDCTTrait.default(visited)
         ]
       end
 
@@ -1060,7 +1060,7 @@ module AWS::SDK::ComprehendMedical
         return nil if visited.include?('SNOMEDCTAttributeList')
         visited = visited + ['SNOMEDCTAttributeList']
         [
-          Stubs::SNOMEDCTAttribute.default(visited)
+          SNOMEDCTAttribute.default(visited)
         ]
       end
 
@@ -1089,8 +1089,8 @@ module AWS::SDK::ComprehendMedical
           begin_offset: 1,
           end_offset: 1,
           text: 'text',
-          traits: Stubs::SNOMEDCTTraitList.default(visited),
-          snomedct_concepts: Stubs::SNOMEDCTConceptList.default(visited),
+          traits: SNOMEDCTTraitList.default(visited),
+          snomedct_concepts: SNOMEDCTConceptList.default(visited),
         }
       end
 
@@ -1116,7 +1116,7 @@ module AWS::SDK::ComprehendMedical
     class ListEntitiesDetectionV2Jobs
       def self.default(visited=[])
         {
-          comprehend_medical_async_job_properties_list: Stubs::ComprehendMedicalAsyncJobPropertiesList.default(visited),
+          comprehend_medical_async_job_properties_list: ComprehendMedicalAsyncJobPropertiesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1136,7 +1136,7 @@ module AWS::SDK::ComprehendMedical
         return nil if visited.include?('ComprehendMedicalAsyncJobPropertiesList')
         visited = visited + ['ComprehendMedicalAsyncJobPropertiesList']
         [
-          Stubs::ComprehendMedicalAsyncJobProperties.default(visited)
+          ComprehendMedicalAsyncJobProperties.default(visited)
         ]
       end
 
@@ -1154,7 +1154,7 @@ module AWS::SDK::ComprehendMedical
     class ListICD10CMInferenceJobs
       def self.default(visited=[])
         {
-          comprehend_medical_async_job_properties_list: Stubs::ComprehendMedicalAsyncJobPropertiesList.default(visited),
+          comprehend_medical_async_job_properties_list: ComprehendMedicalAsyncJobPropertiesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1172,7 +1172,7 @@ module AWS::SDK::ComprehendMedical
     class ListPHIDetectionJobs
       def self.default(visited=[])
         {
-          comprehend_medical_async_job_properties_list: Stubs::ComprehendMedicalAsyncJobPropertiesList.default(visited),
+          comprehend_medical_async_job_properties_list: ComprehendMedicalAsyncJobPropertiesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1190,7 +1190,7 @@ module AWS::SDK::ComprehendMedical
     class ListRxNormInferenceJobs
       def self.default(visited=[])
         {
-          comprehend_medical_async_job_properties_list: Stubs::ComprehendMedicalAsyncJobPropertiesList.default(visited),
+          comprehend_medical_async_job_properties_list: ComprehendMedicalAsyncJobPropertiesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1208,7 +1208,7 @@ module AWS::SDK::ComprehendMedical
     class ListSNOMEDCTInferenceJobs
       def self.default(visited=[])
         {
-          comprehend_medical_async_job_properties_list: Stubs::ComprehendMedicalAsyncJobPropertiesList.default(visited),
+          comprehend_medical_async_job_properties_list: ComprehendMedicalAsyncJobPropertiesList.default(visited),
           next_token: 'next_token',
         }
       end

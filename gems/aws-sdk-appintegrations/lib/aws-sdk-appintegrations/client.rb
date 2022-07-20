@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::AppIntegrations
@@ -110,7 +112,7 @@ module AWS::SDK::AppIntegrations
     def create_data_integration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDataIntegrationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDataIntegrationInput,
         validate_input: @config.validate_input
@@ -207,7 +209,7 @@ module AWS::SDK::AppIntegrations
     def create_event_integration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateEventIntegrationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEventIntegrationInput,
         validate_input: @config.validate_input
@@ -282,7 +284,7 @@ module AWS::SDK::AppIntegrations
     def delete_data_integration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDataIntegrationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDataIntegrationInput,
         validate_input: @config.validate_input
@@ -350,7 +352,7 @@ module AWS::SDK::AppIntegrations
     def delete_event_integration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEventIntegrationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEventIntegrationInput,
         validate_input: @config.validate_input
@@ -434,7 +436,7 @@ module AWS::SDK::AppIntegrations
     def get_data_integration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDataIntegrationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDataIntegrationInput,
         validate_input: @config.validate_input
@@ -509,7 +511,7 @@ module AWS::SDK::AppIntegrations
     def get_event_integration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEventIntegrationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEventIntegrationInput,
         validate_input: @config.validate_input
@@ -596,7 +598,7 @@ module AWS::SDK::AppIntegrations
     def list_data_integration_associations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDataIntegrationAssociationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDataIntegrationAssociationsInput,
         validate_input: @config.validate_input
@@ -679,7 +681,7 @@ module AWS::SDK::AppIntegrations
     def list_data_integrations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDataIntegrationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDataIntegrationsInput,
         validate_input: @config.validate_input
@@ -765,7 +767,7 @@ module AWS::SDK::AppIntegrations
     def list_event_integration_associations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEventIntegrationAssociationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEventIntegrationAssociationsInput,
         validate_input: @config.validate_input
@@ -848,7 +850,7 @@ module AWS::SDK::AppIntegrations
     def list_event_integrations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEventIntegrationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEventIntegrationsInput,
         validate_input: @config.validate_input
@@ -917,7 +919,7 @@ module AWS::SDK::AppIntegrations
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -990,7 +992,7 @@ module AWS::SDK::AppIntegrations
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -1064,7 +1066,7 @@ module AWS::SDK::AppIntegrations
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -1144,7 +1146,7 @@ module AWS::SDK::AppIntegrations
     def update_data_integration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDataIntegrationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDataIntegrationInput,
         validate_input: @config.validate_input
@@ -1216,7 +1218,7 @@ module AWS::SDK::AppIntegrations
     def update_event_integration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateEventIntegrationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateEventIntegrationInput,
         validate_input: @config.validate_input

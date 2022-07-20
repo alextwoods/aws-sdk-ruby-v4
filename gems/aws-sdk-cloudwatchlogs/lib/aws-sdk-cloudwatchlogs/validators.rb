@@ -62,7 +62,7 @@ module AWS::SDK::CloudWatchLogs
         Hearth::Validator.validate!(input, Types::CreateLogGroupInput, context: context)
         Hearth::Validator.validate!(input[:log_group_name], ::String, context: "#{context}[:log_group_name]")
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -214,7 +214,7 @@ module AWS::SDK::CloudWatchLogs
     class DescribeDestinationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeDestinationsOutput, context: context)
-        Validators::Destinations.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
+        Destinations.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -232,7 +232,7 @@ module AWS::SDK::CloudWatchLogs
     class DescribeExportTasksOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeExportTasksOutput, context: context)
-        Validators::ExportTasks.validate!(input[:export_tasks], context: "#{context}[:export_tasks]") unless input[:export_tasks].nil?
+        ExportTasks.validate!(input[:export_tasks], context: "#{context}[:export_tasks]") unless input[:export_tasks].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -249,7 +249,7 @@ module AWS::SDK::CloudWatchLogs
     class DescribeLogGroupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeLogGroupsOutput, context: context)
-        Validators::LogGroups.validate!(input[:log_groups], context: "#{context}[:log_groups]") unless input[:log_groups].nil?
+        LogGroups.validate!(input[:log_groups], context: "#{context}[:log_groups]") unless input[:log_groups].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -269,7 +269,7 @@ module AWS::SDK::CloudWatchLogs
     class DescribeLogStreamsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeLogStreamsOutput, context: context)
-        Validators::LogStreams.validate!(input[:log_streams], context: "#{context}[:log_streams]") unless input[:log_streams].nil?
+        LogStreams.validate!(input[:log_streams], context: "#{context}[:log_streams]") unless input[:log_streams].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -289,7 +289,7 @@ module AWS::SDK::CloudWatchLogs
     class DescribeMetricFiltersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeMetricFiltersOutput, context: context)
-        Validators::MetricFilters.validate!(input[:metric_filters], context: "#{context}[:metric_filters]") unless input[:metric_filters].nil?
+        MetricFilters.validate!(input[:metric_filters], context: "#{context}[:metric_filters]") unless input[:metric_filters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -307,7 +307,7 @@ module AWS::SDK::CloudWatchLogs
     class DescribeQueriesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeQueriesOutput, context: context)
-        Validators::QueryInfoList.validate!(input[:queries], context: "#{context}[:queries]") unless input[:queries].nil?
+        QueryInfoList.validate!(input[:queries], context: "#{context}[:queries]") unless input[:queries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -324,7 +324,7 @@ module AWS::SDK::CloudWatchLogs
     class DescribeQueryDefinitionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeQueryDefinitionsOutput, context: context)
-        Validators::QueryDefinitionList.validate!(input[:query_definitions], context: "#{context}[:query_definitions]") unless input[:query_definitions].nil?
+        QueryDefinitionList.validate!(input[:query_definitions], context: "#{context}[:query_definitions]") unless input[:query_definitions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -340,7 +340,7 @@ module AWS::SDK::CloudWatchLogs
     class DescribeResourcePoliciesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeResourcePoliciesOutput, context: context)
-        Validators::ResourcePolicies.validate!(input[:resource_policies], context: "#{context}[:resource_policies]") unless input[:resource_policies].nil?
+        ResourcePolicies.validate!(input[:resource_policies], context: "#{context}[:resource_policies]") unless input[:resource_policies].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -358,7 +358,7 @@ module AWS::SDK::CloudWatchLogs
     class DescribeSubscriptionFiltersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeSubscriptionFiltersOutput, context: context)
-        Validators::SubscriptionFilters.validate!(input[:subscription_filters], context: "#{context}[:subscription_filters]") unless input[:subscription_filters].nil?
+        SubscriptionFilters.validate!(input[:subscription_filters], context: "#{context}[:subscription_filters]") unless input[:subscription_filters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -379,7 +379,7 @@ module AWS::SDK::CloudWatchLogs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Destination.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Destination.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -417,8 +417,8 @@ module AWS::SDK::CloudWatchLogs
         Hearth::Validator.validate!(input[:to], ::Integer, context: "#{context}[:to]")
         Hearth::Validator.validate!(input[:destination], ::String, context: "#{context}[:destination]")
         Hearth::Validator.validate!(input[:destination_prefix], ::String, context: "#{context}[:destination_prefix]")
-        Validators::ExportTaskStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
-        Validators::ExportTaskExecutionInfo.validate!(input[:execution_info], context: "#{context}[:execution_info]") unless input[:execution_info].nil?
+        ExportTaskStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        ExportTaskExecutionInfo.validate!(input[:execution_info], context: "#{context}[:execution_info]") unless input[:execution_info].nil?
       end
     end
 
@@ -442,7 +442,7 @@ module AWS::SDK::CloudWatchLogs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ExportTask.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ExportTask.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -461,7 +461,7 @@ module AWS::SDK::CloudWatchLogs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FilterLogEventsInput, context: context)
         Hearth::Validator.validate!(input[:log_group_name], ::String, context: "#{context}[:log_group_name]")
-        Validators::InputLogStreamNames.validate!(input[:log_stream_names], context: "#{context}[:log_stream_names]") unless input[:log_stream_names].nil?
+        InputLogStreamNames.validate!(input[:log_stream_names], context: "#{context}[:log_stream_names]") unless input[:log_stream_names].nil?
         Hearth::Validator.validate!(input[:log_stream_name_prefix], ::String, context: "#{context}[:log_stream_name_prefix]")
         Hearth::Validator.validate!(input[:start_time], ::Integer, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Integer, context: "#{context}[:end_time]")
@@ -475,8 +475,8 @@ module AWS::SDK::CloudWatchLogs
     class FilterLogEventsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FilterLogEventsOutput, context: context)
-        Validators::FilteredLogEvents.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
-        Validators::SearchedLogStreams.validate!(input[:searched_log_streams], context: "#{context}[:searched_log_streams]") unless input[:searched_log_streams].nil?
+        FilteredLogEvents.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
+        SearchedLogStreams.validate!(input[:searched_log_streams], context: "#{context}[:searched_log_streams]") unless input[:searched_log_streams].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -496,7 +496,7 @@ module AWS::SDK::CloudWatchLogs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FilteredLogEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FilteredLogEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -517,7 +517,7 @@ module AWS::SDK::CloudWatchLogs
     class GetLogEventsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetLogEventsOutput, context: context)
-        Validators::OutputLogEvents.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
+        OutputLogEvents.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
         Hearth::Validator.validate!(input[:next_forward_token], ::String, context: "#{context}[:next_forward_token]")
         Hearth::Validator.validate!(input[:next_backward_token], ::String, context: "#{context}[:next_backward_token]")
       end
@@ -534,7 +534,7 @@ module AWS::SDK::CloudWatchLogs
     class GetLogGroupFieldsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetLogGroupFieldsOutput, context: context)
-        Validators::LogGroupFieldList.validate!(input[:log_group_fields], context: "#{context}[:log_group_fields]") unless input[:log_group_fields].nil?
+        LogGroupFieldList.validate!(input[:log_group_fields], context: "#{context}[:log_group_fields]") unless input[:log_group_fields].nil?
       end
     end
 
@@ -548,7 +548,7 @@ module AWS::SDK::CloudWatchLogs
     class GetLogRecordOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetLogRecordOutput, context: context)
-        Validators::LogRecord.validate!(input[:log_record], context: "#{context}[:log_record]") unless input[:log_record].nil?
+        LogRecord.validate!(input[:log_record], context: "#{context}[:log_record]") unless input[:log_record].nil?
       end
     end
 
@@ -562,8 +562,8 @@ module AWS::SDK::CloudWatchLogs
     class GetQueryResultsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetQueryResultsOutput, context: context)
-        Validators::QueryResults.validate!(input[:results], context: "#{context}[:results]") unless input[:results].nil?
-        Validators::QueryStatistics.validate!(input[:statistics], context: "#{context}[:statistics]") unless input[:statistics].nil?
+        QueryResults.validate!(input[:results], context: "#{context}[:results]") unless input[:results].nil?
+        QueryStatistics.validate!(input[:statistics], context: "#{context}[:statistics]") unless input[:statistics].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
       end
     end
@@ -580,7 +580,7 @@ module AWS::SDK::CloudWatchLogs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InputLogEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InputLogEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -633,7 +633,7 @@ module AWS::SDK::CloudWatchLogs
     class ListTagsLogGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsLogGroupOutput, context: context)
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -662,7 +662,7 @@ module AWS::SDK::CloudWatchLogs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LogGroupField.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LogGroupField.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -680,7 +680,7 @@ module AWS::SDK::CloudWatchLogs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LogGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LogGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -713,7 +713,7 @@ module AWS::SDK::CloudWatchLogs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LogStream.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LogStream.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -721,7 +721,7 @@ module AWS::SDK::CloudWatchLogs
     class MalformedQueryException
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MalformedQueryException, context: context)
-        Validators::QueryCompileError.validate!(input[:query_compile_error], context: "#{context}[:query_compile_error]") unless input[:query_compile_error].nil?
+        QueryCompileError.validate!(input[:query_compile_error], context: "#{context}[:query_compile_error]") unless input[:query_compile_error].nil?
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
       end
     end
@@ -731,7 +731,7 @@ module AWS::SDK::CloudWatchLogs
         Hearth::Validator.validate!(input, Types::MetricFilter, context: context)
         Hearth::Validator.validate!(input[:filter_name], ::String, context: "#{context}[:filter_name]")
         Hearth::Validator.validate!(input[:filter_pattern], ::String, context: "#{context}[:filter_pattern]")
-        Validators::MetricTransformations.validate!(input[:metric_transformations], context: "#{context}[:metric_transformations]") unless input[:metric_transformations].nil?
+        MetricTransformations.validate!(input[:metric_transformations], context: "#{context}[:metric_transformations]") unless input[:metric_transformations].nil?
         Hearth::Validator.validate!(input[:creation_time], ::Integer, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:log_group_name], ::String, context: "#{context}[:log_group_name]")
       end
@@ -742,7 +742,7 @@ module AWS::SDK::CloudWatchLogs
         Hearth::Validator.validate!(input, Types::MetricFilterMatchRecord, context: context)
         Hearth::Validator.validate!(input[:event_number], ::Integer, context: "#{context}[:event_number]")
         Hearth::Validator.validate!(input[:event_message], ::String, context: "#{context}[:event_message]")
-        Validators::ExtractedValues.validate!(input[:extracted_values], context: "#{context}[:extracted_values]") unless input[:extracted_values].nil?
+        ExtractedValues.validate!(input[:extracted_values], context: "#{context}[:extracted_values]") unless input[:extracted_values].nil?
       end
     end
 
@@ -750,7 +750,7 @@ module AWS::SDK::CloudWatchLogs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MetricFilterMatchRecord.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MetricFilterMatchRecord.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -759,7 +759,7 @@ module AWS::SDK::CloudWatchLogs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MetricFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MetricFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -771,7 +771,7 @@ module AWS::SDK::CloudWatchLogs
         Hearth::Validator.validate!(input[:metric_namespace], ::String, context: "#{context}[:metric_namespace]")
         Hearth::Validator.validate!(input[:metric_value], ::String, context: "#{context}[:metric_value]")
         Hearth::Validator.validate!(input[:default_value], ::Float, context: "#{context}[:default_value]")
-        Validators::Dimensions.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
+        Dimensions.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
         Hearth::Validator.validate!(input[:unit], ::String, context: "#{context}[:unit]")
       end
     end
@@ -780,7 +780,7 @@ module AWS::SDK::CloudWatchLogs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MetricTransformation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MetricTransformation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -805,7 +805,7 @@ module AWS::SDK::CloudWatchLogs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OutputLogEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OutputLogEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -822,7 +822,7 @@ module AWS::SDK::CloudWatchLogs
     class PutDestinationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutDestinationOutput, context: context)
-        Validators::Destination.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
+        Destination.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
       end
     end
 
@@ -846,7 +846,7 @@ module AWS::SDK::CloudWatchLogs
         Hearth::Validator.validate!(input, Types::PutLogEventsInput, context: context)
         Hearth::Validator.validate!(input[:log_group_name], ::String, context: "#{context}[:log_group_name]")
         Hearth::Validator.validate!(input[:log_stream_name], ::String, context: "#{context}[:log_stream_name]")
-        Validators::InputLogEvents.validate!(input[:log_events], context: "#{context}[:log_events]") unless input[:log_events].nil?
+        InputLogEvents.validate!(input[:log_events], context: "#{context}[:log_events]") unless input[:log_events].nil?
         Hearth::Validator.validate!(input[:sequence_token], ::String, context: "#{context}[:sequence_token]")
       end
     end
@@ -855,7 +855,7 @@ module AWS::SDK::CloudWatchLogs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutLogEventsOutput, context: context)
         Hearth::Validator.validate!(input[:next_sequence_token], ::String, context: "#{context}[:next_sequence_token]")
-        Validators::RejectedLogEventsInfo.validate!(input[:rejected_log_events_info], context: "#{context}[:rejected_log_events_info]") unless input[:rejected_log_events_info].nil?
+        RejectedLogEventsInfo.validate!(input[:rejected_log_events_info], context: "#{context}[:rejected_log_events_info]") unless input[:rejected_log_events_info].nil?
       end
     end
 
@@ -865,7 +865,7 @@ module AWS::SDK::CloudWatchLogs
         Hearth::Validator.validate!(input[:log_group_name], ::String, context: "#{context}[:log_group_name]")
         Hearth::Validator.validate!(input[:filter_name], ::String, context: "#{context}[:filter_name]")
         Hearth::Validator.validate!(input[:filter_pattern], ::String, context: "#{context}[:filter_pattern]")
-        Validators::MetricTransformations.validate!(input[:metric_transformations], context: "#{context}[:metric_transformations]") unless input[:metric_transformations].nil?
+        MetricTransformations.validate!(input[:metric_transformations], context: "#{context}[:metric_transformations]") unless input[:metric_transformations].nil?
       end
     end
 
@@ -880,7 +880,7 @@ module AWS::SDK::CloudWatchLogs
         Hearth::Validator.validate!(input, Types::PutQueryDefinitionInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:query_definition_id], ::String, context: "#{context}[:query_definition_id]")
-        Validators::LogGroupNames.validate!(input[:log_group_names], context: "#{context}[:log_group_names]") unless input[:log_group_names].nil?
+        LogGroupNames.validate!(input[:log_group_names], context: "#{context}[:log_group_names]") unless input[:log_group_names].nil?
         Hearth::Validator.validate!(input[:query_string], ::String, context: "#{context}[:query_string]")
       end
     end
@@ -903,7 +903,7 @@ module AWS::SDK::CloudWatchLogs
     class PutResourcePolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutResourcePolicyOutput, context: context)
-        Validators::ResourcePolicy.validate!(input[:resource_policy], context: "#{context}[:resource_policy]") unless input[:resource_policy].nil?
+        ResourcePolicy.validate!(input[:resource_policy], context: "#{context}[:resource_policy]") unless input[:resource_policy].nil?
       end
     end
 
@@ -942,7 +942,7 @@ module AWS::SDK::CloudWatchLogs
     class QueryCompileError
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::QueryCompileError, context: context)
-        Validators::QueryCompileErrorLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        QueryCompileErrorLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
       end
     end
@@ -962,7 +962,7 @@ module AWS::SDK::CloudWatchLogs
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:query_string], ::String, context: "#{context}[:query_string]")
         Hearth::Validator.validate!(input[:last_modified], ::Integer, context: "#{context}[:last_modified]")
-        Validators::LogGroupNames.validate!(input[:log_group_names], context: "#{context}[:log_group_names]") unless input[:log_group_names].nil?
+        LogGroupNames.validate!(input[:log_group_names], context: "#{context}[:log_group_names]") unless input[:log_group_names].nil?
       end
     end
 
@@ -970,7 +970,7 @@ module AWS::SDK::CloudWatchLogs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::QueryDefinition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          QueryDefinition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -990,7 +990,7 @@ module AWS::SDK::CloudWatchLogs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::QueryInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          QueryInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -999,7 +999,7 @@ module AWS::SDK::CloudWatchLogs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResultRows.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResultRows.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1040,7 +1040,7 @@ module AWS::SDK::CloudWatchLogs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourcePolicy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourcePolicy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1066,7 +1066,7 @@ module AWS::SDK::CloudWatchLogs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResultField.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResultField.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1083,7 +1083,7 @@ module AWS::SDK::CloudWatchLogs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SearchedLogStream.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SearchedLogStream.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1099,7 +1099,7 @@ module AWS::SDK::CloudWatchLogs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartQueryInput, context: context)
         Hearth::Validator.validate!(input[:log_group_name], ::String, context: "#{context}[:log_group_name]")
-        Validators::LogGroupNames.validate!(input[:log_group_names], context: "#{context}[:log_group_names]") unless input[:log_group_names].nil?
+        LogGroupNames.validate!(input[:log_group_names], context: "#{context}[:log_group_names]") unless input[:log_group_names].nil?
         Hearth::Validator.validate!(input[:start_time], ::Integer, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Integer, context: "#{context}[:end_time]")
         Hearth::Validator.validate!(input[:query_string], ::String, context: "#{context}[:query_string]")
@@ -1145,7 +1145,7 @@ module AWS::SDK::CloudWatchLogs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SubscriptionFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SubscriptionFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1163,7 +1163,7 @@ module AWS::SDK::CloudWatchLogs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagLogGroupInput, context: context)
         Hearth::Validator.validate!(input[:log_group_name], ::String, context: "#{context}[:log_group_name]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1196,14 +1196,14 @@ module AWS::SDK::CloudWatchLogs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TestMetricFilterInput, context: context)
         Hearth::Validator.validate!(input[:filter_pattern], ::String, context: "#{context}[:filter_pattern]")
-        Validators::TestEventMessages.validate!(input[:log_event_messages], context: "#{context}[:log_event_messages]") unless input[:log_event_messages].nil?
+        TestEventMessages.validate!(input[:log_event_messages], context: "#{context}[:log_event_messages]") unless input[:log_event_messages].nil?
       end
     end
 
     class TestMetricFilterOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TestMetricFilterOutput, context: context)
-        Validators::MetricFilterMatches.validate!(input[:matches], context: "#{context}[:matches]") unless input[:matches].nil?
+        MetricFilterMatches.validate!(input[:matches], context: "#{context}[:matches]") unless input[:matches].nil?
       end
     end
 
@@ -1218,7 +1218,7 @@ module AWS::SDK::CloudWatchLogs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagLogGroupInput, context: context)
         Hearth::Validator.validate!(input[:log_group_name], ::String, context: "#{context}[:log_group_name]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 

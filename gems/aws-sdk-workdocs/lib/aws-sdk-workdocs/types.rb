@@ -153,11 +153,11 @@ module AWS::SDK::WorkDocs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_indirect_activity ||= false
       end
-
     end
 
     # Includes enum constants for ActivityType
@@ -591,6 +591,7 @@ module AWS::SDK::WorkDocs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.notify_collaborators ||= false
@@ -1025,6 +1026,7 @@ module AWS::SDK::WorkDocs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delete_all ||= false
@@ -1168,6 +1170,7 @@ module AWS::SDK::WorkDocs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delete_all ||= false
@@ -1319,6 +1322,7 @@ module AWS::SDK::WorkDocs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_indirect_activities ||= false
@@ -2346,6 +2350,7 @@ module AWS::SDK::WorkDocs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_custom_metadata ||= false
@@ -2470,6 +2475,7 @@ module AWS::SDK::WorkDocs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_custom_metadata ||= false
@@ -2525,6 +2531,7 @@ module AWS::SDK::WorkDocs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_custom_metadata ||= false
@@ -2935,6 +2942,7 @@ module AWS::SDK::WorkDocs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.send_email ||= false

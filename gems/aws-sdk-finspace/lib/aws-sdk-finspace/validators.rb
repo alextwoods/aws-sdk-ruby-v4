@@ -32,11 +32,11 @@ module AWS::SDK::Finspace
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:federation_mode], ::String, context: "#{context}[:federation_mode]")
-        Validators::FederationParameters.validate!(input[:federation_parameters], context: "#{context}[:federation_parameters]") unless input[:federation_parameters].nil?
-        Validators::SuperuserParameters.validate!(input[:superuser_parameters], context: "#{context}[:superuser_parameters]") unless input[:superuser_parameters].nil?
-        Validators::DataBundleArns.validate!(input[:data_bundles], context: "#{context}[:data_bundles]") unless input[:data_bundles].nil?
+        FederationParameters.validate!(input[:federation_parameters], context: "#{context}[:federation_parameters]") unless input[:federation_parameters].nil?
+        SuperuserParameters.validate!(input[:superuser_parameters], context: "#{context}[:superuser_parameters]") unless input[:superuser_parameters].nil?
+        DataBundleArns.validate!(input[:data_bundles], context: "#{context}[:data_bundles]") unless input[:data_bundles].nil?
       end
     end
 
@@ -85,7 +85,7 @@ module AWS::SDK::Finspace
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
         Hearth::Validator.validate!(input[:dedicated_service_account_id], ::String, context: "#{context}[:dedicated_service_account_id]")
         Hearth::Validator.validate!(input[:federation_mode], ::String, context: "#{context}[:federation_mode]")
-        Validators::FederationParameters.validate!(input[:federation_parameters], context: "#{context}[:federation_parameters]") unless input[:federation_parameters].nil?
+        FederationParameters.validate!(input[:federation_parameters], context: "#{context}[:federation_parameters]") unless input[:federation_parameters].nil?
       end
     end
 
@@ -93,7 +93,7 @@ module AWS::SDK::Finspace
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Environment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Environment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -106,7 +106,7 @@ module AWS::SDK::Finspace
         Hearth::Validator.validate!(input[:application_call_back_url], ::String, context: "#{context}[:application_call_back_url]")
         Hearth::Validator.validate!(input[:federation_urn], ::String, context: "#{context}[:federation_urn]")
         Hearth::Validator.validate!(input[:federation_provider_name], ::String, context: "#{context}[:federation_provider_name]")
-        Validators::AttributeMap.validate!(input[:attribute_map], context: "#{context}[:attribute_map]") unless input[:attribute_map].nil?
+        AttributeMap.validate!(input[:attribute_map], context: "#{context}[:attribute_map]") unless input[:attribute_map].nil?
       end
     end
 
@@ -120,7 +120,7 @@ module AWS::SDK::Finspace
     class GetEnvironmentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetEnvironmentOutput, context: context)
-        Validators::Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
+        Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
       end
     end
 
@@ -156,7 +156,7 @@ module AWS::SDK::Finspace
     class ListEnvironmentsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEnvironmentsOutput, context: context)
-        Validators::EnvironmentList.validate!(input[:environments], context: "#{context}[:environments]") unless input[:environments].nil?
+        EnvironmentList.validate!(input[:environments], context: "#{context}[:environments]") unless input[:environments].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -171,7 +171,7 @@ module AWS::SDK::Finspace
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -221,7 +221,7 @@ module AWS::SDK::Finspace
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -241,7 +241,7 @@ module AWS::SDK::Finspace
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -258,14 +258,14 @@ module AWS::SDK::Finspace
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:federation_mode], ::String, context: "#{context}[:federation_mode]")
-        Validators::FederationParameters.validate!(input[:federation_parameters], context: "#{context}[:federation_parameters]") unless input[:federation_parameters].nil?
+        FederationParameters.validate!(input[:federation_parameters], context: "#{context}[:federation_parameters]") unless input[:federation_parameters].nil?
       end
     end
 
     class UpdateEnvironmentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateEnvironmentOutput, context: context)
-        Validators::Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
+        Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
       end
     end
 

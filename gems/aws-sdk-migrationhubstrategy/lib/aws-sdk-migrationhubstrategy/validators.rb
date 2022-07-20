@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::MigrationHubStrategy
   module Validators
 
@@ -30,16 +32,16 @@ module AWS::SDK::MigrationHubStrategy
         Hearth::Validator.validate!(input, Types::ApplicationComponentDetail, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::RecommendationSet.validate!(input[:recommendation_set], context: "#{context}[:recommendation_set]") unless input[:recommendation_set].nil?
+        RecommendationSet.validate!(input[:recommendation_set], context: "#{context}[:recommendation_set]") unless input[:recommendation_set].nil?
         Hearth::Validator.validate!(input[:analysis_status], ::String, context: "#{context}[:analysis_status]")
         Hearth::Validator.validate!(input[:status_message], ::String, context: "#{context}[:status_message]")
-        Validators::ListAntipatternSeveritySummary.validate!(input[:list_antipattern_severity_summary], context: "#{context}[:list_antipattern_severity_summary]") unless input[:list_antipattern_severity_summary].nil?
-        Validators::DatabaseConfigDetail.validate!(input[:database_config_detail], context: "#{context}[:database_config_detail]") unless input[:database_config_detail].nil?
-        Validators::SourceCodeRepositories.validate!(input[:source_code_repositories], context: "#{context}[:source_code_repositories]") unless input[:source_code_repositories].nil?
+        ListAntipatternSeveritySummary.validate!(input[:list_antipattern_severity_summary], context: "#{context}[:list_antipattern_severity_summary]") unless input[:list_antipattern_severity_summary].nil?
+        DatabaseConfigDetail.validate!(input[:database_config_detail], context: "#{context}[:database_config_detail]") unless input[:database_config_detail].nil?
+        SourceCodeRepositories.validate!(input[:source_code_repositories], context: "#{context}[:source_code_repositories]") unless input[:source_code_repositories].nil?
         Hearth::Validator.validate!(input[:app_type], ::String, context: "#{context}[:app_type]")
         Hearth::Validator.validate!(input[:resource_sub_type], ::String, context: "#{context}[:resource_sub_type]")
         Hearth::Validator.validate!(input[:inclusion_status], ::String, context: "#{context}[:inclusion_status]")
-        Validators::S3Object.validate!(input[:antipattern_report_s3_object], context: "#{context}[:antipattern_report_s3_object]") unless input[:antipattern_report_s3_object].nil?
+        S3Object.validate!(input[:antipattern_report_s3_object], context: "#{context}[:antipattern_report_s3_object]") unless input[:antipattern_report_s3_object].nil?
         Hearth::Validator.validate!(input[:antipattern_report_status], ::String, context: "#{context}[:antipattern_report_status]")
         Hearth::Validator.validate!(input[:antipattern_report_status_message], ::String, context: "#{context}[:antipattern_report_status_message]")
         Hearth::Validator.validate!(input[:os_version], ::String, context: "#{context}[:os_version]")
@@ -54,7 +56,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ApplicationComponentDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ApplicationComponentDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -63,7 +65,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ApplicationComponentStrategy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ApplicationComponentStrategy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -71,7 +73,7 @@ module AWS::SDK::MigrationHubStrategy
     class ApplicationComponentStrategy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ApplicationComponentStrategy, context: context)
-        Validators::RecommendationSet.validate!(input[:recommendation], context: "#{context}[:recommendation]") unless input[:recommendation].nil?
+        RecommendationSet.validate!(input[:recommendation], context: "#{context}[:recommendation]") unless input[:recommendation].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:is_preferred], ::TrueClass, ::FalseClass, context: "#{context}[:is_preferred]")
       end
@@ -88,19 +90,19 @@ module AWS::SDK::MigrationHubStrategy
     class ApplicationPreferences
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ApplicationPreferences, context: context)
-        Validators::ManagementPreference.validate!(input[:management_preference], context: "#{context}[:management_preference]") unless input[:management_preference].nil?
+        ManagementPreference.validate!(input[:management_preference], context: "#{context}[:management_preference]") unless input[:management_preference].nil?
       end
     end
 
     class AssessmentSummary
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AssessmentSummary, context: context)
-        Validators::ListStrategySummary.validate!(input[:list_server_strategy_summary], context: "#{context}[:list_server_strategy_summary]") unless input[:list_server_strategy_summary].nil?
-        Validators::ListStrategySummary.validate!(input[:list_application_component_strategy_summary], context: "#{context}[:list_application_component_strategy_summary]") unless input[:list_application_component_strategy_summary].nil?
-        Validators::ListAntipatternSeveritySummary.validate!(input[:list_antipattern_severity_summary], context: "#{context}[:list_antipattern_severity_summary]") unless input[:list_antipattern_severity_summary].nil?
-        Validators::ListApplicationComponentSummary.validate!(input[:list_application_component_summary], context: "#{context}[:list_application_component_summary]") unless input[:list_application_component_summary].nil?
-        Validators::ListServerSummary.validate!(input[:list_server_summary], context: "#{context}[:list_server_summary]") unless input[:list_server_summary].nil?
-        Validators::S3Object.validate!(input[:antipattern_report_s3_object], context: "#{context}[:antipattern_report_s3_object]") unless input[:antipattern_report_s3_object].nil?
+        ListStrategySummary.validate!(input[:list_server_strategy_summary], context: "#{context}[:list_server_strategy_summary]") unless input[:list_server_strategy_summary].nil?
+        ListStrategySummary.validate!(input[:list_application_component_strategy_summary], context: "#{context}[:list_application_component_strategy_summary]") unless input[:list_application_component_strategy_summary].nil?
+        ListAntipatternSeveritySummary.validate!(input[:list_antipattern_severity_summary], context: "#{context}[:list_antipattern_severity_summary]") unless input[:list_antipattern_severity_summary].nil?
+        ListApplicationComponentSummary.validate!(input[:list_application_component_summary], context: "#{context}[:list_application_component_summary]") unless input[:list_application_component_summary].nil?
+        ListServerSummary.validate!(input[:list_server_summary], context: "#{context}[:list_server_summary]") unless input[:list_server_summary].nil?
+        S3Object.validate!(input[:antipattern_report_s3_object], context: "#{context}[:antipattern_report_s3_object]") unless input[:antipattern_report_s3_object].nil?
         Hearth::Validator.validate!(input[:antipattern_report_status], ::String, context: "#{context}[:antipattern_report_status]")
         Hearth::Validator.validate!(input[:antipattern_report_status_message], ::String, context: "#{context}[:antipattern_report_status_message]")
         Hearth::Validator.validate!(input[:last_analyzed_timestamp], ::Time, context: "#{context}[:last_analyzed_timestamp]")
@@ -119,7 +121,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AssociatedApplication.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AssociatedApplication.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -136,7 +138,7 @@ module AWS::SDK::MigrationHubStrategy
     class AwsManagedResources
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AwsManagedResources, context: context)
-        Validators::AwsManagedTargetDestinations.validate!(input[:target_destination], context: "#{context}[:target_destination]") unless input[:target_destination].nil?
+        AwsManagedTargetDestinations.validate!(input[:target_destination], context: "#{context}[:target_destination]") unless input[:target_destination].nil?
       end
     end
 
@@ -176,7 +178,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Collector.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Collector.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -212,11 +214,11 @@ module AWS::SDK::MigrationHubStrategy
       def self.validate!(input, context:)
         case input
         when Types::DatabaseMigrationPreference::Heterogeneous
-          Validators::Heterogeneous.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          Heterogeneous.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::DatabaseMigrationPreference::Homogeneous
-          Validators::Homogeneous.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          Homogeneous.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::DatabaseMigrationPreference::NoPreference
-          Validators::NoDatabaseMigrationPreference.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          NoDatabaseMigrationPreference.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -247,7 +249,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DatabasePreferences, context: context)
         Hearth::Validator.validate!(input[:database_management_preference], ::String, context: "#{context}[:database_management_preference]")
-        Validators::DatabaseMigrationPreference.validate!(input[:database_migration_preference], context: "#{context}[:database_migration_preference]") unless input[:database_migration_preference].nil?
+        DatabaseMigrationPreference.validate!(input[:database_migration_preference], context: "#{context}[:database_migration_preference]") unless input[:database_migration_preference].nil?
       end
     end
 
@@ -261,10 +263,10 @@ module AWS::SDK::MigrationHubStrategy
     class GetApplicationComponentDetailsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetApplicationComponentDetailsOutput, context: context)
-        Validators::ApplicationComponentDetail.validate!(input[:application_component_detail], context: "#{context}[:application_component_detail]") unless input[:application_component_detail].nil?
-        Validators::AssociatedApplications.validate!(input[:associated_applications], context: "#{context}[:associated_applications]") unless input[:associated_applications].nil?
+        ApplicationComponentDetail.validate!(input[:application_component_detail], context: "#{context}[:application_component_detail]") unless input[:application_component_detail].nil?
+        AssociatedApplications.validate!(input[:associated_applications], context: "#{context}[:associated_applications]") unless input[:associated_applications].nil?
         Hearth::Validator.validate!(input[:more_application_resource], ::TrueClass, ::FalseClass, context: "#{context}[:more_application_resource]")
-        Validators::AssociatedServerIDs.validate!(input[:associated_server_ids], context: "#{context}[:associated_server_ids]") unless input[:associated_server_ids].nil?
+        AssociatedServerIDs.validate!(input[:associated_server_ids], context: "#{context}[:associated_server_ids]") unless input[:associated_server_ids].nil?
       end
     end
 
@@ -278,7 +280,7 @@ module AWS::SDK::MigrationHubStrategy
     class GetApplicationComponentStrategiesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetApplicationComponentStrategiesOutput, context: context)
-        Validators::ApplicationComponentStrategies.validate!(input[:application_component_strategies], context: "#{context}[:application_component_strategies]") unless input[:application_component_strategies].nil?
+        ApplicationComponentStrategies.validate!(input[:application_component_strategies], context: "#{context}[:application_component_strategies]") unless input[:application_component_strategies].nil?
       end
     end
 
@@ -293,7 +295,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAssessmentOutput, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::DataCollectionDetails.validate!(input[:data_collection_details], context: "#{context}[:data_collection_details]") unless input[:data_collection_details].nil?
+        DataCollectionDetails.validate!(input[:data_collection_details], context: "#{context}[:data_collection_details]") unless input[:data_collection_details].nil?
       end
     end
 
@@ -330,9 +332,9 @@ module AWS::SDK::MigrationHubStrategy
     class GetPortfolioPreferencesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetPortfolioPreferencesOutput, context: context)
-        Validators::PrioritizeBusinessGoals.validate!(input[:prioritize_business_goals], context: "#{context}[:prioritize_business_goals]") unless input[:prioritize_business_goals].nil?
-        Validators::ApplicationPreferences.validate!(input[:application_preferences], context: "#{context}[:application_preferences]") unless input[:application_preferences].nil?
-        Validators::DatabasePreferences.validate!(input[:database_preferences], context: "#{context}[:database_preferences]") unless input[:database_preferences].nil?
+        PrioritizeBusinessGoals.validate!(input[:prioritize_business_goals], context: "#{context}[:prioritize_business_goals]") unless input[:prioritize_business_goals].nil?
+        ApplicationPreferences.validate!(input[:application_preferences], context: "#{context}[:application_preferences]") unless input[:application_preferences].nil?
+        DatabasePreferences.validate!(input[:database_preferences], context: "#{context}[:database_preferences]") unless input[:database_preferences].nil?
       end
     end
 
@@ -345,7 +347,7 @@ module AWS::SDK::MigrationHubStrategy
     class GetPortfolioSummaryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetPortfolioSummaryOutput, context: context)
-        Validators::AssessmentSummary.validate!(input[:assessment_summary], context: "#{context}[:assessment_summary]") unless input[:assessment_summary].nil?
+        AssessmentSummary.validate!(input[:assessment_summary], context: "#{context}[:assessment_summary]") unless input[:assessment_summary].nil?
       end
     end
 
@@ -360,7 +362,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRecommendationReportDetailsOutput, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::RecommendationReportDetails.validate!(input[:recommendation_report_details], context: "#{context}[:recommendation_report_details]") unless input[:recommendation_report_details].nil?
+        RecommendationReportDetails.validate!(input[:recommendation_report_details], context: "#{context}[:recommendation_report_details]") unless input[:recommendation_report_details].nil?
       end
     end
 
@@ -377,8 +379,8 @@ module AWS::SDK::MigrationHubStrategy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetServerDetailsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ServerDetail.validate!(input[:server_detail], context: "#{context}[:server_detail]") unless input[:server_detail].nil?
-        Validators::AssociatedApplications.validate!(input[:associated_applications], context: "#{context}[:associated_applications]") unless input[:associated_applications].nil?
+        ServerDetail.validate!(input[:server_detail], context: "#{context}[:server_detail]") unless input[:server_detail].nil?
+        AssociatedApplications.validate!(input[:associated_applications], context: "#{context}[:associated_applications]") unless input[:associated_applications].nil?
       end
     end
 
@@ -392,7 +394,7 @@ module AWS::SDK::MigrationHubStrategy
     class GetServerStrategiesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetServerStrategiesOutput, context: context)
-        Validators::ServerStrategies.validate!(input[:server_strategies], context: "#{context}[:server_strategies]") unless input[:server_strategies].nil?
+        ServerStrategies.validate!(input[:server_strategies], context: "#{context}[:server_strategies]") unless input[:server_strategies].nil?
       end
     end
 
@@ -408,7 +410,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Group.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Group.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -416,7 +418,7 @@ module AWS::SDK::MigrationHubStrategy
     class Heterogeneous
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Heterogeneous, context: context)
-        Validators::HeterogeneousTargetDatabaseEngines.validate!(input[:target_database_engine], context: "#{context}[:target_database_engine]") unless input[:target_database_engine].nil?
+        HeterogeneousTargetDatabaseEngines.validate!(input[:target_database_engine], context: "#{context}[:target_database_engine]") unless input[:target_database_engine].nil?
       end
     end
 
@@ -432,7 +434,7 @@ module AWS::SDK::MigrationHubStrategy
     class Homogeneous
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Homogeneous, context: context)
-        Validators::HomogeneousTargetDatabaseEngines.validate!(input[:target_database_engine], context: "#{context}[:target_database_engine]") unless input[:target_database_engine].nil?
+        HomogeneousTargetDatabaseEngines.validate!(input[:target_database_engine], context: "#{context}[:target_database_engine]") unless input[:target_database_engine].nil?
       end
     end
 
@@ -473,7 +475,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AntipatternSeveritySummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AntipatternSeveritySummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -482,7 +484,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ApplicationComponentSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ApplicationComponentSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -493,7 +495,7 @@ module AWS::SDK::MigrationHubStrategy
         Hearth::Validator.validate!(input[:application_component_criteria], ::String, context: "#{context}[:application_component_criteria]")
         Hearth::Validator.validate!(input[:filter_value], ::String, context: "#{context}[:filter_value]")
         Hearth::Validator.validate!(input[:sort], ::String, context: "#{context}[:sort]")
-        Validators::GroupIds.validate!(input[:group_id_filter], context: "#{context}[:group_id_filter]") unless input[:group_id_filter].nil?
+        GroupIds.validate!(input[:group_id_filter], context: "#{context}[:group_id_filter]") unless input[:group_id_filter].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -502,7 +504,7 @@ module AWS::SDK::MigrationHubStrategy
     class ListApplicationComponentsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListApplicationComponentsOutput, context: context)
-        Validators::ApplicationComponentDetails.validate!(input[:application_component_infos], context: "#{context}[:application_component_infos]") unless input[:application_component_infos].nil?
+        ApplicationComponentDetails.validate!(input[:application_component_infos], context: "#{context}[:application_component_infos]") unless input[:application_component_infos].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -518,7 +520,7 @@ module AWS::SDK::MigrationHubStrategy
     class ListCollectorsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListCollectorsOutput, context: context)
-        Validators::Collectors.validate!(input[:collectors], context: "#{context}[:collectors]") unless input[:collectors].nil?
+        Collectors.validate!(input[:collectors], context: "#{context}[:collectors]") unless input[:collectors].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -527,7 +529,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ImportFileTaskInformation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ImportFileTaskInformation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -543,7 +545,7 @@ module AWS::SDK::MigrationHubStrategy
     class ListImportFileTaskOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListImportFileTaskOutput, context: context)
-        Validators::ListImportFileTaskInformation.validate!(input[:task_infos], context: "#{context}[:task_infos]") unless input[:task_infos].nil?
+        ListImportFileTaskInformation.validate!(input[:task_infos], context: "#{context}[:task_infos]") unless input[:task_infos].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -552,7 +554,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ServerSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ServerSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -563,7 +565,7 @@ module AWS::SDK::MigrationHubStrategy
         Hearth::Validator.validate!(input[:server_criteria], ::String, context: "#{context}[:server_criteria]")
         Hearth::Validator.validate!(input[:filter_value], ::String, context: "#{context}[:filter_value]")
         Hearth::Validator.validate!(input[:sort], ::String, context: "#{context}[:sort]")
-        Validators::GroupIds.validate!(input[:group_id_filter], context: "#{context}[:group_id_filter]") unless input[:group_id_filter].nil?
+        GroupIds.validate!(input[:group_id_filter], context: "#{context}[:group_id_filter]") unless input[:group_id_filter].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -572,7 +574,7 @@ module AWS::SDK::MigrationHubStrategy
     class ListServersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListServersOutput, context: context)
-        Validators::ServerDetails.validate!(input[:server_infos], context: "#{context}[:server_infos]") unless input[:server_infos].nil?
+        ServerDetails.validate!(input[:server_infos], context: "#{context}[:server_infos]") unless input[:server_infos].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -581,7 +583,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StrategySummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StrategySummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -590,11 +592,11 @@ module AWS::SDK::MigrationHubStrategy
       def self.validate!(input, context:)
         case input
         when Types::ManagementPreference::AwsManagedResources
-          Validators::AwsManagedResources.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          AwsManagedResources.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::ManagementPreference::SelfManageResources
-          Validators::SelfManageResources.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          SelfManageResources.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::ManagementPreference::NoPreference
-          Validators::NoManagementPreference.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          NoManagementPreference.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -635,7 +637,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NetworkInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NetworkInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -643,14 +645,14 @@ module AWS::SDK::MigrationHubStrategy
     class NoDatabaseMigrationPreference
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NoDatabaseMigrationPreference, context: context)
-        Validators::TargetDatabaseEngines.validate!(input[:target_database_engine], context: "#{context}[:target_database_engine]") unless input[:target_database_engine].nil?
+        TargetDatabaseEngines.validate!(input[:target_database_engine], context: "#{context}[:target_database_engine]") unless input[:target_database_engine].nil?
       end
     end
 
     class NoManagementPreference
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NoManagementPreference, context: context)
-        Validators::NoPreferenceTargetDestinations.validate!(input[:target_destination], context: "#{context}[:target_destination]") unless input[:target_destination].nil?
+        NoPreferenceTargetDestinations.validate!(input[:target_destination], context: "#{context}[:target_destination]") unless input[:target_destination].nil?
       end
     end
 
@@ -674,16 +676,16 @@ module AWS::SDK::MigrationHubStrategy
     class PrioritizeBusinessGoals
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PrioritizeBusinessGoals, context: context)
-        Validators::BusinessGoals.validate!(input[:business_goals], context: "#{context}[:business_goals]") unless input[:business_goals].nil?
+        BusinessGoals.validate!(input[:business_goals], context: "#{context}[:business_goals]") unless input[:business_goals].nil?
       end
     end
 
     class PutPortfolioPreferencesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutPortfolioPreferencesInput, context: context)
-        Validators::PrioritizeBusinessGoals.validate!(input[:prioritize_business_goals], context: "#{context}[:prioritize_business_goals]") unless input[:prioritize_business_goals].nil?
-        Validators::ApplicationPreferences.validate!(input[:application_preferences], context: "#{context}[:application_preferences]") unless input[:application_preferences].nil?
-        Validators::DatabasePreferences.validate!(input[:database_preferences], context: "#{context}[:database_preferences]") unless input[:database_preferences].nil?
+        PrioritizeBusinessGoals.validate!(input[:prioritize_business_goals], context: "#{context}[:prioritize_business_goals]") unless input[:prioritize_business_goals].nil?
+        ApplicationPreferences.validate!(input[:application_preferences], context: "#{context}[:application_preferences]") unless input[:application_preferences].nil?
+        DatabasePreferences.validate!(input[:database_preferences], context: "#{context}[:database_preferences]") unless input[:database_preferences].nil?
       end
     end
 
@@ -701,14 +703,14 @@ module AWS::SDK::MigrationHubStrategy
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:completion_time], ::Time, context: "#{context}[:completion_time]")
         Hearth::Validator.validate!(input[:s3_bucket], ::String, context: "#{context}[:s3_bucket]")
-        Validators::S3Keys.validate!(input[:s3_keys], context: "#{context}[:s3_keys]") unless input[:s3_keys].nil?
+        S3Keys.validate!(input[:s3_keys], context: "#{context}[:s3_keys]") unless input[:s3_keys].nil?
       end
     end
 
     class RecommendationSet
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RecommendationSet, context: context)
-        Validators::TransformationTool.validate!(input[:transformation_tool], context: "#{context}[:transformation_tool]") unless input[:transformation_tool].nil?
+        TransformationTool.validate!(input[:transformation_tool], context: "#{context}[:transformation_tool]") unless input[:transformation_tool].nil?
         Hearth::Validator.validate!(input[:target_destination], ::String, context: "#{context}[:target_destination]")
         Hearth::Validator.validate!(input[:strategy], ::String, context: "#{context}[:strategy]")
       end
@@ -741,7 +743,7 @@ module AWS::SDK::MigrationHubStrategy
     class SelfManageResources
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SelfManageResources, context: context)
-        Validators::SelfManageTargetDestinations.validate!(input[:target_destination], context: "#{context}[:target_destination]") unless input[:target_destination].nil?
+        SelfManageTargetDestinations.validate!(input[:target_destination], context: "#{context}[:target_destination]") unless input[:target_destination].nil?
       end
     end
 
@@ -759,13 +761,13 @@ module AWS::SDK::MigrationHubStrategy
         Hearth::Validator.validate!(input, Types::ServerDetail, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::RecommendationSet.validate!(input[:recommendation_set], context: "#{context}[:recommendation_set]") unless input[:recommendation_set].nil?
+        RecommendationSet.validate!(input[:recommendation_set], context: "#{context}[:recommendation_set]") unless input[:recommendation_set].nil?
         Hearth::Validator.validate!(input[:data_collection_status], ::String, context: "#{context}[:data_collection_status]")
         Hearth::Validator.validate!(input[:status_message], ::String, context: "#{context}[:status_message]")
-        Validators::ListAntipatternSeveritySummary.validate!(input[:list_antipattern_severity_summary], context: "#{context}[:list_antipattern_severity_summary]") unless input[:list_antipattern_severity_summary].nil?
-        Validators::SystemInfo.validate!(input[:system_info], context: "#{context}[:system_info]") unless input[:system_info].nil?
-        Validators::ListStrategySummary.validate!(input[:application_component_strategy_summary], context: "#{context}[:application_component_strategy_summary]") unless input[:application_component_strategy_summary].nil?
-        Validators::S3Object.validate!(input[:antipattern_report_s3_object], context: "#{context}[:antipattern_report_s3_object]") unless input[:antipattern_report_s3_object].nil?
+        ListAntipatternSeveritySummary.validate!(input[:list_antipattern_severity_summary], context: "#{context}[:list_antipattern_severity_summary]") unless input[:list_antipattern_severity_summary].nil?
+        SystemInfo.validate!(input[:system_info], context: "#{context}[:system_info]") unless input[:system_info].nil?
+        ListStrategySummary.validate!(input[:application_component_strategy_summary], context: "#{context}[:application_component_strategy_summary]") unless input[:application_component_strategy_summary].nil?
+        S3Object.validate!(input[:antipattern_report_s3_object], context: "#{context}[:antipattern_report_s3_object]") unless input[:antipattern_report_s3_object].nil?
         Hearth::Validator.validate!(input[:antipattern_report_status], ::String, context: "#{context}[:antipattern_report_status]")
         Hearth::Validator.validate!(input[:antipattern_report_status_message], ::String, context: "#{context}[:antipattern_report_status_message]")
         Hearth::Validator.validate!(input[:server_type], ::String, context: "#{context}[:server_type]")
@@ -777,7 +779,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ServerDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ServerDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -786,7 +788,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ServerStrategy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ServerStrategy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -794,7 +796,7 @@ module AWS::SDK::MigrationHubStrategy
     class ServerStrategy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ServerStrategy, context: context)
-        Validators::RecommendationSet.validate!(input[:recommendation], context: "#{context}[:recommendation]") unless input[:recommendation].nil?
+        RecommendationSet.validate!(input[:recommendation], context: "#{context}[:recommendation]") unless input[:recommendation].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:number_of_application_components], ::Integer, context: "#{context}[:number_of_application_components]")
         Hearth::Validator.validate!(input[:is_preferred], ::TrueClass, ::FalseClass, context: "#{context}[:is_preferred]")
@@ -836,7 +838,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SourceCode.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SourceCode.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -845,7 +847,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SourceCodeRepository.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SourceCodeRepository.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -881,7 +883,7 @@ module AWS::SDK::MigrationHubStrategy
         Hearth::Validator.validate!(input[:s3_bucket], ::String, context: "#{context}[:s3_bucket]")
         Hearth::Validator.validate!(input[:s3key], ::String, context: "#{context}[:s3key]")
         Hearth::Validator.validate!(input[:data_source_type], ::String, context: "#{context}[:data_source_type]")
-        Validators::GroupIds.validate!(input[:group_id], context: "#{context}[:group_id]") unless input[:group_id].nil?
+        GroupIds.validate!(input[:group_id], context: "#{context}[:group_id]") unless input[:group_id].nil?
         Hearth::Validator.validate!(input[:s3bucket_for_report_data], ::String, context: "#{context}[:s3bucket_for_report_data]")
       end
     end
@@ -897,7 +899,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartRecommendationReportGenerationInput, context: context)
         Hearth::Validator.validate!(input[:output_format], ::String, context: "#{context}[:output_format]")
-        Validators::GroupIds.validate!(input[:group_id_filter], context: "#{context}[:group_id_filter]") unless input[:group_id_filter].nil?
+        GroupIds.validate!(input[:group_id_filter], context: "#{context}[:group_id_filter]") unless input[:group_id_filter].nil?
       end
     end
 
@@ -942,9 +944,9 @@ module AWS::SDK::MigrationHubStrategy
     class SystemInfo
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SystemInfo, context: context)
-        Validators::OSInfo.validate!(input[:os_info], context: "#{context}[:os_info]") unless input[:os_info].nil?
+        OSInfo.validate!(input[:os_info], context: "#{context}[:os_info]") unless input[:os_info].nil?
         Hearth::Validator.validate!(input[:file_system_type], ::String, context: "#{context}[:file_system_type]")
-        Validators::NetworkInfoList.validate!(input[:network_info_list], context: "#{context}[:network_info_list]") unless input[:network_info_list].nil?
+        NetworkInfoList.validate!(input[:network_info_list], context: "#{context}[:network_info_list]") unless input[:network_info_list].nil?
         Hearth::Validator.validate!(input[:cpu_architecture], ::String, context: "#{context}[:cpu_architecture]")
       end
     end
@@ -979,8 +981,8 @@ module AWS::SDK::MigrationHubStrategy
         Hearth::Validator.validate!(input, Types::UpdateApplicationComponentConfigInput, context: context)
         Hearth::Validator.validate!(input[:application_component_id], ::String, context: "#{context}[:application_component_id]")
         Hearth::Validator.validate!(input[:inclusion_status], ::String, context: "#{context}[:inclusion_status]")
-        Validators::StrategyOption.validate!(input[:strategy_option], context: "#{context}[:strategy_option]") unless input[:strategy_option].nil?
-        Validators::SourceCodeList.validate!(input[:source_code_list], context: "#{context}[:source_code_list]") unless input[:source_code_list].nil?
+        StrategyOption.validate!(input[:strategy_option], context: "#{context}[:strategy_option]") unless input[:strategy_option].nil?
+        SourceCodeList.validate!(input[:source_code_list], context: "#{context}[:source_code_list]") unless input[:source_code_list].nil?
         Hearth::Validator.validate!(input[:secrets_manager_key], ::String, context: "#{context}[:secrets_manager_key]")
       end
     end
@@ -995,7 +997,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateServerConfigInput, context: context)
         Hearth::Validator.validate!(input[:server_id], ::String, context: "#{context}[:server_id]")
-        Validators::StrategyOption.validate!(input[:strategy_option], context: "#{context}[:strategy_option]") unless input[:strategy_option].nil?
+        StrategyOption.validate!(input[:strategy_option], context: "#{context}[:strategy_option]") unless input[:strategy_option].nil?
       end
     end
 

@@ -1018,7 +1018,7 @@ module AWS::SDK::ApplicationDiscoveryService
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::StartImportTaskInput, context: context)
         type = Types::StartImportTaskInput.new
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.name = params[:name]
         type.import_url = params[:import_url]
         type

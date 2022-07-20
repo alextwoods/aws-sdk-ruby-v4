@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Athena
   module Validators
 
@@ -30,30 +32,30 @@ module AWS::SDK::Athena
     class BatchGetNamedQueryInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetNamedQueryInput, context: context)
-        Validators::NamedQueryIdList.validate!(input[:named_query_ids], context: "#{context}[:named_query_ids]") unless input[:named_query_ids].nil?
+        NamedQueryIdList.validate!(input[:named_query_ids], context: "#{context}[:named_query_ids]") unless input[:named_query_ids].nil?
       end
     end
 
     class BatchGetNamedQueryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetNamedQueryOutput, context: context)
-        Validators::NamedQueryList.validate!(input[:named_queries], context: "#{context}[:named_queries]") unless input[:named_queries].nil?
-        Validators::UnprocessedNamedQueryIdList.validate!(input[:unprocessed_named_query_ids], context: "#{context}[:unprocessed_named_query_ids]") unless input[:unprocessed_named_query_ids].nil?
+        NamedQueryList.validate!(input[:named_queries], context: "#{context}[:named_queries]") unless input[:named_queries].nil?
+        UnprocessedNamedQueryIdList.validate!(input[:unprocessed_named_query_ids], context: "#{context}[:unprocessed_named_query_ids]") unless input[:unprocessed_named_query_ids].nil?
       end
     end
 
     class BatchGetQueryExecutionInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetQueryExecutionInput, context: context)
-        Validators::QueryExecutionIdList.validate!(input[:query_execution_ids], context: "#{context}[:query_execution_ids]") unless input[:query_execution_ids].nil?
+        QueryExecutionIdList.validate!(input[:query_execution_ids], context: "#{context}[:query_execution_ids]") unless input[:query_execution_ids].nil?
       end
     end
 
     class BatchGetQueryExecutionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetQueryExecutionOutput, context: context)
-        Validators::QueryExecutionList.validate!(input[:query_executions], context: "#{context}[:query_executions]") unless input[:query_executions].nil?
-        Validators::UnprocessedQueryExecutionIdList.validate!(input[:unprocessed_query_execution_ids], context: "#{context}[:unprocessed_query_execution_ids]") unless input[:unprocessed_query_execution_ids].nil?
+        QueryExecutionList.validate!(input[:query_executions], context: "#{context}[:query_executions]") unless input[:query_executions].nil?
+        UnprocessedQueryExecutionIdList.validate!(input[:unprocessed_query_execution_ids], context: "#{context}[:unprocessed_query_execution_ids]") unless input[:unprocessed_query_execution_ids].nil?
       end
     end
 
@@ -86,7 +88,7 @@ module AWS::SDK::Athena
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ColumnInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ColumnInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -95,7 +97,7 @@ module AWS::SDK::Athena
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Column.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Column.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -106,8 +108,8 @@ module AWS::SDK::Athena
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ParametersMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ParametersMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -156,9 +158,9 @@ module AWS::SDK::Athena
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateWorkGroupInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::WorkGroupConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        WorkGroupConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -174,7 +176,7 @@ module AWS::SDK::Athena
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::ParametersMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        ParametersMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
       end
     end
 
@@ -190,7 +192,7 @@ module AWS::SDK::Athena
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DataCatalogSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DataCatalogSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -200,7 +202,7 @@ module AWS::SDK::Athena
         Hearth::Validator.validate!(input, Types::Database, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ParametersMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        ParametersMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
       end
     end
 
@@ -208,7 +210,7 @@ module AWS::SDK::Athena
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Database.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Database.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -294,7 +296,7 @@ module AWS::SDK::Athena
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EngineVersion.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EngineVersion.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -309,7 +311,7 @@ module AWS::SDK::Athena
     class GetDataCatalogOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDataCatalogOutput, context: context)
-        Validators::DataCatalog.validate!(input[:data_catalog], context: "#{context}[:data_catalog]") unless input[:data_catalog].nil?
+        DataCatalog.validate!(input[:data_catalog], context: "#{context}[:data_catalog]") unless input[:data_catalog].nil?
       end
     end
 
@@ -324,7 +326,7 @@ module AWS::SDK::Athena
     class GetDatabaseOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDatabaseOutput, context: context)
-        Validators::Database.validate!(input[:database], context: "#{context}[:database]") unless input[:database].nil?
+        Database.validate!(input[:database], context: "#{context}[:database]") unless input[:database].nil?
       end
     end
 
@@ -338,7 +340,7 @@ module AWS::SDK::Athena
     class GetNamedQueryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetNamedQueryOutput, context: context)
-        Validators::NamedQuery.validate!(input[:named_query], context: "#{context}[:named_query]") unless input[:named_query].nil?
+        NamedQuery.validate!(input[:named_query], context: "#{context}[:named_query]") unless input[:named_query].nil?
       end
     end
 
@@ -353,7 +355,7 @@ module AWS::SDK::Athena
     class GetPreparedStatementOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetPreparedStatementOutput, context: context)
-        Validators::PreparedStatement.validate!(input[:prepared_statement], context: "#{context}[:prepared_statement]") unless input[:prepared_statement].nil?
+        PreparedStatement.validate!(input[:prepared_statement], context: "#{context}[:prepared_statement]") unless input[:prepared_statement].nil?
       end
     end
 
@@ -367,7 +369,7 @@ module AWS::SDK::Athena
     class GetQueryExecutionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetQueryExecutionOutput, context: context)
-        Validators::QueryExecution.validate!(input[:query_execution], context: "#{context}[:query_execution]") unless input[:query_execution].nil?
+        QueryExecution.validate!(input[:query_execution], context: "#{context}[:query_execution]") unless input[:query_execution].nil?
       end
     end
 
@@ -384,7 +386,7 @@ module AWS::SDK::Athena
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetQueryResultsOutput, context: context)
         Hearth::Validator.validate!(input[:update_count], ::Integer, context: "#{context}[:update_count]")
-        Validators::ResultSet.validate!(input[:result_set], context: "#{context}[:result_set]") unless input[:result_set].nil?
+        ResultSet.validate!(input[:result_set], context: "#{context}[:result_set]") unless input[:result_set].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -401,7 +403,7 @@ module AWS::SDK::Athena
     class GetTableMetadataOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetTableMetadataOutput, context: context)
-        Validators::TableMetadata.validate!(input[:table_metadata], context: "#{context}[:table_metadata]") unless input[:table_metadata].nil?
+        TableMetadata.validate!(input[:table_metadata], context: "#{context}[:table_metadata]") unless input[:table_metadata].nil?
       end
     end
 
@@ -415,7 +417,7 @@ module AWS::SDK::Athena
     class GetWorkGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetWorkGroupOutput, context: context)
-        Validators::WorkGroup.validate!(input[:work_group], context: "#{context}[:work_group]") unless input[:work_group].nil?
+        WorkGroup.validate!(input[:work_group], context: "#{context}[:work_group]") unless input[:work_group].nil?
       end
     end
 
@@ -445,7 +447,7 @@ module AWS::SDK::Athena
     class ListDataCatalogsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDataCatalogsOutput, context: context)
-        Validators::DataCatalogSummaryList.validate!(input[:data_catalogs_summary], context: "#{context}[:data_catalogs_summary]") unless input[:data_catalogs_summary].nil?
+        DataCatalogSummaryList.validate!(input[:data_catalogs_summary], context: "#{context}[:data_catalogs_summary]") unless input[:data_catalogs_summary].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -462,7 +464,7 @@ module AWS::SDK::Athena
     class ListDatabasesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDatabasesOutput, context: context)
-        Validators::DatabaseList.validate!(input[:database_list], context: "#{context}[:database_list]") unless input[:database_list].nil?
+        DatabaseList.validate!(input[:database_list], context: "#{context}[:database_list]") unless input[:database_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -478,7 +480,7 @@ module AWS::SDK::Athena
     class ListEngineVersionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEngineVersionsOutput, context: context)
-        Validators::EngineVersionsList.validate!(input[:engine_versions], context: "#{context}[:engine_versions]") unless input[:engine_versions].nil?
+        EngineVersionsList.validate!(input[:engine_versions], context: "#{context}[:engine_versions]") unless input[:engine_versions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -495,7 +497,7 @@ module AWS::SDK::Athena
     class ListNamedQueriesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListNamedQueriesOutput, context: context)
-        Validators::NamedQueryIdList.validate!(input[:named_query_ids], context: "#{context}[:named_query_ids]") unless input[:named_query_ids].nil?
+        NamedQueryIdList.validate!(input[:named_query_ids], context: "#{context}[:named_query_ids]") unless input[:named_query_ids].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -512,7 +514,7 @@ module AWS::SDK::Athena
     class ListPreparedStatementsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPreparedStatementsOutput, context: context)
-        Validators::PreparedStatementsList.validate!(input[:prepared_statements], context: "#{context}[:prepared_statements]") unless input[:prepared_statements].nil?
+        PreparedStatementsList.validate!(input[:prepared_statements], context: "#{context}[:prepared_statements]") unless input[:prepared_statements].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -529,7 +531,7 @@ module AWS::SDK::Athena
     class ListQueryExecutionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListQueryExecutionsOutput, context: context)
-        Validators::QueryExecutionIdList.validate!(input[:query_execution_ids], context: "#{context}[:query_execution_ids]") unless input[:query_execution_ids].nil?
+        QueryExecutionIdList.validate!(input[:query_execution_ids], context: "#{context}[:query_execution_ids]") unless input[:query_execution_ids].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -548,7 +550,7 @@ module AWS::SDK::Athena
     class ListTableMetadataOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTableMetadataOutput, context: context)
-        Validators::TableMetadataList.validate!(input[:table_metadata_list], context: "#{context}[:table_metadata_list]") unless input[:table_metadata_list].nil?
+        TableMetadataList.validate!(input[:table_metadata_list], context: "#{context}[:table_metadata_list]") unless input[:table_metadata_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -565,7 +567,7 @@ module AWS::SDK::Athena
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -581,7 +583,7 @@ module AWS::SDK::Athena
     class ListWorkGroupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListWorkGroupsOutput, context: context)
-        Validators::WorkGroupsList.validate!(input[:work_groups], context: "#{context}[:work_groups]") unless input[:work_groups].nil?
+        WorkGroupsList.validate!(input[:work_groups], context: "#{context}[:work_groups]") unless input[:work_groups].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -618,7 +620,7 @@ module AWS::SDK::Athena
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NamedQuery.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NamedQuery.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -656,7 +658,7 @@ module AWS::SDK::Athena
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PreparedStatementSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PreparedStatementSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -667,12 +669,12 @@ module AWS::SDK::Athena
         Hearth::Validator.validate!(input[:query_execution_id], ::String, context: "#{context}[:query_execution_id]")
         Hearth::Validator.validate!(input[:query], ::String, context: "#{context}[:query]")
         Hearth::Validator.validate!(input[:statement_type], ::String, context: "#{context}[:statement_type]")
-        Validators::ResultConfiguration.validate!(input[:result_configuration], context: "#{context}[:result_configuration]") unless input[:result_configuration].nil?
-        Validators::QueryExecutionContext.validate!(input[:query_execution_context], context: "#{context}[:query_execution_context]") unless input[:query_execution_context].nil?
-        Validators::QueryExecutionStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
-        Validators::QueryExecutionStatistics.validate!(input[:statistics], context: "#{context}[:statistics]") unless input[:statistics].nil?
+        ResultConfiguration.validate!(input[:result_configuration], context: "#{context}[:result_configuration]") unless input[:result_configuration].nil?
+        QueryExecutionContext.validate!(input[:query_execution_context], context: "#{context}[:query_execution_context]") unless input[:query_execution_context].nil?
+        QueryExecutionStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        QueryExecutionStatistics.validate!(input[:statistics], context: "#{context}[:statistics]") unless input[:statistics].nil?
         Hearth::Validator.validate!(input[:work_group], ::String, context: "#{context}[:work_group]")
-        Validators::EngineVersion.validate!(input[:engine_version], context: "#{context}[:engine_version]") unless input[:engine_version].nil?
+        EngineVersion.validate!(input[:engine_version], context: "#{context}[:engine_version]") unless input[:engine_version].nil?
       end
     end
 
@@ -697,7 +699,7 @@ module AWS::SDK::Athena
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::QueryExecution.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          QueryExecution.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -722,7 +724,7 @@ module AWS::SDK::Athena
         Hearth::Validator.validate!(input[:state_change_reason], ::String, context: "#{context}[:state_change_reason]")
         Hearth::Validator.validate!(input[:submission_date_time], ::Time, context: "#{context}[:submission_date_time]")
         Hearth::Validator.validate!(input[:completion_date_time], ::Time, context: "#{context}[:completion_date_time]")
-        Validators::AthenaError.validate!(input[:athena_error], context: "#{context}[:athena_error]") unless input[:athena_error].nil?
+        AthenaError.validate!(input[:athena_error], context: "#{context}[:athena_error]") unless input[:athena_error].nil?
       end
     end
 
@@ -738,9 +740,9 @@ module AWS::SDK::Athena
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResultConfiguration, context: context)
         Hearth::Validator.validate!(input[:output_location], ::String, context: "#{context}[:output_location]")
-        Validators::EncryptionConfiguration.validate!(input[:encryption_configuration], context: "#{context}[:encryption_configuration]") unless input[:encryption_configuration].nil?
+        EncryptionConfiguration.validate!(input[:encryption_configuration], context: "#{context}[:encryption_configuration]") unless input[:encryption_configuration].nil?
         Hearth::Validator.validate!(input[:expected_bucket_owner], ::String, context: "#{context}[:expected_bucket_owner]")
-        Validators::AclConfiguration.validate!(input[:acl_configuration], context: "#{context}[:acl_configuration]") unless input[:acl_configuration].nil?
+        AclConfiguration.validate!(input[:acl_configuration], context: "#{context}[:acl_configuration]") unless input[:acl_configuration].nil?
       end
     end
 
@@ -749,11 +751,11 @@ module AWS::SDK::Athena
         Hearth::Validator.validate!(input, Types::ResultConfigurationUpdates, context: context)
         Hearth::Validator.validate!(input[:output_location], ::String, context: "#{context}[:output_location]")
         Hearth::Validator.validate!(input[:remove_output_location], ::TrueClass, ::FalseClass, context: "#{context}[:remove_output_location]")
-        Validators::EncryptionConfiguration.validate!(input[:encryption_configuration], context: "#{context}[:encryption_configuration]") unless input[:encryption_configuration].nil?
+        EncryptionConfiguration.validate!(input[:encryption_configuration], context: "#{context}[:encryption_configuration]") unless input[:encryption_configuration].nil?
         Hearth::Validator.validate!(input[:remove_encryption_configuration], ::TrueClass, ::FalseClass, context: "#{context}[:remove_encryption_configuration]")
         Hearth::Validator.validate!(input[:expected_bucket_owner], ::String, context: "#{context}[:expected_bucket_owner]")
         Hearth::Validator.validate!(input[:remove_expected_bucket_owner], ::TrueClass, ::FalseClass, context: "#{context}[:remove_expected_bucket_owner]")
-        Validators::AclConfiguration.validate!(input[:acl_configuration], context: "#{context}[:acl_configuration]") unless input[:acl_configuration].nil?
+        AclConfiguration.validate!(input[:acl_configuration], context: "#{context}[:acl_configuration]") unless input[:acl_configuration].nil?
         Hearth::Validator.validate!(input[:remove_acl_configuration], ::TrueClass, ::FalseClass, context: "#{context}[:remove_acl_configuration]")
       end
     end
@@ -761,22 +763,22 @@ module AWS::SDK::Athena
     class ResultSet
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResultSet, context: context)
-        Validators::RowList.validate!(input[:rows], context: "#{context}[:rows]") unless input[:rows].nil?
-        Validators::ResultSetMetadata.validate!(input[:result_set_metadata], context: "#{context}[:result_set_metadata]") unless input[:result_set_metadata].nil?
+        RowList.validate!(input[:rows], context: "#{context}[:rows]") unless input[:rows].nil?
+        ResultSetMetadata.validate!(input[:result_set_metadata], context: "#{context}[:result_set_metadata]") unless input[:result_set_metadata].nil?
       end
     end
 
     class ResultSetMetadata
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResultSetMetadata, context: context)
-        Validators::ColumnInfoList.validate!(input[:column_info], context: "#{context}[:column_info]") unless input[:column_info].nil?
+        ColumnInfoList.validate!(input[:column_info], context: "#{context}[:column_info]") unless input[:column_info].nil?
       end
     end
 
     class Row
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Row, context: context)
-        Validators::DatumList.validate!(input[:data], context: "#{context}[:data]") unless input[:data].nil?
+        DatumList.validate!(input[:data], context: "#{context}[:data]") unless input[:data].nil?
       end
     end
 
@@ -784,7 +786,7 @@ module AWS::SDK::Athena
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Row.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Row.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -794,8 +796,8 @@ module AWS::SDK::Athena
         Hearth::Validator.validate!(input, Types::StartQueryExecutionInput, context: context)
         Hearth::Validator.validate!(input[:query_string], ::String, context: "#{context}[:query_string]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::QueryExecutionContext.validate!(input[:query_execution_context], context: "#{context}[:query_execution_context]") unless input[:query_execution_context].nil?
-        Validators::ResultConfiguration.validate!(input[:result_configuration], context: "#{context}[:result_configuration]") unless input[:result_configuration].nil?
+        QueryExecutionContext.validate!(input[:query_execution_context], context: "#{context}[:query_execution_context]") unless input[:query_execution_context].nil?
+        ResultConfiguration.validate!(input[:result_configuration], context: "#{context}[:result_configuration]") unless input[:result_configuration].nil?
         Hearth::Validator.validate!(input[:work_group], ::String, context: "#{context}[:work_group]")
       end
     end
@@ -827,9 +829,9 @@ module AWS::SDK::Athena
         Hearth::Validator.validate!(input[:create_time], ::Time, context: "#{context}[:create_time]")
         Hearth::Validator.validate!(input[:last_access_time], ::Time, context: "#{context}[:last_access_time]")
         Hearth::Validator.validate!(input[:table_type], ::String, context: "#{context}[:table_type]")
-        Validators::ColumnList.validate!(input[:columns], context: "#{context}[:columns]") unless input[:columns].nil?
-        Validators::ColumnList.validate!(input[:partition_keys], context: "#{context}[:partition_keys]") unless input[:partition_keys].nil?
-        Validators::ParametersMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        ColumnList.validate!(input[:columns], context: "#{context}[:columns]") unless input[:columns].nil?
+        ColumnList.validate!(input[:partition_keys], context: "#{context}[:partition_keys]") unless input[:partition_keys].nil?
+        ParametersMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
       end
     end
 
@@ -837,7 +839,7 @@ module AWS::SDK::Athena
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TableMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TableMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -863,7 +865,7 @@ module AWS::SDK::Athena
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -872,7 +874,7 @@ module AWS::SDK::Athena
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -903,7 +905,7 @@ module AWS::SDK::Athena
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UnprocessedNamedQueryId.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UnprocessedNamedQueryId.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -921,7 +923,7 @@ module AWS::SDK::Athena
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UnprocessedQueryExecutionId.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UnprocessedQueryExecutionId.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -930,7 +932,7 @@ module AWS::SDK::Athena
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -946,7 +948,7 @@ module AWS::SDK::Athena
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ParametersMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        ParametersMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
       end
     end
 
@@ -993,7 +995,7 @@ module AWS::SDK::Athena
         Hearth::Validator.validate!(input, Types::UpdateWorkGroupInput, context: context)
         Hearth::Validator.validate!(input[:work_group], ::String, context: "#{context}[:work_group]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::WorkGroupConfigurationUpdates.validate!(input[:configuration_updates], context: "#{context}[:configuration_updates]") unless input[:configuration_updates].nil?
+        WorkGroupConfigurationUpdates.validate!(input[:configuration_updates], context: "#{context}[:configuration_updates]") unless input[:configuration_updates].nil?
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
       end
     end
@@ -1009,7 +1011,7 @@ module AWS::SDK::Athena
         Hearth::Validator.validate!(input, Types::WorkGroup, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::WorkGroupConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        WorkGroupConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
       end
@@ -1018,12 +1020,12 @@ module AWS::SDK::Athena
     class WorkGroupConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::WorkGroupConfiguration, context: context)
-        Validators::ResultConfiguration.validate!(input[:result_configuration], context: "#{context}[:result_configuration]") unless input[:result_configuration].nil?
+        ResultConfiguration.validate!(input[:result_configuration], context: "#{context}[:result_configuration]") unless input[:result_configuration].nil?
         Hearth::Validator.validate!(input[:enforce_work_group_configuration], ::TrueClass, ::FalseClass, context: "#{context}[:enforce_work_group_configuration]")
         Hearth::Validator.validate!(input[:publish_cloud_watch_metrics_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:publish_cloud_watch_metrics_enabled]")
         Hearth::Validator.validate!(input[:bytes_scanned_cutoff_per_query], ::Integer, context: "#{context}[:bytes_scanned_cutoff_per_query]")
         Hearth::Validator.validate!(input[:requester_pays_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:requester_pays_enabled]")
-        Validators::EngineVersion.validate!(input[:engine_version], context: "#{context}[:engine_version]") unless input[:engine_version].nil?
+        EngineVersion.validate!(input[:engine_version], context: "#{context}[:engine_version]") unless input[:engine_version].nil?
       end
     end
 
@@ -1031,12 +1033,12 @@ module AWS::SDK::Athena
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::WorkGroupConfigurationUpdates, context: context)
         Hearth::Validator.validate!(input[:enforce_work_group_configuration], ::TrueClass, ::FalseClass, context: "#{context}[:enforce_work_group_configuration]")
-        Validators::ResultConfigurationUpdates.validate!(input[:result_configuration_updates], context: "#{context}[:result_configuration_updates]") unless input[:result_configuration_updates].nil?
+        ResultConfigurationUpdates.validate!(input[:result_configuration_updates], context: "#{context}[:result_configuration_updates]") unless input[:result_configuration_updates].nil?
         Hearth::Validator.validate!(input[:publish_cloud_watch_metrics_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:publish_cloud_watch_metrics_enabled]")
         Hearth::Validator.validate!(input[:bytes_scanned_cutoff_per_query], ::Integer, context: "#{context}[:bytes_scanned_cutoff_per_query]")
         Hearth::Validator.validate!(input[:remove_bytes_scanned_cutoff_per_query], ::TrueClass, ::FalseClass, context: "#{context}[:remove_bytes_scanned_cutoff_per_query]")
         Hearth::Validator.validate!(input[:requester_pays_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:requester_pays_enabled]")
-        Validators::EngineVersion.validate!(input[:engine_version], context: "#{context}[:engine_version]") unless input[:engine_version].nil?
+        EngineVersion.validate!(input[:engine_version], context: "#{context}[:engine_version]") unless input[:engine_version].nil?
       end
     end
 
@@ -1047,7 +1049,7 @@ module AWS::SDK::Athena
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
-        Validators::EngineVersion.validate!(input[:engine_version], context: "#{context}[:engine_version]") unless input[:engine_version].nil?
+        EngineVersion.validate!(input[:engine_version], context: "#{context}[:engine_version]") unless input[:engine_version].nil?
       end
     end
 
@@ -1055,7 +1057,7 @@ module AWS::SDK::Athena
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::WorkGroupSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          WorkGroupSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1064,7 +1066,7 @@ module AWS::SDK::Athena
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Datum.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Datum.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

@@ -98,7 +98,7 @@ module AWS::SDK::ElasticBeanstalk
     class ComposeEnvironments
       def self.default(visited=[])
         {
-          environments: Stubs::EnvironmentDescriptionsList.default(visited),
+          environments: EnvironmentDescriptionsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -122,7 +122,7 @@ module AWS::SDK::ElasticBeanstalk
         return nil if visited.include?('EnvironmentDescriptionsList')
         visited = visited + ['EnvironmentDescriptionsList']
         [
-          Stubs::EnvironmentDescription.default(visited)
+          EnvironmentDescription.default(visited)
         ]
       end
 
@@ -157,9 +157,9 @@ module AWS::SDK::ElasticBeanstalk
           abortable_operation_in_progress: false,
           health: 'health',
           health_status: 'health_status',
-          resources: Stubs::EnvironmentResourcesDescription.default(visited),
-          tier: Stubs::EnvironmentTier.default(visited),
-          environment_links: Stubs::EnvironmentLinks.default(visited),
+          resources: EnvironmentResourcesDescription.default(visited),
+          tier: EnvironmentTier.default(visited),
+          environment_links: EnvironmentLinks.default(visited),
           environment_arn: 'environment_arn',
           operations_role: 'operations_role',
         }
@@ -199,7 +199,7 @@ module AWS::SDK::ElasticBeanstalk
         return nil if visited.include?('EnvironmentLinks')
         visited = visited + ['EnvironmentLinks']
         [
-          Stubs::EnvironmentLink.default(visited)
+          EnvironmentLink.default(visited)
         ]
       end
 
@@ -260,7 +260,7 @@ module AWS::SDK::ElasticBeanstalk
         return nil if visited.include?('EnvironmentResourcesDescription')
         visited = visited + ['EnvironmentResourcesDescription']
         {
-          load_balancer: Stubs::LoadBalancerDescription.default(visited),
+          load_balancer: LoadBalancerDescription.default(visited),
         }
       end
 
@@ -280,7 +280,7 @@ module AWS::SDK::ElasticBeanstalk
         {
           load_balancer_name: 'load_balancer_name',
           domain: 'domain',
-          listeners: Stubs::LoadBalancerListenersDescription.default(visited),
+          listeners: LoadBalancerListenersDescription.default(visited),
         }
       end
 
@@ -300,7 +300,7 @@ module AWS::SDK::ElasticBeanstalk
         return nil if visited.include?('LoadBalancerListenersDescription')
         visited = visited + ['LoadBalancerListenersDescription']
         [
-          Stubs::Listener.default(visited)
+          Listener.default(visited)
         ]
       end
 
@@ -337,7 +337,7 @@ module AWS::SDK::ElasticBeanstalk
     class CreateApplication
       def self.default(visited=[])
         {
-          application: Stubs::ApplicationDescription.default(visited),
+          application: ApplicationDescription.default(visited),
         }
       end
 
@@ -364,9 +364,9 @@ module AWS::SDK::ElasticBeanstalk
           description: 'description',
           date_created: Time.now,
           date_updated: Time.now,
-          versions: Stubs::VersionLabelsList.default(visited),
-          configuration_templates: Stubs::ConfigurationTemplateNamesList.default(visited),
-          resource_lifecycle_config: Stubs::ApplicationResourceLifecycleConfig.default(visited),
+          versions: VersionLabelsList.default(visited),
+          configuration_templates: ConfigurationTemplateNamesList.default(visited),
+          resource_lifecycle_config: ApplicationResourceLifecycleConfig.default(visited),
         }
       end
 
@@ -392,7 +392,7 @@ module AWS::SDK::ElasticBeanstalk
         visited = visited + ['ApplicationResourceLifecycleConfig']
         {
           service_role: 'service_role',
-          version_lifecycle_config: Stubs::ApplicationVersionLifecycleConfig.default(visited),
+          version_lifecycle_config: ApplicationVersionLifecycleConfig.default(visited),
         }
       end
 
@@ -411,8 +411,8 @@ module AWS::SDK::ElasticBeanstalk
         return nil if visited.include?('ApplicationVersionLifecycleConfig')
         visited = visited + ['ApplicationVersionLifecycleConfig']
         {
-          max_count_rule: Stubs::MaxCountRule.default(visited),
-          max_age_rule: Stubs::MaxAgeRule.default(visited),
+          max_count_rule: MaxCountRule.default(visited),
+          max_age_rule: MaxAgeRule.default(visited),
         }
       end
 
@@ -511,7 +511,7 @@ module AWS::SDK::ElasticBeanstalk
     class CreateApplicationVersion
       def self.default(visited=[])
         {
-          application_version: Stubs::ApplicationVersionDescription.default(visited),
+          application_version: ApplicationVersionDescription.default(visited),
         }
       end
 
@@ -537,9 +537,9 @@ module AWS::SDK::ElasticBeanstalk
           application_name: 'application_name',
           description: 'description',
           version_label: 'version_label',
-          source_build_information: Stubs::SourceBuildInformation.default(visited),
+          source_build_information: SourceBuildInformation.default(visited),
           build_arn: 'build_arn',
-          source_bundle: Stubs::S3Location.default(visited),
+          source_bundle: S3Location.default(visited),
           date_created: Time.now,
           date_updated: Time.now,
           status: 'status',
@@ -618,7 +618,7 @@ module AWS::SDK::ElasticBeanstalk
           deployment_status: 'deployment_status',
           date_created: Time.now,
           date_updated: Time.now,
-          option_settings: Stubs::ConfigurationOptionSettingsList.default(visited),
+          option_settings: ConfigurationOptionSettingsList.default(visited),
         }
       end
 
@@ -649,7 +649,7 @@ module AWS::SDK::ElasticBeanstalk
         return nil if visited.include?('ConfigurationOptionSettingsList')
         visited = visited + ['ConfigurationOptionSettingsList']
         [
-          Stubs::ConfigurationOptionSetting.default(visited)
+          ConfigurationOptionSetting.default(visited)
         ]
       end
 
@@ -706,9 +706,9 @@ module AWS::SDK::ElasticBeanstalk
           abortable_operation_in_progress: false,
           health: 'health',
           health_status: 'health_status',
-          resources: Stubs::EnvironmentResourcesDescription.default(visited),
-          tier: Stubs::EnvironmentTier.default(visited),
-          environment_links: Stubs::EnvironmentLinks.default(visited),
+          resources: EnvironmentResourcesDescription.default(visited),
+          tier: EnvironmentTier.default(visited),
+          environment_links: EnvironmentLinks.default(visited),
           environment_arn: 'environment_arn',
           operations_role: 'operations_role',
         }
@@ -750,8 +750,8 @@ module AWS::SDK::ElasticBeanstalk
     class CreatePlatformVersion
       def self.default(visited=[])
         {
-          platform_summary: Stubs::PlatformSummary.default(visited),
-          builder: Stubs::Builder.default(visited),
+          platform_summary: PlatformSummary.default(visited),
+          builder: Builder.default(visited),
         }
       end
 
@@ -798,8 +798,8 @@ module AWS::SDK::ElasticBeanstalk
           platform_category: 'platform_category',
           operating_system_name: 'operating_system_name',
           operating_system_version: 'operating_system_version',
-          supported_tier_list: Stubs::SupportedTierList.default(visited),
-          supported_addon_list: Stubs::SupportedAddonList.default(visited),
+          supported_tier_list: SupportedTierList.default(visited),
+          supported_addon_list: SupportedAddonList.default(visited),
           platform_lifecycle_state: 'platform_lifecycle_state',
           platform_version: 'platform_version',
           platform_branch_name: 'platform_branch_name',
@@ -960,7 +960,7 @@ module AWS::SDK::ElasticBeanstalk
     class DeletePlatformVersion
       def self.default(visited=[])
         {
-          platform_summary: Stubs::PlatformSummary.default(visited),
+          platform_summary: PlatformSummary.default(visited),
         }
       end
 
@@ -980,7 +980,7 @@ module AWS::SDK::ElasticBeanstalk
     class DescribeAccountAttributes
       def self.default(visited=[])
         {
-          resource_quotas: Stubs::ResourceQuotas.default(visited),
+          resource_quotas: ResourceQuotas.default(visited),
         }
       end
 
@@ -1002,11 +1002,11 @@ module AWS::SDK::ElasticBeanstalk
         return nil if visited.include?('ResourceQuotas')
         visited = visited + ['ResourceQuotas']
         {
-          application_quota: Stubs::ResourceQuota.default(visited),
-          application_version_quota: Stubs::ResourceQuota.default(visited),
-          environment_quota: Stubs::ResourceQuota.default(visited),
-          configuration_template_quota: Stubs::ResourceQuota.default(visited),
-          custom_platform_quota: Stubs::ResourceQuota.default(visited),
+          application_quota: ResourceQuota.default(visited),
+          application_version_quota: ResourceQuota.default(visited),
+          environment_quota: ResourceQuota.default(visited),
+          configuration_template_quota: ResourceQuota.default(visited),
+          custom_platform_quota: ResourceQuota.default(visited),
         }
       end
 
@@ -1044,7 +1044,7 @@ module AWS::SDK::ElasticBeanstalk
     class DescribeApplicationVersions
       def self.default(visited=[])
         {
-          application_versions: Stubs::ApplicationVersionDescriptionList.default(visited),
+          application_versions: ApplicationVersionDescriptionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1068,7 +1068,7 @@ module AWS::SDK::ElasticBeanstalk
         return nil if visited.include?('ApplicationVersionDescriptionList')
         visited = visited + ['ApplicationVersionDescriptionList']
         [
-          Stubs::ApplicationVersionDescription.default(visited)
+          ApplicationVersionDescription.default(visited)
         ]
       end
 
@@ -1085,7 +1085,7 @@ module AWS::SDK::ElasticBeanstalk
     class DescribeApplications
       def self.default(visited=[])
         {
-          applications: Stubs::ApplicationDescriptionList.default(visited),
+          applications: ApplicationDescriptionList.default(visited),
         }
       end
 
@@ -1107,7 +1107,7 @@ module AWS::SDK::ElasticBeanstalk
         return nil if visited.include?('ApplicationDescriptionList')
         visited = visited + ['ApplicationDescriptionList']
         [
-          Stubs::ApplicationDescription.default(visited)
+          ApplicationDescription.default(visited)
         ]
       end
 
@@ -1126,7 +1126,7 @@ module AWS::SDK::ElasticBeanstalk
         {
           solution_stack_name: 'solution_stack_name',
           platform_arn: 'platform_arn',
-          options: Stubs::ConfigurationOptionDescriptionsList.default(visited),
+          options: ConfigurationOptionDescriptionsList.default(visited),
         }
       end
 
@@ -1150,7 +1150,7 @@ module AWS::SDK::ElasticBeanstalk
         return nil if visited.include?('ConfigurationOptionDescriptionsList')
         visited = visited + ['ConfigurationOptionDescriptionsList']
         [
-          Stubs::ConfigurationOptionDescription.default(visited)
+          ConfigurationOptionDescription.default(visited)
         ]
       end
 
@@ -1175,11 +1175,11 @@ module AWS::SDK::ElasticBeanstalk
           change_severity: 'change_severity',
           user_defined: false,
           value_type: 'value_type',
-          value_options: Stubs::ConfigurationOptionPossibleValues.default(visited),
+          value_options: ConfigurationOptionPossibleValues.default(visited),
           min_value: 1,
           max_value: 1,
           max_length: 1,
-          regex: Stubs::OptionRestrictionRegex.default(visited),
+          regex: OptionRestrictionRegex.default(visited),
         }
       end
 
@@ -1244,7 +1244,7 @@ module AWS::SDK::ElasticBeanstalk
     class DescribeConfigurationSettings
       def self.default(visited=[])
         {
-          configuration_settings: Stubs::ConfigurationSettingsDescriptionList.default(visited),
+          configuration_settings: ConfigurationSettingsDescriptionList.default(visited),
         }
       end
 
@@ -1266,7 +1266,7 @@ module AWS::SDK::ElasticBeanstalk
         return nil if visited.include?('ConfigurationSettingsDescriptionList')
         visited = visited + ['ConfigurationSettingsDescriptionList']
         [
-          Stubs::ConfigurationSettingsDescription.default(visited)
+          ConfigurationSettingsDescription.default(visited)
         ]
       end
 
@@ -1294,7 +1294,7 @@ module AWS::SDK::ElasticBeanstalk
           deployment_status: 'deployment_status',
           date_created: Time.now,
           date_updated: Time.now,
-          option_settings: Stubs::ConfigurationOptionSettingsList.default(visited),
+          option_settings: ConfigurationOptionSettingsList.default(visited),
         }
       end
 
@@ -1323,9 +1323,9 @@ module AWS::SDK::ElasticBeanstalk
           health_status: 'health_status',
           status: 'status',
           color: 'color',
-          causes: Stubs::Causes.default(visited),
-          application_metrics: Stubs::ApplicationMetrics.default(visited),
-          instances_health: Stubs::InstanceHealthSummary.default(visited),
+          causes: Causes.default(visited),
+          application_metrics: ApplicationMetrics.default(visited),
+          instances_health: InstanceHealthSummary.default(visited),
           refreshed_at: Time.now,
         }
       end
@@ -1389,8 +1389,8 @@ module AWS::SDK::ElasticBeanstalk
         {
           duration: 1,
           request_count: 1,
-          status_codes: Stubs::StatusCodes.default(visited),
-          latency: Stubs::Latency.default(visited),
+          status_codes: StatusCodes.default(visited),
+          latency: Latency.default(visited),
         }
       end
 
@@ -1484,7 +1484,7 @@ module AWS::SDK::ElasticBeanstalk
     class DescribeEnvironmentManagedActionHistory
       def self.default(visited=[])
         {
-          managed_action_history_items: Stubs::ManagedActionHistoryItems.default(visited),
+          managed_action_history_items: ManagedActionHistoryItems.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1508,7 +1508,7 @@ module AWS::SDK::ElasticBeanstalk
         return nil if visited.include?('ManagedActionHistoryItems')
         visited = visited + ['ManagedActionHistoryItems']
         [
-          Stubs::ManagedActionHistoryItem.default(visited)
+          ManagedActionHistoryItem.default(visited)
         ]
       end
 
@@ -1557,7 +1557,7 @@ module AWS::SDK::ElasticBeanstalk
     class DescribeEnvironmentManagedActions
       def self.default(visited=[])
         {
-          managed_actions: Stubs::ManagedActions.default(visited),
+          managed_actions: ManagedActions.default(visited),
         }
       end
 
@@ -1579,7 +1579,7 @@ module AWS::SDK::ElasticBeanstalk
         return nil if visited.include?('ManagedActions')
         visited = visited + ['ManagedActions']
         [
-          Stubs::ManagedAction.default(visited)
+          ManagedAction.default(visited)
         ]
       end
 
@@ -1622,7 +1622,7 @@ module AWS::SDK::ElasticBeanstalk
     class DescribeEnvironmentResources
       def self.default(visited=[])
         {
-          environment_resources: Stubs::EnvironmentResourceDescription.default(visited),
+          environment_resources: EnvironmentResourceDescription.default(visited),
         }
       end
 
@@ -1645,13 +1645,13 @@ module AWS::SDK::ElasticBeanstalk
         visited = visited + ['EnvironmentResourceDescription']
         {
           environment_name: 'environment_name',
-          auto_scaling_groups: Stubs::AutoScalingGroupList.default(visited),
-          instances: Stubs::InstanceList.default(visited),
-          launch_configurations: Stubs::LaunchConfigurationList.default(visited),
-          launch_templates: Stubs::LaunchTemplateList.default(visited),
-          load_balancers: Stubs::LoadBalancerList.default(visited),
-          triggers: Stubs::TriggerList.default(visited),
-          queues: Stubs::QueueList.default(visited),
+          auto_scaling_groups: AutoScalingGroupList.default(visited),
+          instances: InstanceList.default(visited),
+          launch_configurations: LaunchConfigurationList.default(visited),
+          launch_templates: LaunchTemplateList.default(visited),
+          load_balancers: LoadBalancerList.default(visited),
+          triggers: TriggerList.default(visited),
+          queues: QueueList.default(visited),
         }
       end
 
@@ -1676,7 +1676,7 @@ module AWS::SDK::ElasticBeanstalk
         return nil if visited.include?('QueueList')
         visited = visited + ['QueueList']
         [
-          Stubs::Queue.default(visited)
+          Queue.default(visited)
         ]
       end
 
@@ -1715,7 +1715,7 @@ module AWS::SDK::ElasticBeanstalk
         return nil if visited.include?('TriggerList')
         visited = visited + ['TriggerList']
         [
-          Stubs::Trigger.default(visited)
+          Trigger.default(visited)
         ]
       end
 
@@ -1752,7 +1752,7 @@ module AWS::SDK::ElasticBeanstalk
         return nil if visited.include?('LoadBalancerList')
         visited = visited + ['LoadBalancerList']
         [
-          Stubs::LoadBalancer.default(visited)
+          LoadBalancer.default(visited)
         ]
       end
 
@@ -1789,7 +1789,7 @@ module AWS::SDK::ElasticBeanstalk
         return nil if visited.include?('LaunchTemplateList')
         visited = visited + ['LaunchTemplateList']
         [
-          Stubs::LaunchTemplate.default(visited)
+          LaunchTemplate.default(visited)
         ]
       end
 
@@ -1826,7 +1826,7 @@ module AWS::SDK::ElasticBeanstalk
         return nil if visited.include?('LaunchConfigurationList')
         visited = visited + ['LaunchConfigurationList']
         [
-          Stubs::LaunchConfiguration.default(visited)
+          LaunchConfiguration.default(visited)
         ]
       end
 
@@ -1863,7 +1863,7 @@ module AWS::SDK::ElasticBeanstalk
         return nil if visited.include?('InstanceList')
         visited = visited + ['InstanceList']
         [
-          Stubs::Instance.default(visited)
+          Instance.default(visited)
         ]
       end
 
@@ -1900,7 +1900,7 @@ module AWS::SDK::ElasticBeanstalk
         return nil if visited.include?('AutoScalingGroupList')
         visited = visited + ['AutoScalingGroupList']
         [
-          Stubs::AutoScalingGroup.default(visited)
+          AutoScalingGroup.default(visited)
         ]
       end
 
@@ -1935,7 +1935,7 @@ module AWS::SDK::ElasticBeanstalk
     class DescribeEnvironments
       def self.default(visited=[])
         {
-          environments: Stubs::EnvironmentDescriptionsList.default(visited),
+          environments: EnvironmentDescriptionsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1957,7 +1957,7 @@ module AWS::SDK::ElasticBeanstalk
     class DescribeEvents
       def self.default(visited=[])
         {
-          events: Stubs::EventDescriptionList.default(visited),
+          events: EventDescriptionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1981,7 +1981,7 @@ module AWS::SDK::ElasticBeanstalk
         return nil if visited.include?('EventDescriptionList')
         visited = visited + ['EventDescriptionList']
         [
-          Stubs::EventDescription.default(visited)
+          EventDescription.default(visited)
         ]
       end
 
@@ -2032,7 +2032,7 @@ module AWS::SDK::ElasticBeanstalk
     class DescribeInstancesHealth
       def self.default(visited=[])
         {
-          instance_health_list: Stubs::InstanceHealthList.default(visited),
+          instance_health_list: InstanceHealthList.default(visited),
           refreshed_at: Time.now,
           next_token: 'next_token',
         }
@@ -2058,7 +2058,7 @@ module AWS::SDK::ElasticBeanstalk
         return nil if visited.include?('InstanceHealthList')
         visited = visited + ['InstanceHealthList']
         [
-          Stubs::SingleInstanceHealth.default(visited)
+          SingleInstanceHealth.default(visited)
         ]
       end
 
@@ -2080,11 +2080,11 @@ module AWS::SDK::ElasticBeanstalk
           instance_id: 'instance_id',
           health_status: 'health_status',
           color: 'color',
-          causes: Stubs::Causes.default(visited),
+          causes: Causes.default(visited),
           launched_at: Time.now,
-          application_metrics: Stubs::ApplicationMetrics.default(visited),
-          system: Stubs::SystemStatus.default(visited),
-          deployment: Stubs::Deployment.default(visited),
+          application_metrics: ApplicationMetrics.default(visited),
+          system: SystemStatus.default(visited),
+          deployment: Deployment.default(visited),
           availability_zone: 'availability_zone',
           instance_type: 'instance_type',
         }
@@ -2137,8 +2137,8 @@ module AWS::SDK::ElasticBeanstalk
         return nil if visited.include?('SystemStatus')
         visited = visited + ['SystemStatus']
         {
-          cpu_utilization: Stubs::CPUUtilization.default(visited),
-          load_average: Stubs::LoadAverage.default(visited),
+          cpu_utilization: CPUUtilization.default(visited),
+          load_average: LoadAverage.default(visited),
         }
       end
 
@@ -2206,7 +2206,7 @@ module AWS::SDK::ElasticBeanstalk
     class DescribePlatformVersion
       def self.default(visited=[])
         {
-          platform_description: Stubs::PlatformDescription.default(visited),
+          platform_description: PlatformDescription.default(visited),
         }
       end
 
@@ -2241,11 +2241,11 @@ module AWS::SDK::ElasticBeanstalk
           maintainer: 'maintainer',
           operating_system_name: 'operating_system_name',
           operating_system_version: 'operating_system_version',
-          programming_languages: Stubs::PlatformProgrammingLanguages.default(visited),
-          frameworks: Stubs::PlatformFrameworks.default(visited),
-          custom_ami_list: Stubs::CustomAmiList.default(visited),
-          supported_tier_list: Stubs::SupportedTierList.default(visited),
-          supported_addon_list: Stubs::SupportedAddonList.default(visited),
+          programming_languages: PlatformProgrammingLanguages.default(visited),
+          frameworks: PlatformFrameworks.default(visited),
+          custom_ami_list: CustomAmiList.default(visited),
+          supported_tier_list: SupportedTierList.default(visited),
+          supported_addon_list: SupportedAddonList.default(visited),
           platform_lifecycle_state: 'platform_lifecycle_state',
           platform_branch_name: 'platform_branch_name',
           platform_branch_lifecycle_state: 'platform_branch_lifecycle_state',
@@ -2286,7 +2286,7 @@ module AWS::SDK::ElasticBeanstalk
         return nil if visited.include?('CustomAmiList')
         visited = visited + ['CustomAmiList']
         [
-          Stubs::CustomAmi.default(visited)
+          CustomAmi.default(visited)
         ]
       end
 
@@ -2325,7 +2325,7 @@ module AWS::SDK::ElasticBeanstalk
         return nil if visited.include?('PlatformFrameworks')
         visited = visited + ['PlatformFrameworks']
         [
-          Stubs::PlatformFramework.default(visited)
+          PlatformFramework.default(visited)
         ]
       end
 
@@ -2364,7 +2364,7 @@ module AWS::SDK::ElasticBeanstalk
         return nil if visited.include?('PlatformProgrammingLanguages')
         visited = visited + ['PlatformProgrammingLanguages']
         [
-          Stubs::PlatformProgrammingLanguage.default(visited)
+          PlatformProgrammingLanguage.default(visited)
         ]
       end
 
@@ -2419,8 +2419,8 @@ module AWS::SDK::ElasticBeanstalk
     class ListAvailableSolutionStacks
       def self.default(visited=[])
         {
-          solution_stacks: Stubs::AvailableSolutionStackNamesList.default(visited),
-          solution_stack_details: Stubs::AvailableSolutionStackDetailsList.default(visited),
+          solution_stacks: AvailableSolutionStackNamesList.default(visited),
+          solution_stack_details: AvailableSolutionStackDetailsList.default(visited),
         }
       end
 
@@ -2443,7 +2443,7 @@ module AWS::SDK::ElasticBeanstalk
         return nil if visited.include?('AvailableSolutionStackDetailsList')
         visited = visited + ['AvailableSolutionStackDetailsList']
         [
-          Stubs::SolutionStackDescription.default(visited)
+          SolutionStackDescription.default(visited)
         ]
       end
 
@@ -2463,7 +2463,7 @@ module AWS::SDK::ElasticBeanstalk
         visited = visited + ['SolutionStackDescription']
         {
           solution_stack_name: 'solution_stack_name',
-          permitted_file_types: Stubs::SolutionStackFileTypeList.default(visited),
+          permitted_file_types: SolutionStackFileTypeList.default(visited),
         }
       end
 
@@ -2518,7 +2518,7 @@ module AWS::SDK::ElasticBeanstalk
     class ListPlatformBranches
       def self.default(visited=[])
         {
-          platform_branch_summary_list: Stubs::PlatformBranchSummaryList.default(visited),
+          platform_branch_summary_list: PlatformBranchSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2542,7 +2542,7 @@ module AWS::SDK::ElasticBeanstalk
         return nil if visited.include?('PlatformBranchSummaryList')
         visited = visited + ['PlatformBranchSummaryList']
         [
-          Stubs::PlatformBranchSummary.default(visited)
+          PlatformBranchSummary.default(visited)
         ]
       end
 
@@ -2565,7 +2565,7 @@ module AWS::SDK::ElasticBeanstalk
           branch_name: 'branch_name',
           lifecycle_state: 'lifecycle_state',
           branch_order: 1,
-          supported_tier_list: Stubs::SupportedTierList.default(visited),
+          supported_tier_list: SupportedTierList.default(visited),
         }
       end
 
@@ -2585,7 +2585,7 @@ module AWS::SDK::ElasticBeanstalk
     class ListPlatformVersions
       def self.default(visited=[])
         {
-          platform_summary_list: Stubs::PlatformSummaryList.default(visited),
+          platform_summary_list: PlatformSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2609,7 +2609,7 @@ module AWS::SDK::ElasticBeanstalk
         return nil if visited.include?('PlatformSummaryList')
         visited = visited + ['PlatformSummaryList']
         [
-          Stubs::PlatformSummary.default(visited)
+          PlatformSummary.default(visited)
         ]
       end
 
@@ -2627,7 +2627,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.default(visited=[])
         {
           resource_arn: 'resource_arn',
-          resource_tags: Stubs::TagList.default(visited),
+          resource_tags: TagList.default(visited),
         }
       end
 
@@ -2650,7 +2650,7 @@ module AWS::SDK::ElasticBeanstalk
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -2741,7 +2741,7 @@ module AWS::SDK::ElasticBeanstalk
     class RetrieveEnvironmentInfo
       def self.default(visited=[])
         {
-          environment_info: Stubs::EnvironmentInfoDescriptionList.default(visited),
+          environment_info: EnvironmentInfoDescriptionList.default(visited),
         }
       end
 
@@ -2763,7 +2763,7 @@ module AWS::SDK::ElasticBeanstalk
         return nil if visited.include?('EnvironmentInfoDescriptionList')
         visited = visited + ['EnvironmentInfoDescriptionList']
         [
-          Stubs::EnvironmentInfoDescription.default(visited)
+          EnvironmentInfoDescription.default(visited)
         ]
       end
 
@@ -2838,9 +2838,9 @@ module AWS::SDK::ElasticBeanstalk
           abortable_operation_in_progress: false,
           health: 'health',
           health_status: 'health_status',
-          resources: Stubs::EnvironmentResourcesDescription.default(visited),
-          tier: Stubs::EnvironmentTier.default(visited),
-          environment_links: Stubs::EnvironmentLinks.default(visited),
+          resources: EnvironmentResourcesDescription.default(visited),
+          tier: EnvironmentTier.default(visited),
+          environment_links: EnvironmentLinks.default(visited),
           environment_arn: 'environment_arn',
           operations_role: 'operations_role',
         }
@@ -2882,7 +2882,7 @@ module AWS::SDK::ElasticBeanstalk
     class UpdateApplication
       def self.default(visited=[])
         {
-          application: Stubs::ApplicationDescription.default(visited),
+          application: ApplicationDescription.default(visited),
         }
       end
 
@@ -2903,7 +2903,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.default(visited=[])
         {
           application_name: 'application_name',
-          resource_lifecycle_config: Stubs::ApplicationResourceLifecycleConfig.default(visited),
+          resource_lifecycle_config: ApplicationResourceLifecycleConfig.default(visited),
         }
       end
 
@@ -2924,7 +2924,7 @@ module AWS::SDK::ElasticBeanstalk
     class UpdateApplicationVersion
       def self.default(visited=[])
         {
-          application_version: Stubs::ApplicationVersionDescription.default(visited),
+          application_version: ApplicationVersionDescription.default(visited),
         }
       end
 
@@ -2953,7 +2953,7 @@ module AWS::SDK::ElasticBeanstalk
           deployment_status: 'deployment_status',
           date_created: Time.now,
           date_updated: Time.now,
-          option_settings: Stubs::ConfigurationOptionSettingsList.default(visited),
+          option_settings: ConfigurationOptionSettingsList.default(visited),
         }
       end
 
@@ -2998,9 +2998,9 @@ module AWS::SDK::ElasticBeanstalk
           abortable_operation_in_progress: false,
           health: 'health',
           health_status: 'health_status',
-          resources: Stubs::EnvironmentResourcesDescription.default(visited),
-          tier: Stubs::EnvironmentTier.default(visited),
-          environment_links: Stubs::EnvironmentLinks.default(visited),
+          resources: EnvironmentResourcesDescription.default(visited),
+          tier: EnvironmentTier.default(visited),
+          environment_links: EnvironmentLinks.default(visited),
           environment_arn: 'environment_arn',
           operations_role: 'operations_role',
         }
@@ -3060,7 +3060,7 @@ module AWS::SDK::ElasticBeanstalk
     class ValidateConfigurationSettings
       def self.default(visited=[])
         {
-          messages: Stubs::ValidationMessagesList.default(visited),
+          messages: ValidationMessagesList.default(visited),
         }
       end
 
@@ -3082,7 +3082,7 @@ module AWS::SDK::ElasticBeanstalk
         return nil if visited.include?('ValidationMessagesList')
         visited = visited + ['ValidationMessagesList']
         [
-          Stubs::ValidationMessage.default(visited)
+          ValidationMessage.default(visited)
         ]
       end
 

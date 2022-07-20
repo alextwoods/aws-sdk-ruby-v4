@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Macie
@@ -65,7 +67,7 @@ module AWS::SDK::Macie
     def associate_member_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateMemberAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateMemberAccountInput,
         validate_input: @config.validate_input
@@ -159,7 +161,7 @@ module AWS::SDK::Macie
     def associate_s3_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateS3ResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateS3ResourcesInput,
         validate_input: @config.validate_input
@@ -229,7 +231,7 @@ module AWS::SDK::Macie
     def disassociate_member_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateMemberAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateMemberAccountInput,
         validate_input: @config.validate_input
@@ -319,7 +321,7 @@ module AWS::SDK::Macie
     def disassociate_s3_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateS3ResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateS3ResourcesInput,
         validate_input: @config.validate_input
@@ -400,7 +402,7 @@ module AWS::SDK::Macie
     def list_member_accounts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMemberAccountsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMemberAccountsInput,
         validate_input: @config.validate_input
@@ -493,7 +495,7 @@ module AWS::SDK::Macie
     def list_s3_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListS3ResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListS3ResourcesInput,
         validate_input: @config.validate_input
@@ -587,7 +589,7 @@ module AWS::SDK::Macie
     def update_s3_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateS3ResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateS3ResourcesInput,
         validate_input: @config.validate_input

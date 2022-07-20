@@ -59,12 +59,12 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allows_public_read_access ||= false
         self.allows_public_write_access ||= false
       end
-
     end
 
     # <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
@@ -311,11 +311,11 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.deleted ||= false
       end
-
     end
 
     # @!attribute ids
@@ -378,6 +378,7 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.block_public_acls ||= false
@@ -385,7 +386,6 @@ module AWS::SDK::Macie2
         self.ignore_public_acls ||= false
         self.restrict_public_buckets ||= false
       end
-
     end
 
     # <p>Provides information about the number of S3 buckets that are publicly accessible based on a combination of permissions settings for each bucket.</p>
@@ -418,6 +418,7 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.publicly_accessible ||= 0
@@ -425,7 +426,6 @@ module AWS::SDK::Macie2
         self.publicly_writable ||= 0
         self.unknown ||= 0
       end
-
     end
 
     # <p>Provides information about the number of S3 buckets that use certain types of server-side encryption by default or don't encrypt new objects by default. For detailed information about these settings, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-encryption.html">Setting default server-side encryption behavior for Amazon S3 buckets</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
@@ -458,6 +458,7 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.kms_managed ||= 0
@@ -465,7 +466,6 @@ module AWS::SDK::Macie2
         self.unencrypted ||= 0
         self.unknown ||= 0
       end
-
     end
 
     # <p>Provides information about the number of S3 buckets that are or aren't shared with other Amazon Web Services accounts.</p>
@@ -498,6 +498,7 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.external ||= 0
@@ -505,7 +506,6 @@ module AWS::SDK::Macie2
         self.not_shared ||= 0
         self.unknown ||= 0
       end
-
     end
 
     # <p>Provides information about the number of S3 buckets whose bucket policies do or don't require server-side encryption of objects when objects are uploaded to the buckets.</p>
@@ -532,13 +532,13 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allows_unencrypted_object_uploads ||= 0
         self.denies_unencrypted_object_uploads ||= 0
         self.unknown ||= 0
       end
-
     end
 
     # <p>Specifies the operator to use in a property-based condition that filters the results of a query for information about S3 buckets.</p>
@@ -589,6 +589,7 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.gt ||= 0
@@ -596,7 +597,6 @@ module AWS::SDK::Macie2
         self.lt ||= 0
         self.lte ||= 0
       end
-
     end
 
     # <p>Provides information about the bucket-level permissions settings for an S3 bucket.</p>
@@ -781,6 +781,7 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.classifiable_object_count ||= 0
@@ -790,7 +791,6 @@ module AWS::SDK::Macie2
         self.size_in_bytes_compressed ||= 0
         self.versioning ||= false
       end
-
     end
 
     # Includes enum constants for BucketMetadataErrorCode
@@ -839,12 +839,12 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allows_public_read_access ||= false
         self.allows_public_write_access ||= false
       end
-
     end
 
     # <p>Provides information about the permissions settings that determine whether an S3 bucket is publicly accessible.</p>
@@ -943,12 +943,12 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.column ||= 0
         self.row ||= 0
       end
-
     end
 
     # <p>Provides information about a sensitive data finding and the details of the finding.</p>
@@ -1047,12 +1047,12 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.additional_occurrences ||= false
         self.size_classified ||= 0
       end
-
     end
 
     # <p>Provides information about the status of a sensitive data finding.</p>
@@ -1169,12 +1169,12 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.initial_run ||= false
         self.sampling_percentage ||= 0
       end
-
     end
 
     # @!attribute job_arn
@@ -1253,11 +1253,11 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.maximum_match_distance ||= 0
       end
-
     end
 
     # @!attribute custom_data_identifier_id
@@ -1320,11 +1320,11 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.position ||= 0
       end
-
     end
 
     # @!attribute arn
@@ -1367,11 +1367,11 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.disable_email_notification ||= false
       end
-
     end
 
     # @!attribute unprocessed_accounts
@@ -1517,6 +1517,7 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.gt ||= 0
@@ -1524,7 +1525,6 @@ module AWS::SDK::Macie2
         self.lt ||= 0
         self.lte ||= 0
       end
-
     end
 
     # Includes enum constants for Currency
@@ -1591,11 +1591,11 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_count ||= 0
       end
-
     end
 
     # <p>Provides information about a custom data identifier that produced a sensitive data finding, and the sensitive data that it detected for the finding.</p>
@@ -1628,11 +1628,11 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
       end
-
     end
 
     # <p>Specifies that a classification job runs once a day, every day. This is an empty object.</p>
@@ -1740,11 +1740,11 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
       end
-
     end
 
     # @!attribute id
@@ -1856,11 +1856,11 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute buckets
@@ -2023,12 +2023,12 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.initial_run ||= false
         self.sampling_percentage ||= 0
       end
-
     end
 
     DescribeOrganizationConfigurationInput = ::Struct.new(
@@ -2054,12 +2054,12 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_enable ||= false
         self.max_account_limit_reached ||= false
       end
-
     end
 
     DisableMacieInput = ::Struct.new(
@@ -2420,13 +2420,13 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.archived ||= false
         self.count ||= 0
         self.sample ||= false
       end
-
     end
 
     # <p>Provides information about an action that occurred for a resource and produced a policy finding.</p>
@@ -2772,6 +2772,7 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bucket_count ||= 0
@@ -2781,7 +2782,6 @@ module AWS::SDK::Macie2
         self.size_in_bytes ||= 0
         self.size_in_bytes_compressed ||= 0
       end
-
     end
 
     GetClassificationExportConfigurationInput = ::Struct.new(
@@ -2891,12 +2891,12 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.deleted ||= false
         self.maximum_match_distance ||= 0
       end
-
     end
 
     # @!attribute finding_criteria
@@ -2929,11 +2929,11 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.size ||= 0
       end
-
     end
 
     # @!attribute counts_by_group
@@ -3014,11 +3014,11 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.position ||= 0
       end
-
     end
 
     # @!attribute finding_ids
@@ -3087,11 +3087,11 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.invitations_count ||= 0
       end
-
     end
 
     GetMacieSessionInput = ::Struct.new(
@@ -3270,11 +3270,11 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -3373,11 +3373,11 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
       end
-
     end
 
     # <p>Provides information about an Identity and Access Management (IAM) user who performed an action on an affected resource.</p>
@@ -3550,12 +3550,12 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.lat ||= 0
         self.lon ||= 0
       end
-
     end
 
     # <p>Provides information about the registered owner of an IP address.</p>
@@ -3936,11 +3936,11 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute items
@@ -3977,11 +3977,11 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute items
@@ -4018,11 +4018,11 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute findings_filter_list_items
@@ -4071,11 +4071,11 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute finding_ids
@@ -4112,11 +4112,11 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute invitations
@@ -4303,11 +4303,11 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute members
@@ -4344,11 +4344,11 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute admin_accounts
@@ -4533,6 +4533,7 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.classifiable_object_count ||= 0
@@ -4541,7 +4542,6 @@ module AWS::SDK::Macie2
         self.size_in_bytes ||= 0
         self.size_in_bytes_compressed ||= 0
       end
-
     end
 
     # <p>Provides statistical data and other information about an Amazon Web Services resource that Amazon Macie monitors and analyzes for your account.</p>
@@ -4634,11 +4634,11 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.day_of_month ||= 0
       end
-
     end
 
     # <p>Provides information about the number of objects that are in an S3 bucket and use certain types of server-side encryption, use client-side encryption, or aren't encrypted.</p>
@@ -4677,6 +4677,7 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.customer_managed ||= 0
@@ -4685,7 +4686,6 @@ module AWS::SDK::Macie2
         self.unencrypted ||= 0
         self.unknown ||= 0
       end
-
     end
 
     # <p>Provides information about the total storage size (in bytes) or number of objects that Amazon Macie can't analyze in one or more S3 buckets. In a BucketMetadata or MatchingBucket object, this data is for a specific bucket. In a GetBucketStatisticsResponse object, this data is aggregated for the buckets in the query results. If versioning is enabled for a bucket, total storage size values are based on the size of the latest version of each applicable object in the bucket.</p>
@@ -4712,13 +4712,13 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.file_type ||= 0
         self.storage_class ||= 0
         self.total ||= 0
       end
-
     end
 
     # <p>Specifies the location of 1-15 occurrences of sensitive data that was detected by a managed data identifier or a custom data identifier and produced a sensitive data finding.</p>
@@ -4803,11 +4803,11 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.page_number ||= 0
       end
-
     end
 
     # <p>Provides the details of a policy finding.</p>
@@ -4903,13 +4903,13 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.end ||= 0
         self.start ||= 0
         self.start_column ||= 0
       end
-
     end
 
     # <p>Specifies the location of an occurrence of sensitive data in an Apache Avro object container, Apache Parquet file, JSON file, or JSON Lines file.</p>
@@ -4930,11 +4930,11 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.record_index ||= 0
       end
-
     end
 
     # Includes enum constants for RelationshipStatus
@@ -5005,12 +5005,12 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.replicated ||= false
         self.replicated_externally ||= false
       end
-
     end
 
     # <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
@@ -5297,12 +5297,12 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.public_access ||= false
         self.size ||= 0
       end
-
     end
 
     # Includes enum constants for ScopeFilterKey
@@ -5439,11 +5439,11 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute matching_resources
@@ -5618,12 +5618,12 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.publish_classification_findings ||= false
         self.publish_policy_findings ||= false
       end
-
     end
 
     # <p>Provides information about the category, types, and occurrences of sensitive data that produced a sensitive data finding.</p>
@@ -5652,11 +5652,11 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_count ||= 0
       end
-
     end
 
     # Includes enum constants for SensitiveDataItemCategory
@@ -5727,12 +5727,12 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_service_limited ||= false
         self.value ||= 0
       end
-
     end
 
     # <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
@@ -5787,11 +5787,11 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.mfa_authenticated ||= false
       end
-
     end
 
     # <p>Provides information about the source and type of temporary security credentials that were issued to an entity.</p>
@@ -5852,11 +5852,11 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.score ||= 0
       end
-
     end
 
     # Includes enum constants for SeverityDescription
@@ -5895,11 +5895,11 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.occurrences_threshold ||= 0
       end
-
     end
 
     # Includes enum constants for SharedAccess
@@ -6042,12 +6042,12 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.approximate_number_of_objects_to_process ||= 0
         self.number_of_runs ||= 0
       end
-
     end
 
     # Includes enum constants for StorageClass
@@ -6247,11 +6247,11 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.maximum_match_distance ||= 0
       end
-
     end
 
     # @!attribute match_count
@@ -6264,11 +6264,11 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.match_count ||= 0
       end
-
     end
 
     # <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
@@ -6449,11 +6449,11 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.position ||= 0
       end
-
     end
 
     # @!attribute arn
@@ -6540,11 +6540,11 @@ module AWS::SDK::Macie2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_enable ||= false
       end
-
     end
 
     UpdateOrganizationConfigurationOutput = ::Struct.new(

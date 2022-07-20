@@ -14,7 +14,7 @@ module AWS::SDK::Pricing
     class DescribeServices
       def self.default(visited=[])
         {
-          services: Stubs::ServiceList.default(visited),
+          services: ServiceList.default(visited),
           format_version: 'format_version',
           next_token: 'next_token',
         }
@@ -36,7 +36,7 @@ module AWS::SDK::Pricing
         return nil if visited.include?('ServiceList')
         visited = visited + ['ServiceList']
         [
-          Stubs::Service.default(visited)
+          Service.default(visited)
         ]
       end
 
@@ -57,7 +57,7 @@ module AWS::SDK::Pricing
         visited = visited + ['Service']
         {
           service_code: 'service_code',
-          attribute_names: Stubs::AttributeNameList.default(visited),
+          attribute_names: AttributeNameList.default(visited),
         }
       end
 
@@ -94,7 +94,7 @@ module AWS::SDK::Pricing
     class GetAttributeValues
       def self.default(visited=[])
         {
-          attribute_values: Stubs::AttributeValueList.default(visited),
+          attribute_values: AttributeValueList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -114,7 +114,7 @@ module AWS::SDK::Pricing
         return nil if visited.include?('AttributeValueList')
         visited = visited + ['AttributeValueList']
         [
-          Stubs::AttributeValue.default(visited)
+          AttributeValue.default(visited)
         ]
       end
 
@@ -151,7 +151,7 @@ module AWS::SDK::Pricing
       def self.default(visited=[])
         {
           format_version: 'format_version',
-          price_list: Stubs::PriceList.default(visited),
+          price_list: PriceList.default(visited),
           next_token: 'next_token',
         }
       end

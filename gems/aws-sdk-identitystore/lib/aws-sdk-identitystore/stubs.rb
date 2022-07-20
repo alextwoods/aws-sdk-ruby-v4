@@ -50,7 +50,7 @@ module AWS::SDK::Identitystore
     class ListGroups
       def self.default(visited=[])
         {
-          groups: Stubs::Groups.default(visited),
+          groups: Groups.default(visited),
           next_token: 'next_token',
         }
       end
@@ -70,7 +70,7 @@ module AWS::SDK::Identitystore
         return nil if visited.include?('Groups')
         visited = visited + ['Groups']
         [
-          Stubs::Group.default(visited)
+          Group.default(visited)
         ]
       end
 
@@ -108,7 +108,7 @@ module AWS::SDK::Identitystore
     class ListUsers
       def self.default(visited=[])
         {
-          users: Stubs::Users.default(visited),
+          users: Users.default(visited),
           next_token: 'next_token',
         }
       end
@@ -128,7 +128,7 @@ module AWS::SDK::Identitystore
         return nil if visited.include?('Users')
         visited = visited + ['Users']
         [
-          Stubs::User.default(visited)
+          User.default(visited)
         ]
       end
 

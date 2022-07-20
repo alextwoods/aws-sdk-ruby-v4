@@ -102,11 +102,11 @@ module AWS::SDK::DirectConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.vlan ||= 0
       end
-
     end
 
     # <p>Information about an Direct Connect connection.</p>
@@ -294,11 +294,11 @@ module AWS::SDK::DirectConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.vlan ||= 0
       end
-
     end
 
     # @!attribute connection_id
@@ -341,11 +341,11 @@ module AWS::SDK::DirectConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.vlan ||= 0
       end
-
     end
 
     # <p>Information about an Direct Connect connection.</p>
@@ -533,11 +533,11 @@ module AWS::SDK::DirectConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.vlan ||= 0
       end
-
     end
 
     # @!attribute connection_id
@@ -770,12 +770,12 @@ module AWS::SDK::DirectConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.vlan ||= 0
         self.asn ||= 0
       end
-
     end
 
     # @!attribute connection_id
@@ -1008,12 +1008,12 @@ module AWS::SDK::DirectConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.vlan ||= 0
         self.asn ||= 0
       end
-
     end
 
     # @!attribute connection_id
@@ -1255,11 +1255,11 @@ module AWS::SDK::DirectConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.vlan ||= 0
       end
-
     end
 
     # @!attribute connection_id
@@ -1465,11 +1465,11 @@ module AWS::SDK::DirectConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.vlan ||= 0
       end
-
     end
 
     # @!attribute connection_id
@@ -1753,12 +1753,12 @@ module AWS::SDK::DirectConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.vlan ||= 0
         self.asn ||= 0
       end
-
     end
 
     # <p>Information about the associated gateway.</p>
@@ -1905,11 +1905,11 @@ module AWS::SDK::DirectConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.asn ||= 0
       end
-
     end
 
     # Includes enum constants for BGPPeerState
@@ -2441,11 +2441,11 @@ module AWS::SDK::DirectConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.vlan ||= 0
       end
-
     end
 
     # Includes enum constants for ConnectionState
@@ -2752,11 +2752,11 @@ module AWS::SDK::DirectConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.vlan ||= 0
       end
-
     end
 
     # @!attribute direct_connect_gateway_id
@@ -3124,11 +3124,11 @@ module AWS::SDK::DirectConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.number_of_connections ||= 0
       end
-
     end
 
     # <p>Information about a link aggregation group (LAG).</p>
@@ -3303,13 +3303,13 @@ module AWS::SDK::DirectConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.number_of_connections ||= 0
         self.minimum_links ||= 0
         self.allows_hosted_connections ||= false
       end
-
     end
 
     # @!attribute connection_id
@@ -3536,12 +3536,12 @@ module AWS::SDK::DirectConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.vlan ||= 0
         self.asn ||= 0
       end
-
     end
 
     # @!attribute connection_id
@@ -3768,12 +3768,12 @@ module AWS::SDK::DirectConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.vlan ||= 0
         self.asn ||= 0
       end
-
     end
 
     # @!attribute connection_id
@@ -3855,11 +3855,11 @@ module AWS::SDK::DirectConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.asn ||= 0
       end
-
     end
 
     # @!attribute virtual_interface
@@ -4071,11 +4071,11 @@ module AWS::SDK::DirectConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.vlan ||= 0
       end
-
     end
 
     # @!attribute association_id
@@ -4403,13 +4403,13 @@ module AWS::SDK::DirectConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.number_of_connections ||= 0
         self.minimum_links ||= 0
         self.allows_hosted_connections ||= false
       end
-
     end
 
     # @!attribute virtual_interface_id
@@ -5731,11 +5731,11 @@ module AWS::SDK::DirectConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.vlan ||= 0
       end
-
     end
 
     # @!attribute connection_id
@@ -6157,13 +6157,13 @@ module AWS::SDK::DirectConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.number_of_connections ||= 0
         self.minimum_links ||= 0
         self.allows_hosted_connections ||= false
       end
-
     end
 
     # Includes enum constants for LagState
@@ -6424,11 +6424,11 @@ module AWS::SDK::DirectConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.asn ||= 0
       end
-
     end
 
     # <p>Information about a private virtual interface.</p>
@@ -6512,12 +6512,12 @@ module AWS::SDK::DirectConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.vlan ||= 0
         self.asn ||= 0
       end
-
     end
 
     # <p>Information about a private virtual interface to be provisioned on a connection.</p>
@@ -6583,12 +6583,12 @@ module AWS::SDK::DirectConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.vlan ||= 0
         self.asn ||= 0
       end
-
     end
 
     # <p>Information about a public virtual interface.</p>
@@ -6654,12 +6654,12 @@ module AWS::SDK::DirectConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.vlan ||= 0
         self.asn ||= 0
       end
-
     end
 
     # <p>Information about a public virtual interface to be provisioned on a connection.</p>
@@ -6725,12 +6725,12 @@ module AWS::SDK::DirectConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.vlan ||= 0
         self.asn ||= 0
       end
-
     end
 
     # <p>Information about a transit virtual interface.</p>
@@ -6808,12 +6808,12 @@ module AWS::SDK::DirectConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.vlan ||= 0
         self.asn ||= 0
       end
-
     end
 
     # <p>Information about a transit virtual interface to be provisioned on a connection.</p>
@@ -6879,12 +6879,12 @@ module AWS::SDK::DirectConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.vlan ||= 0
         self.asn ||= 0
       end
-
     end
 
     # Includes enum constants for NniPartnerType
@@ -7338,11 +7338,11 @@ module AWS::SDK::DirectConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.vlan ||= 0
       end
-
     end
 
     # @!attribute association_id
@@ -7440,11 +7440,11 @@ module AWS::SDK::DirectConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.minimum_links ||= 0
       end
-
     end
 
     # <p>Information about a link aggregation group (LAG).</p>
@@ -7619,13 +7619,13 @@ module AWS::SDK::DirectConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.number_of_connections ||= 0
         self.minimum_links ||= 0
         self.allows_hosted_connections ||= false
       end
-
     end
 
     # @!attribute virtual_interface_id
@@ -7864,12 +7864,12 @@ module AWS::SDK::DirectConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.vlan ||= 0
         self.asn ||= 0
       end
-
     end
 
     # <p>Information about a virtual private gateway for a private virtual interface.</p>
@@ -8116,12 +8116,12 @@ module AWS::SDK::DirectConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.vlan ||= 0
         self.asn ||= 0
       end
-
     end
 
     # Includes enum constants for VirtualInterfaceState

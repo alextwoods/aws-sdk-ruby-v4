@@ -147,8 +147,8 @@ module AWS::SDK::SSMIncidents
 
     module ChatbotSnsConfigurationSet
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Set, ::Array, context: context)
-        data = Set.new
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
         params.each do |element|
           data << element
         end
@@ -202,7 +202,7 @@ module AWS::SDK::SSMIncidents
         Hearth::Validator.validate!(params, ::Hash, Types::CreateReplicationSetInput, context: context)
         type = Types::CreateReplicationSetInput.new
         type.regions = RegionMapInput.build(params[:regions], context: "#{context}[:regions]") unless params[:regions].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -220,7 +220,7 @@ module AWS::SDK::SSMIncidents
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateResponsePlanInput, context: context)
         type = Types::CreateResponsePlanInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.name = params[:name]
         type.display_name = params[:display_name]
         type.incident_template = IncidentTemplate.build(params[:incident_template], context: "#{context}[:incident_template]") unless params[:incident_template].nil?
@@ -245,7 +245,7 @@ module AWS::SDK::SSMIncidents
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateTimelineEventInput, context: context)
         type = Types::CreateTimelineEventInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.incident_record_arn = params[:incident_record_arn]
         type.event_time = params[:event_time]
         type.event_type = params[:event_type]
@@ -402,8 +402,8 @@ module AWS::SDK::SSMIncidents
 
     module EngagementSet
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Set, ::Array, context: context)
-        data = Set.new
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
         params.each do |element|
           data << element
         end
@@ -1087,7 +1087,7 @@ module AWS::SDK::SSMIncidents
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::StartIncidentInput, context: context)
         type = Types::StartIncidentInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.response_plan_arn = params[:response_plan_arn]
         type.title = params[:title]
         type.impact = params[:impact]
@@ -1229,7 +1229,7 @@ module AWS::SDK::SSMIncidents
         type = Types::UpdateDeletionProtectionInput.new
         type.arn = params[:arn]
         type.deletion_protected = params[:deletion_protected]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -1246,7 +1246,7 @@ module AWS::SDK::SSMIncidents
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::UpdateIncidentRecordInput, context: context)
         type = Types::UpdateIncidentRecordInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.arn = params[:arn]
         type.title = params[:title]
         type.summary = params[:summary]
@@ -1270,7 +1270,7 @@ module AWS::SDK::SSMIncidents
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::UpdateRelatedItemsInput, context: context)
         type = Types::UpdateRelatedItemsInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.incident_record_arn = params[:incident_record_arn]
         type.related_items_update = RelatedItemsUpdate.build(params[:related_items_update], context: "#{context}[:related_items_update]") unless params[:related_items_update].nil?
         type
@@ -1316,7 +1316,7 @@ module AWS::SDK::SSMIncidents
         type = Types::UpdateReplicationSetInput.new
         type.arn = params[:arn]
         type.actions = UpdateActionList.build(params[:actions], context: "#{context}[:actions]") unless params[:actions].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -1333,7 +1333,7 @@ module AWS::SDK::SSMIncidents
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::UpdateResponsePlanInput, context: context)
         type = Types::UpdateResponsePlanInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.arn = params[:arn]
         type.display_name = params[:display_name]
         type.incident_template_title = params[:incident_template_title]
@@ -1360,7 +1360,7 @@ module AWS::SDK::SSMIncidents
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::UpdateTimelineEventInput, context: context)
         type = Types::UpdateTimelineEventInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.incident_record_arn = params[:incident_record_arn]
         type.event_id = params[:event_id]
         type.event_time = params[:event_time]

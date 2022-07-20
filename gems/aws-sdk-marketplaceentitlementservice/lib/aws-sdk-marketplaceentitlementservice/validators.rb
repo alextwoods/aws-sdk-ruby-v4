@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::MarketplaceEntitlementService
   module Validators
 
@@ -16,7 +18,7 @@ module AWS::SDK::MarketplaceEntitlementService
         Hearth::Validator.validate!(input[:product_code], ::String, context: "#{context}[:product_code]")
         Hearth::Validator.validate!(input[:dimension], ::String, context: "#{context}[:dimension]")
         Hearth::Validator.validate!(input[:customer_identifier], ::String, context: "#{context}[:customer_identifier]")
-        Validators::EntitlementValue.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
+        EntitlementValue.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
         Hearth::Validator.validate!(input[:expiration_date], ::Time, context: "#{context}[:expiration_date]")
       end
     end
@@ -25,7 +27,7 @@ module AWS::SDK::MarketplaceEntitlementService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Entitlement.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Entitlement.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -87,7 +89,7 @@ module AWS::SDK::MarketplaceEntitlementService
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::FilterValueList.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          FilterValueList.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -96,7 +98,7 @@ module AWS::SDK::MarketplaceEntitlementService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetEntitlementsInput, context: context)
         Hearth::Validator.validate!(input[:product_code], ::String, context: "#{context}[:product_code]")
-        Validators::GetEntitlementFilters.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        GetEntitlementFilters.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -105,7 +107,7 @@ module AWS::SDK::MarketplaceEntitlementService
     class GetEntitlementsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetEntitlementsOutput, context: context)
-        Validators::EntitlementList.validate!(input[:entitlements], context: "#{context}[:entitlements]") unless input[:entitlements].nil?
+        EntitlementList.validate!(input[:entitlements], context: "#{context}[:entitlements]") unless input[:entitlements].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end

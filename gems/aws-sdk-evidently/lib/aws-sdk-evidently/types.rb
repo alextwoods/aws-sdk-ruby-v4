@@ -862,11 +862,11 @@ module AWS::SDK::Evidently
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.sampling_rate ||= 0
       end
-
     end
 
     # Includes enum constants for ExperimentBaseStat
@@ -1415,11 +1415,11 @@ module AWS::SDK::Evidently
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.period ||= 0
       end
-
     end
 
     # @!attribute results_data

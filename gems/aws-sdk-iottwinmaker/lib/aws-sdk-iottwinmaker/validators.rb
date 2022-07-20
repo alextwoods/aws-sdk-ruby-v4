@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::IoTTwinMaker
   module Validators
 
@@ -22,14 +24,14 @@ module AWS::SDK::IoTTwinMaker
         Hearth::Validator.validate!(input, Types::BatchPutPropertyError, context: context)
         Hearth::Validator.validate!(input[:error_code], ::String, context: "#{context}[:error_code]")
         Hearth::Validator.validate!(input[:error_message], ::String, context: "#{context}[:error_message]")
-        Validators::PropertyValueEntry.validate!(input[:entry], context: "#{context}[:entry]") unless input[:entry].nil?
+        PropertyValueEntry.validate!(input[:entry], context: "#{context}[:entry]") unless input[:entry].nil?
       end
     end
 
     class BatchPutPropertyErrorEntry
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchPutPropertyErrorEntry, context: context)
-        Validators::Errors.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        Errors.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
       end
     end
 
@@ -37,14 +39,14 @@ module AWS::SDK::IoTTwinMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchPutPropertyValuesInput, context: context)
         Hearth::Validator.validate!(input[:workspace_id], ::String, context: "#{context}[:workspace_id]")
-        Validators::Entries.validate!(input[:entries], context: "#{context}[:entries]") unless input[:entries].nil?
+        Entries.validate!(input[:entries], context: "#{context}[:entries]") unless input[:entries].nil?
       end
     end
 
     class BatchPutPropertyValuesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchPutPropertyValuesOutput, context: context)
-        Validators::ErrorEntries.validate!(input[:error_entries], context: "#{context}[:error_entries]") unless input[:error_entries].nil?
+        ErrorEntries.validate!(input[:error_entries], context: "#{context}[:error_entries]") unless input[:error_entries].nil?
       end
     end
 
@@ -53,7 +55,7 @@ module AWS::SDK::IoTTwinMaker
         Hearth::Validator.validate!(input, Types::ComponentRequest, context: context)
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:component_type_id], ::String, context: "#{context}[:component_type_id]")
-        Validators::PropertyRequests.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
+        PropertyRequests.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
       end
     end
 
@@ -63,9 +65,9 @@ module AWS::SDK::IoTTwinMaker
         Hearth::Validator.validate!(input[:component_name], ::String, context: "#{context}[:component_name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:component_type_id], ::String, context: "#{context}[:component_type_id]")
-        Validators::Status.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        Status.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
         Hearth::Validator.validate!(input[:defined_in], ::String, context: "#{context}[:defined_in]")
-        Validators::PropertyResponses.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
+        PropertyResponses.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
       end
     end
 
@@ -73,7 +75,7 @@ module AWS::SDK::IoTTwinMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ComponentTypeSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ComponentTypeSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -86,7 +88,7 @@ module AWS::SDK::IoTTwinMaker
         Hearth::Validator.validate!(input[:creation_date_time], ::Time, context: "#{context}[:creation_date_time]")
         Hearth::Validator.validate!(input[:update_date_time], ::Time, context: "#{context}[:update_date_time]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::Status.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        Status.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
       end
     end
 
@@ -96,7 +98,7 @@ module AWS::SDK::IoTTwinMaker
         Hearth::Validator.validate!(input[:update_type], ::String, context: "#{context}[:update_type]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:component_type_id], ::String, context: "#{context}[:component_type_id]")
-        Validators::PropertyRequests.validate!(input[:property_updates], context: "#{context}[:property_updates]") unless input[:property_updates].nil?
+        PropertyRequests.validate!(input[:property_updates], context: "#{context}[:property_updates]") unless input[:property_updates].nil?
       end
     end
 
@@ -105,7 +107,7 @@ module AWS::SDK::IoTTwinMaker
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::ComponentUpdateRequest.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          ComponentUpdateRequest.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -115,7 +117,7 @@ module AWS::SDK::IoTTwinMaker
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::ComponentResponse.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          ComponentResponse.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -125,7 +127,7 @@ module AWS::SDK::IoTTwinMaker
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::ComponentRequest.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          ComponentRequest.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -168,10 +170,10 @@ module AWS::SDK::IoTTwinMaker
         Hearth::Validator.validate!(input[:is_singleton], ::TrueClass, ::FalseClass, context: "#{context}[:is_singleton]")
         Hearth::Validator.validate!(input[:component_type_id], ::String, context: "#{context}[:component_type_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::PropertyDefinitionsRequest.validate!(input[:property_definitions], context: "#{context}[:property_definitions]") unless input[:property_definitions].nil?
-        Validators::ExtendsFrom.validate!(input[:extends_from], context: "#{context}[:extends_from]") unless input[:extends_from].nil?
-        Validators::FunctionsRequest.validate!(input[:functions], context: "#{context}[:functions]") unless input[:functions].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        PropertyDefinitionsRequest.validate!(input[:property_definitions], context: "#{context}[:property_definitions]") unless input[:property_definitions].nil?
+        ExtendsFrom.validate!(input[:extends_from], context: "#{context}[:extends_from]") unless input[:extends_from].nil?
+        FunctionsRequest.validate!(input[:functions], context: "#{context}[:functions]") unless input[:functions].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -191,9 +193,9 @@ module AWS::SDK::IoTTwinMaker
         Hearth::Validator.validate!(input[:entity_id], ::String, context: "#{context}[:entity_id]")
         Hearth::Validator.validate!(input[:entity_name], ::String, context: "#{context}[:entity_name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ComponentsMapRequest.validate!(input[:components], context: "#{context}[:components]") unless input[:components].nil?
+        ComponentsMapRequest.validate!(input[:components], context: "#{context}[:components]") unless input[:components].nil?
         Hearth::Validator.validate!(input[:parent_entity_id], ::String, context: "#{context}[:parent_entity_id]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -214,8 +216,8 @@ module AWS::SDK::IoTTwinMaker
         Hearth::Validator.validate!(input[:scene_id], ::String, context: "#{context}[:scene_id]")
         Hearth::Validator.validate!(input[:content_location], ::String, context: "#{context}[:content_location]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::SceneCapabilities.validate!(input[:capabilities], context: "#{context}[:capabilities]") unless input[:capabilities].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        SceneCapabilities.validate!(input[:capabilities], context: "#{context}[:capabilities]") unless input[:capabilities].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -234,7 +236,7 @@ module AWS::SDK::IoTTwinMaker
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:s3_location], ::String, context: "#{context}[:s3_location]")
         Hearth::Validator.validate!(input[:role], ::String, context: "#{context}[:role]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -249,7 +251,7 @@ module AWS::SDK::IoTTwinMaker
     class DataConnector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DataConnector, context: context)
-        Validators::LambdaFunction.validate!(input[:lambda], context: "#{context}[:lambda]") unless input[:lambda].nil?
+        LambdaFunction.validate!(input[:lambda], context: "#{context}[:lambda]") unless input[:lambda].nil?
         Hearth::Validator.validate!(input[:is_native], ::TrueClass, ::FalseClass, context: "#{context}[:is_native]")
       end
     end
@@ -258,10 +260,10 @@ module AWS::SDK::IoTTwinMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DataType, context: context)
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::DataType.validate!(input[:nested_type], context: "#{context}[:nested_type]") unless input[:nested_type].nil?
-        Validators::DataValueList.validate!(input[:allowed_values], context: "#{context}[:allowed_values]") unless input[:allowed_values].nil?
+        DataType.validate!(input[:nested_type], context: "#{context}[:nested_type]") unless input[:nested_type].nil?
+        DataValueList.validate!(input[:allowed_values], context: "#{context}[:allowed_values]") unless input[:allowed_values].nil?
         Hearth::Validator.validate!(input[:unit_of_measure], ::String, context: "#{context}[:unit_of_measure]")
-        Validators::Relationship.validate!(input[:relationship], context: "#{context}[:relationship]") unless input[:relationship].nil?
+        Relationship.validate!(input[:relationship], context: "#{context}[:relationship]") unless input[:relationship].nil?
       end
     end
 
@@ -273,9 +275,9 @@ module AWS::SDK::IoTTwinMaker
         Hearth::Validator.validate!(input[:integer_value], ::Integer, context: "#{context}[:integer_value]")
         Hearth::Validator.validate!(input[:long_value], ::Integer, context: "#{context}[:long_value]")
         Hearth::Validator.validate!(input[:string_value], ::String, context: "#{context}[:string_value]")
-        Validators::DataValueList.validate!(input[:list_value], context: "#{context}[:list_value]") unless input[:list_value].nil?
-        Validators::DataValueMap.validate!(input[:map_value], context: "#{context}[:map_value]") unless input[:map_value].nil?
-        Validators::RelationshipValue.validate!(input[:relationship_value], context: "#{context}[:relationship_value]") unless input[:relationship_value].nil?
+        DataValueList.validate!(input[:list_value], context: "#{context}[:list_value]") unless input[:list_value].nil?
+        DataValueMap.validate!(input[:map_value], context: "#{context}[:map_value]") unless input[:map_value].nil?
+        RelationshipValue.validate!(input[:relationship_value], context: "#{context}[:relationship_value]") unless input[:relationship_value].nil?
         Hearth::Validator.validate!(input[:expression], ::String, context: "#{context}[:expression]")
       end
     end
@@ -284,7 +286,7 @@ module AWS::SDK::IoTTwinMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DataValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DataValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -294,7 +296,7 @@ module AWS::SDK::IoTTwinMaker
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::DataValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          DataValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -361,7 +363,7 @@ module AWS::SDK::IoTTwinMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EntityPropertyReference, context: context)
         Hearth::Validator.validate!(input[:component_name], ::String, context: "#{context}[:component_name]")
-        Validators::ExternalIdProperty.validate!(input[:external_id_property], context: "#{context}[:external_id_property]") unless input[:external_id_property].nil?
+        ExternalIdProperty.validate!(input[:external_id_property], context: "#{context}[:external_id_property]") unless input[:external_id_property].nil?
         Hearth::Validator.validate!(input[:entity_id], ::String, context: "#{context}[:entity_id]")
         Hearth::Validator.validate!(input[:property_name], ::String, context: "#{context}[:property_name]")
       end
@@ -371,7 +373,7 @@ module AWS::SDK::IoTTwinMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EntitySummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EntitySummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -383,7 +385,7 @@ module AWS::SDK::IoTTwinMaker
         Hearth::Validator.validate!(input[:entity_name], ::String, context: "#{context}[:entity_name]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:parent_entity_id], ::String, context: "#{context}[:parent_entity_id]")
-        Validators::Status.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        Status.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:has_child_entities], ::TrueClass, ::FalseClass, context: "#{context}[:has_child_entities]")
         Hearth::Validator.validate!(input[:creation_date_time], ::Time, context: "#{context}[:creation_date_time]")
@@ -395,7 +397,7 @@ module AWS::SDK::IoTTwinMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PropertyValueEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PropertyValueEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -412,7 +414,7 @@ module AWS::SDK::IoTTwinMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchPutPropertyErrorEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchPutPropertyErrorEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -421,7 +423,7 @@ module AWS::SDK::IoTTwinMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchPutPropertyError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchPutPropertyError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -448,18 +450,18 @@ module AWS::SDK::IoTTwinMaker
     class FunctionRequest
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FunctionRequest, context: context)
-        Validators::RequiredProperties.validate!(input[:required_properties], context: "#{context}[:required_properties]") unless input[:required_properties].nil?
+        RequiredProperties.validate!(input[:required_properties], context: "#{context}[:required_properties]") unless input[:required_properties].nil?
         Hearth::Validator.validate!(input[:scope], ::String, context: "#{context}[:scope]")
-        Validators::DataConnector.validate!(input[:implemented_by], context: "#{context}[:implemented_by]") unless input[:implemented_by].nil?
+        DataConnector.validate!(input[:implemented_by], context: "#{context}[:implemented_by]") unless input[:implemented_by].nil?
       end
     end
 
     class FunctionResponse
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FunctionResponse, context: context)
-        Validators::RequiredProperties.validate!(input[:required_properties], context: "#{context}[:required_properties]") unless input[:required_properties].nil?
+        RequiredProperties.validate!(input[:required_properties], context: "#{context}[:required_properties]") unless input[:required_properties].nil?
         Hearth::Validator.validate!(input[:scope], ::String, context: "#{context}[:scope]")
-        Validators::DataConnector.validate!(input[:implemented_by], context: "#{context}[:implemented_by]") unless input[:implemented_by].nil?
+        DataConnector.validate!(input[:implemented_by], context: "#{context}[:implemented_by]") unless input[:implemented_by].nil?
         Hearth::Validator.validate!(input[:is_inherited], ::TrueClass, ::FalseClass, context: "#{context}[:is_inherited]")
       end
     end
@@ -469,7 +471,7 @@ module AWS::SDK::IoTTwinMaker
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::FunctionRequest.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          FunctionRequest.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -479,7 +481,7 @@ module AWS::SDK::IoTTwinMaker
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::FunctionResponse.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          FunctionResponse.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -499,15 +501,15 @@ module AWS::SDK::IoTTwinMaker
         Hearth::Validator.validate!(input[:is_singleton], ::TrueClass, ::FalseClass, context: "#{context}[:is_singleton]")
         Hearth::Validator.validate!(input[:component_type_id], ::String, context: "#{context}[:component_type_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::PropertyDefinitionsResponse.validate!(input[:property_definitions], context: "#{context}[:property_definitions]") unless input[:property_definitions].nil?
-        Validators::ExtendsFrom.validate!(input[:extends_from], context: "#{context}[:extends_from]") unless input[:extends_from].nil?
-        Validators::FunctionsResponse.validate!(input[:functions], context: "#{context}[:functions]") unless input[:functions].nil?
+        PropertyDefinitionsResponse.validate!(input[:property_definitions], context: "#{context}[:property_definitions]") unless input[:property_definitions].nil?
+        ExtendsFrom.validate!(input[:extends_from], context: "#{context}[:extends_from]") unless input[:extends_from].nil?
+        FunctionsResponse.validate!(input[:functions], context: "#{context}[:functions]") unless input[:functions].nil?
         Hearth::Validator.validate!(input[:creation_date_time], ::Time, context: "#{context}[:creation_date_time]")
         Hearth::Validator.validate!(input[:update_date_time], ::Time, context: "#{context}[:update_date_time]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:is_abstract], ::TrueClass, ::FalseClass, context: "#{context}[:is_abstract]")
         Hearth::Validator.validate!(input[:is_schema_initialized], ::TrueClass, ::FalseClass, context: "#{context}[:is_schema_initialized]")
-        Validators::Status.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        Status.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
       end
     end
 
@@ -525,10 +527,10 @@ module AWS::SDK::IoTTwinMaker
         Hearth::Validator.validate!(input[:entity_id], ::String, context: "#{context}[:entity_id]")
         Hearth::Validator.validate!(input[:entity_name], ::String, context: "#{context}[:entity_name]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::Status.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        Status.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
         Hearth::Validator.validate!(input[:workspace_id], ::String, context: "#{context}[:workspace_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ComponentsMap.validate!(input[:components], context: "#{context}[:components]") unless input[:components].nil?
+        ComponentsMap.validate!(input[:components], context: "#{context}[:components]") unless input[:components].nil?
         Hearth::Validator.validate!(input[:parent_entity_id], ::String, context: "#{context}[:parent_entity_id]")
         Hearth::Validator.validate!(input[:has_child_entities], ::TrueClass, ::FalseClass, context: "#{context}[:has_child_entities]")
         Hearth::Validator.validate!(input[:creation_date_time], ::Time, context: "#{context}[:creation_date_time]")
@@ -543,11 +545,11 @@ module AWS::SDK::IoTTwinMaker
         Hearth::Validator.validate!(input[:entity_id], ::String, context: "#{context}[:entity_id]")
         Hearth::Validator.validate!(input[:component_name], ::String, context: "#{context}[:component_name]")
         Hearth::Validator.validate!(input[:component_type_id], ::String, context: "#{context}[:component_type_id]")
-        Validators::SelectedPropertyList.validate!(input[:selected_properties], context: "#{context}[:selected_properties]") unless input[:selected_properties].nil?
-        Validators::PropertyFilters.validate!(input[:property_filters], context: "#{context}[:property_filters]") unless input[:property_filters].nil?
+        SelectedPropertyList.validate!(input[:selected_properties], context: "#{context}[:selected_properties]") unless input[:selected_properties].nil?
+        PropertyFilters.validate!(input[:property_filters], context: "#{context}[:property_filters]") unless input[:property_filters].nil?
         Hearth::Validator.validate!(input[:start_date_time], ::Time, context: "#{context}[:start_date_time]")
         Hearth::Validator.validate!(input[:end_date_time], ::Time, context: "#{context}[:end_date_time]")
-        Validators::InterpolationParameters.validate!(input[:interpolation], context: "#{context}[:interpolation]") unless input[:interpolation].nil?
+        InterpolationParameters.validate!(input[:interpolation], context: "#{context}[:interpolation]") unless input[:interpolation].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:order_by_time], ::String, context: "#{context}[:order_by_time]")
@@ -559,7 +561,7 @@ module AWS::SDK::IoTTwinMaker
     class GetPropertyValueHistoryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetPropertyValueHistoryOutput, context: context)
-        Validators::PropertyValueList.validate!(input[:property_values], context: "#{context}[:property_values]") unless input[:property_values].nil?
+        PropertyValueList.validate!(input[:property_values], context: "#{context}[:property_values]") unless input[:property_values].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -570,7 +572,7 @@ module AWS::SDK::IoTTwinMaker
         Hearth::Validator.validate!(input[:component_name], ::String, context: "#{context}[:component_name]")
         Hearth::Validator.validate!(input[:component_type_id], ::String, context: "#{context}[:component_type_id]")
         Hearth::Validator.validate!(input[:entity_id], ::String, context: "#{context}[:entity_id]")
-        Validators::SelectedPropertyList.validate!(input[:selected_properties], context: "#{context}[:selected_properties]") unless input[:selected_properties].nil?
+        SelectedPropertyList.validate!(input[:selected_properties], context: "#{context}[:selected_properties]") unless input[:selected_properties].nil?
         Hearth::Validator.validate!(input[:workspace_id], ::String, context: "#{context}[:workspace_id]")
       end
     end
@@ -578,7 +580,7 @@ module AWS::SDK::IoTTwinMaker
     class GetPropertyValueOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetPropertyValueOutput, context: context)
-        Validators::PropertyLatestValueMap.validate!(input[:property_values], context: "#{context}[:property_values]") unless input[:property_values].nil?
+        PropertyLatestValueMap.validate!(input[:property_values], context: "#{context}[:property_values]") unless input[:property_values].nil?
       end
     end
 
@@ -600,7 +602,7 @@ module AWS::SDK::IoTTwinMaker
         Hearth::Validator.validate!(input[:creation_date_time], ::Time, context: "#{context}[:creation_date_time]")
         Hearth::Validator.validate!(input[:update_date_time], ::Time, context: "#{context}[:update_date_time]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::SceneCapabilities.validate!(input[:capabilities], context: "#{context}[:capabilities]") unless input[:capabilities].nil?
+        SceneCapabilities.validate!(input[:capabilities], context: "#{context}[:capabilities]") unless input[:capabilities].nil?
       end
     end
 
@@ -685,7 +687,7 @@ module AWS::SDK::IoTTwinMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ListComponentTypesFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ListComponentTypesFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -694,7 +696,7 @@ module AWS::SDK::IoTTwinMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListComponentTypesInput, context: context)
         Hearth::Validator.validate!(input[:workspace_id], ::String, context: "#{context}[:workspace_id]")
-        Validators::ListComponentTypesFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        ListComponentTypesFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -704,7 +706,7 @@ module AWS::SDK::IoTTwinMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListComponentTypesOutput, context: context)
         Hearth::Validator.validate!(input[:workspace_id], ::String, context: "#{context}[:workspace_id]")
-        Validators::ComponentTypeSummaries.validate!(input[:component_type_summaries], context: "#{context}[:component_type_summaries]") unless input[:component_type_summaries].nil?
+        ComponentTypeSummaries.validate!(input[:component_type_summaries], context: "#{context}[:component_type_summaries]") unless input[:component_type_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -749,7 +751,7 @@ module AWS::SDK::IoTTwinMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ListEntitiesFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ListEntitiesFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -758,7 +760,7 @@ module AWS::SDK::IoTTwinMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEntitiesInput, context: context)
         Hearth::Validator.validate!(input[:workspace_id], ::String, context: "#{context}[:workspace_id]")
-        Validators::ListEntitiesFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        ListEntitiesFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -767,7 +769,7 @@ module AWS::SDK::IoTTwinMaker
     class ListEntitiesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEntitiesOutput, context: context)
-        Validators::EntitySummaries.validate!(input[:entity_summaries], context: "#{context}[:entity_summaries]") unless input[:entity_summaries].nil?
+        EntitySummaries.validate!(input[:entity_summaries], context: "#{context}[:entity_summaries]") unless input[:entity_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -784,7 +786,7 @@ module AWS::SDK::IoTTwinMaker
     class ListScenesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListScenesOutput, context: context)
-        Validators::SceneSummaries.validate!(input[:scene_summaries], context: "#{context}[:scene_summaries]") unless input[:scene_summaries].nil?
+        SceneSummaries.validate!(input[:scene_summaries], context: "#{context}[:scene_summaries]") unless input[:scene_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -801,7 +803,7 @@ module AWS::SDK::IoTTwinMaker
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -817,7 +819,7 @@ module AWS::SDK::IoTTwinMaker
     class ListWorkspacesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListWorkspacesOutput, context: context)
-        Validators::WorkspaceSummaries.validate!(input[:workspace_summaries], context: "#{context}[:workspace_summaries]") unless input[:workspace_summaries].nil?
+        WorkspaceSummaries.validate!(input[:workspace_summaries], context: "#{context}[:workspace_summaries]") unless input[:workspace_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -833,20 +835,20 @@ module AWS::SDK::IoTTwinMaker
     class PropertyDefinitionRequest
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PropertyDefinitionRequest, context: context)
-        Validators::DataType.validate!(input[:data_type], context: "#{context}[:data_type]") unless input[:data_type].nil?
+        DataType.validate!(input[:data_type], context: "#{context}[:data_type]") unless input[:data_type].nil?
         Hearth::Validator.validate!(input[:is_required_in_entity], ::TrueClass, ::FalseClass, context: "#{context}[:is_required_in_entity]")
         Hearth::Validator.validate!(input[:is_external_id], ::TrueClass, ::FalseClass, context: "#{context}[:is_external_id]")
         Hearth::Validator.validate!(input[:is_stored_externally], ::TrueClass, ::FalseClass, context: "#{context}[:is_stored_externally]")
         Hearth::Validator.validate!(input[:is_time_series], ::TrueClass, ::FalseClass, context: "#{context}[:is_time_series]")
-        Validators::DataValue.validate!(input[:default_value], context: "#{context}[:default_value]") unless input[:default_value].nil?
-        Validators::Configuration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        DataValue.validate!(input[:default_value], context: "#{context}[:default_value]") unless input[:default_value].nil?
+        Configuration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
       end
     end
 
     class PropertyDefinitionResponse
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PropertyDefinitionResponse, context: context)
-        Validators::DataType.validate!(input[:data_type], context: "#{context}[:data_type]") unless input[:data_type].nil?
+        DataType.validate!(input[:data_type], context: "#{context}[:data_type]") unless input[:data_type].nil?
         Hearth::Validator.validate!(input[:is_time_series], ::TrueClass, ::FalseClass, context: "#{context}[:is_time_series]")
         Hearth::Validator.validate!(input[:is_required_in_entity], ::TrueClass, ::FalseClass, context: "#{context}[:is_required_in_entity]")
         Hearth::Validator.validate!(input[:is_external_id], ::TrueClass, ::FalseClass, context: "#{context}[:is_external_id]")
@@ -854,8 +856,8 @@ module AWS::SDK::IoTTwinMaker
         Hearth::Validator.validate!(input[:is_imported], ::TrueClass, ::FalseClass, context: "#{context}[:is_imported]")
         Hearth::Validator.validate!(input[:is_final], ::TrueClass, ::FalseClass, context: "#{context}[:is_final]")
         Hearth::Validator.validate!(input[:is_inherited], ::TrueClass, ::FalseClass, context: "#{context}[:is_inherited]")
-        Validators::DataValue.validate!(input[:default_value], context: "#{context}[:default_value]") unless input[:default_value].nil?
-        Validators::Configuration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        DataValue.validate!(input[:default_value], context: "#{context}[:default_value]") unless input[:default_value].nil?
+        Configuration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
       end
     end
 
@@ -864,7 +866,7 @@ module AWS::SDK::IoTTwinMaker
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::PropertyDefinitionRequest.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          PropertyDefinitionRequest.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -874,7 +876,7 @@ module AWS::SDK::IoTTwinMaker
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::PropertyDefinitionResponse.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          PropertyDefinitionResponse.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -884,7 +886,7 @@ module AWS::SDK::IoTTwinMaker
         Hearth::Validator.validate!(input, Types::PropertyFilter, context: context)
         Hearth::Validator.validate!(input[:property_name], ::String, context: "#{context}[:property_name]")
         Hearth::Validator.validate!(input[:operator], ::String, context: "#{context}[:operator]")
-        Validators::DataValue.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
+        DataValue.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
       end
     end
 
@@ -892,7 +894,7 @@ module AWS::SDK::IoTTwinMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PropertyFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PropertyFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -900,8 +902,8 @@ module AWS::SDK::IoTTwinMaker
     class PropertyLatestValue
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PropertyLatestValue, context: context)
-        Validators::EntityPropertyReference.validate!(input[:property_reference], context: "#{context}[:property_reference]") unless input[:property_reference].nil?
-        Validators::DataValue.validate!(input[:property_value], context: "#{context}[:property_value]") unless input[:property_value].nil?
+        EntityPropertyReference.validate!(input[:property_reference], context: "#{context}[:property_reference]") unless input[:property_reference].nil?
+        DataValue.validate!(input[:property_value], context: "#{context}[:property_value]") unless input[:property_value].nil?
       end
     end
 
@@ -910,7 +912,7 @@ module AWS::SDK::IoTTwinMaker
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::PropertyLatestValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          PropertyLatestValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -918,8 +920,8 @@ module AWS::SDK::IoTTwinMaker
     class PropertyRequest
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PropertyRequest, context: context)
-        Validators::PropertyDefinitionRequest.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
-        Validators::DataValue.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
+        PropertyDefinitionRequest.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
+        DataValue.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
         Hearth::Validator.validate!(input[:update_type], ::String, context: "#{context}[:update_type]")
       end
     end
@@ -929,7 +931,7 @@ module AWS::SDK::IoTTwinMaker
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::PropertyRequest.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          PropertyRequest.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -937,8 +939,8 @@ module AWS::SDK::IoTTwinMaker
     class PropertyResponse
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PropertyResponse, context: context)
-        Validators::PropertyDefinitionResponse.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
-        Validators::DataValue.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
+        PropertyDefinitionResponse.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
+        DataValue.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
       end
     end
 
@@ -947,7 +949,7 @@ module AWS::SDK::IoTTwinMaker
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::PropertyResponse.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          PropertyResponse.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -956,7 +958,7 @@ module AWS::SDK::IoTTwinMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PropertyValue, context: context)
         Hearth::Validator.validate!(input[:timestamp], ::Time, context: "#{context}[:timestamp]")
-        Validators::DataValue.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
+        DataValue.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
         Hearth::Validator.validate!(input[:time], ::String, context: "#{context}[:time]")
       end
     end
@@ -964,16 +966,16 @@ module AWS::SDK::IoTTwinMaker
     class PropertyValueEntry
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PropertyValueEntry, context: context)
-        Validators::EntityPropertyReference.validate!(input[:entity_property_reference], context: "#{context}[:entity_property_reference]") unless input[:entity_property_reference].nil?
-        Validators::PropertyValues.validate!(input[:property_values], context: "#{context}[:property_values]") unless input[:property_values].nil?
+        EntityPropertyReference.validate!(input[:entity_property_reference], context: "#{context}[:entity_property_reference]") unless input[:entity_property_reference].nil?
+        PropertyValues.validate!(input[:property_values], context: "#{context}[:property_values]") unless input[:property_values].nil?
       end
     end
 
     class PropertyValueHistory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PropertyValueHistory, context: context)
-        Validators::EntityPropertyReference.validate!(input[:entity_property_reference], context: "#{context}[:entity_property_reference]") unless input[:entity_property_reference].nil?
-        Validators::Values.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        EntityPropertyReference.validate!(input[:entity_property_reference], context: "#{context}[:entity_property_reference]") unless input[:entity_property_reference].nil?
+        Values.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -981,7 +983,7 @@ module AWS::SDK::IoTTwinMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PropertyValueHistory.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PropertyValueHistory.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -990,7 +992,7 @@ module AWS::SDK::IoTTwinMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PropertyValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PropertyValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1013,7 +1015,7 @@ module AWS::SDK::IoTTwinMaker
 
     class RequiredProperties
       def self.validate!(input, context:)
-        Hearth::Validator.validate!(input, ::Set, context: context)
+        Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
           Hearth::Validator.validate!(element, ::String, context: "#{context}[#{index}]")
         end
@@ -1040,7 +1042,7 @@ module AWS::SDK::IoTTwinMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SceneSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SceneSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1077,7 +1079,7 @@ module AWS::SDK::IoTTwinMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Status, context: context)
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::ErrorDetails.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
+        ErrorDetails.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
       end
     end
 
@@ -1104,7 +1106,7 @@ module AWS::SDK::IoTTwinMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1132,7 +1134,7 @@ module AWS::SDK::IoTTwinMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1149,9 +1151,9 @@ module AWS::SDK::IoTTwinMaker
         Hearth::Validator.validate!(input[:is_singleton], ::TrueClass, ::FalseClass, context: "#{context}[:is_singleton]")
         Hearth::Validator.validate!(input[:component_type_id], ::String, context: "#{context}[:component_type_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::PropertyDefinitionsRequest.validate!(input[:property_definitions], context: "#{context}[:property_definitions]") unless input[:property_definitions].nil?
-        Validators::ExtendsFrom.validate!(input[:extends_from], context: "#{context}[:extends_from]") unless input[:extends_from].nil?
-        Validators::FunctionsRequest.validate!(input[:functions], context: "#{context}[:functions]") unless input[:functions].nil?
+        PropertyDefinitionsRequest.validate!(input[:property_definitions], context: "#{context}[:property_definitions]") unless input[:property_definitions].nil?
+        ExtendsFrom.validate!(input[:extends_from], context: "#{context}[:extends_from]") unless input[:extends_from].nil?
+        FunctionsRequest.validate!(input[:functions], context: "#{context}[:functions]") unless input[:functions].nil?
       end
     end
 
@@ -1172,8 +1174,8 @@ module AWS::SDK::IoTTwinMaker
         Hearth::Validator.validate!(input[:entity_id], ::String, context: "#{context}[:entity_id]")
         Hearth::Validator.validate!(input[:entity_name], ::String, context: "#{context}[:entity_name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ComponentUpdatesMapRequest.validate!(input[:component_updates], context: "#{context}[:component_updates]") unless input[:component_updates].nil?
-        Validators::ParentEntityUpdateRequest.validate!(input[:parent_entity_update], context: "#{context}[:parent_entity_update]") unless input[:parent_entity_update].nil?
+        ComponentUpdatesMapRequest.validate!(input[:component_updates], context: "#{context}[:component_updates]") unless input[:component_updates].nil?
+        ParentEntityUpdateRequest.validate!(input[:parent_entity_update], context: "#{context}[:parent_entity_update]") unless input[:parent_entity_update].nil?
       end
     end
 
@@ -1192,7 +1194,7 @@ module AWS::SDK::IoTTwinMaker
         Hearth::Validator.validate!(input[:scene_id], ::String, context: "#{context}[:scene_id]")
         Hearth::Validator.validate!(input[:content_location], ::String, context: "#{context}[:content_location]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::SceneCapabilities.validate!(input[:capabilities], context: "#{context}[:capabilities]") unless input[:capabilities].nil?
+        SceneCapabilities.validate!(input[:capabilities], context: "#{context}[:capabilities]") unless input[:capabilities].nil?
       end
     end
 
@@ -1230,7 +1232,7 @@ module AWS::SDK::IoTTwinMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PropertyValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PropertyValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1239,7 +1241,7 @@ module AWS::SDK::IoTTwinMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::WorkspaceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          WorkspaceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

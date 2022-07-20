@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::IoTWireless
   module Validators
 
@@ -14,7 +16,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AbpV1_0_x, context: context)
         Hearth::Validator.validate!(input[:dev_addr], ::String, context: "#{context}[:dev_addr]")
-        Validators::SessionKeysAbpV1_0_x.validate!(input[:session_keys], context: "#{context}[:session_keys]") unless input[:session_keys].nil?
+        SessionKeysAbpV1_0_x.validate!(input[:session_keys], context: "#{context}[:session_keys]") unless input[:session_keys].nil?
         Hearth::Validator.validate!(input[:f_cnt_start], ::Integer, context: "#{context}[:f_cnt_start]")
       end
     end
@@ -23,7 +25,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AbpV1_1, context: context)
         Hearth::Validator.validate!(input[:dev_addr], ::String, context: "#{context}[:dev_addr]")
-        Validators::SessionKeysAbpV1_1.validate!(input[:session_keys], context: "#{context}[:session_keys]") unless input[:session_keys].nil?
+        SessionKeysAbpV1_1.validate!(input[:session_keys], context: "#{context}[:session_keys]") unless input[:session_keys].nil?
         Hearth::Validator.validate!(input[:f_cnt_start], ::Integer, context: "#{context}[:f_cnt_start]")
       end
     end
@@ -38,16 +40,16 @@ module AWS::SDK::IoTWireless
     class AssociateAwsAccountWithPartnerAccountInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AssociateAwsAccountWithPartnerAccountInput, context: context)
-        Validators::SidewalkAccountInfo.validate!(input[:sidewalk], context: "#{context}[:sidewalk]") unless input[:sidewalk].nil?
+        SidewalkAccountInfo.validate!(input[:sidewalk], context: "#{context}[:sidewalk]") unless input[:sidewalk].nil?
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class AssociateAwsAccountWithPartnerAccountOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AssociateAwsAccountWithPartnerAccountOutput, context: context)
-        Validators::SidewalkAccountInfo.validate!(input[:sidewalk], context: "#{context}[:sidewalk]") unless input[:sidewalk].nil?
+        SidewalkAccountInfo.validate!(input[:sidewalk], context: "#{context}[:sidewalk]") unless input[:sidewalk].nil?
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
       end
     end
@@ -170,7 +172,7 @@ module AWS::SDK::IoTWireless
     class ConnectionStatusEventConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ConnectionStatusEventConfiguration, context: context)
-        Validators::LoRaWANConnectionStatusEventNotificationConfigurations.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
+        LoRaWANConnectionStatusEventNotificationConfigurations.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
         Hearth::Validator.validate!(input[:wireless_gateway_id_event_topic], ::String, context: "#{context}[:wireless_gateway_id_event_topic]")
       end
     end
@@ -178,7 +180,7 @@ module AWS::SDK::IoTWireless
     class ConnectionStatusResourceTypeEventConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ConnectionStatusResourceTypeEventConfiguration, context: context)
-        Validators::LoRaWANConnectionStatusResourceTypeEventConfiguration.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
+        LoRaWANConnectionStatusResourceTypeEventConfiguration.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
       end
     end
 
@@ -190,7 +192,7 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(input[:expression], ::String, context: "#{context}[:expression]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
       end
     end
@@ -207,8 +209,8 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateDeviceProfileInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::LoRaWANDeviceProfile.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        LoRaWANDeviceProfile.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
       end
     end
@@ -227,10 +229,10 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::LoRaWANFuotaTask.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
+        LoRaWANFuotaTask.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
         Hearth::Validator.validate!(input[:firmware_update_image], ::String, context: "#{context}[:firmware_update_image]")
         Hearth::Validator.validate!(input[:firmware_update_role], ::String, context: "#{context}[:firmware_update_role]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -248,8 +250,8 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::LoRaWANMulticast.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        LoRaWANMulticast.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -265,11 +267,11 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateNetworkAnalyzerConfigurationInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::TraceContent.validate!(input[:trace_content], context: "#{context}[:trace_content]") unless input[:trace_content].nil?
-        Validators::WirelessDeviceList.validate!(input[:wireless_devices], context: "#{context}[:wireless_devices]") unless input[:wireless_devices].nil?
-        Validators::WirelessGatewayList.validate!(input[:wireless_gateways], context: "#{context}[:wireless_gateways]") unless input[:wireless_gateways].nil?
+        TraceContent.validate!(input[:trace_content], context: "#{context}[:trace_content]") unless input[:trace_content].nil?
+        WirelessDeviceList.validate!(input[:wireless_devices], context: "#{context}[:wireless_devices]") unless input[:wireless_devices].nil?
+        WirelessGatewayList.validate!(input[:wireless_gateways], context: "#{context}[:wireless_gateways]") unless input[:wireless_gateways].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
       end
     end
@@ -286,8 +288,8 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateServiceProfileInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::LoRaWANServiceProfile.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        LoRaWANServiceProfile.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
       end
     end
@@ -308,8 +310,8 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:destination_name], ::String, context: "#{context}[:destination_name]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::LoRaWANDevice.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        LoRaWANDevice.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -326,8 +328,8 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(input, Types::CreateWirelessGatewayInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::LoRaWANGateway.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        LoRaWANGateway.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
       end
     end
@@ -345,9 +347,9 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(input, Types::CreateWirelessGatewayTaskDefinitionInput, context: context)
         Hearth::Validator.validate!(input[:auto_create_tasks], ::TrueClass, ::FalseClass, context: "#{context}[:auto_create_tasks]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::UpdateWirelessGatewayTaskCreate.validate!(input[:update], context: "#{context}[:update]") unless input[:update].nil?
+        UpdateWirelessGatewayTaskCreate.validate!(input[:update], context: "#{context}[:update]") unless input[:update].nil?
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -524,7 +526,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Destinations.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Destinations.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -545,7 +547,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CertificateList.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CertificateList.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -563,7 +565,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DeviceProfile.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DeviceProfile.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -571,7 +573,7 @@ module AWS::SDK::IoTWireless
     class DeviceRegistrationStateEventConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeviceRegistrationStateEventConfiguration, context: context)
-        Validators::SidewalkEventNotificationConfigurations.validate!(input[:sidewalk], context: "#{context}[:sidewalk]") unless input[:sidewalk].nil?
+        SidewalkEventNotificationConfigurations.validate!(input[:sidewalk], context: "#{context}[:sidewalk]") unless input[:sidewalk].nil?
         Hearth::Validator.validate!(input[:wireless_device_id_event_topic], ::String, context: "#{context}[:wireless_device_id_event_topic]")
       end
     end
@@ -579,7 +581,7 @@ module AWS::SDK::IoTWireless
     class DeviceRegistrationStateResourceTypeEventConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeviceRegistrationStateResourceTypeEventConfiguration, context: context)
-        Validators::SidewalkResourceTypeEventConfiguration.validate!(input[:sidewalk], context: "#{context}[:sidewalk]") unless input[:sidewalk].nil?
+        SidewalkResourceTypeEventConfiguration.validate!(input[:sidewalk], context: "#{context}[:sidewalk]") unless input[:sidewalk].nil?
       end
     end
 
@@ -684,7 +686,7 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(input[:message_id], ::String, context: "#{context}[:message_id]")
         Hearth::Validator.validate!(input[:transmit_mode], ::Integer, context: "#{context}[:transmit_mode]")
         Hearth::Validator.validate!(input[:received_at], ::String, context: "#{context}[:received_at]")
-        Validators::LoRaWANSendDataToDevice.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
+        LoRaWANSendDataToDevice.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
       end
     end
 
@@ -692,7 +694,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DownlinkQueueMessage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DownlinkQueueMessage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -703,7 +705,7 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(input[:identifier], ::String, context: "#{context}[:identifier]")
         Hearth::Validator.validate!(input[:identifier_type], ::String, context: "#{context}[:identifier_type]")
         Hearth::Validator.validate!(input[:partner_type], ::String, context: "#{context}[:partner_type]")
-        Validators::EventNotificationItemConfigurations.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
+        EventNotificationItemConfigurations.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
       end
     end
 
@@ -711,7 +713,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EventConfigurationItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EventConfigurationItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -719,10 +721,10 @@ module AWS::SDK::IoTWireless
     class EventNotificationItemConfigurations
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EventNotificationItemConfigurations, context: context)
-        Validators::DeviceRegistrationStateEventConfiguration.validate!(input[:device_registration_state], context: "#{context}[:device_registration_state]") unless input[:device_registration_state].nil?
-        Validators::ProximityEventConfiguration.validate!(input[:proximity], context: "#{context}[:proximity]") unless input[:proximity].nil?
-        Validators::JoinEventConfiguration.validate!(input[:join], context: "#{context}[:join]") unless input[:join].nil?
-        Validators::ConnectionStatusEventConfiguration.validate!(input[:connection_status], context: "#{context}[:connection_status]") unless input[:connection_status].nil?
+        DeviceRegistrationStateEventConfiguration.validate!(input[:device_registration_state], context: "#{context}[:device_registration_state]") unless input[:device_registration_state].nil?
+        ProximityEventConfiguration.validate!(input[:proximity], context: "#{context}[:proximity]") unless input[:proximity].nil?
+        JoinEventConfiguration.validate!(input[:join], context: "#{context}[:join]") unless input[:join].nil?
+        ConnectionStatusEventConfiguration.validate!(input[:connection_status], context: "#{context}[:connection_status]") unless input[:connection_status].nil?
       end
     end
 
@@ -757,7 +759,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FuotaTask.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FuotaTask.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -794,7 +796,7 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::LoRaWANDeviceProfile.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
+        LoRaWANDeviceProfile.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
       end
     end
 
@@ -807,10 +809,10 @@ module AWS::SDK::IoTWireless
     class GetEventConfigurationByResourceTypesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetEventConfigurationByResourceTypesOutput, context: context)
-        Validators::DeviceRegistrationStateResourceTypeEventConfiguration.validate!(input[:device_registration_state], context: "#{context}[:device_registration_state]") unless input[:device_registration_state].nil?
-        Validators::ProximityResourceTypeEventConfiguration.validate!(input[:proximity], context: "#{context}[:proximity]") unless input[:proximity].nil?
-        Validators::JoinResourceTypeEventConfiguration.validate!(input[:join], context: "#{context}[:join]") unless input[:join].nil?
-        Validators::ConnectionStatusResourceTypeEventConfiguration.validate!(input[:connection_status], context: "#{context}[:connection_status]") unless input[:connection_status].nil?
+        DeviceRegistrationStateResourceTypeEventConfiguration.validate!(input[:device_registration_state], context: "#{context}[:device_registration_state]") unless input[:device_registration_state].nil?
+        ProximityResourceTypeEventConfiguration.validate!(input[:proximity], context: "#{context}[:proximity]") unless input[:proximity].nil?
+        JoinResourceTypeEventConfiguration.validate!(input[:join], context: "#{context}[:join]") unless input[:join].nil?
+        ConnectionStatusResourceTypeEventConfiguration.validate!(input[:connection_status], context: "#{context}[:connection_status]") unless input[:connection_status].nil?
       end
     end
 
@@ -829,7 +831,7 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::LoRaWANFuotaTaskGetInfo.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
+        LoRaWANFuotaTaskGetInfo.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
         Hearth::Validator.validate!(input[:firmware_update_image], ::String, context: "#{context}[:firmware_update_image]")
         Hearth::Validator.validate!(input[:firmware_update_role], ::String, context: "#{context}[:firmware_update_role]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
@@ -846,8 +848,8 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetLogLevelsByResourceTypesOutput, context: context)
         Hearth::Validator.validate!(input[:default_log_level], ::String, context: "#{context}[:default_log_level]")
-        Validators::WirelessGatewayLogOptionList.validate!(input[:wireless_gateway_log_options], context: "#{context}[:wireless_gateway_log_options]") unless input[:wireless_gateway_log_options].nil?
-        Validators::WirelessDeviceLogOptionList.validate!(input[:wireless_device_log_options], context: "#{context}[:wireless_device_log_options]") unless input[:wireless_device_log_options].nil?
+        WirelessGatewayLogOptionList.validate!(input[:wireless_gateway_log_options], context: "#{context}[:wireless_gateway_log_options]") unless input[:wireless_gateway_log_options].nil?
+        WirelessDeviceLogOptionList.validate!(input[:wireless_device_log_options], context: "#{context}[:wireless_device_log_options]") unless input[:wireless_device_log_options].nil?
       end
     end
 
@@ -866,7 +868,7 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::LoRaWANMulticastGet.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
+        LoRaWANMulticastGet.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
       end
     end
@@ -881,7 +883,7 @@ module AWS::SDK::IoTWireless
     class GetMulticastGroupSessionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetMulticastGroupSessionOutput, context: context)
-        Validators::LoRaWANMulticastSession.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
+        LoRaWANMulticastSession.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
       end
     end
 
@@ -895,9 +897,9 @@ module AWS::SDK::IoTWireless
     class GetNetworkAnalyzerConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetNetworkAnalyzerConfigurationOutput, context: context)
-        Validators::TraceContent.validate!(input[:trace_content], context: "#{context}[:trace_content]") unless input[:trace_content].nil?
-        Validators::WirelessDeviceList.validate!(input[:wireless_devices], context: "#{context}[:wireless_devices]") unless input[:wireless_devices].nil?
-        Validators::WirelessGatewayList.validate!(input[:wireless_gateways], context: "#{context}[:wireless_gateways]") unless input[:wireless_gateways].nil?
+        TraceContent.validate!(input[:trace_content], context: "#{context}[:trace_content]") unless input[:trace_content].nil?
+        WirelessDeviceList.validate!(input[:wireless_devices], context: "#{context}[:wireless_devices]") unless input[:wireless_devices].nil?
+        WirelessGatewayList.validate!(input[:wireless_gateways], context: "#{context}[:wireless_gateways]") unless input[:wireless_gateways].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
@@ -915,7 +917,7 @@ module AWS::SDK::IoTWireless
     class GetPartnerAccountOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetPartnerAccountOutput, context: context)
-        Validators::SidewalkAccountInfoWithFingerprint.validate!(input[:sidewalk], context: "#{context}[:sidewalk]") unless input[:sidewalk].nil?
+        SidewalkAccountInfoWithFingerprint.validate!(input[:sidewalk], context: "#{context}[:sidewalk]") unless input[:sidewalk].nil?
         Hearth::Validator.validate!(input[:account_linked], ::TrueClass, ::FalseClass, context: "#{context}[:account_linked]")
       end
     end
@@ -932,10 +934,10 @@ module AWS::SDK::IoTWireless
     class GetResourceEventConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetResourceEventConfigurationOutput, context: context)
-        Validators::DeviceRegistrationStateEventConfiguration.validate!(input[:device_registration_state], context: "#{context}[:device_registration_state]") unless input[:device_registration_state].nil?
-        Validators::ProximityEventConfiguration.validate!(input[:proximity], context: "#{context}[:proximity]") unless input[:proximity].nil?
-        Validators::JoinEventConfiguration.validate!(input[:join], context: "#{context}[:join]") unless input[:join].nil?
-        Validators::ConnectionStatusEventConfiguration.validate!(input[:connection_status], context: "#{context}[:connection_status]") unless input[:connection_status].nil?
+        DeviceRegistrationStateEventConfiguration.validate!(input[:device_registration_state], context: "#{context}[:device_registration_state]") unless input[:device_registration_state].nil?
+        ProximityEventConfiguration.validate!(input[:proximity], context: "#{context}[:proximity]") unless input[:proximity].nil?
+        JoinEventConfiguration.validate!(input[:join], context: "#{context}[:join]") unless input[:join].nil?
+        ConnectionStatusEventConfiguration.validate!(input[:connection_status], context: "#{context}[:connection_status]") unless input[:connection_status].nil?
       end
     end
 
@@ -983,7 +985,7 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::LoRaWANGetServiceProfileInfo.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
+        LoRaWANGetServiceProfileInfo.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
       end
     end
 
@@ -1006,8 +1008,8 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:thing_name], ::String, context: "#{context}[:thing_name]")
         Hearth::Validator.validate!(input[:thing_arn], ::String, context: "#{context}[:thing_arn]")
-        Validators::LoRaWANDevice.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
-        Validators::SidewalkDevice.validate!(input[:sidewalk], context: "#{context}[:sidewalk]") unless input[:sidewalk].nil?
+        LoRaWANDevice.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
+        SidewalkDevice.validate!(input[:sidewalk], context: "#{context}[:sidewalk]") unless input[:sidewalk].nil?
       end
     end
 
@@ -1023,8 +1025,8 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(input, Types::GetWirelessDeviceStatisticsOutput, context: context)
         Hearth::Validator.validate!(input[:wireless_device_id], ::String, context: "#{context}[:wireless_device_id]")
         Hearth::Validator.validate!(input[:last_uplink_received_at], ::String, context: "#{context}[:last_uplink_received_at]")
-        Validators::LoRaWANDeviceMetadata.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
-        Validators::SidewalkDeviceMetadata.validate!(input[:sidewalk], context: "#{context}[:sidewalk]") unless input[:sidewalk].nil?
+        LoRaWANDeviceMetadata.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
+        SidewalkDeviceMetadata.validate!(input[:sidewalk], context: "#{context}[:sidewalk]") unless input[:sidewalk].nil?
       end
     end
 
@@ -1053,7 +1055,7 @@ module AWS::SDK::IoTWireless
     class GetWirelessGatewayFirmwareInformationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetWirelessGatewayFirmwareInformationOutput, context: context)
-        Validators::LoRaWANGatewayCurrentVersion.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
+        LoRaWANGatewayCurrentVersion.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
       end
     end
 
@@ -1071,7 +1073,7 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::LoRaWANGateway.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
+        LoRaWANGateway.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:thing_name], ::String, context: "#{context}[:thing_name]")
         Hearth::Validator.validate!(input[:thing_arn], ::String, context: "#{context}[:thing_arn]")
@@ -1106,7 +1108,7 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(input, Types::GetWirelessGatewayTaskDefinitionOutput, context: context)
         Hearth::Validator.validate!(input[:auto_create_tasks], ::TrueClass, ::FalseClass, context: "#{context}[:auto_create_tasks]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::UpdateWirelessGatewayTaskCreate.validate!(input[:update], context: "#{context}[:update]") unless input[:update].nil?
+        UpdateWirelessGatewayTaskCreate.validate!(input[:update], context: "#{context}[:update]") unless input[:update].nil?
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
       end
     end
@@ -1140,7 +1142,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::JoinEuiRange.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          JoinEuiRange.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1157,7 +1159,7 @@ module AWS::SDK::IoTWireless
     class JoinEventConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::JoinEventConfiguration, context: context)
-        Validators::LoRaWANJoinEventNotificationConfigurations.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
+        LoRaWANJoinEventNotificationConfigurations.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
         Hearth::Validator.validate!(input[:wireless_device_id_event_topic], ::String, context: "#{context}[:wireless_device_id_event_topic]")
       end
     end
@@ -1165,7 +1167,7 @@ module AWS::SDK::IoTWireless
     class JoinResourceTypeEventConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::JoinResourceTypeEventConfiguration, context: context)
-        Validators::LoRaWANJoinResourceTypeEventConfiguration.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
+        LoRaWANJoinResourceTypeEventConfiguration.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
       end
     end
 
@@ -1181,7 +1183,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDestinationsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::DestinationList.validate!(input[:destination_list], context: "#{context}[:destination_list]") unless input[:destination_list].nil?
+        DestinationList.validate!(input[:destination_list], context: "#{context}[:destination_list]") unless input[:destination_list].nil?
       end
     end
 
@@ -1197,7 +1199,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDeviceProfilesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::DeviceProfileList.validate!(input[:device_profile_list], context: "#{context}[:device_profile_list]") unless input[:device_profile_list].nil?
+        DeviceProfileList.validate!(input[:device_profile_list], context: "#{context}[:device_profile_list]") unless input[:device_profile_list].nil?
       end
     end
 
@@ -1214,7 +1216,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEventConfigurationsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::EventConfigurationsList.validate!(input[:event_configurations_list], context: "#{context}[:event_configurations_list]") unless input[:event_configurations_list].nil?
+        EventConfigurationsList.validate!(input[:event_configurations_list], context: "#{context}[:event_configurations_list]") unless input[:event_configurations_list].nil?
       end
     end
 
@@ -1230,7 +1232,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFuotaTasksOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::FuotaTaskList.validate!(input[:fuota_task_list], context: "#{context}[:fuota_task_list]") unless input[:fuota_task_list].nil?
+        FuotaTaskList.validate!(input[:fuota_task_list], context: "#{context}[:fuota_task_list]") unless input[:fuota_task_list].nil?
       end
     end
 
@@ -1247,7 +1249,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListMulticastGroupsByFuotaTaskOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::MulticastGroupListByFuotaTask.validate!(input[:multicast_group_list], context: "#{context}[:multicast_group_list]") unless input[:multicast_group_list].nil?
+        MulticastGroupListByFuotaTask.validate!(input[:multicast_group_list], context: "#{context}[:multicast_group_list]") unless input[:multicast_group_list].nil?
       end
     end
 
@@ -1263,7 +1265,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListMulticastGroupsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::MulticastGroupList.validate!(input[:multicast_group_list], context: "#{context}[:multicast_group_list]") unless input[:multicast_group_list].nil?
+        MulticastGroupList.validate!(input[:multicast_group_list], context: "#{context}[:multicast_group_list]") unless input[:multicast_group_list].nil?
       end
     end
 
@@ -1279,7 +1281,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListNetworkAnalyzerConfigurationsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::NetworkAnalyzerConfigurationList.validate!(input[:network_analyzer_configuration_list], context: "#{context}[:network_analyzer_configuration_list]") unless input[:network_analyzer_configuration_list].nil?
+        NetworkAnalyzerConfigurationList.validate!(input[:network_analyzer_configuration_list], context: "#{context}[:network_analyzer_configuration_list]") unless input[:network_analyzer_configuration_list].nil?
       end
     end
 
@@ -1295,7 +1297,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPartnerAccountsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::SidewalkAccountList.validate!(input[:sidewalk], context: "#{context}[:sidewalk]") unless input[:sidewalk].nil?
+        SidewalkAccountList.validate!(input[:sidewalk], context: "#{context}[:sidewalk]") unless input[:sidewalk].nil?
       end
     end
 
@@ -1313,7 +1315,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListQueuedMessagesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::DownlinkQueueMessagesList.validate!(input[:downlink_queue_messages_list], context: "#{context}[:downlink_queue_messages_list]") unless input[:downlink_queue_messages_list].nil?
+        DownlinkQueueMessagesList.validate!(input[:downlink_queue_messages_list], context: "#{context}[:downlink_queue_messages_list]") unless input[:downlink_queue_messages_list].nil?
       end
     end
 
@@ -1329,7 +1331,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListServiceProfilesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ServiceProfileList.validate!(input[:service_profile_list], context: "#{context}[:service_profile_list]") unless input[:service_profile_list].nil?
+        ServiceProfileList.validate!(input[:service_profile_list], context: "#{context}[:service_profile_list]") unless input[:service_profile_list].nil?
       end
     end
 
@@ -1343,7 +1345,7 @@ module AWS::SDK::IoTWireless
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1365,7 +1367,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListWirelessDevicesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::WirelessDeviceStatisticsList.validate!(input[:wireless_device_list], context: "#{context}[:wireless_device_list]") unless input[:wireless_device_list].nil?
+        WirelessDeviceStatisticsList.validate!(input[:wireless_device_list], context: "#{context}[:wireless_device_list]") unless input[:wireless_device_list].nil?
       end
     end
 
@@ -1382,7 +1384,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListWirelessGatewayTaskDefinitionsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::WirelessGatewayTaskDefinitionList.validate!(input[:task_definitions], context: "#{context}[:task_definitions]") unless input[:task_definitions].nil?
+        WirelessGatewayTaskDefinitionList.validate!(input[:task_definitions], context: "#{context}[:task_definitions]") unless input[:task_definitions].nil?
       end
     end
 
@@ -1398,7 +1400,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListWirelessGatewaysOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::WirelessGatewayStatisticsList.validate!(input[:wireless_gateway_list], context: "#{context}[:wireless_gateway_list]") unless input[:wireless_gateway_list].nil?
+        WirelessGatewayStatisticsList.validate!(input[:wireless_gateway_list], context: "#{context}[:wireless_gateway_list]") unless input[:wireless_gateway_list].nil?
       end
     end
 
@@ -1422,11 +1424,11 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(input[:dev_eui], ::String, context: "#{context}[:dev_eui]")
         Hearth::Validator.validate!(input[:device_profile_id], ::String, context: "#{context}[:device_profile_id]")
         Hearth::Validator.validate!(input[:service_profile_id], ::String, context: "#{context}[:service_profile_id]")
-        Validators::OtaaV1_1.validate!(input[:otaa_v1_1], context: "#{context}[:otaa_v1_1]") unless input[:otaa_v1_1].nil?
-        Validators::OtaaV1_0_x.validate!(input[:otaa_v1_0_x], context: "#{context}[:otaa_v1_0_x]") unless input[:otaa_v1_0_x].nil?
-        Validators::AbpV1_1.validate!(input[:abp_v1_1], context: "#{context}[:abp_v1_1]") unless input[:abp_v1_1].nil?
-        Validators::AbpV1_0_x.validate!(input[:abp_v1_0_x], context: "#{context}[:abp_v1_0_x]") unless input[:abp_v1_0_x].nil?
-        Validators::FPorts.validate!(input[:f_ports], context: "#{context}[:f_ports]") unless input[:f_ports].nil?
+        OtaaV1_1.validate!(input[:otaa_v1_1], context: "#{context}[:otaa_v1_1]") unless input[:otaa_v1_1].nil?
+        OtaaV1_0_x.validate!(input[:otaa_v1_0_x], context: "#{context}[:otaa_v1_0_x]") unless input[:otaa_v1_0_x].nil?
+        AbpV1_1.validate!(input[:abp_v1_1], context: "#{context}[:abp_v1_1]") unless input[:abp_v1_1].nil?
+        AbpV1_0_x.validate!(input[:abp_v1_0_x], context: "#{context}[:abp_v1_0_x]") unless input[:abp_v1_0_x].nil?
+        FPorts.validate!(input[:f_ports], context: "#{context}[:f_ports]") unless input[:f_ports].nil?
       end
     end
 
@@ -1438,7 +1440,7 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(input[:data_rate], ::Integer, context: "#{context}[:data_rate]")
         Hearth::Validator.validate!(input[:frequency], ::Integer, context: "#{context}[:frequency]")
         Hearth::Validator.validate!(input[:timestamp], ::String, context: "#{context}[:timestamp]")
-        Validators::LoRaWANGatewayMetadataList.validate!(input[:gateways], context: "#{context}[:gateways]") unless input[:gateways].nil?
+        LoRaWANGatewayMetadataList.validate!(input[:gateways], context: "#{context}[:gateways]") unless input[:gateways].nil?
       end
     end
 
@@ -1458,7 +1460,7 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(input[:rx_dr_offset1], ::Integer, context: "#{context}[:rx_dr_offset1]")
         Hearth::Validator.validate!(input[:rx_data_rate2], ::Integer, context: "#{context}[:rx_data_rate2]")
         Hearth::Validator.validate!(input[:rx_freq2], ::Integer, context: "#{context}[:rx_freq2]")
-        Validators::FactoryPresetFreqsList.validate!(input[:factory_preset_freqs_list], context: "#{context}[:factory_preset_freqs_list]") unless input[:factory_preset_freqs_list].nil?
+        FactoryPresetFreqsList.validate!(input[:factory_preset_freqs_list], context: "#{context}[:factory_preset_freqs_list]") unless input[:factory_preset_freqs_list].nil?
         Hearth::Validator.validate!(input[:max_eirp], ::Integer, context: "#{context}[:max_eirp]")
         Hearth::Validator.validate!(input[:max_duty_cycle], ::Integer, context: "#{context}[:max_duty_cycle]")
         Hearth::Validator.validate!(input[:rf_region], ::String, context: "#{context}[:rf_region]")
@@ -1487,16 +1489,16 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(input, Types::LoRaWANGateway, context: context)
         Hearth::Validator.validate!(input[:gateway_eui], ::String, context: "#{context}[:gateway_eui]")
         Hearth::Validator.validate!(input[:rf_region], ::String, context: "#{context}[:rf_region]")
-        Validators::JoinEuiFilters.validate!(input[:join_eui_filters], context: "#{context}[:join_eui_filters]") unless input[:join_eui_filters].nil?
-        Validators::NetIdFilters.validate!(input[:net_id_filters], context: "#{context}[:net_id_filters]") unless input[:net_id_filters].nil?
-        Validators::SubBands.validate!(input[:sub_bands], context: "#{context}[:sub_bands]") unless input[:sub_bands].nil?
+        JoinEuiFilters.validate!(input[:join_eui_filters], context: "#{context}[:join_eui_filters]") unless input[:join_eui_filters].nil?
+        NetIdFilters.validate!(input[:net_id_filters], context: "#{context}[:net_id_filters]") unless input[:net_id_filters].nil?
+        SubBands.validate!(input[:sub_bands], context: "#{context}[:sub_bands]") unless input[:sub_bands].nil?
       end
     end
 
     class LoRaWANGatewayCurrentVersion
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LoRaWANGatewayCurrentVersion, context: context)
-        Validators::LoRaWANGatewayVersion.validate!(input[:current_version], context: "#{context}[:current_version]") unless input[:current_version].nil?
+        LoRaWANGatewayVersion.validate!(input[:current_version], context: "#{context}[:current_version]") unless input[:current_version].nil?
       end
     end
 
@@ -1513,7 +1515,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LoRaWANGatewayMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LoRaWANGatewayMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1634,8 +1636,8 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(input, Types::LoRaWANUpdateDevice, context: context)
         Hearth::Validator.validate!(input[:device_profile_id], ::String, context: "#{context}[:device_profile_id]")
         Hearth::Validator.validate!(input[:service_profile_id], ::String, context: "#{context}[:service_profile_id]")
-        Validators::UpdateAbpV1_1.validate!(input[:abp_v1_1], context: "#{context}[:abp_v1_1]") unless input[:abp_v1_1].nil?
-        Validators::UpdateAbpV1_0_x.validate!(input[:abp_v1_0_x], context: "#{context}[:abp_v1_0_x]") unless input[:abp_v1_0_x].nil?
+        UpdateAbpV1_1.validate!(input[:abp_v1_1], context: "#{context}[:abp_v1_1]") unless input[:abp_v1_1].nil?
+        UpdateAbpV1_0_x.validate!(input[:abp_v1_0_x], context: "#{context}[:abp_v1_0_x]") unless input[:abp_v1_0_x].nil?
       end
     end
 
@@ -1644,16 +1646,16 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(input, Types::LoRaWANUpdateGatewayTaskCreate, context: context)
         Hearth::Validator.validate!(input[:update_signature], ::String, context: "#{context}[:update_signature]")
         Hearth::Validator.validate!(input[:sig_key_crc], ::Integer, context: "#{context}[:sig_key_crc]")
-        Validators::LoRaWANGatewayVersion.validate!(input[:current_version], context: "#{context}[:current_version]") unless input[:current_version].nil?
-        Validators::LoRaWANGatewayVersion.validate!(input[:update_version], context: "#{context}[:update_version]") unless input[:update_version].nil?
+        LoRaWANGatewayVersion.validate!(input[:current_version], context: "#{context}[:current_version]") unless input[:current_version].nil?
+        LoRaWANGatewayVersion.validate!(input[:update_version], context: "#{context}[:update_version]") unless input[:update_version].nil?
       end
     end
 
     class LoRaWANUpdateGatewayTaskEntry
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LoRaWANUpdateGatewayTaskEntry, context: context)
-        Validators::LoRaWANGatewayVersion.validate!(input[:current_version], context: "#{context}[:current_version]") unless input[:current_version].nil?
-        Validators::LoRaWANGatewayVersion.validate!(input[:update_version], context: "#{context}[:update_version]") unless input[:update_version].nil?
+        LoRaWANGatewayVersion.validate!(input[:current_version], context: "#{context}[:current_version]") unless input[:current_version].nil?
+        LoRaWANGatewayVersion.validate!(input[:update_version], context: "#{context}[:update_version]") unless input[:update_version].nil?
       end
     end
 
@@ -1677,7 +1679,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MulticastGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MulticastGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1686,7 +1688,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MulticastGroupByFuotaTask.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MulticastGroupByFuotaTask.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1694,7 +1696,7 @@ module AWS::SDK::IoTWireless
     class MulticastWirelessMetadata
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MulticastWirelessMetadata, context: context)
-        Validators::LoRaWANMulticastMetadata.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
+        LoRaWANMulticastMetadata.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
       end
     end
 
@@ -1711,7 +1713,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NetworkAnalyzerConfigurations.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NetworkAnalyzerConfigurations.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1745,7 +1747,7 @@ module AWS::SDK::IoTWireless
     class ProximityEventConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ProximityEventConfiguration, context: context)
-        Validators::SidewalkEventNotificationConfigurations.validate!(input[:sidewalk], context: "#{context}[:sidewalk]") unless input[:sidewalk].nil?
+        SidewalkEventNotificationConfigurations.validate!(input[:sidewalk], context: "#{context}[:sidewalk]") unless input[:sidewalk].nil?
         Hearth::Validator.validate!(input[:wireless_device_id_event_topic], ::String, context: "#{context}[:wireless_device_id_event_topic]")
       end
     end
@@ -1753,7 +1755,7 @@ module AWS::SDK::IoTWireless
     class ProximityResourceTypeEventConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ProximityResourceTypeEventConfiguration, context: context)
-        Validators::SidewalkResourceTypeEventConfiguration.validate!(input[:sidewalk], context: "#{context}[:sidewalk]") unless input[:sidewalk].nil?
+        SidewalkResourceTypeEventConfiguration.validate!(input[:sidewalk], context: "#{context}[:sidewalk]") unless input[:sidewalk].nil?
       end
     end
 
@@ -1812,7 +1814,7 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(input, Types::SendDataToMulticastGroupInput, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:payload_data], ::String, context: "#{context}[:payload_data]")
-        Validators::MulticastWirelessMetadata.validate!(input[:wireless_metadata], context: "#{context}[:wireless_metadata]") unless input[:wireless_metadata].nil?
+        MulticastWirelessMetadata.validate!(input[:wireless_metadata], context: "#{context}[:wireless_metadata]") unless input[:wireless_metadata].nil?
       end
     end
 
@@ -1829,7 +1831,7 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:transmit_mode], ::Integer, context: "#{context}[:transmit_mode]")
         Hearth::Validator.validate!(input[:payload_data], ::String, context: "#{context}[:payload_data]")
-        Validators::WirelessMetadata.validate!(input[:wireless_metadata], context: "#{context}[:wireless_metadata]") unless input[:wireless_metadata].nil?
+        WirelessMetadata.validate!(input[:wireless_metadata], context: "#{context}[:wireless_metadata]") unless input[:wireless_metadata].nil?
       end
     end
 
@@ -1853,7 +1855,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ServiceProfile.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ServiceProfile.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1897,7 +1899,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SidewalkAccountInfoWithFingerprint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SidewalkAccountInfoWithFingerprint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1908,7 +1910,7 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(input[:amazon_id], ::String, context: "#{context}[:amazon_id]")
         Hearth::Validator.validate!(input[:sidewalk_id], ::String, context: "#{context}[:sidewalk_id]")
         Hearth::Validator.validate!(input[:sidewalk_manufacturing_sn], ::String, context: "#{context}[:sidewalk_manufacturing_sn]")
-        Validators::DeviceCertificateList.validate!(input[:device_certificates], context: "#{context}[:device_certificates]") unless input[:device_certificates].nil?
+        DeviceCertificateList.validate!(input[:device_certificates], context: "#{context}[:device_certificates]") unless input[:device_certificates].nil?
       end
     end
 
@@ -1935,7 +1937,7 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(input[:amazon_id], ::String, context: "#{context}[:amazon_id]")
         Hearth::Validator.validate!(input[:sidewalk_id], ::String, context: "#{context}[:sidewalk_id]")
         Hearth::Validator.validate!(input[:sidewalk_manufacturing_sn], ::String, context: "#{context}[:sidewalk_manufacturing_sn]")
-        Validators::DeviceCertificateList.validate!(input[:device_certificates], context: "#{context}[:device_certificates]") unless input[:device_certificates].nil?
+        DeviceCertificateList.validate!(input[:device_certificates], context: "#{context}[:device_certificates]") unless input[:device_certificates].nil?
       end
     end
 
@@ -1966,7 +1968,7 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(input, Types::StartBulkAssociateWirelessDeviceWithMulticastGroupInput, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:query_string], ::String, context: "#{context}[:query_string]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1981,7 +1983,7 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(input, Types::StartBulkDisassociateWirelessDeviceFromMulticastGroupInput, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:query_string], ::String, context: "#{context}[:query_string]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1995,7 +1997,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartFuotaTaskInput, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::LoRaWANStartFuotaTask.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
+        LoRaWANStartFuotaTask.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
       end
     end
 
@@ -2009,7 +2011,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartMulticastGroupSessionInput, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::LoRaWANMulticastSession.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
+        LoRaWANMulticastSession.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
       end
     end
 
@@ -2049,7 +2051,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2058,7 +2060,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2109,7 +2111,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -2153,10 +2155,10 @@ module AWS::SDK::IoTWireless
     class UpdateEventConfigurationByResourceTypesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateEventConfigurationByResourceTypesInput, context: context)
-        Validators::DeviceRegistrationStateResourceTypeEventConfiguration.validate!(input[:device_registration_state], context: "#{context}[:device_registration_state]") unless input[:device_registration_state].nil?
-        Validators::ProximityResourceTypeEventConfiguration.validate!(input[:proximity], context: "#{context}[:proximity]") unless input[:proximity].nil?
-        Validators::JoinResourceTypeEventConfiguration.validate!(input[:join], context: "#{context}[:join]") unless input[:join].nil?
-        Validators::ConnectionStatusResourceTypeEventConfiguration.validate!(input[:connection_status], context: "#{context}[:connection_status]") unless input[:connection_status].nil?
+        DeviceRegistrationStateResourceTypeEventConfiguration.validate!(input[:device_registration_state], context: "#{context}[:device_registration_state]") unless input[:device_registration_state].nil?
+        ProximityResourceTypeEventConfiguration.validate!(input[:proximity], context: "#{context}[:proximity]") unless input[:proximity].nil?
+        JoinResourceTypeEventConfiguration.validate!(input[:join], context: "#{context}[:join]") unless input[:join].nil?
+        ConnectionStatusResourceTypeEventConfiguration.validate!(input[:connection_status], context: "#{context}[:connection_status]") unless input[:connection_status].nil?
       end
     end
 
@@ -2172,7 +2174,7 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::LoRaWANFuotaTask.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
+        LoRaWANFuotaTask.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
         Hearth::Validator.validate!(input[:firmware_update_image], ::String, context: "#{context}[:firmware_update_image]")
         Hearth::Validator.validate!(input[:firmware_update_role], ::String, context: "#{context}[:firmware_update_role]")
       end
@@ -2188,8 +2190,8 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateLogLevelsByResourceTypesInput, context: context)
         Hearth::Validator.validate!(input[:default_log_level], ::String, context: "#{context}[:default_log_level]")
-        Validators::WirelessDeviceLogOptionList.validate!(input[:wireless_device_log_options], context: "#{context}[:wireless_device_log_options]") unless input[:wireless_device_log_options].nil?
-        Validators::WirelessGatewayLogOptionList.validate!(input[:wireless_gateway_log_options], context: "#{context}[:wireless_gateway_log_options]") unless input[:wireless_gateway_log_options].nil?
+        WirelessDeviceLogOptionList.validate!(input[:wireless_device_log_options], context: "#{context}[:wireless_device_log_options]") unless input[:wireless_device_log_options].nil?
+        WirelessGatewayLogOptionList.validate!(input[:wireless_gateway_log_options], context: "#{context}[:wireless_gateway_log_options]") unless input[:wireless_gateway_log_options].nil?
       end
     end
 
@@ -2205,7 +2207,7 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::LoRaWANMulticast.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
+        LoRaWANMulticast.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
       end
     end
 
@@ -2219,11 +2221,11 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateNetworkAnalyzerConfigurationInput, context: context)
         Hearth::Validator.validate!(input[:configuration_name], ::String, context: "#{context}[:configuration_name]")
-        Validators::TraceContent.validate!(input[:trace_content], context: "#{context}[:trace_content]") unless input[:trace_content].nil?
-        Validators::WirelessDeviceList.validate!(input[:wireless_devices_to_add], context: "#{context}[:wireless_devices_to_add]") unless input[:wireless_devices_to_add].nil?
-        Validators::WirelessDeviceList.validate!(input[:wireless_devices_to_remove], context: "#{context}[:wireless_devices_to_remove]") unless input[:wireless_devices_to_remove].nil?
-        Validators::WirelessGatewayList.validate!(input[:wireless_gateways_to_add], context: "#{context}[:wireless_gateways_to_add]") unless input[:wireless_gateways_to_add].nil?
-        Validators::WirelessGatewayList.validate!(input[:wireless_gateways_to_remove], context: "#{context}[:wireless_gateways_to_remove]") unless input[:wireless_gateways_to_remove].nil?
+        TraceContent.validate!(input[:trace_content], context: "#{context}[:trace_content]") unless input[:trace_content].nil?
+        WirelessDeviceList.validate!(input[:wireless_devices_to_add], context: "#{context}[:wireless_devices_to_add]") unless input[:wireless_devices_to_add].nil?
+        WirelessDeviceList.validate!(input[:wireless_devices_to_remove], context: "#{context}[:wireless_devices_to_remove]") unless input[:wireless_devices_to_remove].nil?
+        WirelessGatewayList.validate!(input[:wireless_gateways_to_add], context: "#{context}[:wireless_gateways_to_add]") unless input[:wireless_gateways_to_add].nil?
+        WirelessGatewayList.validate!(input[:wireless_gateways_to_remove], context: "#{context}[:wireless_gateways_to_remove]") unless input[:wireless_gateways_to_remove].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
       end
     end
@@ -2237,7 +2239,7 @@ module AWS::SDK::IoTWireless
     class UpdatePartnerAccountInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdatePartnerAccountInput, context: context)
-        Validators::SidewalkUpdateAccount.validate!(input[:sidewalk], context: "#{context}[:sidewalk]") unless input[:sidewalk].nil?
+        SidewalkUpdateAccount.validate!(input[:sidewalk], context: "#{context}[:sidewalk]") unless input[:sidewalk].nil?
         Hearth::Validator.validate!(input[:partner_account_id], ::String, context: "#{context}[:partner_account_id]")
         Hearth::Validator.validate!(input[:partner_type], ::String, context: "#{context}[:partner_type]")
       end
@@ -2255,10 +2257,10 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(input[:identifier], ::String, context: "#{context}[:identifier]")
         Hearth::Validator.validate!(input[:identifier_type], ::String, context: "#{context}[:identifier_type]")
         Hearth::Validator.validate!(input[:partner_type], ::String, context: "#{context}[:partner_type]")
-        Validators::DeviceRegistrationStateEventConfiguration.validate!(input[:device_registration_state], context: "#{context}[:device_registration_state]") unless input[:device_registration_state].nil?
-        Validators::ProximityEventConfiguration.validate!(input[:proximity], context: "#{context}[:proximity]") unless input[:proximity].nil?
-        Validators::JoinEventConfiguration.validate!(input[:join], context: "#{context}[:join]") unless input[:join].nil?
-        Validators::ConnectionStatusEventConfiguration.validate!(input[:connection_status], context: "#{context}[:connection_status]") unless input[:connection_status].nil?
+        DeviceRegistrationStateEventConfiguration.validate!(input[:device_registration_state], context: "#{context}[:device_registration_state]") unless input[:device_registration_state].nil?
+        ProximityEventConfiguration.validate!(input[:proximity], context: "#{context}[:proximity]") unless input[:proximity].nil?
+        JoinEventConfiguration.validate!(input[:join], context: "#{context}[:join]") unless input[:join].nil?
+        ConnectionStatusEventConfiguration.validate!(input[:connection_status], context: "#{context}[:connection_status]") unless input[:connection_status].nil?
       end
     end
 
@@ -2275,7 +2277,7 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(input[:destination_name], ::String, context: "#{context}[:destination_name]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::LoRaWANUpdateDevice.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
+        LoRaWANUpdateDevice.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
       end
     end
 
@@ -2291,8 +2293,8 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::JoinEuiFilters.validate!(input[:join_eui_filters], context: "#{context}[:join_eui_filters]") unless input[:join_eui_filters].nil?
-        Validators::NetIdFilters.validate!(input[:net_id_filters], context: "#{context}[:net_id_filters]") unless input[:net_id_filters].nil?
+        JoinEuiFilters.validate!(input[:join_eui_filters], context: "#{context}[:join_eui_filters]") unless input[:join_eui_filters].nil?
+        NetIdFilters.validate!(input[:net_id_filters], context: "#{context}[:net_id_filters]") unless input[:net_id_filters].nil?
       end
     end
 
@@ -2307,7 +2309,7 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(input, Types::UpdateWirelessGatewayTaskCreate, context: context)
         Hearth::Validator.validate!(input[:update_data_source], ::String, context: "#{context}[:update_data_source]")
         Hearth::Validator.validate!(input[:update_data_role], ::String, context: "#{context}[:update_data_role]")
-        Validators::LoRaWANUpdateGatewayTaskCreate.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
+        LoRaWANUpdateGatewayTaskCreate.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
       end
     end
 
@@ -2315,7 +2317,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateWirelessGatewayTaskEntry, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::LoRaWANUpdateGatewayTaskEntry.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
+        LoRaWANUpdateGatewayTaskEntry.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
       end
     end
@@ -2339,7 +2341,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::WirelessDeviceEventLogOption.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          WirelessDeviceEventLogOption.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2358,7 +2360,7 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(input, Types::WirelessDeviceLogOption, context: context)
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:log_level], ::String, context: "#{context}[:log_level]")
-        Validators::WirelessDeviceEventLogOptionList.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
+        WirelessDeviceEventLogOptionList.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
       end
     end
 
@@ -2366,7 +2368,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::WirelessDeviceLogOption.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          WirelessDeviceLogOption.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2380,8 +2382,8 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:destination_name], ::String, context: "#{context}[:destination_name]")
         Hearth::Validator.validate!(input[:last_uplink_received_at], ::String, context: "#{context}[:last_uplink_received_at]")
-        Validators::LoRaWANListDevice.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
-        Validators::SidewalkListDevice.validate!(input[:sidewalk], context: "#{context}[:sidewalk]") unless input[:sidewalk].nil?
+        LoRaWANListDevice.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
+        SidewalkListDevice.validate!(input[:sidewalk], context: "#{context}[:sidewalk]") unless input[:sidewalk].nil?
         Hearth::Validator.validate!(input[:fuota_device_status], ::String, context: "#{context}[:fuota_device_status]")
         Hearth::Validator.validate!(input[:multicast_device_status], ::String, context: "#{context}[:multicast_device_status]")
         Hearth::Validator.validate!(input[:mc_group_id], ::Integer, context: "#{context}[:mc_group_id]")
@@ -2392,7 +2394,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::WirelessDeviceStatistics.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          WirelessDeviceStatistics.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2409,7 +2411,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::WirelessGatewayEventLogOption.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          WirelessGatewayEventLogOption.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2428,7 +2430,7 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(input, Types::WirelessGatewayLogOption, context: context)
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:log_level], ::String, context: "#{context}[:log_level]")
-        Validators::WirelessGatewayEventLogOptionList.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
+        WirelessGatewayEventLogOptionList.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
       end
     end
 
@@ -2436,7 +2438,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::WirelessGatewayLogOption.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          WirelessGatewayLogOption.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2448,7 +2450,7 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::LoRaWANGateway.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
+        LoRaWANGateway.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
         Hearth::Validator.validate!(input[:last_uplink_received_at], ::String, context: "#{context}[:last_uplink_received_at]")
       end
     end
@@ -2457,7 +2459,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::WirelessGatewayStatistics.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          WirelessGatewayStatistics.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2466,7 +2468,7 @@ module AWS::SDK::IoTWireless
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UpdateWirelessGatewayTaskEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UpdateWirelessGatewayTaskEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2474,8 +2476,8 @@ module AWS::SDK::IoTWireless
     class WirelessMetadata
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::WirelessMetadata, context: context)
-        Validators::LoRaWANSendDataToDevice.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
-        Validators::SidewalkSendDataToDevice.validate!(input[:sidewalk], context: "#{context}[:sidewalk]") unless input[:sidewalk].nil?
+        LoRaWANSendDataToDevice.validate!(input[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless input[:lo_ra_wan].nil?
+        SidewalkSendDataToDevice.validate!(input[:sidewalk], context: "#{context}[:sidewalk]") unless input[:sidewalk].nil?
       end
     end
 

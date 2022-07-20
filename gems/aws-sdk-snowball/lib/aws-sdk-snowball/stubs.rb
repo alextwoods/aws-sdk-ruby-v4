@@ -122,7 +122,7 @@ module AWS::SDK::Snowball
     class DescribeAddress
       def self.default(visited=[])
         {
-          address: Stubs::Address.default(visited),
+          address: Address.default(visited),
         }
       end
 
@@ -182,7 +182,7 @@ module AWS::SDK::Snowball
     class DescribeAddresses
       def self.default(visited=[])
         {
-          addresses: Stubs::AddressList.default(visited),
+          addresses: AddressList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -202,7 +202,7 @@ module AWS::SDK::Snowball
         return nil if visited.include?('AddressList')
         visited = visited + ['AddressList']
         [
-          Stubs::Address.default(visited)
+          Address.default(visited)
         ]
       end
 
@@ -220,7 +220,7 @@ module AWS::SDK::Snowball
     class DescribeCluster
       def self.default(visited=[])
         {
-          cluster_metadata: Stubs::ClusterMetadata.default(visited),
+          cluster_metadata: ClusterMetadata.default(visited),
         }
       end
 
@@ -246,13 +246,13 @@ module AWS::SDK::Snowball
           job_type: 'job_type',
           snowball_type: 'snowball_type',
           creation_date: Time.now,
-          resources: Stubs::JobResource.default(visited),
+          resources: JobResource.default(visited),
           address_id: 'address_id',
           shipping_option: 'shipping_option',
-          notification: Stubs::Notification.default(visited),
+          notification: Notification.default(visited),
           forwarding_address_id: 'forwarding_address_id',
-          tax_documents: Stubs::TaxDocuments.default(visited),
-          on_device_service_configuration: Stubs::OnDeviceServiceConfiguration.default(visited),
+          tax_documents: TaxDocuments.default(visited),
+          on_device_service_configuration: OnDeviceServiceConfiguration.default(visited),
         }
       end
 
@@ -284,8 +284,8 @@ module AWS::SDK::Snowball
         return nil if visited.include?('OnDeviceServiceConfiguration')
         visited = visited + ['OnDeviceServiceConfiguration']
         {
-          nfs_on_device_service: Stubs::NFSOnDeviceServiceConfiguration.default(visited),
-          tgw_on_device_service: Stubs::TGWOnDeviceServiceConfiguration.default(visited),
+          nfs_on_device_service: NFSOnDeviceServiceConfiguration.default(visited),
+          tgw_on_device_service: TGWOnDeviceServiceConfiguration.default(visited),
         }
       end
 
@@ -344,7 +344,7 @@ module AWS::SDK::Snowball
         return nil if visited.include?('TaxDocuments')
         visited = visited + ['TaxDocuments']
         {
-          ind: Stubs::INDTaxDocuments.default(visited),
+          ind: INDTaxDocuments.default(visited),
         }
       end
 
@@ -381,7 +381,7 @@ module AWS::SDK::Snowball
         visited = visited + ['Notification']
         {
           sns_topic_arn: 'sns_topic_arn',
-          job_states_to_notify: Stubs::JobStateList.default(visited),
+          job_states_to_notify: JobStateList.default(visited),
           notify_all: false,
         }
       end
@@ -422,9 +422,9 @@ module AWS::SDK::Snowball
         return nil if visited.include?('JobResource')
         visited = visited + ['JobResource']
         {
-          s3_resources: Stubs::S3ResourceList.default(visited),
-          lambda_resources: Stubs::LambdaResourceList.default(visited),
-          ec2_ami_resources: Stubs::Ec2AmiResourceList.default(visited),
+          s3_resources: S3ResourceList.default(visited),
+          lambda_resources: LambdaResourceList.default(visited),
+          ec2_ami_resources: Ec2AmiResourceList.default(visited),
         }
       end
 
@@ -444,7 +444,7 @@ module AWS::SDK::Snowball
         return nil if visited.include?('Ec2AmiResourceList')
         visited = visited + ['Ec2AmiResourceList']
         [
-          Stubs::Ec2AmiResource.default(visited)
+          Ec2AmiResource.default(visited)
         ]
       end
 
@@ -484,7 +484,7 @@ module AWS::SDK::Snowball
         return nil if visited.include?('LambdaResourceList')
         visited = visited + ['LambdaResourceList']
         [
-          Stubs::LambdaResource.default(visited)
+          LambdaResource.default(visited)
         ]
       end
 
@@ -505,7 +505,7 @@ module AWS::SDK::Snowball
         visited = visited + ['LambdaResource']
         {
           lambda_arn: 'lambda_arn',
-          event_triggers: Stubs::EventTriggerDefinitionList.default(visited),
+          event_triggers: EventTriggerDefinitionList.default(visited),
         }
       end
 
@@ -524,7 +524,7 @@ module AWS::SDK::Snowball
         return nil if visited.include?('EventTriggerDefinitionList')
         visited = visited + ['EventTriggerDefinitionList']
         [
-          Stubs::EventTriggerDefinition.default(visited)
+          EventTriggerDefinition.default(visited)
         ]
       end
 
@@ -562,7 +562,7 @@ module AWS::SDK::Snowball
         return nil if visited.include?('S3ResourceList')
         visited = visited + ['S3ResourceList']
         [
-          Stubs::S3Resource.default(visited)
+          S3Resource.default(visited)
         ]
       end
 
@@ -583,8 +583,8 @@ module AWS::SDK::Snowball
         visited = visited + ['S3Resource']
         {
           bucket_arn: 'bucket_arn',
-          key_range: Stubs::KeyRange.default(visited),
-          target_on_device_services: Stubs::TargetOnDeviceServiceList.default(visited),
+          key_range: KeyRange.default(visited),
+          target_on_device_services: TargetOnDeviceServiceList.default(visited),
         }
       end
 
@@ -604,7 +604,7 @@ module AWS::SDK::Snowball
         return nil if visited.include?('TargetOnDeviceServiceList')
         visited = visited + ['TargetOnDeviceServiceList']
         [
-          Stubs::TargetOnDeviceService.default(visited)
+          TargetOnDeviceService.default(visited)
         ]
       end
 
@@ -662,8 +662,8 @@ module AWS::SDK::Snowball
     class DescribeJob
       def self.default(visited=[])
         {
-          job_metadata: Stubs::JobMetadata.default(visited),
-          sub_job_metadata: Stubs::JobMetadataList.default(visited),
+          job_metadata: JobMetadata.default(visited),
+          sub_job_metadata: JobMetadataList.default(visited),
         }
       end
 
@@ -682,7 +682,7 @@ module AWS::SDK::Snowball
         return nil if visited.include?('JobMetadataList')
         visited = visited + ['JobMetadataList']
         [
-          Stubs::JobMetadata.default(visited)
+          JobMetadata.default(visited)
         ]
       end
 
@@ -707,23 +707,23 @@ module AWS::SDK::Snowball
           job_type: 'job_type',
           snowball_type: 'snowball_type',
           creation_date: Time.now,
-          resources: Stubs::JobResource.default(visited),
+          resources: JobResource.default(visited),
           description: 'description',
           kms_key_arn: 'kms_key_arn',
           role_arn: 'role_arn',
           address_id: 'address_id',
-          shipping_details: Stubs::ShippingDetails.default(visited),
+          shipping_details: ShippingDetails.default(visited),
           snowball_capacity_preference: 'snowball_capacity_preference',
-          notification: Stubs::Notification.default(visited),
-          data_transfer_progress: Stubs::DataTransfer.default(visited),
-          job_log_info: Stubs::JobLogs.default(visited),
+          notification: Notification.default(visited),
+          data_transfer_progress: DataTransfer.default(visited),
+          job_log_info: JobLogs.default(visited),
           cluster_id: 'cluster_id',
           forwarding_address_id: 'forwarding_address_id',
-          tax_documents: Stubs::TaxDocuments.default(visited),
-          device_configuration: Stubs::DeviceConfiguration.default(visited),
+          tax_documents: TaxDocuments.default(visited),
+          device_configuration: DeviceConfiguration.default(visited),
           remote_management: 'remote_management',
           long_term_pricing_id: 'long_term_pricing_id',
-          on_device_service_configuration: Stubs::OnDeviceServiceConfiguration.default(visited),
+          on_device_service_configuration: OnDeviceServiceConfiguration.default(visited),
         }
       end
 
@@ -762,7 +762,7 @@ module AWS::SDK::Snowball
         return nil if visited.include?('DeviceConfiguration')
         visited = visited + ['DeviceConfiguration']
         {
-          snowcone_device_configuration: Stubs::SnowconeDeviceConfiguration.default(visited),
+          snowcone_device_configuration: SnowconeDeviceConfiguration.default(visited),
         }
       end
 
@@ -780,7 +780,7 @@ module AWS::SDK::Snowball
         return nil if visited.include?('SnowconeDeviceConfiguration')
         visited = visited + ['SnowconeDeviceConfiguration']
         {
-          wireless_connection: Stubs::WirelessConnection.default(visited),
+          wireless_connection: WirelessConnection.default(visited),
         }
       end
 
@@ -863,8 +863,8 @@ module AWS::SDK::Snowball
         visited = visited + ['ShippingDetails']
         {
           shipping_option: 'shipping_option',
-          inbound_shipment: Stubs::Shipment.default(visited),
-          outbound_shipment: Stubs::Shipment.default(visited),
+          inbound_shipment: Shipment.default(visited),
+          outbound_shipment: Shipment.default(visited),
         }
       end
 
@@ -988,7 +988,7 @@ module AWS::SDK::Snowball
     class ListClusterJobs
       def self.default(visited=[])
         {
-          job_list_entries: Stubs::JobListEntryList.default(visited),
+          job_list_entries: JobListEntryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1008,7 +1008,7 @@ module AWS::SDK::Snowball
         return nil if visited.include?('JobListEntryList')
         visited = visited + ['JobListEntryList']
         [
-          Stubs::JobListEntry.default(visited)
+          JobListEntry.default(visited)
         ]
       end
 
@@ -1056,7 +1056,7 @@ module AWS::SDK::Snowball
     class ListClusters
       def self.default(visited=[])
         {
-          cluster_list_entries: Stubs::ClusterListEntryList.default(visited),
+          cluster_list_entries: ClusterListEntryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1076,7 +1076,7 @@ module AWS::SDK::Snowball
         return nil if visited.include?('ClusterListEntryList')
         visited = visited + ['ClusterListEntryList']
         [
-          Stubs::ClusterListEntry.default(visited)
+          ClusterListEntry.default(visited)
         ]
       end
 
@@ -1118,7 +1118,7 @@ module AWS::SDK::Snowball
     class ListCompatibleImages
       def self.default(visited=[])
         {
-          compatible_images: Stubs::CompatibleImageList.default(visited),
+          compatible_images: CompatibleImageList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1138,7 +1138,7 @@ module AWS::SDK::Snowball
         return nil if visited.include?('CompatibleImageList')
         visited = visited + ['CompatibleImageList']
         [
-          Stubs::CompatibleImage.default(visited)
+          CompatibleImage.default(visited)
         ]
       end
 
@@ -1176,7 +1176,7 @@ module AWS::SDK::Snowball
     class ListJobs
       def self.default(visited=[])
         {
-          job_list_entries: Stubs::JobListEntryList.default(visited),
+          job_list_entries: JobListEntryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1194,7 +1194,7 @@ module AWS::SDK::Snowball
     class ListLongTermPricing
       def self.default(visited=[])
         {
-          long_term_pricing_entries: Stubs::LongTermPricingEntryList.default(visited),
+          long_term_pricing_entries: LongTermPricingEntryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1214,7 +1214,7 @@ module AWS::SDK::Snowball
         return nil if visited.include?('LongTermPricingEntryList')
         visited = visited + ['LongTermPricingEntryList']
         [
-          Stubs::LongTermPricingListEntry.default(visited)
+          LongTermPricingListEntry.default(visited)
         ]
       end
 
@@ -1243,7 +1243,7 @@ module AWS::SDK::Snowball
           is_long_term_pricing_auto_renew: false,
           long_term_pricing_status: 'long_term_pricing_status',
           snowball_type: 'snowball_type',
-          job_ids: Stubs::LongTermPricingAssociatedJobIdList.default(visited),
+          job_ids: LongTermPricingAssociatedJobIdList.default(visited),
         }
       end
 

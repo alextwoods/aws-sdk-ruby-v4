@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::NetworkManager
   module Validators
 
@@ -28,7 +30,7 @@ module AWS::SDK::NetworkManager
     class AcceptAttachmentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AcceptAttachmentOutput, context: context)
-        Validators::Attachment.validate!(input[:attachment], context: "#{context}[:attachment]") unless input[:attachment].nil?
+        Attachment.validate!(input[:attachment], context: "#{context}[:attachment]") unless input[:attachment].nil?
       end
     end
 
@@ -51,7 +53,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AccountStatus.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AccountStatus.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -69,7 +71,7 @@ module AWS::SDK::NetworkManager
     class AssociateConnectPeerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AssociateConnectPeerOutput, context: context)
-        Validators::ConnectPeerAssociation.validate!(input[:connect_peer_association], context: "#{context}[:connect_peer_association]") unless input[:connect_peer_association].nil?
+        ConnectPeerAssociation.validate!(input[:connect_peer_association], context: "#{context}[:connect_peer_association]") unless input[:connect_peer_association].nil?
       end
     end
 
@@ -86,7 +88,7 @@ module AWS::SDK::NetworkManager
     class AssociateCustomerGatewayOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AssociateCustomerGatewayOutput, context: context)
-        Validators::CustomerGatewayAssociation.validate!(input[:customer_gateway_association], context: "#{context}[:customer_gateway_association]") unless input[:customer_gateway_association].nil?
+        CustomerGatewayAssociation.validate!(input[:customer_gateway_association], context: "#{context}[:customer_gateway_association]") unless input[:customer_gateway_association].nil?
       end
     end
 
@@ -102,7 +104,7 @@ module AWS::SDK::NetworkManager
     class AssociateLinkOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AssociateLinkOutput, context: context)
-        Validators::LinkAssociation.validate!(input[:link_association], context: "#{context}[:link_association]") unless input[:link_association].nil?
+        LinkAssociation.validate!(input[:link_association], context: "#{context}[:link_association]") unless input[:link_association].nil?
       end
     end
 
@@ -119,7 +121,7 @@ module AWS::SDK::NetworkManager
     class AssociateTransitGatewayConnectPeerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AssociateTransitGatewayConnectPeerOutput, context: context)
-        Validators::TransitGatewayConnectPeerAssociation.validate!(input[:transit_gateway_connect_peer_association], context: "#{context}[:transit_gateway_connect_peer_association]") unless input[:transit_gateway_connect_peer_association].nil?
+        TransitGatewayConnectPeerAssociation.validate!(input[:transit_gateway_connect_peer_association], context: "#{context}[:transit_gateway_connect_peer_association]") unless input[:transit_gateway_connect_peer_association].nil?
       end
     end
 
@@ -136,8 +138,8 @@ module AWS::SDK::NetworkManager
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
         Hearth::Validator.validate!(input[:attachment_policy_rule_number], ::Integer, context: "#{context}[:attachment_policy_rule_number]")
         Hearth::Validator.validate!(input[:segment_name], ::String, context: "#{context}[:segment_name]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::ProposedSegmentChange.validate!(input[:proposed_segment_change], context: "#{context}[:proposed_segment_change]") unless input[:proposed_segment_change].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ProposedSegmentChange.validate!(input[:proposed_segment_change], context: "#{context}[:proposed_segment_change]") unless input[:proposed_segment_change].nil?
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
       end
@@ -147,7 +149,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Attachment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Attachment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -179,9 +181,9 @@ module AWS::SDK::NetworkManager
     class ConnectAttachment
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ConnectAttachment, context: context)
-        Validators::Attachment.validate!(input[:attachment], context: "#{context}[:attachment]") unless input[:attachment].nil?
+        Attachment.validate!(input[:attachment], context: "#{context}[:attachment]") unless input[:attachment].nil?
         Hearth::Validator.validate!(input[:transport_attachment_id], ::String, context: "#{context}[:transport_attachment_id]")
-        Validators::ConnectAttachmentOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
+        ConnectAttachmentOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
       end
     end
 
@@ -201,8 +203,8 @@ module AWS::SDK::NetworkManager
         Hearth::Validator.validate!(input[:edge_location], ::String, context: "#{context}[:edge_location]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
-        Validators::ConnectPeerConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ConnectPeerConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -221,7 +223,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ConnectPeerAssociation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ConnectPeerAssociation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -240,7 +242,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ConnectPeerBgpConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ConnectPeerBgpConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -250,9 +252,9 @@ module AWS::SDK::NetworkManager
         Hearth::Validator.validate!(input, Types::ConnectPeerConfiguration, context: context)
         Hearth::Validator.validate!(input[:core_network_address], ::String, context: "#{context}[:core_network_address]")
         Hearth::Validator.validate!(input[:peer_address], ::String, context: "#{context}[:peer_address]")
-        Validators::ConstrainedStringList.validate!(input[:inside_cidr_blocks], context: "#{context}[:inside_cidr_blocks]") unless input[:inside_cidr_blocks].nil?
+        ConstrainedStringList.validate!(input[:inside_cidr_blocks], context: "#{context}[:inside_cidr_blocks]") unless input[:inside_cidr_blocks].nil?
         Hearth::Validator.validate!(input[:protocol], ::String, context: "#{context}[:protocol]")
-        Validators::ConnectPeerBgpConfigurationList.validate!(input[:bgp_configurations], context: "#{context}[:bgp_configurations]") unless input[:bgp_configurations].nil?
+        ConnectPeerBgpConfigurationList.validate!(input[:bgp_configurations], context: "#{context}[:bgp_configurations]") unless input[:bgp_configurations].nil?
       end
     end
 
@@ -274,7 +276,7 @@ module AWS::SDK::NetworkManager
         Hearth::Validator.validate!(input[:edge_location], ::String, context: "#{context}[:edge_location]")
         Hearth::Validator.validate!(input[:connect_peer_state], ::String, context: "#{context}[:connect_peer_state]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -282,7 +284,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ConnectPeerSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ConnectPeerSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -300,7 +302,7 @@ module AWS::SDK::NetworkManager
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -326,7 +328,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Connection.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Connection.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -349,9 +351,9 @@ module AWS::SDK::NetworkManager
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::CoreNetworkSegmentList.validate!(input[:segments], context: "#{context}[:segments]") unless input[:segments].nil?
-        Validators::CoreNetworkEdgeList.validate!(input[:edges], context: "#{context}[:edges]") unless input[:edges].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        CoreNetworkSegmentList.validate!(input[:segments], context: "#{context}[:segments]") unless input[:segments].nil?
+        CoreNetworkEdgeList.validate!(input[:edges], context: "#{context}[:edges]") unless input[:edges].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -361,8 +363,8 @@ module AWS::SDK::NetworkManager
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:action], ::String, context: "#{context}[:action]")
         Hearth::Validator.validate!(input[:identifier], ::String, context: "#{context}[:identifier]")
-        Validators::CoreNetworkChangeValues.validate!(input[:previous_values], context: "#{context}[:previous_values]") unless input[:previous_values].nil?
-        Validators::CoreNetworkChangeValues.validate!(input[:new_values], context: "#{context}[:new_values]") unless input[:new_values].nil?
+        CoreNetworkChangeValues.validate!(input[:previous_values], context: "#{context}[:previous_values]") unless input[:previous_values].nil?
+        CoreNetworkChangeValues.validate!(input[:new_values], context: "#{context}[:new_values]") unless input[:new_values].nil?
       end
     end
 
@@ -370,7 +372,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CoreNetworkChange.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CoreNetworkChange.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -379,12 +381,12 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CoreNetworkChangeValues, context: context)
         Hearth::Validator.validate!(input[:segment_name], ::String, context: "#{context}[:segment_name]")
-        Validators::ExternalRegionCodeList.validate!(input[:edge_locations], context: "#{context}[:edge_locations]") unless input[:edge_locations].nil?
+        ExternalRegionCodeList.validate!(input[:edge_locations], context: "#{context}[:edge_locations]") unless input[:edge_locations].nil?
         Hearth::Validator.validate!(input[:asn], ::Integer, context: "#{context}[:asn]")
         Hearth::Validator.validate!(input[:cidr], ::String, context: "#{context}[:cidr]")
         Hearth::Validator.validate!(input[:destination_identifier], ::String, context: "#{context}[:destination_identifier]")
-        Validators::ConstrainedStringList.validate!(input[:inside_cidr_blocks], context: "#{context}[:inside_cidr_blocks]") unless input[:inside_cidr_blocks].nil?
-        Validators::ConstrainedStringList.validate!(input[:shared_segments], context: "#{context}[:shared_segments]") unless input[:shared_segments].nil?
+        ConstrainedStringList.validate!(input[:inside_cidr_blocks], context: "#{context}[:inside_cidr_blocks]") unless input[:inside_cidr_blocks].nil?
+        ConstrainedStringList.validate!(input[:shared_segments], context: "#{context}[:shared_segments]") unless input[:shared_segments].nil?
       end
     end
 
@@ -393,7 +395,7 @@ module AWS::SDK::NetworkManager
         Hearth::Validator.validate!(input, Types::CoreNetworkEdge, context: context)
         Hearth::Validator.validate!(input[:edge_location], ::String, context: "#{context}[:edge_location]")
         Hearth::Validator.validate!(input[:asn], ::Integer, context: "#{context}[:asn]")
-        Validators::ConstrainedStringList.validate!(input[:inside_cidr_blocks], context: "#{context}[:inside_cidr_blocks]") unless input[:inside_cidr_blocks].nil?
+        ConstrainedStringList.validate!(input[:inside_cidr_blocks], context: "#{context}[:inside_cidr_blocks]") unless input[:inside_cidr_blocks].nil?
       end
     end
 
@@ -401,7 +403,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CoreNetworkEdge.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CoreNetworkEdge.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -415,7 +417,7 @@ module AWS::SDK::NetworkManager
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:change_set_state], ::String, context: "#{context}[:change_set_state]")
-        Validators::CoreNetworkPolicyErrorList.validate!(input[:policy_errors], context: "#{context}[:policy_errors]") unless input[:policy_errors].nil?
+        CoreNetworkPolicyErrorList.validate!(input[:policy_errors], context: "#{context}[:policy_errors]") unless input[:policy_errors].nil?
         Hearth::Validator.validate!(input[:policy_document], ::String, context: "#{context}[:policy_document]")
       end
     end
@@ -433,7 +435,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CoreNetworkPolicyError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CoreNetworkPolicyError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -442,7 +444,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CoreNetworkPolicyException, context: context)
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
-        Validators::CoreNetworkPolicyErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        CoreNetworkPolicyErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
       end
     end
 
@@ -462,7 +464,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CoreNetworkPolicyVersion.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CoreNetworkPolicyVersion.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -471,8 +473,8 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CoreNetworkSegment, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ExternalRegionCodeList.validate!(input[:edge_locations], context: "#{context}[:edge_locations]") unless input[:edge_locations].nil?
-        Validators::ConstrainedStringList.validate!(input[:shared_segments], context: "#{context}[:shared_segments]") unless input[:shared_segments].nil?
+        ExternalRegionCodeList.validate!(input[:edge_locations], context: "#{context}[:edge_locations]") unless input[:edge_locations].nil?
+        ConstrainedStringList.validate!(input[:shared_segments], context: "#{context}[:shared_segments]") unless input[:shared_segments].nil?
       end
     end
 
@@ -489,7 +491,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CoreNetworkSegment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CoreNetworkSegment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -503,7 +505,7 @@ module AWS::SDK::NetworkManager
         Hearth::Validator.validate!(input[:owner_account_id], ::String, context: "#{context}[:owner_account_id]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -511,7 +513,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CoreNetworkSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CoreNetworkSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -522,8 +524,8 @@ module AWS::SDK::NetworkManager
         Hearth::Validator.validate!(input[:core_network_id], ::String, context: "#{context}[:core_network_id]")
         Hearth::Validator.validate!(input[:edge_location], ::String, context: "#{context}[:edge_location]")
         Hearth::Validator.validate!(input[:transport_attachment_id], ::String, context: "#{context}[:transport_attachment_id]")
-        Validators::ConnectAttachmentOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ConnectAttachmentOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -531,7 +533,7 @@ module AWS::SDK::NetworkManager
     class CreateConnectAttachmentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateConnectAttachmentOutput, context: context)
-        Validators::ConnectAttachment.validate!(input[:connect_attachment], context: "#{context}[:connect_attachment]") unless input[:connect_attachment].nil?
+        ConnectAttachment.validate!(input[:connect_attachment], context: "#{context}[:connect_attachment]") unless input[:connect_attachment].nil?
       end
     end
 
@@ -541,9 +543,9 @@ module AWS::SDK::NetworkManager
         Hearth::Validator.validate!(input[:connect_attachment_id], ::String, context: "#{context}[:connect_attachment_id]")
         Hearth::Validator.validate!(input[:core_network_address], ::String, context: "#{context}[:core_network_address]")
         Hearth::Validator.validate!(input[:peer_address], ::String, context: "#{context}[:peer_address]")
-        Validators::BgpOptions.validate!(input[:bgp_options], context: "#{context}[:bgp_options]") unless input[:bgp_options].nil?
-        Validators::ConstrainedStringList.validate!(input[:inside_cidr_blocks], context: "#{context}[:inside_cidr_blocks]") unless input[:inside_cidr_blocks].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        BgpOptions.validate!(input[:bgp_options], context: "#{context}[:bgp_options]") unless input[:bgp_options].nil?
+        ConstrainedStringList.validate!(input[:inside_cidr_blocks], context: "#{context}[:inside_cidr_blocks]") unless input[:inside_cidr_blocks].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -551,7 +553,7 @@ module AWS::SDK::NetworkManager
     class CreateConnectPeerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateConnectPeerOutput, context: context)
-        Validators::ConnectPeer.validate!(input[:connect_peer], context: "#{context}[:connect_peer]") unless input[:connect_peer].nil?
+        ConnectPeer.validate!(input[:connect_peer], context: "#{context}[:connect_peer]") unless input[:connect_peer].nil?
       end
     end
 
@@ -564,14 +566,14 @@ module AWS::SDK::NetworkManager
         Hearth::Validator.validate!(input[:link_id], ::String, context: "#{context}[:link_id]")
         Hearth::Validator.validate!(input[:connected_link_id], ::String, context: "#{context}[:connected_link_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateConnectionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateConnectionOutput, context: context)
-        Validators::Connection.validate!(input[:connection], context: "#{context}[:connection]") unless input[:connection].nil?
+        Connection.validate!(input[:connection], context: "#{context}[:connection]") unless input[:connection].nil?
       end
     end
 
@@ -580,7 +582,7 @@ module AWS::SDK::NetworkManager
         Hearth::Validator.validate!(input, Types::CreateCoreNetworkInput, context: context)
         Hearth::Validator.validate!(input[:global_network_id], ::String, context: "#{context}[:global_network_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:policy_document], ::String, context: "#{context}[:policy_document]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
@@ -589,7 +591,7 @@ module AWS::SDK::NetworkManager
     class CreateCoreNetworkOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateCoreNetworkOutput, context: context)
-        Validators::CoreNetwork.validate!(input[:core_network], context: "#{context}[:core_network]") unless input[:core_network].nil?
+        CoreNetwork.validate!(input[:core_network], context: "#{context}[:core_network]") unless input[:core_network].nil?
       end
     end
 
@@ -597,22 +599,22 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateDeviceInput, context: context)
         Hearth::Validator.validate!(input[:global_network_id], ::String, context: "#{context}[:global_network_id]")
-        Validators::AWSLocation.validate!(input[:aws_location], context: "#{context}[:aws_location]") unless input[:aws_location].nil?
+        AWSLocation.validate!(input[:aws_location], context: "#{context}[:aws_location]") unless input[:aws_location].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:vendor], ::String, context: "#{context}[:vendor]")
         Hearth::Validator.validate!(input[:model], ::String, context: "#{context}[:model]")
         Hearth::Validator.validate!(input[:serial_number], ::String, context: "#{context}[:serial_number]")
-        Validators::Location.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        Location.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
         Hearth::Validator.validate!(input[:site_id], ::String, context: "#{context}[:site_id]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateDeviceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateDeviceOutput, context: context)
-        Validators::Device.validate!(input[:device], context: "#{context}[:device]") unless input[:device].nil?
+        Device.validate!(input[:device], context: "#{context}[:device]") unless input[:device].nil?
       end
     end
 
@@ -620,14 +622,14 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateGlobalNetworkInput, context: context)
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateGlobalNetworkOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateGlobalNetworkOutput, context: context)
-        Validators::GlobalNetwork.validate!(input[:global_network], context: "#{context}[:global_network]") unless input[:global_network].nil?
+        GlobalNetwork.validate!(input[:global_network], context: "#{context}[:global_network]") unless input[:global_network].nil?
       end
     end
 
@@ -637,17 +639,17 @@ module AWS::SDK::NetworkManager
         Hearth::Validator.validate!(input[:global_network_id], ::String, context: "#{context}[:global_network_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::Bandwidth.validate!(input[:bandwidth], context: "#{context}[:bandwidth]") unless input[:bandwidth].nil?
+        Bandwidth.validate!(input[:bandwidth], context: "#{context}[:bandwidth]") unless input[:bandwidth].nil?
         Hearth::Validator.validate!(input[:provider], ::String, context: "#{context}[:provider]")
         Hearth::Validator.validate!(input[:site_id], ::String, context: "#{context}[:site_id]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateLinkOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateLinkOutput, context: context)
-        Validators::Link.validate!(input[:link], context: "#{context}[:link]") unless input[:link].nil?
+        Link.validate!(input[:link], context: "#{context}[:link]") unless input[:link].nil?
       end
     end
 
@@ -656,15 +658,15 @@ module AWS::SDK::NetworkManager
         Hearth::Validator.validate!(input, Types::CreateSiteInput, context: context)
         Hearth::Validator.validate!(input[:global_network_id], ::String, context: "#{context}[:global_network_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::Location.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Location.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateSiteOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateSiteOutput, context: context)
-        Validators::Site.validate!(input[:site], context: "#{context}[:site]") unless input[:site].nil?
+        Site.validate!(input[:site], context: "#{context}[:site]") unless input[:site].nil?
       end
     end
 
@@ -673,7 +675,7 @@ module AWS::SDK::NetworkManager
         Hearth::Validator.validate!(input, Types::CreateSiteToSiteVpnAttachmentInput, context: context)
         Hearth::Validator.validate!(input[:core_network_id], ::String, context: "#{context}[:core_network_id]")
         Hearth::Validator.validate!(input[:vpn_connection_arn], ::String, context: "#{context}[:vpn_connection_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -681,7 +683,7 @@ module AWS::SDK::NetworkManager
     class CreateSiteToSiteVpnAttachmentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateSiteToSiteVpnAttachmentOutput, context: context)
-        Validators::SiteToSiteVpnAttachment.validate!(input[:site_to_site_vpn_attachment], context: "#{context}[:site_to_site_vpn_attachment]") unless input[:site_to_site_vpn_attachment].nil?
+        SiteToSiteVpnAttachment.validate!(input[:site_to_site_vpn_attachment], context: "#{context}[:site_to_site_vpn_attachment]") unless input[:site_to_site_vpn_attachment].nil?
       end
     end
 
@@ -690,9 +692,9 @@ module AWS::SDK::NetworkManager
         Hearth::Validator.validate!(input, Types::CreateVpcAttachmentInput, context: context)
         Hearth::Validator.validate!(input[:core_network_id], ::String, context: "#{context}[:core_network_id]")
         Hearth::Validator.validate!(input[:vpc_arn], ::String, context: "#{context}[:vpc_arn]")
-        Validators::SubnetArnList.validate!(input[:subnet_arns], context: "#{context}[:subnet_arns]") unless input[:subnet_arns].nil?
-        Validators::VpcOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        SubnetArnList.validate!(input[:subnet_arns], context: "#{context}[:subnet_arns]") unless input[:subnet_arns].nil?
+        VpcOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -700,7 +702,7 @@ module AWS::SDK::NetworkManager
     class CreateVpcAttachmentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateVpcAttachmentOutput, context: context)
-        Validators::VpcAttachment.validate!(input[:vpc_attachment], context: "#{context}[:vpc_attachment]") unless input[:vpc_attachment].nil?
+        VpcAttachment.validate!(input[:vpc_attachment], context: "#{context}[:vpc_attachment]") unless input[:vpc_attachment].nil?
       end
     end
 
@@ -728,7 +730,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CustomerGatewayAssociation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CustomerGatewayAssociation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -743,7 +745,7 @@ module AWS::SDK::NetworkManager
     class DeleteAttachmentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteAttachmentOutput, context: context)
-        Validators::Attachment.validate!(input[:attachment], context: "#{context}[:attachment]") unless input[:attachment].nil?
+        Attachment.validate!(input[:attachment], context: "#{context}[:attachment]") unless input[:attachment].nil?
       end
     end
 
@@ -757,7 +759,7 @@ module AWS::SDK::NetworkManager
     class DeleteConnectPeerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteConnectPeerOutput, context: context)
-        Validators::ConnectPeer.validate!(input[:connect_peer], context: "#{context}[:connect_peer]") unless input[:connect_peer].nil?
+        ConnectPeer.validate!(input[:connect_peer], context: "#{context}[:connect_peer]") unless input[:connect_peer].nil?
       end
     end
 
@@ -772,7 +774,7 @@ module AWS::SDK::NetworkManager
     class DeleteConnectionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteConnectionOutput, context: context)
-        Validators::Connection.validate!(input[:connection], context: "#{context}[:connection]") unless input[:connection].nil?
+        Connection.validate!(input[:connection], context: "#{context}[:connection]") unless input[:connection].nil?
       end
     end
 
@@ -786,7 +788,7 @@ module AWS::SDK::NetworkManager
     class DeleteCoreNetworkOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteCoreNetworkOutput, context: context)
-        Validators::CoreNetwork.validate!(input[:core_network], context: "#{context}[:core_network]") unless input[:core_network].nil?
+        CoreNetwork.validate!(input[:core_network], context: "#{context}[:core_network]") unless input[:core_network].nil?
       end
     end
 
@@ -801,7 +803,7 @@ module AWS::SDK::NetworkManager
     class DeleteCoreNetworkPolicyVersionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteCoreNetworkPolicyVersionOutput, context: context)
-        Validators::CoreNetworkPolicy.validate!(input[:core_network_policy], context: "#{context}[:core_network_policy]") unless input[:core_network_policy].nil?
+        CoreNetworkPolicy.validate!(input[:core_network_policy], context: "#{context}[:core_network_policy]") unless input[:core_network_policy].nil?
       end
     end
 
@@ -816,7 +818,7 @@ module AWS::SDK::NetworkManager
     class DeleteDeviceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteDeviceOutput, context: context)
-        Validators::Device.validate!(input[:device], context: "#{context}[:device]") unless input[:device].nil?
+        Device.validate!(input[:device], context: "#{context}[:device]") unless input[:device].nil?
       end
     end
 
@@ -830,7 +832,7 @@ module AWS::SDK::NetworkManager
     class DeleteGlobalNetworkOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteGlobalNetworkOutput, context: context)
-        Validators::GlobalNetwork.validate!(input[:global_network], context: "#{context}[:global_network]") unless input[:global_network].nil?
+        GlobalNetwork.validate!(input[:global_network], context: "#{context}[:global_network]") unless input[:global_network].nil?
       end
     end
 
@@ -845,7 +847,7 @@ module AWS::SDK::NetworkManager
     class DeleteLinkOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteLinkOutput, context: context)
-        Validators::Link.validate!(input[:link], context: "#{context}[:link]") unless input[:link].nil?
+        Link.validate!(input[:link], context: "#{context}[:link]") unless input[:link].nil?
       end
     end
 
@@ -873,7 +875,7 @@ module AWS::SDK::NetworkManager
     class DeleteSiteOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteSiteOutput, context: context)
-        Validators::Site.validate!(input[:site], context: "#{context}[:site]") unless input[:site].nil?
+        Site.validate!(input[:site], context: "#{context}[:site]") unless input[:site].nil?
       end
     end
 
@@ -888,14 +890,14 @@ module AWS::SDK::NetworkManager
     class DeregisterTransitGatewayOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeregisterTransitGatewayOutput, context: context)
-        Validators::TransitGatewayRegistration.validate!(input[:transit_gateway_registration], context: "#{context}[:transit_gateway_registration]") unless input[:transit_gateway_registration].nil?
+        TransitGatewayRegistration.validate!(input[:transit_gateway_registration], context: "#{context}[:transit_gateway_registration]") unless input[:transit_gateway_registration].nil?
       end
     end
 
     class DescribeGlobalNetworksInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeGlobalNetworksInput, context: context)
-        Validators::GlobalNetworkIdList.validate!(input[:global_network_ids], context: "#{context}[:global_network_ids]") unless input[:global_network_ids].nil?
+        GlobalNetworkIdList.validate!(input[:global_network_ids], context: "#{context}[:global_network_ids]") unless input[:global_network_ids].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -904,7 +906,7 @@ module AWS::SDK::NetworkManager
     class DescribeGlobalNetworksOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeGlobalNetworksOutput, context: context)
-        Validators::GlobalNetworkList.validate!(input[:global_networks], context: "#{context}[:global_networks]") unless input[:global_networks].nil?
+        GlobalNetworkList.validate!(input[:global_networks], context: "#{context}[:global_networks]") unless input[:global_networks].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -915,17 +917,17 @@ module AWS::SDK::NetworkManager
         Hearth::Validator.validate!(input[:device_id], ::String, context: "#{context}[:device_id]")
         Hearth::Validator.validate!(input[:device_arn], ::String, context: "#{context}[:device_arn]")
         Hearth::Validator.validate!(input[:global_network_id], ::String, context: "#{context}[:global_network_id]")
-        Validators::AWSLocation.validate!(input[:aws_location], context: "#{context}[:aws_location]") unless input[:aws_location].nil?
+        AWSLocation.validate!(input[:aws_location], context: "#{context}[:aws_location]") unless input[:aws_location].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:vendor], ::String, context: "#{context}[:vendor]")
         Hearth::Validator.validate!(input[:model], ::String, context: "#{context}[:model]")
         Hearth::Validator.validate!(input[:serial_number], ::String, context: "#{context}[:serial_number]")
-        Validators::Location.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        Location.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
         Hearth::Validator.validate!(input[:site_id], ::String, context: "#{context}[:site_id]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -942,7 +944,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Device.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Device.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -958,7 +960,7 @@ module AWS::SDK::NetworkManager
     class DisassociateConnectPeerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DisassociateConnectPeerOutput, context: context)
-        Validators::ConnectPeerAssociation.validate!(input[:connect_peer_association], context: "#{context}[:connect_peer_association]") unless input[:connect_peer_association].nil?
+        ConnectPeerAssociation.validate!(input[:connect_peer_association], context: "#{context}[:connect_peer_association]") unless input[:connect_peer_association].nil?
       end
     end
 
@@ -973,7 +975,7 @@ module AWS::SDK::NetworkManager
     class DisassociateCustomerGatewayOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DisassociateCustomerGatewayOutput, context: context)
-        Validators::CustomerGatewayAssociation.validate!(input[:customer_gateway_association], context: "#{context}[:customer_gateway_association]") unless input[:customer_gateway_association].nil?
+        CustomerGatewayAssociation.validate!(input[:customer_gateway_association], context: "#{context}[:customer_gateway_association]") unless input[:customer_gateway_association].nil?
       end
     end
 
@@ -989,7 +991,7 @@ module AWS::SDK::NetworkManager
     class DisassociateLinkOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DisassociateLinkOutput, context: context)
-        Validators::LinkAssociation.validate!(input[:link_association], context: "#{context}[:link_association]") unless input[:link_association].nil?
+        LinkAssociation.validate!(input[:link_association], context: "#{context}[:link_association]") unless input[:link_association].nil?
       end
     end
 
@@ -1004,7 +1006,7 @@ module AWS::SDK::NetworkManager
     class DisassociateTransitGatewayConnectPeerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DisassociateTransitGatewayConnectPeerOutput, context: context)
-        Validators::TransitGatewayConnectPeerAssociation.validate!(input[:transit_gateway_connect_peer_association], context: "#{context}[:transit_gateway_connect_peer_association]") unless input[:transit_gateway_connect_peer_association].nil?
+        TransitGatewayConnectPeerAssociation.validate!(input[:transit_gateway_connect_peer_association], context: "#{context}[:transit_gateway_connect_peer_association]") unless input[:transit_gateway_connect_peer_association].nil?
       end
     end
 
@@ -1046,7 +1048,7 @@ module AWS::SDK::NetworkManager
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::FilterValues.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          FilterValues.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -1070,7 +1072,7 @@ module AWS::SDK::NetworkManager
     class GetConnectAttachmentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetConnectAttachmentOutput, context: context)
-        Validators::ConnectAttachment.validate!(input[:connect_attachment], context: "#{context}[:connect_attachment]") unless input[:connect_attachment].nil?
+        ConnectAttachment.validate!(input[:connect_attachment], context: "#{context}[:connect_attachment]") unless input[:connect_attachment].nil?
       end
     end
 
@@ -1078,7 +1080,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetConnectPeerAssociationsInput, context: context)
         Hearth::Validator.validate!(input[:global_network_id], ::String, context: "#{context}[:global_network_id]")
-        Validators::ConnectPeerIdList.validate!(input[:connect_peer_ids], context: "#{context}[:connect_peer_ids]") unless input[:connect_peer_ids].nil?
+        ConnectPeerIdList.validate!(input[:connect_peer_ids], context: "#{context}[:connect_peer_ids]") unless input[:connect_peer_ids].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -1087,7 +1089,7 @@ module AWS::SDK::NetworkManager
     class GetConnectPeerAssociationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetConnectPeerAssociationsOutput, context: context)
-        Validators::ConnectPeerAssociationList.validate!(input[:connect_peer_associations], context: "#{context}[:connect_peer_associations]") unless input[:connect_peer_associations].nil?
+        ConnectPeerAssociationList.validate!(input[:connect_peer_associations], context: "#{context}[:connect_peer_associations]") unless input[:connect_peer_associations].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1102,7 +1104,7 @@ module AWS::SDK::NetworkManager
     class GetConnectPeerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetConnectPeerOutput, context: context)
-        Validators::ConnectPeer.validate!(input[:connect_peer], context: "#{context}[:connect_peer]") unless input[:connect_peer].nil?
+        ConnectPeer.validate!(input[:connect_peer], context: "#{context}[:connect_peer]") unless input[:connect_peer].nil?
       end
     end
 
@@ -1110,7 +1112,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetConnectionsInput, context: context)
         Hearth::Validator.validate!(input[:global_network_id], ::String, context: "#{context}[:global_network_id]")
-        Validators::ConnectionIdList.validate!(input[:connection_ids], context: "#{context}[:connection_ids]") unless input[:connection_ids].nil?
+        ConnectionIdList.validate!(input[:connection_ids], context: "#{context}[:connection_ids]") unless input[:connection_ids].nil?
         Hearth::Validator.validate!(input[:device_id], ::String, context: "#{context}[:device_id]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
@@ -1120,7 +1122,7 @@ module AWS::SDK::NetworkManager
     class GetConnectionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetConnectionsOutput, context: context)
-        Validators::ConnectionList.validate!(input[:connections], context: "#{context}[:connections]") unless input[:connections].nil?
+        ConnectionList.validate!(input[:connections], context: "#{context}[:connections]") unless input[:connections].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1138,7 +1140,7 @@ module AWS::SDK::NetworkManager
     class GetCoreNetworkChangeSetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetCoreNetworkChangeSetOutput, context: context)
-        Validators::CoreNetworkChangeList.validate!(input[:core_network_changes], context: "#{context}[:core_network_changes]") unless input[:core_network_changes].nil?
+        CoreNetworkChangeList.validate!(input[:core_network_changes], context: "#{context}[:core_network_changes]") unless input[:core_network_changes].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1153,7 +1155,7 @@ module AWS::SDK::NetworkManager
     class GetCoreNetworkOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetCoreNetworkOutput, context: context)
-        Validators::CoreNetwork.validate!(input[:core_network], context: "#{context}[:core_network]") unless input[:core_network].nil?
+        CoreNetwork.validate!(input[:core_network], context: "#{context}[:core_network]") unless input[:core_network].nil?
       end
     end
 
@@ -1169,7 +1171,7 @@ module AWS::SDK::NetworkManager
     class GetCoreNetworkPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetCoreNetworkPolicyOutput, context: context)
-        Validators::CoreNetworkPolicy.validate!(input[:core_network_policy], context: "#{context}[:core_network_policy]") unless input[:core_network_policy].nil?
+        CoreNetworkPolicy.validate!(input[:core_network_policy], context: "#{context}[:core_network_policy]") unless input[:core_network_policy].nil?
       end
     end
 
@@ -1177,7 +1179,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetCustomerGatewayAssociationsInput, context: context)
         Hearth::Validator.validate!(input[:global_network_id], ::String, context: "#{context}[:global_network_id]")
-        Validators::CustomerGatewayArnList.validate!(input[:customer_gateway_arns], context: "#{context}[:customer_gateway_arns]") unless input[:customer_gateway_arns].nil?
+        CustomerGatewayArnList.validate!(input[:customer_gateway_arns], context: "#{context}[:customer_gateway_arns]") unless input[:customer_gateway_arns].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -1186,7 +1188,7 @@ module AWS::SDK::NetworkManager
     class GetCustomerGatewayAssociationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetCustomerGatewayAssociationsOutput, context: context)
-        Validators::CustomerGatewayAssociationList.validate!(input[:customer_gateway_associations], context: "#{context}[:customer_gateway_associations]") unless input[:customer_gateway_associations].nil?
+        CustomerGatewayAssociationList.validate!(input[:customer_gateway_associations], context: "#{context}[:customer_gateway_associations]") unless input[:customer_gateway_associations].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1195,7 +1197,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDevicesInput, context: context)
         Hearth::Validator.validate!(input[:global_network_id], ::String, context: "#{context}[:global_network_id]")
-        Validators::DeviceIdList.validate!(input[:device_ids], context: "#{context}[:device_ids]") unless input[:device_ids].nil?
+        DeviceIdList.validate!(input[:device_ids], context: "#{context}[:device_ids]") unless input[:device_ids].nil?
         Hearth::Validator.validate!(input[:site_id], ::String, context: "#{context}[:site_id]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
@@ -1205,7 +1207,7 @@ module AWS::SDK::NetworkManager
     class GetDevicesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDevicesOutput, context: context)
-        Validators::DeviceList.validate!(input[:devices], context: "#{context}[:devices]") unless input[:devices].nil?
+        DeviceList.validate!(input[:devices], context: "#{context}[:devices]") unless input[:devices].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1224,7 +1226,7 @@ module AWS::SDK::NetworkManager
     class GetLinkAssociationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetLinkAssociationsOutput, context: context)
-        Validators::LinkAssociationList.validate!(input[:link_associations], context: "#{context}[:link_associations]") unless input[:link_associations].nil?
+        LinkAssociationList.validate!(input[:link_associations], context: "#{context}[:link_associations]") unless input[:link_associations].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1233,7 +1235,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetLinksInput, context: context)
         Hearth::Validator.validate!(input[:global_network_id], ::String, context: "#{context}[:global_network_id]")
-        Validators::LinkIdList.validate!(input[:link_ids], context: "#{context}[:link_ids]") unless input[:link_ids].nil?
+        LinkIdList.validate!(input[:link_ids], context: "#{context}[:link_ids]") unless input[:link_ids].nil?
         Hearth::Validator.validate!(input[:site_id], ::String, context: "#{context}[:site_id]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:provider], ::String, context: "#{context}[:provider]")
@@ -1245,7 +1247,7 @@ module AWS::SDK::NetworkManager
     class GetLinksOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetLinksOutput, context: context)
-        Validators::LinkList.validate!(input[:links], context: "#{context}[:links]") unless input[:links].nil?
+        LinkList.validate!(input[:links], context: "#{context}[:links]") unless input[:links].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1263,7 +1265,7 @@ module AWS::SDK::NetworkManager
     class GetNetworkResourceCountsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetNetworkResourceCountsOutput, context: context)
-        Validators::NetworkResourceCountList.validate!(input[:network_resource_counts], context: "#{context}[:network_resource_counts]") unless input[:network_resource_counts].nil?
+        NetworkResourceCountList.validate!(input[:network_resource_counts], context: "#{context}[:network_resource_counts]") unless input[:network_resource_counts].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1286,7 +1288,7 @@ module AWS::SDK::NetworkManager
     class GetNetworkResourceRelationshipsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetNetworkResourceRelationshipsOutput, context: context)
-        Validators::RelationshipList.validate!(input[:relationships], context: "#{context}[:relationships]") unless input[:relationships].nil?
+        RelationshipList.validate!(input[:relationships], context: "#{context}[:relationships]") unless input[:relationships].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1309,7 +1311,7 @@ module AWS::SDK::NetworkManager
     class GetNetworkResourcesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetNetworkResourcesOutput, context: context)
-        Validators::NetworkResourceList.validate!(input[:network_resources], context: "#{context}[:network_resources]") unless input[:network_resources].nil?
+        NetworkResourceList.validate!(input[:network_resources], context: "#{context}[:network_resources]") unless input[:network_resources].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1318,15 +1320,15 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetNetworkRoutesInput, context: context)
         Hearth::Validator.validate!(input[:global_network_id], ::String, context: "#{context}[:global_network_id]")
-        Validators::RouteTableIdentifier.validate!(input[:route_table_identifier], context: "#{context}[:route_table_identifier]") unless input[:route_table_identifier].nil?
-        Validators::ConstrainedStringList.validate!(input[:exact_cidr_matches], context: "#{context}[:exact_cidr_matches]") unless input[:exact_cidr_matches].nil?
-        Validators::ConstrainedStringList.validate!(input[:longest_prefix_matches], context: "#{context}[:longest_prefix_matches]") unless input[:longest_prefix_matches].nil?
-        Validators::ConstrainedStringList.validate!(input[:subnet_of_matches], context: "#{context}[:subnet_of_matches]") unless input[:subnet_of_matches].nil?
-        Validators::ConstrainedStringList.validate!(input[:supernet_of_matches], context: "#{context}[:supernet_of_matches]") unless input[:supernet_of_matches].nil?
-        Validators::ConstrainedStringList.validate!(input[:prefix_list_ids], context: "#{context}[:prefix_list_ids]") unless input[:prefix_list_ids].nil?
-        Validators::RouteStateList.validate!(input[:states], context: "#{context}[:states]") unless input[:states].nil?
-        Validators::RouteTypeList.validate!(input[:types], context: "#{context}[:types]") unless input[:types].nil?
-        Validators::FilterMap.validate!(input[:destination_filters], context: "#{context}[:destination_filters]") unless input[:destination_filters].nil?
+        RouteTableIdentifier.validate!(input[:route_table_identifier], context: "#{context}[:route_table_identifier]") unless input[:route_table_identifier].nil?
+        ConstrainedStringList.validate!(input[:exact_cidr_matches], context: "#{context}[:exact_cidr_matches]") unless input[:exact_cidr_matches].nil?
+        ConstrainedStringList.validate!(input[:longest_prefix_matches], context: "#{context}[:longest_prefix_matches]") unless input[:longest_prefix_matches].nil?
+        ConstrainedStringList.validate!(input[:subnet_of_matches], context: "#{context}[:subnet_of_matches]") unless input[:subnet_of_matches].nil?
+        ConstrainedStringList.validate!(input[:supernet_of_matches], context: "#{context}[:supernet_of_matches]") unless input[:supernet_of_matches].nil?
+        ConstrainedStringList.validate!(input[:prefix_list_ids], context: "#{context}[:prefix_list_ids]") unless input[:prefix_list_ids].nil?
+        RouteStateList.validate!(input[:states], context: "#{context}[:states]") unless input[:states].nil?
+        RouteTypeList.validate!(input[:types], context: "#{context}[:types]") unless input[:types].nil?
+        FilterMap.validate!(input[:destination_filters], context: "#{context}[:destination_filters]") unless input[:destination_filters].nil?
       end
     end
 
@@ -1334,10 +1336,10 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetNetworkRoutesOutput, context: context)
         Hearth::Validator.validate!(input[:route_table_arn], ::String, context: "#{context}[:route_table_arn]")
-        Validators::CoreNetworkSegmentEdgeIdentifier.validate!(input[:core_network_segment_edge], context: "#{context}[:core_network_segment_edge]") unless input[:core_network_segment_edge].nil?
+        CoreNetworkSegmentEdgeIdentifier.validate!(input[:core_network_segment_edge], context: "#{context}[:core_network_segment_edge]") unless input[:core_network_segment_edge].nil?
         Hearth::Validator.validate!(input[:route_table_type], ::String, context: "#{context}[:route_table_type]")
         Hearth::Validator.validate!(input[:route_table_timestamp], ::Time, context: "#{context}[:route_table_timestamp]")
-        Validators::NetworkRouteList.validate!(input[:network_routes], context: "#{context}[:network_routes]") unless input[:network_routes].nil?
+        NetworkRouteList.validate!(input[:network_routes], context: "#{context}[:network_routes]") unless input[:network_routes].nil?
       end
     end
 
@@ -1359,7 +1361,7 @@ module AWS::SDK::NetworkManager
     class GetNetworkTelemetryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetNetworkTelemetryOutput, context: context)
-        Validators::NetworkTelemetryList.validate!(input[:network_telemetry], context: "#{context}[:network_telemetry]") unless input[:network_telemetry].nil?
+        NetworkTelemetryList.validate!(input[:network_telemetry], context: "#{context}[:network_telemetry]") unless input[:network_telemetry].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1389,7 +1391,7 @@ module AWS::SDK::NetworkManager
     class GetRouteAnalysisOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRouteAnalysisOutput, context: context)
-        Validators::RouteAnalysis.validate!(input[:route_analysis], context: "#{context}[:route_analysis]") unless input[:route_analysis].nil?
+        RouteAnalysis.validate!(input[:route_analysis], context: "#{context}[:route_analysis]") unless input[:route_analysis].nil?
       end
     end
 
@@ -1403,7 +1405,7 @@ module AWS::SDK::NetworkManager
     class GetSiteToSiteVpnAttachmentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSiteToSiteVpnAttachmentOutput, context: context)
-        Validators::SiteToSiteVpnAttachment.validate!(input[:site_to_site_vpn_attachment], context: "#{context}[:site_to_site_vpn_attachment]") unless input[:site_to_site_vpn_attachment].nil?
+        SiteToSiteVpnAttachment.validate!(input[:site_to_site_vpn_attachment], context: "#{context}[:site_to_site_vpn_attachment]") unless input[:site_to_site_vpn_attachment].nil?
       end
     end
 
@@ -1411,7 +1413,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSitesInput, context: context)
         Hearth::Validator.validate!(input[:global_network_id], ::String, context: "#{context}[:global_network_id]")
-        Validators::SiteIdList.validate!(input[:site_ids], context: "#{context}[:site_ids]") unless input[:site_ids].nil?
+        SiteIdList.validate!(input[:site_ids], context: "#{context}[:site_ids]") unless input[:site_ids].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -1420,7 +1422,7 @@ module AWS::SDK::NetworkManager
     class GetSitesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSitesOutput, context: context)
-        Validators::SiteList.validate!(input[:sites], context: "#{context}[:sites]") unless input[:sites].nil?
+        SiteList.validate!(input[:sites], context: "#{context}[:sites]") unless input[:sites].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1429,7 +1431,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetTransitGatewayConnectPeerAssociationsInput, context: context)
         Hearth::Validator.validate!(input[:global_network_id], ::String, context: "#{context}[:global_network_id]")
-        Validators::TransitGatewayConnectPeerArnList.validate!(input[:transit_gateway_connect_peer_arns], context: "#{context}[:transit_gateway_connect_peer_arns]") unless input[:transit_gateway_connect_peer_arns].nil?
+        TransitGatewayConnectPeerArnList.validate!(input[:transit_gateway_connect_peer_arns], context: "#{context}[:transit_gateway_connect_peer_arns]") unless input[:transit_gateway_connect_peer_arns].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -1438,7 +1440,7 @@ module AWS::SDK::NetworkManager
     class GetTransitGatewayConnectPeerAssociationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetTransitGatewayConnectPeerAssociationsOutput, context: context)
-        Validators::TransitGatewayConnectPeerAssociationList.validate!(input[:transit_gateway_connect_peer_associations], context: "#{context}[:transit_gateway_connect_peer_associations]") unless input[:transit_gateway_connect_peer_associations].nil?
+        TransitGatewayConnectPeerAssociationList.validate!(input[:transit_gateway_connect_peer_associations], context: "#{context}[:transit_gateway_connect_peer_associations]") unless input[:transit_gateway_connect_peer_associations].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1447,7 +1449,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetTransitGatewayRegistrationsInput, context: context)
         Hearth::Validator.validate!(input[:global_network_id], ::String, context: "#{context}[:global_network_id]")
-        Validators::TransitGatewayArnList.validate!(input[:transit_gateway_arns], context: "#{context}[:transit_gateway_arns]") unless input[:transit_gateway_arns].nil?
+        TransitGatewayArnList.validate!(input[:transit_gateway_arns], context: "#{context}[:transit_gateway_arns]") unless input[:transit_gateway_arns].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -1456,7 +1458,7 @@ module AWS::SDK::NetworkManager
     class GetTransitGatewayRegistrationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetTransitGatewayRegistrationsOutput, context: context)
-        Validators::TransitGatewayRegistrationList.validate!(input[:transit_gateway_registrations], context: "#{context}[:transit_gateway_registrations]") unless input[:transit_gateway_registrations].nil?
+        TransitGatewayRegistrationList.validate!(input[:transit_gateway_registrations], context: "#{context}[:transit_gateway_registrations]") unless input[:transit_gateway_registrations].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1471,7 +1473,7 @@ module AWS::SDK::NetworkManager
     class GetVpcAttachmentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetVpcAttachmentOutput, context: context)
-        Validators::VpcAttachment.validate!(input[:vpc_attachment], context: "#{context}[:vpc_attachment]") unless input[:vpc_attachment].nil?
+        VpcAttachment.validate!(input[:vpc_attachment], context: "#{context}[:vpc_attachment]") unless input[:vpc_attachment].nil?
       end
     end
 
@@ -1483,7 +1485,7 @@ module AWS::SDK::NetworkManager
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1500,7 +1502,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GlobalNetwork.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GlobalNetwork.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1522,11 +1524,11 @@ module AWS::SDK::NetworkManager
         Hearth::Validator.validate!(input[:site_id], ::String, context: "#{context}[:site_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::Bandwidth.validate!(input[:bandwidth], context: "#{context}[:bandwidth]") unless input[:bandwidth].nil?
+        Bandwidth.validate!(input[:bandwidth], context: "#{context}[:bandwidth]") unless input[:bandwidth].nil?
         Hearth::Validator.validate!(input[:provider], ::String, context: "#{context}[:provider]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1544,7 +1546,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LinkAssociation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LinkAssociation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1562,7 +1564,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Link.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Link.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1582,7 +1584,7 @@ module AWS::SDK::NetworkManager
     class ListAttachmentsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAttachmentsOutput, context: context)
-        Validators::AttachmentList.validate!(input[:attachments], context: "#{context}[:attachments]") unless input[:attachments].nil?
+        AttachmentList.validate!(input[:attachments], context: "#{context}[:attachments]") unless input[:attachments].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1600,7 +1602,7 @@ module AWS::SDK::NetworkManager
     class ListConnectPeersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListConnectPeersOutput, context: context)
-        Validators::ConnectPeerSummaryList.validate!(input[:connect_peers], context: "#{context}[:connect_peers]") unless input[:connect_peers].nil?
+        ConnectPeerSummaryList.validate!(input[:connect_peers], context: "#{context}[:connect_peers]") unless input[:connect_peers].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1617,7 +1619,7 @@ module AWS::SDK::NetworkManager
     class ListCoreNetworkPolicyVersionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListCoreNetworkPolicyVersionsOutput, context: context)
-        Validators::CoreNetworkPolicyVersionList.validate!(input[:core_network_policy_versions], context: "#{context}[:core_network_policy_versions]") unless input[:core_network_policy_versions].nil?
+        CoreNetworkPolicyVersionList.validate!(input[:core_network_policy_versions], context: "#{context}[:core_network_policy_versions]") unless input[:core_network_policy_versions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1633,7 +1635,7 @@ module AWS::SDK::NetworkManager
     class ListCoreNetworksOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListCoreNetworksOutput, context: context)
-        Validators::CoreNetworkSummaryList.validate!(input[:core_networks], context: "#{context}[:core_networks]") unless input[:core_networks].nil?
+        CoreNetworkSummaryList.validate!(input[:core_networks], context: "#{context}[:core_networks]") unless input[:core_networks].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1649,7 +1651,7 @@ module AWS::SDK::NetworkManager
     class ListOrganizationServiceAccessStatusOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListOrganizationServiceAccessStatusOutput, context: context)
-        Validators::OrganizationStatus.validate!(input[:organization_status], context: "#{context}[:organization_status]") unless input[:organization_status].nil?
+        OrganizationStatus.validate!(input[:organization_status], context: "#{context}[:organization_status]") unless input[:organization_status].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1664,7 +1666,7 @@ module AWS::SDK::NetworkManager
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
+        TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
       end
     end
 
@@ -1689,8 +1691,8 @@ module AWS::SDK::NetworkManager
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
         Hearth::Validator.validate!(input[:definition], ::String, context: "#{context}[:definition]")
         Hearth::Validator.validate!(input[:definition_timestamp], ::Time, context: "#{context}[:definition_timestamp]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::NetworkResourceMetadataMap.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        NetworkResourceMetadataMap.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
       end
     end
 
@@ -1706,7 +1708,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NetworkResourceCount.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NetworkResourceCount.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1715,7 +1717,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NetworkResource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NetworkResource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1746,7 +1748,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NetworkRoute, context: context)
         Hearth::Validator.validate!(input[:destination_cidr_block], ::String, context: "#{context}[:destination_cidr_block]")
-        Validators::NetworkRouteDestinationList.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
+        NetworkRouteDestinationList.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
         Hearth::Validator.validate!(input[:prefix_list_id], ::String, context: "#{context}[:prefix_list_id]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
@@ -1769,7 +1771,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NetworkRouteDestination.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NetworkRouteDestination.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1778,7 +1780,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NetworkRoute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NetworkRoute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1794,7 +1796,7 @@ module AWS::SDK::NetworkManager
         Hearth::Validator.validate!(input[:resource_id], ::String, context: "#{context}[:resource_id]")
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
         Hearth::Validator.validate!(input[:address], ::String, context: "#{context}[:address]")
-        Validators::ConnectionHealth.validate!(input[:health], context: "#{context}[:health]") unless input[:health].nil?
+        ConnectionHealth.validate!(input[:health], context: "#{context}[:health]") unless input[:health].nil?
       end
     end
 
@@ -1802,7 +1804,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NetworkTelemetry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NetworkTelemetry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1813,7 +1815,7 @@ module AWS::SDK::NetworkManager
         Hearth::Validator.validate!(input[:organization_id], ::String, context: "#{context}[:organization_id]")
         Hearth::Validator.validate!(input[:organization_aws_service_access_status], ::String, context: "#{context}[:organization_aws_service_access_status]")
         Hearth::Validator.validate!(input[:slr_deployment_status], ::String, context: "#{context}[:slr_deployment_status]")
-        Validators::AccountStatusList.validate!(input[:account_status_list], context: "#{context}[:account_status_list]") unless input[:account_status_list].nil?
+        AccountStatusList.validate!(input[:account_status_list], context: "#{context}[:account_status_list]") unless input[:account_status_list].nil?
       end
     end
 
@@ -1821,7 +1823,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PathComponent, context: context)
         Hearth::Validator.validate!(input[:sequence], ::Integer, context: "#{context}[:sequence]")
-        Validators::NetworkResourceSummary.validate!(input[:resource], context: "#{context}[:resource]") unless input[:resource].nil?
+        NetworkResourceSummary.validate!(input[:resource], context: "#{context}[:resource]") unless input[:resource].nil?
         Hearth::Validator.validate!(input[:destination_cidr_block], ::String, context: "#{context}[:destination_cidr_block]")
       end
     end
@@ -1830,7 +1832,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PathComponent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PathComponent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1838,7 +1840,7 @@ module AWS::SDK::NetworkManager
     class ProposedSegmentChange
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ProposedSegmentChange, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:attachment_policy_rule_number], ::Integer, context: "#{context}[:attachment_policy_rule_number]")
         Hearth::Validator.validate!(input[:segment_name], ::String, context: "#{context}[:segment_name]")
       end
@@ -1858,7 +1860,7 @@ module AWS::SDK::NetworkManager
     class PutCoreNetworkPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutCoreNetworkPolicyOutput, context: context)
-        Validators::CoreNetworkPolicy.validate!(input[:core_network_policy], context: "#{context}[:core_network_policy]") unless input[:core_network_policy].nil?
+        CoreNetworkPolicy.validate!(input[:core_network_policy], context: "#{context}[:core_network_policy]") unless input[:core_network_policy].nil?
       end
     end
 
@@ -1897,7 +1899,7 @@ module AWS::SDK::NetworkManager
     class RegisterTransitGatewayOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RegisterTransitGatewayOutput, context: context)
-        Validators::TransitGatewayRegistration.validate!(input[:transit_gateway_registration], context: "#{context}[:transit_gateway_registration]") unless input[:transit_gateway_registration].nil?
+        TransitGatewayRegistration.validate!(input[:transit_gateway_registration], context: "#{context}[:transit_gateway_registration]") unless input[:transit_gateway_registration].nil?
       end
     end
 
@@ -1911,7 +1913,7 @@ module AWS::SDK::NetworkManager
     class RejectAttachmentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RejectAttachmentOutput, context: context)
-        Validators::Attachment.validate!(input[:attachment], context: "#{context}[:attachment]") unless input[:attachment].nil?
+        Attachment.validate!(input[:attachment], context: "#{context}[:attachment]") unless input[:attachment].nil?
       end
     end
 
@@ -1927,7 +1929,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Relationship.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Relationship.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1938,7 +1940,7 @@ module AWS::SDK::NetworkManager
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:resource_id], ::String, context: "#{context}[:resource_id]")
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::ExceptionContextMap.validate!(input[:context], context: "#{context}[:context]") unless input[:context].nil?
+        ExceptionContextMap.validate!(input[:context], context: "#{context}[:context]") unless input[:context].nil?
       end
     end
 
@@ -1953,7 +1955,7 @@ module AWS::SDK::NetworkManager
     class RestoreCoreNetworkPolicyVersionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RestoreCoreNetworkPolicyVersionOutput, context: context)
-        Validators::CoreNetworkPolicy.validate!(input[:core_network_policy], context: "#{context}[:core_network_policy]") unless input[:core_network_policy].nil?
+        CoreNetworkPolicy.validate!(input[:core_network_policy], context: "#{context}[:core_network_policy]") unless input[:core_network_policy].nil?
       end
     end
 
@@ -1965,12 +1967,12 @@ module AWS::SDK::NetworkManager
         Hearth::Validator.validate!(input[:route_analysis_id], ::String, context: "#{context}[:route_analysis_id]")
         Hearth::Validator.validate!(input[:start_timestamp], ::Time, context: "#{context}[:start_timestamp]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::RouteAnalysisEndpointOptions.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
-        Validators::RouteAnalysisEndpointOptions.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
+        RouteAnalysisEndpointOptions.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
+        RouteAnalysisEndpointOptions.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
         Hearth::Validator.validate!(input[:include_return_path], ::TrueClass, ::FalseClass, context: "#{context}[:include_return_path]")
         Hearth::Validator.validate!(input[:use_middleboxes], ::TrueClass, ::FalseClass, context: "#{context}[:use_middleboxes]")
-        Validators::RouteAnalysisPath.validate!(input[:forward_path], context: "#{context}[:forward_path]") unless input[:forward_path].nil?
-        Validators::RouteAnalysisPath.validate!(input[:return_path], context: "#{context}[:return_path]") unless input[:return_path].nil?
+        RouteAnalysisPath.validate!(input[:forward_path], context: "#{context}[:forward_path]") unless input[:forward_path].nil?
+        RouteAnalysisPath.validate!(input[:return_path], context: "#{context}[:return_path]") unless input[:return_path].nil?
       end
     end
 
@@ -1979,7 +1981,7 @@ module AWS::SDK::NetworkManager
         Hearth::Validator.validate!(input, Types::RouteAnalysisCompletion, context: context)
         Hearth::Validator.validate!(input[:result_code], ::String, context: "#{context}[:result_code]")
         Hearth::Validator.validate!(input[:reason_code], ::String, context: "#{context}[:reason_code]")
-        Validators::ReasonContextMap.validate!(input[:reason_context], context: "#{context}[:reason_context]") unless input[:reason_context].nil?
+        ReasonContextMap.validate!(input[:reason_context], context: "#{context}[:reason_context]") unless input[:reason_context].nil?
       end
     end
 
@@ -2003,8 +2005,8 @@ module AWS::SDK::NetworkManager
     class RouteAnalysisPath
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RouteAnalysisPath, context: context)
-        Validators::RouteAnalysisCompletion.validate!(input[:completion_status], context: "#{context}[:completion_status]") unless input[:completion_status].nil?
-        Validators::PathComponentList.validate!(input[:path], context: "#{context}[:path]") unless input[:path].nil?
+        RouteAnalysisCompletion.validate!(input[:completion_status], context: "#{context}[:completion_status]") unless input[:completion_status].nil?
+        PathComponentList.validate!(input[:path], context: "#{context}[:path]") unless input[:path].nil?
       end
     end
 
@@ -2021,7 +2023,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RouteTableIdentifier, context: context)
         Hearth::Validator.validate!(input[:transit_gateway_route_table_arn], ::String, context: "#{context}[:transit_gateway_route_table_arn]")
-        Validators::CoreNetworkSegmentEdgeIdentifier.validate!(input[:core_network_segment_edge], context: "#{context}[:core_network_segment_edge]") unless input[:core_network_segment_edge].nil?
+        CoreNetworkSegmentEdgeIdentifier.validate!(input[:core_network_segment_edge], context: "#{context}[:core_network_segment_edge]") unless input[:core_network_segment_edge].nil?
       end
     end
 
@@ -2052,10 +2054,10 @@ module AWS::SDK::NetworkManager
         Hearth::Validator.validate!(input[:site_arn], ::String, context: "#{context}[:site_arn]")
         Hearth::Validator.validate!(input[:global_network_id], ::String, context: "#{context}[:global_network_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::Location.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        Location.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2072,7 +2074,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Site.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Site.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2080,7 +2082,7 @@ module AWS::SDK::NetworkManager
     class SiteToSiteVpnAttachment
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SiteToSiteVpnAttachment, context: context)
-        Validators::Attachment.validate!(input[:attachment], context: "#{context}[:attachment]") unless input[:attachment].nil?
+        Attachment.validate!(input[:attachment], context: "#{context}[:attachment]") unless input[:attachment].nil?
         Hearth::Validator.validate!(input[:vpn_connection_arn], ::String, context: "#{context}[:vpn_connection_arn]")
       end
     end
@@ -2095,7 +2097,7 @@ module AWS::SDK::NetworkManager
     class StartOrganizationServiceAccessUpdateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartOrganizationServiceAccessUpdateOutput, context: context)
-        Validators::OrganizationStatus.validate!(input[:organization_status], context: "#{context}[:organization_status]") unless input[:organization_status].nil?
+        OrganizationStatus.validate!(input[:organization_status], context: "#{context}[:organization_status]") unless input[:organization_status].nil?
       end
     end
 
@@ -2103,8 +2105,8 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartRouteAnalysisInput, context: context)
         Hearth::Validator.validate!(input[:global_network_id], ::String, context: "#{context}[:global_network_id]")
-        Validators::RouteAnalysisEndpointOptionsSpecification.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
-        Validators::RouteAnalysisEndpointOptionsSpecification.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
+        RouteAnalysisEndpointOptionsSpecification.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
+        RouteAnalysisEndpointOptionsSpecification.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
         Hearth::Validator.validate!(input[:include_return_path], ::TrueClass, ::FalseClass, context: "#{context}[:include_return_path]")
         Hearth::Validator.validate!(input[:use_middleboxes], ::TrueClass, ::FalseClass, context: "#{context}[:use_middleboxes]")
       end
@@ -2113,7 +2115,7 @@ module AWS::SDK::NetworkManager
     class StartRouteAnalysisOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartRouteAnalysisOutput, context: context)
-        Validators::RouteAnalysis.validate!(input[:route_analysis], context: "#{context}[:route_analysis]") unless input[:route_analysis].nil?
+        RouteAnalysis.validate!(input[:route_analysis], context: "#{context}[:route_analysis]") unless input[:route_analysis].nil?
       end
     end
 
@@ -2147,7 +2149,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2156,7 +2158,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2207,7 +2209,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TransitGatewayConnectPeerAssociation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TransitGatewayConnectPeerAssociation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2217,7 +2219,7 @@ module AWS::SDK::NetworkManager
         Hearth::Validator.validate!(input, Types::TransitGatewayRegistration, context: context)
         Hearth::Validator.validate!(input[:global_network_id], ::String, context: "#{context}[:global_network_id]")
         Hearth::Validator.validate!(input[:transit_gateway_arn], ::String, context: "#{context}[:transit_gateway_arn]")
-        Validators::TransitGatewayRegistrationStateReason.validate!(input[:state], context: "#{context}[:state]") unless input[:state].nil?
+        TransitGatewayRegistrationStateReason.validate!(input[:state], context: "#{context}[:state]") unless input[:state].nil?
       end
     end
 
@@ -2225,7 +2227,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TransitGatewayRegistration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TransitGatewayRegistration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2242,7 +2244,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -2266,7 +2268,7 @@ module AWS::SDK::NetworkManager
     class UpdateConnectionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateConnectionOutput, context: context)
-        Validators::Connection.validate!(input[:connection], context: "#{context}[:connection]") unless input[:connection].nil?
+        Connection.validate!(input[:connection], context: "#{context}[:connection]") unless input[:connection].nil?
       end
     end
 
@@ -2281,7 +2283,7 @@ module AWS::SDK::NetworkManager
     class UpdateCoreNetworkOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateCoreNetworkOutput, context: context)
-        Validators::CoreNetwork.validate!(input[:core_network], context: "#{context}[:core_network]") unless input[:core_network].nil?
+        CoreNetwork.validate!(input[:core_network], context: "#{context}[:core_network]") unless input[:core_network].nil?
       end
     end
 
@@ -2290,13 +2292,13 @@ module AWS::SDK::NetworkManager
         Hearth::Validator.validate!(input, Types::UpdateDeviceInput, context: context)
         Hearth::Validator.validate!(input[:global_network_id], ::String, context: "#{context}[:global_network_id]")
         Hearth::Validator.validate!(input[:device_id], ::String, context: "#{context}[:device_id]")
-        Validators::AWSLocation.validate!(input[:aws_location], context: "#{context}[:aws_location]") unless input[:aws_location].nil?
+        AWSLocation.validate!(input[:aws_location], context: "#{context}[:aws_location]") unless input[:aws_location].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:vendor], ::String, context: "#{context}[:vendor]")
         Hearth::Validator.validate!(input[:model], ::String, context: "#{context}[:model]")
         Hearth::Validator.validate!(input[:serial_number], ::String, context: "#{context}[:serial_number]")
-        Validators::Location.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        Location.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
         Hearth::Validator.validate!(input[:site_id], ::String, context: "#{context}[:site_id]")
       end
     end
@@ -2304,7 +2306,7 @@ module AWS::SDK::NetworkManager
     class UpdateDeviceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateDeviceOutput, context: context)
-        Validators::Device.validate!(input[:device], context: "#{context}[:device]") unless input[:device].nil?
+        Device.validate!(input[:device], context: "#{context}[:device]") unless input[:device].nil?
       end
     end
 
@@ -2319,7 +2321,7 @@ module AWS::SDK::NetworkManager
     class UpdateGlobalNetworkOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateGlobalNetworkOutput, context: context)
-        Validators::GlobalNetwork.validate!(input[:global_network], context: "#{context}[:global_network]") unless input[:global_network].nil?
+        GlobalNetwork.validate!(input[:global_network], context: "#{context}[:global_network]") unless input[:global_network].nil?
       end
     end
 
@@ -2330,7 +2332,7 @@ module AWS::SDK::NetworkManager
         Hearth::Validator.validate!(input[:link_id], ::String, context: "#{context}[:link_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::Bandwidth.validate!(input[:bandwidth], context: "#{context}[:bandwidth]") unless input[:bandwidth].nil?
+        Bandwidth.validate!(input[:bandwidth], context: "#{context}[:bandwidth]") unless input[:bandwidth].nil?
         Hearth::Validator.validate!(input[:provider], ::String, context: "#{context}[:provider]")
       end
     end
@@ -2338,7 +2340,7 @@ module AWS::SDK::NetworkManager
     class UpdateLinkOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateLinkOutput, context: context)
-        Validators::Link.validate!(input[:link], context: "#{context}[:link]") unless input[:link].nil?
+        Link.validate!(input[:link], context: "#{context}[:link]") unless input[:link].nil?
       end
     end
 
@@ -2347,7 +2349,7 @@ module AWS::SDK::NetworkManager
         Hearth::Validator.validate!(input, Types::UpdateNetworkResourceMetadataInput, context: context)
         Hearth::Validator.validate!(input[:global_network_id], ::String, context: "#{context}[:global_network_id]")
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::NetworkResourceMetadataMap.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
+        NetworkResourceMetadataMap.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
       end
     end
 
@@ -2355,7 +2357,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateNetworkResourceMetadataOutput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::NetworkResourceMetadataMap.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
+        NetworkResourceMetadataMap.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
       end
     end
 
@@ -2365,14 +2367,14 @@ module AWS::SDK::NetworkManager
         Hearth::Validator.validate!(input[:global_network_id], ::String, context: "#{context}[:global_network_id]")
         Hearth::Validator.validate!(input[:site_id], ::String, context: "#{context}[:site_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::Location.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        Location.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
       end
     end
 
     class UpdateSiteOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateSiteOutput, context: context)
-        Validators::Site.validate!(input[:site], context: "#{context}[:site]") unless input[:site].nil?
+        Site.validate!(input[:site], context: "#{context}[:site]") unless input[:site].nil?
       end
     end
 
@@ -2380,16 +2382,16 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateVpcAttachmentInput, context: context)
         Hearth::Validator.validate!(input[:attachment_id], ::String, context: "#{context}[:attachment_id]")
-        Validators::SubnetArnList.validate!(input[:add_subnet_arns], context: "#{context}[:add_subnet_arns]") unless input[:add_subnet_arns].nil?
-        Validators::SubnetArnList.validate!(input[:remove_subnet_arns], context: "#{context}[:remove_subnet_arns]") unless input[:remove_subnet_arns].nil?
-        Validators::VpcOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
+        SubnetArnList.validate!(input[:add_subnet_arns], context: "#{context}[:add_subnet_arns]") unless input[:add_subnet_arns].nil?
+        SubnetArnList.validate!(input[:remove_subnet_arns], context: "#{context}[:remove_subnet_arns]") unless input[:remove_subnet_arns].nil?
+        VpcOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
       end
     end
 
     class UpdateVpcAttachmentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateVpcAttachmentOutput, context: context)
-        Validators::VpcAttachment.validate!(input[:vpc_attachment], context: "#{context}[:vpc_attachment]") unless input[:vpc_attachment].nil?
+        VpcAttachment.validate!(input[:vpc_attachment], context: "#{context}[:vpc_attachment]") unless input[:vpc_attachment].nil?
       end
     end
 
@@ -2398,7 +2400,7 @@ module AWS::SDK::NetworkManager
         Hearth::Validator.validate!(input, Types::ValidationException, context: context)
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:reason], ::String, context: "#{context}[:reason]")
-        Validators::ValidationExceptionFieldList.validate!(input[:fields], context: "#{context}[:fields]") unless input[:fields].nil?
+        ValidationExceptionFieldList.validate!(input[:fields], context: "#{context}[:fields]") unless input[:fields].nil?
       end
     end
 
@@ -2414,7 +2416,7 @@ module AWS::SDK::NetworkManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ValidationExceptionField.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ValidationExceptionField.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2422,9 +2424,9 @@ module AWS::SDK::NetworkManager
     class VpcAttachment
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VpcAttachment, context: context)
-        Validators::Attachment.validate!(input[:attachment], context: "#{context}[:attachment]") unless input[:attachment].nil?
-        Validators::SubnetArnList.validate!(input[:subnet_arns], context: "#{context}[:subnet_arns]") unless input[:subnet_arns].nil?
-        Validators::VpcOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
+        Attachment.validate!(input[:attachment], context: "#{context}[:attachment]") unless input[:attachment].nil?
+        SubnetArnList.validate!(input[:subnet_arns], context: "#{context}[:subnet_arns]") unless input[:subnet_arns].nil?
+        VpcOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
       end
     end
 

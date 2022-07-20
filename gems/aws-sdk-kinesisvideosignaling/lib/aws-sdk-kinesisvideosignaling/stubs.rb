@@ -14,7 +14,7 @@ module AWS::SDK::KinesisVideoSignaling
     class GetIceServerConfig
       def self.default(visited=[])
         {
-          ice_server_list: Stubs::IceServerList.default(visited),
+          ice_server_list: IceServerList.default(visited),
         }
       end
 
@@ -33,7 +33,7 @@ module AWS::SDK::KinesisVideoSignaling
         return nil if visited.include?('IceServerList')
         visited = visited + ['IceServerList']
         [
-          Stubs::IceServer.default(visited)
+          IceServer.default(visited)
         ]
       end
 
@@ -53,7 +53,7 @@ module AWS::SDK::KinesisVideoSignaling
         return nil if visited.include?('IceServer')
         visited = visited + ['IceServer']
         {
-          uris: Stubs::Uris.default(visited),
+          uris: Uris.default(visited),
           username: 'username',
           password: 'password',
           ttl: 1,

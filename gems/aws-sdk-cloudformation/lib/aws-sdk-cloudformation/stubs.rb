@@ -34,9 +34,9 @@ module AWS::SDK::CloudFormation
     class BatchDescribeTypeConfigurations
       def self.default(visited=[])
         {
-          errors: Stubs::BatchDescribeTypeConfigurationsErrors.default(visited),
-          unprocessed_type_configurations: Stubs::UnprocessedTypeConfigurations.default(visited),
-          type_configurations: Stubs::TypeConfigurationDetailsList.default(visited),
+          errors: BatchDescribeTypeConfigurationsErrors.default(visited),
+          unprocessed_type_configurations: UnprocessedTypeConfigurations.default(visited),
+          type_configurations: TypeConfigurationDetailsList.default(visited),
         }
       end
 
@@ -60,7 +60,7 @@ module AWS::SDK::CloudFormation
         return nil if visited.include?('TypeConfigurationDetailsList')
         visited = visited + ['TypeConfigurationDetailsList']
         [
-          Stubs::TypeConfigurationDetails.default(visited)
+          TypeConfigurationDetails.default(visited)
         ]
       end
 
@@ -109,7 +109,7 @@ module AWS::SDK::CloudFormation
         return nil if visited.include?('UnprocessedTypeConfigurations')
         visited = visited + ['UnprocessedTypeConfigurations']
         [
-          Stubs::TypeConfigurationIdentifier.default(visited)
+          TypeConfigurationIdentifier.default(visited)
         ]
       end
 
@@ -154,7 +154,7 @@ module AWS::SDK::CloudFormation
         return nil if visited.include?('BatchDescribeTypeConfigurationsErrors')
         visited = visited + ['BatchDescribeTypeConfigurationsErrors']
         [
-          Stubs::BatchDescribeTypeConfigurationsError.default(visited)
+          BatchDescribeTypeConfigurationsError.default(visited)
         ]
       end
 
@@ -175,7 +175,7 @@ module AWS::SDK::CloudFormation
         {
           error_code: 'error_code',
           error_message: 'error_message',
-          type_configuration_identifier: Stubs::TypeConfigurationIdentifier.default(visited),
+          type_configuration_identifier: TypeConfigurationIdentifier.default(visited),
         }
       end
 
@@ -421,7 +421,7 @@ module AWS::SDK::CloudFormation
     class DescribeAccountLimits
       def self.default(visited=[])
         {
-          account_limits: Stubs::AccountLimitList.default(visited),
+          account_limits: AccountLimitList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -445,7 +445,7 @@ module AWS::SDK::CloudFormation
         return nil if visited.include?('AccountLimitList')
         visited = visited + ['AccountLimitList']
         [
-          Stubs::AccountLimit.default(visited)
+          AccountLimit.default(visited)
         ]
       end
 
@@ -487,16 +487,16 @@ module AWS::SDK::CloudFormation
           stack_id: 'stack_id',
           stack_name: 'stack_name',
           description: 'description',
-          parameters: Stubs::Parameters.default(visited),
+          parameters: Parameters.default(visited),
           creation_time: Time.now,
           execution_status: 'execution_status',
           status: 'status',
           status_reason: 'status_reason',
-          notification_ar_ns: Stubs::NotificationARNs.default(visited),
-          rollback_configuration: Stubs::RollbackConfiguration.default(visited),
-          capabilities: Stubs::Capabilities.default(visited),
-          tags: Stubs::Tags.default(visited),
-          changes: Stubs::Changes.default(visited),
+          notification_ar_ns: NotificationARNs.default(visited),
+          rollback_configuration: RollbackConfiguration.default(visited),
+          capabilities: Capabilities.default(visited),
+          tags: Tags.default(visited),
+          changes: Changes.default(visited),
           next_token: 'next_token',
           include_nested_stacks: false,
           parent_change_set_id: 'parent_change_set_id',
@@ -540,7 +540,7 @@ module AWS::SDK::CloudFormation
         return nil if visited.include?('Changes')
         visited = visited + ['Changes']
         [
-          Stubs::Change.default(visited)
+          Change.default(visited)
         ]
       end
 
@@ -561,7 +561,7 @@ module AWS::SDK::CloudFormation
         {
           type: 'type',
           hook_invocation_count: 1,
-          resource_change: Stubs::ResourceChange.default(visited),
+          resource_change: ResourceChange.default(visited),
         }
       end
 
@@ -586,10 +586,10 @@ module AWS::SDK::CloudFormation
           physical_resource_id: 'physical_resource_id',
           resource_type: 'resource_type',
           replacement: 'replacement',
-          scope: Stubs::Scope.default(visited),
-          details: Stubs::ResourceChangeDetails.default(visited),
+          scope: Scope.default(visited),
+          details: ResourceChangeDetails.default(visited),
           change_set_id: 'change_set_id',
-          module_info: Stubs::ModuleInfo.default(visited),
+          module_info: ModuleInfo.default(visited),
         }
       end
 
@@ -635,7 +635,7 @@ module AWS::SDK::CloudFormation
         return nil if visited.include?('ResourceChangeDetails')
         visited = visited + ['ResourceChangeDetails']
         [
-          Stubs::ResourceChangeDetail.default(visited)
+          ResourceChangeDetail.default(visited)
         ]
       end
 
@@ -654,7 +654,7 @@ module AWS::SDK::CloudFormation
         return nil if visited.include?('ResourceChangeDetail')
         visited = visited + ['ResourceChangeDetail']
         {
-          target: Stubs::ResourceTargetDefinition.default(visited),
+          target: ResourceTargetDefinition.default(visited),
           evaluation: 'evaluation',
           change_source: 'change_source',
           causing_entity: 'causing_entity',
@@ -719,7 +719,7 @@ module AWS::SDK::CloudFormation
         return nil if visited.include?('Tags')
         visited = visited + ['Tags']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -777,7 +777,7 @@ module AWS::SDK::CloudFormation
         return nil if visited.include?('RollbackConfiguration')
         visited = visited + ['RollbackConfiguration']
         {
-          rollback_triggers: Stubs::RollbackTriggers.default(visited),
+          rollback_triggers: RollbackTriggers.default(visited),
           monitoring_time_in_minutes: 1,
         }
       end
@@ -797,7 +797,7 @@ module AWS::SDK::CloudFormation
         return nil if visited.include?('RollbackTriggers')
         visited = visited + ['RollbackTriggers']
         [
-          Stubs::RollbackTrigger.default(visited)
+          RollbackTrigger.default(visited)
         ]
       end
 
@@ -855,7 +855,7 @@ module AWS::SDK::CloudFormation
         return nil if visited.include?('Parameters')
         visited = visited + ['Parameters']
         [
-          Stubs::Parameter.default(visited)
+          Parameter.default(visited)
         ]
       end
 
@@ -898,7 +898,7 @@ module AWS::SDK::CloudFormation
         {
           change_set_id: 'change_set_id',
           change_set_name: 'change_set_name',
-          hooks: Stubs::ChangeSetHooks.default(visited),
+          hooks: ChangeSetHooks.default(visited),
           status: 'status',
           next_token: 'next_token',
           stack_id: 'stack_id',
@@ -930,7 +930,7 @@ module AWS::SDK::CloudFormation
         return nil if visited.include?('ChangeSetHooks')
         visited = visited + ['ChangeSetHooks']
         [
-          Stubs::ChangeSetHook.default(visited)
+          ChangeSetHook.default(visited)
         ]
       end
 
@@ -954,7 +954,7 @@ module AWS::SDK::CloudFormation
           type_name: 'type_name',
           type_version_id: 'type_version_id',
           type_configuration_version_id: 'type_configuration_version_id',
-          target_details: Stubs::ChangeSetHookTargetDetails.default(visited),
+          target_details: ChangeSetHookTargetDetails.default(visited),
         }
       end
 
@@ -978,7 +978,7 @@ module AWS::SDK::CloudFormation
         visited = visited + ['ChangeSetHookTargetDetails']
         {
           target_type: 'target_type',
-          resource_target_details: Stubs::ChangeSetHookResourceTargetDetails.default(visited),
+          resource_target_details: ChangeSetHookResourceTargetDetails.default(visited),
         }
       end
 
@@ -1075,7 +1075,7 @@ module AWS::SDK::CloudFormation
     class DescribeStackEvents
       def self.default(visited=[])
         {
-          stack_events: Stubs::StackEvents.default(visited),
+          stack_events: StackEvents.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1099,7 +1099,7 @@ module AWS::SDK::CloudFormation
         return nil if visited.include?('StackEvents')
         visited = visited + ['StackEvents']
         [
-          Stubs::StackEvent.default(visited)
+          StackEvent.default(visited)
         ]
       end
 
@@ -1164,7 +1164,7 @@ module AWS::SDK::CloudFormation
     class DescribeStackInstance
       def self.default(visited=[])
         {
-          stack_instance: Stubs::StackInstance.default(visited),
+          stack_instance: StackInstance.default(visited),
         }
       end
 
@@ -1190,9 +1190,9 @@ module AWS::SDK::CloudFormation
           region: 'region',
           account: 'account',
           stack_id: 'stack_id',
-          parameter_overrides: Stubs::Parameters.default(visited),
+          parameter_overrides: Parameters.default(visited),
           status: 'status',
-          stack_instance_status: Stubs::StackInstanceComprehensiveStatus.default(visited),
+          stack_instance_status: StackInstanceComprehensiveStatus.default(visited),
           status_reason: 'status_reason',
           organizational_unit_id: 'organizational_unit_id',
           drift_status: 'drift_status',
@@ -1240,7 +1240,7 @@ module AWS::SDK::CloudFormation
     class DescribeStackResource
       def self.default(visited=[])
         {
-          stack_resource_detail: Stubs::StackResourceDetail.default(visited),
+          stack_resource_detail: StackResourceDetail.default(visited),
         }
       end
 
@@ -1272,8 +1272,8 @@ module AWS::SDK::CloudFormation
           resource_status_reason: 'resource_status_reason',
           description: 'description',
           metadata: 'metadata',
-          drift_information: Stubs::StackResourceDriftInformation.default(visited),
-          module_info: Stubs::ModuleInfo.default(visited),
+          drift_information: StackResourceDriftInformation.default(visited),
+          module_info: ModuleInfo.default(visited),
         }
       end
 
@@ -1320,7 +1320,7 @@ module AWS::SDK::CloudFormation
     class DescribeStackResourceDrifts
       def self.default(visited=[])
         {
-          stack_resource_drifts: Stubs::StackResourceDrifts.default(visited),
+          stack_resource_drifts: StackResourceDrifts.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1344,7 +1344,7 @@ module AWS::SDK::CloudFormation
         return nil if visited.include?('StackResourceDrifts')
         visited = visited + ['StackResourceDrifts']
         [
-          Stubs::StackResourceDrift.default(visited)
+          StackResourceDrift.default(visited)
         ]
       end
 
@@ -1366,14 +1366,14 @@ module AWS::SDK::CloudFormation
           stack_id: 'stack_id',
           logical_resource_id: 'logical_resource_id',
           physical_resource_id: 'physical_resource_id',
-          physical_resource_id_context: Stubs::PhysicalResourceIdContext.default(visited),
+          physical_resource_id_context: PhysicalResourceIdContext.default(visited),
           resource_type: 'resource_type',
           expected_properties: 'expected_properties',
           actual_properties: 'actual_properties',
-          property_differences: Stubs::PropertyDifferences.default(visited),
+          property_differences: PropertyDifferences.default(visited),
           stack_resource_drift_status: 'stack_resource_drift_status',
           timestamp: Time.now,
-          module_info: Stubs::ModuleInfo.default(visited),
+          module_info: ModuleInfo.default(visited),
         }
       end
 
@@ -1401,7 +1401,7 @@ module AWS::SDK::CloudFormation
         return nil if visited.include?('PropertyDifferences')
         visited = visited + ['PropertyDifferences']
         [
-          Stubs::PropertyDifference.default(visited)
+          PropertyDifference.default(visited)
         ]
       end
 
@@ -1444,7 +1444,7 @@ module AWS::SDK::CloudFormation
         return nil if visited.include?('PhysicalResourceIdContext')
         visited = visited + ['PhysicalResourceIdContext']
         [
-          Stubs::PhysicalResourceIdContextKeyValuePair.default(visited)
+          PhysicalResourceIdContextKeyValuePair.default(visited)
         ]
       end
 
@@ -1481,7 +1481,7 @@ module AWS::SDK::CloudFormation
     class DescribeStackResources
       def self.default(visited=[])
         {
-          stack_resources: Stubs::StackResources.default(visited),
+          stack_resources: StackResources.default(visited),
         }
       end
 
@@ -1503,7 +1503,7 @@ module AWS::SDK::CloudFormation
         return nil if visited.include?('StackResources')
         visited = visited + ['StackResources']
         [
-          Stubs::StackResource.default(visited)
+          StackResource.default(visited)
         ]
       end
 
@@ -1531,8 +1531,8 @@ module AWS::SDK::CloudFormation
           resource_status: 'resource_status',
           resource_status_reason: 'resource_status_reason',
           description: 'description',
-          drift_information: Stubs::StackResourceDriftInformation.default(visited),
-          module_info: Stubs::ModuleInfo.default(visited),
+          drift_information: StackResourceDriftInformation.default(visited),
+          module_info: ModuleInfo.default(visited),
         }
       end
 
@@ -1558,7 +1558,7 @@ module AWS::SDK::CloudFormation
     class DescribeStackSet
       def self.default(visited=[])
         {
-          stack_set: Stubs::StackSet.default(visited),
+          stack_set: StackSet.default(visited),
         }
       end
 
@@ -1585,17 +1585,17 @@ module AWS::SDK::CloudFormation
           description: 'description',
           status: 'status',
           template_body: 'template_body',
-          parameters: Stubs::Parameters.default(visited),
-          capabilities: Stubs::Capabilities.default(visited),
-          tags: Stubs::Tags.default(visited),
+          parameters: Parameters.default(visited),
+          capabilities: Capabilities.default(visited),
+          tags: Tags.default(visited),
           stack_set_arn: 'stack_set_arn',
           administration_role_arn: 'administration_role_arn',
           execution_role_name: 'execution_role_name',
-          stack_set_drift_detection_details: Stubs::StackSetDriftDetectionDetails.default(visited),
-          auto_deployment: Stubs::AutoDeployment.default(visited),
+          stack_set_drift_detection_details: StackSetDriftDetectionDetails.default(visited),
+          auto_deployment: AutoDeployment.default(visited),
           permission_model: 'permission_model',
-          organizational_unit_ids: Stubs::OrganizationalUnitIdList.default(visited),
-          managed_execution: Stubs::ManagedExecution.default(visited),
+          organizational_unit_ids: OrganizationalUnitIdList.default(visited),
+          managed_execution: ManagedExecution.default(visited),
         }
       end
 
@@ -1715,7 +1715,7 @@ module AWS::SDK::CloudFormation
     class DescribeStackSetOperation
       def self.default(visited=[])
         {
-          stack_set_operation: Stubs::StackSetOperation.default(visited),
+          stack_set_operation: StackSetOperation.default(visited),
         }
       end
 
@@ -1741,14 +1741,14 @@ module AWS::SDK::CloudFormation
           stack_set_id: 'stack_set_id',
           action: 'action',
           status: 'status',
-          operation_preferences: Stubs::StackSetOperationPreferences.default(visited),
+          operation_preferences: StackSetOperationPreferences.default(visited),
           retain_stacks: false,
           administration_role_arn: 'administration_role_arn',
           execution_role_name: 'execution_role_name',
           creation_timestamp: Time.now,
           end_timestamp: Time.now,
-          deployment_targets: Stubs::DeploymentTargets.default(visited),
-          stack_set_drift_detection_details: Stubs::StackSetDriftDetectionDetails.default(visited),
+          deployment_targets: DeploymentTargets.default(visited),
+          stack_set_drift_detection_details: StackSetDriftDetectionDetails.default(visited),
           status_reason: 'status_reason',
         }
       end
@@ -1779,9 +1779,9 @@ module AWS::SDK::CloudFormation
         return nil if visited.include?('DeploymentTargets')
         visited = visited + ['DeploymentTargets']
         {
-          accounts: Stubs::AccountList.default(visited),
+          accounts: AccountList.default(visited),
           accounts_url: 'accounts_url',
-          organizational_unit_ids: Stubs::OrganizationalUnitIdList.default(visited),
+          organizational_unit_ids: OrganizationalUnitIdList.default(visited),
         }
       end
 
@@ -1821,7 +1821,7 @@ module AWS::SDK::CloudFormation
         visited = visited + ['StackSetOperationPreferences']
         {
           region_concurrency_type: 'region_concurrency_type',
-          region_order: Stubs::RegionList.default(visited),
+          region_order: RegionList.default(visited),
           failure_tolerance_count: 1,
           failure_tolerance_percentage: 1,
           max_concurrent_count: 1,
@@ -1865,7 +1865,7 @@ module AWS::SDK::CloudFormation
     class DescribeStacks
       def self.default(visited=[])
         {
-          stacks: Stubs::Stacks.default(visited),
+          stacks: Stacks.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1889,7 +1889,7 @@ module AWS::SDK::CloudFormation
         return nil if visited.include?('Stacks')
         visited = visited + ['Stacks']
         [
-          Stubs::Stack.default(visited)
+          Stack.default(visited)
         ]
       end
 
@@ -1912,24 +1912,24 @@ module AWS::SDK::CloudFormation
           stack_name: 'stack_name',
           change_set_id: 'change_set_id',
           description: 'description',
-          parameters: Stubs::Parameters.default(visited),
+          parameters: Parameters.default(visited),
           creation_time: Time.now,
           deletion_time: Time.now,
           last_updated_time: Time.now,
-          rollback_configuration: Stubs::RollbackConfiguration.default(visited),
+          rollback_configuration: RollbackConfiguration.default(visited),
           stack_status: 'stack_status',
           stack_status_reason: 'stack_status_reason',
           disable_rollback: false,
-          notification_ar_ns: Stubs::NotificationARNs.default(visited),
+          notification_ar_ns: NotificationARNs.default(visited),
           timeout_in_minutes: 1,
-          capabilities: Stubs::Capabilities.default(visited),
-          outputs: Stubs::Outputs.default(visited),
+          capabilities: Capabilities.default(visited),
+          outputs: Outputs.default(visited),
           role_arn: 'role_arn',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           enable_termination_protection: false,
           parent_id: 'parent_id',
           root_id: 'root_id',
-          drift_information: Stubs::StackDriftInformation.default(visited),
+          drift_information: StackDriftInformation.default(visited),
         }
       end
 
@@ -1988,7 +1988,7 @@ module AWS::SDK::CloudFormation
         return nil if visited.include?('Outputs')
         visited = visited + ['Outputs']
         [
-          Stubs::Output.default(visited)
+          Output.default(visited)
         ]
       end
 
@@ -2040,8 +2040,8 @@ module AWS::SDK::CloudFormation
           schema: 'schema',
           provisioning_type: 'provisioning_type',
           deprecated_status: 'deprecated_status',
-          logging_config: Stubs::LoggingConfig.default(visited),
-          required_activated_types: Stubs::RequiredActivatedTypes.default(visited),
+          logging_config: LoggingConfig.default(visited),
+          required_activated_types: RequiredActivatedTypes.default(visited),
           execution_role_arn: 'execution_role_arn',
           visibility: 'visibility',
           source_url: 'source_url',
@@ -2103,7 +2103,7 @@ module AWS::SDK::CloudFormation
         return nil if visited.include?('RequiredActivatedTypes')
         visited = visited + ['RequiredActivatedTypes']
         [
-          Stubs::RequiredActivatedType.default(visited)
+          RequiredActivatedType.default(visited)
         ]
       end
 
@@ -2125,7 +2125,7 @@ module AWS::SDK::CloudFormation
           type_name_alias: 'type_name_alias',
           original_type_name: 'original_type_name',
           publisher_id: 'publisher_id',
-          supported_major_versions: Stubs::SupportedMajorVersions.default(visited),
+          supported_major_versions: SupportedMajorVersions.default(visited),
         }
       end
 
@@ -2229,7 +2229,7 @@ module AWS::SDK::CloudFormation
     class DetectStackResourceDrift
       def self.default(visited=[])
         {
-          stack_resource_drift: Stubs::StackResourceDrift.default(visited),
+          stack_resource_drift: StackResourceDrift.default(visited),
         }
       end
 
@@ -2328,7 +2328,7 @@ module AWS::SDK::CloudFormation
       def self.default(visited=[])
         {
           template_body: 'template_body',
-          stages_available: Stubs::StageList.default(visited),
+          stages_available: StageList.default(visited),
         }
       end
 
@@ -2368,15 +2368,15 @@ module AWS::SDK::CloudFormation
     class GetTemplateSummary
       def self.default(visited=[])
         {
-          parameters: Stubs::ParameterDeclarations.default(visited),
+          parameters: ParameterDeclarations.default(visited),
           description: 'description',
-          capabilities: Stubs::Capabilities.default(visited),
+          capabilities: Capabilities.default(visited),
           capabilities_reason: 'capabilities_reason',
-          resource_types: Stubs::ResourceTypes.default(visited),
+          resource_types: ResourceTypes.default(visited),
           version: 'version',
           metadata: 'metadata',
-          declared_transforms: Stubs::TransformsList.default(visited),
-          resource_identifier_summaries: Stubs::ResourceIdentifierSummaries.default(visited),
+          declared_transforms: TransformsList.default(visited),
+          resource_identifier_summaries: ResourceIdentifierSummaries.default(visited),
         }
       end
 
@@ -2406,7 +2406,7 @@ module AWS::SDK::CloudFormation
         return nil if visited.include?('ResourceIdentifierSummaries')
         visited = visited + ['ResourceIdentifierSummaries']
         [
-          Stubs::ResourceIdentifierSummary.default(visited)
+          ResourceIdentifierSummary.default(visited)
         ]
       end
 
@@ -2426,8 +2426,8 @@ module AWS::SDK::CloudFormation
         visited = visited + ['ResourceIdentifierSummary']
         {
           resource_type: 'resource_type',
-          logical_resource_ids: Stubs::LogicalResourceIds.default(visited),
-          resource_identifiers: Stubs::ResourceIdentifiers.default(visited),
+          logical_resource_ids: LogicalResourceIds.default(visited),
+          resource_identifiers: ResourceIdentifiers.default(visited),
         }
       end
 
@@ -2523,7 +2523,7 @@ module AWS::SDK::CloudFormation
         return nil if visited.include?('ParameterDeclarations')
         visited = visited + ['ParameterDeclarations']
         [
-          Stubs::ParameterDeclaration.default(visited)
+          ParameterDeclaration.default(visited)
         ]
       end
 
@@ -2547,7 +2547,7 @@ module AWS::SDK::CloudFormation
           parameter_type: 'parameter_type',
           no_echo: false,
           description: 'description',
-          parameter_constraints: Stubs::ParameterConstraints.default(visited),
+          parameter_constraints: ParameterConstraints.default(visited),
         }
       end
 
@@ -2570,7 +2570,7 @@ module AWS::SDK::CloudFormation
         return nil if visited.include?('ParameterConstraints')
         visited = visited + ['ParameterConstraints']
         {
-          allowed_values: Stubs::AllowedValues.default(visited),
+          allowed_values: AllowedValues.default(visited),
         }
       end
 
@@ -2625,7 +2625,7 @@ module AWS::SDK::CloudFormation
     class ListChangeSets
       def self.default(visited=[])
         {
-          summaries: Stubs::ChangeSetSummaries.default(visited),
+          summaries: ChangeSetSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2649,7 +2649,7 @@ module AWS::SDK::CloudFormation
         return nil if visited.include?('ChangeSetSummaries')
         visited = visited + ['ChangeSetSummaries']
         [
-          Stubs::ChangeSetSummary.default(visited)
+          ChangeSetSummary.default(visited)
         ]
       end
 
@@ -2706,7 +2706,7 @@ module AWS::SDK::CloudFormation
     class ListExports
       def self.default(visited=[])
         {
-          exports: Stubs::Exports.default(visited),
+          exports: Exports.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2730,7 +2730,7 @@ module AWS::SDK::CloudFormation
         return nil if visited.include?('Exports')
         visited = visited + ['Exports']
         [
-          Stubs::Export.default(visited)
+          Export.default(visited)
         ]
       end
 
@@ -2769,7 +2769,7 @@ module AWS::SDK::CloudFormation
     class ListImports
       def self.default(visited=[])
         {
-          imports: Stubs::Imports.default(visited),
+          imports: Imports.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2810,7 +2810,7 @@ module AWS::SDK::CloudFormation
     class ListStackInstances
       def self.default(visited=[])
         {
-          summaries: Stubs::StackInstanceSummaries.default(visited),
+          summaries: StackInstanceSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2834,7 +2834,7 @@ module AWS::SDK::CloudFormation
         return nil if visited.include?('StackInstanceSummaries')
         visited = visited + ['StackInstanceSummaries']
         [
-          Stubs::StackInstanceSummary.default(visited)
+          StackInstanceSummary.default(visited)
         ]
       end
 
@@ -2859,7 +2859,7 @@ module AWS::SDK::CloudFormation
           stack_id: 'stack_id',
           status: 'status',
           status_reason: 'status_reason',
-          stack_instance_status: Stubs::StackInstanceComprehensiveStatus.default(visited),
+          stack_instance_status: StackInstanceComprehensiveStatus.default(visited),
           organizational_unit_id: 'organizational_unit_id',
           drift_status: 'drift_status',
           last_drift_check_timestamp: Time.now,
@@ -2887,7 +2887,7 @@ module AWS::SDK::CloudFormation
     class ListStackResources
       def self.default(visited=[])
         {
-          stack_resource_summaries: Stubs::StackResourceSummaries.default(visited),
+          stack_resource_summaries: StackResourceSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2911,7 +2911,7 @@ module AWS::SDK::CloudFormation
         return nil if visited.include?('StackResourceSummaries')
         visited = visited + ['StackResourceSummaries']
         [
-          Stubs::StackResourceSummary.default(visited)
+          StackResourceSummary.default(visited)
         ]
       end
 
@@ -2936,8 +2936,8 @@ module AWS::SDK::CloudFormation
           last_updated_timestamp: Time.now,
           resource_status: 'resource_status',
           resource_status_reason: 'resource_status_reason',
-          drift_information: Stubs::StackResourceDriftInformationSummary.default(visited),
-          module_info: Stubs::ModuleInfo.default(visited),
+          drift_information: StackResourceDriftInformationSummary.default(visited),
+          module_info: ModuleInfo.default(visited),
         }
       end
 
@@ -2980,7 +2980,7 @@ module AWS::SDK::CloudFormation
     class ListStackSetOperationResults
       def self.default(visited=[])
         {
-          summaries: Stubs::StackSetOperationResultSummaries.default(visited),
+          summaries: StackSetOperationResultSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3004,7 +3004,7 @@ module AWS::SDK::CloudFormation
         return nil if visited.include?('StackSetOperationResultSummaries')
         visited = visited + ['StackSetOperationResultSummaries']
         [
-          Stubs::StackSetOperationResultSummary.default(visited)
+          StackSetOperationResultSummary.default(visited)
         ]
       end
 
@@ -3027,7 +3027,7 @@ module AWS::SDK::CloudFormation
           region: 'region',
           status: 'status',
           status_reason: 'status_reason',
-          account_gate_result: Stubs::AccountGateResult.default(visited),
+          account_gate_result: AccountGateResult.default(visited),
           organizational_unit_id: 'organizational_unit_id',
         }
       end
@@ -3069,7 +3069,7 @@ module AWS::SDK::CloudFormation
     class ListStackSetOperations
       def self.default(visited=[])
         {
-          summaries: Stubs::StackSetOperationSummaries.default(visited),
+          summaries: StackSetOperationSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3093,7 +3093,7 @@ module AWS::SDK::CloudFormation
         return nil if visited.include?('StackSetOperationSummaries')
         visited = visited + ['StackSetOperationSummaries']
         [
-          Stubs::StackSetOperationSummary.default(visited)
+          StackSetOperationSummary.default(visited)
         ]
       end
 
@@ -3138,7 +3138,7 @@ module AWS::SDK::CloudFormation
     class ListStackSets
       def self.default(visited=[])
         {
-          summaries: Stubs::StackSetSummaries.default(visited),
+          summaries: StackSetSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3162,7 +3162,7 @@ module AWS::SDK::CloudFormation
         return nil if visited.include?('StackSetSummaries')
         visited = visited + ['StackSetSummaries']
         [
-          Stubs::StackSetSummary.default(visited)
+          StackSetSummary.default(visited)
         ]
       end
 
@@ -3185,11 +3185,11 @@ module AWS::SDK::CloudFormation
           stack_set_id: 'stack_set_id',
           description: 'description',
           status: 'status',
-          auto_deployment: Stubs::AutoDeployment.default(visited),
+          auto_deployment: AutoDeployment.default(visited),
           permission_model: 'permission_model',
           drift_status: 'drift_status',
           last_drift_check_timestamp: Time.now,
-          managed_execution: Stubs::ManagedExecution.default(visited),
+          managed_execution: ManagedExecution.default(visited),
         }
       end
 
@@ -3213,7 +3213,7 @@ module AWS::SDK::CloudFormation
     class ListStacks
       def self.default(visited=[])
         {
-          stack_summaries: Stubs::StackSummaries.default(visited),
+          stack_summaries: StackSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3237,7 +3237,7 @@ module AWS::SDK::CloudFormation
         return nil if visited.include?('StackSummaries')
         visited = visited + ['StackSummaries']
         [
-          Stubs::StackSummary.default(visited)
+          StackSummary.default(visited)
         ]
       end
 
@@ -3266,7 +3266,7 @@ module AWS::SDK::CloudFormation
           stack_status_reason: 'stack_status_reason',
           parent_id: 'parent_id',
           root_id: 'root_id',
-          drift_information: Stubs::StackDriftInformationSummary.default(visited),
+          drift_information: StackDriftInformationSummary.default(visited),
         }
       end
 
@@ -3312,7 +3312,7 @@ module AWS::SDK::CloudFormation
     class ListTypeRegistrations
       def self.default(visited=[])
         {
-          registration_token_list: Stubs::RegistrationTokenList.default(visited),
+          registration_token_list: RegistrationTokenList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3353,7 +3353,7 @@ module AWS::SDK::CloudFormation
     class ListTypeVersions
       def self.default(visited=[])
         {
-          type_version_summaries: Stubs::TypeVersionSummaries.default(visited),
+          type_version_summaries: TypeVersionSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3377,7 +3377,7 @@ module AWS::SDK::CloudFormation
         return nil if visited.include?('TypeVersionSummaries')
         visited = visited + ['TypeVersionSummaries']
         [
-          Stubs::TypeVersionSummary.default(visited)
+          TypeVersionSummary.default(visited)
         ]
       end
 
@@ -3426,7 +3426,7 @@ module AWS::SDK::CloudFormation
     class ListTypes
       def self.default(visited=[])
         {
-          type_summaries: Stubs::TypeSummaries.default(visited),
+          type_summaries: TypeSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3450,7 +3450,7 @@ module AWS::SDK::CloudFormation
         return nil if visited.include?('TypeSummaries')
         visited = visited + ['TypeSummaries']
         [
-          Stubs::TypeSummary.default(visited)
+          TypeSummary.default(visited)
         ]
       end
 
@@ -3799,11 +3799,11 @@ module AWS::SDK::CloudFormation
     class ValidateTemplate
       def self.default(visited=[])
         {
-          parameters: Stubs::TemplateParameters.default(visited),
+          parameters: TemplateParameters.default(visited),
           description: 'description',
-          capabilities: Stubs::Capabilities.default(visited),
+          capabilities: Capabilities.default(visited),
           capabilities_reason: 'capabilities_reason',
-          declared_transforms: Stubs::TransformsList.default(visited),
+          declared_transforms: TransformsList.default(visited),
         }
       end
 
@@ -3829,7 +3829,7 @@ module AWS::SDK::CloudFormation
         return nil if visited.include?('TemplateParameters')
         visited = visited + ['TemplateParameters']
         [
-          Stubs::TemplateParameter.default(visited)
+          TemplateParameter.default(visited)
         ]
       end
 

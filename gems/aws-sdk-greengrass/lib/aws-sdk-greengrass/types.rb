@@ -134,13 +134,13 @@ module AWS::SDK::Greengrass
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.invalid_input_records ||= 0
         self.records_processed ||= 0
         self.retry_attempts ||= 0
       end
-
     end
 
     # Information about an individual group deployment in a bulk deployment operation.
@@ -271,11 +271,11 @@ module AWS::SDK::Greengrass
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port_number ||= 0
       end
-
     end
 
     # Information about a connector. Connectors run on the Greengrass core and contain built-in integration with local infrastructure, device protocols, AWS, and other cloud services.
@@ -348,11 +348,11 @@ module AWS::SDK::Greengrass
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.sync_shadow ||= false
       end
-
     end
 
     # Information about a core definition version.
@@ -1935,11 +1935,11 @@ module AWS::SDK::Greengrass
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.sync_shadow ||= false
       end
-
     end
 
     # Information about a device definition version.
@@ -2107,13 +2107,13 @@ module AWS::SDK::Greengrass
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.memory_size ||= 0
         self.pinned ||= false
         self.timeout ||= 0
       end
-
     end
 
     # The environment configuration of the function.
@@ -2146,11 +2146,11 @@ module AWS::SDK::Greengrass
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.access_sysfs ||= false
       end
-
     end
 
     # The default configuration that applies to all Lambda functions in the group. Individual Lambda functions can override these settings.
@@ -2261,12 +2261,12 @@ module AWS::SDK::Greengrass
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.gid ||= 0
         self.uid ||= 0
       end
-
     end
 
     # @!attribute group_id
@@ -3676,11 +3676,11 @@ module AWS::SDK::Greengrass
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_add_group_owner ||= false
       end
-
     end
 
     # Information about a group version.
@@ -4633,11 +4633,11 @@ module AWS::SDK::Greengrass
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.space ||= 0
       end
-
     end
 
     # Includes enum constants for LoggerComponent
@@ -4738,11 +4738,11 @@ module AWS::SDK::Greengrass
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.force ||= false
       end
-
     end
 
     # @!attribute deployment_arn

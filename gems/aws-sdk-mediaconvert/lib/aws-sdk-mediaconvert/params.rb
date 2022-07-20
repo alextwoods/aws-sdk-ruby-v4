@@ -575,7 +575,7 @@ module AWS::SDK::MediaConvert
         type = Types::CreateJobInput.new
         type.acceleration_settings = AccelerationSettings.build(params[:acceleration_settings], context: "#{context}[:acceleration_settings]") unless params[:acceleration_settings].nil?
         type.billing_tags_source = params[:billing_tags_source]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.hop_destinations = List____listOfHopDestination.build(params[:hop_destinations], context: "#{context}[:hop_destinations]") unless params[:hop_destinations].nil?
         type.job_template = params[:job_template]
         type.priority = params[:priority]

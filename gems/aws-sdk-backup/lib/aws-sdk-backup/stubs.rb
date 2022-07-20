@@ -18,7 +18,7 @@ module AWS::SDK::Backup
           backup_plan_arn: 'backup_plan_arn',
           creation_date: Time.now,
           version_id: 'version_id',
-          advanced_backup_settings: Stubs::AdvancedBackupSettings.default(visited),
+          advanced_backup_settings: AdvancedBackupSettings.default(visited),
         }
       end
 
@@ -41,7 +41,7 @@ module AWS::SDK::Backup
         return nil if visited.include?('AdvancedBackupSettings')
         visited = visited + ['AdvancedBackupSettings']
         [
-          Stubs::AdvancedBackupSetting.default(visited)
+          AdvancedBackupSetting.default(visited)
         ]
       end
 
@@ -62,7 +62,7 @@ module AWS::SDK::Backup
         visited = visited + ['AdvancedBackupSetting']
         {
           resource_type: 'resource_type',
-          backup_options: Stubs::BackupOptions.default(visited),
+          backup_options: BackupOptions.default(visited),
         }
       end
 
@@ -321,12 +321,12 @@ module AWS::SDK::Backup
           percent_done: 'percent_done',
           backup_size_in_bytes: 1,
           iam_role_arn: 'iam_role_arn',
-          created_by: Stubs::RecoveryPointCreator.default(visited),
+          created_by: RecoveryPointCreator.default(visited),
           resource_type: 'resource_type',
           bytes_transferred: 1,
           expected_completion_date: Time.now,
           start_by: Time.now,
-          backup_options: Stubs::BackupOptions.default(visited),
+          backup_options: BackupOptions.default(visited),
           backup_type: 'backup_type',
         }
       end
@@ -422,7 +422,7 @@ module AWS::SDK::Backup
     class DescribeCopyJob
       def self.default(visited=[])
         {
-          copy_job: Stubs::CopyJob.default(visited),
+          copy_job: CopyJob.default(visited),
         }
       end
 
@@ -454,7 +454,7 @@ module AWS::SDK::Backup
           status_message: 'status_message',
           backup_size_in_bytes: 1,
           iam_role_arn: 'iam_role_arn',
-          created_by: Stubs::RecoveryPointCreator.default(visited),
+          created_by: RecoveryPointCreator.default(visited),
           resource_type: 'resource_type',
         }
       end
@@ -488,7 +488,7 @@ module AWS::SDK::Backup
           framework_name: 'framework_name',
           framework_arn: 'framework_arn',
           framework_description: 'framework_description',
-          framework_controls: Stubs::FrameworkControls.default(visited),
+          framework_controls: FrameworkControls.default(visited),
           creation_time: Time.now,
           deployment_status: 'deployment_status',
           framework_status: 'framework_status',
@@ -518,7 +518,7 @@ module AWS::SDK::Backup
         return nil if visited.include?('FrameworkControls')
         visited = visited + ['FrameworkControls']
         [
-          Stubs::FrameworkControl.default(visited)
+          FrameworkControl.default(visited)
         ]
       end
 
@@ -539,8 +539,8 @@ module AWS::SDK::Backup
         visited = visited + ['FrameworkControl']
         {
           control_name: 'control_name',
-          control_input_parameters: Stubs::ControlInputParameters.default(visited),
-          control_scope: Stubs::ControlScope.default(visited),
+          control_input_parameters: ControlInputParameters.default(visited),
+          control_scope: ControlScope.default(visited),
         }
       end
 
@@ -560,9 +560,9 @@ module AWS::SDK::Backup
         return nil if visited.include?('ControlScope')
         visited = visited + ['ControlScope']
         {
-          compliance_resource_ids: Stubs::ComplianceResourceIdList.default(visited),
-          compliance_resource_types: Stubs::ResourceTypeList.default(visited),
-          tags: Stubs::StringMap.default(visited),
+          compliance_resource_ids: ComplianceResourceIdList.default(visited),
+          compliance_resource_types: ResourceTypeList.default(visited),
+          tags: StringMap.default(visited),
         }
       end
 
@@ -642,7 +642,7 @@ module AWS::SDK::Backup
         return nil if visited.include?('ControlInputParameters')
         visited = visited + ['ControlInputParameters']
         [
-          Stubs::ControlInputParameter.default(visited)
+          ControlInputParameter.default(visited)
         ]
       end
 
@@ -680,7 +680,7 @@ module AWS::SDK::Backup
     class DescribeGlobalSettings
       def self.default(visited=[])
         {
-          global_settings: Stubs::GlobalSettings.default(visited),
+          global_settings: GlobalSettings.default(visited),
           last_update_time: Time.now,
         }
       end
@@ -746,15 +746,15 @@ module AWS::SDK::Backup
           source_backup_vault_arn: 'source_backup_vault_arn',
           resource_arn: 'resource_arn',
           resource_type: 'resource_type',
-          created_by: Stubs::RecoveryPointCreator.default(visited),
+          created_by: RecoveryPointCreator.default(visited),
           iam_role_arn: 'iam_role_arn',
           status: 'status',
           status_message: 'status_message',
           creation_date: Time.now,
           completion_date: Time.now,
           backup_size_in_bytes: 1,
-          calculated_lifecycle: Stubs::CalculatedLifecycle.default(visited),
-          lifecycle: Stubs::Lifecycle.default(visited),
+          calculated_lifecycle: CalculatedLifecycle.default(visited),
+          lifecycle: Lifecycle.default(visited),
           encryption_key_arn: 'encryption_key_arn',
           is_encrypted: false,
           storage_class: 'storage_class',
@@ -833,8 +833,8 @@ module AWS::SDK::Backup
     class DescribeRegionSettings
       def self.default(visited=[])
         {
-          resource_type_opt_in_preference: Stubs::ResourceTypeOptInPreference.default(visited),
-          resource_type_management_preference: Stubs::ResourceTypeManagementPreference.default(visited),
+          resource_type_opt_in_preference: ResourceTypeOptInPreference.default(visited),
+          resource_type_management_preference: ResourceTypeManagementPreference.default(visited),
         }
       end
 
@@ -892,7 +892,7 @@ module AWS::SDK::Backup
     class DescribeReportJob
       def self.default(visited=[])
         {
-          report_job: Stubs::ReportJob.default(visited),
+          report_job: ReportJob.default(visited),
         }
       end
 
@@ -918,7 +918,7 @@ module AWS::SDK::Backup
           completion_time: Time.now,
           status: 'status',
           status_message: 'status_message',
-          report_destination: Stubs::ReportDestination.default(visited),
+          report_destination: ReportDestination.default(visited),
         }
       end
 
@@ -944,7 +944,7 @@ module AWS::SDK::Backup
         visited = visited + ['ReportDestination']
         {
           s3_bucket_name: 's3_bucket_name',
-          s3_keys: Stubs::StringList.default(visited),
+          s3_keys: StringList.default(visited),
         }
       end
 
@@ -981,7 +981,7 @@ module AWS::SDK::Backup
     class DescribeReportPlan
       def self.default(visited=[])
         {
-          report_plan: Stubs::ReportPlan.default(visited),
+          report_plan: ReportPlan.default(visited),
         }
       end
 
@@ -1003,8 +1003,8 @@ module AWS::SDK::Backup
           report_plan_arn: 'report_plan_arn',
           report_plan_name: 'report_plan_name',
           report_plan_description: 'report_plan_description',
-          report_setting: Stubs::ReportSetting.default(visited),
-          report_delivery_channel: Stubs::ReportDeliveryChannel.default(visited),
+          report_setting: ReportSetting.default(visited),
+          report_delivery_channel: ReportDeliveryChannel.default(visited),
           deployment_status: 'deployment_status',
           creation_time: Time.now,
           last_attempted_execution_time: Time.now,
@@ -1036,7 +1036,7 @@ module AWS::SDK::Backup
         {
           s3_bucket_name: 's3_bucket_name',
           s3_key_prefix: 's3_key_prefix',
-          formats: Stubs::FormatList.default(visited),
+          formats: FormatList.default(visited),
         }
       end
 
@@ -1077,7 +1077,7 @@ module AWS::SDK::Backup
         visited = visited + ['ReportSetting']
         {
           report_template: 'report_template',
-          framework_arns: Stubs::StringList.default(visited),
+          framework_arns: StringList.default(visited),
           number_of_frameworks: 1,
         }
       end
@@ -1167,7 +1167,7 @@ module AWS::SDK::Backup
     class GetBackupPlan
       def self.default(visited=[])
         {
-          backup_plan: Stubs::BackupPlan.default(visited),
+          backup_plan: BackupPlan.default(visited),
           backup_plan_id: 'backup_plan_id',
           backup_plan_arn: 'backup_plan_arn',
           version_id: 'version_id',
@@ -1175,7 +1175,7 @@ module AWS::SDK::Backup
           creation_date: Time.now,
           deletion_date: Time.now,
           last_execution_date: Time.now,
-          advanced_backup_settings: Stubs::AdvancedBackupSettings.default(visited),
+          advanced_backup_settings: AdvancedBackupSettings.default(visited),
         }
       end
 
@@ -1203,8 +1203,8 @@ module AWS::SDK::Backup
         visited = visited + ['BackupPlan']
         {
           backup_plan_name: 'backup_plan_name',
-          rules: Stubs::BackupRules.default(visited),
-          advanced_backup_settings: Stubs::AdvancedBackupSettings.default(visited),
+          rules: BackupRules.default(visited),
+          advanced_backup_settings: AdvancedBackupSettings.default(visited),
         }
       end
 
@@ -1224,7 +1224,7 @@ module AWS::SDK::Backup
         return nil if visited.include?('BackupRules')
         visited = visited + ['BackupRules']
         [
-          Stubs::BackupRule.default(visited)
+          BackupRule.default(visited)
         ]
       end
 
@@ -1249,10 +1249,10 @@ module AWS::SDK::Backup
           schedule_expression: 'schedule_expression',
           start_window_minutes: 1,
           completion_window_minutes: 1,
-          lifecycle: Stubs::Lifecycle.default(visited),
-          recovery_point_tags: Stubs::Tags.default(visited),
+          lifecycle: Lifecycle.default(visited),
+          recovery_point_tags: Tags.default(visited),
           rule_id: 'rule_id',
-          copy_actions: Stubs::CopyActions.default(visited),
+          copy_actions: CopyActions.default(visited),
           enable_continuous_backup: false,
         }
       end
@@ -1280,7 +1280,7 @@ module AWS::SDK::Backup
         return nil if visited.include?('CopyActions')
         visited = visited + ['CopyActions']
         [
-          Stubs::CopyAction.default(visited)
+          CopyAction.default(visited)
         ]
       end
 
@@ -1300,7 +1300,7 @@ module AWS::SDK::Backup
         return nil if visited.include?('CopyAction')
         visited = visited + ['CopyAction']
         {
-          lifecycle: Stubs::Lifecycle.default(visited),
+          lifecycle: Lifecycle.default(visited),
           destination_backup_vault_arn: 'destination_backup_vault_arn',
         }
       end
@@ -1338,7 +1338,7 @@ module AWS::SDK::Backup
     class GetBackupPlanFromJSON
       def self.default(visited=[])
         {
-          backup_plan: Stubs::BackupPlan.default(visited),
+          backup_plan: BackupPlan.default(visited),
         }
       end
 
@@ -1355,7 +1355,7 @@ module AWS::SDK::Backup
     class GetBackupPlanFromTemplate
       def self.default(visited=[])
         {
-          backup_plan_document: Stubs::BackupPlan.default(visited),
+          backup_plan_document: BackupPlan.default(visited),
         }
       end
 
@@ -1372,7 +1372,7 @@ module AWS::SDK::Backup
     class GetBackupSelection
       def self.default(visited=[])
         {
-          backup_selection: Stubs::BackupSelection.default(visited),
+          backup_selection: BackupSelection.default(visited),
           selection_id: 'selection_id',
           backup_plan_id: 'backup_plan_id',
           creation_date: Time.now,
@@ -1401,10 +1401,10 @@ module AWS::SDK::Backup
         {
           selection_name: 'selection_name',
           iam_role_arn: 'iam_role_arn',
-          resources: Stubs::ResourceArns.default(visited),
-          list_of_tags: Stubs::ListOfTags.default(visited),
-          not_resources: Stubs::ResourceArns.default(visited),
-          conditions: Stubs::Conditions.default(visited),
+          resources: ResourceArns.default(visited),
+          list_of_tags: ListOfTags.default(visited),
+          not_resources: ResourceArns.default(visited),
+          conditions: Conditions.default(visited),
         }
       end
 
@@ -1427,10 +1427,10 @@ module AWS::SDK::Backup
         return nil if visited.include?('Conditions')
         visited = visited + ['Conditions']
         {
-          string_equals: Stubs::ConditionParameters.default(visited),
-          string_not_equals: Stubs::ConditionParameters.default(visited),
-          string_like: Stubs::ConditionParameters.default(visited),
-          string_not_like: Stubs::ConditionParameters.default(visited),
+          string_equals: ConditionParameters.default(visited),
+          string_not_equals: ConditionParameters.default(visited),
+          string_like: ConditionParameters.default(visited),
+          string_not_like: ConditionParameters.default(visited),
         }
       end
 
@@ -1451,7 +1451,7 @@ module AWS::SDK::Backup
         return nil if visited.include?('ConditionParameters')
         visited = visited + ['ConditionParameters']
         [
-          Stubs::ConditionParameter.default(visited)
+          ConditionParameter.default(visited)
         ]
       end
 
@@ -1511,7 +1511,7 @@ module AWS::SDK::Backup
         return nil if visited.include?('ListOfTags')
         visited = visited + ['ListOfTags']
         [
-          Stubs::Condition.default(visited)
+          Condition.default(visited)
         ]
       end
 
@@ -1575,7 +1575,7 @@ module AWS::SDK::Backup
           backup_vault_name: 'backup_vault_name',
           backup_vault_arn: 'backup_vault_arn',
           sns_topic_arn: 'sns_topic_arn',
-          backup_vault_events: Stubs::BackupVaultEvents.default(visited),
+          backup_vault_events: BackupVaultEvents.default(visited),
         }
       end
 
@@ -1617,7 +1617,7 @@ module AWS::SDK::Backup
         {
           backup_vault_arn: 'backup_vault_arn',
           recovery_point_arn: 'recovery_point_arn',
-          restore_metadata: Stubs::Metadata.default(visited),
+          restore_metadata: Metadata.default(visited),
         }
       end
 
@@ -1656,7 +1656,7 @@ module AWS::SDK::Backup
     class GetSupportedResourceTypes
       def self.default(visited=[])
         {
-          resource_types: Stubs::ResourceTypes.default(visited),
+          resource_types: ResourceTypes.default(visited),
         }
       end
 
@@ -1693,7 +1693,7 @@ module AWS::SDK::Backup
     class ListBackupJobs
       def self.default(visited=[])
         {
-          backup_jobs: Stubs::BackupJobsList.default(visited),
+          backup_jobs: BackupJobsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1714,7 +1714,7 @@ module AWS::SDK::Backup
         return nil if visited.include?('BackupJobsList')
         visited = visited + ['BackupJobsList']
         [
-          Stubs::BackupJob.default(visited)
+          BackupJob.default(visited)
         ]
       end
 
@@ -1747,12 +1747,12 @@ module AWS::SDK::Backup
           percent_done: 'percent_done',
           backup_size_in_bytes: 1,
           iam_role_arn: 'iam_role_arn',
-          created_by: Stubs::RecoveryPointCreator.default(visited),
+          created_by: RecoveryPointCreator.default(visited),
           expected_completion_date: Time.now,
           start_by: Time.now,
           resource_type: 'resource_type',
           bytes_transferred: 1,
-          backup_options: Stubs::BackupOptions.default(visited),
+          backup_options: BackupOptions.default(visited),
           backup_type: 'backup_type',
         }
       end
@@ -1789,7 +1789,7 @@ module AWS::SDK::Backup
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          backup_plan_templates_list: Stubs::BackupPlanTemplatesList.default(visited),
+          backup_plan_templates_list: BackupPlanTemplatesList.default(visited),
         }
       end
 
@@ -1809,7 +1809,7 @@ module AWS::SDK::Backup
         return nil if visited.include?('BackupPlanTemplatesList')
         visited = visited + ['BackupPlanTemplatesList']
         [
-          Stubs::BackupPlanTemplatesListMember.default(visited)
+          BackupPlanTemplatesListMember.default(visited)
         ]
       end
 
@@ -1848,7 +1848,7 @@ module AWS::SDK::Backup
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          backup_plan_versions_list: Stubs::BackupPlanVersionsList.default(visited),
+          backup_plan_versions_list: BackupPlanVersionsList.default(visited),
         }
       end
 
@@ -1868,7 +1868,7 @@ module AWS::SDK::Backup
         return nil if visited.include?('BackupPlanVersionsList')
         visited = visited + ['BackupPlanVersionsList']
         [
-          Stubs::BackupPlansListMember.default(visited)
+          BackupPlansListMember.default(visited)
         ]
       end
 
@@ -1896,7 +1896,7 @@ module AWS::SDK::Backup
           backup_plan_name: 'backup_plan_name',
           creator_request_id: 'creator_request_id',
           last_execution_date: Time.now,
-          advanced_backup_settings: Stubs::AdvancedBackupSettings.default(visited),
+          advanced_backup_settings: AdvancedBackupSettings.default(visited),
         }
       end
 
@@ -1921,7 +1921,7 @@ module AWS::SDK::Backup
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          backup_plans_list: Stubs::BackupPlansList.default(visited),
+          backup_plans_list: BackupPlansList.default(visited),
         }
       end
 
@@ -1941,7 +1941,7 @@ module AWS::SDK::Backup
         return nil if visited.include?('BackupPlansList')
         visited = visited + ['BackupPlansList']
         [
-          Stubs::BackupPlansListMember.default(visited)
+          BackupPlansListMember.default(visited)
         ]
       end
 
@@ -1960,7 +1960,7 @@ module AWS::SDK::Backup
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          backup_selections_list: Stubs::BackupSelectionsList.default(visited),
+          backup_selections_list: BackupSelectionsList.default(visited),
         }
       end
 
@@ -1980,7 +1980,7 @@ module AWS::SDK::Backup
         return nil if visited.include?('BackupSelectionsList')
         visited = visited + ['BackupSelectionsList']
         [
-          Stubs::BackupSelectionsListMember.default(visited)
+          BackupSelectionsListMember.default(visited)
         ]
       end
 
@@ -2026,7 +2026,7 @@ module AWS::SDK::Backup
     class ListBackupVaults
       def self.default(visited=[])
         {
-          backup_vault_list: Stubs::BackupVaultList.default(visited),
+          backup_vault_list: BackupVaultList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2047,7 +2047,7 @@ module AWS::SDK::Backup
         return nil if visited.include?('BackupVaultList')
         visited = visited + ['BackupVaultList']
         [
-          Stubs::BackupVaultListMember.default(visited)
+          BackupVaultListMember.default(visited)
         ]
       end
 
@@ -2101,7 +2101,7 @@ module AWS::SDK::Backup
     class ListCopyJobs
       def self.default(visited=[])
         {
-          copy_jobs: Stubs::CopyJobsList.default(visited),
+          copy_jobs: CopyJobsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2122,7 +2122,7 @@ module AWS::SDK::Backup
         return nil if visited.include?('CopyJobsList')
         visited = visited + ['CopyJobsList']
         [
-          Stubs::CopyJob.default(visited)
+          CopyJob.default(visited)
         ]
       end
 
@@ -2140,7 +2140,7 @@ module AWS::SDK::Backup
     class ListFrameworks
       def self.default(visited=[])
         {
-          frameworks: Stubs::FrameworkList.default(visited),
+          frameworks: FrameworkList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2161,7 +2161,7 @@ module AWS::SDK::Backup
         return nil if visited.include?('FrameworkList')
         visited = visited + ['FrameworkList']
         [
-          Stubs::Framework.default(visited)
+          Framework.default(visited)
         ]
       end
 
@@ -2207,7 +2207,7 @@ module AWS::SDK::Backup
     class ListProtectedResources
       def self.default(visited=[])
         {
-          results: Stubs::ProtectedResourcesList.default(visited),
+          results: ProtectedResourcesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2228,7 +2228,7 @@ module AWS::SDK::Backup
         return nil if visited.include?('ProtectedResourcesList')
         visited = visited + ['ProtectedResourcesList']
         [
-          Stubs::ProtectedResource.default(visited)
+          ProtectedResource.default(visited)
         ]
       end
 
@@ -2269,7 +2269,7 @@ module AWS::SDK::Backup
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          recovery_points: Stubs::RecoveryPointByBackupVaultList.default(visited),
+          recovery_points: RecoveryPointByBackupVaultList.default(visited),
         }
       end
 
@@ -2289,7 +2289,7 @@ module AWS::SDK::Backup
         return nil if visited.include?('RecoveryPointByBackupVaultList')
         visited = visited + ['RecoveryPointByBackupVaultList']
         [
-          Stubs::RecoveryPointByBackupVault.default(visited)
+          RecoveryPointByBackupVault.default(visited)
         ]
       end
 
@@ -2315,15 +2315,15 @@ module AWS::SDK::Backup
           source_backup_vault_arn: 'source_backup_vault_arn',
           resource_arn: 'resource_arn',
           resource_type: 'resource_type',
-          created_by: Stubs::RecoveryPointCreator.default(visited),
+          created_by: RecoveryPointCreator.default(visited),
           iam_role_arn: 'iam_role_arn',
           status: 'status',
           status_message: 'status_message',
           creation_date: Time.now,
           completion_date: Time.now,
           backup_size_in_bytes: 1,
-          calculated_lifecycle: Stubs::CalculatedLifecycle.default(visited),
-          lifecycle: Stubs::Lifecycle.default(visited),
+          calculated_lifecycle: CalculatedLifecycle.default(visited),
+          lifecycle: Lifecycle.default(visited),
           encryption_key_arn: 'encryption_key_arn',
           is_encrypted: false,
           last_restore_time: Time.now,
@@ -2360,7 +2360,7 @@ module AWS::SDK::Backup
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          recovery_points: Stubs::RecoveryPointByResourceList.default(visited),
+          recovery_points: RecoveryPointByResourceList.default(visited),
         }
       end
 
@@ -2380,7 +2380,7 @@ module AWS::SDK::Backup
         return nil if visited.include?('RecoveryPointByResourceList')
         visited = visited + ['RecoveryPointByResourceList']
         [
-          Stubs::RecoveryPointByResource.default(visited)
+          RecoveryPointByResource.default(visited)
         ]
       end
 
@@ -2428,7 +2428,7 @@ module AWS::SDK::Backup
     class ListReportJobs
       def self.default(visited=[])
         {
-          report_jobs: Stubs::ReportJobList.default(visited),
+          report_jobs: ReportJobList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2449,7 +2449,7 @@ module AWS::SDK::Backup
         return nil if visited.include?('ReportJobList')
         visited = visited + ['ReportJobList']
         [
-          Stubs::ReportJob.default(visited)
+          ReportJob.default(visited)
         ]
       end
 
@@ -2467,7 +2467,7 @@ module AWS::SDK::Backup
     class ListReportPlans
       def self.default(visited=[])
         {
-          report_plans: Stubs::ReportPlanList.default(visited),
+          report_plans: ReportPlanList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2488,7 +2488,7 @@ module AWS::SDK::Backup
         return nil if visited.include?('ReportPlanList')
         visited = visited + ['ReportPlanList']
         [
-          Stubs::ReportPlan.default(visited)
+          ReportPlan.default(visited)
         ]
       end
 
@@ -2506,7 +2506,7 @@ module AWS::SDK::Backup
     class ListRestoreJobs
       def self.default(visited=[])
         {
-          restore_jobs: Stubs::RestoreJobsList.default(visited),
+          restore_jobs: RestoreJobsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2527,7 +2527,7 @@ module AWS::SDK::Backup
         return nil if visited.include?('RestoreJobsList')
         visited = visited + ['RestoreJobsList']
         [
-          Stubs::RestoreJobsListMember.default(visited)
+          RestoreJobsListMember.default(visited)
         ]
       end
 
@@ -2588,7 +2588,7 @@ module AWS::SDK::Backup
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -2762,7 +2762,7 @@ module AWS::SDK::Backup
           backup_plan_arn: 'backup_plan_arn',
           creation_date: Time.now,
           version_id: 'version_id',
-          advanced_backup_settings: Stubs::AdvancedBackupSettings.default(visited),
+          advanced_backup_settings: AdvancedBackupSettings.default(visited),
         }
       end
 
@@ -2819,8 +2819,8 @@ module AWS::SDK::Backup
         {
           backup_vault_arn: 'backup_vault_arn',
           recovery_point_arn: 'recovery_point_arn',
-          lifecycle: Stubs::Lifecycle.default(visited),
-          calculated_lifecycle: Stubs::CalculatedLifecycle.default(visited),
+          lifecycle: Lifecycle.default(visited),
+          calculated_lifecycle: CalculatedLifecycle.default(visited),
         }
       end
 

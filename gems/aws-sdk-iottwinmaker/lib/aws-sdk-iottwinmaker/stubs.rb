@@ -14,7 +14,7 @@ module AWS::SDK::IoTTwinMaker
     class BatchPutPropertyValues
       def self.default(visited=[])
         {
-          error_entries: Stubs::ErrorEntries.default(visited),
+          error_entries: ErrorEntries.default(visited),
         }
       end
 
@@ -33,7 +33,7 @@ module AWS::SDK::IoTTwinMaker
         return nil if visited.include?('ErrorEntries')
         visited = visited + ['ErrorEntries']
         [
-          Stubs::BatchPutPropertyErrorEntry.default(visited)
+          BatchPutPropertyErrorEntry.default(visited)
         ]
       end
 
@@ -53,7 +53,7 @@ module AWS::SDK::IoTTwinMaker
         return nil if visited.include?('BatchPutPropertyErrorEntry')
         visited = visited + ['BatchPutPropertyErrorEntry']
         {
-          errors: Stubs::Errors.default(visited),
+          errors: Errors.default(visited),
         }
       end
 
@@ -71,7 +71,7 @@ module AWS::SDK::IoTTwinMaker
         return nil if visited.include?('Errors')
         visited = visited + ['Errors']
         [
-          Stubs::BatchPutPropertyError.default(visited)
+          BatchPutPropertyError.default(visited)
         ]
       end
 
@@ -93,7 +93,7 @@ module AWS::SDK::IoTTwinMaker
         {
           error_code: 'error_code',
           error_message: 'error_message',
-          entry: Stubs::PropertyValueEntry.default(visited),
+          entry: PropertyValueEntry.default(visited),
         }
       end
 
@@ -113,8 +113,8 @@ module AWS::SDK::IoTTwinMaker
         return nil if visited.include?('PropertyValueEntry')
         visited = visited + ['PropertyValueEntry']
         {
-          entity_property_reference: Stubs::EntityPropertyReference.default(visited),
-          property_values: Stubs::PropertyValues.default(visited),
+          entity_property_reference: EntityPropertyReference.default(visited),
+          property_values: PropertyValues.default(visited),
         }
       end
 
@@ -133,7 +133,7 @@ module AWS::SDK::IoTTwinMaker
         return nil if visited.include?('PropertyValues')
         visited = visited + ['PropertyValues']
         [
-          Stubs::PropertyValue.default(visited)
+          PropertyValue.default(visited)
         ]
       end
 
@@ -154,7 +154,7 @@ module AWS::SDK::IoTTwinMaker
         visited = visited + ['PropertyValue']
         {
           timestamp: Time.now,
-          value: Stubs::DataValue.default(visited),
+          value: DataValue.default(visited),
           time: 'time',
         }
       end
@@ -180,9 +180,9 @@ module AWS::SDK::IoTTwinMaker
           integer_value: 1,
           long_value: 1,
           string_value: 'string_value',
-          list_value: Stubs::DataValueList.default(visited),
-          map_value: Stubs::DataValueMap.default(visited),
-          relationship_value: Stubs::RelationshipValue.default(visited),
+          list_value: DataValueList.default(visited),
+          map_value: DataValueMap.default(visited),
+          relationship_value: RelationshipValue.default(visited),
           expression: 'expression',
         }
       end
@@ -229,7 +229,7 @@ module AWS::SDK::IoTTwinMaker
         return nil if visited.include?('DataValueMap')
         visited = visited + ['DataValueMap']
         {
-          test_key: Stubs::DataValue.default(visited)
+          test_key: DataValue.default(visited)
         }
       end
 
@@ -249,7 +249,7 @@ module AWS::SDK::IoTTwinMaker
         return nil if visited.include?('DataValueList')
         visited = visited + ['DataValueList']
         [
-          Stubs::DataValue.default(visited)
+          DataValue.default(visited)
         ]
       end
 
@@ -270,7 +270,7 @@ module AWS::SDK::IoTTwinMaker
         visited = visited + ['EntityPropertyReference']
         {
           component_name: 'component_name',
-          external_id_property: Stubs::ExternalIdProperty.default(visited),
+          external_id_property: ExternalIdProperty.default(visited),
           entity_id: 'entity_id',
           property_name: 'property_name',
         }
@@ -457,15 +457,15 @@ module AWS::SDK::IoTTwinMaker
           is_singleton: false,
           component_type_id: 'component_type_id',
           description: 'description',
-          property_definitions: Stubs::PropertyDefinitionsResponse.default(visited),
-          extends_from: Stubs::ExtendsFrom.default(visited),
-          functions: Stubs::FunctionsResponse.default(visited),
+          property_definitions: PropertyDefinitionsResponse.default(visited),
+          extends_from: ExtendsFrom.default(visited),
+          functions: FunctionsResponse.default(visited),
           creation_date_time: Time.now,
           update_date_time: Time.now,
           arn: 'arn',
           is_abstract: false,
           is_schema_initialized: false,
-          status: Stubs::Status.default(visited),
+          status: Status.default(visited),
         }
       end
 
@@ -497,7 +497,7 @@ module AWS::SDK::IoTTwinMaker
         visited = visited + ['Status']
         {
           state: 'state',
-          error: Stubs::ErrorDetails.default(visited),
+          error: ErrorDetails.default(visited),
         }
       end
 
@@ -536,7 +536,7 @@ module AWS::SDK::IoTTwinMaker
         return nil if visited.include?('FunctionsResponse')
         visited = visited + ['FunctionsResponse']
         {
-          test_key: Stubs::FunctionResponse.default(visited)
+          test_key: FunctionResponse.default(visited)
         }
       end
 
@@ -556,9 +556,9 @@ module AWS::SDK::IoTTwinMaker
         return nil if visited.include?('FunctionResponse')
         visited = visited + ['FunctionResponse']
         {
-          required_properties: Stubs::RequiredProperties.default(visited),
+          required_properties: RequiredProperties.default(visited),
           scope: 'scope',
-          implemented_by: Stubs::DataConnector.default(visited),
+          implemented_by: DataConnector.default(visited),
           is_inherited: false,
         }
       end
@@ -580,7 +580,7 @@ module AWS::SDK::IoTTwinMaker
         return nil if visited.include?('DataConnector')
         visited = visited + ['DataConnector']
         {
-          lambda: Stubs::LambdaFunction.default(visited),
+          lambda: LambdaFunction.default(visited),
           is_native: false,
         }
       end
@@ -612,7 +612,7 @@ module AWS::SDK::IoTTwinMaker
       end
     end
 
-    # Set Stubber for RequiredProperties
+    # List Stubber for RequiredProperties
     class RequiredProperties
       def self.default(visited=[])
         return nil if visited.include?('RequiredProperties')
@@ -624,11 +624,11 @@ module AWS::SDK::IoTTwinMaker
 
       def self.stub(stub)
         stub ||= []
-        data = Set.new
+        data = []
         stub.each do |element|
           data << element unless element.nil?
         end
-        data.to_a
+        data
       end
     end
 
@@ -658,7 +658,7 @@ module AWS::SDK::IoTTwinMaker
         return nil if visited.include?('PropertyDefinitionsResponse')
         visited = visited + ['PropertyDefinitionsResponse']
         {
-          test_key: Stubs::PropertyDefinitionResponse.default(visited)
+          test_key: PropertyDefinitionResponse.default(visited)
         }
       end
 
@@ -678,7 +678,7 @@ module AWS::SDK::IoTTwinMaker
         return nil if visited.include?('PropertyDefinitionResponse')
         visited = visited + ['PropertyDefinitionResponse']
         {
-          data_type: Stubs::DataType.default(visited),
+          data_type: DataType.default(visited),
           is_time_series: false,
           is_required_in_entity: false,
           is_external_id: false,
@@ -686,8 +686,8 @@ module AWS::SDK::IoTTwinMaker
           is_imported: false,
           is_final: false,
           is_inherited: false,
-          default_value: Stubs::DataValue.default(visited),
-          configuration: Stubs::Configuration.default(visited),
+          default_value: DataValue.default(visited),
+          configuration: Configuration.default(visited),
         }
       end
 
@@ -735,10 +735,10 @@ module AWS::SDK::IoTTwinMaker
         visited = visited + ['DataType']
         {
           type: 'type',
-          nested_type: Stubs::DataType.default(visited),
-          allowed_values: Stubs::DataValueList.default(visited),
+          nested_type: DataType.default(visited),
+          allowed_values: DataValueList.default(visited),
           unit_of_measure: 'unit_of_measure',
-          relationship: Stubs::Relationship.default(visited),
+          relationship: Relationship.default(visited),
         }
       end
 
@@ -781,10 +781,10 @@ module AWS::SDK::IoTTwinMaker
           entity_id: 'entity_id',
           entity_name: 'entity_name',
           arn: 'arn',
-          status: Stubs::Status.default(visited),
+          status: Status.default(visited),
           workspace_id: 'workspace_id',
           description: 'description',
-          components: Stubs::ComponentsMap.default(visited),
+          components: ComponentsMap.default(visited),
           parent_entity_id: 'parent_entity_id',
           has_child_entities: false,
           creation_date_time: Time.now,
@@ -817,7 +817,7 @@ module AWS::SDK::IoTTwinMaker
         return nil if visited.include?('ComponentsMap')
         visited = visited + ['ComponentsMap']
         {
-          test_key: Stubs::ComponentResponse.default(visited)
+          test_key: ComponentResponse.default(visited)
         }
       end
 
@@ -840,9 +840,9 @@ module AWS::SDK::IoTTwinMaker
           component_name: 'component_name',
           description: 'description',
           component_type_id: 'component_type_id',
-          status: Stubs::Status.default(visited),
+          status: Status.default(visited),
           defined_in: 'defined_in',
-          properties: Stubs::PropertyResponses.default(visited),
+          properties: PropertyResponses.default(visited),
         }
       end
 
@@ -865,7 +865,7 @@ module AWS::SDK::IoTTwinMaker
         return nil if visited.include?('PropertyResponses')
         visited = visited + ['PropertyResponses']
         {
-          test_key: Stubs::PropertyResponse.default(visited)
+          test_key: PropertyResponse.default(visited)
         }
       end
 
@@ -885,8 +885,8 @@ module AWS::SDK::IoTTwinMaker
         return nil if visited.include?('PropertyResponse')
         visited = visited + ['PropertyResponse']
         {
-          definition: Stubs::PropertyDefinitionResponse.default(visited),
-          value: Stubs::DataValue.default(visited),
+          definition: PropertyDefinitionResponse.default(visited),
+          value: DataValue.default(visited),
         }
       end
 
@@ -903,7 +903,7 @@ module AWS::SDK::IoTTwinMaker
     class GetPropertyValue
       def self.default(visited=[])
         {
-          property_values: Stubs::PropertyLatestValueMap.default(visited),
+          property_values: PropertyLatestValueMap.default(visited),
         }
       end
 
@@ -922,7 +922,7 @@ module AWS::SDK::IoTTwinMaker
         return nil if visited.include?('PropertyLatestValueMap')
         visited = visited + ['PropertyLatestValueMap']
         {
-          test_key: Stubs::PropertyLatestValue.default(visited)
+          test_key: PropertyLatestValue.default(visited)
         }
       end
 
@@ -942,8 +942,8 @@ module AWS::SDK::IoTTwinMaker
         return nil if visited.include?('PropertyLatestValue')
         visited = visited + ['PropertyLatestValue']
         {
-          property_reference: Stubs::EntityPropertyReference.default(visited),
-          property_value: Stubs::DataValue.default(visited),
+          property_reference: EntityPropertyReference.default(visited),
+          property_value: DataValue.default(visited),
         }
       end
 
@@ -960,7 +960,7 @@ module AWS::SDK::IoTTwinMaker
     class GetPropertyValueHistory
       def self.default(visited=[])
         {
-          property_values: Stubs::PropertyValueList.default(visited),
+          property_values: PropertyValueList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -981,7 +981,7 @@ module AWS::SDK::IoTTwinMaker
         return nil if visited.include?('PropertyValueList')
         visited = visited + ['PropertyValueList']
         [
-          Stubs::PropertyValueHistory.default(visited)
+          PropertyValueHistory.default(visited)
         ]
       end
 
@@ -1001,8 +1001,8 @@ module AWS::SDK::IoTTwinMaker
         return nil if visited.include?('PropertyValueHistory')
         visited = visited + ['PropertyValueHistory']
         {
-          entity_property_reference: Stubs::EntityPropertyReference.default(visited),
-          values: Stubs::Values.default(visited),
+          entity_property_reference: EntityPropertyReference.default(visited),
+          values: Values.default(visited),
         }
       end
 
@@ -1021,7 +1021,7 @@ module AWS::SDK::IoTTwinMaker
         return nil if visited.include?('Values')
         visited = visited + ['Values']
         [
-          Stubs::PropertyValue.default(visited)
+          PropertyValue.default(visited)
         ]
       end
 
@@ -1046,7 +1046,7 @@ module AWS::SDK::IoTTwinMaker
           creation_date_time: Time.now,
           update_date_time: Time.now,
           description: 'description',
-          capabilities: Stubs::SceneCapabilities.default(visited),
+          capabilities: SceneCapabilities.default(visited),
         }
       end
 
@@ -1120,7 +1120,7 @@ module AWS::SDK::IoTTwinMaker
       def self.default(visited=[])
         {
           workspace_id: 'workspace_id',
-          component_type_summaries: Stubs::ComponentTypeSummaries.default(visited),
+          component_type_summaries: ComponentTypeSummaries.default(visited),
           next_token: 'next_token',
           max_results: 1,
         }
@@ -1144,7 +1144,7 @@ module AWS::SDK::IoTTwinMaker
         return nil if visited.include?('ComponentTypeSummaries')
         visited = visited + ['ComponentTypeSummaries']
         [
-          Stubs::ComponentTypeSummary.default(visited)
+          ComponentTypeSummary.default(visited)
         ]
       end
 
@@ -1169,7 +1169,7 @@ module AWS::SDK::IoTTwinMaker
           creation_date_time: Time.now,
           update_date_time: Time.now,
           description: 'description',
-          status: Stubs::Status.default(visited),
+          status: Status.default(visited),
         }
       end
 
@@ -1190,7 +1190,7 @@ module AWS::SDK::IoTTwinMaker
     class ListEntities
       def self.default(visited=[])
         {
-          entity_summaries: Stubs::EntitySummaries.default(visited),
+          entity_summaries: EntitySummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1211,7 +1211,7 @@ module AWS::SDK::IoTTwinMaker
         return nil if visited.include?('EntitySummaries')
         visited = visited + ['EntitySummaries']
         [
-          Stubs::EntitySummary.default(visited)
+          EntitySummary.default(visited)
         ]
       end
 
@@ -1235,7 +1235,7 @@ module AWS::SDK::IoTTwinMaker
           entity_name: 'entity_name',
           arn: 'arn',
           parent_entity_id: 'parent_entity_id',
-          status: Stubs::Status.default(visited),
+          status: Status.default(visited),
           description: 'description',
           has_child_entities: false,
           creation_date_time: Time.now,
@@ -1263,7 +1263,7 @@ module AWS::SDK::IoTTwinMaker
     class ListScenes
       def self.default(visited=[])
         {
-          scene_summaries: Stubs::SceneSummaries.default(visited),
+          scene_summaries: SceneSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1284,7 +1284,7 @@ module AWS::SDK::IoTTwinMaker
         return nil if visited.include?('SceneSummaries')
         visited = visited + ['SceneSummaries']
         [
-          Stubs::SceneSummary.default(visited)
+          SceneSummary.default(visited)
         ]
       end
 
@@ -1330,7 +1330,7 @@ module AWS::SDK::IoTTwinMaker
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1369,7 +1369,7 @@ module AWS::SDK::IoTTwinMaker
     class ListWorkspaces
       def self.default(visited=[])
         {
-          workspace_summaries: Stubs::WorkspaceSummaries.default(visited),
+          workspace_summaries: WorkspaceSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1390,7 +1390,7 @@ module AWS::SDK::IoTTwinMaker
         return nil if visited.include?('WorkspaceSummaries')
         visited = visited + ['WorkspaceSummaries']
         [
-          Stubs::WorkspaceSummary.default(visited)
+          WorkspaceSummary.default(visited)
         ]
       end
 

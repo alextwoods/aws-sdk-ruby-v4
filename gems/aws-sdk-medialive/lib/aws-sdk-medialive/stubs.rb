@@ -27,8 +27,8 @@ module AWS::SDK::MediaLive
     class BatchDelete
       def self.default(visited=[])
         {
-          failed: Stubs::List____listOfBatchFailedResultModel.default(visited),
-          successful: Stubs::List____listOfBatchSuccessfulResultModel.default(visited),
+          failed: List____listOfBatchFailedResultModel.default(visited),
+          successful: List____listOfBatchSuccessfulResultModel.default(visited),
         }
       end
 
@@ -48,7 +48,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfBatchSuccessfulResultModel')
         visited = visited + ['List____listOfBatchSuccessfulResultModel']
         [
-          Stubs::BatchSuccessfulResultModel.default(visited)
+          BatchSuccessfulResultModel.default(visited)
         ]
       end
 
@@ -90,7 +90,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfBatchFailedResultModel')
         visited = visited + ['List____listOfBatchFailedResultModel']
         [
-          Stubs::BatchFailedResultModel.default(visited)
+          BatchFailedResultModel.default(visited)
         ]
       end
 
@@ -132,8 +132,8 @@ module AWS::SDK::MediaLive
     class BatchStart
       def self.default(visited=[])
         {
-          failed: Stubs::List____listOfBatchFailedResultModel.default(visited),
-          successful: Stubs::List____listOfBatchSuccessfulResultModel.default(visited),
+          failed: List____listOfBatchFailedResultModel.default(visited),
+          successful: List____listOfBatchSuccessfulResultModel.default(visited),
         }
       end
 
@@ -151,8 +151,8 @@ module AWS::SDK::MediaLive
     class BatchStop
       def self.default(visited=[])
         {
-          failed: Stubs::List____listOfBatchFailedResultModel.default(visited),
-          successful: Stubs::List____listOfBatchSuccessfulResultModel.default(visited),
+          failed: List____listOfBatchFailedResultModel.default(visited),
+          successful: List____listOfBatchSuccessfulResultModel.default(visited),
         }
       end
 
@@ -170,8 +170,8 @@ module AWS::SDK::MediaLive
     class BatchUpdateSchedule
       def self.default(visited=[])
         {
-          creates: Stubs::BatchScheduleActionCreateResult.default(visited),
-          deletes: Stubs::BatchScheduleActionDeleteResult.default(visited),
+          creates: BatchScheduleActionCreateResult.default(visited),
+          deletes: BatchScheduleActionDeleteResult.default(visited),
         }
       end
 
@@ -191,7 +191,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('BatchScheduleActionDeleteResult')
         visited = visited + ['BatchScheduleActionDeleteResult']
         {
-          schedule_actions: Stubs::List____listOfScheduleAction.default(visited),
+          schedule_actions: List____listOfScheduleAction.default(visited),
         }
       end
 
@@ -209,7 +209,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfScheduleAction')
         visited = visited + ['List____listOfScheduleAction']
         [
-          Stubs::ScheduleAction.default(visited)
+          ScheduleAction.default(visited)
         ]
       end
 
@@ -230,8 +230,8 @@ module AWS::SDK::MediaLive
         visited = visited + ['ScheduleAction']
         {
           action_name: 'action_name',
-          schedule_action_settings: Stubs::ScheduleActionSettings.default(visited),
-          schedule_action_start_settings: Stubs::ScheduleActionStartSettings.default(visited),
+          schedule_action_settings: ScheduleActionSettings.default(visited),
+          schedule_action_start_settings: ScheduleActionStartSettings.default(visited),
         }
       end
 
@@ -251,9 +251,9 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('ScheduleActionStartSettings')
         visited = visited + ['ScheduleActionStartSettings']
         {
-          fixed_mode_schedule_action_start_settings: Stubs::FixedModeScheduleActionStartSettings.default(visited),
-          follow_mode_schedule_action_start_settings: Stubs::FollowModeScheduleActionStartSettings.default(visited),
-          immediate_mode_schedule_action_start_settings: Stubs::ImmediateModeScheduleActionStartSettings.default(visited),
+          fixed_mode_schedule_action_start_settings: FixedModeScheduleActionStartSettings.default(visited),
+          follow_mode_schedule_action_start_settings: FollowModeScheduleActionStartSettings.default(visited),
+          immediate_mode_schedule_action_start_settings: ImmediateModeScheduleActionStartSettings.default(visited),
         }
       end
 
@@ -327,18 +327,18 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('ScheduleActionSettings')
         visited = visited + ['ScheduleActionSettings']
         {
-          hls_id3_segment_tagging_settings: Stubs::HlsId3SegmentTaggingScheduleActionSettings.default(visited),
-          hls_timed_metadata_settings: Stubs::HlsTimedMetadataScheduleActionSettings.default(visited),
-          input_prepare_settings: Stubs::InputPrepareScheduleActionSettings.default(visited),
-          input_switch_settings: Stubs::InputSwitchScheduleActionSettings.default(visited),
-          motion_graphics_image_activate_settings: Stubs::MotionGraphicsActivateScheduleActionSettings.default(visited),
-          motion_graphics_image_deactivate_settings: Stubs::MotionGraphicsDeactivateScheduleActionSettings.default(visited),
-          pause_state_settings: Stubs::PauseStateScheduleActionSettings.default(visited),
-          scte35_return_to_network_settings: Stubs::Scte35ReturnToNetworkScheduleActionSettings.default(visited),
-          scte35_splice_insert_settings: Stubs::Scte35SpliceInsertScheduleActionSettings.default(visited),
-          scte35_time_signal_settings: Stubs::Scte35TimeSignalScheduleActionSettings.default(visited),
-          static_image_activate_settings: Stubs::StaticImageActivateScheduleActionSettings.default(visited),
-          static_image_deactivate_settings: Stubs::StaticImageDeactivateScheduleActionSettings.default(visited),
+          hls_id3_segment_tagging_settings: HlsId3SegmentTaggingScheduleActionSettings.default(visited),
+          hls_timed_metadata_settings: HlsTimedMetadataScheduleActionSettings.default(visited),
+          input_prepare_settings: InputPrepareScheduleActionSettings.default(visited),
+          input_switch_settings: InputSwitchScheduleActionSettings.default(visited),
+          motion_graphics_image_activate_settings: MotionGraphicsActivateScheduleActionSettings.default(visited),
+          motion_graphics_image_deactivate_settings: MotionGraphicsDeactivateScheduleActionSettings.default(visited),
+          pause_state_settings: PauseStateScheduleActionSettings.default(visited),
+          scte35_return_to_network_settings: Scte35ReturnToNetworkScheduleActionSettings.default(visited),
+          scte35_splice_insert_settings: Scte35SpliceInsertScheduleActionSettings.default(visited),
+          scte35_time_signal_settings: Scte35TimeSignalScheduleActionSettings.default(visited),
+          static_image_activate_settings: StaticImageActivateScheduleActionSettings.default(visited),
+          static_image_deactivate_settings: StaticImageDeactivateScheduleActionSettings.default(visited),
         }
       end
 
@@ -391,7 +391,7 @@ module AWS::SDK::MediaLive
           fade_in: 1,
           fade_out: 1,
           height: 1,
-          image: Stubs::InputLocation.default(visited),
+          image: InputLocation.default(visited),
           image_x: 1,
           image_y: 1,
           layer: 1,
@@ -445,7 +445,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('Scte35TimeSignalScheduleActionSettings')
         visited = visited + ['Scte35TimeSignalScheduleActionSettings']
         {
-          scte35_descriptors: Stubs::List____listOfScte35Descriptor.default(visited),
+          scte35_descriptors: List____listOfScte35Descriptor.default(visited),
         }
       end
 
@@ -463,7 +463,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfScte35Descriptor')
         visited = visited + ['List____listOfScte35Descriptor']
         [
-          Stubs::Scte35Descriptor.default(visited)
+          Scte35Descriptor.default(visited)
         ]
       end
 
@@ -483,7 +483,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('Scte35Descriptor')
         visited = visited + ['Scte35Descriptor']
         {
-          scte35_descriptor_settings: Stubs::Scte35DescriptorSettings.default(visited),
+          scte35_descriptor_settings: Scte35DescriptorSettings.default(visited),
         }
       end
 
@@ -501,7 +501,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('Scte35DescriptorSettings')
         visited = visited + ['Scte35DescriptorSettings']
         {
-          segmentation_descriptor_scte35_descriptor_settings: Stubs::Scte35SegmentationDescriptor.default(visited),
+          segmentation_descriptor_scte35_descriptor_settings: Scte35SegmentationDescriptor.default(visited),
         }
       end
 
@@ -519,7 +519,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('Scte35SegmentationDescriptor')
         visited = visited + ['Scte35SegmentationDescriptor']
         {
-          delivery_restrictions: Stubs::Scte35DeliveryRestrictions.default(visited),
+          delivery_restrictions: Scte35DeliveryRestrictions.default(visited),
           segment_num: 1,
           segmentation_cancel_indicator: 'segmentation_cancel_indicator',
           segmentation_duration: 1,
@@ -619,7 +619,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('PauseStateScheduleActionSettings')
         visited = visited + ['PauseStateScheduleActionSettings']
         {
-          pipelines: Stubs::List____listOfPipelinePauseStateSettings.default(visited),
+          pipelines: List____listOfPipelinePauseStateSettings.default(visited),
         }
       end
 
@@ -637,7 +637,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfPipelinePauseStateSettings')
         visited = visited + ['List____listOfPipelinePauseStateSettings']
         [
-          Stubs::PipelinePauseStateSettings.default(visited)
+          PipelinePauseStateSettings.default(visited)
         ]
       end
 
@@ -716,8 +716,8 @@ module AWS::SDK::MediaLive
         visited = visited + ['InputSwitchScheduleActionSettings']
         {
           input_attachment_name_reference: 'input_attachment_name_reference',
-          input_clipping_settings: Stubs::InputClippingSettings.default(visited),
-          url_path: Stubs::List____listOf__string.default(visited),
+          input_clipping_settings: InputClippingSettings.default(visited),
+          url_path: List____listOf__string.default(visited),
         }
       end
 
@@ -758,8 +758,8 @@ module AWS::SDK::MediaLive
         visited = visited + ['InputClippingSettings']
         {
           input_timecode_source: 'input_timecode_source',
-          start_timecode: Stubs::StartTimecode.default(visited),
-          stop_timecode: Stubs::StopTimecode.default(visited),
+          start_timecode: StartTimecode.default(visited),
+          stop_timecode: StopTimecode.default(visited),
         }
       end
 
@@ -818,8 +818,8 @@ module AWS::SDK::MediaLive
         visited = visited + ['InputPrepareScheduleActionSettings']
         {
           input_attachment_name_reference: 'input_attachment_name_reference',
-          input_clipping_settings: Stubs::InputClippingSettings.default(visited),
-          url_path: Stubs::List____listOf__string.default(visited),
+          input_clipping_settings: InputClippingSettings.default(visited),
+          url_path: List____listOf__string.default(visited),
         }
       end
 
@@ -875,7 +875,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('BatchScheduleActionCreateResult')
         visited = visited + ['BatchScheduleActionCreateResult']
         {
-          schedule_actions: Stubs::List____listOfScheduleAction.default(visited),
+          schedule_actions: List____listOfScheduleAction.default(visited),
         }
       end
 
@@ -917,7 +917,7 @@ module AWS::SDK::MediaLive
     class CreateChannel
       def self.default(visited=[])
         {
-          channel: Stubs::Channel.default(visited),
+          channel: Channel.default(visited),
         }
       end
 
@@ -937,23 +937,23 @@ module AWS::SDK::MediaLive
         visited = visited + ['Channel']
         {
           arn: 'arn',
-          cdi_input_specification: Stubs::CdiInputSpecification.default(visited),
+          cdi_input_specification: CdiInputSpecification.default(visited),
           channel_class: 'channel_class',
-          destinations: Stubs::List____listOfOutputDestination.default(visited),
-          egress_endpoints: Stubs::List____listOfChannelEgressEndpoint.default(visited),
-          encoder_settings: Stubs::EncoderSettings.default(visited),
+          destinations: List____listOfOutputDestination.default(visited),
+          egress_endpoints: List____listOfChannelEgressEndpoint.default(visited),
+          encoder_settings: EncoderSettings.default(visited),
           id: 'id',
-          input_attachments: Stubs::List____listOfInputAttachment.default(visited),
-          input_specification: Stubs::InputSpecification.default(visited),
+          input_attachments: List____listOfInputAttachment.default(visited),
+          input_specification: InputSpecification.default(visited),
           log_level: 'log_level',
-          maintenance: Stubs::MaintenanceStatus.default(visited),
+          maintenance: MaintenanceStatus.default(visited),
           name: 'name',
-          pipeline_details: Stubs::List____listOfPipelineDetail.default(visited),
+          pipeline_details: List____listOfPipelineDetail.default(visited),
           pipelines_running_count: 1,
           role_arn: 'role_arn',
           state: 'state',
-          tags: Stubs::Tags.default(visited),
-          vpc: Stubs::VpcOutputSettingsDescription.default(visited),
+          tags: Tags.default(visited),
+          vpc: VpcOutputSettingsDescription.default(visited),
         }
       end
 
@@ -988,10 +988,10 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('VpcOutputSettingsDescription')
         visited = visited + ['VpcOutputSettingsDescription']
         {
-          availability_zones: Stubs::List____listOf__string.default(visited),
-          network_interface_ids: Stubs::List____listOf__string.default(visited),
-          security_group_ids: Stubs::List____listOf__string.default(visited),
-          subnet_ids: Stubs::List____listOf__string.default(visited),
+          availability_zones: List____listOf__string.default(visited),
+          network_interface_ids: List____listOf__string.default(visited),
+          security_group_ids: List____listOf__string.default(visited),
+          subnet_ids: List____listOf__string.default(visited),
         }
       end
 
@@ -1032,7 +1032,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfPipelineDetail')
         visited = visited + ['List____listOfPipelineDetail']
         [
-          Stubs::PipelineDetail.default(visited)
+          PipelineDetail.default(visited)
         ]
       end
 
@@ -1124,7 +1124,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfInputAttachment')
         visited = visited + ['List____listOfInputAttachment']
         [
-          Stubs::InputAttachment.default(visited)
+          InputAttachment.default(visited)
         ]
       end
 
@@ -1144,10 +1144,10 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('InputAttachment')
         visited = visited + ['InputAttachment']
         {
-          automatic_input_failover_settings: Stubs::AutomaticInputFailoverSettings.default(visited),
+          automatic_input_failover_settings: AutomaticInputFailoverSettings.default(visited),
           input_attachment_name: 'input_attachment_name',
           input_id: 'input_id',
-          input_settings: Stubs::InputSettings.default(visited),
+          input_settings: InputSettings.default(visited),
         }
       end
 
@@ -1168,17 +1168,17 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('InputSettings')
         visited = visited + ['InputSettings']
         {
-          audio_selectors: Stubs::List____listOfAudioSelector.default(visited),
-          caption_selectors: Stubs::List____listOfCaptionSelector.default(visited),
+          audio_selectors: List____listOfAudioSelector.default(visited),
+          caption_selectors: List____listOfCaptionSelector.default(visited),
           deblock_filter: 'deblock_filter',
           denoise_filter: 'denoise_filter',
           filter_strength: 1,
           input_filter: 'input_filter',
-          network_input_settings: Stubs::NetworkInputSettings.default(visited),
+          network_input_settings: NetworkInputSettings.default(visited),
           scte35_pid: 1,
           smpte2038_data_preference: 'smpte2038_data_preference',
           source_end_behavior: 'source_end_behavior',
-          video_selector: Stubs::VideoSelector.default(visited),
+          video_selector: VideoSelector.default(visited),
         }
       end
 
@@ -1207,9 +1207,9 @@ module AWS::SDK::MediaLive
         visited = visited + ['VideoSelector']
         {
           color_space: 'color_space',
-          color_space_settings: Stubs::VideoSelectorColorSpaceSettings.default(visited),
+          color_space_settings: VideoSelectorColorSpaceSettings.default(visited),
           color_space_usage: 'color_space_usage',
-          selector_settings: Stubs::VideoSelectorSettings.default(visited),
+          selector_settings: VideoSelectorSettings.default(visited),
         }
       end
 
@@ -1230,8 +1230,8 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('VideoSelectorSettings')
         visited = visited + ['VideoSelectorSettings']
         {
-          video_selector_pid: Stubs::VideoSelectorPid.default(visited),
-          video_selector_program_id: Stubs::VideoSelectorProgramId.default(visited),
+          video_selector_pid: VideoSelectorPid.default(visited),
+          video_selector_program_id: VideoSelectorProgramId.default(visited),
         }
       end
 
@@ -1286,7 +1286,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('VideoSelectorColorSpaceSettings')
         visited = visited + ['VideoSelectorColorSpaceSettings']
         {
-          hdr10_settings: Stubs::Hdr10Settings.default(visited),
+          hdr10_settings: Hdr10Settings.default(visited),
         }
       end
 
@@ -1324,7 +1324,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('NetworkInputSettings')
         visited = visited + ['NetworkInputSettings']
         {
-          hls_input_settings: Stubs::HlsInputSettings.default(visited),
+          hls_input_settings: HlsInputSettings.default(visited),
           server_validation: 'server_validation',
         }
       end
@@ -1370,7 +1370,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfCaptionSelector')
         visited = visited + ['List____listOfCaptionSelector']
         [
-          Stubs::CaptionSelector.default(visited)
+          CaptionSelector.default(visited)
         ]
       end
 
@@ -1392,7 +1392,7 @@ module AWS::SDK::MediaLive
         {
           language_code: 'language_code',
           name: 'name',
-          selector_settings: Stubs::CaptionSelectorSettings.default(visited),
+          selector_settings: CaptionSelectorSettings.default(visited),
         }
       end
 
@@ -1412,13 +1412,13 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('CaptionSelectorSettings')
         visited = visited + ['CaptionSelectorSettings']
         {
-          ancillary_source_settings: Stubs::AncillarySourceSettings.default(visited),
-          arib_source_settings: Stubs::AribSourceSettings.default(visited),
-          dvb_sub_source_settings: Stubs::DvbSubSourceSettings.default(visited),
-          embedded_source_settings: Stubs::EmbeddedSourceSettings.default(visited),
-          scte20_source_settings: Stubs::Scte20SourceSettings.default(visited),
-          scte27_source_settings: Stubs::Scte27SourceSettings.default(visited),
-          teletext_source_settings: Stubs::TeletextSourceSettings.default(visited),
+          ancillary_source_settings: AncillarySourceSettings.default(visited),
+          arib_source_settings: AribSourceSettings.default(visited),
+          dvb_sub_source_settings: DvbSubSourceSettings.default(visited),
+          embedded_source_settings: EmbeddedSourceSettings.default(visited),
+          scte20_source_settings: Scte20SourceSettings.default(visited),
+          scte27_source_settings: Scte27SourceSettings.default(visited),
+          teletext_source_settings: TeletextSourceSettings.default(visited),
         }
       end
 
@@ -1442,7 +1442,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('TeletextSourceSettings')
         visited = visited + ['TeletextSourceSettings']
         {
-          output_rectangle: Stubs::CaptionRectangle.default(visited),
+          output_rectangle: CaptionRectangle.default(visited),
           page_number: 'page_number',
         }
       end
@@ -1604,7 +1604,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfAudioSelector')
         visited = visited + ['List____listOfAudioSelector']
         [
-          Stubs::AudioSelector.default(visited)
+          AudioSelector.default(visited)
         ]
       end
 
@@ -1625,7 +1625,7 @@ module AWS::SDK::MediaLive
         visited = visited + ['AudioSelector']
         {
           name: 'name',
-          selector_settings: Stubs::AudioSelectorSettings.default(visited),
+          selector_settings: AudioSelectorSettings.default(visited),
         }
       end
 
@@ -1644,10 +1644,10 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('AudioSelectorSettings')
         visited = visited + ['AudioSelectorSettings']
         {
-          audio_hls_rendition_selection: Stubs::AudioHlsRenditionSelection.default(visited),
-          audio_language_selection: Stubs::AudioLanguageSelection.default(visited),
-          audio_pid_selection: Stubs::AudioPidSelection.default(visited),
-          audio_track_selection: Stubs::AudioTrackSelection.default(visited),
+          audio_hls_rendition_selection: AudioHlsRenditionSelection.default(visited),
+          audio_language_selection: AudioLanguageSelection.default(visited),
+          audio_pid_selection: AudioPidSelection.default(visited),
+          audio_track_selection: AudioTrackSelection.default(visited),
         }
       end
 
@@ -1668,7 +1668,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('AudioTrackSelection')
         visited = visited + ['AudioTrackSelection']
         {
-          tracks: Stubs::List____listOfAudioTrack.default(visited),
+          tracks: List____listOfAudioTrack.default(visited),
         }
       end
 
@@ -1686,7 +1686,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfAudioTrack')
         visited = visited + ['List____listOfAudioTrack']
         [
-          Stubs::AudioTrack.default(visited)
+          AudioTrack.default(visited)
         ]
       end
 
@@ -1783,7 +1783,7 @@ module AWS::SDK::MediaLive
         visited = visited + ['AutomaticInputFailoverSettings']
         {
           error_clear_time_msec: 1,
-          failover_conditions: Stubs::List____listOfFailoverCondition.default(visited),
+          failover_conditions: List____listOfFailoverCondition.default(visited),
           input_preference: 'input_preference',
           secondary_input_id: 'secondary_input_id',
         }
@@ -1806,7 +1806,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfFailoverCondition')
         visited = visited + ['List____listOfFailoverCondition']
         [
-          Stubs::FailoverCondition.default(visited)
+          FailoverCondition.default(visited)
         ]
       end
 
@@ -1826,7 +1826,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('FailoverCondition')
         visited = visited + ['FailoverCondition']
         {
-          failover_condition_settings: Stubs::FailoverConditionSettings.default(visited),
+          failover_condition_settings: FailoverConditionSettings.default(visited),
         }
       end
 
@@ -1844,9 +1844,9 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('FailoverConditionSettings')
         visited = visited + ['FailoverConditionSettings']
         {
-          audio_silence_settings: Stubs::AudioSilenceFailoverSettings.default(visited),
-          input_loss_settings: Stubs::InputLossFailoverSettings.default(visited),
-          video_black_settings: Stubs::VideoBlackFailoverSettings.default(visited),
+          audio_silence_settings: AudioSilenceFailoverSettings.default(visited),
+          input_loss_settings: InputLossFailoverSettings.default(visited),
+          video_black_settings: VideoBlackFailoverSettings.default(visited),
         }
       end
 
@@ -1924,18 +1924,18 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('EncoderSettings')
         visited = visited + ['EncoderSettings']
         {
-          audio_descriptions: Stubs::List____listOfAudioDescription.default(visited),
-          avail_blanking: Stubs::AvailBlanking.default(visited),
-          avail_configuration: Stubs::AvailConfiguration.default(visited),
-          blackout_slate: Stubs::BlackoutSlate.default(visited),
-          caption_descriptions: Stubs::List____listOfCaptionDescription.default(visited),
-          feature_activations: Stubs::FeatureActivations.default(visited),
-          global_configuration: Stubs::GlobalConfiguration.default(visited),
-          motion_graphics_configuration: Stubs::MotionGraphicsConfiguration.default(visited),
-          nielsen_configuration: Stubs::NielsenConfiguration.default(visited),
-          output_groups: Stubs::List____listOfOutputGroup.default(visited),
-          timecode_config: Stubs::TimecodeConfig.default(visited),
-          video_descriptions: Stubs::List____listOfVideoDescription.default(visited),
+          audio_descriptions: List____listOfAudioDescription.default(visited),
+          avail_blanking: AvailBlanking.default(visited),
+          avail_configuration: AvailConfiguration.default(visited),
+          blackout_slate: BlackoutSlate.default(visited),
+          caption_descriptions: List____listOfCaptionDescription.default(visited),
+          feature_activations: FeatureActivations.default(visited),
+          global_configuration: GlobalConfiguration.default(visited),
+          motion_graphics_configuration: MotionGraphicsConfiguration.default(visited),
+          nielsen_configuration: NielsenConfiguration.default(visited),
+          output_groups: List____listOfOutputGroup.default(visited),
+          timecode_config: TimecodeConfig.default(visited),
+          video_descriptions: List____listOfVideoDescription.default(visited),
         }
       end
 
@@ -1964,7 +1964,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfVideoDescription')
         visited = visited + ['List____listOfVideoDescription']
         [
-          Stubs::VideoDescription.default(visited)
+          VideoDescription.default(visited)
         ]
       end
 
@@ -1984,7 +1984,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('VideoDescription')
         visited = visited + ['VideoDescription']
         {
-          codec_settings: Stubs::VideoCodecSettings.default(visited),
+          codec_settings: VideoCodecSettings.default(visited),
           height: 1,
           name: 'name',
           respond_to_afd: 'respond_to_afd',
@@ -2014,10 +2014,10 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('VideoCodecSettings')
         visited = visited + ['VideoCodecSettings']
         {
-          frame_capture_settings: Stubs::FrameCaptureSettings.default(visited),
-          h264_settings: Stubs::H264Settings.default(visited),
-          h265_settings: Stubs::H265Settings.default(visited),
-          mpeg2_settings: Stubs::Mpeg2Settings.default(visited),
+          frame_capture_settings: FrameCaptureSettings.default(visited),
+          h264_settings: H264Settings.default(visited),
+          h265_settings: H265Settings.default(visited),
+          mpeg2_settings: Mpeg2Settings.default(visited),
         }
       end
 
@@ -2043,7 +2043,7 @@ module AWS::SDK::MediaLive
           color_metadata: 'color_metadata',
           color_space: 'color_space',
           display_aspect_ratio: 'display_aspect_ratio',
-          filter_settings: Stubs::Mpeg2FilterSettings.default(visited),
+          filter_settings: Mpeg2FilterSettings.default(visited),
           fixed_afd: 'fixed_afd',
           framerate_denominator: 1,
           framerate_numerator: 1,
@@ -2086,7 +2086,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('Mpeg2FilterSettings')
         visited = visited + ['Mpeg2FilterSettings']
         {
-          temporal_filter_settings: Stubs::TemporalFilterSettings.default(visited),
+          temporal_filter_settings: TemporalFilterSettings.default(visited),
         }
       end
 
@@ -2130,8 +2130,8 @@ module AWS::SDK::MediaLive
           bitrate: 1,
           buf_size: 1,
           color_metadata: 'color_metadata',
-          color_space_settings: Stubs::H265ColorSpaceSettings.default(visited),
-          filter_settings: Stubs::H265FilterSettings.default(visited),
+          color_space_settings: H265ColorSpaceSettings.default(visited),
+          filter_settings: H265FilterSettings.default(visited),
           fixed_afd: 'fixed_afd',
           flicker_aq: 'flicker_aq',
           framerate_denominator: 1,
@@ -2198,7 +2198,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('H265FilterSettings')
         visited = visited + ['H265FilterSettings']
         {
-          temporal_filter_settings: Stubs::TemporalFilterSettings.default(visited),
+          temporal_filter_settings: TemporalFilterSettings.default(visited),
         }
       end
 
@@ -2216,10 +2216,10 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('H265ColorSpaceSettings')
         visited = visited + ['H265ColorSpaceSettings']
         {
-          color_space_passthrough_settings: Stubs::ColorSpacePassthroughSettings.default(visited),
-          hdr10_settings: Stubs::Hdr10Settings.default(visited),
-          rec601_settings: Stubs::Rec601Settings.default(visited),
-          rec709_settings: Stubs::Rec709Settings.default(visited),
+          color_space_passthrough_settings: ColorSpacePassthroughSettings.default(visited),
+          hdr10_settings: Hdr10Settings.default(visited),
+          rec601_settings: Rec601Settings.default(visited),
+          rec709_settings: Rec709Settings.default(visited),
         }
       end
 
@@ -2294,9 +2294,9 @@ module AWS::SDK::MediaLive
           buf_fill_pct: 1,
           buf_size: 1,
           color_metadata: 'color_metadata',
-          color_space_settings: Stubs::H264ColorSpaceSettings.default(visited),
+          color_space_settings: H264ColorSpaceSettings.default(visited),
           entropy_encoding: 'entropy_encoding',
-          filter_settings: Stubs::H264FilterSettings.default(visited),
+          filter_settings: H264FilterSettings.default(visited),
           fixed_afd: 'fixed_afd',
           flicker_aq: 'flicker_aq',
           force_field_pictures: 'force_field_pictures',
@@ -2386,7 +2386,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('H264FilterSettings')
         visited = visited + ['H264FilterSettings']
         {
-          temporal_filter_settings: Stubs::TemporalFilterSettings.default(visited),
+          temporal_filter_settings: TemporalFilterSettings.default(visited),
         }
       end
 
@@ -2404,9 +2404,9 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('H264ColorSpaceSettings')
         visited = visited + ['H264ColorSpaceSettings']
         {
-          color_space_passthrough_settings: Stubs::ColorSpacePassthroughSettings.default(visited),
-          rec601_settings: Stubs::Rec601Settings.default(visited),
-          rec709_settings: Stubs::Rec709Settings.default(visited),
+          color_space_passthrough_settings: ColorSpacePassthroughSettings.default(visited),
+          rec601_settings: Rec601Settings.default(visited),
+          rec709_settings: Rec709Settings.default(visited),
         }
       end
 
@@ -2466,7 +2466,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfOutputGroup')
         visited = visited + ['List____listOfOutputGroup']
         [
-          Stubs::OutputGroup.default(visited)
+          OutputGroup.default(visited)
         ]
       end
 
@@ -2487,8 +2487,8 @@ module AWS::SDK::MediaLive
         visited = visited + ['OutputGroup']
         {
           name: 'name',
-          output_group_settings: Stubs::OutputGroupSettings.default(visited),
-          outputs: Stubs::List____listOfOutput.default(visited),
+          output_group_settings: OutputGroupSettings.default(visited),
+          outputs: List____listOfOutput.default(visited),
         }
       end
 
@@ -2508,7 +2508,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfOutput')
         visited = visited + ['List____listOfOutput']
         [
-          Stubs::Output.default(visited)
+          Output.default(visited)
         ]
       end
 
@@ -2528,10 +2528,10 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('Output')
         visited = visited + ['Output']
         {
-          audio_description_names: Stubs::List____listOf__string.default(visited),
-          caption_description_names: Stubs::List____listOf__string.default(visited),
+          audio_description_names: List____listOf__string.default(visited),
+          caption_description_names: List____listOf__string.default(visited),
           output_name: 'output_name',
-          output_settings: Stubs::OutputSettings.default(visited),
+          output_settings: OutputSettings.default(visited),
           video_description_name: 'video_description_name',
         }
       end
@@ -2554,14 +2554,14 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('OutputSettings')
         visited = visited + ['OutputSettings']
         {
-          archive_output_settings: Stubs::ArchiveOutputSettings.default(visited),
-          frame_capture_output_settings: Stubs::FrameCaptureOutputSettings.default(visited),
-          hls_output_settings: Stubs::HlsOutputSettings.default(visited),
-          media_package_output_settings: Stubs::MediaPackageOutputSettings.default(visited),
-          ms_smooth_output_settings: Stubs::MsSmoothOutputSettings.default(visited),
-          multiplex_output_settings: Stubs::MultiplexOutputSettings.default(visited),
-          rtmp_output_settings: Stubs::RtmpOutputSettings.default(visited),
-          udp_output_settings: Stubs::UdpOutputSettings.default(visited),
+          archive_output_settings: ArchiveOutputSettings.default(visited),
+          frame_capture_output_settings: FrameCaptureOutputSettings.default(visited),
+          hls_output_settings: HlsOutputSettings.default(visited),
+          media_package_output_settings: MediaPackageOutputSettings.default(visited),
+          ms_smooth_output_settings: MsSmoothOutputSettings.default(visited),
+          multiplex_output_settings: MultiplexOutputSettings.default(visited),
+          rtmp_output_settings: RtmpOutputSettings.default(visited),
+          udp_output_settings: UdpOutputSettings.default(visited),
         }
       end
 
@@ -2587,9 +2587,9 @@ module AWS::SDK::MediaLive
         visited = visited + ['UdpOutputSettings']
         {
           buffer_msec: 1,
-          container_settings: Stubs::UdpContainerSettings.default(visited),
-          destination: Stubs::OutputLocationRef.default(visited),
-          fec_output_settings: Stubs::FecOutputSettings.default(visited),
+          container_settings: UdpContainerSettings.default(visited),
+          destination: OutputLocationRef.default(visited),
+          fec_output_settings: FecOutputSettings.default(visited),
         }
       end
 
@@ -2650,7 +2650,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('UdpContainerSettings')
         visited = visited + ['UdpContainerSettings']
         {
-          m2ts_settings: Stubs::M2tsSettings.default(visited),
+          m2ts_settings: M2tsSettings.default(visited),
         }
       end
 
@@ -2679,10 +2679,10 @@ module AWS::SDK::MediaLive
           bitrate: 1,
           buffer_model: 'buffer_model',
           cc_descriptor: 'cc_descriptor',
-          dvb_nit_settings: Stubs::DvbNitSettings.default(visited),
-          dvb_sdt_settings: Stubs::DvbSdtSettings.default(visited),
+          dvb_nit_settings: DvbNitSettings.default(visited),
+          dvb_sdt_settings: DvbSdtSettings.default(visited),
           dvb_sub_pids: 'dvb_sub_pids',
-          dvb_tdt_settings: Stubs::DvbTdtSettings.default(visited),
+          dvb_tdt_settings: DvbTdtSettings.default(visited),
           dvb_teletext_pid: 'dvb_teletext_pid',
           ebif: 'ebif',
           ebp_audio_interval: 'ebp_audio_interval',
@@ -2844,7 +2844,7 @@ module AWS::SDK::MediaLive
         {
           certificate_mode: 'certificate_mode',
           connection_retry_interval: 1,
-          destination: Stubs::OutputLocationRef.default(visited),
+          destination: OutputLocationRef.default(visited),
           num_retries: 1,
         }
       end
@@ -2866,7 +2866,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('MultiplexOutputSettings')
         visited = visited + ['MultiplexOutputSettings']
         {
-          destination: Stubs::OutputLocationRef.default(visited),
+          destination: OutputLocationRef.default(visited),
         }
       end
 
@@ -2921,7 +2921,7 @@ module AWS::SDK::MediaLive
         visited = visited + ['HlsOutputSettings']
         {
           h265_packaging_type: 'h265_packaging_type',
-          hls_settings: Stubs::HlsSettings.default(visited),
+          hls_settings: HlsSettings.default(visited),
           name_modifier: 'name_modifier',
           segment_modifier: 'segment_modifier',
         }
@@ -2944,10 +2944,10 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('HlsSettings')
         visited = visited + ['HlsSettings']
         {
-          audio_only_hls_settings: Stubs::AudioOnlyHlsSettings.default(visited),
-          fmp4_hls_settings: Stubs::Fmp4HlsSettings.default(visited),
-          frame_capture_hls_settings: Stubs::FrameCaptureHlsSettings.default(visited),
-          standard_hls_settings: Stubs::StandardHlsSettings.default(visited),
+          audio_only_hls_settings: AudioOnlyHlsSettings.default(visited),
+          fmp4_hls_settings: Fmp4HlsSettings.default(visited),
+          frame_capture_hls_settings: FrameCaptureHlsSettings.default(visited),
+          standard_hls_settings: StandardHlsSettings.default(visited),
         }
       end
 
@@ -2969,7 +2969,7 @@ module AWS::SDK::MediaLive
         visited = visited + ['StandardHlsSettings']
         {
           audio_rendition_sets: 'audio_rendition_sets',
-          m3u8_settings: Stubs::M3u8Settings.default(visited),
+          m3u8_settings: M3u8Settings.default(visited),
         }
       end
 
@@ -3077,7 +3077,7 @@ module AWS::SDK::MediaLive
         visited = visited + ['AudioOnlyHlsSettings']
         {
           audio_group_id: 'audio_group_id',
-          audio_only_image: Stubs::InputLocation.default(visited),
+          audio_only_image: InputLocation.default(visited),
           audio_track_type: 'audio_track_type',
           segment_type: 'segment_type',
         }
@@ -3118,7 +3118,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('ArchiveOutputSettings')
         visited = visited + ['ArchiveOutputSettings']
         {
-          container_settings: Stubs::ArchiveContainerSettings.default(visited),
+          container_settings: ArchiveContainerSettings.default(visited),
           extension: 'extension',
           name_modifier: 'name_modifier',
         }
@@ -3140,8 +3140,8 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('ArchiveContainerSettings')
         visited = visited + ['ArchiveContainerSettings']
         {
-          m2ts_settings: Stubs::M2tsSettings.default(visited),
-          raw_settings: Stubs::RawSettings.default(visited),
+          m2ts_settings: M2tsSettings.default(visited),
+          raw_settings: RawSettings.default(visited),
         }
       end
 
@@ -3176,14 +3176,14 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('OutputGroupSettings')
         visited = visited + ['OutputGroupSettings']
         {
-          archive_group_settings: Stubs::ArchiveGroupSettings.default(visited),
-          frame_capture_group_settings: Stubs::FrameCaptureGroupSettings.default(visited),
-          hls_group_settings: Stubs::HlsGroupSettings.default(visited),
-          media_package_group_settings: Stubs::MediaPackageGroupSettings.default(visited),
-          ms_smooth_group_settings: Stubs::MsSmoothGroupSettings.default(visited),
-          multiplex_group_settings: Stubs::MultiplexGroupSettings.default(visited),
-          rtmp_group_settings: Stubs::RtmpGroupSettings.default(visited),
-          udp_group_settings: Stubs::UdpGroupSettings.default(visited),
+          archive_group_settings: ArchiveGroupSettings.default(visited),
+          frame_capture_group_settings: FrameCaptureGroupSettings.default(visited),
+          hls_group_settings: HlsGroupSettings.default(visited),
+          media_package_group_settings: MediaPackageGroupSettings.default(visited),
+          ms_smooth_group_settings: MsSmoothGroupSettings.default(visited),
+          multiplex_group_settings: MultiplexGroupSettings.default(visited),
+          rtmp_group_settings: RtmpGroupSettings.default(visited),
+          udp_group_settings: UdpGroupSettings.default(visited),
         }
       end
 
@@ -3230,7 +3230,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('RtmpGroupSettings')
         visited = visited + ['RtmpGroupSettings']
         {
-          ad_markers: Stubs::List____listOfRtmpAdMarkers.default(visited),
+          ad_markers: List____listOfRtmpAdMarkers.default(visited),
           authentication_scheme: 'authentication_scheme',
           cache_full_behavior: 'cache_full_behavior',
           cache_length: 1,
@@ -3300,7 +3300,7 @@ module AWS::SDK::MediaLive
           audio_only_timecode_control: 'audio_only_timecode_control',
           certificate_mode: 'certificate_mode',
           connection_retry_interval: 1,
-          destination: Stubs::OutputLocationRef.default(visited),
+          destination: OutputLocationRef.default(visited),
           event_id: 'event_id',
           event_id_mode: 'event_id_mode',
           event_stop_behavior: 'event_stop_behavior',
@@ -3350,7 +3350,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('MediaPackageGroupSettings')
         visited = visited + ['MediaPackageGroupSettings']
         {
-          destination: Stubs::OutputLocationRef.default(visited),
+          destination: OutputLocationRef.default(visited),
         }
       end
 
@@ -3368,21 +3368,21 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('HlsGroupSettings')
         visited = visited + ['HlsGroupSettings']
         {
-          ad_markers: Stubs::List____listOfHlsAdMarkers.default(visited),
+          ad_markers: List____listOfHlsAdMarkers.default(visited),
           base_url_content: 'base_url_content',
           base_url_content1: 'base_url_content1',
           base_url_manifest: 'base_url_manifest',
           base_url_manifest1: 'base_url_manifest1',
-          caption_language_mappings: Stubs::List____listOfCaptionLanguageMapping.default(visited),
+          caption_language_mappings: List____listOfCaptionLanguageMapping.default(visited),
           caption_language_setting: 'caption_language_setting',
           client_cache: 'client_cache',
           codec_specification: 'codec_specification',
           constant_iv: 'constant_iv',
-          destination: Stubs::OutputLocationRef.default(visited),
+          destination: OutputLocationRef.default(visited),
           directory_structure: 'directory_structure',
           discontinuity_tags: 'discontinuity_tags',
           encryption_type: 'encryption_type',
-          hls_cdn_settings: Stubs::HlsCdnSettings.default(visited),
+          hls_cdn_settings: HlsCdnSettings.default(visited),
           hls_id3_segment_tagging: 'hls_id3_segment_tagging',
           i_frame_only_playlists: 'i_frame_only_playlists',
           incomplete_segment_behavior: 'incomplete_segment_behavior',
@@ -3393,7 +3393,7 @@ module AWS::SDK::MediaLive
           keep_segments: 1,
           key_format: 'key_format',
           key_format_versions: 'key_format_versions',
-          key_provider_settings: Stubs::KeyProviderSettings.default(visited),
+          key_provider_settings: KeyProviderSettings.default(visited),
           manifest_compression: 'manifest_compression',
           manifest_duration_format: 'manifest_duration_format',
           min_segment_length: 1,
@@ -3470,7 +3470,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('KeyProviderSettings')
         visited = visited + ['KeyProviderSettings']
         {
-          static_key_settings: Stubs::StaticKeySettings.default(visited),
+          static_key_settings: StaticKeySettings.default(visited),
         }
       end
 
@@ -3488,7 +3488,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('StaticKeySettings')
         visited = visited + ['StaticKeySettings']
         {
-          key_provider_server: Stubs::InputLocation.default(visited),
+          key_provider_server: InputLocation.default(visited),
           static_key_value: 'static_key_value',
         }
       end
@@ -3508,11 +3508,11 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('HlsCdnSettings')
         visited = visited + ['HlsCdnSettings']
         {
-          hls_akamai_settings: Stubs::HlsAkamaiSettings.default(visited),
-          hls_basic_put_settings: Stubs::HlsBasicPutSettings.default(visited),
-          hls_media_store_settings: Stubs::HlsMediaStoreSettings.default(visited),
-          hls_s3_settings: Stubs::HlsS3Settings.default(visited),
-          hls_webdav_settings: Stubs::HlsWebdavSettings.default(visited),
+          hls_akamai_settings: HlsAkamaiSettings.default(visited),
+          hls_basic_put_settings: HlsBasicPutSettings.default(visited),
+          hls_media_store_settings: HlsMediaStoreSettings.default(visited),
+          hls_s3_settings: HlsS3Settings.default(visited),
+          hls_webdav_settings: HlsWebdavSettings.default(visited),
         }
       end
 
@@ -3658,7 +3658,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfCaptionLanguageMapping')
         visited = visited + ['List____listOfCaptionLanguageMapping']
         [
-          Stubs::CaptionLanguageMapping.default(visited)
+          CaptionLanguageMapping.default(visited)
         ]
       end
 
@@ -3720,8 +3720,8 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('FrameCaptureGroupSettings')
         visited = visited + ['FrameCaptureGroupSettings']
         {
-          destination: Stubs::OutputLocationRef.default(visited),
-          frame_capture_cdn_settings: Stubs::FrameCaptureCdnSettings.default(visited),
+          destination: OutputLocationRef.default(visited),
+          frame_capture_cdn_settings: FrameCaptureCdnSettings.default(visited),
         }
       end
 
@@ -3740,7 +3740,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('FrameCaptureCdnSettings')
         visited = visited + ['FrameCaptureCdnSettings']
         {
-          frame_capture_s3_settings: Stubs::FrameCaptureS3Settings.default(visited),
+          frame_capture_s3_settings: FrameCaptureS3Settings.default(visited),
         }
       end
 
@@ -3776,8 +3776,8 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('ArchiveGroupSettings')
         visited = visited + ['ArchiveGroupSettings']
         {
-          archive_cdn_settings: Stubs::ArchiveCdnSettings.default(visited),
-          destination: Stubs::OutputLocationRef.default(visited),
+          archive_cdn_settings: ArchiveCdnSettings.default(visited),
+          destination: OutputLocationRef.default(visited),
           rollover_interval: 1,
         }
       end
@@ -3798,7 +3798,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('ArchiveCdnSettings')
         visited = visited + ['ArchiveCdnSettings']
         {
-          archive_s3_settings: Stubs::ArchiveS3Settings.default(visited),
+          archive_s3_settings: ArchiveS3Settings.default(visited),
         }
       end
 
@@ -3855,7 +3855,7 @@ module AWS::SDK::MediaLive
         visited = visited + ['MotionGraphicsConfiguration']
         {
           motion_graphics_insertion: 'motion_graphics_insertion',
-          motion_graphics_settings: Stubs::MotionGraphicsSettings.default(visited),
+          motion_graphics_settings: MotionGraphicsSettings.default(visited),
         }
       end
 
@@ -3874,7 +3874,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('MotionGraphicsSettings')
         visited = visited + ['MotionGraphicsSettings']
         {
-          html_motion_graphics_settings: Stubs::HtmlMotionGraphicsSettings.default(visited),
+          html_motion_graphics_settings: HtmlMotionGraphicsSettings.default(visited),
         }
       end
 
@@ -3910,7 +3910,7 @@ module AWS::SDK::MediaLive
         {
           initial_audio_gain: 1,
           input_end_action: 'input_end_action',
-          input_loss_behavior: Stubs::InputLossBehavior.default(visited),
+          input_loss_behavior: InputLossBehavior.default(visited),
           output_locking_mode: 'output_locking_mode',
           output_timing_source: 'output_timing_source',
           support_low_framerate_inputs: 'support_low_framerate_inputs',
@@ -3938,7 +3938,7 @@ module AWS::SDK::MediaLive
         {
           black_frame_msec: 1,
           input_loss_image_color: 'input_loss_image_color',
-          input_loss_image_slate: Stubs::InputLocation.default(visited),
+          input_loss_image_slate: InputLocation.default(visited),
           input_loss_image_type: 'input_loss_image_type',
           repeat_frame_msec: 1,
         }
@@ -3980,7 +3980,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfCaptionDescription')
         visited = visited + ['List____listOfCaptionDescription']
         [
-          Stubs::CaptionDescription.default(visited)
+          CaptionDescription.default(visited)
         ]
       end
 
@@ -4001,7 +4001,7 @@ module AWS::SDK::MediaLive
         visited = visited + ['CaptionDescription']
         {
           caption_selector_name: 'caption_selector_name',
-          destination_settings: Stubs::CaptionDestinationSettings.default(visited),
+          destination_settings: CaptionDestinationSettings.default(visited),
           language_code: 'language_code',
           language_description: 'language_description',
           name: 'name',
@@ -4026,19 +4026,19 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('CaptionDestinationSettings')
         visited = visited + ['CaptionDestinationSettings']
         {
-          arib_destination_settings: Stubs::AribDestinationSettings.default(visited),
-          burn_in_destination_settings: Stubs::BurnInDestinationSettings.default(visited),
-          dvb_sub_destination_settings: Stubs::DvbSubDestinationSettings.default(visited),
-          ebu_tt_d_destination_settings: Stubs::EbuTtDDestinationSettings.default(visited),
-          embedded_destination_settings: Stubs::EmbeddedDestinationSettings.default(visited),
-          embedded_plus_scte20_destination_settings: Stubs::EmbeddedPlusScte20DestinationSettings.default(visited),
-          rtmp_caption_info_destination_settings: Stubs::RtmpCaptionInfoDestinationSettings.default(visited),
-          scte20_plus_embedded_destination_settings: Stubs::Scte20PlusEmbeddedDestinationSettings.default(visited),
-          scte27_destination_settings: Stubs::Scte27DestinationSettings.default(visited),
-          smpte_tt_destination_settings: Stubs::SmpteTtDestinationSettings.default(visited),
-          teletext_destination_settings: Stubs::TeletextDestinationSettings.default(visited),
-          ttml_destination_settings: Stubs::TtmlDestinationSettings.default(visited),
-          webvtt_destination_settings: Stubs::WebvttDestinationSettings.default(visited),
+          arib_destination_settings: AribDestinationSettings.default(visited),
+          burn_in_destination_settings: BurnInDestinationSettings.default(visited),
+          dvb_sub_destination_settings: DvbSubDestinationSettings.default(visited),
+          ebu_tt_d_destination_settings: EbuTtDDestinationSettings.default(visited),
+          embedded_destination_settings: EmbeddedDestinationSettings.default(visited),
+          embedded_plus_scte20_destination_settings: EmbeddedPlusScte20DestinationSettings.default(visited),
+          rtmp_caption_info_destination_settings: RtmpCaptionInfoDestinationSettings.default(visited),
+          scte20_plus_embedded_destination_settings: Scte20PlusEmbeddedDestinationSettings.default(visited),
+          scte27_destination_settings: Scte27DestinationSettings.default(visited),
+          smpte_tt_destination_settings: SmpteTtDestinationSettings.default(visited),
+          teletext_destination_settings: TeletextDestinationSettings.default(visited),
+          ttml_destination_settings: TtmlDestinationSettings.default(visited),
+          webvtt_destination_settings: WebvttDestinationSettings.default(visited),
         }
       end
 
@@ -4243,7 +4243,7 @@ module AWS::SDK::MediaLive
           alignment: 'alignment',
           background_color: 'background_color',
           background_opacity: 1,
-          font: Stubs::InputLocation.default(visited),
+          font: InputLocation.default(visited),
           font_color: 'font_color',
           font_opacity: 1,
           font_resolution: 1,
@@ -4293,7 +4293,7 @@ module AWS::SDK::MediaLive
           alignment: 'alignment',
           background_color: 'background_color',
           background_opacity: 1,
-          font: Stubs::InputLocation.default(visited),
+          font: InputLocation.default(visited),
           font_color: 'font_color',
           font_opacity: 1,
           font_resolution: 1,
@@ -4356,9 +4356,9 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('BlackoutSlate')
         visited = visited + ['BlackoutSlate']
         {
-          blackout_slate_image: Stubs::InputLocation.default(visited),
+          blackout_slate_image: InputLocation.default(visited),
           network_end_blackout: 'network_end_blackout',
-          network_end_blackout_image: Stubs::InputLocation.default(visited),
+          network_end_blackout_image: InputLocation.default(visited),
           network_id: 'network_id',
           state: 'state',
         }
@@ -4382,7 +4382,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('AvailConfiguration')
         visited = visited + ['AvailConfiguration']
         {
-          avail_settings: Stubs::AvailSettings.default(visited),
+          avail_settings: AvailSettings.default(visited),
         }
       end
 
@@ -4400,8 +4400,8 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('AvailSettings')
         visited = visited + ['AvailSettings']
         {
-          scte35_splice_insert: Stubs::Scte35SpliceInsert.default(visited),
-          scte35_time_signal_apos: Stubs::Scte35TimeSignalApos.default(visited),
+          scte35_splice_insert: Scte35SpliceInsert.default(visited),
+          scte35_time_signal_apos: Scte35TimeSignalApos.default(visited),
         }
       end
 
@@ -4464,7 +4464,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('AvailBlanking')
         visited = visited + ['AvailBlanking']
         {
-          avail_blanking_image: Stubs::InputLocation.default(visited),
+          avail_blanking_image: InputLocation.default(visited),
           state: 'state',
         }
       end
@@ -4484,7 +4484,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfAudioDescription')
         visited = visited + ['List____listOfAudioDescription']
         [
-          Stubs::AudioDescription.default(visited)
+          AudioDescription.default(visited)
         ]
       end
 
@@ -4504,16 +4504,16 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('AudioDescription')
         visited = visited + ['AudioDescription']
         {
-          audio_normalization_settings: Stubs::AudioNormalizationSettings.default(visited),
+          audio_normalization_settings: AudioNormalizationSettings.default(visited),
           audio_selector_name: 'audio_selector_name',
           audio_type: 'audio_type',
           audio_type_control: 'audio_type_control',
-          audio_watermarking_settings: Stubs::AudioWatermarkSettings.default(visited),
-          codec_settings: Stubs::AudioCodecSettings.default(visited),
+          audio_watermarking_settings: AudioWatermarkSettings.default(visited),
+          codec_settings: AudioCodecSettings.default(visited),
           language_code: 'language_code',
           language_code_control: 'language_code_control',
           name: 'name',
-          remix_settings: Stubs::RemixSettings.default(visited),
+          remix_settings: RemixSettings.default(visited),
           stream_name: 'stream_name',
         }
       end
@@ -4542,7 +4542,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('RemixSettings')
         visited = visited + ['RemixSettings']
         {
-          channel_mappings: Stubs::List____listOfAudioChannelMapping.default(visited),
+          channel_mappings: List____listOfAudioChannelMapping.default(visited),
           channels_in: 1,
           channels_out: 1,
         }
@@ -4564,7 +4564,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfAudioChannelMapping')
         visited = visited + ['List____listOfAudioChannelMapping']
         [
-          Stubs::AudioChannelMapping.default(visited)
+          AudioChannelMapping.default(visited)
         ]
       end
 
@@ -4584,7 +4584,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('AudioChannelMapping')
         visited = visited + ['AudioChannelMapping']
         {
-          input_channel_levels: Stubs::List____listOfInputChannelLevel.default(visited),
+          input_channel_levels: List____listOfInputChannelLevel.default(visited),
           output_channel: 1,
         }
       end
@@ -4604,7 +4604,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfInputChannelLevel')
         visited = visited + ['List____listOfInputChannelLevel']
         [
-          Stubs::InputChannelLevel.default(visited)
+          InputChannelLevel.default(visited)
         ]
       end
 
@@ -4644,12 +4644,12 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('AudioCodecSettings')
         visited = visited + ['AudioCodecSettings']
         {
-          aac_settings: Stubs::AacSettings.default(visited),
-          ac3_settings: Stubs::Ac3Settings.default(visited),
-          eac3_settings: Stubs::Eac3Settings.default(visited),
-          mp2_settings: Stubs::Mp2Settings.default(visited),
-          pass_through_settings: Stubs::PassThroughSettings.default(visited),
-          wav_settings: Stubs::WavSettings.default(visited),
+          aac_settings: AacSettings.default(visited),
+          ac3_settings: Ac3Settings.default(visited),
+          eac3_settings: Eac3Settings.default(visited),
+          mp2_settings: Mp2Settings.default(visited),
+          pass_through_settings: PassThroughSettings.default(visited),
+          wav_settings: WavSettings.default(visited),
         }
       end
 
@@ -4852,7 +4852,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('AudioWatermarkSettings')
         visited = visited + ['AudioWatermarkSettings']
         {
-          nielsen_watermarks_settings: Stubs::NielsenWatermarksSettings.default(visited),
+          nielsen_watermarks_settings: NielsenWatermarksSettings.default(visited),
         }
       end
 
@@ -4870,9 +4870,9 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('NielsenWatermarksSettings')
         visited = visited + ['NielsenWatermarksSettings']
         {
-          nielsen_cbet_settings: Stubs::NielsenCBET.default(visited),
+          nielsen_cbet_settings: NielsenCBET.default(visited),
           nielsen_distribution_type: 'nielsen_distribution_type',
-          nielsen_naes_ii_nw_settings: Stubs::NielsenNaesIiNw.default(visited),
+          nielsen_naes_ii_nw_settings: NielsenNaesIiNw.default(visited),
         }
       end
 
@@ -4956,7 +4956,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfChannelEgressEndpoint')
         visited = visited + ['List____listOfChannelEgressEndpoint']
         [
-          Stubs::ChannelEgressEndpoint.default(visited)
+          ChannelEgressEndpoint.default(visited)
         ]
       end
 
@@ -4994,7 +4994,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfOutputDestination')
         visited = visited + ['List____listOfOutputDestination']
         [
-          Stubs::OutputDestination.default(visited)
+          OutputDestination.default(visited)
         ]
       end
 
@@ -5015,9 +5015,9 @@ module AWS::SDK::MediaLive
         visited = visited + ['OutputDestination']
         {
           id: 'id',
-          media_package_settings: Stubs::List____listOfMediaPackageOutputDestinationSettings.default(visited),
-          multiplex_settings: Stubs::MultiplexProgramChannelDestinationSettings.default(visited),
-          settings: Stubs::List____listOfOutputDestinationSettings.default(visited),
+          media_package_settings: List____listOfMediaPackageOutputDestinationSettings.default(visited),
+          multiplex_settings: MultiplexProgramChannelDestinationSettings.default(visited),
+          settings: List____listOfOutputDestinationSettings.default(visited),
         }
       end
 
@@ -5038,7 +5038,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfOutputDestinationSettings')
         visited = visited + ['List____listOfOutputDestinationSettings']
         [
-          Stubs::OutputDestinationSettings.default(visited)
+          OutputDestinationSettings.default(visited)
         ]
       end
 
@@ -5102,7 +5102,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfMediaPackageOutputDestinationSettings')
         visited = visited + ['List____listOfMediaPackageOutputDestinationSettings']
         [
-          Stubs::MediaPackageOutputDestinationSettings.default(visited)
+          MediaPackageOutputDestinationSettings.default(visited)
         ]
       end
 
@@ -5156,7 +5156,7 @@ module AWS::SDK::MediaLive
     class CreateInput
       def self.default(visited=[])
         {
-          input: Stubs::Input.default(visited),
+          input: Input.default(visited),
         }
       end
 
@@ -5176,20 +5176,20 @@ module AWS::SDK::MediaLive
         visited = visited + ['Input']
         {
           arn: 'arn',
-          attached_channels: Stubs::List____listOf__string.default(visited),
-          destinations: Stubs::List____listOfInputDestination.default(visited),
+          attached_channels: List____listOf__string.default(visited),
+          destinations: List____listOfInputDestination.default(visited),
           id: 'id',
           input_class: 'input_class',
-          input_devices: Stubs::List____listOfInputDeviceSettings.default(visited),
-          input_partner_ids: Stubs::List____listOf__string.default(visited),
+          input_devices: List____listOfInputDeviceSettings.default(visited),
+          input_partner_ids: List____listOf__string.default(visited),
           input_source_type: 'input_source_type',
-          media_connect_flows: Stubs::List____listOfMediaConnectFlow.default(visited),
+          media_connect_flows: List____listOfMediaConnectFlow.default(visited),
           name: 'name',
           role_arn: 'role_arn',
-          security_groups: Stubs::List____listOf__string.default(visited),
-          sources: Stubs::List____listOfInputSource.default(visited),
+          security_groups: List____listOf__string.default(visited),
+          sources: List____listOfInputSource.default(visited),
           state: 'state',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           type: 'type',
         }
       end
@@ -5223,7 +5223,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfInputSource')
         visited = visited + ['List____listOfInputSource']
         [
-          Stubs::InputSource.default(visited)
+          InputSource.default(visited)
         ]
       end
 
@@ -5265,7 +5265,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfMediaConnectFlow')
         visited = visited + ['List____listOfMediaConnectFlow']
         [
-          Stubs::MediaConnectFlow.default(visited)
+          MediaConnectFlow.default(visited)
         ]
       end
 
@@ -5303,7 +5303,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfInputDeviceSettings')
         visited = visited + ['List____listOfInputDeviceSettings']
         [
-          Stubs::InputDeviceSettings.default(visited)
+          InputDeviceSettings.default(visited)
         ]
       end
 
@@ -5341,7 +5341,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfInputDestination')
         visited = visited + ['List____listOfInputDestination']
         [
-          Stubs::InputDestination.default(visited)
+          InputDestination.default(visited)
         ]
       end
 
@@ -5364,7 +5364,7 @@ module AWS::SDK::MediaLive
           ip: 'ip',
           port: 'port',
           url: 'url',
-          vpc: Stubs::InputDestinationVpc.default(visited),
+          vpc: InputDestinationVpc.default(visited),
         }
       end
 
@@ -5403,7 +5403,7 @@ module AWS::SDK::MediaLive
     class CreateInputSecurityGroup
       def self.default(visited=[])
         {
-          security_group: Stubs::InputSecurityGroup.default(visited),
+          security_group: InputSecurityGroup.default(visited),
         }
       end
 
@@ -5424,10 +5424,10 @@ module AWS::SDK::MediaLive
         {
           arn: 'arn',
           id: 'id',
-          inputs: Stubs::List____listOf__string.default(visited),
+          inputs: List____listOf__string.default(visited),
           state: 'state',
-          tags: Stubs::Tags.default(visited),
-          whitelist_rules: Stubs::List____listOfInputWhitelistRule.default(visited),
+          tags: Tags.default(visited),
+          whitelist_rules: List____listOfInputWhitelistRule.default(visited),
         }
       end
 
@@ -5450,7 +5450,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfInputWhitelistRule')
         visited = visited + ['List____listOfInputWhitelistRule']
         [
-          Stubs::InputWhitelistRule.default(visited)
+          InputWhitelistRule.default(visited)
         ]
       end
 
@@ -5486,7 +5486,7 @@ module AWS::SDK::MediaLive
     class CreateMultiplex
       def self.default(visited=[])
         {
-          multiplex: Stubs::Multiplex.default(visited),
+          multiplex: Multiplex.default(visited),
         }
       end
 
@@ -5506,15 +5506,15 @@ module AWS::SDK::MediaLive
         visited = visited + ['Multiplex']
         {
           arn: 'arn',
-          availability_zones: Stubs::List____listOf__string.default(visited),
-          destinations: Stubs::List____listOfMultiplexOutputDestination.default(visited),
+          availability_zones: List____listOf__string.default(visited),
+          destinations: List____listOfMultiplexOutputDestination.default(visited),
           id: 'id',
-          multiplex_settings: Stubs::MultiplexSettings.default(visited),
+          multiplex_settings: MultiplexSettings.default(visited),
           name: 'name',
           pipelines_running_count: 1,
           program_count: 1,
           state: 'state',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -5565,7 +5565,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfMultiplexOutputDestination')
         visited = visited + ['List____listOfMultiplexOutputDestination']
         [
-          Stubs::MultiplexOutputDestination.default(visited)
+          MultiplexOutputDestination.default(visited)
         ]
       end
 
@@ -5585,7 +5585,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('MultiplexOutputDestination')
         visited = visited + ['MultiplexOutputDestination']
         {
-          media_connect_settings: Stubs::MultiplexMediaConnectOutputDestinationSettings.default(visited),
+          media_connect_settings: MultiplexMediaConnectOutputDestinationSettings.default(visited),
         }
       end
 
@@ -5619,7 +5619,7 @@ module AWS::SDK::MediaLive
     class CreateMultiplexProgram
       def self.default(visited=[])
         {
-          multiplex_program: Stubs::MultiplexProgram.default(visited),
+          multiplex_program: MultiplexProgram.default(visited),
         }
       end
 
@@ -5639,9 +5639,9 @@ module AWS::SDK::MediaLive
         visited = visited + ['MultiplexProgram']
         {
           channel_id: 'channel_id',
-          multiplex_program_settings: Stubs::MultiplexProgramSettings.default(visited),
-          packet_identifiers_map: Stubs::MultiplexProgramPacketIdentifiersMap.default(visited),
-          pipeline_details: Stubs::List____listOfMultiplexProgramPipelineDetail.default(visited),
+          multiplex_program_settings: MultiplexProgramSettings.default(visited),
+          packet_identifiers_map: MultiplexProgramPacketIdentifiersMap.default(visited),
+          pipeline_details: List____listOfMultiplexProgramPipelineDetail.default(visited),
           program_name: 'program_name',
         }
       end
@@ -5664,7 +5664,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfMultiplexProgramPipelineDetail')
         visited = visited + ['List____listOfMultiplexProgramPipelineDetail']
         [
-          Stubs::MultiplexProgramPipelineDetail.default(visited)
+          MultiplexProgramPipelineDetail.default(visited)
         ]
       end
 
@@ -5704,16 +5704,16 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('MultiplexProgramPacketIdentifiersMap')
         visited = visited + ['MultiplexProgramPacketIdentifiersMap']
         {
-          audio_pids: Stubs::List____listOf__integer.default(visited),
-          dvb_sub_pids: Stubs::List____listOf__integer.default(visited),
+          audio_pids: List____listOf__integer.default(visited),
+          dvb_sub_pids: List____listOf__integer.default(visited),
           dvb_teletext_pid: 1,
           etv_platform_pid: 1,
           etv_signal_pid: 1,
-          klv_data_pids: Stubs::List____listOf__integer.default(visited),
+          klv_data_pids: List____listOf__integer.default(visited),
           pcr_pid: 1,
           pmt_pid: 1,
           private_metadata_pid: 1,
-          scte27_pids: Stubs::List____listOf__integer.default(visited),
+          scte27_pids: List____listOf__integer.default(visited),
           scte35_pid: 1,
           timed_metadata_pid: 1,
           video_pid: 1,
@@ -5768,8 +5768,8 @@ module AWS::SDK::MediaLive
         {
           preferred_channel_pipeline: 'preferred_channel_pipeline',
           program_number: 1,
-          service_descriptor: Stubs::MultiplexProgramServiceDescriptor.default(visited),
-          video_settings: Stubs::MultiplexVideoSettings.default(visited),
+          service_descriptor: MultiplexProgramServiceDescriptor.default(visited),
+          video_settings: MultiplexVideoSettings.default(visited),
         }
       end
 
@@ -5791,7 +5791,7 @@ module AWS::SDK::MediaLive
         visited = visited + ['MultiplexVideoSettings']
         {
           constant_bitrate: 1,
-          statmux_settings: Stubs::MultiplexStatmuxVideoSettings.default(visited),
+          statmux_settings: MultiplexStatmuxVideoSettings.default(visited),
         }
       end
 
@@ -5850,7 +5850,7 @@ module AWS::SDK::MediaLive
     class CreatePartnerInput
       def self.default(visited=[])
         {
-          input: Stubs::Input.default(visited),
+          input: Input.default(visited),
         }
       end
 
@@ -5881,23 +5881,23 @@ module AWS::SDK::MediaLive
       def self.default(visited=[])
         {
           arn: 'arn',
-          cdi_input_specification: Stubs::CdiInputSpecification.default(visited),
+          cdi_input_specification: CdiInputSpecification.default(visited),
           channel_class: 'channel_class',
-          destinations: Stubs::List____listOfOutputDestination.default(visited),
-          egress_endpoints: Stubs::List____listOfChannelEgressEndpoint.default(visited),
-          encoder_settings: Stubs::EncoderSettings.default(visited),
+          destinations: List____listOfOutputDestination.default(visited),
+          egress_endpoints: List____listOfChannelEgressEndpoint.default(visited),
+          encoder_settings: EncoderSettings.default(visited),
           id: 'id',
-          input_attachments: Stubs::List____listOfInputAttachment.default(visited),
-          input_specification: Stubs::InputSpecification.default(visited),
+          input_attachments: List____listOfInputAttachment.default(visited),
+          input_specification: InputSpecification.default(visited),
           log_level: 'log_level',
-          maintenance: Stubs::MaintenanceStatus.default(visited),
+          maintenance: MaintenanceStatus.default(visited),
           name: 'name',
-          pipeline_details: Stubs::List____listOfPipelineDetail.default(visited),
+          pipeline_details: List____listOfPipelineDetail.default(visited),
           pipelines_running_count: 1,
           role_arn: 'role_arn',
           state: 'state',
-          tags: Stubs::Tags.default(visited),
-          vpc: Stubs::VpcOutputSettingsDescription.default(visited),
+          tags: Tags.default(visited),
+          vpc: VpcOutputSettingsDescription.default(visited),
         }
       end
 
@@ -5958,15 +5958,15 @@ module AWS::SDK::MediaLive
       def self.default(visited=[])
         {
           arn: 'arn',
-          availability_zones: Stubs::List____listOf__string.default(visited),
-          destinations: Stubs::List____listOfMultiplexOutputDestination.default(visited),
+          availability_zones: List____listOf__string.default(visited),
+          destinations: List____listOfMultiplexOutputDestination.default(visited),
           id: 'id',
-          multiplex_settings: Stubs::MultiplexSettings.default(visited),
+          multiplex_settings: MultiplexSettings.default(visited),
           name: 'name',
           pipelines_running_count: 1,
           program_count: 1,
           state: 'state',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -5993,9 +5993,9 @@ module AWS::SDK::MediaLive
       def self.default(visited=[])
         {
           channel_id: 'channel_id',
-          multiplex_program_settings: Stubs::MultiplexProgramSettings.default(visited),
-          packet_identifiers_map: Stubs::MultiplexProgramPacketIdentifiersMap.default(visited),
-          pipeline_details: Stubs::List____listOfMultiplexProgramPipelineDetail.default(visited),
+          multiplex_program_settings: MultiplexProgramSettings.default(visited),
+          packet_identifiers_map: MultiplexProgramPacketIdentifiersMap.default(visited),
+          pipeline_details: List____listOfMultiplexProgramPipelineDetail.default(visited),
           program_name: 'program_name',
         }
       end
@@ -6030,10 +6030,10 @@ module AWS::SDK::MediaLive
           offering_type: 'offering_type',
           region: 'region',
           reservation_id: 'reservation_id',
-          resource_specification: Stubs::ReservationResourceSpecification.default(visited),
+          resource_specification: ReservationResourceSpecification.default(visited),
           start: 'start',
           state: 'state',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           usage_price: 1.0,
         }
       end
@@ -6127,23 +6127,23 @@ module AWS::SDK::MediaLive
       def self.default(visited=[])
         {
           arn: 'arn',
-          cdi_input_specification: Stubs::CdiInputSpecification.default(visited),
+          cdi_input_specification: CdiInputSpecification.default(visited),
           channel_class: 'channel_class',
-          destinations: Stubs::List____listOfOutputDestination.default(visited),
-          egress_endpoints: Stubs::List____listOfChannelEgressEndpoint.default(visited),
-          encoder_settings: Stubs::EncoderSettings.default(visited),
+          destinations: List____listOfOutputDestination.default(visited),
+          egress_endpoints: List____listOfChannelEgressEndpoint.default(visited),
+          encoder_settings: EncoderSettings.default(visited),
           id: 'id',
-          input_attachments: Stubs::List____listOfInputAttachment.default(visited),
-          input_specification: Stubs::InputSpecification.default(visited),
+          input_attachments: List____listOfInputAttachment.default(visited),
+          input_specification: InputSpecification.default(visited),
           log_level: 'log_level',
-          maintenance: Stubs::MaintenanceStatus.default(visited),
+          maintenance: MaintenanceStatus.default(visited),
           name: 'name',
-          pipeline_details: Stubs::List____listOfPipelineDetail.default(visited),
+          pipeline_details: List____listOfPipelineDetail.default(visited),
           pipelines_running_count: 1,
           role_arn: 'role_arn',
           state: 'state',
-          tags: Stubs::Tags.default(visited),
-          vpc: Stubs::VpcOutputSettingsDescription.default(visited),
+          tags: Tags.default(visited),
+          vpc: VpcOutputSettingsDescription.default(visited),
         }
       end
 
@@ -6178,20 +6178,20 @@ module AWS::SDK::MediaLive
       def self.default(visited=[])
         {
           arn: 'arn',
-          attached_channels: Stubs::List____listOf__string.default(visited),
-          destinations: Stubs::List____listOfInputDestination.default(visited),
+          attached_channels: List____listOf__string.default(visited),
+          destinations: List____listOfInputDestination.default(visited),
           id: 'id',
           input_class: 'input_class',
-          input_devices: Stubs::List____listOfInputDeviceSettings.default(visited),
-          input_partner_ids: Stubs::List____listOf__string.default(visited),
+          input_devices: List____listOfInputDeviceSettings.default(visited),
+          input_partner_ids: List____listOf__string.default(visited),
           input_source_type: 'input_source_type',
-          media_connect_flows: Stubs::List____listOfMediaConnectFlow.default(visited),
+          media_connect_flows: List____listOfMediaConnectFlow.default(visited),
           name: 'name',
           role_arn: 'role_arn',
-          security_groups: Stubs::List____listOf__string.default(visited),
-          sources: Stubs::List____listOfInputSource.default(visited),
+          security_groups: List____listOf__string.default(visited),
+          sources: List____listOfInputSource.default(visited),
           state: 'state',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           type: 'type',
         }
       end
@@ -6228,14 +6228,14 @@ module AWS::SDK::MediaLive
           connection_state: 'connection_state',
           device_settings_sync_state: 'device_settings_sync_state',
           device_update_status: 'device_update_status',
-          hd_device_settings: Stubs::InputDeviceHdSettings.default(visited),
+          hd_device_settings: InputDeviceHdSettings.default(visited),
           id: 'id',
           mac_address: 'mac_address',
           name: 'name',
-          network_settings: Stubs::InputDeviceNetworkSettings.default(visited),
+          network_settings: InputDeviceNetworkSettings.default(visited),
           serial_number: 'serial_number',
           type: 'type',
-          uhd_device_settings: Stubs::InputDeviceUhdSettings.default(visited),
+          uhd_device_settings: InputDeviceUhdSettings.default(visited),
         }
       end
 
@@ -6297,7 +6297,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('InputDeviceNetworkSettings')
         visited = visited + ['InputDeviceNetworkSettings']
         {
-          dns_addresses: Stubs::List____listOf__string.default(visited),
+          dns_addresses: List____listOf__string.default(visited),
           gateway: 'gateway',
           ip_address: 'ip_address',
           ip_scheme: 'ip_scheme',
@@ -6378,10 +6378,10 @@ module AWS::SDK::MediaLive
         {
           arn: 'arn',
           id: 'id',
-          inputs: Stubs::List____listOf__string.default(visited),
+          inputs: List____listOf__string.default(visited),
           state: 'state',
-          tags: Stubs::Tags.default(visited),
-          whitelist_rules: Stubs::List____listOfInputWhitelistRule.default(visited),
+          tags: Tags.default(visited),
+          whitelist_rules: List____listOfInputWhitelistRule.default(visited),
         }
       end
 
@@ -6404,15 +6404,15 @@ module AWS::SDK::MediaLive
       def self.default(visited=[])
         {
           arn: 'arn',
-          availability_zones: Stubs::List____listOf__string.default(visited),
-          destinations: Stubs::List____listOfMultiplexOutputDestination.default(visited),
+          availability_zones: List____listOf__string.default(visited),
+          destinations: List____listOfMultiplexOutputDestination.default(visited),
           id: 'id',
-          multiplex_settings: Stubs::MultiplexSettings.default(visited),
+          multiplex_settings: MultiplexSettings.default(visited),
           name: 'name',
           pipelines_running_count: 1,
           program_count: 1,
           state: 'state',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -6439,9 +6439,9 @@ module AWS::SDK::MediaLive
       def self.default(visited=[])
         {
           channel_id: 'channel_id',
-          multiplex_program_settings: Stubs::MultiplexProgramSettings.default(visited),
-          packet_identifiers_map: Stubs::MultiplexProgramPacketIdentifiersMap.default(visited),
-          pipeline_details: Stubs::List____listOfMultiplexProgramPipelineDetail.default(visited),
+          multiplex_program_settings: MultiplexProgramSettings.default(visited),
+          packet_identifiers_map: MultiplexProgramPacketIdentifiersMap.default(visited),
+          pipeline_details: List____listOfMultiplexProgramPipelineDetail.default(visited),
           program_name: 'program_name',
         }
       end
@@ -6472,7 +6472,7 @@ module AWS::SDK::MediaLive
           offering_id: 'offering_id',
           offering_type: 'offering_type',
           region: 'region',
-          resource_specification: Stubs::ReservationResourceSpecification.default(visited),
+          resource_specification: ReservationResourceSpecification.default(visited),
           usage_price: 1.0,
         }
       end
@@ -6513,10 +6513,10 @@ module AWS::SDK::MediaLive
           offering_type: 'offering_type',
           region: 'region',
           reservation_id: 'reservation_id',
-          resource_specification: Stubs::ReservationResourceSpecification.default(visited),
+          resource_specification: ReservationResourceSpecification.default(visited),
           start: 'start',
           state: 'state',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           usage_price: 1.0,
         }
       end
@@ -6552,7 +6552,7 @@ module AWS::SDK::MediaLive
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          schedule_actions: Stubs::List____listOfScheduleAction.default(visited),
+          schedule_actions: List____listOfScheduleAction.default(visited),
         }
       end
 
@@ -6570,7 +6570,7 @@ module AWS::SDK::MediaLive
     class ListChannels
       def self.default(visited=[])
         {
-          channels: Stubs::List____listOfChannelSummary.default(visited),
+          channels: List____listOfChannelSummary.default(visited),
           next_token: 'next_token',
         }
       end
@@ -6591,7 +6591,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfChannelSummary')
         visited = visited + ['List____listOfChannelSummary']
         [
-          Stubs::ChannelSummary.default(visited)
+          ChannelSummary.default(visited)
         ]
       end
 
@@ -6612,21 +6612,21 @@ module AWS::SDK::MediaLive
         visited = visited + ['ChannelSummary']
         {
           arn: 'arn',
-          cdi_input_specification: Stubs::CdiInputSpecification.default(visited),
+          cdi_input_specification: CdiInputSpecification.default(visited),
           channel_class: 'channel_class',
-          destinations: Stubs::List____listOfOutputDestination.default(visited),
-          egress_endpoints: Stubs::List____listOfChannelEgressEndpoint.default(visited),
+          destinations: List____listOfOutputDestination.default(visited),
+          egress_endpoints: List____listOfChannelEgressEndpoint.default(visited),
           id: 'id',
-          input_attachments: Stubs::List____listOfInputAttachment.default(visited),
-          input_specification: Stubs::InputSpecification.default(visited),
+          input_attachments: List____listOfInputAttachment.default(visited),
+          input_specification: InputSpecification.default(visited),
           log_level: 'log_level',
-          maintenance: Stubs::MaintenanceStatus.default(visited),
+          maintenance: MaintenanceStatus.default(visited),
           name: 'name',
           pipelines_running_count: 1,
           role_arn: 'role_arn',
           state: 'state',
-          tags: Stubs::Tags.default(visited),
-          vpc: Stubs::VpcOutputSettingsDescription.default(visited),
+          tags: Tags.default(visited),
+          vpc: VpcOutputSettingsDescription.default(visited),
         }
       end
 
@@ -6657,7 +6657,7 @@ module AWS::SDK::MediaLive
     class ListInputDeviceTransfers
       def self.default(visited=[])
         {
-          input_device_transfers: Stubs::List____listOfTransferringInputDeviceSummary.default(visited),
+          input_device_transfers: List____listOfTransferringInputDeviceSummary.default(visited),
           next_token: 'next_token',
         }
       end
@@ -6678,7 +6678,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfTransferringInputDeviceSummary')
         visited = visited + ['List____listOfTransferringInputDeviceSummary']
         [
-          Stubs::TransferringInputDeviceSummary.default(visited)
+          TransferringInputDeviceSummary.default(visited)
         ]
       end
 
@@ -6720,7 +6720,7 @@ module AWS::SDK::MediaLive
     class ListInputDevices
       def self.default(visited=[])
         {
-          input_devices: Stubs::List____listOfInputDeviceSummary.default(visited),
+          input_devices: List____listOfInputDeviceSummary.default(visited),
           next_token: 'next_token',
         }
       end
@@ -6741,7 +6741,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfInputDeviceSummary')
         visited = visited + ['List____listOfInputDeviceSummary']
         [
-          Stubs::InputDeviceSummary.default(visited)
+          InputDeviceSummary.default(visited)
         ]
       end
 
@@ -6765,14 +6765,14 @@ module AWS::SDK::MediaLive
           connection_state: 'connection_state',
           device_settings_sync_state: 'device_settings_sync_state',
           device_update_status: 'device_update_status',
-          hd_device_settings: Stubs::InputDeviceHdSettings.default(visited),
+          hd_device_settings: InputDeviceHdSettings.default(visited),
           id: 'id',
           mac_address: 'mac_address',
           name: 'name',
-          network_settings: Stubs::InputDeviceNetworkSettings.default(visited),
+          network_settings: InputDeviceNetworkSettings.default(visited),
           serial_number: 'serial_number',
           type: 'type',
-          uhd_device_settings: Stubs::InputDeviceUhdSettings.default(visited),
+          uhd_device_settings: InputDeviceUhdSettings.default(visited),
         }
       end
 
@@ -6799,7 +6799,7 @@ module AWS::SDK::MediaLive
     class ListInputSecurityGroups
       def self.default(visited=[])
         {
-          input_security_groups: Stubs::List____listOfInputSecurityGroup.default(visited),
+          input_security_groups: List____listOfInputSecurityGroup.default(visited),
           next_token: 'next_token',
         }
       end
@@ -6820,7 +6820,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfInputSecurityGroup')
         visited = visited + ['List____listOfInputSecurityGroup']
         [
-          Stubs::InputSecurityGroup.default(visited)
+          InputSecurityGroup.default(visited)
         ]
       end
 
@@ -6838,7 +6838,7 @@ module AWS::SDK::MediaLive
     class ListInputs
       def self.default(visited=[])
         {
-          inputs: Stubs::List____listOfInput.default(visited),
+          inputs: List____listOfInput.default(visited),
           next_token: 'next_token',
         }
       end
@@ -6859,7 +6859,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfInput')
         visited = visited + ['List____listOfInput']
         [
-          Stubs::Input.default(visited)
+          Input.default(visited)
         ]
       end
 
@@ -6877,7 +6877,7 @@ module AWS::SDK::MediaLive
     class ListMultiplexPrograms
       def self.default(visited=[])
         {
-          multiplex_programs: Stubs::List____listOfMultiplexProgramSummary.default(visited),
+          multiplex_programs: List____listOfMultiplexProgramSummary.default(visited),
           next_token: 'next_token',
         }
       end
@@ -6898,7 +6898,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfMultiplexProgramSummary')
         visited = visited + ['List____listOfMultiplexProgramSummary']
         [
-          Stubs::MultiplexProgramSummary.default(visited)
+          MultiplexProgramSummary.default(visited)
         ]
       end
 
@@ -6936,7 +6936,7 @@ module AWS::SDK::MediaLive
     class ListMultiplexes
       def self.default(visited=[])
         {
-          multiplexes: Stubs::List____listOfMultiplexSummary.default(visited),
+          multiplexes: List____listOfMultiplexSummary.default(visited),
           next_token: 'next_token',
         }
       end
@@ -6957,7 +6957,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfMultiplexSummary')
         visited = visited + ['List____listOfMultiplexSummary']
         [
-          Stubs::MultiplexSummary.default(visited)
+          MultiplexSummary.default(visited)
         ]
       end
 
@@ -6978,14 +6978,14 @@ module AWS::SDK::MediaLive
         visited = visited + ['MultiplexSummary']
         {
           arn: 'arn',
-          availability_zones: Stubs::List____listOf__string.default(visited),
+          availability_zones: List____listOf__string.default(visited),
           id: 'id',
-          multiplex_settings: Stubs::MultiplexSettingsSummary.default(visited),
+          multiplex_settings: MultiplexSettingsSummary.default(visited),
           name: 'name',
           pipelines_running_count: 1,
           program_count: 1,
           state: 'state',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -7028,7 +7028,7 @@ module AWS::SDK::MediaLive
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          offerings: Stubs::List____listOfOffering.default(visited),
+          offerings: List____listOfOffering.default(visited),
         }
       end
 
@@ -7048,7 +7048,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfOffering')
         visited = visited + ['List____listOfOffering']
         [
-          Stubs::Offering.default(visited)
+          Offering.default(visited)
         ]
       end
 
@@ -7077,7 +7077,7 @@ module AWS::SDK::MediaLive
           offering_id: 'offering_id',
           offering_type: 'offering_type',
           region: 'region',
-          resource_specification: Stubs::ReservationResourceSpecification.default(visited),
+          resource_specification: ReservationResourceSpecification.default(visited),
           usage_price: 1.0,
         }
       end
@@ -7105,7 +7105,7 @@ module AWS::SDK::MediaLive
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          reservations: Stubs::List____listOfReservation.default(visited),
+          reservations: List____listOfReservation.default(visited),
         }
       end
 
@@ -7125,7 +7125,7 @@ module AWS::SDK::MediaLive
         return nil if visited.include?('List____listOfReservation')
         visited = visited + ['List____listOfReservation']
         [
-          Stubs::Reservation.default(visited)
+          Reservation.default(visited)
         ]
       end
 
@@ -7158,10 +7158,10 @@ module AWS::SDK::MediaLive
           offering_type: 'offering_type',
           region: 'region',
           reservation_id: 'reservation_id',
-          resource_specification: Stubs::ReservationResourceSpecification.default(visited),
+          resource_specification: ReservationResourceSpecification.default(visited),
           start: 'start',
           state: 'state',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           usage_price: 1.0,
         }
       end
@@ -7195,7 +7195,7 @@ module AWS::SDK::MediaLive
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -7212,7 +7212,7 @@ module AWS::SDK::MediaLive
     class PurchaseOffering
       def self.default(visited=[])
         {
-          reservation: Stubs::Reservation.default(visited),
+          reservation: Reservation.default(visited),
         }
       end
 
@@ -7243,23 +7243,23 @@ module AWS::SDK::MediaLive
       def self.default(visited=[])
         {
           arn: 'arn',
-          cdi_input_specification: Stubs::CdiInputSpecification.default(visited),
+          cdi_input_specification: CdiInputSpecification.default(visited),
           channel_class: 'channel_class',
-          destinations: Stubs::List____listOfOutputDestination.default(visited),
-          egress_endpoints: Stubs::List____listOfChannelEgressEndpoint.default(visited),
-          encoder_settings: Stubs::EncoderSettings.default(visited),
+          destinations: List____listOfOutputDestination.default(visited),
+          egress_endpoints: List____listOfChannelEgressEndpoint.default(visited),
+          encoder_settings: EncoderSettings.default(visited),
           id: 'id',
-          input_attachments: Stubs::List____listOfInputAttachment.default(visited),
-          input_specification: Stubs::InputSpecification.default(visited),
+          input_attachments: List____listOfInputAttachment.default(visited),
+          input_specification: InputSpecification.default(visited),
           log_level: 'log_level',
-          maintenance: Stubs::MaintenanceStatus.default(visited),
+          maintenance: MaintenanceStatus.default(visited),
           name: 'name',
-          pipeline_details: Stubs::List____listOfPipelineDetail.default(visited),
+          pipeline_details: List____listOfPipelineDetail.default(visited),
           pipelines_running_count: 1,
           role_arn: 'role_arn',
           state: 'state',
-          tags: Stubs::Tags.default(visited),
-          vpc: Stubs::VpcOutputSettingsDescription.default(visited),
+          tags: Tags.default(visited),
+          vpc: VpcOutputSettingsDescription.default(visited),
         }
       end
 
@@ -7294,15 +7294,15 @@ module AWS::SDK::MediaLive
       def self.default(visited=[])
         {
           arn: 'arn',
-          availability_zones: Stubs::List____listOf__string.default(visited),
-          destinations: Stubs::List____listOfMultiplexOutputDestination.default(visited),
+          availability_zones: List____listOf__string.default(visited),
+          destinations: List____listOfMultiplexOutputDestination.default(visited),
           id: 'id',
-          multiplex_settings: Stubs::MultiplexSettings.default(visited),
+          multiplex_settings: MultiplexSettings.default(visited),
           name: 'name',
           pipelines_running_count: 1,
           program_count: 1,
           state: 'state',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -7329,23 +7329,23 @@ module AWS::SDK::MediaLive
       def self.default(visited=[])
         {
           arn: 'arn',
-          cdi_input_specification: Stubs::CdiInputSpecification.default(visited),
+          cdi_input_specification: CdiInputSpecification.default(visited),
           channel_class: 'channel_class',
-          destinations: Stubs::List____listOfOutputDestination.default(visited),
-          egress_endpoints: Stubs::List____listOfChannelEgressEndpoint.default(visited),
-          encoder_settings: Stubs::EncoderSettings.default(visited),
+          destinations: List____listOfOutputDestination.default(visited),
+          egress_endpoints: List____listOfChannelEgressEndpoint.default(visited),
+          encoder_settings: EncoderSettings.default(visited),
           id: 'id',
-          input_attachments: Stubs::List____listOfInputAttachment.default(visited),
-          input_specification: Stubs::InputSpecification.default(visited),
+          input_attachments: List____listOfInputAttachment.default(visited),
+          input_specification: InputSpecification.default(visited),
           log_level: 'log_level',
-          maintenance: Stubs::MaintenanceStatus.default(visited),
+          maintenance: MaintenanceStatus.default(visited),
           name: 'name',
-          pipeline_details: Stubs::List____listOfPipelineDetail.default(visited),
+          pipeline_details: List____listOfPipelineDetail.default(visited),
           pipelines_running_count: 1,
           role_arn: 'role_arn',
           state: 'state',
-          tags: Stubs::Tags.default(visited),
-          vpc: Stubs::VpcOutputSettingsDescription.default(visited),
+          tags: Tags.default(visited),
+          vpc: VpcOutputSettingsDescription.default(visited),
         }
       end
 
@@ -7380,15 +7380,15 @@ module AWS::SDK::MediaLive
       def self.default(visited=[])
         {
           arn: 'arn',
-          availability_zones: Stubs::List____listOf__string.default(visited),
-          destinations: Stubs::List____listOfMultiplexOutputDestination.default(visited),
+          availability_zones: List____listOf__string.default(visited),
+          destinations: List____listOfMultiplexOutputDestination.default(visited),
           id: 'id',
-          multiplex_settings: Stubs::MultiplexSettings.default(visited),
+          multiplex_settings: MultiplexSettings.default(visited),
           name: 'name',
           pipelines_running_count: 1,
           program_count: 1,
           state: 'state',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -7427,7 +7427,7 @@ module AWS::SDK::MediaLive
     class UpdateChannel
       def self.default(visited=[])
         {
-          channel: Stubs::Channel.default(visited),
+          channel: Channel.default(visited),
         }
       end
 
@@ -7444,7 +7444,7 @@ module AWS::SDK::MediaLive
     class UpdateChannelClass
       def self.default(visited=[])
         {
-          channel: Stubs::Channel.default(visited),
+          channel: Channel.default(visited),
         }
       end
 
@@ -7461,7 +7461,7 @@ module AWS::SDK::MediaLive
     class UpdateInput
       def self.default(visited=[])
         {
-          input: Stubs::Input.default(visited),
+          input: Input.default(visited),
         }
       end
 
@@ -7482,14 +7482,14 @@ module AWS::SDK::MediaLive
           connection_state: 'connection_state',
           device_settings_sync_state: 'device_settings_sync_state',
           device_update_status: 'device_update_status',
-          hd_device_settings: Stubs::InputDeviceHdSettings.default(visited),
+          hd_device_settings: InputDeviceHdSettings.default(visited),
           id: 'id',
           mac_address: 'mac_address',
           name: 'name',
-          network_settings: Stubs::InputDeviceNetworkSettings.default(visited),
+          network_settings: InputDeviceNetworkSettings.default(visited),
           serial_number: 'serial_number',
           type: 'type',
-          uhd_device_settings: Stubs::InputDeviceUhdSettings.default(visited),
+          uhd_device_settings: InputDeviceUhdSettings.default(visited),
         }
       end
 
@@ -7517,7 +7517,7 @@ module AWS::SDK::MediaLive
     class UpdateInputSecurityGroup
       def self.default(visited=[])
         {
-          security_group: Stubs::InputSecurityGroup.default(visited),
+          security_group: InputSecurityGroup.default(visited),
         }
       end
 
@@ -7534,7 +7534,7 @@ module AWS::SDK::MediaLive
     class UpdateMultiplex
       def self.default(visited=[])
         {
-          multiplex: Stubs::Multiplex.default(visited),
+          multiplex: Multiplex.default(visited),
         }
       end
 
@@ -7551,7 +7551,7 @@ module AWS::SDK::MediaLive
     class UpdateMultiplexProgram
       def self.default(visited=[])
         {
-          multiplex_program: Stubs::MultiplexProgram.default(visited),
+          multiplex_program: MultiplexProgram.default(visited),
         }
       end
 
@@ -7568,7 +7568,7 @@ module AWS::SDK::MediaLive
     class UpdateReservation
       def self.default(visited=[])
         {
-          reservation: Stubs::Reservation.default(visited),
+          reservation: Reservation.default(visited),
         }
       end
 

@@ -638,7 +638,7 @@ module AWS::SDK::Kendra
         type.schedule = params[:schedule]
         type.role_arn = params[:role_arn]
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.language_code = params[:language_code]
         type.custom_document_enrichment_configuration = CustomDocumentEnrichmentConfiguration.build(params[:custom_document_enrichment_configuration], context: "#{context}[:custom_document_enrichment_configuration]") unless params[:custom_document_enrichment_configuration].nil?
         type
@@ -663,7 +663,7 @@ module AWS::SDK::Kendra
         type.role_arn = params[:role_arn]
         type.configuration = ExperienceConfiguration.build(params[:configuration], context: "#{context}[:configuration]") unless params[:configuration].nil?
         type.description = params[:description]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -688,7 +688,7 @@ module AWS::SDK::Kendra
         type.role_arn = params[:role_arn]
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type.file_format = params[:file_format]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.language_code = params[:language_code]
         type
       end
@@ -712,7 +712,7 @@ module AWS::SDK::Kendra
         type.role_arn = params[:role_arn]
         type.server_side_encryption_configuration = ServerSideEncryptionConfiguration.build(params[:server_side_encryption_configuration], context: "#{context}[:server_side_encryption_configuration]") unless params[:server_side_encryption_configuration].nil?
         type.description = params[:description]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type.user_token_configurations = UserTokenConfigurationList.build(params[:user_token_configurations], context: "#{context}[:user_token_configurations]") unless params[:user_token_configurations].nil?
         type.user_context_policy = params[:user_context_policy]
@@ -738,7 +738,7 @@ module AWS::SDK::Kendra
         type.name = params[:name]
         type.description = params[:description]
         type.source_s3_path = S3Path.build(params[:source_s3_path], context: "#{context}[:source_s3_path]") unless params[:source_s3_path].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.role_arn = params[:role_arn]
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
@@ -764,7 +764,7 @@ module AWS::SDK::Kendra
         type.role_arn = params[:role_arn]
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type.source_s3_path = S3Path.build(params[:source_s3_path], context: "#{context}[:source_s3_path]") unless params[:source_s3_path].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end

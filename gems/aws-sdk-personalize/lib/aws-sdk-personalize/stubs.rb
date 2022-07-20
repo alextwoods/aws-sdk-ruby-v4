@@ -338,7 +338,7 @@ module AWS::SDK::Personalize
     class DescribeAlgorithm
       def self.default(visited=[])
         {
-          algorithm: Stubs::Algorithm.default(visited),
+          algorithm: Algorithm.default(visited),
         }
       end
 
@@ -358,10 +358,10 @@ module AWS::SDK::Personalize
         {
           name: 'name',
           algorithm_arn: 'algorithm_arn',
-          algorithm_image: Stubs::AlgorithmImage.default(visited),
-          default_hyper_parameters: Stubs::HyperParameters.default(visited),
-          default_hyper_parameter_ranges: Stubs::DefaultHyperParameterRanges.default(visited),
-          default_resource_config: Stubs::ResourceConfig.default(visited),
+          algorithm_image: AlgorithmImage.default(visited),
+          default_hyper_parameters: HyperParameters.default(visited),
+          default_hyper_parameter_ranges: DefaultHyperParameterRanges.default(visited),
+          default_resource_config: ResourceConfig.default(visited),
           training_input_mode: 'training_input_mode',
           role_arn: 'role_arn',
           creation_date_time: Time.now,
@@ -412,9 +412,9 @@ module AWS::SDK::Personalize
         return nil if visited.include?('DefaultHyperParameterRanges')
         visited = visited + ['DefaultHyperParameterRanges']
         {
-          integer_hyper_parameter_ranges: Stubs::DefaultIntegerHyperParameterRanges.default(visited),
-          continuous_hyper_parameter_ranges: Stubs::DefaultContinuousHyperParameterRanges.default(visited),
-          categorical_hyper_parameter_ranges: Stubs::DefaultCategoricalHyperParameterRanges.default(visited),
+          integer_hyper_parameter_ranges: DefaultIntegerHyperParameterRanges.default(visited),
+          continuous_hyper_parameter_ranges: DefaultContinuousHyperParameterRanges.default(visited),
+          categorical_hyper_parameter_ranges: DefaultCategoricalHyperParameterRanges.default(visited),
         }
       end
 
@@ -434,7 +434,7 @@ module AWS::SDK::Personalize
         return nil if visited.include?('DefaultCategoricalHyperParameterRanges')
         visited = visited + ['DefaultCategoricalHyperParameterRanges']
         [
-          Stubs::DefaultCategoricalHyperParameterRange.default(visited)
+          DefaultCategoricalHyperParameterRange.default(visited)
         ]
       end
 
@@ -455,7 +455,7 @@ module AWS::SDK::Personalize
         visited = visited + ['DefaultCategoricalHyperParameterRange']
         {
           name: 'name',
-          values: Stubs::CategoricalValues.default(visited),
+          values: CategoricalValues.default(visited),
           is_tunable: false,
         }
       end
@@ -496,7 +496,7 @@ module AWS::SDK::Personalize
         return nil if visited.include?('DefaultContinuousHyperParameterRanges')
         visited = visited + ['DefaultContinuousHyperParameterRanges']
         [
-          Stubs::DefaultContinuousHyperParameterRange.default(visited)
+          DefaultContinuousHyperParameterRange.default(visited)
         ]
       end
 
@@ -540,7 +540,7 @@ module AWS::SDK::Personalize
         return nil if visited.include?('DefaultIntegerHyperParameterRanges')
         visited = visited + ['DefaultIntegerHyperParameterRanges']
         [
-          Stubs::DefaultIntegerHyperParameterRange.default(visited)
+          DefaultIntegerHyperParameterRange.default(visited)
         ]
       end
 
@@ -622,7 +622,7 @@ module AWS::SDK::Personalize
     class DescribeBatchInferenceJob
       def self.default(visited=[])
         {
-          batch_inference_job: Stubs::BatchInferenceJob.default(visited),
+          batch_inference_job: BatchInferenceJob.default(visited),
         }
       end
 
@@ -646,9 +646,9 @@ module AWS::SDK::Personalize
           failure_reason: 'failure_reason',
           solution_version_arn: 'solution_version_arn',
           num_results: 1,
-          job_input: Stubs::BatchInferenceJobInput.default(visited),
-          job_output: Stubs::BatchInferenceJobOutput.default(visited),
-          batch_inference_job_config: Stubs::BatchInferenceJobConfig.default(visited),
+          job_input: BatchInferenceJobInput.default(visited),
+          job_output: BatchInferenceJobOutput.default(visited),
+          batch_inference_job_config: BatchInferenceJobConfig.default(visited),
           role_arn: 'role_arn',
           status: 'status',
           creation_date_time: Time.now,
@@ -682,7 +682,7 @@ module AWS::SDK::Personalize
         return nil if visited.include?('BatchInferenceJobConfig')
         visited = visited + ['BatchInferenceJobConfig']
         {
-          item_exploration_config: Stubs::HyperParameters.default(visited),
+          item_exploration_config: HyperParameters.default(visited),
         }
       end
 
@@ -700,7 +700,7 @@ module AWS::SDK::Personalize
         return nil if visited.include?('BatchInferenceJobOutput')
         visited = visited + ['BatchInferenceJobOutput']
         {
-          s3_data_destination: Stubs::S3DataConfig.default(visited),
+          s3_data_destination: S3DataConfig.default(visited),
         }
       end
 
@@ -738,7 +738,7 @@ module AWS::SDK::Personalize
         return nil if visited.include?('BatchInferenceJobInput')
         visited = visited + ['BatchInferenceJobInput']
         {
-          s3_data_source: Stubs::S3DataConfig.default(visited),
+          s3_data_source: S3DataConfig.default(visited),
         }
       end
 
@@ -754,7 +754,7 @@ module AWS::SDK::Personalize
     class DescribeBatchSegmentJob
       def self.default(visited=[])
         {
-          batch_segment_job: Stubs::BatchSegmentJob.default(visited),
+          batch_segment_job: BatchSegmentJob.default(visited),
         }
       end
 
@@ -778,8 +778,8 @@ module AWS::SDK::Personalize
           failure_reason: 'failure_reason',
           solution_version_arn: 'solution_version_arn',
           num_results: 1,
-          job_input: Stubs::BatchSegmentJobInput.default(visited),
-          job_output: Stubs::BatchSegmentJobOutput.default(visited),
+          job_input: BatchSegmentJobInput.default(visited),
+          job_output: BatchSegmentJobOutput.default(visited),
           role_arn: 'role_arn',
           status: 'status',
           creation_date_time: Time.now,
@@ -812,7 +812,7 @@ module AWS::SDK::Personalize
         return nil if visited.include?('BatchSegmentJobOutput')
         visited = visited + ['BatchSegmentJobOutput']
         {
-          s3_data_destination: Stubs::S3DataConfig.default(visited),
+          s3_data_destination: S3DataConfig.default(visited),
         }
       end
 
@@ -830,7 +830,7 @@ module AWS::SDK::Personalize
         return nil if visited.include?('BatchSegmentJobInput')
         visited = visited + ['BatchSegmentJobInput']
         {
-          s3_data_source: Stubs::S3DataConfig.default(visited),
+          s3_data_source: S3DataConfig.default(visited),
         }
       end
 
@@ -846,7 +846,7 @@ module AWS::SDK::Personalize
     class DescribeCampaign
       def self.default(visited=[])
         {
-          campaign: Stubs::Campaign.default(visited),
+          campaign: Campaign.default(visited),
         }
       end
 
@@ -868,12 +868,12 @@ module AWS::SDK::Personalize
           campaign_arn: 'campaign_arn',
           solution_version_arn: 'solution_version_arn',
           min_provisioned_tps: 1,
-          campaign_config: Stubs::CampaignConfig.default(visited),
+          campaign_config: CampaignConfig.default(visited),
           status: 'status',
           failure_reason: 'failure_reason',
           creation_date_time: Time.now,
           last_updated_date_time: Time.now,
-          latest_campaign_update: Stubs::CampaignUpdateSummary.default(visited),
+          latest_campaign_update: CampaignUpdateSummary.default(visited),
         }
       end
 
@@ -902,7 +902,7 @@ module AWS::SDK::Personalize
         {
           solution_version_arn: 'solution_version_arn',
           min_provisioned_tps: 1,
-          campaign_config: Stubs::CampaignConfig.default(visited),
+          campaign_config: CampaignConfig.default(visited),
           status: 'status',
           failure_reason: 'failure_reason',
           creation_date_time: Time.now,
@@ -930,7 +930,7 @@ module AWS::SDK::Personalize
         return nil if visited.include?('CampaignConfig')
         visited = visited + ['CampaignConfig']
         {
-          item_exploration_config: Stubs::HyperParameters.default(visited),
+          item_exploration_config: HyperParameters.default(visited),
         }
       end
 
@@ -946,7 +946,7 @@ module AWS::SDK::Personalize
     class DescribeDataset
       def self.default(visited=[])
         {
-          dataset: Stubs::Dataset.default(visited),
+          dataset: Dataset.default(visited),
         }
       end
 
@@ -994,7 +994,7 @@ module AWS::SDK::Personalize
     class DescribeDatasetExportJob
       def self.default(visited=[])
         {
-          dataset_export_job: Stubs::DatasetExportJob.default(visited),
+          dataset_export_job: DatasetExportJob.default(visited),
         }
       end
 
@@ -1018,7 +1018,7 @@ module AWS::SDK::Personalize
           ingestion_mode: 'ingestion_mode',
           role_arn: 'role_arn',
           status: 'status',
-          job_output: Stubs::DatasetExportJobOutput.default(visited),
+          job_output: DatasetExportJobOutput.default(visited),
           creation_date_time: Time.now,
           last_updated_date_time: Time.now,
           failure_reason: 'failure_reason',
@@ -1048,7 +1048,7 @@ module AWS::SDK::Personalize
         return nil if visited.include?('DatasetExportJobOutput')
         visited = visited + ['DatasetExportJobOutput']
         {
-          s3_data_destination: Stubs::S3DataConfig.default(visited),
+          s3_data_destination: S3DataConfig.default(visited),
         }
       end
 
@@ -1064,7 +1064,7 @@ module AWS::SDK::Personalize
     class DescribeDatasetGroup
       def self.default(visited=[])
         {
-          dataset_group: Stubs::DatasetGroup.default(visited),
+          dataset_group: DatasetGroup.default(visited),
         }
       end
 
@@ -1114,7 +1114,7 @@ module AWS::SDK::Personalize
     class DescribeDatasetImportJob
       def self.default(visited=[])
         {
-          dataset_import_job: Stubs::DatasetImportJob.default(visited),
+          dataset_import_job: DatasetImportJob.default(visited),
         }
       end
 
@@ -1135,7 +1135,7 @@ module AWS::SDK::Personalize
           job_name: 'job_name',
           dataset_import_job_arn: 'dataset_import_job_arn',
           dataset_arn: 'dataset_arn',
-          data_source: Stubs::DataSource.default(visited),
+          data_source: DataSource.default(visited),
           role_arn: 'role_arn',
           status: 'status',
           creation_date_time: Time.now,
@@ -1182,7 +1182,7 @@ module AWS::SDK::Personalize
     class DescribeEventTracker
       def self.default(visited=[])
         {
-          event_tracker: Stubs::EventTracker.default(visited),
+          event_tracker: EventTracker.default(visited),
         }
       end
 
@@ -1230,7 +1230,7 @@ module AWS::SDK::Personalize
     class DescribeFeatureTransformation
       def self.default(visited=[])
         {
-          feature_transformation: Stubs::FeatureTransformation.default(visited),
+          feature_transformation: FeatureTransformation.default(visited),
         }
       end
 
@@ -1250,7 +1250,7 @@ module AWS::SDK::Personalize
         {
           name: 'name',
           feature_transformation_arn: 'feature_transformation_arn',
-          default_parameters: Stubs::FeaturizationParameters.default(visited),
+          default_parameters: FeaturizationParameters.default(visited),
           creation_date_time: Time.now,
           last_updated_date_time: Time.now,
           status: 'status',
@@ -1294,7 +1294,7 @@ module AWS::SDK::Personalize
     class DescribeFilter
       def self.default(visited=[])
         {
-          filter: Stubs::Filter.default(visited),
+          filter: Filter.default(visited),
         }
       end
 
@@ -1342,7 +1342,7 @@ module AWS::SDK::Personalize
     class DescribeRecipe
       def self.default(visited=[])
         {
-          recipe: Stubs::Recipe.default(visited),
+          recipe: Recipe.default(visited),
         }
       end
 
@@ -1392,7 +1392,7 @@ module AWS::SDK::Personalize
     class DescribeRecommender
       def self.default(visited=[])
         {
-          recommender: Stubs::Recommender.default(visited),
+          recommender: Recommender.default(visited),
         }
       end
 
@@ -1414,13 +1414,13 @@ module AWS::SDK::Personalize
           dataset_group_arn: 'dataset_group_arn',
           name: 'name',
           recipe_arn: 'recipe_arn',
-          recommender_config: Stubs::RecommenderConfig.default(visited),
+          recommender_config: RecommenderConfig.default(visited),
           creation_date_time: Time.now,
           last_updated_date_time: Time.now,
           status: 'status',
           failure_reason: 'failure_reason',
-          latest_recommender_update: Stubs::RecommenderUpdateSummary.default(visited),
-          model_metrics: Stubs::Metrics.default(visited),
+          latest_recommender_update: RecommenderUpdateSummary.default(visited),
+          model_metrics: Metrics.default(visited),
         }
       end
 
@@ -1468,7 +1468,7 @@ module AWS::SDK::Personalize
         return nil if visited.include?('RecommenderUpdateSummary')
         visited = visited + ['RecommenderUpdateSummary']
         {
-          recommender_config: Stubs::RecommenderConfig.default(visited),
+          recommender_config: RecommenderConfig.default(visited),
           creation_date_time: Time.now,
           last_updated_date_time: Time.now,
           status: 'status',
@@ -1494,7 +1494,7 @@ module AWS::SDK::Personalize
         return nil if visited.include?('RecommenderConfig')
         visited = visited + ['RecommenderConfig']
         {
-          item_exploration_config: Stubs::HyperParameters.default(visited),
+          item_exploration_config: HyperParameters.default(visited),
           min_recommendation_requests_per_second: 1,
         }
       end
@@ -1512,7 +1512,7 @@ module AWS::SDK::Personalize
     class DescribeSchema
       def self.default(visited=[])
         {
-          schema: Stubs::DatasetSchema.default(visited),
+          schema: DatasetSchema.default(visited),
         }
       end
 
@@ -1556,7 +1556,7 @@ module AWS::SDK::Personalize
     class DescribeSolution
       def self.default(visited=[])
         {
-          solution: Stubs::Solution.default(visited),
+          solution: Solution.default(visited),
         }
       end
 
@@ -1581,12 +1581,12 @@ module AWS::SDK::Personalize
           recipe_arn: 'recipe_arn',
           dataset_group_arn: 'dataset_group_arn',
           event_type: 'event_type',
-          solution_config: Stubs::SolutionConfig.default(visited),
-          auto_ml_result: Stubs::AutoMLResult.default(visited),
+          solution_config: SolutionConfig.default(visited),
+          auto_ml_result: AutoMLResult.default(visited),
           status: 'status',
           creation_date_time: Time.now,
           last_updated_date_time: Time.now,
-          latest_solution_version: Stubs::SolutionVersionSummary.default(visited),
+          latest_solution_version: SolutionVersionSummary.default(visited),
         }
       end
 
@@ -1661,11 +1661,11 @@ module AWS::SDK::Personalize
         visited = visited + ['SolutionConfig']
         {
           event_value_threshold: 'event_value_threshold',
-          hpo_config: Stubs::HPOConfig.default(visited),
-          algorithm_hyper_parameters: Stubs::HyperParameters.default(visited),
-          feature_transformation_parameters: Stubs::FeatureTransformationParameters.default(visited),
-          auto_ml_config: Stubs::AutoMLConfig.default(visited),
-          optimization_objective: Stubs::OptimizationObjective.default(visited),
+          hpo_config: HPOConfig.default(visited),
+          algorithm_hyper_parameters: HyperParameters.default(visited),
+          feature_transformation_parameters: FeatureTransformationParameters.default(visited),
+          auto_ml_config: AutoMLConfig.default(visited),
+          optimization_objective: OptimizationObjective.default(visited),
         }
       end
 
@@ -1709,7 +1709,7 @@ module AWS::SDK::Personalize
         visited = visited + ['AutoMLConfig']
         {
           metric_name: 'metric_name',
-          recipe_list: Stubs::ArnList.default(visited),
+          recipe_list: ArnList.default(visited),
         }
       end
 
@@ -1768,9 +1768,9 @@ module AWS::SDK::Personalize
         return nil if visited.include?('HPOConfig')
         visited = visited + ['HPOConfig']
         {
-          hpo_objective: Stubs::HPOObjective.default(visited),
-          hpo_resource_config: Stubs::HPOResourceConfig.default(visited),
-          algorithm_hyper_parameter_ranges: Stubs::HyperParameterRanges.default(visited),
+          hpo_objective: HPOObjective.default(visited),
+          hpo_resource_config: HPOResourceConfig.default(visited),
+          algorithm_hyper_parameter_ranges: HyperParameterRanges.default(visited),
         }
       end
 
@@ -1790,9 +1790,9 @@ module AWS::SDK::Personalize
         return nil if visited.include?('HyperParameterRanges')
         visited = visited + ['HyperParameterRanges']
         {
-          integer_hyper_parameter_ranges: Stubs::IntegerHyperParameterRanges.default(visited),
-          continuous_hyper_parameter_ranges: Stubs::ContinuousHyperParameterRanges.default(visited),
-          categorical_hyper_parameter_ranges: Stubs::CategoricalHyperParameterRanges.default(visited),
+          integer_hyper_parameter_ranges: IntegerHyperParameterRanges.default(visited),
+          continuous_hyper_parameter_ranges: ContinuousHyperParameterRanges.default(visited),
+          categorical_hyper_parameter_ranges: CategoricalHyperParameterRanges.default(visited),
         }
       end
 
@@ -1812,7 +1812,7 @@ module AWS::SDK::Personalize
         return nil if visited.include?('CategoricalHyperParameterRanges')
         visited = visited + ['CategoricalHyperParameterRanges']
         [
-          Stubs::CategoricalHyperParameterRange.default(visited)
+          CategoricalHyperParameterRange.default(visited)
         ]
       end
 
@@ -1833,7 +1833,7 @@ module AWS::SDK::Personalize
         visited = visited + ['CategoricalHyperParameterRange']
         {
           name: 'name',
-          values: Stubs::CategoricalValues.default(visited),
+          values: CategoricalValues.default(visited),
         }
       end
 
@@ -1852,7 +1852,7 @@ module AWS::SDK::Personalize
         return nil if visited.include?('ContinuousHyperParameterRanges')
         visited = visited + ['ContinuousHyperParameterRanges']
         [
-          Stubs::ContinuousHyperParameterRange.default(visited)
+          ContinuousHyperParameterRange.default(visited)
         ]
       end
 
@@ -1894,7 +1894,7 @@ module AWS::SDK::Personalize
         return nil if visited.include?('IntegerHyperParameterRanges')
         visited = visited + ['IntegerHyperParameterRanges']
         [
-          Stubs::IntegerHyperParameterRange.default(visited)
+          IntegerHyperParameterRange.default(visited)
         ]
       end
 
@@ -1976,7 +1976,7 @@ module AWS::SDK::Personalize
     class DescribeSolutionVersion
       def self.default(visited=[])
         {
-          solution_version: Stubs::SolutionVersion.default(visited),
+          solution_version: SolutionVersion.default(visited),
         }
       end
 
@@ -2001,10 +2001,10 @@ module AWS::SDK::Personalize
           recipe_arn: 'recipe_arn',
           event_type: 'event_type',
           dataset_group_arn: 'dataset_group_arn',
-          solution_config: Stubs::SolutionConfig.default(visited),
+          solution_config: SolutionConfig.default(visited),
           training_hours: 1.0,
           training_mode: 'training_mode',
-          tuned_hpo_params: Stubs::TunedHPOParams.default(visited),
+          tuned_hpo_params: TunedHPOParams.default(visited),
           status: 'status',
           failure_reason: 'failure_reason',
           creation_date_time: Time.now,
@@ -2040,7 +2040,7 @@ module AWS::SDK::Personalize
         return nil if visited.include?('TunedHPOParams')
         visited = visited + ['TunedHPOParams']
         {
-          algorithm_hyper_parameters: Stubs::HyperParameters.default(visited),
+          algorithm_hyper_parameters: HyperParameters.default(visited),
         }
       end
 
@@ -2057,7 +2057,7 @@ module AWS::SDK::Personalize
       def self.default(visited=[])
         {
           solution_version_arn: 'solution_version_arn',
-          metrics: Stubs::Metrics.default(visited),
+          metrics: Metrics.default(visited),
         }
       end
 
@@ -2074,7 +2074,7 @@ module AWS::SDK::Personalize
     class ListBatchInferenceJobs
       def self.default(visited=[])
         {
-          batch_inference_jobs: Stubs::BatchInferenceJobs.default(visited),
+          batch_inference_jobs: BatchInferenceJobs.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2094,7 +2094,7 @@ module AWS::SDK::Personalize
         return nil if visited.include?('BatchInferenceJobs')
         visited = visited + ['BatchInferenceJobs']
         [
-          Stubs::BatchInferenceJobSummary.default(visited)
+          BatchInferenceJobSummary.default(visited)
         ]
       end
 
@@ -2142,7 +2142,7 @@ module AWS::SDK::Personalize
     class ListBatchSegmentJobs
       def self.default(visited=[])
         {
-          batch_segment_jobs: Stubs::BatchSegmentJobs.default(visited),
+          batch_segment_jobs: BatchSegmentJobs.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2162,7 +2162,7 @@ module AWS::SDK::Personalize
         return nil if visited.include?('BatchSegmentJobs')
         visited = visited + ['BatchSegmentJobs']
         [
-          Stubs::BatchSegmentJobSummary.default(visited)
+          BatchSegmentJobSummary.default(visited)
         ]
       end
 
@@ -2210,7 +2210,7 @@ module AWS::SDK::Personalize
     class ListCampaigns
       def self.default(visited=[])
         {
-          campaigns: Stubs::Campaigns.default(visited),
+          campaigns: Campaigns.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2230,7 +2230,7 @@ module AWS::SDK::Personalize
         return nil if visited.include?('Campaigns')
         visited = visited + ['Campaigns']
         [
-          Stubs::CampaignSummary.default(visited)
+          CampaignSummary.default(visited)
         ]
       end
 
@@ -2276,7 +2276,7 @@ module AWS::SDK::Personalize
     class ListDatasetExportJobs
       def self.default(visited=[])
         {
-          dataset_export_jobs: Stubs::DatasetExportJobs.default(visited),
+          dataset_export_jobs: DatasetExportJobs.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2296,7 +2296,7 @@ module AWS::SDK::Personalize
         return nil if visited.include?('DatasetExportJobs')
         visited = visited + ['DatasetExportJobs']
         [
-          Stubs::DatasetExportJobSummary.default(visited)
+          DatasetExportJobSummary.default(visited)
         ]
       end
 
@@ -2342,7 +2342,7 @@ module AWS::SDK::Personalize
     class ListDatasetGroups
       def self.default(visited=[])
         {
-          dataset_groups: Stubs::DatasetGroups.default(visited),
+          dataset_groups: DatasetGroups.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2362,7 +2362,7 @@ module AWS::SDK::Personalize
         return nil if visited.include?('DatasetGroups')
         visited = visited + ['DatasetGroups']
         [
-          Stubs::DatasetGroupSummary.default(visited)
+          DatasetGroupSummary.default(visited)
         ]
       end
 
@@ -2410,7 +2410,7 @@ module AWS::SDK::Personalize
     class ListDatasetImportJobs
       def self.default(visited=[])
         {
-          dataset_import_jobs: Stubs::DatasetImportJobs.default(visited),
+          dataset_import_jobs: DatasetImportJobs.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2430,7 +2430,7 @@ module AWS::SDK::Personalize
         return nil if visited.include?('DatasetImportJobs')
         visited = visited + ['DatasetImportJobs']
         [
-          Stubs::DatasetImportJobSummary.default(visited)
+          DatasetImportJobSummary.default(visited)
         ]
       end
 
@@ -2476,7 +2476,7 @@ module AWS::SDK::Personalize
     class ListDatasets
       def self.default(visited=[])
         {
-          datasets: Stubs::Datasets.default(visited),
+          datasets: Datasets.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2496,7 +2496,7 @@ module AWS::SDK::Personalize
         return nil if visited.include?('Datasets')
         visited = visited + ['Datasets']
         [
-          Stubs::DatasetSummary.default(visited)
+          DatasetSummary.default(visited)
         ]
       end
 
@@ -2542,7 +2542,7 @@ module AWS::SDK::Personalize
     class ListEventTrackers
       def self.default(visited=[])
         {
-          event_trackers: Stubs::EventTrackers.default(visited),
+          event_trackers: EventTrackers.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2562,7 +2562,7 @@ module AWS::SDK::Personalize
         return nil if visited.include?('EventTrackers')
         visited = visited + ['EventTrackers']
         [
-          Stubs::EventTrackerSummary.default(visited)
+          EventTrackerSummary.default(visited)
         ]
       end
 
@@ -2606,7 +2606,7 @@ module AWS::SDK::Personalize
     class ListFilters
       def self.default(visited=[])
         {
-          filters: Stubs::Filters.default(visited),
+          filters: Filters.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2626,7 +2626,7 @@ module AWS::SDK::Personalize
         return nil if visited.include?('Filters')
         visited = visited + ['Filters']
         [
-          Stubs::FilterSummary.default(visited)
+          FilterSummary.default(visited)
         ]
       end
 
@@ -2674,7 +2674,7 @@ module AWS::SDK::Personalize
     class ListRecipes
       def self.default(visited=[])
         {
-          recipes: Stubs::Recipes.default(visited),
+          recipes: Recipes.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2694,7 +2694,7 @@ module AWS::SDK::Personalize
         return nil if visited.include?('Recipes')
         visited = visited + ['Recipes']
         [
-          Stubs::RecipeSummary.default(visited)
+          RecipeSummary.default(visited)
         ]
       end
 
@@ -2740,7 +2740,7 @@ module AWS::SDK::Personalize
     class ListRecommenders
       def self.default(visited=[])
         {
-          recommenders: Stubs::Recommenders.default(visited),
+          recommenders: Recommenders.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2760,7 +2760,7 @@ module AWS::SDK::Personalize
         return nil if visited.include?('Recommenders')
         visited = visited + ['Recommenders']
         [
-          Stubs::RecommenderSummary.default(visited)
+          RecommenderSummary.default(visited)
         ]
       end
 
@@ -2784,7 +2784,7 @@ module AWS::SDK::Personalize
           recommender_arn: 'recommender_arn',
           dataset_group_arn: 'dataset_group_arn',
           recipe_arn: 'recipe_arn',
-          recommender_config: Stubs::RecommenderConfig.default(visited),
+          recommender_config: RecommenderConfig.default(visited),
           status: 'status',
           creation_date_time: Time.now,
           last_updated_date_time: Time.now,
@@ -2810,7 +2810,7 @@ module AWS::SDK::Personalize
     class ListSchemas
       def self.default(visited=[])
         {
-          schemas: Stubs::Schemas.default(visited),
+          schemas: Schemas.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2830,7 +2830,7 @@ module AWS::SDK::Personalize
         return nil if visited.include?('Schemas')
         visited = visited + ['Schemas']
         [
-          Stubs::DatasetSchemaSummary.default(visited)
+          DatasetSchemaSummary.default(visited)
         ]
       end
 
@@ -2874,7 +2874,7 @@ module AWS::SDK::Personalize
     class ListSolutionVersions
       def self.default(visited=[])
         {
-          solution_versions: Stubs::SolutionVersions.default(visited),
+          solution_versions: SolutionVersions.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2894,7 +2894,7 @@ module AWS::SDK::Personalize
         return nil if visited.include?('SolutionVersions')
         visited = visited + ['SolutionVersions']
         [
-          Stubs::SolutionVersionSummary.default(visited)
+          SolutionVersionSummary.default(visited)
         ]
       end
 
@@ -2912,7 +2912,7 @@ module AWS::SDK::Personalize
     class ListSolutions
       def self.default(visited=[])
         {
-          solutions: Stubs::Solutions.default(visited),
+          solutions: Solutions.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2932,7 +2932,7 @@ module AWS::SDK::Personalize
         return nil if visited.include?('Solutions')
         visited = visited + ['Solutions']
         [
-          Stubs::SolutionSummary.default(visited)
+          SolutionSummary.default(visited)
         ]
       end
 
@@ -2976,7 +2976,7 @@ module AWS::SDK::Personalize
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -2994,7 +2994,7 @@ module AWS::SDK::Personalize
         return nil if visited.include?('Tags')
         visited = visited + ['Tags']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 

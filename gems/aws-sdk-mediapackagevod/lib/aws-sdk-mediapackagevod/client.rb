@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::MediaPackageVod
@@ -73,7 +75,7 @@ module AWS::SDK::MediaPackageVod
     def configure_logs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ConfigureLogsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ConfigureLogsInput,
         validate_input: @config.validate_input
@@ -177,7 +179,7 @@ module AWS::SDK::MediaPackageVod
     def create_asset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAssetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAssetInput,
         validate_input: @config.validate_input
@@ -392,7 +394,7 @@ module AWS::SDK::MediaPackageVod
     def create_packaging_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePackagingConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePackagingConfigurationInput,
         validate_input: @config.validate_input
@@ -489,7 +491,7 @@ module AWS::SDK::MediaPackageVod
     def create_packaging_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePackagingGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePackagingGroupInput,
         validate_input: @config.validate_input
@@ -557,7 +559,7 @@ module AWS::SDK::MediaPackageVod
     def delete_asset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAssetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAssetInput,
         validate_input: @config.validate_input
@@ -624,7 +626,7 @@ module AWS::SDK::MediaPackageVod
     def delete_packaging_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePackagingConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePackagingConfigurationInput,
         validate_input: @config.validate_input
@@ -691,7 +693,7 @@ module AWS::SDK::MediaPackageVod
     def delete_packaging_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePackagingGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePackagingGroupInput,
         validate_input: @config.validate_input
@@ -772,7 +774,7 @@ module AWS::SDK::MediaPackageVod
     def describe_asset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAssetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAssetInput,
         validate_input: @config.validate_input
@@ -898,7 +900,7 @@ module AWS::SDK::MediaPackageVod
     def describe_packaging_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePackagingConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePackagingConfigurationInput,
         validate_input: @config.validate_input
@@ -975,7 +977,7 @@ module AWS::SDK::MediaPackageVod
     def describe_packaging_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePackagingGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePackagingGroupInput,
         validate_input: @config.validate_input
@@ -1062,7 +1064,7 @@ module AWS::SDK::MediaPackageVod
     def list_assets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAssetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAssetsInput,
         validate_input: @config.validate_input
@@ -1199,7 +1201,7 @@ module AWS::SDK::MediaPackageVod
     def list_packaging_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPackagingConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPackagingConfigurationsInput,
         validate_input: @config.validate_input
@@ -1283,7 +1285,7 @@ module AWS::SDK::MediaPackageVod
     def list_packaging_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPackagingGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPackagingGroupsInput,
         validate_input: @config.validate_input
@@ -1352,7 +1354,7 @@ module AWS::SDK::MediaPackageVod
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -1425,7 +1427,7 @@ module AWS::SDK::MediaPackageVod
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -1499,7 +1501,7 @@ module AWS::SDK::MediaPackageVod
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -1583,7 +1585,7 @@ module AWS::SDK::MediaPackageVod
     def update_packaging_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePackagingGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePackagingGroupInput,
         validate_input: @config.validate_input

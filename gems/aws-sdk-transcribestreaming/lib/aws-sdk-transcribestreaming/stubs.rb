@@ -23,7 +23,7 @@ module AWS::SDK::TranscribeStreaming
           type: 'type',
           show_speaker_label: false,
           session_id: 'session_id',
-          transcript_result_stream: Stubs::MedicalTranscriptResultStream.default(visited),
+          transcript_result_stream: MedicalTranscriptResultStream.default(visited),
           enable_channel_identification: false,
           number_of_channels: 1,
           content_identification_type: 'content_identification_type',
@@ -55,7 +55,7 @@ module AWS::SDK::TranscribeStreaming
         return nil if visited.include?('MedicalTranscriptResultStream')
         visited = visited + ['MedicalTranscriptResultStream']
         {
-          transcript_event: Stubs::MedicalTranscriptEvent.default(visited),
+          transcript_event: MedicalTranscriptEvent.default(visited),
         }
       end
 
@@ -179,7 +179,7 @@ module AWS::SDK::TranscribeStreaming
         return nil if visited.include?('MedicalTranscriptEvent')
         visited = visited + ['MedicalTranscriptEvent']
         {
-          transcript: Stubs::MedicalTranscript.default(visited),
+          transcript: MedicalTranscript.default(visited),
         }
       end
 
@@ -197,7 +197,7 @@ module AWS::SDK::TranscribeStreaming
         return nil if visited.include?('MedicalTranscript')
         visited = visited + ['MedicalTranscript']
         {
-          results: Stubs::MedicalResultList.default(visited),
+          results: MedicalResultList.default(visited),
         }
       end
 
@@ -215,7 +215,7 @@ module AWS::SDK::TranscribeStreaming
         return nil if visited.include?('MedicalResultList')
         visited = visited + ['MedicalResultList']
         [
-          Stubs::MedicalResult.default(visited)
+          MedicalResult.default(visited)
         ]
       end
 
@@ -239,7 +239,7 @@ module AWS::SDK::TranscribeStreaming
           start_time: 1.0,
           end_time: 1.0,
           is_partial: false,
-          alternatives: Stubs::MedicalAlternativeList.default(visited),
+          alternatives: MedicalAlternativeList.default(visited),
           channel_id: 'channel_id',
         }
       end
@@ -263,7 +263,7 @@ module AWS::SDK::TranscribeStreaming
         return nil if visited.include?('MedicalAlternativeList')
         visited = visited + ['MedicalAlternativeList']
         [
-          Stubs::MedicalAlternative.default(visited)
+          MedicalAlternative.default(visited)
         ]
       end
 
@@ -284,8 +284,8 @@ module AWS::SDK::TranscribeStreaming
         visited = visited + ['MedicalAlternative']
         {
           transcript: 'transcript',
-          items: Stubs::MedicalItemList.default(visited),
-          entities: Stubs::MedicalEntityList.default(visited),
+          items: MedicalItemList.default(visited),
+          entities: MedicalEntityList.default(visited),
         }
       end
 
@@ -305,7 +305,7 @@ module AWS::SDK::TranscribeStreaming
         return nil if visited.include?('MedicalEntityList')
         visited = visited + ['MedicalEntityList']
         [
-          Stubs::MedicalEntity.default(visited)
+          MedicalEntity.default(visited)
         ]
       end
 
@@ -351,7 +351,7 @@ module AWS::SDK::TranscribeStreaming
         return nil if visited.include?('MedicalItemList')
         visited = visited + ['MedicalItemList']
         [
-          Stubs::MedicalItem.default(visited)
+          MedicalItem.default(visited)
         ]
       end
 
@@ -403,7 +403,7 @@ module AWS::SDK::TranscribeStreaming
           media_encoding: 'media_encoding',
           vocabulary_name: 'vocabulary_name',
           session_id: 'session_id',
-          transcript_result_stream: Stubs::TranscriptResultStream.default(visited),
+          transcript_result_stream: TranscriptResultStream.default(visited),
           vocabulary_filter_name: 'vocabulary_filter_name',
           vocabulary_filter_method: 'vocabulary_filter_method',
           show_speaker_label: false,
@@ -458,7 +458,7 @@ module AWS::SDK::TranscribeStreaming
         return nil if visited.include?('TranscriptResultStream')
         visited = visited + ['TranscriptResultStream']
         {
-          transcript_event: Stubs::TranscriptEvent.default(visited),
+          transcript_event: TranscriptEvent.default(visited),
         }
       end
 
@@ -492,7 +492,7 @@ module AWS::SDK::TranscribeStreaming
         return nil if visited.include?('TranscriptEvent')
         visited = visited + ['TranscriptEvent']
         {
-          transcript: Stubs::Transcript.default(visited),
+          transcript: Transcript.default(visited),
         }
       end
 
@@ -510,7 +510,7 @@ module AWS::SDK::TranscribeStreaming
         return nil if visited.include?('Transcript')
         visited = visited + ['Transcript']
         {
-          results: Stubs::ResultList.default(visited),
+          results: ResultList.default(visited),
         }
       end
 
@@ -528,7 +528,7 @@ module AWS::SDK::TranscribeStreaming
         return nil if visited.include?('ResultList')
         visited = visited + ['ResultList']
         [
-          Stubs::Result.default(visited)
+          Result.default(visited)
         ]
       end
 
@@ -552,10 +552,10 @@ module AWS::SDK::TranscribeStreaming
           start_time: 1.0,
           end_time: 1.0,
           is_partial: false,
-          alternatives: Stubs::AlternativeList.default(visited),
+          alternatives: AlternativeList.default(visited),
           channel_id: 'channel_id',
           language_code: 'language_code',
-          language_identification: Stubs::LanguageIdentification.default(visited),
+          language_identification: LanguageIdentification.default(visited),
         }
       end
 
@@ -580,7 +580,7 @@ module AWS::SDK::TranscribeStreaming
         return nil if visited.include?('LanguageIdentification')
         visited = visited + ['LanguageIdentification']
         [
-          Stubs::LanguageWithScore.default(visited)
+          LanguageWithScore.default(visited)
         ]
       end
 
@@ -620,7 +620,7 @@ module AWS::SDK::TranscribeStreaming
         return nil if visited.include?('AlternativeList')
         visited = visited + ['AlternativeList']
         [
-          Stubs::Alternative.default(visited)
+          Alternative.default(visited)
         ]
       end
 
@@ -641,8 +641,8 @@ module AWS::SDK::TranscribeStreaming
         visited = visited + ['Alternative']
         {
           transcript: 'transcript',
-          items: Stubs::ItemList.default(visited),
-          entities: Stubs::EntityList.default(visited),
+          items: ItemList.default(visited),
+          entities: EntityList.default(visited),
         }
       end
 
@@ -662,7 +662,7 @@ module AWS::SDK::TranscribeStreaming
         return nil if visited.include?('EntityList')
         visited = visited + ['EntityList']
         [
-          Stubs::Entity.default(visited)
+          Entity.default(visited)
         ]
       end
 
@@ -710,7 +710,7 @@ module AWS::SDK::TranscribeStreaming
         return nil if visited.include?('ItemList')
         visited = visited + ['ItemList']
         [
-          Stubs::Item.default(visited)
+          Item.default(visited)
         ]
       end
 

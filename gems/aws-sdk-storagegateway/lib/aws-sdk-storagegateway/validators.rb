@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::StorageGateway
   module Validators
 
@@ -20,7 +22,7 @@ module AWS::SDK::StorageGateway
         Hearth::Validator.validate!(input[:gateway_type], ::String, context: "#{context}[:gateway_type]")
         Hearth::Validator.validate!(input[:tape_drive_type], ::String, context: "#{context}[:tape_drive_type]")
         Hearth::Validator.validate!(input[:medium_changer_type], ::String, context: "#{context}[:medium_changer_type]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -35,7 +37,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddCacheInput, context: context)
         Hearth::Validator.validate!(input[:gateway_arn], ::String, context: "#{context}[:gateway_arn]")
-        Validators::DiskIds.validate!(input[:disk_ids], context: "#{context}[:disk_ids]") unless input[:disk_ids].nil?
+        DiskIds.validate!(input[:disk_ids], context: "#{context}[:disk_ids]") unless input[:disk_ids].nil?
       end
     end
 
@@ -50,7 +52,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddTagsToResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -65,7 +67,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddUploadBufferInput, context: context)
         Hearth::Validator.validate!(input[:gateway_arn], ::String, context: "#{context}[:gateway_arn]")
-        Validators::DiskIds.validate!(input[:disk_ids], context: "#{context}[:disk_ids]") unless input[:disk_ids].nil?
+        DiskIds.validate!(input[:disk_ids], context: "#{context}[:disk_ids]") unless input[:disk_ids].nil?
       end
     end
 
@@ -80,7 +82,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddWorkingStorageInput, context: context)
         Hearth::Validator.validate!(input[:gateway_arn], ::String, context: "#{context}[:gateway_arn]")
-        Validators::DiskIds.validate!(input[:disk_ids], context: "#{context}[:disk_ids]") unless input[:disk_ids].nil?
+        DiskIds.validate!(input[:disk_ids], context: "#{context}[:disk_ids]") unless input[:disk_ids].nil?
       end
     end
 
@@ -115,10 +117,10 @@ module AWS::SDK::StorageGateway
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:gateway_arn], ::String, context: "#{context}[:gateway_arn]")
         Hearth::Validator.validate!(input[:location_arn], ::String, context: "#{context}[:location_arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:audit_destination_arn], ::String, context: "#{context}[:audit_destination_arn]")
-        Validators::CacheAttributes.validate!(input[:cache_attributes], context: "#{context}[:cache_attributes]") unless input[:cache_attributes].nil?
-        Validators::EndpointNetworkConfiguration.validate!(input[:endpoint_network_configuration], context: "#{context}[:endpoint_network_configuration]") unless input[:endpoint_network_configuration].nil?
+        CacheAttributes.validate!(input[:cache_attributes], context: "#{context}[:cache_attributes]") unless input[:cache_attributes].nil?
+        EndpointNetworkConfiguration.validate!(input[:endpoint_network_configuration], context: "#{context}[:endpoint_network_configuration]") unless input[:endpoint_network_configuration].nil?
       end
     end
 
@@ -151,7 +153,7 @@ module AWS::SDK::StorageGateway
     class AutomaticTapeCreationPolicyInfo
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AutomaticTapeCreationPolicyInfo, context: context)
-        Validators::AutomaticTapeCreationRules.validate!(input[:automatic_tape_creation_rules], context: "#{context}[:automatic_tape_creation_rules]") unless input[:automatic_tape_creation_rules].nil?
+        AutomaticTapeCreationRules.validate!(input[:automatic_tape_creation_rules], context: "#{context}[:automatic_tape_creation_rules]") unless input[:automatic_tape_creation_rules].nil?
         Hearth::Validator.validate!(input[:gateway_arn], ::String, context: "#{context}[:gateway_arn]")
       end
     end
@@ -160,7 +162,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AutomaticTapeCreationPolicyInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AutomaticTapeCreationPolicyInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -180,7 +182,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AutomaticTapeCreationRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AutomaticTapeCreationRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -192,7 +194,7 @@ module AWS::SDK::StorageGateway
         Hearth::Validator.validate!(input[:start_minute_of_hour], ::Integer, context: "#{context}[:start_minute_of_hour]")
         Hearth::Validator.validate!(input[:end_hour_of_day], ::Integer, context: "#{context}[:end_hour_of_day]")
         Hearth::Validator.validate!(input[:end_minute_of_hour], ::Integer, context: "#{context}[:end_minute_of_hour]")
-        Validators::DaysOfWeek.validate!(input[:days_of_week], context: "#{context}[:days_of_week]") unless input[:days_of_week].nil?
+        DaysOfWeek.validate!(input[:days_of_week], context: "#{context}[:days_of_week]") unless input[:days_of_week].nil?
         Hearth::Validator.validate!(input[:average_upload_rate_limit_in_bits_per_sec], ::Integer, context: "#{context}[:average_upload_rate_limit_in_bits_per_sec]")
         Hearth::Validator.validate!(input[:average_download_rate_limit_in_bits_per_sec], ::Integer, context: "#{context}[:average_download_rate_limit_in_bits_per_sec]")
       end
@@ -202,7 +204,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BandwidthRateLimitInterval.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BandwidthRateLimitInterval.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -225,7 +227,7 @@ module AWS::SDK::StorageGateway
         Hearth::Validator.validate!(input[:volume_size_in_bytes], ::Integer, context: "#{context}[:volume_size_in_bytes]")
         Hearth::Validator.validate!(input[:volume_progress], ::Float, context: "#{context}[:volume_progress]")
         Hearth::Validator.validate!(input[:source_snapshot_id], ::String, context: "#{context}[:source_snapshot_id]")
-        Validators::VolumeiSCSIAttributes.validate!(input[:volumei_scsi_attributes], context: "#{context}[:volumei_scsi_attributes]") unless input[:volumei_scsi_attributes].nil?
+        VolumeiSCSIAttributes.validate!(input[:volumei_scsi_attributes], context: "#{context}[:volumei_scsi_attributes]") unless input[:volumei_scsi_attributes].nil?
         Hearth::Validator.validate!(input[:created_date], ::Time, context: "#{context}[:created_date]")
         Hearth::Validator.validate!(input[:volume_used_in_bytes], ::Integer, context: "#{context}[:volume_used_in_bytes]")
         Hearth::Validator.validate!(input[:kms_key], ::String, context: "#{context}[:kms_key]")
@@ -237,7 +239,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CachediSCSIVolume.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CachediSCSIVolume.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -276,7 +278,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ChapInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ChapInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -303,7 +305,7 @@ module AWS::SDK::StorageGateway
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:kms_encrypted], ::TrueClass, ::FalseClass, context: "#{context}[:kms_encrypted]")
         Hearth::Validator.validate!(input[:kms_key], ::String, context: "#{context}[:kms_key]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -319,7 +321,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateNFSFileShareInput, context: context)
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
-        Validators::NFSFileShareDefaults.validate!(input[:nfs_file_share_defaults], context: "#{context}[:nfs_file_share_defaults]") unless input[:nfs_file_share_defaults].nil?
+        NFSFileShareDefaults.validate!(input[:nfs_file_share_defaults], context: "#{context}[:nfs_file_share_defaults]") unless input[:nfs_file_share_defaults].nil?
         Hearth::Validator.validate!(input[:gateway_arn], ::String, context: "#{context}[:gateway_arn]")
         Hearth::Validator.validate!(input[:kms_encrypted], ::TrueClass, ::FalseClass, context: "#{context}[:kms_encrypted]")
         Hearth::Validator.validate!(input[:kms_key], ::String, context: "#{context}[:kms_key]")
@@ -327,14 +329,14 @@ module AWS::SDK::StorageGateway
         Hearth::Validator.validate!(input[:location_arn], ::String, context: "#{context}[:location_arn]")
         Hearth::Validator.validate!(input[:default_storage_class], ::String, context: "#{context}[:default_storage_class]")
         Hearth::Validator.validate!(input[:object_acl], ::String, context: "#{context}[:object_acl]")
-        Validators::FileShareClientList.validate!(input[:client_list], context: "#{context}[:client_list]") unless input[:client_list].nil?
+        FileShareClientList.validate!(input[:client_list], context: "#{context}[:client_list]") unless input[:client_list].nil?
         Hearth::Validator.validate!(input[:squash], ::String, context: "#{context}[:squash]")
         Hearth::Validator.validate!(input[:read_only], ::TrueClass, ::FalseClass, context: "#{context}[:read_only]")
         Hearth::Validator.validate!(input[:guess_mime_type_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:guess_mime_type_enabled]")
         Hearth::Validator.validate!(input[:requester_pays], ::TrueClass, ::FalseClass, context: "#{context}[:requester_pays]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:file_share_name], ::String, context: "#{context}[:file_share_name]")
-        Validators::CacheAttributes.validate!(input[:cache_attributes], context: "#{context}[:cache_attributes]") unless input[:cache_attributes].nil?
+        CacheAttributes.validate!(input[:cache_attributes], context: "#{context}[:cache_attributes]") unless input[:cache_attributes].nil?
         Hearth::Validator.validate!(input[:notification_policy], ::String, context: "#{context}[:notification_policy]")
         Hearth::Validator.validate!(input[:vpc_endpoint_dns_name], ::String, context: "#{context}[:vpc_endpoint_dns_name]")
         Hearth::Validator.validate!(input[:bucket_region], ::String, context: "#{context}[:bucket_region]")
@@ -365,15 +367,15 @@ module AWS::SDK::StorageGateway
         Hearth::Validator.validate!(input[:requester_pays], ::TrueClass, ::FalseClass, context: "#{context}[:requester_pays]")
         Hearth::Validator.validate!(input[:smbacl_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:smbacl_enabled]")
         Hearth::Validator.validate!(input[:access_based_enumeration], ::TrueClass, ::FalseClass, context: "#{context}[:access_based_enumeration]")
-        Validators::UserList.validate!(input[:admin_user_list], context: "#{context}[:admin_user_list]") unless input[:admin_user_list].nil?
-        Validators::UserList.validate!(input[:valid_user_list], context: "#{context}[:valid_user_list]") unless input[:valid_user_list].nil?
-        Validators::UserList.validate!(input[:invalid_user_list], context: "#{context}[:invalid_user_list]") unless input[:invalid_user_list].nil?
+        UserList.validate!(input[:admin_user_list], context: "#{context}[:admin_user_list]") unless input[:admin_user_list].nil?
+        UserList.validate!(input[:valid_user_list], context: "#{context}[:valid_user_list]") unless input[:valid_user_list].nil?
+        UserList.validate!(input[:invalid_user_list], context: "#{context}[:invalid_user_list]") unless input[:invalid_user_list].nil?
         Hearth::Validator.validate!(input[:audit_destination_arn], ::String, context: "#{context}[:audit_destination_arn]")
         Hearth::Validator.validate!(input[:authentication], ::String, context: "#{context}[:authentication]")
         Hearth::Validator.validate!(input[:case_sensitivity], ::String, context: "#{context}[:case_sensitivity]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:file_share_name], ::String, context: "#{context}[:file_share_name]")
-        Validators::CacheAttributes.validate!(input[:cache_attributes], context: "#{context}[:cache_attributes]") unless input[:cache_attributes].nil?
+        CacheAttributes.validate!(input[:cache_attributes], context: "#{context}[:cache_attributes]") unless input[:cache_attributes].nil?
         Hearth::Validator.validate!(input[:notification_policy], ::String, context: "#{context}[:notification_policy]")
         Hearth::Validator.validate!(input[:vpc_endpoint_dns_name], ::String, context: "#{context}[:vpc_endpoint_dns_name]")
         Hearth::Validator.validate!(input[:bucket_region], ::String, context: "#{context}[:bucket_region]")
@@ -393,7 +395,7 @@ module AWS::SDK::StorageGateway
         Hearth::Validator.validate!(input, Types::CreateSnapshotFromVolumeRecoveryPointInput, context: context)
         Hearth::Validator.validate!(input[:volume_arn], ::String, context: "#{context}[:volume_arn]")
         Hearth::Validator.validate!(input[:snapshot_description], ::String, context: "#{context}[:snapshot_description]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -411,7 +413,7 @@ module AWS::SDK::StorageGateway
         Hearth::Validator.validate!(input, Types::CreateSnapshotInput, context: context)
         Hearth::Validator.validate!(input[:volume_arn], ::String, context: "#{context}[:volume_arn]")
         Hearth::Validator.validate!(input[:snapshot_description], ::String, context: "#{context}[:snapshot_description]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -434,7 +436,7 @@ module AWS::SDK::StorageGateway
         Hearth::Validator.validate!(input[:network_interface_id], ::String, context: "#{context}[:network_interface_id]")
         Hearth::Validator.validate!(input[:kms_encrypted], ::TrueClass, ::FalseClass, context: "#{context}[:kms_encrypted]")
         Hearth::Validator.validate!(input[:kms_key], ::String, context: "#{context}[:kms_key]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -454,7 +456,7 @@ module AWS::SDK::StorageGateway
         Hearth::Validator.validate!(input[:storage_class], ::String, context: "#{context}[:storage_class]")
         Hearth::Validator.validate!(input[:retention_lock_type], ::String, context: "#{context}[:retention_lock_type]")
         Hearth::Validator.validate!(input[:retention_lock_time_in_days], ::Integer, context: "#{context}[:retention_lock_time_in_days]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -475,7 +477,7 @@ module AWS::SDK::StorageGateway
         Hearth::Validator.validate!(input[:kms_key], ::String, context: "#{context}[:kms_key]")
         Hearth::Validator.validate!(input[:pool_id], ::String, context: "#{context}[:pool_id]")
         Hearth::Validator.validate!(input[:worm], ::TrueClass, ::FalseClass, context: "#{context}[:worm]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -498,14 +500,14 @@ module AWS::SDK::StorageGateway
         Hearth::Validator.validate!(input[:kms_key], ::String, context: "#{context}[:kms_key]")
         Hearth::Validator.validate!(input[:pool_id], ::String, context: "#{context}[:pool_id]")
         Hearth::Validator.validate!(input[:worm], ::TrueClass, ::FalseClass, context: "#{context}[:worm]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateTapesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateTapesOutput, context: context)
-        Validators::TapeARNs.validate!(input[:tape_ar_ns], context: "#{context}[:tape_ar_ns]") unless input[:tape_ar_ns].nil?
+        TapeARNs.validate!(input[:tape_ar_ns], context: "#{context}[:tape_ar_ns]") unless input[:tape_ar_ns].nil?
       end
     end
 
@@ -708,7 +710,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeBandwidthRateLimitScheduleOutput, context: context)
         Hearth::Validator.validate!(input[:gateway_arn], ::String, context: "#{context}[:gateway_arn]")
-        Validators::BandwidthRateLimitIntervals.validate!(input[:bandwidth_rate_limit_intervals], context: "#{context}[:bandwidth_rate_limit_intervals]") unless input[:bandwidth_rate_limit_intervals].nil?
+        BandwidthRateLimitIntervals.validate!(input[:bandwidth_rate_limit_intervals], context: "#{context}[:bandwidth_rate_limit_intervals]") unless input[:bandwidth_rate_limit_intervals].nil?
       end
     end
 
@@ -723,7 +725,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeCacheOutput, context: context)
         Hearth::Validator.validate!(input[:gateway_arn], ::String, context: "#{context}[:gateway_arn]")
-        Validators::DiskIds.validate!(input[:disk_ids], context: "#{context}[:disk_ids]") unless input[:disk_ids].nil?
+        DiskIds.validate!(input[:disk_ids], context: "#{context}[:disk_ids]") unless input[:disk_ids].nil?
         Hearth::Validator.validate!(input[:cache_allocated_in_bytes], ::Integer, context: "#{context}[:cache_allocated_in_bytes]")
         Hearth::Validator.validate!(input[:cache_used_percentage], ::Float, context: "#{context}[:cache_used_percentage]")
         Hearth::Validator.validate!(input[:cache_dirty_percentage], ::Float, context: "#{context}[:cache_dirty_percentage]")
@@ -735,14 +737,14 @@ module AWS::SDK::StorageGateway
     class DescribeCachediSCSIVolumesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeCachediSCSIVolumesInput, context: context)
-        Validators::VolumeARNs.validate!(input[:volume_ar_ns], context: "#{context}[:volume_ar_ns]") unless input[:volume_ar_ns].nil?
+        VolumeARNs.validate!(input[:volume_ar_ns], context: "#{context}[:volume_ar_ns]") unless input[:volume_ar_ns].nil?
       end
     end
 
     class DescribeCachediSCSIVolumesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeCachediSCSIVolumesOutput, context: context)
-        Validators::CachediSCSIVolumes.validate!(input[:cachedi_scsi_volumes], context: "#{context}[:cachedi_scsi_volumes]") unless input[:cachedi_scsi_volumes].nil?
+        CachediSCSIVolumes.validate!(input[:cachedi_scsi_volumes], context: "#{context}[:cachedi_scsi_volumes]") unless input[:cachedi_scsi_volumes].nil?
       end
     end
 
@@ -756,21 +758,21 @@ module AWS::SDK::StorageGateway
     class DescribeChapCredentialsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeChapCredentialsOutput, context: context)
-        Validators::ChapCredentials.validate!(input[:chap_credentials], context: "#{context}[:chap_credentials]") unless input[:chap_credentials].nil?
+        ChapCredentials.validate!(input[:chap_credentials], context: "#{context}[:chap_credentials]") unless input[:chap_credentials].nil?
       end
     end
 
     class DescribeFileSystemAssociationsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeFileSystemAssociationsInput, context: context)
-        Validators::FileSystemAssociationARNList.validate!(input[:file_system_association_arn_list], context: "#{context}[:file_system_association_arn_list]") unless input[:file_system_association_arn_list].nil?
+        FileSystemAssociationARNList.validate!(input[:file_system_association_arn_list], context: "#{context}[:file_system_association_arn_list]") unless input[:file_system_association_arn_list].nil?
       end
     end
 
     class DescribeFileSystemAssociationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeFileSystemAssociationsOutput, context: context)
-        Validators::FileSystemAssociationInfoList.validate!(input[:file_system_association_info_list], context: "#{context}[:file_system_association_info_list]") unless input[:file_system_association_info_list].nil?
+        FileSystemAssociationInfoList.validate!(input[:file_system_association_info_list], context: "#{context}[:file_system_association_info_list]") unless input[:file_system_association_info_list].nil?
       end
     end
 
@@ -789,13 +791,13 @@ module AWS::SDK::StorageGateway
         Hearth::Validator.validate!(input[:gateway_name], ::String, context: "#{context}[:gateway_name]")
         Hearth::Validator.validate!(input[:gateway_timezone], ::String, context: "#{context}[:gateway_timezone]")
         Hearth::Validator.validate!(input[:gateway_state], ::String, context: "#{context}[:gateway_state]")
-        Validators::GatewayNetworkInterfaces.validate!(input[:gateway_network_interfaces], context: "#{context}[:gateway_network_interfaces]") unless input[:gateway_network_interfaces].nil?
+        GatewayNetworkInterfaces.validate!(input[:gateway_network_interfaces], context: "#{context}[:gateway_network_interfaces]") unless input[:gateway_network_interfaces].nil?
         Hearth::Validator.validate!(input[:gateway_type], ::String, context: "#{context}[:gateway_type]")
         Hearth::Validator.validate!(input[:next_update_availability_date], ::String, context: "#{context}[:next_update_availability_date]")
         Hearth::Validator.validate!(input[:last_software_update], ::String, context: "#{context}[:last_software_update]")
         Hearth::Validator.validate!(input[:ec2_instance_id], ::String, context: "#{context}[:ec2_instance_id]")
         Hearth::Validator.validate!(input[:ec2_instance_region], ::String, context: "#{context}[:ec2_instance_region]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:vpc_endpoint], ::String, context: "#{context}[:vpc_endpoint]")
         Hearth::Validator.validate!(input[:cloud_watch_log_group_arn], ::String, context: "#{context}[:cloud_watch_log_group_arn]")
         Hearth::Validator.validate!(input[:host_environment], ::String, context: "#{context}[:host_environment]")
@@ -803,7 +805,7 @@ module AWS::SDK::StorageGateway
         Hearth::Validator.validate!(input[:software_updates_end_date], ::String, context: "#{context}[:software_updates_end_date]")
         Hearth::Validator.validate!(input[:deprecation_date], ::String, context: "#{context}[:deprecation_date]")
         Hearth::Validator.validate!(input[:gateway_capacity], ::String, context: "#{context}[:gateway_capacity]")
-        Validators::SupportedGatewayCapacities.validate!(input[:supported_gateway_capacities], context: "#{context}[:supported_gateway_capacities]") unless input[:supported_gateway_capacities].nil?
+        SupportedGatewayCapacities.validate!(input[:supported_gateway_capacities], context: "#{context}[:supported_gateway_capacities]") unless input[:supported_gateway_capacities].nil?
         Hearth::Validator.validate!(input[:host_environment_id], ::String, context: "#{context}[:host_environment_id]")
       end
     end
@@ -830,28 +832,28 @@ module AWS::SDK::StorageGateway
     class DescribeNFSFileSharesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeNFSFileSharesInput, context: context)
-        Validators::FileShareARNList.validate!(input[:file_share_arn_list], context: "#{context}[:file_share_arn_list]") unless input[:file_share_arn_list].nil?
+        FileShareARNList.validate!(input[:file_share_arn_list], context: "#{context}[:file_share_arn_list]") unless input[:file_share_arn_list].nil?
       end
     end
 
     class DescribeNFSFileSharesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeNFSFileSharesOutput, context: context)
-        Validators::NFSFileShareInfoList.validate!(input[:nfs_file_share_info_list], context: "#{context}[:nfs_file_share_info_list]") unless input[:nfs_file_share_info_list].nil?
+        NFSFileShareInfoList.validate!(input[:nfs_file_share_info_list], context: "#{context}[:nfs_file_share_info_list]") unless input[:nfs_file_share_info_list].nil?
       end
     end
 
     class DescribeSMBFileSharesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeSMBFileSharesInput, context: context)
-        Validators::FileShareARNList.validate!(input[:file_share_arn_list], context: "#{context}[:file_share_arn_list]") unless input[:file_share_arn_list].nil?
+        FileShareARNList.validate!(input[:file_share_arn_list], context: "#{context}[:file_share_arn_list]") unless input[:file_share_arn_list].nil?
       end
     end
 
     class DescribeSMBFileSharesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeSMBFileSharesOutput, context: context)
-        Validators::SMBFileShareInfoList.validate!(input[:smb_file_share_info_list], context: "#{context}[:smb_file_share_info_list]") unless input[:smb_file_share_info_list].nil?
+        SMBFileShareInfoList.validate!(input[:smb_file_share_info_list], context: "#{context}[:smb_file_share_info_list]") unless input[:smb_file_share_info_list].nil?
       end
     end
 
@@ -871,7 +873,7 @@ module AWS::SDK::StorageGateway
         Hearth::Validator.validate!(input[:smb_guest_password_set], ::TrueClass, ::FalseClass, context: "#{context}[:smb_guest_password_set]")
         Hearth::Validator.validate!(input[:smb_security_strategy], ::String, context: "#{context}[:smb_security_strategy]")
         Hearth::Validator.validate!(input[:file_shares_visible], ::TrueClass, ::FalseClass, context: "#{context}[:file_shares_visible]")
-        Validators::SMBLocalGroups.validate!(input[:smb_local_groups], context: "#{context}[:smb_local_groups]") unless input[:smb_local_groups].nil?
+        SMBLocalGroups.validate!(input[:smb_local_groups], context: "#{context}[:smb_local_groups]") unless input[:smb_local_groups].nil?
       end
     end
 
@@ -890,28 +892,28 @@ module AWS::SDK::StorageGateway
         Hearth::Validator.validate!(input[:recurrence_in_hours], ::Integer, context: "#{context}[:recurrence_in_hours]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:timezone], ::String, context: "#{context}[:timezone]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class DescribeStorediSCSIVolumesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeStorediSCSIVolumesInput, context: context)
-        Validators::VolumeARNs.validate!(input[:volume_ar_ns], context: "#{context}[:volume_ar_ns]") unless input[:volume_ar_ns].nil?
+        VolumeARNs.validate!(input[:volume_ar_ns], context: "#{context}[:volume_ar_ns]") unless input[:volume_ar_ns].nil?
       end
     end
 
     class DescribeStorediSCSIVolumesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeStorediSCSIVolumesOutput, context: context)
-        Validators::StorediSCSIVolumes.validate!(input[:storedi_scsi_volumes], context: "#{context}[:storedi_scsi_volumes]") unless input[:storedi_scsi_volumes].nil?
+        StorediSCSIVolumes.validate!(input[:storedi_scsi_volumes], context: "#{context}[:storedi_scsi_volumes]") unless input[:storedi_scsi_volumes].nil?
       end
     end
 
     class DescribeTapeArchivesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeTapeArchivesInput, context: context)
-        Validators::TapeARNs.validate!(input[:tape_ar_ns], context: "#{context}[:tape_ar_ns]") unless input[:tape_ar_ns].nil?
+        TapeARNs.validate!(input[:tape_ar_ns], context: "#{context}[:tape_ar_ns]") unless input[:tape_ar_ns].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
         Hearth::Validator.validate!(input[:limit], ::Integer, context: "#{context}[:limit]")
       end
@@ -920,7 +922,7 @@ module AWS::SDK::StorageGateway
     class DescribeTapeArchivesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeTapeArchivesOutput, context: context)
-        Validators::TapeArchives.validate!(input[:tape_archives], context: "#{context}[:tape_archives]") unless input[:tape_archives].nil?
+        TapeArchives.validate!(input[:tape_archives], context: "#{context}[:tape_archives]") unless input[:tape_archives].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -938,7 +940,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeTapeRecoveryPointsOutput, context: context)
         Hearth::Validator.validate!(input[:gateway_arn], ::String, context: "#{context}[:gateway_arn]")
-        Validators::TapeRecoveryPointInfos.validate!(input[:tape_recovery_point_infos], context: "#{context}[:tape_recovery_point_infos]") unless input[:tape_recovery_point_infos].nil?
+        TapeRecoveryPointInfos.validate!(input[:tape_recovery_point_infos], context: "#{context}[:tape_recovery_point_infos]") unless input[:tape_recovery_point_infos].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -947,7 +949,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeTapesInput, context: context)
         Hearth::Validator.validate!(input[:gateway_arn], ::String, context: "#{context}[:gateway_arn]")
-        Validators::TapeARNs.validate!(input[:tape_ar_ns], context: "#{context}[:tape_ar_ns]") unless input[:tape_ar_ns].nil?
+        TapeARNs.validate!(input[:tape_ar_ns], context: "#{context}[:tape_ar_ns]") unless input[:tape_ar_ns].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
         Hearth::Validator.validate!(input[:limit], ::Integer, context: "#{context}[:limit]")
       end
@@ -956,7 +958,7 @@ module AWS::SDK::StorageGateway
     class DescribeTapesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeTapesOutput, context: context)
-        Validators::Tapes.validate!(input[:tapes], context: "#{context}[:tapes]") unless input[:tapes].nil?
+        Tapes.validate!(input[:tapes], context: "#{context}[:tapes]") unless input[:tapes].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -972,7 +974,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeUploadBufferOutput, context: context)
         Hearth::Validator.validate!(input[:gateway_arn], ::String, context: "#{context}[:gateway_arn]")
-        Validators::DiskIds.validate!(input[:disk_ids], context: "#{context}[:disk_ids]") unless input[:disk_ids].nil?
+        DiskIds.validate!(input[:disk_ids], context: "#{context}[:disk_ids]") unless input[:disk_ids].nil?
         Hearth::Validator.validate!(input[:upload_buffer_used_in_bytes], ::Integer, context: "#{context}[:upload_buffer_used_in_bytes]")
         Hearth::Validator.validate!(input[:upload_buffer_allocated_in_bytes], ::Integer, context: "#{context}[:upload_buffer_allocated_in_bytes]")
       end
@@ -982,7 +984,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeVTLDevicesInput, context: context)
         Hearth::Validator.validate!(input[:gateway_arn], ::String, context: "#{context}[:gateway_arn]")
-        Validators::VTLDeviceARNs.validate!(input[:vtl_device_ar_ns], context: "#{context}[:vtl_device_ar_ns]") unless input[:vtl_device_ar_ns].nil?
+        VTLDeviceARNs.validate!(input[:vtl_device_ar_ns], context: "#{context}[:vtl_device_ar_ns]") unless input[:vtl_device_ar_ns].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
         Hearth::Validator.validate!(input[:limit], ::Integer, context: "#{context}[:limit]")
       end
@@ -992,7 +994,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeVTLDevicesOutput, context: context)
         Hearth::Validator.validate!(input[:gateway_arn], ::String, context: "#{context}[:gateway_arn]")
-        Validators::VTLDevices.validate!(input[:vtl_devices], context: "#{context}[:vtl_devices]") unless input[:vtl_devices].nil?
+        VTLDevices.validate!(input[:vtl_devices], context: "#{context}[:vtl_devices]") unless input[:vtl_devices].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -1008,7 +1010,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeWorkingStorageOutput, context: context)
         Hearth::Validator.validate!(input[:gateway_arn], ::String, context: "#{context}[:gateway_arn]")
-        Validators::DiskIds.validate!(input[:disk_ids], context: "#{context}[:disk_ids]") unless input[:disk_ids].nil?
+        DiskIds.validate!(input[:disk_ids], context: "#{context}[:disk_ids]") unless input[:disk_ids].nil?
         Hearth::Validator.validate!(input[:working_storage_used_in_bytes], ::Integer, context: "#{context}[:working_storage_used_in_bytes]")
         Hearth::Validator.validate!(input[:working_storage_allocated_in_bytes], ::Integer, context: "#{context}[:working_storage_allocated_in_bytes]")
       end
@@ -1078,7 +1080,7 @@ module AWS::SDK::StorageGateway
         Hearth::Validator.validate!(input[:disk_size_in_bytes], ::Integer, context: "#{context}[:disk_size_in_bytes]")
         Hearth::Validator.validate!(input[:disk_allocation_type], ::String, context: "#{context}[:disk_allocation_type]")
         Hearth::Validator.validate!(input[:disk_allocation_resource], ::String, context: "#{context}[:disk_allocation_resource]")
-        Validators::DiskAttributeList.validate!(input[:disk_attribute_list], context: "#{context}[:disk_attribute_list]") unless input[:disk_attribute_list].nil?
+        DiskAttributeList.validate!(input[:disk_attribute_list], context: "#{context}[:disk_attribute_list]") unless input[:disk_attribute_list].nil?
       end
     end
 
@@ -1104,7 +1106,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Disk.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Disk.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1112,7 +1114,7 @@ module AWS::SDK::StorageGateway
     class EndpointNetworkConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EndpointNetworkConfiguration, context: context)
-        Validators::IpAddressList.validate!(input[:ip_addresses], context: "#{context}[:ip_addresses]") unless input[:ip_addresses].nil?
+        IpAddressList.validate!(input[:ip_addresses], context: "#{context}[:ip_addresses]") unless input[:ip_addresses].nil?
       end
     end
 
@@ -1149,7 +1151,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FileShareInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FileShareInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1171,10 +1173,10 @@ module AWS::SDK::StorageGateway
         Hearth::Validator.validate!(input[:file_system_association_status], ::String, context: "#{context}[:file_system_association_status]")
         Hearth::Validator.validate!(input[:audit_destination_arn], ::String, context: "#{context}[:audit_destination_arn]")
         Hearth::Validator.validate!(input[:gateway_arn], ::String, context: "#{context}[:gateway_arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::CacheAttributes.validate!(input[:cache_attributes], context: "#{context}[:cache_attributes]") unless input[:cache_attributes].nil?
-        Validators::EndpointNetworkConfiguration.validate!(input[:endpoint_network_configuration], context: "#{context}[:endpoint_network_configuration]") unless input[:endpoint_network_configuration].nil?
-        Validators::FileSystemAssociationStatusDetails.validate!(input[:file_system_association_status_details], context: "#{context}[:file_system_association_status_details]") unless input[:file_system_association_status_details].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        CacheAttributes.validate!(input[:cache_attributes], context: "#{context}[:cache_attributes]") unless input[:cache_attributes].nil?
+        EndpointNetworkConfiguration.validate!(input[:endpoint_network_configuration], context: "#{context}[:endpoint_network_configuration]") unless input[:endpoint_network_configuration].nil?
+        FileSystemAssociationStatusDetails.validate!(input[:file_system_association_status_details], context: "#{context}[:file_system_association_status_details]") unless input[:file_system_association_status_details].nil?
       end
     end
 
@@ -1182,7 +1184,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FileSystemAssociationInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FileSystemAssociationInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1198,7 +1200,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FileSystemAssociationStatusDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FileSystemAssociationStatusDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1217,7 +1219,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FileSystemAssociationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FileSystemAssociationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1250,7 +1252,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NetworkInterface.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NetworkInterface.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1259,7 +1261,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GatewayInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GatewayInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1286,7 +1288,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InternalServerError, context: context)
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
-        Validators::StorageGatewayError.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
+        StorageGatewayError.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
       end
     end
 
@@ -1294,7 +1296,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InvalidGatewayRequestException, context: context)
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
-        Validators::StorageGatewayError.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
+        StorageGatewayError.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
       end
     end
 
@@ -1313,7 +1315,7 @@ module AWS::SDK::StorageGateway
         Hearth::Validator.validate!(input[:gateway_arn], ::String, context: "#{context}[:gateway_arn]")
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
         Hearth::Validator.validate!(input[:organizational_unit], ::String, context: "#{context}[:organizational_unit]")
-        Validators::Hosts.validate!(input[:domain_controllers], context: "#{context}[:domain_controllers]") unless input[:domain_controllers].nil?
+        Hosts.validate!(input[:domain_controllers], context: "#{context}[:domain_controllers]") unless input[:domain_controllers].nil?
         Hearth::Validator.validate!(input[:timeout_in_seconds], ::Integer, context: "#{context}[:timeout_in_seconds]")
         Hearth::Validator.validate!(input[:user_name], ::String, context: "#{context}[:user_name]")
         Hearth::Validator.validate!(input[:password], ::String, context: "#{context}[:password]")
@@ -1338,7 +1340,7 @@ module AWS::SDK::StorageGateway
     class ListAutomaticTapeCreationPoliciesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAutomaticTapeCreationPoliciesOutput, context: context)
-        Validators::AutomaticTapeCreationPolicyInfos.validate!(input[:automatic_tape_creation_policy_infos], context: "#{context}[:automatic_tape_creation_policy_infos]") unless input[:automatic_tape_creation_policy_infos].nil?
+        AutomaticTapeCreationPolicyInfos.validate!(input[:automatic_tape_creation_policy_infos], context: "#{context}[:automatic_tape_creation_policy_infos]") unless input[:automatic_tape_creation_policy_infos].nil?
       end
     end
 
@@ -1356,7 +1358,7 @@ module AWS::SDK::StorageGateway
         Hearth::Validator.validate!(input, Types::ListFileSharesOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
-        Validators::FileShareInfoList.validate!(input[:file_share_info_list], context: "#{context}[:file_share_info_list]") unless input[:file_share_info_list].nil?
+        FileShareInfoList.validate!(input[:file_share_info_list], context: "#{context}[:file_share_info_list]") unless input[:file_share_info_list].nil?
       end
     end
 
@@ -1374,7 +1376,7 @@ module AWS::SDK::StorageGateway
         Hearth::Validator.validate!(input, Types::ListFileSystemAssociationsOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
-        Validators::FileSystemAssociationSummaryList.validate!(input[:file_system_association_summary_list], context: "#{context}[:file_system_association_summary_list]") unless input[:file_system_association_summary_list].nil?
+        FileSystemAssociationSummaryList.validate!(input[:file_system_association_summary_list], context: "#{context}[:file_system_association_summary_list]") unless input[:file_system_association_summary_list].nil?
       end
     end
 
@@ -1389,7 +1391,7 @@ module AWS::SDK::StorageGateway
     class ListGatewaysOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListGatewaysOutput, context: context)
-        Validators::Gateways.validate!(input[:gateways], context: "#{context}[:gateways]") unless input[:gateways].nil?
+        Gateways.validate!(input[:gateways], context: "#{context}[:gateways]") unless input[:gateways].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -1405,7 +1407,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListLocalDisksOutput, context: context)
         Hearth::Validator.validate!(input[:gateway_arn], ::String, context: "#{context}[:gateway_arn]")
-        Validators::Disks.validate!(input[:disks], context: "#{context}[:disks]") unless input[:disks].nil?
+        Disks.validate!(input[:disks], context: "#{context}[:disks]") unless input[:disks].nil?
       end
     end
 
@@ -1423,14 +1425,14 @@ module AWS::SDK::StorageGateway
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class ListTapePoolsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTapePoolsInput, context: context)
-        Validators::PoolARNs.validate!(input[:pool_ar_ns], context: "#{context}[:pool_ar_ns]") unless input[:pool_ar_ns].nil?
+        PoolARNs.validate!(input[:pool_ar_ns], context: "#{context}[:pool_ar_ns]") unless input[:pool_ar_ns].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
         Hearth::Validator.validate!(input[:limit], ::Integer, context: "#{context}[:limit]")
       end
@@ -1439,7 +1441,7 @@ module AWS::SDK::StorageGateway
     class ListTapePoolsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTapePoolsOutput, context: context)
-        Validators::PoolInfos.validate!(input[:pool_infos], context: "#{context}[:pool_infos]") unless input[:pool_infos].nil?
+        PoolInfos.validate!(input[:pool_infos], context: "#{context}[:pool_infos]") unless input[:pool_infos].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -1447,7 +1449,7 @@ module AWS::SDK::StorageGateway
     class ListTapesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTapesInput, context: context)
-        Validators::TapeARNs.validate!(input[:tape_ar_ns], context: "#{context}[:tape_ar_ns]") unless input[:tape_ar_ns].nil?
+        TapeARNs.validate!(input[:tape_ar_ns], context: "#{context}[:tape_ar_ns]") unless input[:tape_ar_ns].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
         Hearth::Validator.validate!(input[:limit], ::Integer, context: "#{context}[:limit]")
       end
@@ -1456,7 +1458,7 @@ module AWS::SDK::StorageGateway
     class ListTapesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTapesOutput, context: context)
-        Validators::TapeInfos.validate!(input[:tape_infos], context: "#{context}[:tape_infos]") unless input[:tape_infos].nil?
+        TapeInfos.validate!(input[:tape_infos], context: "#{context}[:tape_infos]") unless input[:tape_infos].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -1471,7 +1473,7 @@ module AWS::SDK::StorageGateway
     class ListVolumeInitiatorsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListVolumeInitiatorsOutput, context: context)
-        Validators::Initiators.validate!(input[:initiators], context: "#{context}[:initiators]") unless input[:initiators].nil?
+        Initiators.validate!(input[:initiators], context: "#{context}[:initiators]") unless input[:initiators].nil?
       end
     end
 
@@ -1486,7 +1488,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListVolumeRecoveryPointsOutput, context: context)
         Hearth::Validator.validate!(input[:gateway_arn], ::String, context: "#{context}[:gateway_arn]")
-        Validators::VolumeRecoveryPointInfos.validate!(input[:volume_recovery_point_infos], context: "#{context}[:volume_recovery_point_infos]") unless input[:volume_recovery_point_infos].nil?
+        VolumeRecoveryPointInfos.validate!(input[:volume_recovery_point_infos], context: "#{context}[:volume_recovery_point_infos]") unless input[:volume_recovery_point_infos].nil?
       end
     end
 
@@ -1504,7 +1506,7 @@ module AWS::SDK::StorageGateway
         Hearth::Validator.validate!(input, Types::ListVolumesOutput, context: context)
         Hearth::Validator.validate!(input[:gateway_arn], ::String, context: "#{context}[:gateway_arn]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::VolumeInfos.validate!(input[:volume_infos], context: "#{context}[:volume_infos]") unless input[:volume_infos].nil?
+        VolumeInfos.validate!(input[:volume_infos], context: "#{context}[:volume_infos]") unless input[:volume_infos].nil?
       end
     end
 
@@ -1521,7 +1523,7 @@ module AWS::SDK::StorageGateway
     class NFSFileShareInfo
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NFSFileShareInfo, context: context)
-        Validators::NFSFileShareDefaults.validate!(input[:nfs_file_share_defaults], context: "#{context}[:nfs_file_share_defaults]") unless input[:nfs_file_share_defaults].nil?
+        NFSFileShareDefaults.validate!(input[:nfs_file_share_defaults], context: "#{context}[:nfs_file_share_defaults]") unless input[:nfs_file_share_defaults].nil?
         Hearth::Validator.validate!(input[:file_share_arn], ::String, context: "#{context}[:file_share_arn]")
         Hearth::Validator.validate!(input[:file_share_id], ::String, context: "#{context}[:file_share_id]")
         Hearth::Validator.validate!(input[:file_share_status], ::String, context: "#{context}[:file_share_status]")
@@ -1533,14 +1535,14 @@ module AWS::SDK::StorageGateway
         Hearth::Validator.validate!(input[:location_arn], ::String, context: "#{context}[:location_arn]")
         Hearth::Validator.validate!(input[:default_storage_class], ::String, context: "#{context}[:default_storage_class]")
         Hearth::Validator.validate!(input[:object_acl], ::String, context: "#{context}[:object_acl]")
-        Validators::FileShareClientList.validate!(input[:client_list], context: "#{context}[:client_list]") unless input[:client_list].nil?
+        FileShareClientList.validate!(input[:client_list], context: "#{context}[:client_list]") unless input[:client_list].nil?
         Hearth::Validator.validate!(input[:squash], ::String, context: "#{context}[:squash]")
         Hearth::Validator.validate!(input[:read_only], ::TrueClass, ::FalseClass, context: "#{context}[:read_only]")
         Hearth::Validator.validate!(input[:guess_mime_type_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:guess_mime_type_enabled]")
         Hearth::Validator.validate!(input[:requester_pays], ::TrueClass, ::FalseClass, context: "#{context}[:requester_pays]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:file_share_name], ::String, context: "#{context}[:file_share_name]")
-        Validators::CacheAttributes.validate!(input[:cache_attributes], context: "#{context}[:cache_attributes]") unless input[:cache_attributes].nil?
+        CacheAttributes.validate!(input[:cache_attributes], context: "#{context}[:cache_attributes]") unless input[:cache_attributes].nil?
         Hearth::Validator.validate!(input[:notification_policy], ::String, context: "#{context}[:notification_policy]")
         Hearth::Validator.validate!(input[:vpc_endpoint_dns_name], ::String, context: "#{context}[:vpc_endpoint_dns_name]")
         Hearth::Validator.validate!(input[:bucket_region], ::String, context: "#{context}[:bucket_region]")
@@ -1552,7 +1554,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NFSFileShareInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NFSFileShareInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1606,7 +1608,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PoolInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PoolInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1615,7 +1617,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RefreshCacheInput, context: context)
         Hearth::Validator.validate!(input[:file_share_arn], ::String, context: "#{context}[:file_share_arn]")
-        Validators::FolderList.validate!(input[:folder_list], context: "#{context}[:folder_list]") unless input[:folder_list].nil?
+        FolderList.validate!(input[:folder_list], context: "#{context}[:folder_list]") unless input[:folder_list].nil?
         Hearth::Validator.validate!(input[:recursive], ::TrueClass, ::FalseClass, context: "#{context}[:recursive]")
       end
     end
@@ -1632,7 +1634,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RemoveTagsFromResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1706,15 +1708,15 @@ module AWS::SDK::StorageGateway
         Hearth::Validator.validate!(input[:requester_pays], ::TrueClass, ::FalseClass, context: "#{context}[:requester_pays]")
         Hearth::Validator.validate!(input[:smbacl_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:smbacl_enabled]")
         Hearth::Validator.validate!(input[:access_based_enumeration], ::TrueClass, ::FalseClass, context: "#{context}[:access_based_enumeration]")
-        Validators::UserList.validate!(input[:admin_user_list], context: "#{context}[:admin_user_list]") unless input[:admin_user_list].nil?
-        Validators::UserList.validate!(input[:valid_user_list], context: "#{context}[:valid_user_list]") unless input[:valid_user_list].nil?
-        Validators::UserList.validate!(input[:invalid_user_list], context: "#{context}[:invalid_user_list]") unless input[:invalid_user_list].nil?
+        UserList.validate!(input[:admin_user_list], context: "#{context}[:admin_user_list]") unless input[:admin_user_list].nil?
+        UserList.validate!(input[:valid_user_list], context: "#{context}[:valid_user_list]") unless input[:valid_user_list].nil?
+        UserList.validate!(input[:invalid_user_list], context: "#{context}[:invalid_user_list]") unless input[:invalid_user_list].nil?
         Hearth::Validator.validate!(input[:audit_destination_arn], ::String, context: "#{context}[:audit_destination_arn]")
         Hearth::Validator.validate!(input[:authentication], ::String, context: "#{context}[:authentication]")
         Hearth::Validator.validate!(input[:case_sensitivity], ::String, context: "#{context}[:case_sensitivity]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:file_share_name], ::String, context: "#{context}[:file_share_name]")
-        Validators::CacheAttributes.validate!(input[:cache_attributes], context: "#{context}[:cache_attributes]") unless input[:cache_attributes].nil?
+        CacheAttributes.validate!(input[:cache_attributes], context: "#{context}[:cache_attributes]") unless input[:cache_attributes].nil?
         Hearth::Validator.validate!(input[:notification_policy], ::String, context: "#{context}[:notification_policy]")
         Hearth::Validator.validate!(input[:vpc_endpoint_dns_name], ::String, context: "#{context}[:vpc_endpoint_dns_name]")
         Hearth::Validator.validate!(input[:bucket_region], ::String, context: "#{context}[:bucket_region]")
@@ -1726,7 +1728,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SMBFileShareInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SMBFileShareInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1734,7 +1736,7 @@ module AWS::SDK::StorageGateway
     class SMBLocalGroups
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SMBLocalGroups, context: context)
-        Validators::UserList.validate!(input[:gateway_admins], context: "#{context}[:gateway_admins]") unless input[:gateway_admins].nil?
+        UserList.validate!(input[:gateway_admins], context: "#{context}[:gateway_admins]") unless input[:gateway_admins].nil?
       end
     end
 
@@ -1742,7 +1744,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ServiceUnavailableError, context: context)
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
-        Validators::StorageGatewayError.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
+        StorageGatewayError.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
       end
     end
 
@@ -1822,7 +1824,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StorageGatewayError, context: context)
         Hearth::Validator.validate!(input[:error_code], ::String, context: "#{context}[:error_code]")
-        Validators::ErrorDetails.validate!(input[:error_details], context: "#{context}[:error_details]") unless input[:error_details].nil?
+        ErrorDetails.validate!(input[:error_details], context: "#{context}[:error_details]") unless input[:error_details].nil?
       end
     end
 
@@ -1839,7 +1841,7 @@ module AWS::SDK::StorageGateway
         Hearth::Validator.validate!(input[:volume_disk_id], ::String, context: "#{context}[:volume_disk_id]")
         Hearth::Validator.validate!(input[:source_snapshot_id], ::String, context: "#{context}[:source_snapshot_id]")
         Hearth::Validator.validate!(input[:preserved_existing_data], ::TrueClass, ::FalseClass, context: "#{context}[:preserved_existing_data]")
-        Validators::VolumeiSCSIAttributes.validate!(input[:volumei_scsi_attributes], context: "#{context}[:volumei_scsi_attributes]") unless input[:volumei_scsi_attributes].nil?
+        VolumeiSCSIAttributes.validate!(input[:volumei_scsi_attributes], context: "#{context}[:volumei_scsi_attributes]") unless input[:volumei_scsi_attributes].nil?
         Hearth::Validator.validate!(input[:created_date], ::Time, context: "#{context}[:created_date]")
         Hearth::Validator.validate!(input[:volume_used_in_bytes], ::Integer, context: "#{context}[:volume_used_in_bytes]")
         Hearth::Validator.validate!(input[:kms_key], ::String, context: "#{context}[:kms_key]")
@@ -1851,7 +1853,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StorediSCSIVolume.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StorediSCSIVolume.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1886,7 +1888,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1942,7 +1944,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TapeArchive.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TapeArchive.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1965,7 +1967,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TapeInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TapeInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1984,7 +1986,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TapeRecoveryPointInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TapeRecoveryPointInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1993,7 +1995,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tape.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tape.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2001,7 +2003,7 @@ module AWS::SDK::StorageGateway
     class UpdateAutomaticTapeCreationPolicyInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateAutomaticTapeCreationPolicyInput, context: context)
-        Validators::AutomaticTapeCreationRules.validate!(input[:automatic_tape_creation_rules], context: "#{context}[:automatic_tape_creation_rules]") unless input[:automatic_tape_creation_rules].nil?
+        AutomaticTapeCreationRules.validate!(input[:automatic_tape_creation_rules], context: "#{context}[:automatic_tape_creation_rules]") unless input[:automatic_tape_creation_rules].nil?
         Hearth::Validator.validate!(input[:gateway_arn], ::String, context: "#{context}[:gateway_arn]")
       end
     end
@@ -2033,7 +2035,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateBandwidthRateLimitScheduleInput, context: context)
         Hearth::Validator.validate!(input[:gateway_arn], ::String, context: "#{context}[:gateway_arn]")
-        Validators::BandwidthRateLimitIntervals.validate!(input[:bandwidth_rate_limit_intervals], context: "#{context}[:bandwidth_rate_limit_intervals]") unless input[:bandwidth_rate_limit_intervals].nil?
+        BandwidthRateLimitIntervals.validate!(input[:bandwidth_rate_limit_intervals], context: "#{context}[:bandwidth_rate_limit_intervals]") unless input[:bandwidth_rate_limit_intervals].nil?
       end
     end
 
@@ -2069,7 +2071,7 @@ module AWS::SDK::StorageGateway
         Hearth::Validator.validate!(input[:user_name], ::String, context: "#{context}[:user_name]")
         Hearth::Validator.validate!(input[:password], ::String, context: "#{context}[:password]")
         Hearth::Validator.validate!(input[:audit_destination_arn], ::String, context: "#{context}[:audit_destination_arn]")
-        Validators::CacheAttributes.validate!(input[:cache_attributes], context: "#{context}[:cache_attributes]") unless input[:cache_attributes].nil?
+        CacheAttributes.validate!(input[:cache_attributes], context: "#{context}[:cache_attributes]") unless input[:cache_attributes].nil?
       end
     end
 
@@ -2137,16 +2139,16 @@ module AWS::SDK::StorageGateway
         Hearth::Validator.validate!(input[:file_share_arn], ::String, context: "#{context}[:file_share_arn]")
         Hearth::Validator.validate!(input[:kms_encrypted], ::TrueClass, ::FalseClass, context: "#{context}[:kms_encrypted]")
         Hearth::Validator.validate!(input[:kms_key], ::String, context: "#{context}[:kms_key]")
-        Validators::NFSFileShareDefaults.validate!(input[:nfs_file_share_defaults], context: "#{context}[:nfs_file_share_defaults]") unless input[:nfs_file_share_defaults].nil?
+        NFSFileShareDefaults.validate!(input[:nfs_file_share_defaults], context: "#{context}[:nfs_file_share_defaults]") unless input[:nfs_file_share_defaults].nil?
         Hearth::Validator.validate!(input[:default_storage_class], ::String, context: "#{context}[:default_storage_class]")
         Hearth::Validator.validate!(input[:object_acl], ::String, context: "#{context}[:object_acl]")
-        Validators::FileShareClientList.validate!(input[:client_list], context: "#{context}[:client_list]") unless input[:client_list].nil?
+        FileShareClientList.validate!(input[:client_list], context: "#{context}[:client_list]") unless input[:client_list].nil?
         Hearth::Validator.validate!(input[:squash], ::String, context: "#{context}[:squash]")
         Hearth::Validator.validate!(input[:read_only], ::TrueClass, ::FalseClass, context: "#{context}[:read_only]")
         Hearth::Validator.validate!(input[:guess_mime_type_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:guess_mime_type_enabled]")
         Hearth::Validator.validate!(input[:requester_pays], ::TrueClass, ::FalseClass, context: "#{context}[:requester_pays]")
         Hearth::Validator.validate!(input[:file_share_name], ::String, context: "#{context}[:file_share_name]")
-        Validators::CacheAttributes.validate!(input[:cache_attributes], context: "#{context}[:cache_attributes]") unless input[:cache_attributes].nil?
+        CacheAttributes.validate!(input[:cache_attributes], context: "#{context}[:cache_attributes]") unless input[:cache_attributes].nil?
         Hearth::Validator.validate!(input[:notification_policy], ::String, context: "#{context}[:notification_policy]")
         Hearth::Validator.validate!(input[:audit_destination_arn], ::String, context: "#{context}[:audit_destination_arn]")
       end
@@ -2172,13 +2174,13 @@ module AWS::SDK::StorageGateway
         Hearth::Validator.validate!(input[:requester_pays], ::TrueClass, ::FalseClass, context: "#{context}[:requester_pays]")
         Hearth::Validator.validate!(input[:smbacl_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:smbacl_enabled]")
         Hearth::Validator.validate!(input[:access_based_enumeration], ::TrueClass, ::FalseClass, context: "#{context}[:access_based_enumeration]")
-        Validators::UserList.validate!(input[:admin_user_list], context: "#{context}[:admin_user_list]") unless input[:admin_user_list].nil?
-        Validators::UserList.validate!(input[:valid_user_list], context: "#{context}[:valid_user_list]") unless input[:valid_user_list].nil?
-        Validators::UserList.validate!(input[:invalid_user_list], context: "#{context}[:invalid_user_list]") unless input[:invalid_user_list].nil?
+        UserList.validate!(input[:admin_user_list], context: "#{context}[:admin_user_list]") unless input[:admin_user_list].nil?
+        UserList.validate!(input[:valid_user_list], context: "#{context}[:valid_user_list]") unless input[:valid_user_list].nil?
+        UserList.validate!(input[:invalid_user_list], context: "#{context}[:invalid_user_list]") unless input[:invalid_user_list].nil?
         Hearth::Validator.validate!(input[:audit_destination_arn], ::String, context: "#{context}[:audit_destination_arn]")
         Hearth::Validator.validate!(input[:case_sensitivity], ::String, context: "#{context}[:case_sensitivity]")
         Hearth::Validator.validate!(input[:file_share_name], ::String, context: "#{context}[:file_share_name]")
-        Validators::CacheAttributes.validate!(input[:cache_attributes], context: "#{context}[:cache_attributes]") unless input[:cache_attributes].nil?
+        CacheAttributes.validate!(input[:cache_attributes], context: "#{context}[:cache_attributes]") unless input[:cache_attributes].nil?
         Hearth::Validator.validate!(input[:notification_policy], ::String, context: "#{context}[:notification_policy]")
         Hearth::Validator.validate!(input[:oplocks_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:oplocks_enabled]")
       end
@@ -2210,7 +2212,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateSMBLocalGroupsInput, context: context)
         Hearth::Validator.validate!(input[:gateway_arn], ::String, context: "#{context}[:gateway_arn]")
-        Validators::SMBLocalGroups.validate!(input[:smb_local_groups], context: "#{context}[:smb_local_groups]") unless input[:smb_local_groups].nil?
+        SMBLocalGroups.validate!(input[:smb_local_groups], context: "#{context}[:smb_local_groups]") unless input[:smb_local_groups].nil?
       end
     end
 
@@ -2243,7 +2245,7 @@ module AWS::SDK::StorageGateway
         Hearth::Validator.validate!(input[:start_at], ::Integer, context: "#{context}[:start_at]")
         Hearth::Validator.validate!(input[:recurrence_in_hours], ::Integer, context: "#{context}[:recurrence_in_hours]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2285,7 +2287,7 @@ module AWS::SDK::StorageGateway
         Hearth::Validator.validate!(input[:vtl_device_type], ::String, context: "#{context}[:vtl_device_type]")
         Hearth::Validator.validate!(input[:vtl_device_vendor], ::String, context: "#{context}[:vtl_device_vendor]")
         Hearth::Validator.validate!(input[:vtl_device_product_identifier], ::String, context: "#{context}[:vtl_device_product_identifier]")
-        Validators::DeviceiSCSIAttributes.validate!(input[:devicei_scsi_attributes], context: "#{context}[:devicei_scsi_attributes]") unless input[:devicei_scsi_attributes].nil?
+        DeviceiSCSIAttributes.validate!(input[:devicei_scsi_attributes], context: "#{context}[:devicei_scsi_attributes]") unless input[:devicei_scsi_attributes].nil?
       end
     end
 
@@ -2302,7 +2304,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::VTLDevice.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          VTLDevice.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2333,7 +2335,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::VolumeInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          VolumeInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2352,7 +2354,7 @@ module AWS::SDK::StorageGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::VolumeRecoveryPointInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          VolumeRecoveryPointInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

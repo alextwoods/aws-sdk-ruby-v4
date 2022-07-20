@@ -204,13 +204,13 @@ module AWS::SDK::IoTJobsDataPlane
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.queued_at ||= 0
         self.last_updated_at ||= 0
         self.version_number ||= 0
       end
-
     end
 
     # <p>Contains data about the state of a job execution.</p>
@@ -241,11 +241,11 @@ module AWS::SDK::IoTJobsDataPlane
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version_number ||= 0
       end
-
     end
 
     # Includes enum constants for JobExecutionStatus
@@ -327,13 +327,13 @@ module AWS::SDK::IoTJobsDataPlane
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.queued_at ||= 0
         self.last_updated_at ||= 0
         self.version_number ||= 0
       end
-
     end
 
     # <p>The specified resource does not exist.</p>

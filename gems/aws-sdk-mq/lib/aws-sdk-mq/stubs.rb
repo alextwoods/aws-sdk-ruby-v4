@@ -37,7 +37,7 @@ module AWS::SDK::Mq
           authentication_strategy: 'authentication_strategy',
           created: Time.now,
           id: 'id',
-          latest_revision: Stubs::ConfigurationRevision.default(visited),
+          latest_revision: ConfigurationRevision.default(visited),
           name: 'name',
         }
       end
@@ -151,35 +151,35 @@ module AWS::SDK::Mq
     class DescribeBroker
       def self.default(visited=[])
         {
-          actions_required: Stubs::List____listOfActionRequired.default(visited),
+          actions_required: List____listOfActionRequired.default(visited),
           authentication_strategy: 'authentication_strategy',
           auto_minor_version_upgrade: false,
           broker_arn: 'broker_arn',
           broker_id: 'broker_id',
-          broker_instances: Stubs::List____listOfBrokerInstance.default(visited),
+          broker_instances: List____listOfBrokerInstance.default(visited),
           broker_name: 'broker_name',
           broker_state: 'broker_state',
-          configurations: Stubs::Configurations.default(visited),
+          configurations: Configurations.default(visited),
           created: Time.now,
           deployment_mode: 'deployment_mode',
-          encryption_options: Stubs::EncryptionOptions.default(visited),
+          encryption_options: EncryptionOptions.default(visited),
           engine_type: 'engine_type',
           engine_version: 'engine_version',
           host_instance_type: 'host_instance_type',
-          ldap_server_metadata: Stubs::LdapServerMetadataOutput.default(visited),
-          logs: Stubs::LogsSummary.default(visited),
-          maintenance_window_start_time: Stubs::WeeklyStartTime.default(visited),
+          ldap_server_metadata: LdapServerMetadataOutput.default(visited),
+          logs: LogsSummary.default(visited),
+          maintenance_window_start_time: WeeklyStartTime.default(visited),
           pending_authentication_strategy: 'pending_authentication_strategy',
           pending_engine_version: 'pending_engine_version',
           pending_host_instance_type: 'pending_host_instance_type',
-          pending_ldap_server_metadata: Stubs::LdapServerMetadataOutput.default(visited),
-          pending_security_groups: Stubs::List____listOf__string.default(visited),
+          pending_ldap_server_metadata: LdapServerMetadataOutput.default(visited),
+          pending_security_groups: List____listOf__string.default(visited),
           publicly_accessible: false,
-          security_groups: Stubs::List____listOf__string.default(visited),
+          security_groups: List____listOf__string.default(visited),
           storage_type: 'storage_type',
-          subnet_ids: Stubs::List____listOf__string.default(visited),
-          tags: Stubs::Map____mapOf__string.default(visited),
-          users: Stubs::List____listOfUserSummary.default(visited),
+          subnet_ids: List____listOf__string.default(visited),
+          tags: Map____mapOf__string.default(visited),
+          users: List____listOfUserSummary.default(visited),
         }
       end
 
@@ -226,7 +226,7 @@ module AWS::SDK::Mq
         return nil if visited.include?('List____listOfUserSummary')
         visited = visited + ['List____listOfUserSummary']
         [
-          Stubs::UserSummary.default(visited)
+          UserSummary.default(visited)
         ]
       end
 
@@ -306,7 +306,7 @@ module AWS::SDK::Mq
         return nil if visited.include?('LdapServerMetadataOutput')
         visited = visited + ['LdapServerMetadataOutput']
         {
-          hosts: Stubs::List____listOf__string.default(visited),
+          hosts: List____listOf__string.default(visited),
           role_base: 'role_base',
           role_name: 'role_name',
           role_search_matching: 'role_search_matching',
@@ -368,7 +368,7 @@ module AWS::SDK::Mq
           audit_log_group: 'audit_log_group',
           general: false,
           general_log_group: 'general_log_group',
-          pending: Stubs::PendingLogs.default(visited),
+          pending: PendingLogs.default(visited),
         }
       end
 
@@ -430,9 +430,9 @@ module AWS::SDK::Mq
         return nil if visited.include?('Configurations')
         visited = visited + ['Configurations']
         {
-          current: Stubs::ConfigurationId.default(visited),
-          history: Stubs::List____listOfConfigurationId.default(visited),
-          pending: Stubs::ConfigurationId.default(visited),
+          current: ConfigurationId.default(visited),
+          history: List____listOfConfigurationId.default(visited),
+          pending: ConfigurationId.default(visited),
         }
       end
 
@@ -472,7 +472,7 @@ module AWS::SDK::Mq
         return nil if visited.include?('List____listOfConfigurationId')
         visited = visited + ['List____listOfConfigurationId']
         [
-          Stubs::ConfigurationId.default(visited)
+          ConfigurationId.default(visited)
         ]
       end
 
@@ -492,7 +492,7 @@ module AWS::SDK::Mq
         return nil if visited.include?('List____listOfBrokerInstance')
         visited = visited + ['List____listOfBrokerInstance']
         [
-          Stubs::BrokerInstance.default(visited)
+          BrokerInstance.default(visited)
         ]
       end
 
@@ -513,7 +513,7 @@ module AWS::SDK::Mq
         visited = visited + ['BrokerInstance']
         {
           console_url: 'console_url',
-          endpoints: Stubs::List____listOf__string.default(visited),
+          endpoints: List____listOf__string.default(visited),
           ip_address: 'ip_address',
         }
       end
@@ -534,7 +534,7 @@ module AWS::SDK::Mq
         return nil if visited.include?('List____listOfActionRequired')
         visited = visited + ['List____listOfActionRequired']
         [
-          Stubs::ActionRequired.default(visited)
+          ActionRequired.default(visited)
         ]
       end
 
@@ -572,7 +572,7 @@ module AWS::SDK::Mq
     class DescribeBrokerEngineTypes
       def self.default(visited=[])
         {
-          broker_engine_types: Stubs::List____listOfBrokerEngineType.default(visited),
+          broker_engine_types: List____listOfBrokerEngineType.default(visited),
           max_results: 1,
           next_token: 'next_token',
         }
@@ -595,7 +595,7 @@ module AWS::SDK::Mq
         return nil if visited.include?('List____listOfBrokerEngineType')
         visited = visited + ['List____listOfBrokerEngineType']
         [
-          Stubs::BrokerEngineType.default(visited)
+          BrokerEngineType.default(visited)
         ]
       end
 
@@ -616,7 +616,7 @@ module AWS::SDK::Mq
         visited = visited + ['BrokerEngineType']
         {
           engine_type: 'engine_type',
-          engine_versions: Stubs::List____listOfEngineVersion.default(visited),
+          engine_versions: List____listOfEngineVersion.default(visited),
         }
       end
 
@@ -635,7 +635,7 @@ module AWS::SDK::Mq
         return nil if visited.include?('List____listOfEngineVersion')
         visited = visited + ['List____listOfEngineVersion']
         [
-          Stubs::EngineVersion.default(visited)
+          EngineVersion.default(visited)
         ]
       end
 
@@ -671,7 +671,7 @@ module AWS::SDK::Mq
     class DescribeBrokerInstanceOptions
       def self.default(visited=[])
         {
-          broker_instance_options: Stubs::List____listOfBrokerInstanceOption.default(visited),
+          broker_instance_options: List____listOfBrokerInstanceOption.default(visited),
           max_results: 1,
           next_token: 'next_token',
         }
@@ -694,7 +694,7 @@ module AWS::SDK::Mq
         return nil if visited.include?('List____listOfBrokerInstanceOption')
         visited = visited + ['List____listOfBrokerInstanceOption']
         [
-          Stubs::BrokerInstanceOption.default(visited)
+          BrokerInstanceOption.default(visited)
         ]
       end
 
@@ -714,12 +714,12 @@ module AWS::SDK::Mq
         return nil if visited.include?('BrokerInstanceOption')
         visited = visited + ['BrokerInstanceOption']
         {
-          availability_zones: Stubs::List____listOfAvailabilityZone.default(visited),
+          availability_zones: List____listOfAvailabilityZone.default(visited),
           engine_type: 'engine_type',
           host_instance_type: 'host_instance_type',
           storage_type: 'storage_type',
-          supported_deployment_modes: Stubs::List____listOfDeploymentMode.default(visited),
-          supported_engine_versions: Stubs::List____listOf__string.default(visited),
+          supported_deployment_modes: List____listOfDeploymentMode.default(visited),
+          supported_engine_versions: List____listOf__string.default(visited),
         }
       end
 
@@ -762,7 +762,7 @@ module AWS::SDK::Mq
         return nil if visited.include?('List____listOfAvailabilityZone')
         visited = visited + ['List____listOfAvailabilityZone']
         [
-          Stubs::AvailabilityZone.default(visited)
+          AvailabilityZone.default(visited)
         ]
       end
 
@@ -805,9 +805,9 @@ module AWS::SDK::Mq
           engine_type: 'engine_type',
           engine_version: 'engine_version',
           id: 'id',
-          latest_revision: Stubs::ConfigurationRevision.default(visited),
+          latest_revision: ConfigurationRevision.default(visited),
           name: 'name',
-          tags: Stubs::Map____mapOf__string.default(visited),
+          tags: Map____mapOf__string.default(visited),
         }
       end
 
@@ -858,8 +858,8 @@ module AWS::SDK::Mq
         {
           broker_id: 'broker_id',
           console_access: false,
-          groups: Stubs::List____listOf__string.default(visited),
-          pending: Stubs::UserPendingChanges.default(visited),
+          groups: List____listOf__string.default(visited),
+          pending: UserPendingChanges.default(visited),
           username: 'username',
         }
       end
@@ -884,7 +884,7 @@ module AWS::SDK::Mq
         visited = visited + ['UserPendingChanges']
         {
           console_access: false,
-          groups: Stubs::List____listOf__string.default(visited),
+          groups: List____listOf__string.default(visited),
           pending_change: 'pending_change',
         }
       end
@@ -903,7 +903,7 @@ module AWS::SDK::Mq
     class ListBrokers
       def self.default(visited=[])
         {
-          broker_summaries: Stubs::List____listOfBrokerSummary.default(visited),
+          broker_summaries: List____listOfBrokerSummary.default(visited),
           next_token: 'next_token',
         }
       end
@@ -924,7 +924,7 @@ module AWS::SDK::Mq
         return nil if visited.include?('List____listOfBrokerSummary')
         visited = visited + ['List____listOfBrokerSummary']
         [
-          Stubs::BrokerSummary.default(visited)
+          BrokerSummary.default(visited)
         ]
       end
 
@@ -977,7 +977,7 @@ module AWS::SDK::Mq
           configuration_id: 'configuration_id',
           max_results: 1,
           next_token: 'next_token',
-          revisions: Stubs::List____listOfConfigurationRevision.default(visited),
+          revisions: List____listOfConfigurationRevision.default(visited),
         }
       end
 
@@ -999,7 +999,7 @@ module AWS::SDK::Mq
         return nil if visited.include?('List____listOfConfigurationRevision')
         visited = visited + ['List____listOfConfigurationRevision']
         [
-          Stubs::ConfigurationRevision.default(visited)
+          ConfigurationRevision.default(visited)
         ]
       end
 
@@ -1017,7 +1017,7 @@ module AWS::SDK::Mq
     class ListConfigurations
       def self.default(visited=[])
         {
-          configurations: Stubs::List____listOfConfiguration.default(visited),
+          configurations: List____listOfConfiguration.default(visited),
           max_results: 1,
           next_token: 'next_token',
         }
@@ -1040,7 +1040,7 @@ module AWS::SDK::Mq
         return nil if visited.include?('List____listOfConfiguration')
         visited = visited + ['List____listOfConfiguration']
         [
-          Stubs::Configuration.default(visited)
+          Configuration.default(visited)
         ]
       end
 
@@ -1067,9 +1067,9 @@ module AWS::SDK::Mq
           engine_type: 'engine_type',
           engine_version: 'engine_version',
           id: 'id',
-          latest_revision: Stubs::ConfigurationRevision.default(visited),
+          latest_revision: ConfigurationRevision.default(visited),
           name: 'name',
-          tags: Stubs::Map____mapOf__string.default(visited),
+          tags: Map____mapOf__string.default(visited),
         }
       end
 
@@ -1094,7 +1094,7 @@ module AWS::SDK::Mq
     class ListTags
       def self.default(visited=[])
         {
-          tags: Stubs::Map____mapOf__string.default(visited),
+          tags: Map____mapOf__string.default(visited),
         }
       end
 
@@ -1114,7 +1114,7 @@ module AWS::SDK::Mq
           broker_id: 'broker_id',
           max_results: 1,
           next_token: 'next_token',
-          users: Stubs::List____listOfUserSummary.default(visited),
+          users: List____listOfUserSummary.default(visited),
         }
       end
 
@@ -1150,13 +1150,13 @@ module AWS::SDK::Mq
           authentication_strategy: 'authentication_strategy',
           auto_minor_version_upgrade: false,
           broker_id: 'broker_id',
-          configuration: Stubs::ConfigurationId.default(visited),
+          configuration: ConfigurationId.default(visited),
           engine_version: 'engine_version',
           host_instance_type: 'host_instance_type',
-          ldap_server_metadata: Stubs::LdapServerMetadataOutput.default(visited),
-          logs: Stubs::Logs.default(visited),
-          maintenance_window_start_time: Stubs::WeeklyStartTime.default(visited),
-          security_groups: Stubs::List____listOf__string.default(visited),
+          ldap_server_metadata: LdapServerMetadataOutput.default(visited),
+          logs: Logs.default(visited),
+          maintenance_window_start_time: WeeklyStartTime.default(visited),
+          security_groups: List____listOf__string.default(visited),
         }
       end
 
@@ -1205,9 +1205,9 @@ module AWS::SDK::Mq
           arn: 'arn',
           created: Time.now,
           id: 'id',
-          latest_revision: Stubs::ConfigurationRevision.default(visited),
+          latest_revision: ConfigurationRevision.default(visited),
           name: 'name',
-          warnings: Stubs::List____listOfSanitizationWarning.default(visited),
+          warnings: List____listOfSanitizationWarning.default(visited),
         }
       end
 
@@ -1231,7 +1231,7 @@ module AWS::SDK::Mq
         return nil if visited.include?('List____listOfSanitizationWarning')
         visited = visited + ['List____listOfSanitizationWarning']
         [
-          Stubs::SanitizationWarning.default(visited)
+          SanitizationWarning.default(visited)
         ]
       end
 

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Inspector2
@@ -59,7 +61,7 @@ module AWS::SDK::Inspector2
     def associate_member(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateMemberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateMemberInput,
         validate_input: @config.validate_input
@@ -109,7 +111,7 @@ module AWS::SDK::Inspector2
     # @param [Hash] params
     #   See {Types::BatchGetAccountStatusInput}.
     #
-    # @option params [Set<String>] :account_ids
+    # @option params [Array<String>] :account_ids
     #   <p>The 12-digit Amazon Web Services account IDs of the accounts to retrieve Amazon Inspector status for.</p>
     #
     # @return [Types::BatchGetAccountStatusOutput]
@@ -148,7 +150,7 @@ module AWS::SDK::Inspector2
     def batch_get_account_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetAccountStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetAccountStatusInput,
         validate_input: @config.validate_input
@@ -232,7 +234,7 @@ module AWS::SDK::Inspector2
     def batch_get_free_trial_info(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetFreeTrialInfoInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetFreeTrialInfoInput,
         validate_input: @config.validate_input
@@ -301,7 +303,7 @@ module AWS::SDK::Inspector2
     def cancel_findings_report(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelFindingsReportInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelFindingsReportInput,
         validate_input: @config.validate_input
@@ -426,7 +428,7 @@ module AWS::SDK::Inspector2
     def create_filter(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFilterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFilterInput,
         validate_input: @config.validate_input
@@ -543,7 +545,7 @@ module AWS::SDK::Inspector2
     def create_findings_report(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFindingsReportInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFindingsReportInput,
         validate_input: @config.validate_input
@@ -612,7 +614,7 @@ module AWS::SDK::Inspector2
     def delete_filter(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFilterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFilterInput,
         validate_input: @config.validate_input
@@ -679,7 +681,7 @@ module AWS::SDK::Inspector2
     def describe_organization_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeOrganizationConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeOrganizationConfigurationInput,
         validate_input: @config.validate_input
@@ -729,7 +731,7 @@ module AWS::SDK::Inspector2
     # @param [Hash] params
     #   See {Types::DisableInput}.
     #
-    # @option params [Set<String>] :account_ids
+    # @option params [Array<String>] :account_ids
     #   <p>An array of account IDs you want to disable Amazon Inspector scans for.</p>
     #
     # @option params [Array<String>] :resource_types
@@ -769,7 +771,7 @@ module AWS::SDK::Inspector2
     def disable(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableInput,
         validate_input: @config.validate_input
@@ -838,7 +840,7 @@ module AWS::SDK::Inspector2
     def disable_delegated_admin_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableDelegatedAdminAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableDelegatedAdminAccountInput,
         validate_input: @config.validate_input
@@ -907,7 +909,7 @@ module AWS::SDK::Inspector2
     def disassociate_member(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateMemberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateMemberInput,
         validate_input: @config.validate_input
@@ -957,7 +959,7 @@ module AWS::SDK::Inspector2
     # @param [Hash] params
     #   See {Types::EnableInput}.
     #
-    # @option params [Set<String>] :account_ids
+    # @option params [Array<String>] :account_ids
     #   <p>A list of account IDs you want to enable Amazon Inspector scans for.</p>
     #
     # @option params [Array<String>] :resource_types
@@ -1001,7 +1003,7 @@ module AWS::SDK::Inspector2
     def enable(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableInput,
         validate_input: @config.validate_input
@@ -1074,7 +1076,7 @@ module AWS::SDK::Inspector2
     def enable_delegated_admin_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableDelegatedAdminAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableDelegatedAdminAccountInput,
         validate_input: @config.validate_input
@@ -1141,7 +1143,7 @@ module AWS::SDK::Inspector2
     def get_delegated_admin_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDelegatedAdminAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDelegatedAdminAccountInput,
         validate_input: @config.validate_input
@@ -1271,7 +1273,7 @@ module AWS::SDK::Inspector2
     def get_findings_report_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFindingsReportStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFindingsReportStatusInput,
         validate_input: @config.validate_input
@@ -1344,7 +1346,7 @@ module AWS::SDK::Inspector2
     def get_member(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMemberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMemberInput,
         validate_input: @config.validate_input
@@ -1428,7 +1430,7 @@ module AWS::SDK::Inspector2
     def list_account_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAccountPermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAccountPermissionsInput,
         validate_input: @config.validate_input
@@ -1544,7 +1546,7 @@ module AWS::SDK::Inspector2
     def list_coverage(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCoverageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCoverageInput,
         validate_input: @config.validate_input
@@ -1644,7 +1646,7 @@ module AWS::SDK::Inspector2
     def list_coverage_statistics(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCoverageStatisticsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCoverageStatisticsInput,
         validate_input: @config.validate_input
@@ -1725,7 +1727,7 @@ module AWS::SDK::Inspector2
     def list_delegated_admin_accounts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDelegatedAdminAccountsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDelegatedAdminAccountsInput,
         validate_input: @config.validate_input
@@ -1878,7 +1880,7 @@ module AWS::SDK::Inspector2
     def list_filters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFiltersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFiltersInput,
         validate_input: @config.validate_input
@@ -2018,13 +2020,66 @@ module AWS::SDK::Inspector2
     #   resp.data #=> Types::ListFindingAggregationsOutput
     #   resp.data.aggregation_type #=> String, one of ["FINDING_TYPE", "PACKAGE", "TITLE", "REPOSITORY", "AMI", "AWS_EC2_INSTANCE", "AWS_ECR_CONTAINER", "IMAGE_LAYER", "ACCOUNT"]
     #   resp.data.responses #=> Array<AggregationResponse>
-    #   resp.data.responses[0] #=> AggregationResponse
+    #   resp.data.responses[0] #=> Types::AggregationResponse, one of [AccountAggregation, AmiAggregation, AwsEcrContainerAggregation, Ec2InstanceAggregation, FindingTypeAggregation, ImageLayerAggregation, PackageAggregation, RepositoryAggregation, TitleAggregation]
+    #   resp.data.responses[0].account_aggregation #=> Types::AccountAggregationResponse
+    #   resp.data.responses[0].account_aggregation.account_id #=> String
+    #   resp.data.responses[0].account_aggregation.severity_counts #=> Types::SeverityCounts
+    #   resp.data.responses[0].account_aggregation.severity_counts.all #=> Integer
+    #   resp.data.responses[0].account_aggregation.severity_counts.medium #=> Integer
+    #   resp.data.responses[0].account_aggregation.severity_counts.high #=> Integer
+    #   resp.data.responses[0].account_aggregation.severity_counts.critical #=> Integer
+    #   resp.data.responses[0].ami_aggregation #=> Types::AmiAggregationResponse
+    #   resp.data.responses[0].ami_aggregation.ami #=> String
+    #   resp.data.responses[0].ami_aggregation.account_id #=> String
+    #   resp.data.responses[0].ami_aggregation.severity_counts #=> Types::SeverityCounts
+    #   resp.data.responses[0].ami_aggregation.affected_instances #=> Integer
+    #   resp.data.responses[0].aws_ecr_container_aggregation #=> Types::AwsEcrContainerAggregationResponse
+    #   resp.data.responses[0].aws_ecr_container_aggregation.resource_id #=> String
+    #   resp.data.responses[0].aws_ecr_container_aggregation.image_sha #=> String
+    #   resp.data.responses[0].aws_ecr_container_aggregation.repository #=> String
+    #   resp.data.responses[0].aws_ecr_container_aggregation.architecture #=> String
+    #   resp.data.responses[0].aws_ecr_container_aggregation.image_tags #=> Array<String>
+    #   resp.data.responses[0].aws_ecr_container_aggregation.image_tags[0] #=> String
+    #   resp.data.responses[0].aws_ecr_container_aggregation.account_id #=> String
+    #   resp.data.responses[0].aws_ecr_container_aggregation.severity_counts #=> Types::SeverityCounts
+    #   resp.data.responses[0].ec2_instance_aggregation #=> Types::Ec2InstanceAggregationResponse
+    #   resp.data.responses[0].ec2_instance_aggregation.instance_id #=> String
+    #   resp.data.responses[0].ec2_instance_aggregation.ami #=> String
+    #   resp.data.responses[0].ec2_instance_aggregation.operating_system #=> String
+    #   resp.data.responses[0].ec2_instance_aggregation.instance_tags #=> Hash<String, String>
+    #   resp.data.responses[0].ec2_instance_aggregation.instance_tags['key'] #=> String
+    #   resp.data.responses[0].ec2_instance_aggregation.account_id #=> String
+    #   resp.data.responses[0].ec2_instance_aggregation.severity_counts #=> Types::SeverityCounts
+    #   resp.data.responses[0].ec2_instance_aggregation.network_findings #=> Integer
+    #   resp.data.responses[0].finding_type_aggregation #=> Types::FindingTypeAggregationResponse
+    #   resp.data.responses[0].finding_type_aggregation.account_id #=> String
+    #   resp.data.responses[0].finding_type_aggregation.severity_counts #=> Types::SeverityCounts
+    #   resp.data.responses[0].image_layer_aggregation #=> Types::ImageLayerAggregationResponse
+    #   resp.data.responses[0].image_layer_aggregation.repository #=> String
+    #   resp.data.responses[0].image_layer_aggregation.resource_id #=> String
+    #   resp.data.responses[0].image_layer_aggregation.layer_hash #=> String
+    #   resp.data.responses[0].image_layer_aggregation.account_id #=> String
+    #   resp.data.responses[0].image_layer_aggregation.severity_counts #=> Types::SeverityCounts
+    #   resp.data.responses[0].package_aggregation #=> Types::PackageAggregationResponse
+    #   resp.data.responses[0].package_aggregation.package_name #=> String
+    #   resp.data.responses[0].package_aggregation.account_id #=> String
+    #   resp.data.responses[0].package_aggregation.severity_counts #=> Types::SeverityCounts
+    #   resp.data.responses[0].repository_aggregation #=> Types::RepositoryAggregationResponse
+    #   resp.data.responses[0].repository_aggregation.repository #=> String
+    #   resp.data.responses[0].repository_aggregation.account_id #=> String
+    #   resp.data.responses[0].repository_aggregation.severity_counts #=> Types::SeverityCounts
+    #   resp.data.responses[0].repository_aggregation.affected_images #=> Integer
+    #   resp.data.responses[0].title_aggregation #=> Types::TitleAggregationResponse
+    #   resp.data.responses[0].title_aggregation.title #=> String
+    #   resp.data.responses[0].title_aggregation.vulnerability_id #=> String
+    #   resp.data.responses[0].title_aggregation.account_id #=> String
+    #   resp.data.responses[0].title_aggregation.severity_counts #=> Types::SeverityCounts
     #   resp.data.next_token #=> String
     #
     def list_finding_aggregations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFindingAggregationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFindingAggregationsInput,
         validate_input: @config.validate_input
@@ -2245,7 +2300,7 @@ module AWS::SDK::Inspector2
     def list_findings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFindingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFindingsInput,
         validate_input: @config.validate_input
@@ -2333,7 +2388,7 @@ module AWS::SDK::Inspector2
     def list_members(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMembersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMembersInput,
         validate_input: @config.validate_input
@@ -2403,7 +2458,7 @@ module AWS::SDK::Inspector2
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2493,7 +2548,7 @@ module AWS::SDK::Inspector2
     def list_usage_totals(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListUsageTotalsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListUsageTotalsInput,
         validate_input: @config.validate_input
@@ -2567,7 +2622,7 @@ module AWS::SDK::Inspector2
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2641,7 +2696,7 @@ module AWS::SDK::Inspector2
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2761,7 +2816,7 @@ module AWS::SDK::Inspector2
     def update_filter(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFilterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFilterInput,
         validate_input: @config.validate_input
@@ -2835,7 +2890,7 @@ module AWS::SDK::Inspector2
     def update_organization_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateOrganizationConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateOrganizationConfigurationInput,
         validate_input: @config.validate_input

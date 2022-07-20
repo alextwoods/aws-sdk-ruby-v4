@@ -52,7 +52,7 @@ module AWS::SDK::EBS
     class ListChangedBlocks
       def self.default(visited=[])
         {
-          changed_blocks: Stubs::ChangedBlocks.default(visited),
+          changed_blocks: ChangedBlocks.default(visited),
           expiry_time: Time.now,
           volume_size: 1,
           block_size: 1,
@@ -79,7 +79,7 @@ module AWS::SDK::EBS
         return nil if visited.include?('ChangedBlocks')
         visited = visited + ['ChangedBlocks']
         [
-          Stubs::ChangedBlock.default(visited)
+          ChangedBlock.default(visited)
         ]
       end
 
@@ -119,7 +119,7 @@ module AWS::SDK::EBS
     class ListSnapshotBlocks
       def self.default(visited=[])
         {
-          blocks: Stubs::Blocks.default(visited),
+          blocks: Blocks.default(visited),
           expiry_time: Time.now,
           volume_size: 1,
           block_size: 1,
@@ -146,7 +146,7 @@ module AWS::SDK::EBS
         return nil if visited.include?('Blocks')
         visited = visited + ['Blocks']
         [
-          Stubs::Block.default(visited)
+          Block.default(visited)
         ]
       end
 
@@ -208,7 +208,7 @@ module AWS::SDK::EBS
           start_time: Time.now,
           volume_size: 1,
           block_size: 1,
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           parent_snapshot_id: 'parent_snapshot_id',
           kms_key_arn: 'kms_key_arn',
         }
@@ -238,7 +238,7 @@ module AWS::SDK::EBS
         return nil if visited.include?('Tags')
         visited = visited + ['Tags']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 

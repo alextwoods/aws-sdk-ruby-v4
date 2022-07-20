@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::FSx
   module Validators
 
@@ -35,10 +37,10 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input[:progress_percent], ::Integer, context: "#{context}[:progress_percent]")
         Hearth::Validator.validate!(input[:request_time], ::Time, context: "#{context}[:request_time]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::FileSystem.validate!(input[:target_file_system_values], context: "#{context}[:target_file_system_values]") unless input[:target_file_system_values].nil?
-        Validators::AdministrativeActionFailureDetails.validate!(input[:failure_details], context: "#{context}[:failure_details]") unless input[:failure_details].nil?
-        Validators::Volume.validate!(input[:target_volume_values], context: "#{context}[:target_volume_values]") unless input[:target_volume_values].nil?
-        Validators::Snapshot.validate!(input[:target_snapshot_values], context: "#{context}[:target_snapshot_values]") unless input[:target_snapshot_values].nil?
+        FileSystem.validate!(input[:target_file_system_values], context: "#{context}[:target_file_system_values]") unless input[:target_file_system_values].nil?
+        AdministrativeActionFailureDetails.validate!(input[:failure_details], context: "#{context}[:failure_details]") unless input[:failure_details].nil?
+        Volume.validate!(input[:target_volume_values], context: "#{context}[:target_volume_values]") unless input[:target_volume_values].nil?
+        Snapshot.validate!(input[:target_snapshot_values], context: "#{context}[:target_snapshot_values]") unless input[:target_snapshot_values].nil?
       end
     end
 
@@ -53,7 +55,7 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AdministrativeAction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AdministrativeAction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -70,7 +72,7 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Alias.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Alias.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -89,28 +91,28 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input, Types::AssociateFileSystemAliasesInput, context: context)
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
         Hearth::Validator.validate!(input[:file_system_id], ::String, context: "#{context}[:file_system_id]")
-        Validators::AlternateDNSNames.validate!(input[:aliases], context: "#{context}[:aliases]") unless input[:aliases].nil?
+        AlternateDNSNames.validate!(input[:aliases], context: "#{context}[:aliases]") unless input[:aliases].nil?
       end
     end
 
     class AssociateFileSystemAliasesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AssociateFileSystemAliasesOutput, context: context)
-        Validators::Aliases.validate!(input[:aliases], context: "#{context}[:aliases]") unless input[:aliases].nil?
+        Aliases.validate!(input[:aliases], context: "#{context}[:aliases]") unless input[:aliases].nil?
       end
     end
 
     class AutoExportPolicy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AutoExportPolicy, context: context)
-        Validators::EventTypes.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
+        EventTypes.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
       end
     end
 
     class AutoImportPolicy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AutoImportPolicy, context: context)
-        Validators::EventTypes.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
+        EventTypes.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
       end
     end
 
@@ -119,20 +121,20 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input, Types::Backup, context: context)
         Hearth::Validator.validate!(input[:backup_id], ::String, context: "#{context}[:backup_id]")
         Hearth::Validator.validate!(input[:lifecycle], ::String, context: "#{context}[:lifecycle]")
-        Validators::BackupFailureDetails.validate!(input[:failure_details], context: "#{context}[:failure_details]") unless input[:failure_details].nil?
+        BackupFailureDetails.validate!(input[:failure_details], context: "#{context}[:failure_details]") unless input[:failure_details].nil?
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:progress_percent], ::Integer, context: "#{context}[:progress_percent]")
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::FileSystem.validate!(input[:file_system], context: "#{context}[:file_system]") unless input[:file_system].nil?
-        Validators::ActiveDirectoryBackupAttributes.validate!(input[:directory_information], context: "#{context}[:directory_information]") unless input[:directory_information].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        FileSystem.validate!(input[:file_system], context: "#{context}[:file_system]") unless input[:file_system].nil?
+        ActiveDirectoryBackupAttributes.validate!(input[:directory_information], context: "#{context}[:directory_information]") unless input[:directory_information].nil?
         Hearth::Validator.validate!(input[:owner_id], ::String, context: "#{context}[:owner_id]")
         Hearth::Validator.validate!(input[:source_backup_id], ::String, context: "#{context}[:source_backup_id]")
         Hearth::Validator.validate!(input[:source_backup_region], ::String, context: "#{context}[:source_backup_region]")
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::Volume.validate!(input[:volume], context: "#{context}[:volume]") unless input[:volume].nil?
+        Volume.validate!(input[:volume], context: "#{context}[:volume]") unless input[:volume].nil?
       end
     end
 
@@ -186,7 +188,7 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Backup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Backup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -231,14 +233,14 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input[:source_region], ::String, context: "#{context}[:source_region]")
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
         Hearth::Validator.validate!(input[:copy_tags], ::TrueClass, ::FalseClass, context: "#{context}[:copy_tags]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CopyBackupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CopyBackupOutput, context: context)
-        Validators::Backup.validate!(input[:backup], context: "#{context}[:backup]") unless input[:backup].nil?
+        Backup.validate!(input[:backup], context: "#{context}[:backup]") unless input[:backup].nil?
       end
     end
 
@@ -247,7 +249,7 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input, Types::CreateBackupInput, context: context)
         Hearth::Validator.validate!(input[:file_system_id], ::String, context: "#{context}[:file_system_id]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:volume_id], ::String, context: "#{context}[:volume_id]")
       end
     end
@@ -255,7 +257,7 @@ module AWS::SDK::FSx
     class CreateBackupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateBackupOutput, context: context)
-        Validators::Backup.validate!(input[:backup], context: "#{context}[:backup]") unless input[:backup].nil?
+        Backup.validate!(input[:backup], context: "#{context}[:backup]") unless input[:backup].nil?
       end
     end
 
@@ -267,16 +269,16 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input[:data_repository_path], ::String, context: "#{context}[:data_repository_path]")
         Hearth::Validator.validate!(input[:batch_import_meta_data_on_create], ::TrueClass, ::FalseClass, context: "#{context}[:batch_import_meta_data_on_create]")
         Hearth::Validator.validate!(input[:imported_file_chunk_size], ::Integer, context: "#{context}[:imported_file_chunk_size]")
-        Validators::S3DataRepositoryConfiguration.validate!(input[:s3], context: "#{context}[:s3]") unless input[:s3].nil?
+        S3DataRepositoryConfiguration.validate!(input[:s3], context: "#{context}[:s3]") unless input[:s3].nil?
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateDataRepositoryAssociationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateDataRepositoryAssociationOutput, context: context)
-        Validators::DataRepositoryAssociation.validate!(input[:association], context: "#{context}[:association]") unless input[:association].nil?
+        DataRepositoryAssociation.validate!(input[:association], context: "#{context}[:association]") unless input[:association].nil?
       end
     end
 
@@ -284,18 +286,18 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateDataRepositoryTaskInput, context: context)
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::DataRepositoryTaskPaths.validate!(input[:paths], context: "#{context}[:paths]") unless input[:paths].nil?
+        DataRepositoryTaskPaths.validate!(input[:paths], context: "#{context}[:paths]") unless input[:paths].nil?
         Hearth::Validator.validate!(input[:file_system_id], ::String, context: "#{context}[:file_system_id]")
-        Validators::CompletionReport.validate!(input[:report], context: "#{context}[:report]") unless input[:report].nil?
+        CompletionReport.validate!(input[:report], context: "#{context}[:report]") unless input[:report].nil?
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateDataRepositoryTaskOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateDataRepositoryTaskOutput, context: context)
-        Validators::DataRepositoryTask.validate!(input[:data_repository_task], context: "#{context}[:data_repository_task]") unless input[:data_repository_task].nil?
+        DataRepositoryTask.validate!(input[:data_repository_task], context: "#{context}[:data_repository_task]") unless input[:data_repository_task].nil?
       end
     end
 
@@ -304,22 +306,22 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input, Types::CreateFileSystemFromBackupInput, context: context)
         Hearth::Validator.validate!(input[:backup_id], ::String, context: "#{context}[:backup_id]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::SubnetIds.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
-        Validators::SecurityGroupIds.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::CreateFileSystemWindowsConfiguration.validate!(input[:windows_configuration], context: "#{context}[:windows_configuration]") unless input[:windows_configuration].nil?
-        Validators::CreateFileSystemLustreConfiguration.validate!(input[:lustre_configuration], context: "#{context}[:lustre_configuration]") unless input[:lustre_configuration].nil?
+        SubnetIds.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        SecurityGroupIds.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        CreateFileSystemWindowsConfiguration.validate!(input[:windows_configuration], context: "#{context}[:windows_configuration]") unless input[:windows_configuration].nil?
+        CreateFileSystemLustreConfiguration.validate!(input[:lustre_configuration], context: "#{context}[:lustre_configuration]") unless input[:lustre_configuration].nil?
         Hearth::Validator.validate!(input[:storage_type], ::String, context: "#{context}[:storage_type]")
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
         Hearth::Validator.validate!(input[:file_system_type_version], ::String, context: "#{context}[:file_system_type_version]")
-        Validators::CreateFileSystemOpenZFSConfiguration.validate!(input[:open_zfs_configuration], context: "#{context}[:open_zfs_configuration]") unless input[:open_zfs_configuration].nil?
+        CreateFileSystemOpenZFSConfiguration.validate!(input[:open_zfs_configuration], context: "#{context}[:open_zfs_configuration]") unless input[:open_zfs_configuration].nil?
       end
     end
 
     class CreateFileSystemFromBackupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateFileSystemFromBackupOutput, context: context)
-        Validators::FileSystem.validate!(input[:file_system], context: "#{context}[:file_system]") unless input[:file_system].nil?
+        FileSystem.validate!(input[:file_system], context: "#{context}[:file_system]") unless input[:file_system].nil?
       end
     end
 
@@ -330,15 +332,15 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input[:file_system_type], ::String, context: "#{context}[:file_system_type]")
         Hearth::Validator.validate!(input[:storage_capacity], ::Integer, context: "#{context}[:storage_capacity]")
         Hearth::Validator.validate!(input[:storage_type], ::String, context: "#{context}[:storage_type]")
-        Validators::SubnetIds.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
-        Validators::SecurityGroupIds.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        SubnetIds.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        SecurityGroupIds.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
-        Validators::CreateFileSystemWindowsConfiguration.validate!(input[:windows_configuration], context: "#{context}[:windows_configuration]") unless input[:windows_configuration].nil?
-        Validators::CreateFileSystemLustreConfiguration.validate!(input[:lustre_configuration], context: "#{context}[:lustre_configuration]") unless input[:lustre_configuration].nil?
-        Validators::CreateFileSystemOntapConfiguration.validate!(input[:ontap_configuration], context: "#{context}[:ontap_configuration]") unless input[:ontap_configuration].nil?
+        CreateFileSystemWindowsConfiguration.validate!(input[:windows_configuration], context: "#{context}[:windows_configuration]") unless input[:windows_configuration].nil?
+        CreateFileSystemLustreConfiguration.validate!(input[:lustre_configuration], context: "#{context}[:lustre_configuration]") unless input[:lustre_configuration].nil?
+        CreateFileSystemOntapConfiguration.validate!(input[:ontap_configuration], context: "#{context}[:ontap_configuration]") unless input[:ontap_configuration].nil?
         Hearth::Validator.validate!(input[:file_system_type_version], ::String, context: "#{context}[:file_system_type_version]")
-        Validators::CreateFileSystemOpenZFSConfiguration.validate!(input[:open_zfs_configuration], context: "#{context}[:open_zfs_configuration]") unless input[:open_zfs_configuration].nil?
+        CreateFileSystemOpenZFSConfiguration.validate!(input[:open_zfs_configuration], context: "#{context}[:open_zfs_configuration]") unless input[:open_zfs_configuration].nil?
       end
     end
 
@@ -357,8 +359,8 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input[:copy_tags_to_backups], ::TrueClass, ::FalseClass, context: "#{context}[:copy_tags_to_backups]")
         Hearth::Validator.validate!(input[:drive_cache_type], ::String, context: "#{context}[:drive_cache_type]")
         Hearth::Validator.validate!(input[:data_compression_type], ::String, context: "#{context}[:data_compression_type]")
-        Validators::LustreLogCreateConfiguration.validate!(input[:log_configuration], context: "#{context}[:log_configuration]") unless input[:log_configuration].nil?
-        Validators::LustreRootSquashConfiguration.validate!(input[:root_squash_configuration], context: "#{context}[:root_squash_configuration]") unless input[:root_squash_configuration].nil?
+        LustreLogCreateConfiguration.validate!(input[:log_configuration], context: "#{context}[:log_configuration]") unless input[:log_configuration].nil?
+        LustreRootSquashConfiguration.validate!(input[:root_squash_configuration], context: "#{context}[:root_squash_configuration]") unless input[:root_squash_configuration].nil?
       end
     end
 
@@ -370,9 +372,9 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input[:deployment_type], ::String, context: "#{context}[:deployment_type]")
         Hearth::Validator.validate!(input[:endpoint_ip_address_range], ::String, context: "#{context}[:endpoint_ip_address_range]")
         Hearth::Validator.validate!(input[:fsx_admin_password], ::String, context: "#{context}[:fsx_admin_password]")
-        Validators::DiskIopsConfiguration.validate!(input[:disk_iops_configuration], context: "#{context}[:disk_iops_configuration]") unless input[:disk_iops_configuration].nil?
+        DiskIopsConfiguration.validate!(input[:disk_iops_configuration], context: "#{context}[:disk_iops_configuration]") unless input[:disk_iops_configuration].nil?
         Hearth::Validator.validate!(input[:preferred_subnet_id], ::String, context: "#{context}[:preferred_subnet_id]")
-        Validators::RouteTableIds.validate!(input[:route_table_ids], context: "#{context}[:route_table_ids]") unless input[:route_table_ids].nil?
+        RouteTableIds.validate!(input[:route_table_ids], context: "#{context}[:route_table_ids]") unless input[:route_table_ids].nil?
         Hearth::Validator.validate!(input[:throughput_capacity], ::Integer, context: "#{context}[:throughput_capacity]")
         Hearth::Validator.validate!(input[:weekly_maintenance_start_time], ::String, context: "#{context}[:weekly_maintenance_start_time]")
       end
@@ -388,15 +390,15 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input[:deployment_type], ::String, context: "#{context}[:deployment_type]")
         Hearth::Validator.validate!(input[:throughput_capacity], ::Integer, context: "#{context}[:throughput_capacity]")
         Hearth::Validator.validate!(input[:weekly_maintenance_start_time], ::String, context: "#{context}[:weekly_maintenance_start_time]")
-        Validators::DiskIopsConfiguration.validate!(input[:disk_iops_configuration], context: "#{context}[:disk_iops_configuration]") unless input[:disk_iops_configuration].nil?
-        Validators::OpenZFSCreateRootVolumeConfiguration.validate!(input[:root_volume_configuration], context: "#{context}[:root_volume_configuration]") unless input[:root_volume_configuration].nil?
+        DiskIopsConfiguration.validate!(input[:disk_iops_configuration], context: "#{context}[:disk_iops_configuration]") unless input[:disk_iops_configuration].nil?
+        OpenZFSCreateRootVolumeConfiguration.validate!(input[:root_volume_configuration], context: "#{context}[:root_volume_configuration]") unless input[:root_volume_configuration].nil?
       end
     end
 
     class CreateFileSystemOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateFileSystemOutput, context: context)
-        Validators::FileSystem.validate!(input[:file_system], context: "#{context}[:file_system]") unless input[:file_system].nil?
+        FileSystem.validate!(input[:file_system], context: "#{context}[:file_system]") unless input[:file_system].nil?
       end
     end
 
@@ -404,7 +406,7 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateFileSystemWindowsConfiguration, context: context)
         Hearth::Validator.validate!(input[:active_directory_id], ::String, context: "#{context}[:active_directory_id]")
-        Validators::SelfManagedActiveDirectoryConfiguration.validate!(input[:self_managed_active_directory_configuration], context: "#{context}[:self_managed_active_directory_configuration]") unless input[:self_managed_active_directory_configuration].nil?
+        SelfManagedActiveDirectoryConfiguration.validate!(input[:self_managed_active_directory_configuration], context: "#{context}[:self_managed_active_directory_configuration]") unless input[:self_managed_active_directory_configuration].nil?
         Hearth::Validator.validate!(input[:deployment_type], ::String, context: "#{context}[:deployment_type]")
         Hearth::Validator.validate!(input[:preferred_subnet_id], ::String, context: "#{context}[:preferred_subnet_id]")
         Hearth::Validator.validate!(input[:throughput_capacity], ::Integer, context: "#{context}[:throughput_capacity]")
@@ -412,8 +414,8 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input[:daily_automatic_backup_start_time], ::String, context: "#{context}[:daily_automatic_backup_start_time]")
         Hearth::Validator.validate!(input[:automatic_backup_retention_days], ::Integer, context: "#{context}[:automatic_backup_retention_days]")
         Hearth::Validator.validate!(input[:copy_tags_to_backups], ::TrueClass, ::FalseClass, context: "#{context}[:copy_tags_to_backups]")
-        Validators::AlternateDNSNames.validate!(input[:aliases], context: "#{context}[:aliases]") unless input[:aliases].nil?
-        Validators::WindowsAuditLogCreateConfiguration.validate!(input[:audit_log_configuration], context: "#{context}[:audit_log_configuration]") unless input[:audit_log_configuration].nil?
+        AlternateDNSNames.validate!(input[:aliases], context: "#{context}[:aliases]") unless input[:aliases].nil?
+        WindowsAuditLogCreateConfiguration.validate!(input[:audit_log_configuration], context: "#{context}[:audit_log_configuration]") unless input[:audit_log_configuration].nil?
       end
     end
 
@@ -425,7 +427,7 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input[:size_in_megabytes], ::Integer, context: "#{context}[:size_in_megabytes]")
         Hearth::Validator.validate!(input[:storage_efficiency_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:storage_efficiency_enabled]")
         Hearth::Validator.validate!(input[:storage_virtual_machine_id], ::String, context: "#{context}[:storage_virtual_machine_id]")
-        Validators::TieringPolicy.validate!(input[:tiering_policy], context: "#{context}[:tiering_policy]") unless input[:tiering_policy].nil?
+        TieringPolicy.validate!(input[:tiering_policy], context: "#{context}[:tiering_policy]") unless input[:tiering_policy].nil?
       end
     end
 
@@ -446,10 +448,10 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input[:record_size_ki_b], ::Integer, context: "#{context}[:record_size_ki_b]")
         Hearth::Validator.validate!(input[:data_compression_type], ::String, context: "#{context}[:data_compression_type]")
         Hearth::Validator.validate!(input[:copy_tags_to_snapshots], ::TrueClass, ::FalseClass, context: "#{context}[:copy_tags_to_snapshots]")
-        Validators::CreateOpenZFSOriginSnapshotConfiguration.validate!(input[:origin_snapshot], context: "#{context}[:origin_snapshot]") unless input[:origin_snapshot].nil?
+        CreateOpenZFSOriginSnapshotConfiguration.validate!(input[:origin_snapshot], context: "#{context}[:origin_snapshot]") unless input[:origin_snapshot].nil?
         Hearth::Validator.validate!(input[:read_only], ::TrueClass, ::FalseClass, context: "#{context}[:read_only]")
-        Validators::OpenZFSNfsExports.validate!(input[:nfs_exports], context: "#{context}[:nfs_exports]") unless input[:nfs_exports].nil?
-        Validators::OpenZFSUserAndGroupQuotas.validate!(input[:user_and_group_quotas], context: "#{context}[:user_and_group_quotas]") unless input[:user_and_group_quotas].nil?
+        OpenZFSNfsExports.validate!(input[:nfs_exports], context: "#{context}[:nfs_exports]") unless input[:nfs_exports].nil?
+        OpenZFSUserAndGroupQuotas.validate!(input[:user_and_group_quotas], context: "#{context}[:user_and_group_quotas]") unless input[:user_and_group_quotas].nil?
       end
     end
 
@@ -459,26 +461,26 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:volume_id], ::String, context: "#{context}[:volume_id]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateSnapshotOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateSnapshotOutput, context: context)
-        Validators::Snapshot.validate!(input[:snapshot], context: "#{context}[:snapshot]") unless input[:snapshot].nil?
+        Snapshot.validate!(input[:snapshot], context: "#{context}[:snapshot]") unless input[:snapshot].nil?
       end
     end
 
     class CreateStorageVirtualMachineInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateStorageVirtualMachineInput, context: context)
-        Validators::CreateSvmActiveDirectoryConfiguration.validate!(input[:active_directory_configuration], context: "#{context}[:active_directory_configuration]") unless input[:active_directory_configuration].nil?
+        CreateSvmActiveDirectoryConfiguration.validate!(input[:active_directory_configuration], context: "#{context}[:active_directory_configuration]") unless input[:active_directory_configuration].nil?
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
         Hearth::Validator.validate!(input[:file_system_id], ::String, context: "#{context}[:file_system_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:svm_admin_password], ::String, context: "#{context}[:svm_admin_password]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:root_volume_security_style], ::String, context: "#{context}[:root_volume_security_style]")
       end
     end
@@ -486,7 +488,7 @@ module AWS::SDK::FSx
     class CreateStorageVirtualMachineOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateStorageVirtualMachineOutput, context: context)
-        Validators::StorageVirtualMachine.validate!(input[:storage_virtual_machine], context: "#{context}[:storage_virtual_machine]") unless input[:storage_virtual_machine].nil?
+        StorageVirtualMachine.validate!(input[:storage_virtual_machine], context: "#{context}[:storage_virtual_machine]") unless input[:storage_virtual_machine].nil?
       end
     end
 
@@ -494,7 +496,7 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateSvmActiveDirectoryConfiguration, context: context)
         Hearth::Validator.validate!(input[:net_bios_name], ::String, context: "#{context}[:net_bios_name]")
-        Validators::SelfManagedActiveDirectoryConfiguration.validate!(input[:self_managed_active_directory_configuration], context: "#{context}[:self_managed_active_directory_configuration]") unless input[:self_managed_active_directory_configuration].nil?
+        SelfManagedActiveDirectoryConfiguration.validate!(input[:self_managed_active_directory_configuration], context: "#{context}[:self_managed_active_directory_configuration]") unless input[:self_managed_active_directory_configuration].nil?
       end
     end
 
@@ -504,15 +506,15 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input[:backup_id], ::String, context: "#{context}[:backup_id]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::CreateOntapVolumeConfiguration.validate!(input[:ontap_configuration], context: "#{context}[:ontap_configuration]") unless input[:ontap_configuration].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        CreateOntapVolumeConfiguration.validate!(input[:ontap_configuration], context: "#{context}[:ontap_configuration]") unless input[:ontap_configuration].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateVolumeFromBackupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateVolumeFromBackupOutput, context: context)
-        Validators::Volume.validate!(input[:volume], context: "#{context}[:volume]") unless input[:volume].nil?
+        Volume.validate!(input[:volume], context: "#{context}[:volume]") unless input[:volume].nil?
       end
     end
 
@@ -522,16 +524,16 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
         Hearth::Validator.validate!(input[:volume_type], ::String, context: "#{context}[:volume_type]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::CreateOntapVolumeConfiguration.validate!(input[:ontap_configuration], context: "#{context}[:ontap_configuration]") unless input[:ontap_configuration].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::CreateOpenZFSVolumeConfiguration.validate!(input[:open_zfs_configuration], context: "#{context}[:open_zfs_configuration]") unless input[:open_zfs_configuration].nil?
+        CreateOntapVolumeConfiguration.validate!(input[:ontap_configuration], context: "#{context}[:ontap_configuration]") unless input[:ontap_configuration].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        CreateOpenZFSVolumeConfiguration.validate!(input[:open_zfs_configuration], context: "#{context}[:open_zfs_configuration]") unless input[:open_zfs_configuration].nil?
       end
     end
 
     class CreateVolumeOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateVolumeOutput, context: context)
-        Validators::Volume.validate!(input[:volume], context: "#{context}[:volume]") unless input[:volume].nil?
+        Volume.validate!(input[:volume], context: "#{context}[:volume]") unless input[:volume].nil?
       end
     end
 
@@ -542,13 +544,13 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
         Hearth::Validator.validate!(input[:file_system_id], ::String, context: "#{context}[:file_system_id]")
         Hearth::Validator.validate!(input[:lifecycle], ::String, context: "#{context}[:lifecycle]")
-        Validators::DataRepositoryFailureDetails.validate!(input[:failure_details], context: "#{context}[:failure_details]") unless input[:failure_details].nil?
+        DataRepositoryFailureDetails.validate!(input[:failure_details], context: "#{context}[:failure_details]") unless input[:failure_details].nil?
         Hearth::Validator.validate!(input[:file_system_path], ::String, context: "#{context}[:file_system_path]")
         Hearth::Validator.validate!(input[:data_repository_path], ::String, context: "#{context}[:data_repository_path]")
         Hearth::Validator.validate!(input[:batch_import_meta_data_on_create], ::TrueClass, ::FalseClass, context: "#{context}[:batch_import_meta_data_on_create]")
         Hearth::Validator.validate!(input[:imported_file_chunk_size], ::Integer, context: "#{context}[:imported_file_chunk_size]")
-        Validators::S3DataRepositoryConfiguration.validate!(input[:s3], context: "#{context}[:s3]") unless input[:s3].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        S3DataRepositoryConfiguration.validate!(input[:s3], context: "#{context}[:s3]") unless input[:s3].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
       end
     end
@@ -573,7 +575,7 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DataRepositoryAssociation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DataRepositoryAssociation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -586,7 +588,7 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input[:export_path], ::String, context: "#{context}[:export_path]")
         Hearth::Validator.validate!(input[:imported_file_chunk_size], ::Integer, context: "#{context}[:imported_file_chunk_size]")
         Hearth::Validator.validate!(input[:auto_import_policy], ::String, context: "#{context}[:auto_import_policy]")
-        Validators::DataRepositoryFailureDetails.validate!(input[:failure_details], context: "#{context}[:failure_details]") unless input[:failure_details].nil?
+        DataRepositoryFailureDetails.validate!(input[:failure_details], context: "#{context}[:failure_details]") unless input[:failure_details].nil?
       end
     end
 
@@ -607,12 +609,12 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:file_system_id], ::String, context: "#{context}[:file_system_id]")
-        Validators::DataRepositoryTaskPaths.validate!(input[:paths], context: "#{context}[:paths]") unless input[:paths].nil?
-        Validators::DataRepositoryTaskFailureDetails.validate!(input[:failure_details], context: "#{context}[:failure_details]") unless input[:failure_details].nil?
-        Validators::DataRepositoryTaskStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
-        Validators::CompletionReport.validate!(input[:report], context: "#{context}[:report]") unless input[:report].nil?
+        DataRepositoryTaskPaths.validate!(input[:paths], context: "#{context}[:paths]") unless input[:paths].nil?
+        DataRepositoryTaskFailureDetails.validate!(input[:failure_details], context: "#{context}[:failure_details]") unless input[:failure_details].nil?
+        DataRepositoryTaskStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        CompletionReport.validate!(input[:report], context: "#{context}[:report]") unless input[:report].nil?
       end
     end
 
@@ -641,7 +643,7 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DataRepositoryTaskFilter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::DataRepositoryTaskFilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        DataRepositoryTaskFilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -658,7 +660,7 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DataRepositoryTaskFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DataRepositoryTaskFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -693,7 +695,7 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DataRepositoryTask.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DataRepositoryTask.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -737,9 +739,9 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input, Types::DeleteFileSystemInput, context: context)
         Hearth::Validator.validate!(input[:file_system_id], ::String, context: "#{context}[:file_system_id]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::DeleteFileSystemWindowsConfiguration.validate!(input[:windows_configuration], context: "#{context}[:windows_configuration]") unless input[:windows_configuration].nil?
-        Validators::DeleteFileSystemLustreConfiguration.validate!(input[:lustre_configuration], context: "#{context}[:lustre_configuration]") unless input[:lustre_configuration].nil?
-        Validators::DeleteFileSystemOpenZFSConfiguration.validate!(input[:open_zfs_configuration], context: "#{context}[:open_zfs_configuration]") unless input[:open_zfs_configuration].nil?
+        DeleteFileSystemWindowsConfiguration.validate!(input[:windows_configuration], context: "#{context}[:windows_configuration]") unless input[:windows_configuration].nil?
+        DeleteFileSystemLustreConfiguration.validate!(input[:lustre_configuration], context: "#{context}[:lustre_configuration]") unless input[:lustre_configuration].nil?
+        DeleteFileSystemOpenZFSConfiguration.validate!(input[:open_zfs_configuration], context: "#{context}[:open_zfs_configuration]") unless input[:open_zfs_configuration].nil?
       end
     end
 
@@ -747,7 +749,7 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteFileSystemLustreConfiguration, context: context)
         Hearth::Validator.validate!(input[:skip_final_backup], ::TrueClass, ::FalseClass, context: "#{context}[:skip_final_backup]")
-        Validators::Tags.validate!(input[:final_backup_tags], context: "#{context}[:final_backup_tags]") unless input[:final_backup_tags].nil?
+        Tags.validate!(input[:final_backup_tags], context: "#{context}[:final_backup_tags]") unless input[:final_backup_tags].nil?
       end
     end
 
@@ -755,7 +757,7 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteFileSystemLustreResponse, context: context)
         Hearth::Validator.validate!(input[:final_backup_id], ::String, context: "#{context}[:final_backup_id]")
-        Validators::Tags.validate!(input[:final_backup_tags], context: "#{context}[:final_backup_tags]") unless input[:final_backup_tags].nil?
+        Tags.validate!(input[:final_backup_tags], context: "#{context}[:final_backup_tags]") unless input[:final_backup_tags].nil?
       end
     end
 
@@ -763,8 +765,8 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteFileSystemOpenZFSConfiguration, context: context)
         Hearth::Validator.validate!(input[:skip_final_backup], ::TrueClass, ::FalseClass, context: "#{context}[:skip_final_backup]")
-        Validators::Tags.validate!(input[:final_backup_tags], context: "#{context}[:final_backup_tags]") unless input[:final_backup_tags].nil?
-        Validators::DeleteFileSystemOpenZFSOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
+        Tags.validate!(input[:final_backup_tags], context: "#{context}[:final_backup_tags]") unless input[:final_backup_tags].nil?
+        DeleteFileSystemOpenZFSOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
       end
     end
 
@@ -781,7 +783,7 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteFileSystemOpenZFSResponse, context: context)
         Hearth::Validator.validate!(input[:final_backup_id], ::String, context: "#{context}[:final_backup_id]")
-        Validators::Tags.validate!(input[:final_backup_tags], context: "#{context}[:final_backup_tags]") unless input[:final_backup_tags].nil?
+        Tags.validate!(input[:final_backup_tags], context: "#{context}[:final_backup_tags]") unless input[:final_backup_tags].nil?
       end
     end
 
@@ -790,9 +792,9 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input, Types::DeleteFileSystemOutput, context: context)
         Hearth::Validator.validate!(input[:file_system_id], ::String, context: "#{context}[:file_system_id]")
         Hearth::Validator.validate!(input[:lifecycle], ::String, context: "#{context}[:lifecycle]")
-        Validators::DeleteFileSystemWindowsResponse.validate!(input[:windows_response], context: "#{context}[:windows_response]") unless input[:windows_response].nil?
-        Validators::DeleteFileSystemLustreResponse.validate!(input[:lustre_response], context: "#{context}[:lustre_response]") unless input[:lustre_response].nil?
-        Validators::DeleteFileSystemOpenZFSResponse.validate!(input[:open_zfs_response], context: "#{context}[:open_zfs_response]") unless input[:open_zfs_response].nil?
+        DeleteFileSystemWindowsResponse.validate!(input[:windows_response], context: "#{context}[:windows_response]") unless input[:windows_response].nil?
+        DeleteFileSystemLustreResponse.validate!(input[:lustre_response], context: "#{context}[:lustre_response]") unless input[:lustre_response].nil?
+        DeleteFileSystemOpenZFSResponse.validate!(input[:open_zfs_response], context: "#{context}[:open_zfs_response]") unless input[:open_zfs_response].nil?
       end
     end
 
@@ -800,7 +802,7 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteFileSystemWindowsConfiguration, context: context)
         Hearth::Validator.validate!(input[:skip_final_backup], ::TrueClass, ::FalseClass, context: "#{context}[:skip_final_backup]")
-        Validators::Tags.validate!(input[:final_backup_tags], context: "#{context}[:final_backup_tags]") unless input[:final_backup_tags].nil?
+        Tags.validate!(input[:final_backup_tags], context: "#{context}[:final_backup_tags]") unless input[:final_backup_tags].nil?
       end
     end
 
@@ -808,7 +810,7 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteFileSystemWindowsResponse, context: context)
         Hearth::Validator.validate!(input[:final_backup_id], ::String, context: "#{context}[:final_backup_id]")
-        Validators::Tags.validate!(input[:final_backup_tags], context: "#{context}[:final_backup_tags]") unless input[:final_backup_tags].nil?
+        Tags.validate!(input[:final_backup_tags], context: "#{context}[:final_backup_tags]") unless input[:final_backup_tags].nil?
       end
     end
 
@@ -858,8 +860,8 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input, Types::DeleteVolumeInput, context: context)
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
         Hearth::Validator.validate!(input[:volume_id], ::String, context: "#{context}[:volume_id]")
-        Validators::DeleteVolumeOntapConfiguration.validate!(input[:ontap_configuration], context: "#{context}[:ontap_configuration]") unless input[:ontap_configuration].nil?
-        Validators::DeleteVolumeOpenZFSConfiguration.validate!(input[:open_zfs_configuration], context: "#{context}[:open_zfs_configuration]") unless input[:open_zfs_configuration].nil?
+        DeleteVolumeOntapConfiguration.validate!(input[:ontap_configuration], context: "#{context}[:ontap_configuration]") unless input[:ontap_configuration].nil?
+        DeleteVolumeOpenZFSConfiguration.validate!(input[:open_zfs_configuration], context: "#{context}[:open_zfs_configuration]") unless input[:open_zfs_configuration].nil?
       end
     end
 
@@ -867,7 +869,7 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteVolumeOntapConfiguration, context: context)
         Hearth::Validator.validate!(input[:skip_final_backup], ::TrueClass, ::FalseClass, context: "#{context}[:skip_final_backup]")
-        Validators::Tags.validate!(input[:final_backup_tags], context: "#{context}[:final_backup_tags]") unless input[:final_backup_tags].nil?
+        Tags.validate!(input[:final_backup_tags], context: "#{context}[:final_backup_tags]") unless input[:final_backup_tags].nil?
       end
     end
 
@@ -875,14 +877,14 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteVolumeOntapResponse, context: context)
         Hearth::Validator.validate!(input[:final_backup_id], ::String, context: "#{context}[:final_backup_id]")
-        Validators::Tags.validate!(input[:final_backup_tags], context: "#{context}[:final_backup_tags]") unless input[:final_backup_tags].nil?
+        Tags.validate!(input[:final_backup_tags], context: "#{context}[:final_backup_tags]") unless input[:final_backup_tags].nil?
       end
     end
 
     class DeleteVolumeOpenZFSConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteVolumeOpenZFSConfiguration, context: context)
-        Validators::DeleteOpenZFSVolumeOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
+        DeleteOpenZFSVolumeOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
       end
     end
 
@@ -891,15 +893,15 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input, Types::DeleteVolumeOutput, context: context)
         Hearth::Validator.validate!(input[:volume_id], ::String, context: "#{context}[:volume_id]")
         Hearth::Validator.validate!(input[:lifecycle], ::String, context: "#{context}[:lifecycle]")
-        Validators::DeleteVolumeOntapResponse.validate!(input[:ontap_response], context: "#{context}[:ontap_response]") unless input[:ontap_response].nil?
+        DeleteVolumeOntapResponse.validate!(input[:ontap_response], context: "#{context}[:ontap_response]") unless input[:ontap_response].nil?
       end
     end
 
     class DescribeBackupsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeBackupsInput, context: context)
-        Validators::BackupIds.validate!(input[:backup_ids], context: "#{context}[:backup_ids]") unless input[:backup_ids].nil?
-        Validators::Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        BackupIds.validate!(input[:backup_ids], context: "#{context}[:backup_ids]") unless input[:backup_ids].nil?
+        Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -908,7 +910,7 @@ module AWS::SDK::FSx
     class DescribeBackupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeBackupsOutput, context: context)
-        Validators::Backups.validate!(input[:backups], context: "#{context}[:backups]") unless input[:backups].nil?
+        Backups.validate!(input[:backups], context: "#{context}[:backups]") unless input[:backups].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -916,8 +918,8 @@ module AWS::SDK::FSx
     class DescribeDataRepositoryAssociationsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeDataRepositoryAssociationsInput, context: context)
-        Validators::DataRepositoryAssociationIds.validate!(input[:association_ids], context: "#{context}[:association_ids]") unless input[:association_ids].nil?
-        Validators::Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        DataRepositoryAssociationIds.validate!(input[:association_ids], context: "#{context}[:association_ids]") unless input[:association_ids].nil?
+        Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -926,7 +928,7 @@ module AWS::SDK::FSx
     class DescribeDataRepositoryAssociationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeDataRepositoryAssociationsOutput, context: context)
-        Validators::DataRepositoryAssociations.validate!(input[:associations], context: "#{context}[:associations]") unless input[:associations].nil?
+        DataRepositoryAssociations.validate!(input[:associations], context: "#{context}[:associations]") unless input[:associations].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -934,8 +936,8 @@ module AWS::SDK::FSx
     class DescribeDataRepositoryTasksInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeDataRepositoryTasksInput, context: context)
-        Validators::TaskIds.validate!(input[:task_ids], context: "#{context}[:task_ids]") unless input[:task_ids].nil?
-        Validators::DataRepositoryTaskFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        TaskIds.validate!(input[:task_ids], context: "#{context}[:task_ids]") unless input[:task_ids].nil?
+        DataRepositoryTaskFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -944,7 +946,7 @@ module AWS::SDK::FSx
     class DescribeDataRepositoryTasksOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeDataRepositoryTasksOutput, context: context)
-        Validators::DataRepositoryTasks.validate!(input[:data_repository_tasks], context: "#{context}[:data_repository_tasks]") unless input[:data_repository_tasks].nil?
+        DataRepositoryTasks.validate!(input[:data_repository_tasks], context: "#{context}[:data_repository_tasks]") unless input[:data_repository_tasks].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -962,7 +964,7 @@ module AWS::SDK::FSx
     class DescribeFileSystemAliasesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeFileSystemAliasesOutput, context: context)
-        Validators::Aliases.validate!(input[:aliases], context: "#{context}[:aliases]") unless input[:aliases].nil?
+        Aliases.validate!(input[:aliases], context: "#{context}[:aliases]") unless input[:aliases].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -970,7 +972,7 @@ module AWS::SDK::FSx
     class DescribeFileSystemsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeFileSystemsInput, context: context)
-        Validators::FileSystemIds.validate!(input[:file_system_ids], context: "#{context}[:file_system_ids]") unless input[:file_system_ids].nil?
+        FileSystemIds.validate!(input[:file_system_ids], context: "#{context}[:file_system_ids]") unless input[:file_system_ids].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -979,7 +981,7 @@ module AWS::SDK::FSx
     class DescribeFileSystemsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeFileSystemsOutput, context: context)
-        Validators::FileSystems.validate!(input[:file_systems], context: "#{context}[:file_systems]") unless input[:file_systems].nil?
+        FileSystems.validate!(input[:file_systems], context: "#{context}[:file_systems]") unless input[:file_systems].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -987,8 +989,8 @@ module AWS::SDK::FSx
     class DescribeSnapshotsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeSnapshotsInput, context: context)
-        Validators::SnapshotIds.validate!(input[:snapshot_ids], context: "#{context}[:snapshot_ids]") unless input[:snapshot_ids].nil?
-        Validators::SnapshotFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        SnapshotIds.validate!(input[:snapshot_ids], context: "#{context}[:snapshot_ids]") unless input[:snapshot_ids].nil?
+        SnapshotFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -997,7 +999,7 @@ module AWS::SDK::FSx
     class DescribeSnapshotsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeSnapshotsOutput, context: context)
-        Validators::Snapshots.validate!(input[:snapshots], context: "#{context}[:snapshots]") unless input[:snapshots].nil?
+        Snapshots.validate!(input[:snapshots], context: "#{context}[:snapshots]") unless input[:snapshots].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1005,8 +1007,8 @@ module AWS::SDK::FSx
     class DescribeStorageVirtualMachinesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeStorageVirtualMachinesInput, context: context)
-        Validators::StorageVirtualMachineIds.validate!(input[:storage_virtual_machine_ids], context: "#{context}[:storage_virtual_machine_ids]") unless input[:storage_virtual_machine_ids].nil?
-        Validators::StorageVirtualMachineFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        StorageVirtualMachineIds.validate!(input[:storage_virtual_machine_ids], context: "#{context}[:storage_virtual_machine_ids]") unless input[:storage_virtual_machine_ids].nil?
+        StorageVirtualMachineFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -1015,7 +1017,7 @@ module AWS::SDK::FSx
     class DescribeStorageVirtualMachinesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeStorageVirtualMachinesOutput, context: context)
-        Validators::StorageVirtualMachines.validate!(input[:storage_virtual_machines], context: "#{context}[:storage_virtual_machines]") unless input[:storage_virtual_machines].nil?
+        StorageVirtualMachines.validate!(input[:storage_virtual_machines], context: "#{context}[:storage_virtual_machines]") unless input[:storage_virtual_machines].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1023,8 +1025,8 @@ module AWS::SDK::FSx
     class DescribeVolumesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeVolumesInput, context: context)
-        Validators::VolumeIds.validate!(input[:volume_ids], context: "#{context}[:volume_ids]") unless input[:volume_ids].nil?
-        Validators::VolumeFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        VolumeIds.validate!(input[:volume_ids], context: "#{context}[:volume_ids]") unless input[:volume_ids].nil?
+        VolumeFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -1033,7 +1035,7 @@ module AWS::SDK::FSx
     class DescribeVolumesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeVolumesOutput, context: context)
-        Validators::Volumes.validate!(input[:volumes], context: "#{context}[:volumes]") unless input[:volumes].nil?
+        Volumes.validate!(input[:volumes], context: "#{context}[:volumes]") unless input[:volumes].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1043,14 +1045,14 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input, Types::DisassociateFileSystemAliasesInput, context: context)
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
         Hearth::Validator.validate!(input[:file_system_id], ::String, context: "#{context}[:file_system_id]")
-        Validators::AlternateDNSNames.validate!(input[:aliases], context: "#{context}[:aliases]") unless input[:aliases].nil?
+        AlternateDNSNames.validate!(input[:aliases], context: "#{context}[:aliases]") unless input[:aliases].nil?
       end
     end
 
     class DisassociateFileSystemAliasesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DisassociateFileSystemAliasesOutput, context: context)
-        Validators::Aliases.validate!(input[:aliases], context: "#{context}[:aliases]") unless input[:aliases].nil?
+        Aliases.validate!(input[:aliases], context: "#{context}[:aliases]") unless input[:aliases].nil?
       end
     end
 
@@ -1088,22 +1090,22 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input[:file_system_id], ::String, context: "#{context}[:file_system_id]")
         Hearth::Validator.validate!(input[:file_system_type], ::String, context: "#{context}[:file_system_type]")
         Hearth::Validator.validate!(input[:lifecycle], ::String, context: "#{context}[:lifecycle]")
-        Validators::FileSystemFailureDetails.validate!(input[:failure_details], context: "#{context}[:failure_details]") unless input[:failure_details].nil?
+        FileSystemFailureDetails.validate!(input[:failure_details], context: "#{context}[:failure_details]") unless input[:failure_details].nil?
         Hearth::Validator.validate!(input[:storage_capacity], ::Integer, context: "#{context}[:storage_capacity]")
         Hearth::Validator.validate!(input[:storage_type], ::String, context: "#{context}[:storage_type]")
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
-        Validators::SubnetIds.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
-        Validators::NetworkInterfaceIds.validate!(input[:network_interface_ids], context: "#{context}[:network_interface_ids]") unless input[:network_interface_ids].nil?
+        SubnetIds.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        NetworkInterfaceIds.validate!(input[:network_interface_ids], context: "#{context}[:network_interface_ids]") unless input[:network_interface_ids].nil?
         Hearth::Validator.validate!(input[:dns_name], ::String, context: "#{context}[:dns_name]")
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::WindowsFileSystemConfiguration.validate!(input[:windows_configuration], context: "#{context}[:windows_configuration]") unless input[:windows_configuration].nil?
-        Validators::LustreFileSystemConfiguration.validate!(input[:lustre_configuration], context: "#{context}[:lustre_configuration]") unless input[:lustre_configuration].nil?
-        Validators::AdministrativeActions.validate!(input[:administrative_actions], context: "#{context}[:administrative_actions]") unless input[:administrative_actions].nil?
-        Validators::OntapFileSystemConfiguration.validate!(input[:ontap_configuration], context: "#{context}[:ontap_configuration]") unless input[:ontap_configuration].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        WindowsFileSystemConfiguration.validate!(input[:windows_configuration], context: "#{context}[:windows_configuration]") unless input[:windows_configuration].nil?
+        LustreFileSystemConfiguration.validate!(input[:lustre_configuration], context: "#{context}[:lustre_configuration]") unless input[:lustre_configuration].nil?
+        AdministrativeActions.validate!(input[:administrative_actions], context: "#{context}[:administrative_actions]") unless input[:administrative_actions].nil?
+        OntapFileSystemConfiguration.validate!(input[:ontap_configuration], context: "#{context}[:ontap_configuration]") unless input[:ontap_configuration].nil?
         Hearth::Validator.validate!(input[:file_system_type_version], ::String, context: "#{context}[:file_system_type_version]")
-        Validators::OpenZFSFileSystemConfiguration.validate!(input[:open_zfs_configuration], context: "#{context}[:open_zfs_configuration]") unless input[:open_zfs_configuration].nil?
+        OpenZFSFileSystemConfiguration.validate!(input[:open_zfs_configuration], context: "#{context}[:open_zfs_configuration]") unless input[:open_zfs_configuration].nil?
       end
     end
 
@@ -1111,15 +1113,15 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FileSystemEndpoint, context: context)
         Hearth::Validator.validate!(input[:dns_name], ::String, context: "#{context}[:dns_name]")
-        Validators::OntapEndpointIpAddresses.validate!(input[:ip_addresses], context: "#{context}[:ip_addresses]") unless input[:ip_addresses].nil?
+        OntapEndpointIpAddresses.validate!(input[:ip_addresses], context: "#{context}[:ip_addresses]") unless input[:ip_addresses].nil?
       end
     end
 
     class FileSystemEndpoints
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FileSystemEndpoints, context: context)
-        Validators::FileSystemEndpoint.validate!(input[:intercluster], context: "#{context}[:intercluster]") unless input[:intercluster].nil?
-        Validators::FileSystemEndpoint.validate!(input[:management], context: "#{context}[:management]") unless input[:management].nil?
+        FileSystemEndpoint.validate!(input[:intercluster], context: "#{context}[:intercluster]") unless input[:intercluster].nil?
+        FileSystemEndpoint.validate!(input[:management], context: "#{context}[:management]") unless input[:management].nil?
       end
     end
 
@@ -1159,7 +1161,7 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FileSystem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FileSystem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1168,7 +1170,7 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Filter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::FilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        FilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -1185,7 +1187,7 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1290,7 +1292,7 @@ module AWS::SDK::FSx
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1299,7 +1301,7 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LustreFileSystemConfiguration, context: context)
         Hearth::Validator.validate!(input[:weekly_maintenance_start_time], ::String, context: "#{context}[:weekly_maintenance_start_time]")
-        Validators::DataRepositoryConfiguration.validate!(input[:data_repository_configuration], context: "#{context}[:data_repository_configuration]") unless input[:data_repository_configuration].nil?
+        DataRepositoryConfiguration.validate!(input[:data_repository_configuration], context: "#{context}[:data_repository_configuration]") unless input[:data_repository_configuration].nil?
         Hearth::Validator.validate!(input[:deployment_type], ::String, context: "#{context}[:deployment_type]")
         Hearth::Validator.validate!(input[:per_unit_storage_throughput], ::Integer, context: "#{context}[:per_unit_storage_throughput]")
         Hearth::Validator.validate!(input[:mount_name], ::String, context: "#{context}[:mount_name]")
@@ -1308,8 +1310,8 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input[:copy_tags_to_backups], ::TrueClass, ::FalseClass, context: "#{context}[:copy_tags_to_backups]")
         Hearth::Validator.validate!(input[:drive_cache_type], ::String, context: "#{context}[:drive_cache_type]")
         Hearth::Validator.validate!(input[:data_compression_type], ::String, context: "#{context}[:data_compression_type]")
-        Validators::LustreLogConfiguration.validate!(input[:log_configuration], context: "#{context}[:log_configuration]") unless input[:log_configuration].nil?
-        Validators::LustreRootSquashConfiguration.validate!(input[:root_squash_configuration], context: "#{context}[:root_squash_configuration]") unless input[:root_squash_configuration].nil?
+        LustreLogConfiguration.validate!(input[:log_configuration], context: "#{context}[:log_configuration]") unless input[:log_configuration].nil?
+        LustreRootSquashConfiguration.validate!(input[:root_squash_configuration], context: "#{context}[:root_squash_configuration]") unless input[:root_squash_configuration].nil?
       end
     end
 
@@ -1342,7 +1344,7 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LustreRootSquashConfiguration, context: context)
         Hearth::Validator.validate!(input[:root_squash], ::String, context: "#{context}[:root_squash]")
-        Validators::LustreNoSquashNids.validate!(input[:no_squash_nids], context: "#{context}[:no_squash_nids]") unless input[:no_squash_nids].nil?
+        LustreNoSquashNids.validate!(input[:no_squash_nids], context: "#{context}[:no_squash_nids]") unless input[:no_squash_nids].nil?
       end
     end
 
@@ -1393,10 +1395,10 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input[:daily_automatic_backup_start_time], ::String, context: "#{context}[:daily_automatic_backup_start_time]")
         Hearth::Validator.validate!(input[:deployment_type], ::String, context: "#{context}[:deployment_type]")
         Hearth::Validator.validate!(input[:endpoint_ip_address_range], ::String, context: "#{context}[:endpoint_ip_address_range]")
-        Validators::FileSystemEndpoints.validate!(input[:endpoints], context: "#{context}[:endpoints]") unless input[:endpoints].nil?
-        Validators::DiskIopsConfiguration.validate!(input[:disk_iops_configuration], context: "#{context}[:disk_iops_configuration]") unless input[:disk_iops_configuration].nil?
+        FileSystemEndpoints.validate!(input[:endpoints], context: "#{context}[:endpoints]") unless input[:endpoints].nil?
+        DiskIopsConfiguration.validate!(input[:disk_iops_configuration], context: "#{context}[:disk_iops_configuration]") unless input[:disk_iops_configuration].nil?
         Hearth::Validator.validate!(input[:preferred_subnet_id], ::String, context: "#{context}[:preferred_subnet_id]")
-        Validators::RouteTableIds.validate!(input[:route_table_ids], context: "#{context}[:route_table_ids]") unless input[:route_table_ids].nil?
+        RouteTableIds.validate!(input[:route_table_ids], context: "#{context}[:route_table_ids]") unless input[:route_table_ids].nil?
         Hearth::Validator.validate!(input[:throughput_capacity], ::Integer, context: "#{context}[:throughput_capacity]")
         Hearth::Validator.validate!(input[:weekly_maintenance_start_time], ::String, context: "#{context}[:weekly_maintenance_start_time]")
       end
@@ -1412,7 +1414,7 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input[:storage_efficiency_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:storage_efficiency_enabled]")
         Hearth::Validator.validate!(input[:storage_virtual_machine_id], ::String, context: "#{context}[:storage_virtual_machine_id]")
         Hearth::Validator.validate!(input[:storage_virtual_machine_root], ::TrueClass, ::FalseClass, context: "#{context}[:storage_virtual_machine_root]")
-        Validators::TieringPolicy.validate!(input[:tiering_policy], context: "#{context}[:tiering_policy]") unless input[:tiering_policy].nil?
+        TieringPolicy.validate!(input[:tiering_policy], context: "#{context}[:tiering_policy]") unless input[:tiering_policy].nil?
         Hearth::Validator.validate!(input[:uuid], ::String, context: "#{context}[:uuid]")
         Hearth::Validator.validate!(input[:ontap_volume_type], ::String, context: "#{context}[:ontap_volume_type]")
       end
@@ -1422,7 +1424,7 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OpenZFSClientConfiguration, context: context)
         Hearth::Validator.validate!(input[:clients], ::String, context: "#{context}[:clients]")
-        Validators::OpenZFSNfsExportOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
+        OpenZFSNfsExportOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
       end
     end
 
@@ -1430,7 +1432,7 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OpenZFSClientConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OpenZFSClientConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1440,8 +1442,8 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input, Types::OpenZFSCreateRootVolumeConfiguration, context: context)
         Hearth::Validator.validate!(input[:record_size_ki_b], ::Integer, context: "#{context}[:record_size_ki_b]")
         Hearth::Validator.validate!(input[:data_compression_type], ::String, context: "#{context}[:data_compression_type]")
-        Validators::OpenZFSNfsExports.validate!(input[:nfs_exports], context: "#{context}[:nfs_exports]") unless input[:nfs_exports].nil?
-        Validators::OpenZFSUserAndGroupQuotas.validate!(input[:user_and_group_quotas], context: "#{context}[:user_and_group_quotas]") unless input[:user_and_group_quotas].nil?
+        OpenZFSNfsExports.validate!(input[:nfs_exports], context: "#{context}[:nfs_exports]") unless input[:nfs_exports].nil?
+        OpenZFSUserAndGroupQuotas.validate!(input[:user_and_group_quotas], context: "#{context}[:user_and_group_quotas]") unless input[:user_and_group_quotas].nil?
         Hearth::Validator.validate!(input[:copy_tags_to_snapshots], ::TrueClass, ::FalseClass, context: "#{context}[:copy_tags_to_snapshots]")
         Hearth::Validator.validate!(input[:read_only], ::TrueClass, ::FalseClass, context: "#{context}[:read_only]")
       end
@@ -1457,7 +1459,7 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input[:deployment_type], ::String, context: "#{context}[:deployment_type]")
         Hearth::Validator.validate!(input[:throughput_capacity], ::Integer, context: "#{context}[:throughput_capacity]")
         Hearth::Validator.validate!(input[:weekly_maintenance_start_time], ::String, context: "#{context}[:weekly_maintenance_start_time]")
-        Validators::DiskIopsConfiguration.validate!(input[:disk_iops_configuration], context: "#{context}[:disk_iops_configuration]") unless input[:disk_iops_configuration].nil?
+        DiskIopsConfiguration.validate!(input[:disk_iops_configuration], context: "#{context}[:disk_iops_configuration]") unless input[:disk_iops_configuration].nil?
         Hearth::Validator.validate!(input[:root_volume_id], ::String, context: "#{context}[:root_volume_id]")
       end
     end
@@ -1465,7 +1467,7 @@ module AWS::SDK::FSx
     class OpenZFSNfsExport
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OpenZFSNfsExport, context: context)
-        Validators::OpenZFSClientConfigurations.validate!(input[:client_configurations], context: "#{context}[:client_configurations]") unless input[:client_configurations].nil?
+        OpenZFSClientConfigurations.validate!(input[:client_configurations], context: "#{context}[:client_configurations]") unless input[:client_configurations].nil?
       end
     end
 
@@ -1482,7 +1484,7 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OpenZFSNfsExport.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OpenZFSNfsExport.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1499,7 +1501,7 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OpenZFSUserOrGroupQuota.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OpenZFSUserOrGroupQuota.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1523,10 +1525,10 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input[:record_size_ki_b], ::Integer, context: "#{context}[:record_size_ki_b]")
         Hearth::Validator.validate!(input[:data_compression_type], ::String, context: "#{context}[:data_compression_type]")
         Hearth::Validator.validate!(input[:copy_tags_to_snapshots], ::TrueClass, ::FalseClass, context: "#{context}[:copy_tags_to_snapshots]")
-        Validators::OpenZFSOriginSnapshotConfiguration.validate!(input[:origin_snapshot], context: "#{context}[:origin_snapshot]") unless input[:origin_snapshot].nil?
+        OpenZFSOriginSnapshotConfiguration.validate!(input[:origin_snapshot], context: "#{context}[:origin_snapshot]") unless input[:origin_snapshot].nil?
         Hearth::Validator.validate!(input[:read_only], ::TrueClass, ::FalseClass, context: "#{context}[:read_only]")
-        Validators::OpenZFSNfsExports.validate!(input[:nfs_exports], context: "#{context}[:nfs_exports]") unless input[:nfs_exports].nil?
-        Validators::OpenZFSUserAndGroupQuotas.validate!(input[:user_and_group_quotas], context: "#{context}[:user_and_group_quotas]") unless input[:user_and_group_quotas].nil?
+        OpenZFSNfsExports.validate!(input[:nfs_exports], context: "#{context}[:nfs_exports]") unless input[:nfs_exports].nil?
+        OpenZFSUserAndGroupQuotas.validate!(input[:user_and_group_quotas], context: "#{context}[:user_and_group_quotas]") unless input[:user_and_group_quotas].nil?
       end
     end
 
@@ -1541,7 +1543,7 @@ module AWS::SDK::FSx
     class ReleaseFileSystemNfsV3LocksOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ReleaseFileSystemNfsV3LocksOutput, context: context)
-        Validators::FileSystem.validate!(input[:file_system], context: "#{context}[:file_system]") unless input[:file_system].nil?
+        FileSystem.validate!(input[:file_system], context: "#{context}[:file_system]") unless input[:file_system].nil?
       end
     end
 
@@ -1576,7 +1578,7 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
         Hearth::Validator.validate!(input[:volume_id], ::String, context: "#{context}[:volume_id]")
         Hearth::Validator.validate!(input[:snapshot_id], ::String, context: "#{context}[:snapshot_id]")
-        Validators::RestoreOpenZFSVolumeOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
+        RestoreOpenZFSVolumeOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
       end
     end
 
@@ -1600,8 +1602,8 @@ module AWS::SDK::FSx
     class S3DataRepositoryConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::S3DataRepositoryConfiguration, context: context)
-        Validators::AutoImportPolicy.validate!(input[:auto_import_policy], context: "#{context}[:auto_import_policy]") unless input[:auto_import_policy].nil?
-        Validators::AutoExportPolicy.validate!(input[:auto_export_policy], context: "#{context}[:auto_export_policy]") unless input[:auto_export_policy].nil?
+        AutoImportPolicy.validate!(input[:auto_import_policy], context: "#{context}[:auto_import_policy]") unless input[:auto_import_policy].nil?
+        AutoExportPolicy.validate!(input[:auto_export_policy], context: "#{context}[:auto_export_policy]") unless input[:auto_export_policy].nil?
       end
     end
 
@@ -1621,7 +1623,7 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input[:organizational_unit_distinguished_name], ::String, context: "#{context}[:organizational_unit_distinguished_name]")
         Hearth::Validator.validate!(input[:file_system_administrators_group], ::String, context: "#{context}[:file_system_administrators_group]")
         Hearth::Validator.validate!(input[:user_name], ::String, context: "#{context}[:user_name]")
-        Validators::DnsIps.validate!(input[:dns_ips], context: "#{context}[:dns_ips]") unless input[:dns_ips].nil?
+        DnsIps.validate!(input[:dns_ips], context: "#{context}[:dns_ips]") unless input[:dns_ips].nil?
       end
     end
 
@@ -1633,7 +1635,7 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input[:file_system_administrators_group], ::String, context: "#{context}[:file_system_administrators_group]")
         Hearth::Validator.validate!(input[:user_name], ::String, context: "#{context}[:user_name]")
         Hearth::Validator.validate!(input[:password], ::String, context: "#{context}[:password]")
-        Validators::DnsIps.validate!(input[:dns_ips], context: "#{context}[:dns_ips]") unless input[:dns_ips].nil?
+        DnsIps.validate!(input[:dns_ips], context: "#{context}[:dns_ips]") unless input[:dns_ips].nil?
       end
     end
 
@@ -1642,7 +1644,7 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input, Types::SelfManagedActiveDirectoryConfigurationUpdates, context: context)
         Hearth::Validator.validate!(input[:user_name], ::String, context: "#{context}[:user_name]")
         Hearth::Validator.validate!(input[:password], ::String, context: "#{context}[:password]")
-        Validators::DnsIps.validate!(input[:dns_ips], context: "#{context}[:dns_ips]") unless input[:dns_ips].nil?
+        DnsIps.validate!(input[:dns_ips], context: "#{context}[:dns_ips]") unless input[:dns_ips].nil?
       end
     end
 
@@ -1663,9 +1665,9 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input[:volume_id], ::String, context: "#{context}[:volume_id]")
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:lifecycle], ::String, context: "#{context}[:lifecycle]")
-        Validators::LifecycleTransitionReason.validate!(input[:lifecycle_transition_reason], context: "#{context}[:lifecycle_transition_reason]") unless input[:lifecycle_transition_reason].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::AdministrativeActions.validate!(input[:administrative_actions], context: "#{context}[:administrative_actions]") unless input[:administrative_actions].nil?
+        LifecycleTransitionReason.validate!(input[:lifecycle_transition_reason], context: "#{context}[:lifecycle_transition_reason]") unless input[:lifecycle_transition_reason].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        AdministrativeActions.validate!(input[:administrative_actions], context: "#{context}[:administrative_actions]") unless input[:administrative_actions].nil?
       end
     end
 
@@ -1673,7 +1675,7 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SnapshotFilter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::SnapshotFilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        SnapshotFilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -1690,7 +1692,7 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SnapshotFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SnapshotFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1715,7 +1717,7 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Snapshot.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Snapshot.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1731,9 +1733,9 @@ module AWS::SDK::FSx
     class StorageVirtualMachine
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StorageVirtualMachine, context: context)
-        Validators::SvmActiveDirectoryConfiguration.validate!(input[:active_directory_configuration], context: "#{context}[:active_directory_configuration]") unless input[:active_directory_configuration].nil?
+        SvmActiveDirectoryConfiguration.validate!(input[:active_directory_configuration], context: "#{context}[:active_directory_configuration]") unless input[:active_directory_configuration].nil?
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
-        Validators::SvmEndpoints.validate!(input[:endpoints], context: "#{context}[:endpoints]") unless input[:endpoints].nil?
+        SvmEndpoints.validate!(input[:endpoints], context: "#{context}[:endpoints]") unless input[:endpoints].nil?
         Hearth::Validator.validate!(input[:file_system_id], ::String, context: "#{context}[:file_system_id]")
         Hearth::Validator.validate!(input[:lifecycle], ::String, context: "#{context}[:lifecycle]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
@@ -1741,8 +1743,8 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input[:storage_virtual_machine_id], ::String, context: "#{context}[:storage_virtual_machine_id]")
         Hearth::Validator.validate!(input[:subtype], ::String, context: "#{context}[:subtype]")
         Hearth::Validator.validate!(input[:uuid], ::String, context: "#{context}[:uuid]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::LifecycleTransitionReason.validate!(input[:lifecycle_transition_reason], context: "#{context}[:lifecycle_transition_reason]") unless input[:lifecycle_transition_reason].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        LifecycleTransitionReason.validate!(input[:lifecycle_transition_reason], context: "#{context}[:lifecycle_transition_reason]") unless input[:lifecycle_transition_reason].nil?
         Hearth::Validator.validate!(input[:root_volume_security_style], ::String, context: "#{context}[:root_volume_security_style]")
       end
     end
@@ -1751,7 +1753,7 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StorageVirtualMachineFilter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::StorageVirtualMachineFilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        StorageVirtualMachineFilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -1768,7 +1770,7 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StorageVirtualMachineFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StorageVirtualMachineFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1793,7 +1795,7 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StorageVirtualMachine.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StorageVirtualMachine.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1811,7 +1813,7 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SvmActiveDirectoryConfiguration, context: context)
         Hearth::Validator.validate!(input[:net_bios_name], ::String, context: "#{context}[:net_bios_name]")
-        Validators::SelfManagedActiveDirectoryAttributes.validate!(input[:self_managed_active_directory_configuration], context: "#{context}[:self_managed_active_directory_configuration]") unless input[:self_managed_active_directory_configuration].nil?
+        SelfManagedActiveDirectoryAttributes.validate!(input[:self_managed_active_directory_configuration], context: "#{context}[:self_managed_active_directory_configuration]") unless input[:self_managed_active_directory_configuration].nil?
       end
     end
 
@@ -1819,17 +1821,17 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SvmEndpoint, context: context)
         Hearth::Validator.validate!(input[:dns_name], ::String, context: "#{context}[:dns_name]")
-        Validators::OntapEndpointIpAddresses.validate!(input[:ip_addresses], context: "#{context}[:ip_addresses]") unless input[:ip_addresses].nil?
+        OntapEndpointIpAddresses.validate!(input[:ip_addresses], context: "#{context}[:ip_addresses]") unless input[:ip_addresses].nil?
       end
     end
 
     class SvmEndpoints
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SvmEndpoints, context: context)
-        Validators::SvmEndpoint.validate!(input[:iscsi], context: "#{context}[:iscsi]") unless input[:iscsi].nil?
-        Validators::SvmEndpoint.validate!(input[:management], context: "#{context}[:management]") unless input[:management].nil?
-        Validators::SvmEndpoint.validate!(input[:nfs], context: "#{context}[:nfs]") unless input[:nfs].nil?
-        Validators::SvmEndpoint.validate!(input[:smb], context: "#{context}[:smb]") unless input[:smb].nil?
+        SvmEndpoint.validate!(input[:iscsi], context: "#{context}[:iscsi]") unless input[:iscsi].nil?
+        SvmEndpoint.validate!(input[:management], context: "#{context}[:management]") unless input[:management].nil?
+        SvmEndpoint.validate!(input[:nfs], context: "#{context}[:nfs]") unless input[:nfs].nil?
+        SvmEndpoint.validate!(input[:smb], context: "#{context}[:smb]") unless input[:smb].nil?
       end
     end
 
@@ -1854,7 +1856,7 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1868,7 +1870,7 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1901,7 +1903,7 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1917,14 +1919,14 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input[:association_id], ::String, context: "#{context}[:association_id]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
         Hearth::Validator.validate!(input[:imported_file_chunk_size], ::Integer, context: "#{context}[:imported_file_chunk_size]")
-        Validators::S3DataRepositoryConfiguration.validate!(input[:s3], context: "#{context}[:s3]") unless input[:s3].nil?
+        S3DataRepositoryConfiguration.validate!(input[:s3], context: "#{context}[:s3]") unless input[:s3].nil?
       end
     end
 
     class UpdateDataRepositoryAssociationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateDataRepositoryAssociationOutput, context: context)
-        Validators::DataRepositoryAssociation.validate!(input[:association], context: "#{context}[:association]") unless input[:association].nil?
+        DataRepositoryAssociation.validate!(input[:association], context: "#{context}[:association]") unless input[:association].nil?
       end
     end
 
@@ -1934,10 +1936,10 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input[:file_system_id], ::String, context: "#{context}[:file_system_id]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
         Hearth::Validator.validate!(input[:storage_capacity], ::Integer, context: "#{context}[:storage_capacity]")
-        Validators::UpdateFileSystemWindowsConfiguration.validate!(input[:windows_configuration], context: "#{context}[:windows_configuration]") unless input[:windows_configuration].nil?
-        Validators::UpdateFileSystemLustreConfiguration.validate!(input[:lustre_configuration], context: "#{context}[:lustre_configuration]") unless input[:lustre_configuration].nil?
-        Validators::UpdateFileSystemOntapConfiguration.validate!(input[:ontap_configuration], context: "#{context}[:ontap_configuration]") unless input[:ontap_configuration].nil?
-        Validators::UpdateFileSystemOpenZFSConfiguration.validate!(input[:open_zfs_configuration], context: "#{context}[:open_zfs_configuration]") unless input[:open_zfs_configuration].nil?
+        UpdateFileSystemWindowsConfiguration.validate!(input[:windows_configuration], context: "#{context}[:windows_configuration]") unless input[:windows_configuration].nil?
+        UpdateFileSystemLustreConfiguration.validate!(input[:lustre_configuration], context: "#{context}[:lustre_configuration]") unless input[:lustre_configuration].nil?
+        UpdateFileSystemOntapConfiguration.validate!(input[:ontap_configuration], context: "#{context}[:ontap_configuration]") unless input[:ontap_configuration].nil?
+        UpdateFileSystemOpenZFSConfiguration.validate!(input[:open_zfs_configuration], context: "#{context}[:open_zfs_configuration]") unless input[:open_zfs_configuration].nil?
       end
     end
 
@@ -1949,8 +1951,8 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input[:automatic_backup_retention_days], ::Integer, context: "#{context}[:automatic_backup_retention_days]")
         Hearth::Validator.validate!(input[:auto_import_policy], ::String, context: "#{context}[:auto_import_policy]")
         Hearth::Validator.validate!(input[:data_compression_type], ::String, context: "#{context}[:data_compression_type]")
-        Validators::LustreLogCreateConfiguration.validate!(input[:log_configuration], context: "#{context}[:log_configuration]") unless input[:log_configuration].nil?
-        Validators::LustreRootSquashConfiguration.validate!(input[:root_squash_configuration], context: "#{context}[:root_squash_configuration]") unless input[:root_squash_configuration].nil?
+        LustreLogCreateConfiguration.validate!(input[:log_configuration], context: "#{context}[:log_configuration]") unless input[:log_configuration].nil?
+        LustreRootSquashConfiguration.validate!(input[:root_squash_configuration], context: "#{context}[:root_squash_configuration]") unless input[:root_squash_configuration].nil?
       end
     end
 
@@ -1961,7 +1963,7 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input[:daily_automatic_backup_start_time], ::String, context: "#{context}[:daily_automatic_backup_start_time]")
         Hearth::Validator.validate!(input[:fsx_admin_password], ::String, context: "#{context}[:fsx_admin_password]")
         Hearth::Validator.validate!(input[:weekly_maintenance_start_time], ::String, context: "#{context}[:weekly_maintenance_start_time]")
-        Validators::DiskIopsConfiguration.validate!(input[:disk_iops_configuration], context: "#{context}[:disk_iops_configuration]") unless input[:disk_iops_configuration].nil?
+        DiskIopsConfiguration.validate!(input[:disk_iops_configuration], context: "#{context}[:disk_iops_configuration]") unless input[:disk_iops_configuration].nil?
         Hearth::Validator.validate!(input[:throughput_capacity], ::Integer, context: "#{context}[:throughput_capacity]")
       end
     end
@@ -1975,14 +1977,14 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input[:daily_automatic_backup_start_time], ::String, context: "#{context}[:daily_automatic_backup_start_time]")
         Hearth::Validator.validate!(input[:throughput_capacity], ::Integer, context: "#{context}[:throughput_capacity]")
         Hearth::Validator.validate!(input[:weekly_maintenance_start_time], ::String, context: "#{context}[:weekly_maintenance_start_time]")
-        Validators::DiskIopsConfiguration.validate!(input[:disk_iops_configuration], context: "#{context}[:disk_iops_configuration]") unless input[:disk_iops_configuration].nil?
+        DiskIopsConfiguration.validate!(input[:disk_iops_configuration], context: "#{context}[:disk_iops_configuration]") unless input[:disk_iops_configuration].nil?
       end
     end
 
     class UpdateFileSystemOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateFileSystemOutput, context: context)
-        Validators::FileSystem.validate!(input[:file_system], context: "#{context}[:file_system]") unless input[:file_system].nil?
+        FileSystem.validate!(input[:file_system], context: "#{context}[:file_system]") unless input[:file_system].nil?
       end
     end
 
@@ -1993,8 +1995,8 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input[:daily_automatic_backup_start_time], ::String, context: "#{context}[:daily_automatic_backup_start_time]")
         Hearth::Validator.validate!(input[:automatic_backup_retention_days], ::Integer, context: "#{context}[:automatic_backup_retention_days]")
         Hearth::Validator.validate!(input[:throughput_capacity], ::Integer, context: "#{context}[:throughput_capacity]")
-        Validators::SelfManagedActiveDirectoryConfigurationUpdates.validate!(input[:self_managed_active_directory_configuration], context: "#{context}[:self_managed_active_directory_configuration]") unless input[:self_managed_active_directory_configuration].nil?
-        Validators::WindowsAuditLogCreateConfiguration.validate!(input[:audit_log_configuration], context: "#{context}[:audit_log_configuration]") unless input[:audit_log_configuration].nil?
+        SelfManagedActiveDirectoryConfigurationUpdates.validate!(input[:self_managed_active_directory_configuration], context: "#{context}[:self_managed_active_directory_configuration]") unless input[:self_managed_active_directory_configuration].nil?
+        WindowsAuditLogCreateConfiguration.validate!(input[:audit_log_configuration], context: "#{context}[:audit_log_configuration]") unless input[:audit_log_configuration].nil?
       end
     end
 
@@ -2005,7 +2007,7 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input[:security_style], ::String, context: "#{context}[:security_style]")
         Hearth::Validator.validate!(input[:size_in_megabytes], ::Integer, context: "#{context}[:size_in_megabytes]")
         Hearth::Validator.validate!(input[:storage_efficiency_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:storage_efficiency_enabled]")
-        Validators::TieringPolicy.validate!(input[:tiering_policy], context: "#{context}[:tiering_policy]") unless input[:tiering_policy].nil?
+        TieringPolicy.validate!(input[:tiering_policy], context: "#{context}[:tiering_policy]") unless input[:tiering_policy].nil?
       end
     end
 
@@ -2016,8 +2018,8 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input[:storage_capacity_quota_gi_b], ::Integer, context: "#{context}[:storage_capacity_quota_gi_b]")
         Hearth::Validator.validate!(input[:record_size_ki_b], ::Integer, context: "#{context}[:record_size_ki_b]")
         Hearth::Validator.validate!(input[:data_compression_type], ::String, context: "#{context}[:data_compression_type]")
-        Validators::OpenZFSNfsExports.validate!(input[:nfs_exports], context: "#{context}[:nfs_exports]") unless input[:nfs_exports].nil?
-        Validators::OpenZFSUserAndGroupQuotas.validate!(input[:user_and_group_quotas], context: "#{context}[:user_and_group_quotas]") unless input[:user_and_group_quotas].nil?
+        OpenZFSNfsExports.validate!(input[:nfs_exports], context: "#{context}[:nfs_exports]") unless input[:nfs_exports].nil?
+        OpenZFSUserAndGroupQuotas.validate!(input[:user_and_group_quotas], context: "#{context}[:user_and_group_quotas]") unless input[:user_and_group_quotas].nil?
         Hearth::Validator.validate!(input[:read_only], ::TrueClass, ::FalseClass, context: "#{context}[:read_only]")
       end
     end
@@ -2034,14 +2036,14 @@ module AWS::SDK::FSx
     class UpdateSnapshotOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateSnapshotOutput, context: context)
-        Validators::Snapshot.validate!(input[:snapshot], context: "#{context}[:snapshot]") unless input[:snapshot].nil?
+        Snapshot.validate!(input[:snapshot], context: "#{context}[:snapshot]") unless input[:snapshot].nil?
       end
     end
 
     class UpdateStorageVirtualMachineInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateStorageVirtualMachineInput, context: context)
-        Validators::UpdateSvmActiveDirectoryConfiguration.validate!(input[:active_directory_configuration], context: "#{context}[:active_directory_configuration]") unless input[:active_directory_configuration].nil?
+        UpdateSvmActiveDirectoryConfiguration.validate!(input[:active_directory_configuration], context: "#{context}[:active_directory_configuration]") unless input[:active_directory_configuration].nil?
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
         Hearth::Validator.validate!(input[:storage_virtual_machine_id], ::String, context: "#{context}[:storage_virtual_machine_id]")
         Hearth::Validator.validate!(input[:svm_admin_password], ::String, context: "#{context}[:svm_admin_password]")
@@ -2051,14 +2053,14 @@ module AWS::SDK::FSx
     class UpdateStorageVirtualMachineOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateStorageVirtualMachineOutput, context: context)
-        Validators::StorageVirtualMachine.validate!(input[:storage_virtual_machine], context: "#{context}[:storage_virtual_machine]") unless input[:storage_virtual_machine].nil?
+        StorageVirtualMachine.validate!(input[:storage_virtual_machine], context: "#{context}[:storage_virtual_machine]") unless input[:storage_virtual_machine].nil?
       end
     end
 
     class UpdateSvmActiveDirectoryConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateSvmActiveDirectoryConfiguration, context: context)
-        Validators::SelfManagedActiveDirectoryConfigurationUpdates.validate!(input[:self_managed_active_directory_configuration], context: "#{context}[:self_managed_active_directory_configuration]") unless input[:self_managed_active_directory_configuration].nil?
+        SelfManagedActiveDirectoryConfigurationUpdates.validate!(input[:self_managed_active_directory_configuration], context: "#{context}[:self_managed_active_directory_configuration]") unless input[:self_managed_active_directory_configuration].nil?
       end
     end
 
@@ -2067,16 +2069,16 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input, Types::UpdateVolumeInput, context: context)
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
         Hearth::Validator.validate!(input[:volume_id], ::String, context: "#{context}[:volume_id]")
-        Validators::UpdateOntapVolumeConfiguration.validate!(input[:ontap_configuration], context: "#{context}[:ontap_configuration]") unless input[:ontap_configuration].nil?
+        UpdateOntapVolumeConfiguration.validate!(input[:ontap_configuration], context: "#{context}[:ontap_configuration]") unless input[:ontap_configuration].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::UpdateOpenZFSVolumeConfiguration.validate!(input[:open_zfs_configuration], context: "#{context}[:open_zfs_configuration]") unless input[:open_zfs_configuration].nil?
+        UpdateOpenZFSVolumeConfiguration.validate!(input[:open_zfs_configuration], context: "#{context}[:open_zfs_configuration]") unless input[:open_zfs_configuration].nil?
       end
     end
 
     class UpdateVolumeOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateVolumeOutput, context: context)
-        Validators::Volume.validate!(input[:volume], context: "#{context}[:volume]") unless input[:volume].nil?
+        Volume.validate!(input[:volume], context: "#{context}[:volume]") unless input[:volume].nil?
       end
     end
 
@@ -2087,14 +2089,14 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(input[:file_system_id], ::String, context: "#{context}[:file_system_id]")
         Hearth::Validator.validate!(input[:lifecycle], ::String, context: "#{context}[:lifecycle]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::OntapVolumeConfiguration.validate!(input[:ontap_configuration], context: "#{context}[:ontap_configuration]") unless input[:ontap_configuration].nil?
+        OntapVolumeConfiguration.validate!(input[:ontap_configuration], context: "#{context}[:ontap_configuration]") unless input[:ontap_configuration].nil?
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:volume_id], ::String, context: "#{context}[:volume_id]")
         Hearth::Validator.validate!(input[:volume_type], ::String, context: "#{context}[:volume_type]")
-        Validators::LifecycleTransitionReason.validate!(input[:lifecycle_transition_reason], context: "#{context}[:lifecycle_transition_reason]") unless input[:lifecycle_transition_reason].nil?
-        Validators::AdministrativeActions.validate!(input[:administrative_actions], context: "#{context}[:administrative_actions]") unless input[:administrative_actions].nil?
-        Validators::OpenZFSVolumeConfiguration.validate!(input[:open_zfs_configuration], context: "#{context}[:open_zfs_configuration]") unless input[:open_zfs_configuration].nil?
+        LifecycleTransitionReason.validate!(input[:lifecycle_transition_reason], context: "#{context}[:lifecycle_transition_reason]") unless input[:lifecycle_transition_reason].nil?
+        AdministrativeActions.validate!(input[:administrative_actions], context: "#{context}[:administrative_actions]") unless input[:administrative_actions].nil?
+        OpenZFSVolumeConfiguration.validate!(input[:open_zfs_configuration], context: "#{context}[:open_zfs_configuration]") unless input[:open_zfs_configuration].nil?
       end
     end
 
@@ -2102,7 +2104,7 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VolumeFilter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::VolumeFilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        VolumeFilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -2119,7 +2121,7 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::VolumeFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          VolumeFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2144,7 +2146,7 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Volume.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Volume.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2171,19 +2173,19 @@ module AWS::SDK::FSx
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::WindowsFileSystemConfiguration, context: context)
         Hearth::Validator.validate!(input[:active_directory_id], ::String, context: "#{context}[:active_directory_id]")
-        Validators::SelfManagedActiveDirectoryAttributes.validate!(input[:self_managed_active_directory_configuration], context: "#{context}[:self_managed_active_directory_configuration]") unless input[:self_managed_active_directory_configuration].nil?
+        SelfManagedActiveDirectoryAttributes.validate!(input[:self_managed_active_directory_configuration], context: "#{context}[:self_managed_active_directory_configuration]") unless input[:self_managed_active_directory_configuration].nil?
         Hearth::Validator.validate!(input[:deployment_type], ::String, context: "#{context}[:deployment_type]")
         Hearth::Validator.validate!(input[:remote_administration_endpoint], ::String, context: "#{context}[:remote_administration_endpoint]")
         Hearth::Validator.validate!(input[:preferred_subnet_id], ::String, context: "#{context}[:preferred_subnet_id]")
         Hearth::Validator.validate!(input[:preferred_file_server_ip], ::String, context: "#{context}[:preferred_file_server_ip]")
         Hearth::Validator.validate!(input[:throughput_capacity], ::Integer, context: "#{context}[:throughput_capacity]")
-        Validators::FileSystemMaintenanceOperations.validate!(input[:maintenance_operations_in_progress], context: "#{context}[:maintenance_operations_in_progress]") unless input[:maintenance_operations_in_progress].nil?
+        FileSystemMaintenanceOperations.validate!(input[:maintenance_operations_in_progress], context: "#{context}[:maintenance_operations_in_progress]") unless input[:maintenance_operations_in_progress].nil?
         Hearth::Validator.validate!(input[:weekly_maintenance_start_time], ::String, context: "#{context}[:weekly_maintenance_start_time]")
         Hearth::Validator.validate!(input[:daily_automatic_backup_start_time], ::String, context: "#{context}[:daily_automatic_backup_start_time]")
         Hearth::Validator.validate!(input[:automatic_backup_retention_days], ::Integer, context: "#{context}[:automatic_backup_retention_days]")
         Hearth::Validator.validate!(input[:copy_tags_to_backups], ::TrueClass, ::FalseClass, context: "#{context}[:copy_tags_to_backups]")
-        Validators::Aliases.validate!(input[:aliases], context: "#{context}[:aliases]") unless input[:aliases].nil?
-        Validators::WindowsAuditLogConfiguration.validate!(input[:audit_log_configuration], context: "#{context}[:audit_log_configuration]") unless input[:audit_log_configuration].nil?
+        Aliases.validate!(input[:aliases], context: "#{context}[:aliases]") unless input[:aliases].nil?
+        WindowsAuditLogConfiguration.validate!(input[:audit_log_configuration], context: "#{context}[:audit_log_configuration]") unless input[:audit_log_configuration].nil?
       end
     end
 

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Braket
   module Validators
 
@@ -20,8 +22,8 @@ module AWS::SDK::Braket
     class AlgorithmSpecification
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AlgorithmSpecification, context: context)
-        Validators::ScriptModeConfig.validate!(input[:script_mode_config], context: "#{context}[:script_mode_config]") unless input[:script_mode_config].nil?
-        Validators::ContainerImage.validate!(input[:container_image], context: "#{context}[:container_image]") unless input[:container_image].nil?
+        ScriptModeConfig.validate!(input[:script_mode_config], context: "#{context}[:script_mode_config]") unless input[:script_mode_config].nil?
+        ContainerImage.validate!(input[:container_image], context: "#{context}[:container_image]") unless input[:container_image].nil?
       end
     end
 
@@ -74,17 +76,17 @@ module AWS::SDK::Braket
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateJobInput, context: context)
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
-        Validators::AlgorithmSpecification.validate!(input[:algorithm_specification], context: "#{context}[:algorithm_specification]") unless input[:algorithm_specification].nil?
-        Validators::InputConfigList.validate!(input[:input_data_config], context: "#{context}[:input_data_config]") unless input[:input_data_config].nil?
-        Validators::JobOutputDataConfig.validate!(input[:output_data_config], context: "#{context}[:output_data_config]") unless input[:output_data_config].nil?
-        Validators::JobCheckpointConfig.validate!(input[:checkpoint_config], context: "#{context}[:checkpoint_config]") unless input[:checkpoint_config].nil?
+        AlgorithmSpecification.validate!(input[:algorithm_specification], context: "#{context}[:algorithm_specification]") unless input[:algorithm_specification].nil?
+        InputConfigList.validate!(input[:input_data_config], context: "#{context}[:input_data_config]") unless input[:input_data_config].nil?
+        JobOutputDataConfig.validate!(input[:output_data_config], context: "#{context}[:output_data_config]") unless input[:output_data_config].nil?
+        JobCheckpointConfig.validate!(input[:checkpoint_config], context: "#{context}[:checkpoint_config]") unless input[:checkpoint_config].nil?
         Hearth::Validator.validate!(input[:job_name], ::String, context: "#{context}[:job_name]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::JobStoppingCondition.validate!(input[:stopping_condition], context: "#{context}[:stopping_condition]") unless input[:stopping_condition].nil?
-        Validators::InstanceConfig.validate!(input[:instance_config], context: "#{context}[:instance_config]") unless input[:instance_config].nil?
-        Validators::HyperParameters.validate!(input[:hyper_parameters], context: "#{context}[:hyper_parameters]") unless input[:hyper_parameters].nil?
-        Validators::DeviceConfig.validate!(input[:device_config], context: "#{context}[:device_config]") unless input[:device_config].nil?
-        Validators::TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        JobStoppingCondition.validate!(input[:stopping_condition], context: "#{context}[:stopping_condition]") unless input[:stopping_condition].nil?
+        InstanceConfig.validate!(input[:instance_config], context: "#{context}[:instance_config]") unless input[:instance_config].nil?
+        HyperParameters.validate!(input[:hyper_parameters], context: "#{context}[:hyper_parameters]") unless input[:hyper_parameters].nil?
+        DeviceConfig.validate!(input[:device_config], context: "#{context}[:device_config]") unless input[:device_config].nil?
+        TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -105,7 +107,7 @@ module AWS::SDK::Braket
         Hearth::Validator.validate!(input[:output_s3_bucket], ::String, context: "#{context}[:output_s3_bucket]")
         Hearth::Validator.validate!(input[:output_s3_key_prefix], ::String, context: "#{context}[:output_s3_key_prefix]")
         Hearth::Validator.validate!(input[:action], ::String, context: "#{context}[:action]")
-        Validators::TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:job_token], ::String, context: "#{context}[:job_token]")
       end
     end
@@ -120,7 +122,7 @@ module AWS::SDK::Braket
     class DataSource
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DataSource, context: context)
-        Validators::S3DataSource.validate!(input[:s3_data_source], context: "#{context}[:s3_data_source]") unless input[:s3_data_source].nil?
+        S3DataSource.validate!(input[:s3_data_source], context: "#{context}[:s3_data_source]") unless input[:s3_data_source].nil?
       end
     end
 
@@ -160,7 +162,7 @@ module AWS::SDK::Braket
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DeviceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DeviceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -199,20 +201,20 @@ module AWS::SDK::Braket
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:failure_reason], ::String, context: "#{context}[:failure_reason]")
         Hearth::Validator.validate!(input[:job_name], ::String, context: "#{context}[:job_name]")
-        Validators::HyperParameters.validate!(input[:hyper_parameters], context: "#{context}[:hyper_parameters]") unless input[:hyper_parameters].nil?
-        Validators::InputConfigList.validate!(input[:input_data_config], context: "#{context}[:input_data_config]") unless input[:input_data_config].nil?
-        Validators::JobOutputDataConfig.validate!(input[:output_data_config], context: "#{context}[:output_data_config]") unless input[:output_data_config].nil?
-        Validators::JobStoppingCondition.validate!(input[:stopping_condition], context: "#{context}[:stopping_condition]") unless input[:stopping_condition].nil?
-        Validators::JobCheckpointConfig.validate!(input[:checkpoint_config], context: "#{context}[:checkpoint_config]") unless input[:checkpoint_config].nil?
-        Validators::AlgorithmSpecification.validate!(input[:algorithm_specification], context: "#{context}[:algorithm_specification]") unless input[:algorithm_specification].nil?
-        Validators::InstanceConfig.validate!(input[:instance_config], context: "#{context}[:instance_config]") unless input[:instance_config].nil?
+        HyperParameters.validate!(input[:hyper_parameters], context: "#{context}[:hyper_parameters]") unless input[:hyper_parameters].nil?
+        InputConfigList.validate!(input[:input_data_config], context: "#{context}[:input_data_config]") unless input[:input_data_config].nil?
+        JobOutputDataConfig.validate!(input[:output_data_config], context: "#{context}[:output_data_config]") unless input[:output_data_config].nil?
+        JobStoppingCondition.validate!(input[:stopping_condition], context: "#{context}[:stopping_condition]") unless input[:stopping_condition].nil?
+        JobCheckpointConfig.validate!(input[:checkpoint_config], context: "#{context}[:checkpoint_config]") unless input[:checkpoint_config].nil?
+        AlgorithmSpecification.validate!(input[:algorithm_specification], context: "#{context}[:algorithm_specification]") unless input[:algorithm_specification].nil?
+        InstanceConfig.validate!(input[:instance_config], context: "#{context}[:instance_config]") unless input[:instance_config].nil?
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:started_at], ::Time, context: "#{context}[:started_at]")
         Hearth::Validator.validate!(input[:ended_at], ::Time, context: "#{context}[:ended_at]")
         Hearth::Validator.validate!(input[:billable_duration], ::Integer, context: "#{context}[:billable_duration]")
-        Validators::DeviceConfig.validate!(input[:device_config], context: "#{context}[:device_config]") unless input[:device_config].nil?
-        Validators::JobEvents.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
-        Validators::TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        DeviceConfig.validate!(input[:device_config], context: "#{context}[:device_config]") unless input[:device_config].nil?
+        JobEvents.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
+        TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -236,7 +238,7 @@ module AWS::SDK::Braket
         Hearth::Validator.validate!(input[:output_s3_directory], ::String, context: "#{context}[:output_s3_directory]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:ended_at], ::Time, context: "#{context}[:ended_at]")
-        Validators::TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:job_arn], ::String, context: "#{context}[:job_arn]")
       end
     end
@@ -255,7 +257,7 @@ module AWS::SDK::Braket
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InputFileConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InputFileConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -265,7 +267,7 @@ module AWS::SDK::Braket
         Hearth::Validator.validate!(input, Types::InputFileConfig, context: context)
         Hearth::Validator.validate!(input[:channel_name], ::String, context: "#{context}[:channel_name]")
         Hearth::Validator.validate!(input[:content_type], ::String, context: "#{context}[:content_type]")
-        Validators::DataSource.validate!(input[:data_source], context: "#{context}[:data_source]") unless input[:data_source].nil?
+        DataSource.validate!(input[:data_source], context: "#{context}[:data_source]") unless input[:data_source].nil?
       end
     end
 
@@ -306,7 +308,7 @@ module AWS::SDK::Braket
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::JobEventDetails.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          JobEventDetails.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -336,7 +338,7 @@ module AWS::SDK::Braket
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:started_at], ::Time, context: "#{context}[:started_at]")
         Hearth::Validator.validate!(input[:ended_at], ::Time, context: "#{context}[:ended_at]")
-        Validators::TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -344,7 +346,7 @@ module AWS::SDK::Braket
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::JobSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          JobSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -359,7 +361,7 @@ module AWS::SDK::Braket
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -374,7 +376,7 @@ module AWS::SDK::Braket
         Hearth::Validator.validate!(input[:output_s3_directory], ::String, context: "#{context}[:output_s3_directory]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:ended_at], ::Time, context: "#{context}[:ended_at]")
-        Validators::TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -382,7 +384,7 @@ module AWS::SDK::Braket
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::QuantumTaskSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          QuantumTaskSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -414,7 +416,7 @@ module AWS::SDK::Braket
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchDevicesFilter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::String256List.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        String256List.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -422,7 +424,7 @@ module AWS::SDK::Braket
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SearchDevicesFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SearchDevicesFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -432,14 +434,14 @@ module AWS::SDK::Braket
         Hearth::Validator.validate!(input, Types::SearchDevicesInput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::SearchDevicesFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        SearchDevicesFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
     class SearchDevicesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchDevicesOutput, context: context)
-        Validators::DeviceSummaryList.validate!(input[:devices], context: "#{context}[:devices]") unless input[:devices].nil?
+        DeviceSummaryList.validate!(input[:devices], context: "#{context}[:devices]") unless input[:devices].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -448,7 +450,7 @@ module AWS::SDK::Braket
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchJobsFilter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::String256List.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        String256List.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
         Hearth::Validator.validate!(input[:operator], ::String, context: "#{context}[:operator]")
       end
     end
@@ -457,7 +459,7 @@ module AWS::SDK::Braket
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SearchJobsFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SearchJobsFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -467,14 +469,14 @@ module AWS::SDK::Braket
         Hearth::Validator.validate!(input, Types::SearchJobsInput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::SearchJobsFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        SearchJobsFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
     class SearchJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchJobsOutput, context: context)
-        Validators::JobSummaryList.validate!(input[:jobs], context: "#{context}[:jobs]") unless input[:jobs].nil?
+        JobSummaryList.validate!(input[:jobs], context: "#{context}[:jobs]") unless input[:jobs].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -483,7 +485,7 @@ module AWS::SDK::Braket
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchQuantumTasksFilter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::String256List.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        String256List.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
         Hearth::Validator.validate!(input[:operator], ::String, context: "#{context}[:operator]")
       end
     end
@@ -492,7 +494,7 @@ module AWS::SDK::Braket
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SearchQuantumTasksFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SearchQuantumTasksFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -502,14 +504,14 @@ module AWS::SDK::Braket
         Hearth::Validator.validate!(input, Types::SearchQuantumTasksInput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::SearchQuantumTasksFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        SearchQuantumTasksFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
     class SearchQuantumTasksOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchQuantumTasksOutput, context: context)
-        Validators::QuantumTaskSummaryList.validate!(input[:quantum_tasks], context: "#{context}[:quantum_tasks]") unless input[:quantum_tasks].nil?
+        QuantumTaskSummaryList.validate!(input[:quantum_tasks], context: "#{context}[:quantum_tasks]") unless input[:quantum_tasks].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -543,7 +545,7 @@ module AWS::SDK::Braket
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -574,7 +576,7 @@ module AWS::SDK::Braket
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Organizations
@@ -176,7 +178,7 @@ module AWS::SDK::Organizations
     def accept_handshake(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AcceptHandshakeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AcceptHandshakeInput,
         validate_input: @config.validate_input
@@ -298,7 +300,7 @@ module AWS::SDK::Organizations
     def attach_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AttachPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AttachPolicyInput,
         validate_input: @config.validate_input
@@ -390,7 +392,7 @@ module AWS::SDK::Organizations
     def cancel_handshake(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelHandshakeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelHandshakeInput,
         validate_input: @config.validate_input
@@ -505,7 +507,7 @@ module AWS::SDK::Organizations
     def close_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CloseAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CloseAccountInput,
         validate_input: @config.validate_input
@@ -753,7 +755,7 @@ module AWS::SDK::Organizations
     def create_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAccountInput,
         validate_input: @config.validate_input
@@ -1058,7 +1060,7 @@ module AWS::SDK::Organizations
     def create_gov_cloud_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateGovCloudAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateGovCloudAccountInput,
         validate_input: @config.validate_input
@@ -1169,7 +1171,7 @@ module AWS::SDK::Organizations
     def create_organization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateOrganizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateOrganizationInput,
         validate_input: @config.validate_input
@@ -1288,7 +1290,7 @@ module AWS::SDK::Organizations
     def create_organizational_unit(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateOrganizationalUnitInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateOrganizationalUnitInput,
         validate_input: @config.validate_input
@@ -1426,7 +1428,7 @@ module AWS::SDK::Organizations
     def create_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePolicyInput,
         validate_input: @config.validate_input
@@ -1519,7 +1521,7 @@ module AWS::SDK::Organizations
     def decline_handshake(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeclineHandshakeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeclineHandshakeInput,
         validate_input: @config.validate_input
@@ -1583,7 +1585,7 @@ module AWS::SDK::Organizations
     def delete_organization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteOrganizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteOrganizationInput,
         validate_input: @config.validate_input
@@ -1658,7 +1660,7 @@ module AWS::SDK::Organizations
     def delete_organizational_unit(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteOrganizationalUnitInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteOrganizationalUnitInput,
         validate_input: @config.validate_input
@@ -1733,7 +1735,7 @@ module AWS::SDK::Organizations
     def delete_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePolicyInput,
         validate_input: @config.validate_input
@@ -1824,7 +1826,7 @@ module AWS::SDK::Organizations
     def deregister_delegated_administrator(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterDelegatedAdministratorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterDelegatedAdministratorInput,
         validate_input: @config.validate_input
@@ -1905,7 +1907,7 @@ module AWS::SDK::Organizations
     def describe_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAccountInput,
         validate_input: @config.validate_input
@@ -1988,7 +1990,7 @@ module AWS::SDK::Organizations
     def describe_create_account_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCreateAccountStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCreateAccountStatusInput,
         validate_input: @config.validate_input
@@ -2094,7 +2096,7 @@ module AWS::SDK::Organizations
     def describe_effective_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEffectivePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEffectivePolicyInput,
         validate_input: @config.validate_input
@@ -2188,7 +2190,7 @@ module AWS::SDK::Organizations
     def describe_handshake(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeHandshakeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeHandshakeInput,
         validate_input: @config.validate_input
@@ -2269,7 +2271,7 @@ module AWS::SDK::Organizations
     def describe_organization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeOrganizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeOrganizationInput,
         validate_input: @config.validate_input
@@ -2349,7 +2351,7 @@ module AWS::SDK::Organizations
     def describe_organizational_unit(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeOrganizationalUnitInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeOrganizationalUnitInput,
         validate_input: @config.validate_input
@@ -2432,7 +2434,7 @@ module AWS::SDK::Organizations
     def describe_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePolicyInput,
         validate_input: @config.validate_input
@@ -2543,7 +2545,7 @@ module AWS::SDK::Organizations
     def detach_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetachPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetachPolicyInput,
         validate_input: @config.validate_input
@@ -2669,7 +2671,7 @@ module AWS::SDK::Organizations
     def disable_aws_service_access(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableAWSServiceAccessInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableAWSServiceAccessInput,
         validate_input: @config.validate_input
@@ -2785,7 +2787,7 @@ module AWS::SDK::Organizations
     def disable_policy_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisablePolicyTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisablePolicyTypeInput,
         validate_input: @config.validate_input
@@ -2875,7 +2877,7 @@ module AWS::SDK::Organizations
     def enable_aws_service_access(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableAWSServiceAccessInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableAWSServiceAccessInput,
         validate_input: @config.validate_input
@@ -2979,7 +2981,7 @@ module AWS::SDK::Organizations
     def enable_all_features(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableAllFeaturesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableAllFeaturesInput,
         validate_input: @config.validate_input
@@ -3095,7 +3097,7 @@ module AWS::SDK::Organizations
     def enable_policy_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnablePolicyTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnablePolicyTypeInput,
         validate_input: @config.validate_input
@@ -3258,7 +3260,7 @@ module AWS::SDK::Organizations
     def invite_account_to_organization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::InviteAccountToOrganizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::InviteAccountToOrganizationInput,
         validate_input: @config.validate_input
@@ -3385,7 +3387,7 @@ module AWS::SDK::Organizations
     def leave_organization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::LeaveOrganizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::LeaveOrganizationInput,
         validate_input: @config.validate_input
@@ -3481,7 +3483,7 @@ module AWS::SDK::Organizations
     def list_aws_service_access_for_organization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAWSServiceAccessForOrganizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAWSServiceAccessForOrganizationInput,
         validate_input: @config.validate_input
@@ -3585,7 +3587,7 @@ module AWS::SDK::Organizations
     def list_accounts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAccountsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAccountsInput,
         validate_input: @config.validate_input
@@ -3697,7 +3699,7 @@ module AWS::SDK::Organizations
     def list_accounts_for_parent(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAccountsForParentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAccountsForParentInput,
         validate_input: @config.validate_input
@@ -3821,7 +3823,7 @@ module AWS::SDK::Organizations
     def list_children(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListChildrenInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListChildrenInput,
         validate_input: @config.validate_input
@@ -3933,7 +3935,7 @@ module AWS::SDK::Organizations
     def list_create_account_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCreateAccountStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCreateAccountStatusInput,
         validate_input: @config.validate_input
@@ -4037,7 +4039,7 @@ module AWS::SDK::Organizations
     def list_delegated_administrators(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDelegatedAdministratorsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDelegatedAdministratorsInput,
         validate_input: @config.validate_input
@@ -4132,7 +4134,7 @@ module AWS::SDK::Organizations
     def list_delegated_services_for_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDelegatedServicesForAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDelegatedServicesForAccountInput,
         validate_input: @config.validate_input
@@ -4260,7 +4262,7 @@ module AWS::SDK::Organizations
     def list_handshakes_for_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListHandshakesForAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListHandshakesForAccountInput,
         validate_input: @config.validate_input
@@ -4391,7 +4393,7 @@ module AWS::SDK::Organizations
     def list_handshakes_for_organization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListHandshakesForOrganizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListHandshakesForOrganizationInput,
         validate_input: @config.validate_input
@@ -4509,7 +4511,7 @@ module AWS::SDK::Organizations
     def list_organizational_units_for_parent(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListOrganizationalUnitsForParentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListOrganizationalUnitsForParentInput,
         validate_input: @config.validate_input
@@ -4632,7 +4634,7 @@ module AWS::SDK::Organizations
     def list_parents(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListParentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListParentsInput,
         validate_input: @config.validate_input
@@ -4761,7 +4763,7 @@ module AWS::SDK::Organizations
     def list_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPoliciesInput,
         validate_input: @config.validate_input
@@ -4916,7 +4918,7 @@ module AWS::SDK::Organizations
     def list_policies_for_target(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPoliciesForTargetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPoliciesForTargetInput,
         validate_input: @config.validate_input
@@ -5026,7 +5028,7 @@ module AWS::SDK::Organizations
     def list_roots(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRootsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRootsInput,
         validate_input: @config.validate_input
@@ -5148,7 +5150,7 @@ module AWS::SDK::Organizations
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -5255,7 +5257,7 @@ module AWS::SDK::Organizations
     def list_targets_for_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTargetsForPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTargetsForPolicyInput,
         validate_input: @config.validate_input
@@ -5367,7 +5369,7 @@ module AWS::SDK::Organizations
     def move_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::MoveAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::MoveAccountInput,
         validate_input: @config.validate_input
@@ -5449,7 +5451,7 @@ module AWS::SDK::Organizations
     def register_delegated_administrator(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterDelegatedAdministratorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterDelegatedAdministratorInput,
         validate_input: @config.validate_input
@@ -5557,7 +5559,7 @@ module AWS::SDK::Organizations
     def remove_account_from_organization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveAccountFromOrganizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveAccountFromOrganizationInput,
         validate_input: @config.validate_input
@@ -5680,7 +5682,7 @@ module AWS::SDK::Organizations
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -5794,7 +5796,7 @@ module AWS::SDK::Organizations
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -5881,7 +5883,7 @@ module AWS::SDK::Organizations
     def update_organizational_unit(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateOrganizationalUnitInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateOrganizationalUnitInput,
         validate_input: @config.validate_input
@@ -5981,7 +5983,7 @@ module AWS::SDK::Organizations
     def update_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePolicyInput,
         validate_input: @config.validate_input

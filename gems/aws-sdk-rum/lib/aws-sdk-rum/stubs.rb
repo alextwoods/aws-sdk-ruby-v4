@@ -44,7 +44,7 @@ module AWS::SDK::RUM
     class GetAppMonitor
       def self.default(visited=[])
         {
-          app_monitor: Stubs::AppMonitor.default(visited),
+          app_monitor: AppMonitor.default(visited),
         }
       end
 
@@ -68,10 +68,10 @@ module AWS::SDK::RUM
           id: 'id',
           created: 'created',
           last_modified: 'last_modified',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
           state: 'state',
-          app_monitor_configuration: Stubs::AppMonitorConfiguration.default(visited),
-          data_storage: Stubs::DataStorage.default(visited),
+          app_monitor_configuration: AppMonitorConfiguration.default(visited),
+          data_storage: DataStorage.default(visited),
         }
       end
 
@@ -97,7 +97,7 @@ module AWS::SDK::RUM
         return nil if visited.include?('DataStorage')
         visited = visited + ['DataStorage']
         {
-          cw_log: Stubs::CwLog.default(visited),
+          cw_log: CwLog.default(visited),
         }
       end
 
@@ -136,13 +136,13 @@ module AWS::SDK::RUM
         visited = visited + ['AppMonitorConfiguration']
         {
           identity_pool_id: 'identity_pool_id',
-          excluded_pages: Stubs::Pages.default(visited),
-          included_pages: Stubs::Pages.default(visited),
-          favorite_pages: Stubs::FavoritePages.default(visited),
+          excluded_pages: Pages.default(visited),
+          included_pages: Pages.default(visited),
+          favorite_pages: FavoritePages.default(visited),
           session_sample_rate: 1.0,
           guest_role_arn: 'guest_role_arn',
           allow_cookies: false,
-          telemetries: Stubs::Telemetries.default(visited),
+          telemetries: Telemetries.default(visited),
           enable_x_ray: false,
         }
       end
@@ -247,7 +247,7 @@ module AWS::SDK::RUM
     class GetAppMonitorData
       def self.default(visited=[])
         {
-          events: Stubs::EventDataList.default(visited),
+          events: EventDataList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -287,7 +287,7 @@ module AWS::SDK::RUM
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          app_monitor_summaries: Stubs::AppMonitorSummaryList.default(visited),
+          app_monitor_summaries: AppMonitorSummaryList.default(visited),
         }
       end
 
@@ -307,7 +307,7 @@ module AWS::SDK::RUM
         return nil if visited.include?('AppMonitorSummaryList')
         visited = visited + ['AppMonitorSummaryList']
         [
-          Stubs::AppMonitorSummary.default(visited)
+          AppMonitorSummary.default(visited)
         ]
       end
 
@@ -352,7 +352,7 @@ module AWS::SDK::RUM
       def self.default(visited=[])
         {
           resource_arn: 'resource_arn',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 

@@ -14,7 +14,7 @@ module AWS::SDK::AppSync
     class AssociateApi
       def self.default(visited=[])
         {
-          api_association: Stubs::ApiAssociation.default(visited),
+          api_association: ApiAssociation.default(visited),
         }
       end
 
@@ -55,7 +55,7 @@ module AWS::SDK::AppSync
     class CreateApiCache
       def self.default(visited=[])
         {
-          api_cache: Stubs::ApiCache.default(visited),
+          api_cache: ApiCache.default(visited),
         }
       end
 
@@ -100,7 +100,7 @@ module AWS::SDK::AppSync
     class CreateApiKey
       def self.default(visited=[])
         {
-          api_key: Stubs::ApiKey.default(visited),
+          api_key: ApiKey.default(visited),
         }
       end
 
@@ -141,7 +141,7 @@ module AWS::SDK::AppSync
     class CreateDataSource
       def self.default(visited=[])
         {
-          data_source: Stubs::DataSource.default(visited),
+          data_source: DataSource.default(visited),
         }
       end
 
@@ -165,12 +165,12 @@ module AWS::SDK::AppSync
           description: 'description',
           type: 'type',
           service_role_arn: 'service_role_arn',
-          dynamodb_config: Stubs::DynamodbDataSourceConfig.default(visited),
-          lambda_config: Stubs::LambdaDataSourceConfig.default(visited),
-          elasticsearch_config: Stubs::ElasticsearchDataSourceConfig.default(visited),
-          open_search_service_config: Stubs::OpenSearchServiceDataSourceConfig.default(visited),
-          http_config: Stubs::HttpDataSourceConfig.default(visited),
-          relational_database_config: Stubs::RelationalDatabaseDataSourceConfig.default(visited),
+          dynamodb_config: DynamodbDataSourceConfig.default(visited),
+          lambda_config: LambdaDataSourceConfig.default(visited),
+          elasticsearch_config: ElasticsearchDataSourceConfig.default(visited),
+          open_search_service_config: OpenSearchServiceDataSourceConfig.default(visited),
+          http_config: HttpDataSourceConfig.default(visited),
+          relational_database_config: RelationalDatabaseDataSourceConfig.default(visited),
         }
       end
 
@@ -199,7 +199,7 @@ module AWS::SDK::AppSync
         visited = visited + ['RelationalDatabaseDataSourceConfig']
         {
           relational_database_source_type: 'relational_database_source_type',
-          rds_http_endpoint_config: Stubs::RdsHttpEndpointConfig.default(visited),
+          rds_http_endpoint_config: RdsHttpEndpointConfig.default(visited),
         }
       end
 
@@ -245,7 +245,7 @@ module AWS::SDK::AppSync
         visited = visited + ['HttpDataSourceConfig']
         {
           endpoint: 'endpoint',
-          authorization_config: Stubs::AuthorizationConfig.default(visited),
+          authorization_config: AuthorizationConfig.default(visited),
         }
       end
 
@@ -265,7 +265,7 @@ module AWS::SDK::AppSync
         visited = visited + ['AuthorizationConfig']
         {
           authorization_type: 'authorization_type',
-          aws_iam_config: Stubs::AwsIamConfig.default(visited),
+          aws_iam_config: AwsIamConfig.default(visited),
         }
       end
 
@@ -365,7 +365,7 @@ module AWS::SDK::AppSync
           table_name: 'table_name',
           aws_region: 'aws_region',
           use_caller_credentials: false,
-          delta_sync_config: Stubs::DeltaSyncConfig.default(visited),
+          delta_sync_config: DeltaSyncConfig.default(visited),
           versioned: false,
         }
       end
@@ -408,7 +408,7 @@ module AWS::SDK::AppSync
     class CreateDomainName
       def self.default(visited=[])
         {
-          domain_name_config: Stubs::DomainNameConfig.default(visited),
+          domain_name_config: DomainNameConfig.default(visited),
         }
       end
 
@@ -451,7 +451,7 @@ module AWS::SDK::AppSync
     class CreateFunction
       def self.default(visited=[])
         {
-          function_configuration: Stubs::FunctionConfiguration.default(visited),
+          function_configuration: FunctionConfiguration.default(visited),
         }
       end
 
@@ -478,7 +478,7 @@ module AWS::SDK::AppSync
           request_mapping_template: 'request_mapping_template',
           response_mapping_template: 'response_mapping_template',
           function_version: 'function_version',
-          sync_config: Stubs::SyncConfig.default(visited),
+          sync_config: SyncConfig.default(visited),
           max_batch_size: 1,
         }
       end
@@ -508,7 +508,7 @@ module AWS::SDK::AppSync
         {
           conflict_handler: 'conflict_handler',
           conflict_detection: 'conflict_detection',
-          lambda_conflict_handler_config: Stubs::LambdaConflictHandlerConfig.default(visited),
+          lambda_conflict_handler_config: LambdaConflictHandlerConfig.default(visited),
         }
       end
 
@@ -544,7 +544,7 @@ module AWS::SDK::AppSync
     class CreateGraphqlApi
       def self.default(visited=[])
         {
-          graphql_api: Stubs::GraphqlApi.default(visited),
+          graphql_api: GraphqlApi.default(visited),
         }
       end
 
@@ -566,16 +566,16 @@ module AWS::SDK::AppSync
           name: 'name',
           api_id: 'api_id',
           authentication_type: 'authentication_type',
-          log_config: Stubs::LogConfig.default(visited),
-          user_pool_config: Stubs::UserPoolConfig.default(visited),
-          open_id_connect_config: Stubs::OpenIDConnectConfig.default(visited),
+          log_config: LogConfig.default(visited),
+          user_pool_config: UserPoolConfig.default(visited),
+          open_id_connect_config: OpenIDConnectConfig.default(visited),
           arn: 'arn',
-          uris: Stubs::MapOfStringToString.default(visited),
-          tags: Stubs::TagMap.default(visited),
-          additional_authentication_providers: Stubs::AdditionalAuthenticationProviders.default(visited),
+          uris: MapOfStringToString.default(visited),
+          tags: TagMap.default(visited),
+          additional_authentication_providers: AdditionalAuthenticationProviders.default(visited),
           xray_enabled: false,
           waf_web_acl_arn: 'waf_web_acl_arn',
-          lambda_authorizer_config: Stubs::LambdaAuthorizerConfig.default(visited),
+          lambda_authorizer_config: LambdaAuthorizerConfig.default(visited),
         }
       end
 
@@ -627,7 +627,7 @@ module AWS::SDK::AppSync
         return nil if visited.include?('AdditionalAuthenticationProviders')
         visited = visited + ['AdditionalAuthenticationProviders']
         [
-          Stubs::AdditionalAuthenticationProvider.default(visited)
+          AdditionalAuthenticationProvider.default(visited)
         ]
       end
 
@@ -648,9 +648,9 @@ module AWS::SDK::AppSync
         visited = visited + ['AdditionalAuthenticationProvider']
         {
           authentication_type: 'authentication_type',
-          open_id_connect_config: Stubs::OpenIDConnectConfig.default(visited),
-          user_pool_config: Stubs::CognitoUserPoolConfig.default(visited),
-          lambda_authorizer_config: Stubs::LambdaAuthorizerConfig.default(visited),
+          open_id_connect_config: OpenIDConnectConfig.default(visited),
+          user_pool_config: CognitoUserPoolConfig.default(visited),
+          lambda_authorizer_config: LambdaAuthorizerConfig.default(visited),
         }
       end
 
@@ -801,7 +801,7 @@ module AWS::SDK::AppSync
     class CreateResolver
       def self.default(visited=[])
         {
-          resolver: Stubs::Resolver.default(visited),
+          resolver: Resolver.default(visited),
         }
       end
 
@@ -827,9 +827,9 @@ module AWS::SDK::AppSync
           request_mapping_template: 'request_mapping_template',
           response_mapping_template: 'response_mapping_template',
           kind: 'kind',
-          pipeline_config: Stubs::PipelineConfig.default(visited),
-          sync_config: Stubs::SyncConfig.default(visited),
-          caching_config: Stubs::CachingConfig.default(visited),
+          pipeline_config: PipelineConfig.default(visited),
+          sync_config: SyncConfig.default(visited),
+          caching_config: CachingConfig.default(visited),
           max_batch_size: 1,
         }
       end
@@ -859,7 +859,7 @@ module AWS::SDK::AppSync
         visited = visited + ['CachingConfig']
         {
           ttl: 1,
-          caching_keys: Stubs::CachingKeys.default(visited),
+          caching_keys: CachingKeys.default(visited),
         }
       end
 
@@ -898,7 +898,7 @@ module AWS::SDK::AppSync
         return nil if visited.include?('PipelineConfig')
         visited = visited + ['PipelineConfig']
         {
-          functions: Stubs::FunctionsIds.default(visited),
+          functions: FunctionsIds.default(visited),
         }
       end
 
@@ -934,7 +934,7 @@ module AWS::SDK::AppSync
     class CreateType
       def self.default(visited=[])
         {
-          type: Stubs::Type.default(visited),
+          type: Type.default(visited),
         }
       end
 
@@ -1107,7 +1107,7 @@ module AWS::SDK::AppSync
     class GetApiAssociation
       def self.default(visited=[])
         {
-          api_association: Stubs::ApiAssociation.default(visited),
+          api_association: ApiAssociation.default(visited),
         }
       end
 
@@ -1124,7 +1124,7 @@ module AWS::SDK::AppSync
     class GetApiCache
       def self.default(visited=[])
         {
-          api_cache: Stubs::ApiCache.default(visited),
+          api_cache: ApiCache.default(visited),
         }
       end
 
@@ -1141,7 +1141,7 @@ module AWS::SDK::AppSync
     class GetDataSource
       def self.default(visited=[])
         {
-          data_source: Stubs::DataSource.default(visited),
+          data_source: DataSource.default(visited),
         }
       end
 
@@ -1158,7 +1158,7 @@ module AWS::SDK::AppSync
     class GetDomainName
       def self.default(visited=[])
         {
-          domain_name_config: Stubs::DomainNameConfig.default(visited),
+          domain_name_config: DomainNameConfig.default(visited),
         }
       end
 
@@ -1175,7 +1175,7 @@ module AWS::SDK::AppSync
     class GetFunction
       def self.default(visited=[])
         {
-          function_configuration: Stubs::FunctionConfiguration.default(visited),
+          function_configuration: FunctionConfiguration.default(visited),
         }
       end
 
@@ -1192,7 +1192,7 @@ module AWS::SDK::AppSync
     class GetGraphqlApi
       def self.default(visited=[])
         {
-          graphql_api: Stubs::GraphqlApi.default(visited),
+          graphql_api: GraphqlApi.default(visited),
         }
       end
 
@@ -1225,7 +1225,7 @@ module AWS::SDK::AppSync
     class GetResolver
       def self.default(visited=[])
         {
-          resolver: Stubs::Resolver.default(visited),
+          resolver: Resolver.default(visited),
         }
       end
 
@@ -1261,7 +1261,7 @@ module AWS::SDK::AppSync
     class GetType
       def self.default(visited=[])
         {
-          type: Stubs::Type.default(visited),
+          type: Type.default(visited),
         }
       end
 
@@ -1278,7 +1278,7 @@ module AWS::SDK::AppSync
     class ListApiKeys
       def self.default(visited=[])
         {
-          api_keys: Stubs::ApiKeys.default(visited),
+          api_keys: ApiKeys.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1299,7 +1299,7 @@ module AWS::SDK::AppSync
         return nil if visited.include?('ApiKeys')
         visited = visited + ['ApiKeys']
         [
-          Stubs::ApiKey.default(visited)
+          ApiKey.default(visited)
         ]
       end
 
@@ -1317,7 +1317,7 @@ module AWS::SDK::AppSync
     class ListDataSources
       def self.default(visited=[])
         {
-          data_sources: Stubs::DataSources.default(visited),
+          data_sources: DataSources.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1338,7 +1338,7 @@ module AWS::SDK::AppSync
         return nil if visited.include?('DataSources')
         visited = visited + ['DataSources']
         [
-          Stubs::DataSource.default(visited)
+          DataSource.default(visited)
         ]
       end
 
@@ -1356,7 +1356,7 @@ module AWS::SDK::AppSync
     class ListDomainNames
       def self.default(visited=[])
         {
-          domain_name_configs: Stubs::DomainNameConfigs.default(visited),
+          domain_name_configs: DomainNameConfigs.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1377,7 +1377,7 @@ module AWS::SDK::AppSync
         return nil if visited.include?('DomainNameConfigs')
         visited = visited + ['DomainNameConfigs']
         [
-          Stubs::DomainNameConfig.default(visited)
+          DomainNameConfig.default(visited)
         ]
       end
 
@@ -1395,7 +1395,7 @@ module AWS::SDK::AppSync
     class ListFunctions
       def self.default(visited=[])
         {
-          functions: Stubs::Functions.default(visited),
+          functions: Functions.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1416,7 +1416,7 @@ module AWS::SDK::AppSync
         return nil if visited.include?('Functions')
         visited = visited + ['Functions']
         [
-          Stubs::FunctionConfiguration.default(visited)
+          FunctionConfiguration.default(visited)
         ]
       end
 
@@ -1434,7 +1434,7 @@ module AWS::SDK::AppSync
     class ListGraphqlApis
       def self.default(visited=[])
         {
-          graphql_apis: Stubs::GraphqlApis.default(visited),
+          graphql_apis: GraphqlApis.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1455,7 +1455,7 @@ module AWS::SDK::AppSync
         return nil if visited.include?('GraphqlApis')
         visited = visited + ['GraphqlApis']
         [
-          Stubs::GraphqlApi.default(visited)
+          GraphqlApi.default(visited)
         ]
       end
 
@@ -1473,7 +1473,7 @@ module AWS::SDK::AppSync
     class ListResolvers
       def self.default(visited=[])
         {
-          resolvers: Stubs::Resolvers.default(visited),
+          resolvers: Resolvers.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1494,7 +1494,7 @@ module AWS::SDK::AppSync
         return nil if visited.include?('Resolvers')
         visited = visited + ['Resolvers']
         [
-          Stubs::Resolver.default(visited)
+          Resolver.default(visited)
         ]
       end
 
@@ -1512,7 +1512,7 @@ module AWS::SDK::AppSync
     class ListResolversByFunction
       def self.default(visited=[])
         {
-          resolvers: Stubs::Resolvers.default(visited),
+          resolvers: Resolvers.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1531,7 +1531,7 @@ module AWS::SDK::AppSync
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1548,7 +1548,7 @@ module AWS::SDK::AppSync
     class ListTypes
       def self.default(visited=[])
         {
-          types: Stubs::TypeList.default(visited),
+          types: TypeList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1569,7 +1569,7 @@ module AWS::SDK::AppSync
         return nil if visited.include?('TypeList')
         visited = visited + ['TypeList']
         [
-          Stubs::Type.default(visited)
+          Type.default(visited)
         ]
       end
 
@@ -1630,7 +1630,7 @@ module AWS::SDK::AppSync
     class UpdateApiCache
       def self.default(visited=[])
         {
-          api_cache: Stubs::ApiCache.default(visited),
+          api_cache: ApiCache.default(visited),
         }
       end
 
@@ -1647,7 +1647,7 @@ module AWS::SDK::AppSync
     class UpdateApiKey
       def self.default(visited=[])
         {
-          api_key: Stubs::ApiKey.default(visited),
+          api_key: ApiKey.default(visited),
         }
       end
 
@@ -1664,7 +1664,7 @@ module AWS::SDK::AppSync
     class UpdateDataSource
       def self.default(visited=[])
         {
-          data_source: Stubs::DataSource.default(visited),
+          data_source: DataSource.default(visited),
         }
       end
 
@@ -1681,7 +1681,7 @@ module AWS::SDK::AppSync
     class UpdateDomainName
       def self.default(visited=[])
         {
-          domain_name_config: Stubs::DomainNameConfig.default(visited),
+          domain_name_config: DomainNameConfig.default(visited),
         }
       end
 
@@ -1698,7 +1698,7 @@ module AWS::SDK::AppSync
     class UpdateFunction
       def self.default(visited=[])
         {
-          function_configuration: Stubs::FunctionConfiguration.default(visited),
+          function_configuration: FunctionConfiguration.default(visited),
         }
       end
 
@@ -1715,7 +1715,7 @@ module AWS::SDK::AppSync
     class UpdateGraphqlApi
       def self.default(visited=[])
         {
-          graphql_api: Stubs::GraphqlApi.default(visited),
+          graphql_api: GraphqlApi.default(visited),
         }
       end
 
@@ -1732,7 +1732,7 @@ module AWS::SDK::AppSync
     class UpdateResolver
       def self.default(visited=[])
         {
-          resolver: Stubs::Resolver.default(visited),
+          resolver: Resolver.default(visited),
         }
       end
 
@@ -1749,7 +1749,7 @@ module AWS::SDK::AppSync
     class UpdateType
       def self.default(visited=[])
         {
-          type: Stubs::Type.default(visited),
+          type: Type.default(visited),
         }
       end
 

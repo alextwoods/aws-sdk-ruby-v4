@@ -334,6 +334,7 @@ module AWS::SDK::RDSData
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.type ||= 0
@@ -346,7 +347,6 @@ module AWS::SDK::RDSData
         self.scale ||= 0
         self.array_base_column_type ||= 0
       end
-
     end
 
     # <p>The request parameters represent the input of a commit transaction request.</p>
@@ -555,12 +555,12 @@ module AWS::SDK::RDSData
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_result_metadata ||= false
         self.continue_after_timeout ||= false
       end
-
     end
 
     # <p>The response elements represent the output of a request to run a SQL statement against
@@ -613,11 +613,11 @@ module AWS::SDK::RDSData
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.number_of_records_updated ||= 0
       end
-
     end
 
     # <p>Contains a value.</p>
@@ -841,11 +841,11 @@ module AWS::SDK::RDSData
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.column_count ||= 0
       end
-
     end
 
     # <p>Options that control how the result set is returned.</p>
@@ -1021,11 +1021,11 @@ module AWS::SDK::RDSData
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.number_of_records_updated ||= 0
       end
-
     end
 
     # <p>The execution of the SQL statement timed out.</p>
@@ -1046,11 +1046,11 @@ module AWS::SDK::RDSData
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.db_connection_id ||= 0
       end
-
     end
 
     # <p>A structure value returned by a call.</p>

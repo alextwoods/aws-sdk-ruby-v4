@@ -547,7 +547,7 @@ module AWS::SDK::EC2
         type.ipam_pool_id = params[:ipam_pool_id]
         type.cidr = params[:cidr]
         type.netmask_length = params[:netmask_length]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.description = params[:description]
         type.preview_next_cidr = params[:preview_next_cidr]
         type.disallowed_cidrs = IpamPoolAllocationDisallowedCidrs.build(params[:disallowed_cidrs], context: "#{context}[:disallowed_cidrs]") unless params[:disallowed_cidrs].nil?
@@ -884,7 +884,7 @@ module AWS::SDK::EC2
         type = Types::AssociateClientVpnTargetNetworkInput.new
         type.client_vpn_endpoint_id = params[:client_vpn_endpoint_id]
         type.subnet_id = params[:subnet_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.dry_run = params[:dry_run]
         type
       end
@@ -1071,7 +1071,7 @@ module AWS::SDK::EC2
         type.trunk_interface_id = params[:trunk_interface_id]
         type.vlan_id = params[:vlan_id]
         type.gre_key = params[:gre_key]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.dry_run = params[:dry_run]
         type
       end
@@ -1365,7 +1365,7 @@ module AWS::SDK::EC2
         type.access_group_id = params[:access_group_id]
         type.authorize_all_groups = params[:authorize_all_groups]
         type.description = params[:description]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.dry_run = params[:dry_run]
         type
       end
@@ -2863,7 +2863,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate!(params, ::Hash, Types::CreateCapacityReservationFleetInput, context: context)
         type = Types::CreateCapacityReservationFleetInput.new
         type.allocation_strategy = params[:allocation_strategy]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.instance_type_specifications = ReservationFleetInstanceSpecificationList.build(params[:instance_type_specifications], context: "#{context}[:instance_type_specifications]") unless params[:instance_type_specifications].nil?
         type.tenancy = params[:tenancy]
         type.total_target_capacity = params[:total_target_capacity]
@@ -2934,7 +2934,7 @@ module AWS::SDK::EC2
         type.vpc_id = params[:vpc_id]
         type.tag_specifications = TagSpecificationList.build(params[:tag_specifications], context: "#{context}[:tag_specifications]") unless params[:tag_specifications].nil?
         type.dry_run = params[:dry_run]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -2962,7 +2962,7 @@ module AWS::SDK::EC2
         type.description = params[:description]
         type.split_tunnel = params[:split_tunnel]
         type.dry_run = params[:dry_run]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.tag_specifications = TagSpecificationList.build(params[:tag_specifications], context: "#{context}[:tag_specifications]") unless params[:tag_specifications].nil?
         type.security_group_ids = ClientVpnSecurityGroupIdSet.build(params[:security_group_ids], context: "#{context}[:security_group_ids]") unless params[:security_group_ids].nil?
         type.vpc_id = params[:vpc_id]
@@ -2993,7 +2993,7 @@ module AWS::SDK::EC2
         type.destination_cidr_block = params[:destination_cidr_block]
         type.target_vpc_subnet_id = params[:target_vpc_subnet_id]
         type.description = params[:description]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.dry_run = params[:dry_run]
         type
       end
@@ -3344,7 +3344,7 @@ module AWS::SDK::EC2
         type.description = params[:description]
         type.operating_regions = AddIpamOperatingRegionSet.build(params[:operating_regions], context: "#{context}[:operating_regions]") unless params[:operating_regions].nil?
         type.tag_specifications = TagSpecificationList.build(params[:tag_specifications], context: "#{context}[:tag_specifications]") unless params[:tag_specifications].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -3375,7 +3375,7 @@ module AWS::SDK::EC2
         type.allocation_default_netmask_length = params[:allocation_default_netmask_length]
         type.allocation_resource_tags = RequestIpamResourceTagList.build(params[:allocation_resource_tags], context: "#{context}[:allocation_resource_tags]") unless params[:allocation_resource_tags].nil?
         type.tag_specifications = TagSpecificationList.build(params[:tag_specifications], context: "#{context}[:tag_specifications]") unless params[:tag_specifications].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.aws_service = params[:aws_service]
         type
       end
@@ -3398,7 +3398,7 @@ module AWS::SDK::EC2
         type.ipam_id = params[:ipam_id]
         type.description = params[:description]
         type.tag_specifications = TagSpecificationList.build(params[:tag_specifications], context: "#{context}[:tag_specifications]") unless params[:tag_specifications].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -3539,7 +3539,7 @@ module AWS::SDK::EC2
         type.max_entries = params[:max_entries]
         type.tag_specifications = TagSpecificationList.build(params[:tag_specifications], context: "#{context}[:tag_specifications]") unless params[:tag_specifications].nil?
         type.address_family = params[:address_family]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -3558,7 +3558,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate!(params, ::Hash, Types::CreateNatGatewayInput, context: context)
         type = Types::CreateNatGatewayInput.new
         type.allocation_id = params[:allocation_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.dry_run = params[:dry_run]
         type.subnet_id = params[:subnet_id]
         type.tag_specifications = TagSpecificationList.build(params[:tag_specifications], context: "#{context}[:tag_specifications]") unless params[:tag_specifications].nil?
@@ -3629,7 +3629,7 @@ module AWS::SDK::EC2
         type = Types::CreateNetworkInsightsAccessScopeInput.new
         type.match_paths = AccessScopePathListRequest.build(params[:match_paths], context: "#{context}[:match_paths]") unless params[:match_paths].nil?
         type.exclude_paths = AccessScopePathListRequest.build(params[:exclude_paths], context: "#{context}[:exclude_paths]") unless params[:exclude_paths].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.tag_specifications = TagSpecificationList.build(params[:tag_specifications], context: "#{context}[:tag_specifications]") unless params[:tag_specifications].nil?
         type.dry_run = params[:dry_run]
         type
@@ -3658,7 +3658,7 @@ module AWS::SDK::EC2
         type.destination_port = params[:destination_port]
         type.tag_specifications = TagSpecificationList.build(params[:tag_specifications], context: "#{context}[:tag_specifications]") unless params[:tag_specifications].nil?
         type.dry_run = params[:dry_run]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -3691,7 +3691,7 @@ module AWS::SDK::EC2
         type.interface_type = params[:interface_type]
         type.subnet_id = params[:subnet_id]
         type.tag_specifications = TagSpecificationList.build(params[:tag_specifications], context: "#{context}[:tag_specifications]") unless params[:tag_specifications].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -3775,7 +3775,7 @@ module AWS::SDK::EC2
         type = Types::CreateReplaceRootVolumeTaskInput.new
         type.instance_id = params[:instance_id]
         type.snapshot_id = params[:snapshot_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.dry_run = params[:dry_run]
         type.tag_specifications = TagSpecificationList.build(params[:tag_specifications], context: "#{context}[:tag_specifications]") unless params[:tag_specifications].nil?
         type
@@ -4087,7 +4087,7 @@ module AWS::SDK::EC2
         type.description = params[:description]
         type.tag_specifications = TagSpecificationList.build(params[:tag_specifications], context: "#{context}[:tag_specifications]") unless params[:tag_specifications].nil?
         type.dry_run = params[:dry_run]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -4117,7 +4117,7 @@ module AWS::SDK::EC2
         type.source_cidr_block = params[:source_cidr_block]
         type.description = params[:description]
         type.dry_run = params[:dry_run]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -4145,7 +4145,7 @@ module AWS::SDK::EC2
         type.description = params[:description]
         type.tag_specifications = TagSpecificationList.build(params[:tag_specifications], context: "#{context}[:tag_specifications]") unless params[:tag_specifications].nil?
         type.dry_run = params[:dry_run]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -4169,7 +4169,7 @@ module AWS::SDK::EC2
         type.description = params[:description]
         type.tag_specifications = TagSpecificationList.build(params[:tag_specifications], context: "#{context}[:tag_specifications]") unless params[:tag_specifications].nil?
         type.dry_run = params[:dry_run]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.gateway_load_balancer_endpoint_id = params[:gateway_load_balancer_endpoint_id]
         type
       end
@@ -4429,7 +4429,7 @@ module AWS::SDK::EC2
         type.tag_specifications = TagSpecificationList.build(params[:tag_specifications], context: "#{context}[:tag_specifications]") unless params[:tag_specifications].nil?
         type.multi_attach_enabled = params[:multi_attach_enabled]
         type.throughput = params[:throughput]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -10038,7 +10038,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate!(params, ::Hash, Types::DisassociateTrunkInterfaceInput, context: context)
         type = Types::DisassociateTrunkInterfaceInput.new
         type.association_id = params[:association_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.dry_run = params[:dry_run]
         type
       end
@@ -10958,7 +10958,7 @@ module AWS::SDK::EC2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::ExportImageInput, context: context)
         type = Types::ExportImageInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.description = params[:description]
         type.disk_image_format = params[:disk_image_format]
         type.dry_run = params[:dry_run]
@@ -19583,7 +19583,7 @@ module AWS::SDK::EC2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::PurchaseScheduledInstancesInput, context: context)
         type = Types::PurchaseScheduledInstancesInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.dry_run = params[:dry_run]
         type.purchase_requests = PurchaseRequestSet.build(params[:purchase_requests], context: "#{context}[:purchase_requests]") unless params[:purchase_requests].nil?
         type
@@ -21335,7 +21335,7 @@ module AWS::SDK::EC2
         type.subnet_id = params[:subnet_id]
         type.user_data = params[:user_data]
         type.additional_info = params[:additional_info]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.disable_api_termination = params[:disable_api_termination]
         type.dry_run = params[:dry_run]
         type.ebs_optimized = params[:ebs_optimized]
@@ -21388,7 +21388,7 @@ module AWS::SDK::EC2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::RunScheduledInstancesInput, context: context)
         type = Types::RunScheduledInstancesInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.dry_run = params[:dry_run]
         type.instance_count = params[:instance_count]
         type.launch_specification = ScheduledInstancesLaunchSpecification.build(params[:launch_specification], context: "#{context}[:launch_specification]") unless params[:launch_specification].nil?
@@ -22668,7 +22668,7 @@ module AWS::SDK::EC2
         type.network_insights_access_scope_id = params[:network_insights_access_scope_id]
         type.dry_run = params[:dry_run]
         type.tag_specifications = TagSpecificationList.build(params[:tag_specifications], context: "#{context}[:tag_specifications]") unless params[:tag_specifications].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -22690,7 +22690,7 @@ module AWS::SDK::EC2
         type.filter_in_arns = ArnList.build(params[:filter_in_arns], context: "#{context}[:filter_in_arns]") unless params[:filter_in_arns].nil?
         type.dry_run = params[:dry_run]
         type.tag_specifications = TagSpecificationList.build(params[:tag_specifications], context: "#{context}[:tag_specifications]") unless params[:tag_specifications].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end

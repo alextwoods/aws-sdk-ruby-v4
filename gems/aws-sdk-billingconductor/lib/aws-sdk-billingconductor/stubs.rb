@@ -48,8 +48,8 @@ module AWS::SDK::Billingconductor
     class BatchAssociateResourcesToCustomLineItem
       def self.default(visited=[])
         {
-          successfully_associated_resources: Stubs::AssociateResourcesResponseList.default(visited),
-          failed_associated_resources: Stubs::AssociateResourcesResponseList.default(visited),
+          successfully_associated_resources: AssociateResourcesResponseList.default(visited),
+          failed_associated_resources: AssociateResourcesResponseList.default(visited),
         }
       end
 
@@ -69,7 +69,7 @@ module AWS::SDK::Billingconductor
         return nil if visited.include?('AssociateResourcesResponseList')
         visited = visited + ['AssociateResourcesResponseList']
         [
-          Stubs::AssociateResourceResponseElement.default(visited)
+          AssociateResourceResponseElement.default(visited)
         ]
       end
 
@@ -90,7 +90,7 @@ module AWS::SDK::Billingconductor
         visited = visited + ['AssociateResourceResponseElement']
         {
           arn: 'arn',
-          error: Stubs::AssociateResourceError.default(visited),
+          error: AssociateResourceError.default(visited),
         }
       end
 
@@ -127,8 +127,8 @@ module AWS::SDK::Billingconductor
     class BatchDisassociateResourcesFromCustomLineItem
       def self.default(visited=[])
         {
-          successfully_disassociated_resources: Stubs::DisassociateResourcesResponseList.default(visited),
-          failed_disassociated_resources: Stubs::DisassociateResourcesResponseList.default(visited),
+          successfully_disassociated_resources: DisassociateResourcesResponseList.default(visited),
+          failed_disassociated_resources: DisassociateResourcesResponseList.default(visited),
         }
       end
 
@@ -148,7 +148,7 @@ module AWS::SDK::Billingconductor
         return nil if visited.include?('DisassociateResourcesResponseList')
         visited = visited + ['DisassociateResourcesResponseList']
         [
-          Stubs::DisassociateResourceResponseElement.default(visited)
+          DisassociateResourceResponseElement.default(visited)
         ]
       end
 
@@ -169,7 +169,7 @@ module AWS::SDK::Billingconductor
         visited = visited + ['DisassociateResourceResponseElement']
         {
           arn: 'arn',
-          error: Stubs::AssociateResourceError.default(visited),
+          error: AssociateResourceError.default(visited),
         }
       end
 
@@ -356,7 +356,7 @@ module AWS::SDK::Billingconductor
     class ListAccountAssociations
       def self.default(visited=[])
         {
-          linked_accounts: Stubs::AccountAssociationsList.default(visited),
+          linked_accounts: AccountAssociationsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -377,7 +377,7 @@ module AWS::SDK::Billingconductor
         return nil if visited.include?('AccountAssociationsList')
         visited = visited + ['AccountAssociationsList']
         [
-          Stubs::AccountAssociationsListElement.default(visited)
+          AccountAssociationsListElement.default(visited)
         ]
       end
 
@@ -419,7 +419,7 @@ module AWS::SDK::Billingconductor
     class ListBillingGroupCostReports
       def self.default(visited=[])
         {
-          billing_group_cost_reports: Stubs::BillingGroupCostReportList.default(visited),
+          billing_group_cost_reports: BillingGroupCostReportList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -440,7 +440,7 @@ module AWS::SDK::Billingconductor
         return nil if visited.include?('BillingGroupCostReportList')
         visited = visited + ['BillingGroupCostReportList']
         [
-          Stubs::BillingGroupCostReportElement.default(visited)
+          BillingGroupCostReportElement.default(visited)
         ]
       end
 
@@ -486,7 +486,7 @@ module AWS::SDK::Billingconductor
     class ListBillingGroups
       def self.default(visited=[])
         {
-          billing_groups: Stubs::BillingGroupList.default(visited),
+          billing_groups: BillingGroupList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -507,7 +507,7 @@ module AWS::SDK::Billingconductor
         return nil if visited.include?('BillingGroupList')
         visited = visited + ['BillingGroupList']
         [
-          Stubs::BillingGroupListElement.default(visited)
+          BillingGroupListElement.default(visited)
         ]
       end
 
@@ -531,7 +531,7 @@ module AWS::SDK::Billingconductor
           arn: 'arn',
           description: 'description',
           primary_account_id: 'primary_account_id',
-          computation_preference: Stubs::ComputationPreference.default(visited),
+          computation_preference: ComputationPreference.default(visited),
           size: 1,
           creation_time: 1,
           last_modified_time: 1,
@@ -579,7 +579,7 @@ module AWS::SDK::Billingconductor
     class ListCustomLineItems
       def self.default(visited=[])
         {
-          custom_line_items: Stubs::CustomLineItemList.default(visited),
+          custom_line_items: CustomLineItemList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -600,7 +600,7 @@ module AWS::SDK::Billingconductor
         return nil if visited.include?('CustomLineItemList')
         visited = visited + ['CustomLineItemList']
         [
-          Stubs::CustomLineItemListElement.default(visited)
+          CustomLineItemListElement.default(visited)
         ]
       end
 
@@ -622,7 +622,7 @@ module AWS::SDK::Billingconductor
         {
           arn: 'arn',
           name: 'name',
-          charge_details: Stubs::ListCustomLineItemChargeDetails.default(visited),
+          charge_details: ListCustomLineItemChargeDetails.default(visited),
           currency_code: 'currency_code',
           description: 'description',
           product_code: 'product_code',
@@ -656,8 +656,8 @@ module AWS::SDK::Billingconductor
         return nil if visited.include?('ListCustomLineItemChargeDetails')
         visited = visited + ['ListCustomLineItemChargeDetails']
         {
-          flat: Stubs::ListCustomLineItemFlatChargeDetails.default(visited),
-          percentage: Stubs::ListCustomLineItemPercentageChargeDetails.default(visited),
+          flat: ListCustomLineItemFlatChargeDetails.default(visited),
+          percentage: ListCustomLineItemPercentageChargeDetails.default(visited),
           type: 'type',
         }
       end
@@ -713,7 +713,7 @@ module AWS::SDK::Billingconductor
       def self.default(visited=[])
         {
           billing_period: 'billing_period',
-          pricing_plans: Stubs::PricingPlanList.default(visited),
+          pricing_plans: PricingPlanList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -735,7 +735,7 @@ module AWS::SDK::Billingconductor
         return nil if visited.include?('PricingPlanList')
         visited = visited + ['PricingPlanList']
         [
-          Stubs::PricingPlanListElement.default(visited)
+          PricingPlanListElement.default(visited)
         ]
       end
 
@@ -783,7 +783,7 @@ module AWS::SDK::Billingconductor
         {
           billing_period: 'billing_period',
           pricing_rule_arn: 'pricing_rule_arn',
-          pricing_plan_arns: Stubs::PricingPlanArns.default(visited),
+          pricing_plan_arns: PricingPlanArns.default(visited),
           next_token: 'next_token',
         }
       end
@@ -825,7 +825,7 @@ module AWS::SDK::Billingconductor
       def self.default(visited=[])
         {
           billing_period: 'billing_period',
-          pricing_rules: Stubs::PricingRuleList.default(visited),
+          pricing_rules: PricingRuleList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -847,7 +847,7 @@ module AWS::SDK::Billingconductor
         return nil if visited.include?('PricingRuleList')
         visited = visited + ['PricingRuleList']
         [
-          Stubs::PricingRuleListElement.default(visited)
+          PricingRuleListElement.default(visited)
         ]
       end
 
@@ -903,7 +903,7 @@ module AWS::SDK::Billingconductor
         {
           billing_period: 'billing_period',
           pricing_plan_arn: 'pricing_plan_arn',
-          pricing_rule_arns: Stubs::PricingRuleArns.default(visited),
+          pricing_rule_arns: PricingRuleArns.default(visited),
           next_token: 'next_token',
         }
       end
@@ -945,7 +945,7 @@ module AWS::SDK::Billingconductor
       def self.default(visited=[])
         {
           arn: 'arn',
-          associated_resources: Stubs::ListResourcesAssociatedToCustomLineItemResponseList.default(visited),
+          associated_resources: ListResourcesAssociatedToCustomLineItemResponseList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -967,7 +967,7 @@ module AWS::SDK::Billingconductor
         return nil if visited.include?('ListResourcesAssociatedToCustomLineItemResponseList')
         visited = visited + ['ListResourcesAssociatedToCustomLineItemResponseList']
         [
-          Stubs::ListResourcesAssociatedToCustomLineItemResponseElement.default(visited)
+          ListResourcesAssociatedToCustomLineItemResponseElement.default(visited)
         ]
       end
 
@@ -1005,7 +1005,7 @@ module AWS::SDK::Billingconductor
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1105,7 +1105,7 @@ module AWS::SDK::Billingconductor
           billing_group_arn: 'billing_group_arn',
           name: 'name',
           description: 'description',
-          charge_details: Stubs::ListCustomLineItemChargeDetails.default(visited),
+          charge_details: ListCustomLineItemChargeDetails.default(visited),
           last_modified_time: 1,
           association_size: 1,
         }

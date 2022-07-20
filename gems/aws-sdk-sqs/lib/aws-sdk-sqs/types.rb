@@ -105,11 +105,11 @@ module AWS::SDK::SQS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.sender_fault ||= false
       end
-
     end
 
     # <p></p>
@@ -203,11 +203,11 @@ module AWS::SDK::SQS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.visibility_timeout ||= 0
       end
-
     end
 
     # <p>Encloses the <code>Id</code> of an entry in <code>
@@ -251,11 +251,11 @@ module AWS::SDK::SQS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.visibility_timeout ||= 0
       end
-
     end
 
     ChangeMessageVisibilityOutput = ::Struct.new(
@@ -1639,13 +1639,13 @@ module AWS::SDK::SQS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_number_of_messages ||= 0
         self.visibility_timeout ||= 0
         self.wait_time_seconds ||= 0
       end
-
     end
 
     # <p>A list of received messages.</p>
@@ -1887,11 +1887,11 @@ module AWS::SDK::SQS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delay_seconds ||= 0
       end
-
     end
 
     # <p>Encloses a <code>MessageId</code> for a successfully-enqueued message in a <code>
@@ -2091,11 +2091,11 @@ module AWS::SDK::SQS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delay_seconds ||= 0
       end
-
     end
 
     # <p>The <code>MD5OfMessageBody</code> and <code>MessageId</code> elements.</p>

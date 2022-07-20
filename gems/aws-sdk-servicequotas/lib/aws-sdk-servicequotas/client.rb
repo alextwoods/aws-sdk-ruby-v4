@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::ServiceQuotas
@@ -57,7 +59,7 @@ module AWS::SDK::ServiceQuotas
     def associate_service_quota_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateServiceQuotaTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateServiceQuotaTemplateInput,
         validate_input: @config.validate_input
@@ -134,7 +136,7 @@ module AWS::SDK::ServiceQuotas
     def delete_service_quota_increase_request_from_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteServiceQuotaIncreaseRequestFromTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteServiceQuotaIncreaseRequestFromTemplateInput,
         validate_input: @config.validate_input
@@ -199,7 +201,7 @@ module AWS::SDK::ServiceQuotas
     def disassociate_service_quota_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateServiceQuotaTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateServiceQuotaTemplateInput,
         validate_input: @config.validate_input
@@ -294,7 +296,7 @@ module AWS::SDK::ServiceQuotas
     def get_aws_default_service_quota(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAWSDefaultServiceQuotaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAWSDefaultServiceQuotaInput,
         validate_input: @config.validate_input
@@ -358,7 +360,7 @@ module AWS::SDK::ServiceQuotas
     def get_association_for_service_quota_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAssociationForServiceQuotaTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAssociationForServiceQuotaTemplateInput,
         validate_input: @config.validate_input
@@ -441,7 +443,7 @@ module AWS::SDK::ServiceQuotas
     def get_requested_service_quota_change(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRequestedServiceQuotaChangeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRequestedServiceQuotaChangeInput,
         validate_input: @config.validate_input
@@ -537,7 +539,7 @@ module AWS::SDK::ServiceQuotas
     def get_service_quota(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetServiceQuotaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetServiceQuotaInput,
         validate_input: @config.validate_input
@@ -623,7 +625,7 @@ module AWS::SDK::ServiceQuotas
     def get_service_quota_increase_request_from_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetServiceQuotaIncreaseRequestFromTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetServiceQuotaIncreaseRequestFromTemplateInput,
         validate_input: @config.validate_input
@@ -725,7 +727,7 @@ module AWS::SDK::ServiceQuotas
     def list_aws_default_service_quotas(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAWSDefaultServiceQuotasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAWSDefaultServiceQuotasInput,
         validate_input: @config.validate_input
@@ -823,7 +825,7 @@ module AWS::SDK::ServiceQuotas
     def list_requested_service_quota_change_history(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRequestedServiceQuotaChangeHistoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRequestedServiceQuotaChangeHistoryInput,
         validate_input: @config.validate_input
@@ -925,7 +927,7 @@ module AWS::SDK::ServiceQuotas
     def list_requested_service_quota_change_history_by_quota(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRequestedServiceQuotaChangeHistoryByQuotaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRequestedServiceQuotaChangeHistoryByQuotaInput,
         validate_input: @config.validate_input
@@ -1017,7 +1019,7 @@ module AWS::SDK::ServiceQuotas
     def list_service_quota_increase_requests_in_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListServiceQuotaIncreaseRequestsInTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListServiceQuotaIncreaseRequestsInTemplateInput,
         validate_input: @config.validate_input
@@ -1120,7 +1122,7 @@ module AWS::SDK::ServiceQuotas
     def list_service_quotas(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListServiceQuotasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListServiceQuotasInput,
         validate_input: @config.validate_input
@@ -1198,7 +1200,7 @@ module AWS::SDK::ServiceQuotas
     def list_services(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListServicesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListServicesInput,
         validate_input: @config.validate_input
@@ -1272,7 +1274,7 @@ module AWS::SDK::ServiceQuotas
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -1361,7 +1363,7 @@ module AWS::SDK::ServiceQuotas
     def put_service_quota_increase_request_into_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutServiceQuotaIncreaseRequestIntoTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutServiceQuotaIncreaseRequestIntoTemplateInput,
         validate_input: @config.validate_input
@@ -1452,7 +1454,7 @@ module AWS::SDK::ServiceQuotas
     def request_service_quota_increase(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RequestServiceQuotaIncreaseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RequestServiceQuotaIncreaseInput,
         validate_input: @config.validate_input
@@ -1531,7 +1533,7 @@ module AWS::SDK::ServiceQuotas
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -1607,7 +1609,7 @@ module AWS::SDK::ServiceQuotas
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input

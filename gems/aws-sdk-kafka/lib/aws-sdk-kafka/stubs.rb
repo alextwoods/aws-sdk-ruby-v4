@@ -15,7 +15,7 @@ module AWS::SDK::Kafka
       def self.default(visited=[])
         {
           cluster_arn: 'cluster_arn',
-          unprocessed_scram_secrets: Stubs::List____listOfUnprocessedScramSecret.default(visited),
+          unprocessed_scram_secrets: List____listOfUnprocessedScramSecret.default(visited),
         }
       end
 
@@ -35,7 +35,7 @@ module AWS::SDK::Kafka
         return nil if visited.include?('List____listOfUnprocessedScramSecret')
         visited = visited + ['List____listOfUnprocessedScramSecret']
         [
-          Stubs::UnprocessedScramSecret.default(visited)
+          UnprocessedScramSecret.default(visited)
         ]
       end
 
@@ -76,7 +76,7 @@ module AWS::SDK::Kafka
       def self.default(visited=[])
         {
           cluster_arn: 'cluster_arn',
-          unprocessed_scram_secrets: Stubs::List____listOfUnprocessedScramSecret.default(visited),
+          unprocessed_scram_secrets: List____listOfUnprocessedScramSecret.default(visited),
         }
       end
 
@@ -140,7 +140,7 @@ module AWS::SDK::Kafka
         {
           arn: 'arn',
           creation_time: Time.now,
-          latest_revision: Stubs::ConfigurationRevision.default(visited),
+          latest_revision: ConfigurationRevision.default(visited),
           name: 'name',
           state: 'state',
         }
@@ -223,7 +223,7 @@ module AWS::SDK::Kafka
     class DescribeCluster
       def self.default(visited=[])
         {
-          cluster_info: Stubs::ClusterInfo.default(visited),
+          cluster_info: ClusterInfo.default(visited),
         }
       end
 
@@ -243,21 +243,21 @@ module AWS::SDK::Kafka
         visited = visited + ['ClusterInfo']
         {
           active_operation_arn: 'active_operation_arn',
-          broker_node_group_info: Stubs::BrokerNodeGroupInfo.default(visited),
-          client_authentication: Stubs::ClientAuthentication.default(visited),
+          broker_node_group_info: BrokerNodeGroupInfo.default(visited),
+          client_authentication: ClientAuthentication.default(visited),
           cluster_arn: 'cluster_arn',
           cluster_name: 'cluster_name',
           creation_time: Time.now,
-          current_broker_software_info: Stubs::BrokerSoftwareInfo.default(visited),
+          current_broker_software_info: BrokerSoftwareInfo.default(visited),
           current_version: 'current_version',
-          encryption_info: Stubs::EncryptionInfo.default(visited),
+          encryption_info: EncryptionInfo.default(visited),
           enhanced_monitoring: 'enhanced_monitoring',
-          open_monitoring: Stubs::OpenMonitoring.default(visited),
-          logging_info: Stubs::LoggingInfo.default(visited),
+          open_monitoring: OpenMonitoring.default(visited),
+          logging_info: LoggingInfo.default(visited),
           number_of_broker_nodes: 1,
           state: 'state',
-          state_info: Stubs::StateInfo.default(visited),
-          tags: Stubs::Map____mapOf__string.default(visited),
+          state_info: StateInfo.default(visited),
+          tags: Map____mapOf__string.default(visited),
           zookeeper_connect_string: 'zookeeper_connect_string',
           zookeeper_connect_string_tls: 'zookeeper_connect_string_tls',
         }
@@ -334,7 +334,7 @@ module AWS::SDK::Kafka
         return nil if visited.include?('LoggingInfo')
         visited = visited + ['LoggingInfo']
         {
-          broker_logs: Stubs::BrokerLogs.default(visited),
+          broker_logs: BrokerLogs.default(visited),
         }
       end
 
@@ -352,9 +352,9 @@ module AWS::SDK::Kafka
         return nil if visited.include?('BrokerLogs')
         visited = visited + ['BrokerLogs']
         {
-          cloud_watch_logs: Stubs::CloudWatchLogs.default(visited),
-          firehose: Stubs::Firehose.default(visited),
-          s3: Stubs::S3.default(visited),
+          cloud_watch_logs: CloudWatchLogs.default(visited),
+          firehose: Firehose.default(visited),
+          s3: S3.default(visited),
         }
       end
 
@@ -436,7 +436,7 @@ module AWS::SDK::Kafka
         return nil if visited.include?('OpenMonitoring')
         visited = visited + ['OpenMonitoring']
         {
-          prometheus: Stubs::Prometheus.default(visited),
+          prometheus: Prometheus.default(visited),
         }
       end
 
@@ -454,8 +454,8 @@ module AWS::SDK::Kafka
         return nil if visited.include?('Prometheus')
         visited = visited + ['Prometheus']
         {
-          jmx_exporter: Stubs::JmxExporter.default(visited),
-          node_exporter: Stubs::NodeExporter.default(visited),
+          jmx_exporter: JmxExporter.default(visited),
+          node_exporter: NodeExporter.default(visited),
         }
       end
 
@@ -510,8 +510,8 @@ module AWS::SDK::Kafka
         return nil if visited.include?('EncryptionInfo')
         visited = visited + ['EncryptionInfo']
         {
-          encryption_at_rest: Stubs::EncryptionAtRest.default(visited),
-          encryption_in_transit: Stubs::EncryptionInTransit.default(visited),
+          encryption_at_rest: EncryptionAtRest.default(visited),
+          encryption_in_transit: EncryptionInTransit.default(visited),
         }
       end
 
@@ -590,9 +590,9 @@ module AWS::SDK::Kafka
         return nil if visited.include?('ClientAuthentication')
         visited = visited + ['ClientAuthentication']
         {
-          sasl: Stubs::Sasl.default(visited),
-          tls: Stubs::Tls.default(visited),
-          unauthenticated: Stubs::Unauthenticated.default(visited),
+          sasl: Sasl.default(visited),
+          tls: Tls.default(visited),
+          unauthenticated: Unauthenticated.default(visited),
         }
       end
 
@@ -630,7 +630,7 @@ module AWS::SDK::Kafka
         return nil if visited.include?('Tls')
         visited = visited + ['Tls']
         {
-          certificate_authority_arn_list: Stubs::List____listOf__string.default(visited),
+          certificate_authority_arn_list: List____listOf__string.default(visited),
           enabled: false,
         }
       end
@@ -670,8 +670,8 @@ module AWS::SDK::Kafka
         return nil if visited.include?('Sasl')
         visited = visited + ['Sasl']
         {
-          scram: Stubs::Scram.default(visited),
-          iam: Stubs::Iam.default(visited),
+          scram: Scram.default(visited),
+          iam: Iam.default(visited),
         }
       end
 
@@ -727,11 +727,11 @@ module AWS::SDK::Kafka
         visited = visited + ['BrokerNodeGroupInfo']
         {
           broker_az_distribution: 'broker_az_distribution',
-          client_subnets: Stubs::List____listOf__string.default(visited),
+          client_subnets: List____listOf__string.default(visited),
           instance_type: 'instance_type',
-          security_groups: Stubs::List____listOf__string.default(visited),
-          storage_info: Stubs::StorageInfo.default(visited),
-          connectivity_info: Stubs::ConnectivityInfo.default(visited),
+          security_groups: List____listOf__string.default(visited),
+          storage_info: StorageInfo.default(visited),
+          connectivity_info: ConnectivityInfo.default(visited),
         }
       end
 
@@ -754,7 +754,7 @@ module AWS::SDK::Kafka
         return nil if visited.include?('ConnectivityInfo')
         visited = visited + ['ConnectivityInfo']
         {
-          public_access: Stubs::PublicAccess.default(visited),
+          public_access: PublicAccess.default(visited),
         }
       end
 
@@ -790,7 +790,7 @@ module AWS::SDK::Kafka
         return nil if visited.include?('StorageInfo')
         visited = visited + ['StorageInfo']
         {
-          ebs_storage_info: Stubs::EBSStorageInfo.default(visited),
+          ebs_storage_info: EBSStorageInfo.default(visited),
         }
       end
 
@@ -808,7 +808,7 @@ module AWS::SDK::Kafka
         return nil if visited.include?('EBSStorageInfo')
         visited = visited + ['EBSStorageInfo']
         {
-          provisioned_throughput: Stubs::ProvisionedThroughput.default(visited),
+          provisioned_throughput: ProvisionedThroughput.default(visited),
           volume_size: 1,
         }
       end
@@ -846,7 +846,7 @@ module AWS::SDK::Kafka
     class DescribeClusterOperation
       def self.default(visited=[])
         {
-          cluster_operation_info: Stubs::ClusterOperationInfo.default(visited),
+          cluster_operation_info: ClusterOperationInfo.default(visited),
         }
       end
 
@@ -869,13 +869,13 @@ module AWS::SDK::Kafka
           cluster_arn: 'cluster_arn',
           creation_time: Time.now,
           end_time: Time.now,
-          error_info: Stubs::ErrorInfo.default(visited),
+          error_info: ErrorInfo.default(visited),
           operation_arn: 'operation_arn',
           operation_state: 'operation_state',
-          operation_steps: Stubs::List____listOfClusterOperationStep.default(visited),
+          operation_steps: List____listOfClusterOperationStep.default(visited),
           operation_type: 'operation_type',
-          source_cluster_info: Stubs::MutableClusterInfo.default(visited),
-          target_cluster_info: Stubs::MutableClusterInfo.default(visited),
+          source_cluster_info: MutableClusterInfo.default(visited),
+          target_cluster_info: MutableClusterInfo.default(visited),
         }
       end
 
@@ -903,17 +903,17 @@ module AWS::SDK::Kafka
         return nil if visited.include?('MutableClusterInfo')
         visited = visited + ['MutableClusterInfo']
         {
-          broker_ebs_volume_info: Stubs::List____listOfBrokerEBSVolumeInfo.default(visited),
-          configuration_info: Stubs::ConfigurationInfo.default(visited),
+          broker_ebs_volume_info: List____listOfBrokerEBSVolumeInfo.default(visited),
+          configuration_info: ConfigurationInfo.default(visited),
           number_of_broker_nodes: 1,
           enhanced_monitoring: 'enhanced_monitoring',
-          open_monitoring: Stubs::OpenMonitoring.default(visited),
+          open_monitoring: OpenMonitoring.default(visited),
           kafka_version: 'kafka_version',
-          logging_info: Stubs::LoggingInfo.default(visited),
+          logging_info: LoggingInfo.default(visited),
           instance_type: 'instance_type',
-          client_authentication: Stubs::ClientAuthentication.default(visited),
-          encryption_info: Stubs::EncryptionInfo.default(visited),
-          connectivity_info: Stubs::ConnectivityInfo.default(visited),
+          client_authentication: ClientAuthentication.default(visited),
+          encryption_info: EncryptionInfo.default(visited),
+          connectivity_info: ConnectivityInfo.default(visited),
         }
       end
 
@@ -961,7 +961,7 @@ module AWS::SDK::Kafka
         return nil if visited.include?('List____listOfBrokerEBSVolumeInfo')
         visited = visited + ['List____listOfBrokerEBSVolumeInfo']
         [
-          Stubs::BrokerEBSVolumeInfo.default(visited)
+          BrokerEBSVolumeInfo.default(visited)
         ]
       end
 
@@ -982,7 +982,7 @@ module AWS::SDK::Kafka
         visited = visited + ['BrokerEBSVolumeInfo']
         {
           kafka_broker_node_id: 'kafka_broker_node_id',
-          provisioned_throughput: Stubs::ProvisionedThroughput.default(visited),
+          provisioned_throughput: ProvisionedThroughput.default(visited),
           volume_size_gb: 1,
         }
       end
@@ -1003,7 +1003,7 @@ module AWS::SDK::Kafka
         return nil if visited.include?('List____listOfClusterOperationStep')
         visited = visited + ['List____listOfClusterOperationStep']
         [
-          Stubs::ClusterOperationStep.default(visited)
+          ClusterOperationStep.default(visited)
         ]
       end
 
@@ -1023,7 +1023,7 @@ module AWS::SDK::Kafka
         return nil if visited.include?('ClusterOperationStep')
         visited = visited + ['ClusterOperationStep']
         {
-          step_info: Stubs::ClusterOperationStepInfo.default(visited),
+          step_info: ClusterOperationStepInfo.default(visited),
           step_name: 'step_name',
         }
       end
@@ -1079,7 +1079,7 @@ module AWS::SDK::Kafka
     class DescribeClusterV2
       def self.default(visited=[])
         {
-          cluster_info: Stubs::Cluster.default(visited),
+          cluster_info: Cluster.default(visited),
         }
       end
 
@@ -1105,10 +1105,10 @@ module AWS::SDK::Kafka
           creation_time: Time.now,
           current_version: 'current_version',
           state: 'state',
-          state_info: Stubs::StateInfo.default(visited),
-          tags: Stubs::Map____mapOf__string.default(visited),
-          provisioned: Stubs::Provisioned.default(visited),
-          serverless: Stubs::Serverless.default(visited),
+          state_info: StateInfo.default(visited),
+          tags: Map____mapOf__string.default(visited),
+          provisioned: Provisioned.default(visited),
+          serverless: Serverless.default(visited),
         }
       end
 
@@ -1136,8 +1136,8 @@ module AWS::SDK::Kafka
         return nil if visited.include?('Serverless')
         visited = visited + ['Serverless']
         {
-          vpc_configs: Stubs::List____listOfVpcConfig.default(visited),
-          client_authentication: Stubs::ServerlessClientAuthentication.default(visited),
+          vpc_configs: List____listOfVpcConfig.default(visited),
+          client_authentication: ServerlessClientAuthentication.default(visited),
         }
       end
 
@@ -1156,7 +1156,7 @@ module AWS::SDK::Kafka
         return nil if visited.include?('ServerlessClientAuthentication')
         visited = visited + ['ServerlessClientAuthentication']
         {
-          sasl: Stubs::ServerlessSasl.default(visited),
+          sasl: ServerlessSasl.default(visited),
         }
       end
 
@@ -1174,7 +1174,7 @@ module AWS::SDK::Kafka
         return nil if visited.include?('ServerlessSasl')
         visited = visited + ['ServerlessSasl']
         {
-          iam: Stubs::Iam.default(visited),
+          iam: Iam.default(visited),
         }
       end
 
@@ -1192,7 +1192,7 @@ module AWS::SDK::Kafka
         return nil if visited.include?('List____listOfVpcConfig')
         visited = visited + ['List____listOfVpcConfig']
         [
-          Stubs::VpcConfig.default(visited)
+          VpcConfig.default(visited)
         ]
       end
 
@@ -1212,8 +1212,8 @@ module AWS::SDK::Kafka
         return nil if visited.include?('VpcConfig')
         visited = visited + ['VpcConfig']
         {
-          subnet_ids: Stubs::List____listOf__string.default(visited),
-          security_group_ids: Stubs::List____listOf__string.default(visited),
+          subnet_ids: List____listOf__string.default(visited),
+          security_group_ids: List____listOf__string.default(visited),
         }
       end
 
@@ -1232,13 +1232,13 @@ module AWS::SDK::Kafka
         return nil if visited.include?('Provisioned')
         visited = visited + ['Provisioned']
         {
-          broker_node_group_info: Stubs::BrokerNodeGroupInfo.default(visited),
-          current_broker_software_info: Stubs::BrokerSoftwareInfo.default(visited),
-          client_authentication: Stubs::ClientAuthentication.default(visited),
-          encryption_info: Stubs::EncryptionInfo.default(visited),
+          broker_node_group_info: BrokerNodeGroupInfo.default(visited),
+          current_broker_software_info: BrokerSoftwareInfo.default(visited),
+          client_authentication: ClientAuthentication.default(visited),
+          encryption_info: EncryptionInfo.default(visited),
           enhanced_monitoring: 'enhanced_monitoring',
-          open_monitoring: Stubs::OpenMonitoringInfo.default(visited),
-          logging_info: Stubs::LoggingInfo.default(visited),
+          open_monitoring: OpenMonitoringInfo.default(visited),
+          logging_info: LoggingInfo.default(visited),
           number_of_broker_nodes: 1,
           zookeeper_connect_string: 'zookeeper_connect_string',
           zookeeper_connect_string_tls: 'zookeeper_connect_string_tls',
@@ -1268,7 +1268,7 @@ module AWS::SDK::Kafka
         return nil if visited.include?('OpenMonitoringInfo')
         visited = visited + ['OpenMonitoringInfo']
         {
-          prometheus: Stubs::PrometheusInfo.default(visited),
+          prometheus: PrometheusInfo.default(visited),
         }
       end
 
@@ -1286,8 +1286,8 @@ module AWS::SDK::Kafka
         return nil if visited.include?('PrometheusInfo')
         visited = visited + ['PrometheusInfo']
         {
-          jmx_exporter: Stubs::JmxExporterInfo.default(visited),
-          node_exporter: Stubs::NodeExporterInfo.default(visited),
+          jmx_exporter: JmxExporterInfo.default(visited),
+          node_exporter: NodeExporterInfo.default(visited),
         }
       end
 
@@ -1343,8 +1343,8 @@ module AWS::SDK::Kafka
           arn: 'arn',
           creation_time: Time.now,
           description: 'description',
-          kafka_versions: Stubs::List____listOf__string.default(visited),
-          latest_revision: Stubs::ConfigurationRevision.default(visited),
+          kafka_versions: List____listOf__string.default(visited),
+          latest_revision: ConfigurationRevision.default(visited),
           name: 'name',
           state: 'state',
         }
@@ -1423,7 +1423,7 @@ module AWS::SDK::Kafka
     class GetCompatibleKafkaVersions
       def self.default(visited=[])
         {
-          compatible_kafka_versions: Stubs::List____listOfCompatibleKafkaVersion.default(visited),
+          compatible_kafka_versions: List____listOfCompatibleKafkaVersion.default(visited),
         }
       end
 
@@ -1442,7 +1442,7 @@ module AWS::SDK::Kafka
         return nil if visited.include?('List____listOfCompatibleKafkaVersion')
         visited = visited + ['List____listOfCompatibleKafkaVersion']
         [
-          Stubs::CompatibleKafkaVersion.default(visited)
+          CompatibleKafkaVersion.default(visited)
         ]
       end
 
@@ -1463,7 +1463,7 @@ module AWS::SDK::Kafka
         visited = visited + ['CompatibleKafkaVersion']
         {
           source_version: 'source_version',
-          target_versions: Stubs::List____listOf__string.default(visited),
+          target_versions: List____listOf__string.default(visited),
         }
       end
 
@@ -1480,7 +1480,7 @@ module AWS::SDK::Kafka
     class ListClusterOperations
       def self.default(visited=[])
         {
-          cluster_operation_info_list: Stubs::List____listOfClusterOperationInfo.default(visited),
+          cluster_operation_info_list: List____listOfClusterOperationInfo.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1501,7 +1501,7 @@ module AWS::SDK::Kafka
         return nil if visited.include?('List____listOfClusterOperationInfo')
         visited = visited + ['List____listOfClusterOperationInfo']
         [
-          Stubs::ClusterOperationInfo.default(visited)
+          ClusterOperationInfo.default(visited)
         ]
       end
 
@@ -1519,7 +1519,7 @@ module AWS::SDK::Kafka
     class ListClusters
       def self.default(visited=[])
         {
-          cluster_info_list: Stubs::List____listOfClusterInfo.default(visited),
+          cluster_info_list: List____listOfClusterInfo.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1540,7 +1540,7 @@ module AWS::SDK::Kafka
         return nil if visited.include?('List____listOfClusterInfo')
         visited = visited + ['List____listOfClusterInfo']
         [
-          Stubs::ClusterInfo.default(visited)
+          ClusterInfo.default(visited)
         ]
       end
 
@@ -1558,7 +1558,7 @@ module AWS::SDK::Kafka
     class ListClustersV2
       def self.default(visited=[])
         {
-          cluster_info_list: Stubs::List____listOfCluster.default(visited),
+          cluster_info_list: List____listOfCluster.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1579,7 +1579,7 @@ module AWS::SDK::Kafka
         return nil if visited.include?('List____listOfCluster')
         visited = visited + ['List____listOfCluster']
         [
-          Stubs::Cluster.default(visited)
+          Cluster.default(visited)
         ]
       end
 
@@ -1598,7 +1598,7 @@ module AWS::SDK::Kafka
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          revisions: Stubs::List____listOfConfigurationRevision.default(visited),
+          revisions: List____listOfConfigurationRevision.default(visited),
         }
       end
 
@@ -1618,7 +1618,7 @@ module AWS::SDK::Kafka
         return nil if visited.include?('List____listOfConfigurationRevision')
         visited = visited + ['List____listOfConfigurationRevision']
         [
-          Stubs::ConfigurationRevision.default(visited)
+          ConfigurationRevision.default(visited)
         ]
       end
 
@@ -1636,7 +1636,7 @@ module AWS::SDK::Kafka
     class ListConfigurations
       def self.default(visited=[])
         {
-          configurations: Stubs::List____listOfConfiguration.default(visited),
+          configurations: List____listOfConfiguration.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1657,7 +1657,7 @@ module AWS::SDK::Kafka
         return nil if visited.include?('List____listOfConfiguration')
         visited = visited + ['List____listOfConfiguration']
         [
-          Stubs::Configuration.default(visited)
+          Configuration.default(visited)
         ]
       end
 
@@ -1680,8 +1680,8 @@ module AWS::SDK::Kafka
           arn: 'arn',
           creation_time: Time.now,
           description: 'description',
-          kafka_versions: Stubs::List____listOf__string.default(visited),
-          latest_revision: Stubs::ConfigurationRevision.default(visited),
+          kafka_versions: List____listOf__string.default(visited),
+          latest_revision: ConfigurationRevision.default(visited),
           name: 'name',
           state: 'state',
         }
@@ -1705,7 +1705,7 @@ module AWS::SDK::Kafka
     class ListKafkaVersions
       def self.default(visited=[])
         {
-          kafka_versions: Stubs::List____listOfKafkaVersion.default(visited),
+          kafka_versions: List____listOfKafkaVersion.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1726,7 +1726,7 @@ module AWS::SDK::Kafka
         return nil if visited.include?('List____listOfKafkaVersion')
         visited = visited + ['List____listOfKafkaVersion']
         [
-          Stubs::KafkaVersion.default(visited)
+          KafkaVersion.default(visited)
         ]
       end
 
@@ -1765,7 +1765,7 @@ module AWS::SDK::Kafka
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          node_info_list: Stubs::List____listOfNodeInfo.default(visited),
+          node_info_list: List____listOfNodeInfo.default(visited),
         }
       end
 
@@ -1785,7 +1785,7 @@ module AWS::SDK::Kafka
         return nil if visited.include?('List____listOfNodeInfo')
         visited = visited + ['List____listOfNodeInfo']
         [
-          Stubs::NodeInfo.default(visited)
+          NodeInfo.default(visited)
         ]
       end
 
@@ -1806,11 +1806,11 @@ module AWS::SDK::Kafka
         visited = visited + ['NodeInfo']
         {
           added_to_cluster_time: 'added_to_cluster_time',
-          broker_node_info: Stubs::BrokerNodeInfo.default(visited),
+          broker_node_info: BrokerNodeInfo.default(visited),
           instance_type: 'instance_type',
           node_arn: 'node_arn',
           node_type: 'node_type',
-          zookeeper_node_info: Stubs::ZookeeperNodeInfo.default(visited),
+          zookeeper_node_info: ZookeeperNodeInfo.default(visited),
         }
       end
 
@@ -1835,7 +1835,7 @@ module AWS::SDK::Kafka
         {
           attached_eni_id: 'attached_eni_id',
           client_vpc_ip_address: 'client_vpc_ip_address',
-          endpoints: Stubs::List____listOf__string.default(visited),
+          endpoints: List____listOf__string.default(visited),
           zookeeper_id: 1.0,
           zookeeper_version: 'zookeeper_version',
         }
@@ -1863,8 +1863,8 @@ module AWS::SDK::Kafka
           broker_id: 1.0,
           client_subnet: 'client_subnet',
           client_vpc_ip_address: 'client_vpc_ip_address',
-          current_broker_software_info: Stubs::BrokerSoftwareInfo.default(visited),
-          endpoints: Stubs::List____listOf__string.default(visited),
+          current_broker_software_info: BrokerSoftwareInfo.default(visited),
+          endpoints: List____listOf__string.default(visited),
         }
       end
 
@@ -1886,7 +1886,7 @@ module AWS::SDK::Kafka
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          secret_arn_list: Stubs::List____listOf__string.default(visited),
+          secret_arn_list: List____listOf__string.default(visited),
         }
       end
 
@@ -1904,7 +1904,7 @@ module AWS::SDK::Kafka
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::Map____mapOf__string.default(visited),
+          tags: Map____mapOf__string.default(visited),
         }
       end
 
@@ -2062,7 +2062,7 @@ module AWS::SDK::Kafka
       def self.default(visited=[])
         {
           arn: 'arn',
-          latest_revision: Stubs::ConfigurationRevision.default(visited),
+          latest_revision: ConfigurationRevision.default(visited),
         }
       end
 

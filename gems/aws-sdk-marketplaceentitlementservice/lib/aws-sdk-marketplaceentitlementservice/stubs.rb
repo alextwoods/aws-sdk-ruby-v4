@@ -14,7 +14,7 @@ module AWS::SDK::MarketplaceEntitlementService
     class GetEntitlements
       def self.default(visited=[])
         {
-          entitlements: Stubs::EntitlementList.default(visited),
+          entitlements: EntitlementList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -34,7 +34,7 @@ module AWS::SDK::MarketplaceEntitlementService
         return nil if visited.include?('EntitlementList')
         visited = visited + ['EntitlementList']
         [
-          Stubs::Entitlement.default(visited)
+          Entitlement.default(visited)
         ]
       end
 
@@ -57,7 +57,7 @@ module AWS::SDK::MarketplaceEntitlementService
           product_code: 'product_code',
           dimension: 'dimension',
           customer_identifier: 'customer_identifier',
-          value: Stubs::EntitlementValue.default(visited),
+          value: EntitlementValue.default(visited),
           expiration_date: Time.now,
         }
       end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Health
   module Validators
 
@@ -20,7 +22,7 @@ module AWS::SDK::Health
         Hearth::Validator.validate!(input[:aws_account_id], ::String, context: "#{context}[:aws_account_id]")
         Hearth::Validator.validate!(input[:last_updated_time], ::Time, context: "#{context}[:last_updated_time]")
         Hearth::Validator.validate!(input[:status_code], ::String, context: "#{context}[:status_code]")
-        Validators::TagSet.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagSet.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -51,7 +53,7 @@ module AWS::SDK::Health
     class DescribeAffectedAccountsForOrganizationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAffectedAccountsForOrganizationOutput, context: context)
-        Validators::AffectedAccountsList.validate!(input[:affected_accounts], context: "#{context}[:affected_accounts]") unless input[:affected_accounts].nil?
+        AffectedAccountsList.validate!(input[:affected_accounts], context: "#{context}[:affected_accounts]") unless input[:affected_accounts].nil?
         Hearth::Validator.validate!(input[:event_scope_code], ::String, context: "#{context}[:event_scope_code]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -61,7 +63,7 @@ module AWS::SDK::Health
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OrganizationAffectedEntitiesErrorItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OrganizationAffectedEntitiesErrorItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -69,7 +71,7 @@ module AWS::SDK::Health
     class DescribeAffectedEntitiesForOrganizationInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAffectedEntitiesForOrganizationInput, context: context)
-        Validators::OrganizationEntityFiltersList.validate!(input[:organization_entity_filters], context: "#{context}[:organization_entity_filters]") unless input[:organization_entity_filters].nil?
+        OrganizationEntityFiltersList.validate!(input[:organization_entity_filters], context: "#{context}[:organization_entity_filters]") unless input[:organization_entity_filters].nil?
         Hearth::Validator.validate!(input[:locale], ::String, context: "#{context}[:locale]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
@@ -79,8 +81,8 @@ module AWS::SDK::Health
     class DescribeAffectedEntitiesForOrganizationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAffectedEntitiesForOrganizationOutput, context: context)
-        Validators::EntityList.validate!(input[:entities], context: "#{context}[:entities]") unless input[:entities].nil?
-        Validators::DescribeAffectedEntitiesForOrganizationFailedSet.validate!(input[:failed_set], context: "#{context}[:failed_set]") unless input[:failed_set].nil?
+        EntityList.validate!(input[:entities], context: "#{context}[:entities]") unless input[:entities].nil?
+        DescribeAffectedEntitiesForOrganizationFailedSet.validate!(input[:failed_set], context: "#{context}[:failed_set]") unless input[:failed_set].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -88,7 +90,7 @@ module AWS::SDK::Health
     class DescribeAffectedEntitiesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAffectedEntitiesInput, context: context)
-        Validators::EntityFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        EntityFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
         Hearth::Validator.validate!(input[:locale], ::String, context: "#{context}[:locale]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
@@ -98,7 +100,7 @@ module AWS::SDK::Health
     class DescribeAffectedEntitiesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAffectedEntitiesOutput, context: context)
-        Validators::EntityList.validate!(input[:entities], context: "#{context}[:entities]") unless input[:entities].nil?
+        EntityList.validate!(input[:entities], context: "#{context}[:entities]") unless input[:entities].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -106,21 +108,21 @@ module AWS::SDK::Health
     class DescribeEntityAggregatesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEntityAggregatesInput, context: context)
-        Validators::EventArnsList.validate!(input[:event_arns], context: "#{context}[:event_arns]") unless input[:event_arns].nil?
+        EventArnsList.validate!(input[:event_arns], context: "#{context}[:event_arns]") unless input[:event_arns].nil?
       end
     end
 
     class DescribeEntityAggregatesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEntityAggregatesOutput, context: context)
-        Validators::EntityAggregateList.validate!(input[:entity_aggregates], context: "#{context}[:entity_aggregates]") unless input[:entity_aggregates].nil?
+        EntityAggregateList.validate!(input[:entity_aggregates], context: "#{context}[:entity_aggregates]") unless input[:entity_aggregates].nil?
       end
     end
 
     class DescribeEventAggregatesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEventAggregatesInput, context: context)
-        Validators::EventFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        EventFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
         Hearth::Validator.validate!(input[:aggregate_field], ::String, context: "#{context}[:aggregate_field]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
@@ -130,7 +132,7 @@ module AWS::SDK::Health
     class DescribeEventAggregatesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEventAggregatesOutput, context: context)
-        Validators::EventAggregateList.validate!(input[:event_aggregates], context: "#{context}[:event_aggregates]") unless input[:event_aggregates].nil?
+        EventAggregateList.validate!(input[:event_aggregates], context: "#{context}[:event_aggregates]") unless input[:event_aggregates].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -139,7 +141,7 @@ module AWS::SDK::Health
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EventDetailsErrorItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EventDetailsErrorItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -148,7 +150,7 @@ module AWS::SDK::Health
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OrganizationEventDetailsErrorItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OrganizationEventDetailsErrorItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -156,7 +158,7 @@ module AWS::SDK::Health
     class DescribeEventDetailsForOrganizationInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEventDetailsForOrganizationInput, context: context)
-        Validators::OrganizationEventDetailFiltersList.validate!(input[:organization_event_detail_filters], context: "#{context}[:organization_event_detail_filters]") unless input[:organization_event_detail_filters].nil?
+        OrganizationEventDetailFiltersList.validate!(input[:organization_event_detail_filters], context: "#{context}[:organization_event_detail_filters]") unless input[:organization_event_detail_filters].nil?
         Hearth::Validator.validate!(input[:locale], ::String, context: "#{context}[:locale]")
       end
     end
@@ -164,8 +166,8 @@ module AWS::SDK::Health
     class DescribeEventDetailsForOrganizationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEventDetailsForOrganizationOutput, context: context)
-        Validators::DescribeEventDetailsForOrganizationSuccessfulSet.validate!(input[:successful_set], context: "#{context}[:successful_set]") unless input[:successful_set].nil?
-        Validators::DescribeEventDetailsForOrganizationFailedSet.validate!(input[:failed_set], context: "#{context}[:failed_set]") unless input[:failed_set].nil?
+        DescribeEventDetailsForOrganizationSuccessfulSet.validate!(input[:successful_set], context: "#{context}[:successful_set]") unless input[:successful_set].nil?
+        DescribeEventDetailsForOrganizationFailedSet.validate!(input[:failed_set], context: "#{context}[:failed_set]") unless input[:failed_set].nil?
       end
     end
 
@@ -173,7 +175,7 @@ module AWS::SDK::Health
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OrganizationEventDetails.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OrganizationEventDetails.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -181,7 +183,7 @@ module AWS::SDK::Health
     class DescribeEventDetailsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEventDetailsInput, context: context)
-        Validators::EventArnList.validate!(input[:event_arns], context: "#{context}[:event_arns]") unless input[:event_arns].nil?
+        EventArnList.validate!(input[:event_arns], context: "#{context}[:event_arns]") unless input[:event_arns].nil?
         Hearth::Validator.validate!(input[:locale], ::String, context: "#{context}[:locale]")
       end
     end
@@ -189,8 +191,8 @@ module AWS::SDK::Health
     class DescribeEventDetailsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEventDetailsOutput, context: context)
-        Validators::DescribeEventDetailsSuccessfulSet.validate!(input[:successful_set], context: "#{context}[:successful_set]") unless input[:successful_set].nil?
-        Validators::DescribeEventDetailsFailedSet.validate!(input[:failed_set], context: "#{context}[:failed_set]") unless input[:failed_set].nil?
+        DescribeEventDetailsSuccessfulSet.validate!(input[:successful_set], context: "#{context}[:successful_set]") unless input[:successful_set].nil?
+        DescribeEventDetailsFailedSet.validate!(input[:failed_set], context: "#{context}[:failed_set]") unless input[:failed_set].nil?
       end
     end
 
@@ -198,7 +200,7 @@ module AWS::SDK::Health
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EventDetails.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EventDetails.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -206,7 +208,7 @@ module AWS::SDK::Health
     class DescribeEventTypesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEventTypesInput, context: context)
-        Validators::EventTypeFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        EventTypeFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
         Hearth::Validator.validate!(input[:locale], ::String, context: "#{context}[:locale]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
@@ -216,7 +218,7 @@ module AWS::SDK::Health
     class DescribeEventTypesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEventTypesOutput, context: context)
-        Validators::EventTypeList.validate!(input[:event_types], context: "#{context}[:event_types]") unless input[:event_types].nil?
+        EventTypeList.validate!(input[:event_types], context: "#{context}[:event_types]") unless input[:event_types].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -224,7 +226,7 @@ module AWS::SDK::Health
     class DescribeEventsForOrganizationInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEventsForOrganizationInput, context: context)
-        Validators::OrganizationEventFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        OrganizationEventFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:locale], ::String, context: "#{context}[:locale]")
@@ -234,7 +236,7 @@ module AWS::SDK::Health
     class DescribeEventsForOrganizationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEventsForOrganizationOutput, context: context)
-        Validators::OrganizationEventList.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
+        OrganizationEventList.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -242,7 +244,7 @@ module AWS::SDK::Health
     class DescribeEventsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEventsInput, context: context)
-        Validators::EventFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        EventFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:locale], ::String, context: "#{context}[:locale]")
@@ -252,7 +254,7 @@ module AWS::SDK::Health
     class DescribeEventsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEventsOutput, context: context)
-        Validators::EventList.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
+        EventList.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -306,7 +308,7 @@ module AWS::SDK::Health
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EntityAggregate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EntityAggregate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -314,12 +316,12 @@ module AWS::SDK::Health
     class EntityFilter
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EntityFilter, context: context)
-        Validators::EventArnList.validate!(input[:event_arns], context: "#{context}[:event_arns]") unless input[:event_arns].nil?
-        Validators::EntityArnList.validate!(input[:entity_arns], context: "#{context}[:entity_arns]") unless input[:entity_arns].nil?
-        Validators::EntityValueList.validate!(input[:entity_values], context: "#{context}[:entity_values]") unless input[:entity_values].nil?
-        Validators::DateTimeRangeList.validate!(input[:last_updated_times], context: "#{context}[:last_updated_times]") unless input[:last_updated_times].nil?
-        Validators::TagFilter.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::EntityStatusCodeList.validate!(input[:status_codes], context: "#{context}[:status_codes]") unless input[:status_codes].nil?
+        EventArnList.validate!(input[:event_arns], context: "#{context}[:event_arns]") unless input[:event_arns].nil?
+        EntityArnList.validate!(input[:entity_arns], context: "#{context}[:entity_arns]") unless input[:entity_arns].nil?
+        EntityValueList.validate!(input[:entity_values], context: "#{context}[:entity_values]") unless input[:entity_values].nil?
+        DateTimeRangeList.validate!(input[:last_updated_times], context: "#{context}[:last_updated_times]") unless input[:last_updated_times].nil?
+        TagFilter.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        EntityStatusCodeList.validate!(input[:status_codes], context: "#{context}[:status_codes]") unless input[:status_codes].nil?
       end
     end
 
@@ -327,7 +329,7 @@ module AWS::SDK::Health
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AffectedEntity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AffectedEntity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -369,7 +371,7 @@ module AWS::SDK::Health
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EventAggregate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EventAggregate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -393,9 +395,9 @@ module AWS::SDK::Health
     class EventDetails
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EventDetails, context: context)
-        Validators::Event.validate!(input[:event], context: "#{context}[:event]") unless input[:event].nil?
-        Validators::EventDescription.validate!(input[:event_description], context: "#{context}[:event_description]") unless input[:event_description].nil?
-        Validators::EventMetadata.validate!(input[:event_metadata], context: "#{context}[:event_metadata]") unless input[:event_metadata].nil?
+        Event.validate!(input[:event], context: "#{context}[:event]") unless input[:event].nil?
+        EventDescription.validate!(input[:event_description], context: "#{context}[:event_description]") unless input[:event_description].nil?
+        EventMetadata.validate!(input[:event_metadata], context: "#{context}[:event_metadata]") unless input[:event_metadata].nil?
       end
     end
 
@@ -411,19 +413,19 @@ module AWS::SDK::Health
     class EventFilter
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EventFilter, context: context)
-        Validators::EventArnList.validate!(input[:event_arns], context: "#{context}[:event_arns]") unless input[:event_arns].nil?
-        Validators::EventTypeList2.validate!(input[:event_type_codes], context: "#{context}[:event_type_codes]") unless input[:event_type_codes].nil?
-        Validators::ServiceList.validate!(input[:services], context: "#{context}[:services]") unless input[:services].nil?
-        Validators::RegionList.validate!(input[:regions], context: "#{context}[:regions]") unless input[:regions].nil?
-        Validators::AvailabilityZones.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
-        Validators::DateTimeRangeList.validate!(input[:start_times], context: "#{context}[:start_times]") unless input[:start_times].nil?
-        Validators::DateTimeRangeList.validate!(input[:end_times], context: "#{context}[:end_times]") unless input[:end_times].nil?
-        Validators::DateTimeRangeList.validate!(input[:last_updated_times], context: "#{context}[:last_updated_times]") unless input[:last_updated_times].nil?
-        Validators::EntityArnList.validate!(input[:entity_arns], context: "#{context}[:entity_arns]") unless input[:entity_arns].nil?
-        Validators::EntityValueList.validate!(input[:entity_values], context: "#{context}[:entity_values]") unless input[:entity_values].nil?
-        Validators::EventTypeCategoryList2.validate!(input[:event_type_categories], context: "#{context}[:event_type_categories]") unless input[:event_type_categories].nil?
-        Validators::TagFilter.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::EventStatusCodeList.validate!(input[:event_status_codes], context: "#{context}[:event_status_codes]") unless input[:event_status_codes].nil?
+        EventArnList.validate!(input[:event_arns], context: "#{context}[:event_arns]") unless input[:event_arns].nil?
+        EventTypeList2.validate!(input[:event_type_codes], context: "#{context}[:event_type_codes]") unless input[:event_type_codes].nil?
+        ServiceList.validate!(input[:services], context: "#{context}[:services]") unless input[:services].nil?
+        RegionList.validate!(input[:regions], context: "#{context}[:regions]") unless input[:regions].nil?
+        AvailabilityZones.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
+        DateTimeRangeList.validate!(input[:start_times], context: "#{context}[:start_times]") unless input[:start_times].nil?
+        DateTimeRangeList.validate!(input[:end_times], context: "#{context}[:end_times]") unless input[:end_times].nil?
+        DateTimeRangeList.validate!(input[:last_updated_times], context: "#{context}[:last_updated_times]") unless input[:last_updated_times].nil?
+        EntityArnList.validate!(input[:entity_arns], context: "#{context}[:entity_arns]") unless input[:entity_arns].nil?
+        EntityValueList.validate!(input[:entity_values], context: "#{context}[:entity_values]") unless input[:entity_values].nil?
+        EventTypeCategoryList2.validate!(input[:event_type_categories], context: "#{context}[:event_type_categories]") unless input[:event_type_categories].nil?
+        TagFilter.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        EventStatusCodeList.validate!(input[:event_status_codes], context: "#{context}[:event_status_codes]") unless input[:event_status_codes].nil?
       end
     end
 
@@ -431,7 +433,7 @@ module AWS::SDK::Health
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Event.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Event.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -466,9 +468,9 @@ module AWS::SDK::Health
     class EventTypeFilter
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EventTypeFilter, context: context)
-        Validators::EventTypeCodeList.validate!(input[:event_type_codes], context: "#{context}[:event_type_codes]") unless input[:event_type_codes].nil?
-        Validators::ServiceList.validate!(input[:services], context: "#{context}[:services]") unless input[:services].nil?
-        Validators::EventTypeCategoryList.validate!(input[:event_type_categories], context: "#{context}[:event_type_categories]") unless input[:event_type_categories].nil?
+        EventTypeCodeList.validate!(input[:event_type_codes], context: "#{context}[:event_type_codes]") unless input[:event_type_codes].nil?
+        ServiceList.validate!(input[:services], context: "#{context}[:services]") unless input[:services].nil?
+        EventTypeCategoryList.validate!(input[:event_type_categories], context: "#{context}[:event_type_categories]") unless input[:event_type_categories].nil?
       end
     end
 
@@ -476,7 +478,7 @@ module AWS::SDK::Health
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EventType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EventType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -502,7 +504,7 @@ module AWS::SDK::Health
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EventAccountFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EventAccountFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -527,7 +529,7 @@ module AWS::SDK::Health
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EventAccountFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EventAccountFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -536,9 +538,9 @@ module AWS::SDK::Health
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OrganizationEventDetails, context: context)
         Hearth::Validator.validate!(input[:aws_account_id], ::String, context: "#{context}[:aws_account_id]")
-        Validators::Event.validate!(input[:event], context: "#{context}[:event]") unless input[:event].nil?
-        Validators::EventDescription.validate!(input[:event_description], context: "#{context}[:event_description]") unless input[:event_description].nil?
-        Validators::EventMetadata.validate!(input[:event_metadata], context: "#{context}[:event_metadata]") unless input[:event_metadata].nil?
+        Event.validate!(input[:event], context: "#{context}[:event]") unless input[:event].nil?
+        EventDescription.validate!(input[:event_description], context: "#{context}[:event_description]") unless input[:event_description].nil?
+        EventMetadata.validate!(input[:event_metadata], context: "#{context}[:event_metadata]") unless input[:event_metadata].nil?
       end
     end
 
@@ -555,17 +557,17 @@ module AWS::SDK::Health
     class OrganizationEventFilter
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OrganizationEventFilter, context: context)
-        Validators::EventTypeList2.validate!(input[:event_type_codes], context: "#{context}[:event_type_codes]") unless input[:event_type_codes].nil?
-        Validators::AwsAccountIdsList.validate!(input[:aws_account_ids], context: "#{context}[:aws_account_ids]") unless input[:aws_account_ids].nil?
-        Validators::ServiceList.validate!(input[:services], context: "#{context}[:services]") unless input[:services].nil?
-        Validators::RegionList.validate!(input[:regions], context: "#{context}[:regions]") unless input[:regions].nil?
-        Validators::DateTimeRange.validate!(input[:start_time], context: "#{context}[:start_time]") unless input[:start_time].nil?
-        Validators::DateTimeRange.validate!(input[:end_time], context: "#{context}[:end_time]") unless input[:end_time].nil?
-        Validators::DateTimeRange.validate!(input[:last_updated_time], context: "#{context}[:last_updated_time]") unless input[:last_updated_time].nil?
-        Validators::EntityArnList.validate!(input[:entity_arns], context: "#{context}[:entity_arns]") unless input[:entity_arns].nil?
-        Validators::EntityValueList.validate!(input[:entity_values], context: "#{context}[:entity_values]") unless input[:entity_values].nil?
-        Validators::EventTypeCategoryList2.validate!(input[:event_type_categories], context: "#{context}[:event_type_categories]") unless input[:event_type_categories].nil?
-        Validators::EventStatusCodeList.validate!(input[:event_status_codes], context: "#{context}[:event_status_codes]") unless input[:event_status_codes].nil?
+        EventTypeList2.validate!(input[:event_type_codes], context: "#{context}[:event_type_codes]") unless input[:event_type_codes].nil?
+        AwsAccountIdsList.validate!(input[:aws_account_ids], context: "#{context}[:aws_account_ids]") unless input[:aws_account_ids].nil?
+        ServiceList.validate!(input[:services], context: "#{context}[:services]") unless input[:services].nil?
+        RegionList.validate!(input[:regions], context: "#{context}[:regions]") unless input[:regions].nil?
+        DateTimeRange.validate!(input[:start_time], context: "#{context}[:start_time]") unless input[:start_time].nil?
+        DateTimeRange.validate!(input[:end_time], context: "#{context}[:end_time]") unless input[:end_time].nil?
+        DateTimeRange.validate!(input[:last_updated_time], context: "#{context}[:last_updated_time]") unless input[:last_updated_time].nil?
+        EntityArnList.validate!(input[:entity_arns], context: "#{context}[:entity_arns]") unless input[:entity_arns].nil?
+        EntityValueList.validate!(input[:entity_values], context: "#{context}[:entity_values]") unless input[:entity_values].nil?
+        EventTypeCategoryList2.validate!(input[:event_type_categories], context: "#{context}[:event_type_categories]") unless input[:event_type_categories].nil?
+        EventStatusCodeList.validate!(input[:event_status_codes], context: "#{context}[:event_status_codes]") unless input[:event_status_codes].nil?
       end
     end
 
@@ -573,7 +575,7 @@ module AWS::SDK::Health
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OrganizationEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OrganizationEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -616,7 +618,7 @@ module AWS::SDK::Health
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DateTimeRange.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DateTimeRange.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -716,7 +718,7 @@ module AWS::SDK::Health
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TagSet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TagSet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::OpenSearch
@@ -79,7 +81,7 @@ module AWS::SDK::OpenSearch
     def accept_inbound_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AcceptInboundConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AcceptInboundConnectionInput,
         validate_input: @config.validate_input
@@ -161,7 +163,7 @@ module AWS::SDK::OpenSearch
     def add_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddTagsInput,
         validate_input: @config.validate_input
@@ -247,7 +249,7 @@ module AWS::SDK::OpenSearch
     def associate_package(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociatePackageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociatePackageInput,
         validate_input: @config.validate_input
@@ -325,7 +327,7 @@ module AWS::SDK::OpenSearch
     def cancel_service_software_update(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelServiceSoftwareUpdateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelServiceSoftwareUpdateInput,
         validate_input: @config.validate_input
@@ -653,7 +655,7 @@ module AWS::SDK::OpenSearch
     def create_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDomainInput,
         validate_input: @config.validate_input
@@ -755,7 +757,7 @@ module AWS::SDK::OpenSearch
     def create_outbound_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateOutboundConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateOutboundConnectionInput,
         validate_input: @config.validate_input
@@ -851,7 +853,7 @@ module AWS::SDK::OpenSearch
     def create_package(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePackageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePackageInput,
         validate_input: @config.validate_input
@@ -1011,7 +1013,7 @@ module AWS::SDK::OpenSearch
     def delete_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDomainInput,
         validate_input: @config.validate_input
@@ -1089,7 +1091,7 @@ module AWS::SDK::OpenSearch
     def delete_inbound_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteInboundConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteInboundConnectionInput,
         validate_input: @config.validate_input
@@ -1168,7 +1170,7 @@ module AWS::SDK::OpenSearch
     def delete_outbound_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteOutboundConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteOutboundConnectionInput,
         validate_input: @config.validate_input
@@ -1248,7 +1250,7 @@ module AWS::SDK::OpenSearch
     def delete_package(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePackageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePackageInput,
         validate_input: @config.validate_input
@@ -1407,7 +1409,7 @@ module AWS::SDK::OpenSearch
     def describe_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDomainInput,
         validate_input: @config.validate_input
@@ -1494,7 +1496,7 @@ module AWS::SDK::OpenSearch
     def describe_domain_auto_tunes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDomainAutoTunesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDomainAutoTunesInput,
         validate_input: @config.validate_input
@@ -1583,7 +1585,7 @@ module AWS::SDK::OpenSearch
     def describe_domain_change_progress(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDomainChangeProgressInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDomainChangeProgressInput,
         validate_input: @config.validate_input
@@ -1769,7 +1771,7 @@ module AWS::SDK::OpenSearch
     def describe_domain_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDomainConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDomainConfigInput,
         validate_input: @config.validate_input
@@ -1931,7 +1933,7 @@ module AWS::SDK::OpenSearch
     def describe_domains(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDomainsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDomainsInput,
         validate_input: @config.validate_input
@@ -2042,7 +2044,7 @@ module AWS::SDK::OpenSearch
     def describe_inbound_connections(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeInboundConnectionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeInboundConnectionsInput,
         validate_input: @config.validate_input
@@ -2163,7 +2165,7 @@ module AWS::SDK::OpenSearch
     def describe_instance_type_limits(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeInstanceTypeLimitsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeInstanceTypeLimitsInput,
         validate_input: @config.validate_input
@@ -2273,7 +2275,7 @@ module AWS::SDK::OpenSearch
     def describe_outbound_connections(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeOutboundConnectionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeOutboundConnectionsInput,
         validate_input: @config.validate_input
@@ -2375,7 +2377,7 @@ module AWS::SDK::OpenSearch
     def describe_packages(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePackagesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePackagesInput,
         validate_input: @config.validate_input
@@ -2468,7 +2470,7 @@ module AWS::SDK::OpenSearch
     def describe_reserved_instance_offerings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeReservedInstanceOfferingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeReservedInstanceOfferingsInput,
         validate_input: @config.validate_input
@@ -2566,7 +2568,7 @@ module AWS::SDK::OpenSearch
     def describe_reserved_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeReservedInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeReservedInstancesInput,
         validate_input: @config.validate_input
@@ -2651,7 +2653,7 @@ module AWS::SDK::OpenSearch
     def dissociate_package(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DissociatePackageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DissociatePackageInput,
         validate_input: @config.validate_input
@@ -2733,7 +2735,7 @@ module AWS::SDK::OpenSearch
     def get_compatible_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCompatibleVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCompatibleVersionsInput,
         validate_input: @config.validate_input
@@ -2817,7 +2819,7 @@ module AWS::SDK::OpenSearch
     def get_package_version_history(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPackageVersionHistoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPackageVersionHistoryInput,
         validate_input: @config.validate_input
@@ -2913,7 +2915,7 @@ module AWS::SDK::OpenSearch
     def get_upgrade_history(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetUpgradeHistoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetUpgradeHistoryInput,
         validate_input: @config.validate_input
@@ -2987,7 +2989,7 @@ module AWS::SDK::OpenSearch
     def get_upgrade_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetUpgradeStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetUpgradeStatusInput,
         validate_input: @config.validate_input
@@ -3058,7 +3060,7 @@ module AWS::SDK::OpenSearch
     def list_domain_names(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDomainNamesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDomainNamesInput,
         validate_input: @config.validate_input
@@ -3149,7 +3151,7 @@ module AWS::SDK::OpenSearch
     def list_domains_for_package(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDomainsForPackageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDomainsForPackageInput,
         validate_input: @config.validate_input
@@ -3242,7 +3244,7 @@ module AWS::SDK::OpenSearch
     def list_instance_type_details(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListInstanceTypeDetailsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListInstanceTypeDetailsInput,
         validate_input: @config.validate_input
@@ -3333,7 +3335,7 @@ module AWS::SDK::OpenSearch
     def list_packages_for_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPackagesForDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPackagesForDomainInput,
         validate_input: @config.validate_input
@@ -3406,7 +3408,7 @@ module AWS::SDK::OpenSearch
     def list_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsInput,
         validate_input: @config.validate_input
@@ -3486,7 +3488,7 @@ module AWS::SDK::OpenSearch
     def list_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListVersionsInput,
         validate_input: @config.validate_input
@@ -3563,7 +3565,7 @@ module AWS::SDK::OpenSearch
     def purchase_reserved_instance_offering(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PurchaseReservedInstanceOfferingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PurchaseReservedInstanceOfferingInput,
         validate_input: @config.validate_input
@@ -3642,7 +3644,7 @@ module AWS::SDK::OpenSearch
     def reject_inbound_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RejectInboundConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RejectInboundConnectionInput,
         validate_input: @config.validate_input
@@ -3717,7 +3719,7 @@ module AWS::SDK::OpenSearch
     def remove_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveTagsInput,
         validate_input: @config.validate_input
@@ -3794,7 +3796,7 @@ module AWS::SDK::OpenSearch
     def start_service_software_update(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartServiceSoftwareUpdateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartServiceSoftwareUpdateInput,
         validate_input: @config.validate_input
@@ -4134,7 +4136,7 @@ module AWS::SDK::OpenSearch
     def update_domain_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDomainConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDomainConfigInput,
         validate_input: @config.validate_input
@@ -4232,7 +4234,7 @@ module AWS::SDK::OpenSearch
     def update_package(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePackageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePackageInput,
         validate_input: @config.validate_input
@@ -4345,7 +4347,7 @@ module AWS::SDK::OpenSearch
     def upgrade_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpgradeDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpgradeDomainInput,
         validate_input: @config.validate_input

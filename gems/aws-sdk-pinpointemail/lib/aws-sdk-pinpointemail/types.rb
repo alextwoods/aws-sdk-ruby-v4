@@ -467,11 +467,11 @@ module AWS::SDK::PinpointEmail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.verified_for_sending_status ||= false
       end
-
     end
 
     # <p>An object that contains information about the volume of email sent on each day of the
@@ -870,11 +870,11 @@ module AWS::SDK::PinpointEmail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.signing_enabled ||= false
       end
-
     end
 
     # Includes enum constants for DkimStatus
@@ -1205,11 +1205,11 @@ module AWS::SDK::PinpointEmail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>An object that defines the event destination. Specifically, it defines which services
@@ -1267,11 +1267,11 @@ module AWS::SDK::PinpointEmail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # Includes enum constants for EventType
@@ -1390,13 +1390,13 @@ module AWS::SDK::PinpointEmail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.sending_enabled ||= false
         self.dedicated_ip_auto_warmup_enabled ||= false
         self.production_access_enabled ||= false
       end
-
     end
 
     # <p>A request to retrieve a list of the blacklists that your dedicated IP addresses appear
@@ -1671,11 +1671,11 @@ module AWS::SDK::PinpointEmail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dashboard_enabled ||= false
       end
-
     end
 
     # <p>A request to retrieve the results of a predictive inbox placement test.</p>
@@ -1898,12 +1898,12 @@ module AWS::SDK::PinpointEmail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.feedback_forwarding_status ||= false
         self.verified_for_sending_status ||= false
       end
-
     end
 
     # <p>Information about an email identity.</p>
@@ -1950,11 +1950,11 @@ module AWS::SDK::PinpointEmail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.sending_enabled ||= false
       end
-
     end
 
     # Includes enum constants for IdentityType
@@ -1995,11 +1995,11 @@ module AWS::SDK::PinpointEmail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.global ||= false
       end
-
     end
 
     # <p>An object that describes how email sent during the predictive inbox placement test was handled by a certain
@@ -2647,11 +2647,11 @@ module AWS::SDK::PinpointEmail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_warmup_enabled ||= false
       end
-
     end
 
     # <p>An HTTP 200 response if the request succeeds, or an error message if the request
@@ -2681,11 +2681,11 @@ module AWS::SDK::PinpointEmail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.sending_enabled ||= false
       end
-
     end
 
     # <p>An HTTP 200 response if the request succeeds, or an error message if the request
@@ -2763,11 +2763,11 @@ module AWS::SDK::PinpointEmail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.reputation_metrics_enabled ||= false
       end
-
     end
 
     # <p>An HTTP 200 response if the request succeeds, or an error message if the request
@@ -2801,11 +2801,11 @@ module AWS::SDK::PinpointEmail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.sending_enabled ||= false
       end
-
     end
 
     # <p>An HTTP 200 response if the request succeeds, or an error message if the request
@@ -2940,11 +2940,11 @@ module AWS::SDK::PinpointEmail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dashboard_enabled ||= false
       end
-
     end
 
     # <p>A response that indicates whether the Deliverability dashboard is enabled for your Amazon Pinpoint
@@ -2979,11 +2979,11 @@ module AWS::SDK::PinpointEmail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.signing_enabled ||= false
       end
-
     end
 
     # <p>An HTTP 200 response if the request succeeds, or an error message if the request
@@ -3024,11 +3024,11 @@ module AWS::SDK::PinpointEmail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.email_forwarding_enabled ||= false
       end
-
     end
 
     # <p>An HTTP 200 response if the request succeeds, or an error message if the request
@@ -3165,11 +3165,11 @@ module AWS::SDK::PinpointEmail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.reputation_metrics_enabled ||= false
       end
-
     end
 
     # <p>A request to send an email message.</p>
@@ -3279,13 +3279,13 @@ module AWS::SDK::PinpointEmail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max24_hour_send ||= 0
         self.max_send_rate ||= 0
         self.sent_last24_hours ||= 0
       end
-
     end
 
     # <p>Used to enable or disable email sending for messages that use this configuration set
@@ -3302,11 +3302,11 @@ module AWS::SDK::PinpointEmail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.sending_enabled ||= false
       end
-
     end
 
     # <p>The message can't be sent because the account's ability to send email is currently

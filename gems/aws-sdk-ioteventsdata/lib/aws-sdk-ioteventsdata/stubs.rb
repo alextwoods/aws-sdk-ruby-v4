@@ -14,7 +14,7 @@ module AWS::SDK::IoTEventsData
     class BatchAcknowledgeAlarm
       def self.default(visited=[])
         {
-          error_entries: Stubs::BatchAlarmActionErrorEntries.default(visited),
+          error_entries: BatchAlarmActionErrorEntries.default(visited),
         }
       end
 
@@ -33,7 +33,7 @@ module AWS::SDK::IoTEventsData
         return nil if visited.include?('BatchAlarmActionErrorEntries')
         visited = visited + ['BatchAlarmActionErrorEntries']
         [
-          Stubs::BatchAlarmActionErrorEntry.default(visited)
+          BatchAlarmActionErrorEntry.default(visited)
         ]
       end
 
@@ -73,7 +73,7 @@ module AWS::SDK::IoTEventsData
     class BatchDeleteDetector
       def self.default(visited=[])
         {
-          batch_delete_detector_error_entries: Stubs::BatchDeleteDetectorErrorEntries.default(visited),
+          batch_delete_detector_error_entries: BatchDeleteDetectorErrorEntries.default(visited),
         }
       end
 
@@ -92,7 +92,7 @@ module AWS::SDK::IoTEventsData
         return nil if visited.include?('BatchDeleteDetectorErrorEntries')
         visited = visited + ['BatchDeleteDetectorErrorEntries']
         [
-          Stubs::BatchDeleteDetectorErrorEntry.default(visited)
+          BatchDeleteDetectorErrorEntry.default(visited)
         ]
       end
 
@@ -132,7 +132,7 @@ module AWS::SDK::IoTEventsData
     class BatchDisableAlarm
       def self.default(visited=[])
         {
-          error_entries: Stubs::BatchAlarmActionErrorEntries.default(visited),
+          error_entries: BatchAlarmActionErrorEntries.default(visited),
         }
       end
 
@@ -149,7 +149,7 @@ module AWS::SDK::IoTEventsData
     class BatchEnableAlarm
       def self.default(visited=[])
         {
-          error_entries: Stubs::BatchAlarmActionErrorEntries.default(visited),
+          error_entries: BatchAlarmActionErrorEntries.default(visited),
         }
       end
 
@@ -166,7 +166,7 @@ module AWS::SDK::IoTEventsData
     class BatchPutMessage
       def self.default(visited=[])
         {
-          batch_put_message_error_entries: Stubs::BatchPutMessageErrorEntries.default(visited),
+          batch_put_message_error_entries: BatchPutMessageErrorEntries.default(visited),
         }
       end
 
@@ -185,7 +185,7 @@ module AWS::SDK::IoTEventsData
         return nil if visited.include?('BatchPutMessageErrorEntries')
         visited = visited + ['BatchPutMessageErrorEntries']
         [
-          Stubs::BatchPutMessageErrorEntry.default(visited)
+          BatchPutMessageErrorEntry.default(visited)
         ]
       end
 
@@ -225,7 +225,7 @@ module AWS::SDK::IoTEventsData
     class BatchResetAlarm
       def self.default(visited=[])
         {
-          error_entries: Stubs::BatchAlarmActionErrorEntries.default(visited),
+          error_entries: BatchAlarmActionErrorEntries.default(visited),
         }
       end
 
@@ -242,7 +242,7 @@ module AWS::SDK::IoTEventsData
     class BatchSnoozeAlarm
       def self.default(visited=[])
         {
-          error_entries: Stubs::BatchAlarmActionErrorEntries.default(visited),
+          error_entries: BatchAlarmActionErrorEntries.default(visited),
         }
       end
 
@@ -259,7 +259,7 @@ module AWS::SDK::IoTEventsData
     class BatchUpdateDetector
       def self.default(visited=[])
         {
-          batch_update_detector_error_entries: Stubs::BatchUpdateDetectorErrorEntries.default(visited),
+          batch_update_detector_error_entries: BatchUpdateDetectorErrorEntries.default(visited),
         }
       end
 
@@ -278,7 +278,7 @@ module AWS::SDK::IoTEventsData
         return nil if visited.include?('BatchUpdateDetectorErrorEntries')
         visited = visited + ['BatchUpdateDetectorErrorEntries']
         [
-          Stubs::BatchUpdateDetectorErrorEntry.default(visited)
+          BatchUpdateDetectorErrorEntry.default(visited)
         ]
       end
 
@@ -318,7 +318,7 @@ module AWS::SDK::IoTEventsData
     class DescribeAlarm
       def self.default(visited=[])
         {
-          alarm: Stubs::Alarm.default(visited),
+          alarm: Alarm.default(visited),
         }
       end
 
@@ -340,7 +340,7 @@ module AWS::SDK::IoTEventsData
           alarm_model_name: 'alarm_model_name',
           alarm_model_version: 'alarm_model_version',
           key_value: 'key_value',
-          alarm_state: Stubs::AlarmState.default(visited),
+          alarm_state: AlarmState.default(visited),
           severity: 1,
           creation_time: Time.now,
           last_update_time: Time.now,
@@ -368,9 +368,9 @@ module AWS::SDK::IoTEventsData
         visited = visited + ['AlarmState']
         {
           state_name: 'state_name',
-          rule_evaluation: Stubs::RuleEvaluation.default(visited),
-          customer_action: Stubs::CustomerAction.default(visited),
-          system_event: Stubs::SystemEvent.default(visited),
+          rule_evaluation: RuleEvaluation.default(visited),
+          customer_action: CustomerAction.default(visited),
+          system_event: SystemEvent.default(visited),
         }
       end
 
@@ -392,7 +392,7 @@ module AWS::SDK::IoTEventsData
         visited = visited + ['SystemEvent']
         {
           event_type: 'event_type',
-          state_change_configuration: Stubs::StateChangeConfiguration.default(visited),
+          state_change_configuration: StateChangeConfiguration.default(visited),
         }
       end
 
@@ -430,11 +430,11 @@ module AWS::SDK::IoTEventsData
         visited = visited + ['CustomerAction']
         {
           action_name: 'action_name',
-          snooze_action_configuration: Stubs::SnoozeActionConfiguration.default(visited),
-          enable_action_configuration: Stubs::EnableActionConfiguration.default(visited),
-          disable_action_configuration: Stubs::DisableActionConfiguration.default(visited),
-          acknowledge_action_configuration: Stubs::AcknowledgeActionConfiguration.default(visited),
-          reset_action_configuration: Stubs::ResetActionConfiguration.default(visited),
+          snooze_action_configuration: SnoozeActionConfiguration.default(visited),
+          enable_action_configuration: EnableActionConfiguration.default(visited),
+          disable_action_configuration: DisableActionConfiguration.default(visited),
+          acknowledge_action_configuration: AcknowledgeActionConfiguration.default(visited),
+          reset_action_configuration: ResetActionConfiguration.default(visited),
         }
       end
 
@@ -549,7 +549,7 @@ module AWS::SDK::IoTEventsData
         return nil if visited.include?('RuleEvaluation')
         visited = visited + ['RuleEvaluation']
         {
-          simple_rule_evaluation: Stubs::SimpleRuleEvaluation.default(visited),
+          simple_rule_evaluation: SimpleRuleEvaluation.default(visited),
         }
       end
 
@@ -587,7 +587,7 @@ module AWS::SDK::IoTEventsData
     class DescribeDetector
       def self.default(visited=[])
         {
-          detector: Stubs::Detector.default(visited),
+          detector: Detector.default(visited),
         }
       end
 
@@ -609,7 +609,7 @@ module AWS::SDK::IoTEventsData
           detector_model_name: 'detector_model_name',
           key_value: 'key_value',
           detector_model_version: 'detector_model_version',
-          state: Stubs::DetectorState.default(visited),
+          state: DetectorState.default(visited),
           creation_time: Time.now,
           last_update_time: Time.now,
         }
@@ -635,8 +635,8 @@ module AWS::SDK::IoTEventsData
         visited = visited + ['DetectorState']
         {
           state_name: 'state_name',
-          variables: Stubs::Variables.default(visited),
-          timers: Stubs::Timers.default(visited),
+          variables: Variables.default(visited),
+          timers: Timers.default(visited),
         }
       end
 
@@ -656,7 +656,7 @@ module AWS::SDK::IoTEventsData
         return nil if visited.include?('Timers')
         visited = visited + ['Timers']
         [
-          Stubs::Timer.default(visited)
+          Timer.default(visited)
         ]
       end
 
@@ -696,7 +696,7 @@ module AWS::SDK::IoTEventsData
         return nil if visited.include?('Variables')
         visited = visited + ['Variables']
         [
-          Stubs::Variable.default(visited)
+          Variable.default(visited)
         ]
       end
 
@@ -734,7 +734,7 @@ module AWS::SDK::IoTEventsData
     class ListAlarms
       def self.default(visited=[])
         {
-          alarm_summaries: Stubs::AlarmSummaries.default(visited),
+          alarm_summaries: AlarmSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -755,7 +755,7 @@ module AWS::SDK::IoTEventsData
         return nil if visited.include?('AlarmSummaries')
         visited = visited + ['AlarmSummaries']
         [
-          Stubs::AlarmSummary.default(visited)
+          AlarmSummary.default(visited)
         ]
       end
 
@@ -801,7 +801,7 @@ module AWS::SDK::IoTEventsData
     class ListDetectors
       def self.default(visited=[])
         {
-          detector_summaries: Stubs::DetectorSummaries.default(visited),
+          detector_summaries: DetectorSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -822,7 +822,7 @@ module AWS::SDK::IoTEventsData
         return nil if visited.include?('DetectorSummaries')
         visited = visited + ['DetectorSummaries']
         [
-          Stubs::DetectorSummary.default(visited)
+          DetectorSummary.default(visited)
         ]
       end
 
@@ -845,7 +845,7 @@ module AWS::SDK::IoTEventsData
           detector_model_name: 'detector_model_name',
           key_value: 'key_value',
           detector_model_version: 'detector_model_version',
-          state: Stubs::DetectorStateSummary.default(visited),
+          state: DetectorStateSummary.default(visited),
           creation_time: Time.now,
           last_update_time: Time.now,
         }

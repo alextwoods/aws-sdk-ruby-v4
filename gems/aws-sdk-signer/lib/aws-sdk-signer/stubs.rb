@@ -45,22 +45,22 @@ module AWS::SDK::Signer
       def self.default(visited=[])
         {
           job_id: 'job_id',
-          source: Stubs::Source.default(visited),
-          signing_material: Stubs::SigningMaterial.default(visited),
+          source: Source.default(visited),
+          signing_material: SigningMaterial.default(visited),
           platform_id: 'platform_id',
           platform_display_name: 'platform_display_name',
           profile_name: 'profile_name',
           profile_version: 'profile_version',
-          overrides: Stubs::SigningPlatformOverrides.default(visited),
-          signing_parameters: Stubs::SigningParameters.default(visited),
+          overrides: SigningPlatformOverrides.default(visited),
+          signing_parameters: SigningParameters.default(visited),
           created_at: Time.now,
           completed_at: Time.now,
           signature_expires_at: Time.now,
           requested_by: 'requested_by',
           status: 'status',
           status_reason: 'status_reason',
-          revocation_record: Stubs::SigningJobRevocationRecord.default(visited),
-          signed_object: Stubs::SignedObject.default(visited),
+          revocation_record: SigningJobRevocationRecord.default(visited),
+          signed_object: SignedObject.default(visited),
           job_owner: 'job_owner',
           job_invoker: 'job_invoker',
         }
@@ -99,7 +99,7 @@ module AWS::SDK::Signer
         return nil if visited.include?('SignedObject')
         visited = visited + ['SignedObject']
         {
-          s3: Stubs::S3SignedObject.default(visited),
+          s3: S3SignedObject.default(visited),
         }
       end
 
@@ -179,7 +179,7 @@ module AWS::SDK::Signer
         return nil if visited.include?('SigningPlatformOverrides')
         visited = visited + ['SigningPlatformOverrides']
         {
-          signing_configuration: Stubs::SigningConfigurationOverrides.default(visited),
+          signing_configuration: SigningConfigurationOverrides.default(visited),
           signing_image_format: 'signing_image_format',
         }
       end
@@ -237,7 +237,7 @@ module AWS::SDK::Signer
         return nil if visited.include?('Source')
         visited = visited + ['Source']
         {
-          s3: Stubs::S3Source.default(visited),
+          s3: S3Source.default(visited),
         }
       end
 
@@ -280,8 +280,8 @@ module AWS::SDK::Signer
           partner: 'partner',
           target: 'target',
           category: 'category',
-          signing_configuration: Stubs::SigningConfiguration.default(visited),
-          signing_image_format: Stubs::SigningImageFormat.default(visited),
+          signing_configuration: SigningConfiguration.default(visited),
+          signing_image_format: SigningImageFormat.default(visited),
           max_size_in_mb: 1,
           revocation_supported: false,
         }
@@ -310,7 +310,7 @@ module AWS::SDK::Signer
         return nil if visited.include?('SigningImageFormat')
         visited = visited + ['SigningImageFormat']
         {
-          supported_formats: Stubs::ImageFormats.default(visited),
+          supported_formats: ImageFormats.default(visited),
           default_format: 'default_format',
         }
       end
@@ -350,8 +350,8 @@ module AWS::SDK::Signer
         return nil if visited.include?('SigningConfiguration')
         visited = visited + ['SigningConfiguration']
         {
-          encryption_algorithm_options: Stubs::EncryptionAlgorithmOptions.default(visited),
-          hash_algorithm_options: Stubs::HashAlgorithmOptions.default(visited),
+          encryption_algorithm_options: EncryptionAlgorithmOptions.default(visited),
+          hash_algorithm_options: HashAlgorithmOptions.default(visited),
         }
       end
 
@@ -370,7 +370,7 @@ module AWS::SDK::Signer
         return nil if visited.include?('HashAlgorithmOptions')
         visited = visited + ['HashAlgorithmOptions']
         {
-          allowed_values: Stubs::HashAlgorithms.default(visited),
+          allowed_values: HashAlgorithms.default(visited),
           default_value: 'default_value',
         }
       end
@@ -410,7 +410,7 @@ module AWS::SDK::Signer
         return nil if visited.include?('EncryptionAlgorithmOptions')
         visited = visited + ['EncryptionAlgorithmOptions']
         {
-          allowed_values: Stubs::EncryptionAlgorithms.default(visited),
+          allowed_values: EncryptionAlgorithms.default(visited),
           default_value: 'default_value',
         }
       end
@@ -451,17 +451,17 @@ module AWS::SDK::Signer
           profile_name: 'profile_name',
           profile_version: 'profile_version',
           profile_version_arn: 'profile_version_arn',
-          revocation_record: Stubs::SigningProfileRevocationRecord.default(visited),
-          signing_material: Stubs::SigningMaterial.default(visited),
+          revocation_record: SigningProfileRevocationRecord.default(visited),
+          signing_material: SigningMaterial.default(visited),
           platform_id: 'platform_id',
           platform_display_name: 'platform_display_name',
-          signature_validity_period: Stubs::SignatureValidityPeriod.default(visited),
-          overrides: Stubs::SigningPlatformOverrides.default(visited),
-          signing_parameters: Stubs::SigningParameters.default(visited),
+          signature_validity_period: SignatureValidityPeriod.default(visited),
+          overrides: SigningPlatformOverrides.default(visited),
+          signing_parameters: SigningParameters.default(visited),
           status: 'status',
           status_reason: 'status_reason',
           arn: 'arn',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -555,7 +555,7 @@ module AWS::SDK::Signer
         {
           revision_id: 'revision_id',
           policy_size_bytes: 1,
-          permissions: Stubs::Permissions.default(visited),
+          permissions: Permissions.default(visited),
           next_token: 'next_token',
         }
       end
@@ -578,7 +578,7 @@ module AWS::SDK::Signer
         return nil if visited.include?('Permissions')
         visited = visited + ['Permissions']
         [
-          Stubs::Permission.default(visited)
+          Permission.default(visited)
         ]
       end
 
@@ -620,7 +620,7 @@ module AWS::SDK::Signer
     class ListSigningJobs
       def self.default(visited=[])
         {
-          jobs: Stubs::SigningJobs.default(visited),
+          jobs: SigningJobs.default(visited),
           next_token: 'next_token',
         }
       end
@@ -641,7 +641,7 @@ module AWS::SDK::Signer
         return nil if visited.include?('SigningJobs')
         visited = visited + ['SigningJobs']
         [
-          Stubs::SigningJob.default(visited)
+          SigningJob.default(visited)
         ]
       end
 
@@ -662,9 +662,9 @@ module AWS::SDK::Signer
         visited = visited + ['SigningJob']
         {
           job_id: 'job_id',
-          source: Stubs::Source.default(visited),
-          signed_object: Stubs::SignedObject.default(visited),
-          signing_material: Stubs::SigningMaterial.default(visited),
+          source: Source.default(visited),
+          signed_object: SignedObject.default(visited),
+          signing_material: SigningMaterial.default(visited),
           created_at: Time.now,
           status: 'status',
           is_revoked: false,
@@ -703,7 +703,7 @@ module AWS::SDK::Signer
     class ListSigningPlatforms
       def self.default(visited=[])
         {
-          platforms: Stubs::SigningPlatforms.default(visited),
+          platforms: SigningPlatforms.default(visited),
           next_token: 'next_token',
         }
       end
@@ -724,7 +724,7 @@ module AWS::SDK::Signer
         return nil if visited.include?('SigningPlatforms')
         visited = visited + ['SigningPlatforms']
         [
-          Stubs::SigningPlatform.default(visited)
+          SigningPlatform.default(visited)
         ]
       end
 
@@ -749,8 +749,8 @@ module AWS::SDK::Signer
           partner: 'partner',
           target: 'target',
           category: 'category',
-          signing_configuration: Stubs::SigningConfiguration.default(visited),
-          signing_image_format: Stubs::SigningImageFormat.default(visited),
+          signing_configuration: SigningConfiguration.default(visited),
+          signing_image_format: SigningImageFormat.default(visited),
           max_size_in_mb: 1,
           revocation_supported: false,
         }
@@ -776,7 +776,7 @@ module AWS::SDK::Signer
     class ListSigningProfiles
       def self.default(visited=[])
         {
-          profiles: Stubs::SigningProfiles.default(visited),
+          profiles: SigningProfiles.default(visited),
           next_token: 'next_token',
         }
       end
@@ -797,7 +797,7 @@ module AWS::SDK::Signer
         return nil if visited.include?('SigningProfiles')
         visited = visited + ['SigningProfiles']
         [
-          Stubs::SigningProfile.default(visited)
+          SigningProfile.default(visited)
         ]
       end
 
@@ -820,14 +820,14 @@ module AWS::SDK::Signer
           profile_name: 'profile_name',
           profile_version: 'profile_version',
           profile_version_arn: 'profile_version_arn',
-          signing_material: Stubs::SigningMaterial.default(visited),
-          signature_validity_period: Stubs::SignatureValidityPeriod.default(visited),
+          signing_material: SigningMaterial.default(visited),
+          signature_validity_period: SignatureValidityPeriod.default(visited),
           platform_id: 'platform_id',
           platform_display_name: 'platform_display_name',
-          signing_parameters: Stubs::SigningParameters.default(visited),
+          signing_parameters: SigningParameters.default(visited),
           status: 'status',
           arn: 'arn',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -853,7 +853,7 @@ module AWS::SDK::Signer
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 

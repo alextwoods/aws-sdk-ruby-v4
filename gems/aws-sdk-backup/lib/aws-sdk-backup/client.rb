@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Backup
@@ -119,7 +121,7 @@ module AWS::SDK::Backup
     def create_backup_plan(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBackupPlanInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBackupPlanInput,
         validate_input: @config.validate_input
@@ -223,7 +225,7 @@ module AWS::SDK::Backup
     def create_backup_selection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBackupSelectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBackupSelectionInput,
         validate_input: @config.validate_input
@@ -320,7 +322,7 @@ module AWS::SDK::Backup
     def create_backup_vault(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBackupVaultInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBackupVaultInput,
         validate_input: @config.validate_input
@@ -435,7 +437,7 @@ module AWS::SDK::Backup
     def create_framework(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFrameworkInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFrameworkInput,
         validate_input: @config.validate_input
@@ -558,7 +560,7 @@ module AWS::SDK::Backup
     def create_report_plan(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateReportPlanInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateReportPlanInput,
         validate_input: @config.validate_input
@@ -632,7 +634,7 @@ module AWS::SDK::Backup
     def delete_backup_plan(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBackupPlanInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBackupPlanInput,
         validate_input: @config.validate_input
@@ -705,7 +707,7 @@ module AWS::SDK::Backup
     def delete_backup_selection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBackupSelectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBackupSelectionInput,
         validate_input: @config.validate_input
@@ -776,7 +778,7 @@ module AWS::SDK::Backup
     def delete_backup_vault(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBackupVaultInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBackupVaultInput,
         validate_input: @config.validate_input
@@ -846,7 +848,7 @@ module AWS::SDK::Backup
     def delete_backup_vault_access_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBackupVaultAccessPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBackupVaultAccessPolicyInput,
         validate_input: @config.validate_input
@@ -918,7 +920,7 @@ module AWS::SDK::Backup
     def delete_backup_vault_lock_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBackupVaultLockConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBackupVaultLockConfigurationInput,
         validate_input: @config.validate_input
@@ -987,7 +989,7 @@ module AWS::SDK::Backup
     def delete_backup_vault_notifications(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBackupVaultNotificationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBackupVaultNotificationsInput,
         validate_input: @config.validate_input
@@ -1054,7 +1056,7 @@ module AWS::SDK::Backup
     def delete_framework(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFrameworkInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFrameworkInput,
         validate_input: @config.validate_input
@@ -1131,7 +1133,7 @@ module AWS::SDK::Backup
     def delete_recovery_point(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRecoveryPointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRecoveryPointInput,
         validate_input: @config.validate_input
@@ -1198,7 +1200,7 @@ module AWS::SDK::Backup
     def delete_report_plan(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteReportPlanInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteReportPlanInput,
         validate_input: @config.validate_input
@@ -1290,7 +1292,7 @@ module AWS::SDK::Backup
     def describe_backup_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeBackupJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeBackupJobInput,
         validate_input: @config.validate_input
@@ -1370,7 +1372,7 @@ module AWS::SDK::Backup
     def describe_backup_vault(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeBackupVaultInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeBackupVaultInput,
         validate_input: @config.validate_input
@@ -1457,7 +1459,7 @@ module AWS::SDK::Backup
     def describe_copy_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCopyJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCopyJobInput,
         validate_input: @config.validate_input
@@ -1545,7 +1547,7 @@ module AWS::SDK::Backup
     def describe_framework(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFrameworkInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFrameworkInput,
         validate_input: @config.validate_input
@@ -1613,7 +1615,7 @@ module AWS::SDK::Backup
     def describe_global_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeGlobalSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeGlobalSettingsInput,
         validate_input: @config.validate_input
@@ -1686,7 +1688,7 @@ module AWS::SDK::Backup
     def describe_protected_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeProtectedResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeProtectedResourceInput,
         validate_input: @config.validate_input
@@ -1789,7 +1791,7 @@ module AWS::SDK::Backup
     def describe_recovery_point(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRecoveryPointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRecoveryPointInput,
         validate_input: @config.validate_input
@@ -1859,7 +1861,7 @@ module AWS::SDK::Backup
     def describe_region_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRegionSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRegionSettingsInput,
         validate_input: @config.validate_input
@@ -1940,7 +1942,7 @@ module AWS::SDK::Backup
     def describe_report_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeReportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeReportJobInput,
         validate_input: @config.validate_input
@@ -2025,7 +2027,7 @@ module AWS::SDK::Backup
     def describe_report_plan(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeReportPlanInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeReportPlanInput,
         validate_input: @config.validate_input
@@ -2105,7 +2107,7 @@ module AWS::SDK::Backup
     def describe_restore_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRestoreJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRestoreJobInput,
         validate_input: @config.validate_input
@@ -2180,7 +2182,7 @@ module AWS::SDK::Backup
     def disassociate_recovery_point(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateRecoveryPointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateRecoveryPointInput,
         validate_input: @config.validate_input
@@ -2248,7 +2250,7 @@ module AWS::SDK::Backup
     def export_backup_plan_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExportBackupPlanTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExportBackupPlanTemplateInput,
         validate_input: @config.validate_input
@@ -2354,7 +2356,7 @@ module AWS::SDK::Backup
     def get_backup_plan(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBackupPlanInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBackupPlanInput,
         validate_input: @config.validate_input
@@ -2446,7 +2448,7 @@ module AWS::SDK::Backup
     def get_backup_plan_from_json(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBackupPlanFromJSONInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBackupPlanFromJSONInput,
         validate_input: @config.validate_input
@@ -2539,7 +2541,7 @@ module AWS::SDK::Backup
     def get_backup_plan_from_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBackupPlanFromTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBackupPlanFromTemplateInput,
         validate_input: @config.validate_input
@@ -2635,7 +2637,7 @@ module AWS::SDK::Backup
     def get_backup_selection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBackupSelectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBackupSelectionInput,
         validate_input: @config.validate_input
@@ -2709,7 +2711,7 @@ module AWS::SDK::Backup
     def get_backup_vault_access_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBackupVaultAccessPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBackupVaultAccessPolicyInput,
         validate_input: @config.validate_input
@@ -2784,7 +2786,7 @@ module AWS::SDK::Backup
     def get_backup_vault_notifications(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBackupVaultNotificationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBackupVaultNotificationsInput,
         validate_input: @config.validate_input
@@ -2863,7 +2865,7 @@ module AWS::SDK::Backup
     def get_recovery_point_restore_metadata(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRecoveryPointRestoreMetadataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRecoveryPointRestoreMetadataInput,
         validate_input: @config.validate_input
@@ -2927,7 +2929,7 @@ module AWS::SDK::Backup
     def get_supported_resource_types(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSupportedResourceTypesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSupportedResourceTypesInput,
         validate_input: @config.validate_input
@@ -3125,7 +3127,7 @@ module AWS::SDK::Backup
     def list_backup_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBackupJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBackupJobsInput,
         validate_input: @config.validate_input
@@ -3205,7 +3207,7 @@ module AWS::SDK::Backup
     def list_backup_plan_templates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBackupPlanTemplatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBackupPlanTemplatesInput,
         validate_input: @config.validate_input
@@ -3300,7 +3302,7 @@ module AWS::SDK::Backup
     def list_backup_plan_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBackupPlanVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBackupPlanVersionsInput,
         validate_input: @config.validate_input
@@ -3397,7 +3399,7 @@ module AWS::SDK::Backup
     def list_backup_plans(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBackupPlansInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBackupPlansInput,
         validate_input: @config.validate_input
@@ -3485,7 +3487,7 @@ module AWS::SDK::Backup
     def list_backup_selections(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBackupSelectionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBackupSelectionsInput,
         validate_input: @config.validate_input
@@ -3573,7 +3575,7 @@ module AWS::SDK::Backup
     def list_backup_vaults(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBackupVaultsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBackupVaultsInput,
         validate_input: @config.validate_input
@@ -3760,7 +3762,7 @@ module AWS::SDK::Backup
     def list_copy_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCopyJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCopyJobsInput,
         validate_input: @config.validate_input
@@ -3842,7 +3844,7 @@ module AWS::SDK::Backup
     def list_frameworks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFrameworksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFrameworksInput,
         validate_input: @config.validate_input
@@ -3924,7 +3926,7 @@ module AWS::SDK::Backup
     def list_protected_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListProtectedResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListProtectedResourcesInput,
         validate_input: @config.validate_input
@@ -4059,7 +4061,7 @@ module AWS::SDK::Backup
     def list_recovery_points_by_backup_vault(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRecoveryPointsByBackupVaultInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRecoveryPointsByBackupVaultInput,
         validate_input: @config.validate_input
@@ -4156,7 +4158,7 @@ module AWS::SDK::Backup
     def list_recovery_points_by_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRecoveryPointsByResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRecoveryPointsByResourceInput,
         validate_input: @config.validate_input
@@ -4266,7 +4268,7 @@ module AWS::SDK::Backup
     def list_report_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListReportJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListReportJobsInput,
         validate_input: @config.validate_input
@@ -4360,7 +4362,7 @@ module AWS::SDK::Backup
     def list_report_plans(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListReportPlansInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListReportPlansInput,
         validate_input: @config.validate_input
@@ -4478,7 +4480,7 @@ module AWS::SDK::Backup
     def list_restore_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRestoreJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRestoreJobsInput,
         validate_input: @config.validate_input
@@ -4566,7 +4568,7 @@ module AWS::SDK::Backup
     def list_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsInput,
         validate_input: @config.validate_input
@@ -4642,7 +4644,7 @@ module AWS::SDK::Backup
     def put_backup_vault_access_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutBackupVaultAccessPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutBackupVaultAccessPolicyInput,
         validate_input: @config.validate_input
@@ -4769,7 +4771,7 @@ module AWS::SDK::Backup
     def put_backup_vault_lock_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutBackupVaultLockConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutBackupVaultLockConfigurationInput,
         validate_input: @config.validate_input
@@ -4883,7 +4885,7 @@ module AWS::SDK::Backup
     def put_backup_vault_notifications(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutBackupVaultNotificationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutBackupVaultNotificationsInput,
         validate_input: @config.validate_input
@@ -5021,7 +5023,7 @@ module AWS::SDK::Backup
     def start_backup_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartBackupJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartBackupJobInput,
         validate_input: @config.validate_input
@@ -5134,7 +5136,7 @@ module AWS::SDK::Backup
     def start_copy_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartCopyJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartCopyJobInput,
         validate_input: @config.validate_input
@@ -5209,7 +5211,7 @@ module AWS::SDK::Backup
     def start_report_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartReportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartReportJobInput,
         validate_input: @config.validate_input
@@ -5399,7 +5401,7 @@ module AWS::SDK::Backup
     def start_restore_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartRestoreJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartRestoreJobInput,
         validate_input: @config.validate_input
@@ -5467,7 +5469,7 @@ module AWS::SDK::Backup
     def stop_backup_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopBackupJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopBackupJobInput,
         validate_input: @config.validate_input
@@ -5544,7 +5546,7 @@ module AWS::SDK::Backup
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -5620,7 +5622,7 @@ module AWS::SDK::Backup
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -5736,7 +5738,7 @@ module AWS::SDK::Backup
     def update_backup_plan(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateBackupPlanInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateBackupPlanInput,
         validate_input: @config.validate_input
@@ -5845,7 +5847,7 @@ module AWS::SDK::Backup
     def update_framework(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFrameworkInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFrameworkInput,
         validate_input: @config.validate_input
@@ -5919,7 +5921,7 @@ module AWS::SDK::Backup
     def update_global_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGlobalSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGlobalSettingsInput,
         validate_input: @config.validate_input
@@ -6029,7 +6031,7 @@ module AWS::SDK::Backup
     def update_recovery_point_lifecycle(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRecoveryPointLifecycleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRecoveryPointLifecycleInput,
         validate_input: @config.validate_input
@@ -6113,7 +6115,7 @@ module AWS::SDK::Backup
     def update_region_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRegionSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRegionSettingsInput,
         validate_input: @config.validate_input
@@ -6226,7 +6228,7 @@ module AWS::SDK::Backup
     def update_report_plan(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateReportPlanInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateReportPlanInput,
         validate_input: @config.validate_input

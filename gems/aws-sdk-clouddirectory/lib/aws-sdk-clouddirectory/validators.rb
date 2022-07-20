@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::CloudDirectory
   module Validators
 
@@ -21,9 +23,9 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddFacetToObjectInput, context: context)
         Hearth::Validator.validate!(input[:directory_arn], ::String, context: "#{context}[:directory_arn]")
-        Validators::SchemaFacet.validate!(input[:schema_facet], context: "#{context}[:schema_facet]") unless input[:schema_facet].nil?
-        Validators::AttributeKeyAndValueList.validate!(input[:object_attribute_list], context: "#{context}[:object_attribute_list]") unless input[:object_attribute_list].nil?
-        Validators::ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
+        SchemaFacet.validate!(input[:schema_facet], context: "#{context}[:schema_facet]") unless input[:schema_facet].nil?
+        AttributeKeyAndValueList.validate!(input[:object_attribute_list], context: "#{context}[:object_attribute_list]") unless input[:object_attribute_list].nil?
+        ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
       end
     end
 
@@ -62,8 +64,8 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AttachObjectInput, context: context)
         Hearth::Validator.validate!(input[:directory_arn], ::String, context: "#{context}[:directory_arn]")
-        Validators::ObjectReference.validate!(input[:parent_reference], context: "#{context}[:parent_reference]") unless input[:parent_reference].nil?
-        Validators::ObjectReference.validate!(input[:child_reference], context: "#{context}[:child_reference]") unless input[:child_reference].nil?
+        ObjectReference.validate!(input[:parent_reference], context: "#{context}[:parent_reference]") unless input[:parent_reference].nil?
+        ObjectReference.validate!(input[:child_reference], context: "#{context}[:child_reference]") unless input[:child_reference].nil?
         Hearth::Validator.validate!(input[:link_name], ::String, context: "#{context}[:link_name]")
       end
     end
@@ -79,8 +81,8 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AttachPolicyInput, context: context)
         Hearth::Validator.validate!(input[:directory_arn], ::String, context: "#{context}[:directory_arn]")
-        Validators::ObjectReference.validate!(input[:policy_reference], context: "#{context}[:policy_reference]") unless input[:policy_reference].nil?
-        Validators::ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
+        ObjectReference.validate!(input[:policy_reference], context: "#{context}[:policy_reference]") unless input[:policy_reference].nil?
+        ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
       end
     end
 
@@ -94,8 +96,8 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AttachToIndexInput, context: context)
         Hearth::Validator.validate!(input[:directory_arn], ::String, context: "#{context}[:directory_arn]")
-        Validators::ObjectReference.validate!(input[:index_reference], context: "#{context}[:index_reference]") unless input[:index_reference].nil?
-        Validators::ObjectReference.validate!(input[:target_reference], context: "#{context}[:target_reference]") unless input[:target_reference].nil?
+        ObjectReference.validate!(input[:index_reference], context: "#{context}[:index_reference]") unless input[:index_reference].nil?
+        ObjectReference.validate!(input[:target_reference], context: "#{context}[:target_reference]") unless input[:target_reference].nil?
       end
     end
 
@@ -110,17 +112,17 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AttachTypedLinkInput, context: context)
         Hearth::Validator.validate!(input[:directory_arn], ::String, context: "#{context}[:directory_arn]")
-        Validators::ObjectReference.validate!(input[:source_object_reference], context: "#{context}[:source_object_reference]") unless input[:source_object_reference].nil?
-        Validators::ObjectReference.validate!(input[:target_object_reference], context: "#{context}[:target_object_reference]") unless input[:target_object_reference].nil?
-        Validators::TypedLinkSchemaAndFacetName.validate!(input[:typed_link_facet], context: "#{context}[:typed_link_facet]") unless input[:typed_link_facet].nil?
-        Validators::AttributeNameAndValueList.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        ObjectReference.validate!(input[:source_object_reference], context: "#{context}[:source_object_reference]") unless input[:source_object_reference].nil?
+        ObjectReference.validate!(input[:target_object_reference], context: "#{context}[:target_object_reference]") unless input[:target_object_reference].nil?
+        TypedLinkSchemaAndFacetName.validate!(input[:typed_link_facet], context: "#{context}[:typed_link_facet]") unless input[:typed_link_facet].nil?
+        AttributeNameAndValueList.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
     class AttachTypedLinkOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AttachTypedLinkOutput, context: context)
-        Validators::TypedLinkSpecifier.validate!(input[:typed_link_specifier], context: "#{context}[:typed_link_specifier]") unless input[:typed_link_specifier].nil?
+        TypedLinkSpecifier.validate!(input[:typed_link_specifier], context: "#{context}[:typed_link_specifier]") unless input[:typed_link_specifier].nil?
       end
     end
 
@@ -136,8 +138,8 @@ module AWS::SDK::CloudDirectory
     class AttributeKeyAndValue
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AttributeKeyAndValue, context: context)
-        Validators::AttributeKey.validate!(input[:key], context: "#{context}[:key]") unless input[:key].nil?
-        Validators::TypedAttributeValue.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
+        AttributeKey.validate!(input[:key], context: "#{context}[:key]") unless input[:key].nil?
+        TypedAttributeValue.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
       end
     end
 
@@ -145,7 +147,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AttributeKeyAndValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AttributeKeyAndValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -154,7 +156,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AttributeKey.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AttributeKey.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -163,7 +165,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AttributeNameAndValue, context: context)
         Hearth::Validator.validate!(input[:attribute_name], ::String, context: "#{context}[:attribute_name]")
-        Validators::TypedAttributeValue.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
+        TypedAttributeValue.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
       end
     end
 
@@ -171,7 +173,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AttributeNameAndValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AttributeNameAndValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -188,9 +190,9 @@ module AWS::SDK::CloudDirectory
     class BatchAddFacetToObject
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchAddFacetToObject, context: context)
-        Validators::SchemaFacet.validate!(input[:schema_facet], context: "#{context}[:schema_facet]") unless input[:schema_facet].nil?
-        Validators::AttributeKeyAndValueList.validate!(input[:object_attribute_list], context: "#{context}[:object_attribute_list]") unless input[:object_attribute_list].nil?
-        Validators::ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
+        SchemaFacet.validate!(input[:schema_facet], context: "#{context}[:schema_facet]") unless input[:schema_facet].nil?
+        AttributeKeyAndValueList.validate!(input[:object_attribute_list], context: "#{context}[:object_attribute_list]") unless input[:object_attribute_list].nil?
+        ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
       end
     end
 
@@ -203,8 +205,8 @@ module AWS::SDK::CloudDirectory
     class BatchAttachObject
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchAttachObject, context: context)
-        Validators::ObjectReference.validate!(input[:parent_reference], context: "#{context}[:parent_reference]") unless input[:parent_reference].nil?
-        Validators::ObjectReference.validate!(input[:child_reference], context: "#{context}[:child_reference]") unless input[:child_reference].nil?
+        ObjectReference.validate!(input[:parent_reference], context: "#{context}[:parent_reference]") unless input[:parent_reference].nil?
+        ObjectReference.validate!(input[:child_reference], context: "#{context}[:child_reference]") unless input[:child_reference].nil?
         Hearth::Validator.validate!(input[:link_name], ::String, context: "#{context}[:link_name]")
       end
     end
@@ -219,8 +221,8 @@ module AWS::SDK::CloudDirectory
     class BatchAttachPolicy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchAttachPolicy, context: context)
-        Validators::ObjectReference.validate!(input[:policy_reference], context: "#{context}[:policy_reference]") unless input[:policy_reference].nil?
-        Validators::ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
+        ObjectReference.validate!(input[:policy_reference], context: "#{context}[:policy_reference]") unless input[:policy_reference].nil?
+        ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
       end
     end
 
@@ -233,8 +235,8 @@ module AWS::SDK::CloudDirectory
     class BatchAttachToIndex
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchAttachToIndex, context: context)
-        Validators::ObjectReference.validate!(input[:index_reference], context: "#{context}[:index_reference]") unless input[:index_reference].nil?
-        Validators::ObjectReference.validate!(input[:target_reference], context: "#{context}[:target_reference]") unless input[:target_reference].nil?
+        ObjectReference.validate!(input[:index_reference], context: "#{context}[:index_reference]") unless input[:index_reference].nil?
+        ObjectReference.validate!(input[:target_reference], context: "#{context}[:target_reference]") unless input[:target_reference].nil?
       end
     end
 
@@ -248,26 +250,26 @@ module AWS::SDK::CloudDirectory
     class BatchAttachTypedLink
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchAttachTypedLink, context: context)
-        Validators::ObjectReference.validate!(input[:source_object_reference], context: "#{context}[:source_object_reference]") unless input[:source_object_reference].nil?
-        Validators::ObjectReference.validate!(input[:target_object_reference], context: "#{context}[:target_object_reference]") unless input[:target_object_reference].nil?
-        Validators::TypedLinkSchemaAndFacetName.validate!(input[:typed_link_facet], context: "#{context}[:typed_link_facet]") unless input[:typed_link_facet].nil?
-        Validators::AttributeNameAndValueList.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        ObjectReference.validate!(input[:source_object_reference], context: "#{context}[:source_object_reference]") unless input[:source_object_reference].nil?
+        ObjectReference.validate!(input[:target_object_reference], context: "#{context}[:target_object_reference]") unless input[:target_object_reference].nil?
+        TypedLinkSchemaAndFacetName.validate!(input[:typed_link_facet], context: "#{context}[:typed_link_facet]") unless input[:typed_link_facet].nil?
+        AttributeNameAndValueList.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
     class BatchAttachTypedLinkResponse
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchAttachTypedLinkResponse, context: context)
-        Validators::TypedLinkSpecifier.validate!(input[:typed_link_specifier], context: "#{context}[:typed_link_specifier]") unless input[:typed_link_specifier].nil?
+        TypedLinkSpecifier.validate!(input[:typed_link_specifier], context: "#{context}[:typed_link_specifier]") unless input[:typed_link_specifier].nil?
       end
     end
 
     class BatchCreateIndex
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchCreateIndex, context: context)
-        Validators::AttributeKeyList.validate!(input[:ordered_indexed_attribute_list], context: "#{context}[:ordered_indexed_attribute_list]") unless input[:ordered_indexed_attribute_list].nil?
+        AttributeKeyList.validate!(input[:ordered_indexed_attribute_list], context: "#{context}[:ordered_indexed_attribute_list]") unless input[:ordered_indexed_attribute_list].nil?
         Hearth::Validator.validate!(input[:is_unique], ::TrueClass, ::FalseClass, context: "#{context}[:is_unique]")
-        Validators::ObjectReference.validate!(input[:parent_reference], context: "#{context}[:parent_reference]") unless input[:parent_reference].nil?
+        ObjectReference.validate!(input[:parent_reference], context: "#{context}[:parent_reference]") unless input[:parent_reference].nil?
         Hearth::Validator.validate!(input[:link_name], ::String, context: "#{context}[:link_name]")
         Hearth::Validator.validate!(input[:batch_reference_name], ::String, context: "#{context}[:batch_reference_name]")
       end
@@ -283,9 +285,9 @@ module AWS::SDK::CloudDirectory
     class BatchCreateObject
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchCreateObject, context: context)
-        Validators::SchemaFacetList.validate!(input[:schema_facet], context: "#{context}[:schema_facet]") unless input[:schema_facet].nil?
-        Validators::AttributeKeyAndValueList.validate!(input[:object_attribute_list], context: "#{context}[:object_attribute_list]") unless input[:object_attribute_list].nil?
-        Validators::ObjectReference.validate!(input[:parent_reference], context: "#{context}[:parent_reference]") unless input[:parent_reference].nil?
+        SchemaFacetList.validate!(input[:schema_facet], context: "#{context}[:schema_facet]") unless input[:schema_facet].nil?
+        AttributeKeyAndValueList.validate!(input[:object_attribute_list], context: "#{context}[:object_attribute_list]") unless input[:object_attribute_list].nil?
+        ObjectReference.validate!(input[:parent_reference], context: "#{context}[:parent_reference]") unless input[:parent_reference].nil?
         Hearth::Validator.validate!(input[:link_name], ::String, context: "#{context}[:link_name]")
         Hearth::Validator.validate!(input[:batch_reference_name], ::String, context: "#{context}[:batch_reference_name]")
       end
@@ -301,7 +303,7 @@ module AWS::SDK::CloudDirectory
     class BatchDeleteObject
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDeleteObject, context: context)
-        Validators::ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
+        ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
       end
     end
 
@@ -314,8 +316,8 @@ module AWS::SDK::CloudDirectory
     class BatchDetachFromIndex
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDetachFromIndex, context: context)
-        Validators::ObjectReference.validate!(input[:index_reference], context: "#{context}[:index_reference]") unless input[:index_reference].nil?
-        Validators::ObjectReference.validate!(input[:target_reference], context: "#{context}[:target_reference]") unless input[:target_reference].nil?
+        ObjectReference.validate!(input[:index_reference], context: "#{context}[:index_reference]") unless input[:index_reference].nil?
+        ObjectReference.validate!(input[:target_reference], context: "#{context}[:target_reference]") unless input[:target_reference].nil?
       end
     end
 
@@ -329,7 +331,7 @@ module AWS::SDK::CloudDirectory
     class BatchDetachObject
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDetachObject, context: context)
-        Validators::ObjectReference.validate!(input[:parent_reference], context: "#{context}[:parent_reference]") unless input[:parent_reference].nil?
+        ObjectReference.validate!(input[:parent_reference], context: "#{context}[:parent_reference]") unless input[:parent_reference].nil?
         Hearth::Validator.validate!(input[:link_name], ::String, context: "#{context}[:link_name]")
         Hearth::Validator.validate!(input[:batch_reference_name], ::String, context: "#{context}[:batch_reference_name]")
       end
@@ -345,8 +347,8 @@ module AWS::SDK::CloudDirectory
     class BatchDetachPolicy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDetachPolicy, context: context)
-        Validators::ObjectReference.validate!(input[:policy_reference], context: "#{context}[:policy_reference]") unless input[:policy_reference].nil?
-        Validators::ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
+        ObjectReference.validate!(input[:policy_reference], context: "#{context}[:policy_reference]") unless input[:policy_reference].nil?
+        ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
       end
     end
 
@@ -359,7 +361,7 @@ module AWS::SDK::CloudDirectory
     class BatchDetachTypedLink
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDetachTypedLink, context: context)
-        Validators::TypedLinkSpecifier.validate!(input[:typed_link_specifier], context: "#{context}[:typed_link_specifier]") unless input[:typed_link_specifier].nil?
+        TypedLinkSpecifier.validate!(input[:typed_link_specifier], context: "#{context}[:typed_link_specifier]") unless input[:typed_link_specifier].nil?
       end
     end
 
@@ -372,45 +374,45 @@ module AWS::SDK::CloudDirectory
     class BatchGetLinkAttributes
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetLinkAttributes, context: context)
-        Validators::TypedLinkSpecifier.validate!(input[:typed_link_specifier], context: "#{context}[:typed_link_specifier]") unless input[:typed_link_specifier].nil?
-        Validators::AttributeNameList.validate!(input[:attribute_names], context: "#{context}[:attribute_names]") unless input[:attribute_names].nil?
+        TypedLinkSpecifier.validate!(input[:typed_link_specifier], context: "#{context}[:typed_link_specifier]") unless input[:typed_link_specifier].nil?
+        AttributeNameList.validate!(input[:attribute_names], context: "#{context}[:attribute_names]") unless input[:attribute_names].nil?
       end
     end
 
     class BatchGetLinkAttributesResponse
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetLinkAttributesResponse, context: context)
-        Validators::AttributeKeyAndValueList.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        AttributeKeyAndValueList.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
     class BatchGetObjectAttributes
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetObjectAttributes, context: context)
-        Validators::ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
-        Validators::SchemaFacet.validate!(input[:schema_facet], context: "#{context}[:schema_facet]") unless input[:schema_facet].nil?
-        Validators::AttributeNameList.validate!(input[:attribute_names], context: "#{context}[:attribute_names]") unless input[:attribute_names].nil?
+        ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
+        SchemaFacet.validate!(input[:schema_facet], context: "#{context}[:schema_facet]") unless input[:schema_facet].nil?
+        AttributeNameList.validate!(input[:attribute_names], context: "#{context}[:attribute_names]") unless input[:attribute_names].nil?
       end
     end
 
     class BatchGetObjectAttributesResponse
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetObjectAttributesResponse, context: context)
-        Validators::AttributeKeyAndValueList.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        AttributeKeyAndValueList.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
     class BatchGetObjectInformation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetObjectInformation, context: context)
-        Validators::ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
+        ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
       end
     end
 
     class BatchGetObjectInformationResponse
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetObjectInformationResponse, context: context)
-        Validators::SchemaFacetList.validate!(input[:schema_facets], context: "#{context}[:schema_facets]") unless input[:schema_facets].nil?
+        SchemaFacetList.validate!(input[:schema_facets], context: "#{context}[:schema_facets]") unless input[:schema_facets].nil?
         Hearth::Validator.validate!(input[:object_identifier], ::String, context: "#{context}[:object_identifier]")
       end
     end
@@ -418,7 +420,7 @@ module AWS::SDK::CloudDirectory
     class BatchListAttachedIndices
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchListAttachedIndices, context: context)
-        Validators::ObjectReference.validate!(input[:target_reference], context: "#{context}[:target_reference]") unless input[:target_reference].nil?
+        ObjectReference.validate!(input[:target_reference], context: "#{context}[:target_reference]") unless input[:target_reference].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -427,7 +429,7 @@ module AWS::SDK::CloudDirectory
     class BatchListAttachedIndicesResponse
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchListAttachedIndicesResponse, context: context)
-        Validators::IndexAttachmentList.validate!(input[:index_attachments], context: "#{context}[:index_attachments]") unless input[:index_attachments].nil?
+        IndexAttachmentList.validate!(input[:index_attachments], context: "#{context}[:index_attachments]") unless input[:index_attachments].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -435,9 +437,9 @@ module AWS::SDK::CloudDirectory
     class BatchListIncomingTypedLinks
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchListIncomingTypedLinks, context: context)
-        Validators::ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
-        Validators::TypedLinkAttributeRangeList.validate!(input[:filter_attribute_ranges], context: "#{context}[:filter_attribute_ranges]") unless input[:filter_attribute_ranges].nil?
-        Validators::TypedLinkSchemaAndFacetName.validate!(input[:filter_typed_link], context: "#{context}[:filter_typed_link]") unless input[:filter_typed_link].nil?
+        ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
+        TypedLinkAttributeRangeList.validate!(input[:filter_attribute_ranges], context: "#{context}[:filter_attribute_ranges]") unless input[:filter_attribute_ranges].nil?
+        TypedLinkSchemaAndFacetName.validate!(input[:filter_typed_link], context: "#{context}[:filter_typed_link]") unless input[:filter_typed_link].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -446,7 +448,7 @@ module AWS::SDK::CloudDirectory
     class BatchListIncomingTypedLinksResponse
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchListIncomingTypedLinksResponse, context: context)
-        Validators::TypedLinkSpecifierList.validate!(input[:link_specifiers], context: "#{context}[:link_specifiers]") unless input[:link_specifiers].nil?
+        TypedLinkSpecifierList.validate!(input[:link_specifiers], context: "#{context}[:link_specifiers]") unless input[:link_specifiers].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -454,8 +456,8 @@ module AWS::SDK::CloudDirectory
     class BatchListIndex
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchListIndex, context: context)
-        Validators::ObjectAttributeRangeList.validate!(input[:ranges_on_indexed_values], context: "#{context}[:ranges_on_indexed_values]") unless input[:ranges_on_indexed_values].nil?
-        Validators::ObjectReference.validate!(input[:index_reference], context: "#{context}[:index_reference]") unless input[:index_reference].nil?
+        ObjectAttributeRangeList.validate!(input[:ranges_on_indexed_values], context: "#{context}[:ranges_on_indexed_values]") unless input[:ranges_on_indexed_values].nil?
+        ObjectReference.validate!(input[:index_reference], context: "#{context}[:index_reference]") unless input[:index_reference].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -464,7 +466,7 @@ module AWS::SDK::CloudDirectory
     class BatchListIndexResponse
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchListIndexResponse, context: context)
-        Validators::IndexAttachmentList.validate!(input[:index_attachments], context: "#{context}[:index_attachments]") unless input[:index_attachments].nil?
+        IndexAttachmentList.validate!(input[:index_attachments], context: "#{context}[:index_attachments]") unless input[:index_attachments].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -472,17 +474,17 @@ module AWS::SDK::CloudDirectory
     class BatchListObjectAttributes
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchListObjectAttributes, context: context)
-        Validators::ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
+        ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::SchemaFacet.validate!(input[:facet_filter], context: "#{context}[:facet_filter]") unless input[:facet_filter].nil?
+        SchemaFacet.validate!(input[:facet_filter], context: "#{context}[:facet_filter]") unless input[:facet_filter].nil?
       end
     end
 
     class BatchListObjectAttributesResponse
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchListObjectAttributesResponse, context: context)
-        Validators::AttributeKeyAndValueList.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        AttributeKeyAndValueList.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -490,7 +492,7 @@ module AWS::SDK::CloudDirectory
     class BatchListObjectChildren
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchListObjectChildren, context: context)
-        Validators::ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
+        ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -499,7 +501,7 @@ module AWS::SDK::CloudDirectory
     class BatchListObjectChildrenResponse
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchListObjectChildrenResponse, context: context)
-        Validators::LinkNameToObjectIdentifierMap.validate!(input[:children], context: "#{context}[:children]") unless input[:children].nil?
+        LinkNameToObjectIdentifierMap.validate!(input[:children], context: "#{context}[:children]") unless input[:children].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -507,7 +509,7 @@ module AWS::SDK::CloudDirectory
     class BatchListObjectParentPaths
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchListObjectParentPaths, context: context)
-        Validators::ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
+        ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -516,7 +518,7 @@ module AWS::SDK::CloudDirectory
     class BatchListObjectParentPathsResponse
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchListObjectParentPathsResponse, context: context)
-        Validators::PathToObjectIdentifiersList.validate!(input[:path_to_object_identifiers_list], context: "#{context}[:path_to_object_identifiers_list]") unless input[:path_to_object_identifiers_list].nil?
+        PathToObjectIdentifiersList.validate!(input[:path_to_object_identifiers_list], context: "#{context}[:path_to_object_identifiers_list]") unless input[:path_to_object_identifiers_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -524,7 +526,7 @@ module AWS::SDK::CloudDirectory
     class BatchListObjectParents
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchListObjectParents, context: context)
-        Validators::ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
+        ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -533,7 +535,7 @@ module AWS::SDK::CloudDirectory
     class BatchListObjectParentsResponse
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchListObjectParentsResponse, context: context)
-        Validators::ObjectIdentifierAndLinkNameList.validate!(input[:parent_links], context: "#{context}[:parent_links]") unless input[:parent_links].nil?
+        ObjectIdentifierAndLinkNameList.validate!(input[:parent_links], context: "#{context}[:parent_links]") unless input[:parent_links].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -541,7 +543,7 @@ module AWS::SDK::CloudDirectory
     class BatchListObjectPolicies
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchListObjectPolicies, context: context)
-        Validators::ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
+        ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -550,7 +552,7 @@ module AWS::SDK::CloudDirectory
     class BatchListObjectPoliciesResponse
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchListObjectPoliciesResponse, context: context)
-        Validators::ObjectIdentifierList.validate!(input[:attached_policy_ids], context: "#{context}[:attached_policy_ids]") unless input[:attached_policy_ids].nil?
+        ObjectIdentifierList.validate!(input[:attached_policy_ids], context: "#{context}[:attached_policy_ids]") unless input[:attached_policy_ids].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -558,9 +560,9 @@ module AWS::SDK::CloudDirectory
     class BatchListOutgoingTypedLinks
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchListOutgoingTypedLinks, context: context)
-        Validators::ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
-        Validators::TypedLinkAttributeRangeList.validate!(input[:filter_attribute_ranges], context: "#{context}[:filter_attribute_ranges]") unless input[:filter_attribute_ranges].nil?
-        Validators::TypedLinkSchemaAndFacetName.validate!(input[:filter_typed_link], context: "#{context}[:filter_typed_link]") unless input[:filter_typed_link].nil?
+        ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
+        TypedLinkAttributeRangeList.validate!(input[:filter_attribute_ranges], context: "#{context}[:filter_attribute_ranges]") unless input[:filter_attribute_ranges].nil?
+        TypedLinkSchemaAndFacetName.validate!(input[:filter_typed_link], context: "#{context}[:filter_typed_link]") unless input[:filter_typed_link].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -569,7 +571,7 @@ module AWS::SDK::CloudDirectory
     class BatchListOutgoingTypedLinksResponse
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchListOutgoingTypedLinksResponse, context: context)
-        Validators::TypedLinkSpecifierList.validate!(input[:typed_link_specifiers], context: "#{context}[:typed_link_specifiers]") unless input[:typed_link_specifiers].nil?
+        TypedLinkSpecifierList.validate!(input[:typed_link_specifiers], context: "#{context}[:typed_link_specifiers]") unless input[:typed_link_specifiers].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -577,7 +579,7 @@ module AWS::SDK::CloudDirectory
     class BatchListPolicyAttachments
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchListPolicyAttachments, context: context)
-        Validators::ObjectReference.validate!(input[:policy_reference], context: "#{context}[:policy_reference]") unless input[:policy_reference].nil?
+        ObjectReference.validate!(input[:policy_reference], context: "#{context}[:policy_reference]") unless input[:policy_reference].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -586,7 +588,7 @@ module AWS::SDK::CloudDirectory
     class BatchListPolicyAttachmentsResponse
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchListPolicyAttachmentsResponse, context: context)
-        Validators::ObjectIdentifierList.validate!(input[:object_identifiers], context: "#{context}[:object_identifiers]") unless input[:object_identifiers].nil?
+        ObjectIdentifierList.validate!(input[:object_identifiers], context: "#{context}[:object_identifiers]") unless input[:object_identifiers].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -594,7 +596,7 @@ module AWS::SDK::CloudDirectory
     class BatchLookupPolicy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchLookupPolicy, context: context)
-        Validators::ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
+        ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -603,7 +605,7 @@ module AWS::SDK::CloudDirectory
     class BatchLookupPolicyResponse
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchLookupPolicyResponse, context: context)
-        Validators::PolicyToPathList.validate!(input[:policy_to_path_list], context: "#{context}[:policy_to_path_list]") unless input[:policy_to_path_list].nil?
+        PolicyToPathList.validate!(input[:policy_to_path_list], context: "#{context}[:policy_to_path_list]") unless input[:policy_to_path_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -620,7 +622,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchReadInput, context: context)
         Hearth::Validator.validate!(input[:directory_arn], ::String, context: "#{context}[:directory_arn]")
-        Validators::BatchReadOperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        BatchReadOperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
         Hearth::Validator.validate!(input[:consistency_level], ::String, context: "#{context}[:consistency_level]")
       end
     end
@@ -628,20 +630,20 @@ module AWS::SDK::CloudDirectory
     class BatchReadOperation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchReadOperation, context: context)
-        Validators::BatchListObjectAttributes.validate!(input[:list_object_attributes], context: "#{context}[:list_object_attributes]") unless input[:list_object_attributes].nil?
-        Validators::BatchListObjectChildren.validate!(input[:list_object_children], context: "#{context}[:list_object_children]") unless input[:list_object_children].nil?
-        Validators::BatchListAttachedIndices.validate!(input[:list_attached_indices], context: "#{context}[:list_attached_indices]") unless input[:list_attached_indices].nil?
-        Validators::BatchListObjectParentPaths.validate!(input[:list_object_parent_paths], context: "#{context}[:list_object_parent_paths]") unless input[:list_object_parent_paths].nil?
-        Validators::BatchGetObjectInformation.validate!(input[:get_object_information], context: "#{context}[:get_object_information]") unless input[:get_object_information].nil?
-        Validators::BatchGetObjectAttributes.validate!(input[:get_object_attributes], context: "#{context}[:get_object_attributes]") unless input[:get_object_attributes].nil?
-        Validators::BatchListObjectParents.validate!(input[:list_object_parents], context: "#{context}[:list_object_parents]") unless input[:list_object_parents].nil?
-        Validators::BatchListObjectPolicies.validate!(input[:list_object_policies], context: "#{context}[:list_object_policies]") unless input[:list_object_policies].nil?
-        Validators::BatchListPolicyAttachments.validate!(input[:list_policy_attachments], context: "#{context}[:list_policy_attachments]") unless input[:list_policy_attachments].nil?
-        Validators::BatchLookupPolicy.validate!(input[:lookup_policy], context: "#{context}[:lookup_policy]") unless input[:lookup_policy].nil?
-        Validators::BatchListIndex.validate!(input[:list_index], context: "#{context}[:list_index]") unless input[:list_index].nil?
-        Validators::BatchListOutgoingTypedLinks.validate!(input[:list_outgoing_typed_links], context: "#{context}[:list_outgoing_typed_links]") unless input[:list_outgoing_typed_links].nil?
-        Validators::BatchListIncomingTypedLinks.validate!(input[:list_incoming_typed_links], context: "#{context}[:list_incoming_typed_links]") unless input[:list_incoming_typed_links].nil?
-        Validators::BatchGetLinkAttributes.validate!(input[:get_link_attributes], context: "#{context}[:get_link_attributes]") unless input[:get_link_attributes].nil?
+        BatchListObjectAttributes.validate!(input[:list_object_attributes], context: "#{context}[:list_object_attributes]") unless input[:list_object_attributes].nil?
+        BatchListObjectChildren.validate!(input[:list_object_children], context: "#{context}[:list_object_children]") unless input[:list_object_children].nil?
+        BatchListAttachedIndices.validate!(input[:list_attached_indices], context: "#{context}[:list_attached_indices]") unless input[:list_attached_indices].nil?
+        BatchListObjectParentPaths.validate!(input[:list_object_parent_paths], context: "#{context}[:list_object_parent_paths]") unless input[:list_object_parent_paths].nil?
+        BatchGetObjectInformation.validate!(input[:get_object_information], context: "#{context}[:get_object_information]") unless input[:get_object_information].nil?
+        BatchGetObjectAttributes.validate!(input[:get_object_attributes], context: "#{context}[:get_object_attributes]") unless input[:get_object_attributes].nil?
+        BatchListObjectParents.validate!(input[:list_object_parents], context: "#{context}[:list_object_parents]") unless input[:list_object_parents].nil?
+        BatchListObjectPolicies.validate!(input[:list_object_policies], context: "#{context}[:list_object_policies]") unless input[:list_object_policies].nil?
+        BatchListPolicyAttachments.validate!(input[:list_policy_attachments], context: "#{context}[:list_policy_attachments]") unless input[:list_policy_attachments].nil?
+        BatchLookupPolicy.validate!(input[:lookup_policy], context: "#{context}[:lookup_policy]") unless input[:lookup_policy].nil?
+        BatchListIndex.validate!(input[:list_index], context: "#{context}[:list_index]") unless input[:list_index].nil?
+        BatchListOutgoingTypedLinks.validate!(input[:list_outgoing_typed_links], context: "#{context}[:list_outgoing_typed_links]") unless input[:list_outgoing_typed_links].nil?
+        BatchListIncomingTypedLinks.validate!(input[:list_incoming_typed_links], context: "#{context}[:list_incoming_typed_links]") unless input[:list_incoming_typed_links].nil?
+        BatchGetLinkAttributes.validate!(input[:get_link_attributes], context: "#{context}[:get_link_attributes]") unless input[:get_link_attributes].nil?
       end
     end
 
@@ -649,7 +651,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchReadOperation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchReadOperation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -657,8 +659,8 @@ module AWS::SDK::CloudDirectory
     class BatchReadOperationResponse
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchReadOperationResponse, context: context)
-        Validators::BatchReadSuccessfulResponse.validate!(input[:successful_response], context: "#{context}[:successful_response]") unless input[:successful_response].nil?
-        Validators::BatchReadException.validate!(input[:exception_response], context: "#{context}[:exception_response]") unless input[:exception_response].nil?
+        BatchReadSuccessfulResponse.validate!(input[:successful_response], context: "#{context}[:successful_response]") unless input[:successful_response].nil?
+        BatchReadException.validate!(input[:exception_response], context: "#{context}[:exception_response]") unless input[:exception_response].nil?
       end
     end
 
@@ -666,7 +668,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchReadOperationResponse.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchReadOperationResponse.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -674,35 +676,35 @@ module AWS::SDK::CloudDirectory
     class BatchReadOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchReadOutput, context: context)
-        Validators::BatchReadOperationResponseList.validate!(input[:responses], context: "#{context}[:responses]") unless input[:responses].nil?
+        BatchReadOperationResponseList.validate!(input[:responses], context: "#{context}[:responses]") unless input[:responses].nil?
       end
     end
 
     class BatchReadSuccessfulResponse
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchReadSuccessfulResponse, context: context)
-        Validators::BatchListObjectAttributesResponse.validate!(input[:list_object_attributes], context: "#{context}[:list_object_attributes]") unless input[:list_object_attributes].nil?
-        Validators::BatchListObjectChildrenResponse.validate!(input[:list_object_children], context: "#{context}[:list_object_children]") unless input[:list_object_children].nil?
-        Validators::BatchGetObjectInformationResponse.validate!(input[:get_object_information], context: "#{context}[:get_object_information]") unless input[:get_object_information].nil?
-        Validators::BatchGetObjectAttributesResponse.validate!(input[:get_object_attributes], context: "#{context}[:get_object_attributes]") unless input[:get_object_attributes].nil?
-        Validators::BatchListAttachedIndicesResponse.validate!(input[:list_attached_indices], context: "#{context}[:list_attached_indices]") unless input[:list_attached_indices].nil?
-        Validators::BatchListObjectParentPathsResponse.validate!(input[:list_object_parent_paths], context: "#{context}[:list_object_parent_paths]") unless input[:list_object_parent_paths].nil?
-        Validators::BatchListObjectPoliciesResponse.validate!(input[:list_object_policies], context: "#{context}[:list_object_policies]") unless input[:list_object_policies].nil?
-        Validators::BatchListPolicyAttachmentsResponse.validate!(input[:list_policy_attachments], context: "#{context}[:list_policy_attachments]") unless input[:list_policy_attachments].nil?
-        Validators::BatchLookupPolicyResponse.validate!(input[:lookup_policy], context: "#{context}[:lookup_policy]") unless input[:lookup_policy].nil?
-        Validators::BatchListIndexResponse.validate!(input[:list_index], context: "#{context}[:list_index]") unless input[:list_index].nil?
-        Validators::BatchListOutgoingTypedLinksResponse.validate!(input[:list_outgoing_typed_links], context: "#{context}[:list_outgoing_typed_links]") unless input[:list_outgoing_typed_links].nil?
-        Validators::BatchListIncomingTypedLinksResponse.validate!(input[:list_incoming_typed_links], context: "#{context}[:list_incoming_typed_links]") unless input[:list_incoming_typed_links].nil?
-        Validators::BatchGetLinkAttributesResponse.validate!(input[:get_link_attributes], context: "#{context}[:get_link_attributes]") unless input[:get_link_attributes].nil?
-        Validators::BatchListObjectParentsResponse.validate!(input[:list_object_parents], context: "#{context}[:list_object_parents]") unless input[:list_object_parents].nil?
+        BatchListObjectAttributesResponse.validate!(input[:list_object_attributes], context: "#{context}[:list_object_attributes]") unless input[:list_object_attributes].nil?
+        BatchListObjectChildrenResponse.validate!(input[:list_object_children], context: "#{context}[:list_object_children]") unless input[:list_object_children].nil?
+        BatchGetObjectInformationResponse.validate!(input[:get_object_information], context: "#{context}[:get_object_information]") unless input[:get_object_information].nil?
+        BatchGetObjectAttributesResponse.validate!(input[:get_object_attributes], context: "#{context}[:get_object_attributes]") unless input[:get_object_attributes].nil?
+        BatchListAttachedIndicesResponse.validate!(input[:list_attached_indices], context: "#{context}[:list_attached_indices]") unless input[:list_attached_indices].nil?
+        BatchListObjectParentPathsResponse.validate!(input[:list_object_parent_paths], context: "#{context}[:list_object_parent_paths]") unless input[:list_object_parent_paths].nil?
+        BatchListObjectPoliciesResponse.validate!(input[:list_object_policies], context: "#{context}[:list_object_policies]") unless input[:list_object_policies].nil?
+        BatchListPolicyAttachmentsResponse.validate!(input[:list_policy_attachments], context: "#{context}[:list_policy_attachments]") unless input[:list_policy_attachments].nil?
+        BatchLookupPolicyResponse.validate!(input[:lookup_policy], context: "#{context}[:lookup_policy]") unless input[:lookup_policy].nil?
+        BatchListIndexResponse.validate!(input[:list_index], context: "#{context}[:list_index]") unless input[:list_index].nil?
+        BatchListOutgoingTypedLinksResponse.validate!(input[:list_outgoing_typed_links], context: "#{context}[:list_outgoing_typed_links]") unless input[:list_outgoing_typed_links].nil?
+        BatchListIncomingTypedLinksResponse.validate!(input[:list_incoming_typed_links], context: "#{context}[:list_incoming_typed_links]") unless input[:list_incoming_typed_links].nil?
+        BatchGetLinkAttributesResponse.validate!(input[:get_link_attributes], context: "#{context}[:get_link_attributes]") unless input[:get_link_attributes].nil?
+        BatchListObjectParentsResponse.validate!(input[:list_object_parents], context: "#{context}[:list_object_parents]") unless input[:list_object_parents].nil?
       end
     end
 
     class BatchRemoveFacetFromObject
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchRemoveFacetFromObject, context: context)
-        Validators::SchemaFacet.validate!(input[:schema_facet], context: "#{context}[:schema_facet]") unless input[:schema_facet].nil?
-        Validators::ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
+        SchemaFacet.validate!(input[:schema_facet], context: "#{context}[:schema_facet]") unless input[:schema_facet].nil?
+        ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
       end
     end
 
@@ -715,8 +717,8 @@ module AWS::SDK::CloudDirectory
     class BatchUpdateLinkAttributes
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchUpdateLinkAttributes, context: context)
-        Validators::TypedLinkSpecifier.validate!(input[:typed_link_specifier], context: "#{context}[:typed_link_specifier]") unless input[:typed_link_specifier].nil?
-        Validators::LinkAttributeUpdateList.validate!(input[:attribute_updates], context: "#{context}[:attribute_updates]") unless input[:attribute_updates].nil?
+        TypedLinkSpecifier.validate!(input[:typed_link_specifier], context: "#{context}[:typed_link_specifier]") unless input[:typed_link_specifier].nil?
+        LinkAttributeUpdateList.validate!(input[:attribute_updates], context: "#{context}[:attribute_updates]") unless input[:attribute_updates].nil?
       end
     end
 
@@ -729,8 +731,8 @@ module AWS::SDK::CloudDirectory
     class BatchUpdateObjectAttributes
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchUpdateObjectAttributes, context: context)
-        Validators::ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
-        Validators::ObjectAttributeUpdateList.validate!(input[:attribute_updates], context: "#{context}[:attribute_updates]") unless input[:attribute_updates].nil?
+        ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
+        ObjectAttributeUpdateList.validate!(input[:attribute_updates], context: "#{context}[:attribute_updates]") unless input[:attribute_updates].nil?
       end
     end
 
@@ -754,28 +756,28 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchWriteInput, context: context)
         Hearth::Validator.validate!(input[:directory_arn], ::String, context: "#{context}[:directory_arn]")
-        Validators::BatchWriteOperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        BatchWriteOperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
     class BatchWriteOperation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchWriteOperation, context: context)
-        Validators::BatchCreateObject.validate!(input[:create_object], context: "#{context}[:create_object]") unless input[:create_object].nil?
-        Validators::BatchAttachObject.validate!(input[:attach_object], context: "#{context}[:attach_object]") unless input[:attach_object].nil?
-        Validators::BatchDetachObject.validate!(input[:detach_object], context: "#{context}[:detach_object]") unless input[:detach_object].nil?
-        Validators::BatchUpdateObjectAttributes.validate!(input[:update_object_attributes], context: "#{context}[:update_object_attributes]") unless input[:update_object_attributes].nil?
-        Validators::BatchDeleteObject.validate!(input[:delete_object], context: "#{context}[:delete_object]") unless input[:delete_object].nil?
-        Validators::BatchAddFacetToObject.validate!(input[:add_facet_to_object], context: "#{context}[:add_facet_to_object]") unless input[:add_facet_to_object].nil?
-        Validators::BatchRemoveFacetFromObject.validate!(input[:remove_facet_from_object], context: "#{context}[:remove_facet_from_object]") unless input[:remove_facet_from_object].nil?
-        Validators::BatchAttachPolicy.validate!(input[:attach_policy], context: "#{context}[:attach_policy]") unless input[:attach_policy].nil?
-        Validators::BatchDetachPolicy.validate!(input[:detach_policy], context: "#{context}[:detach_policy]") unless input[:detach_policy].nil?
-        Validators::BatchCreateIndex.validate!(input[:create_index], context: "#{context}[:create_index]") unless input[:create_index].nil?
-        Validators::BatchAttachToIndex.validate!(input[:attach_to_index], context: "#{context}[:attach_to_index]") unless input[:attach_to_index].nil?
-        Validators::BatchDetachFromIndex.validate!(input[:detach_from_index], context: "#{context}[:detach_from_index]") unless input[:detach_from_index].nil?
-        Validators::BatchAttachTypedLink.validate!(input[:attach_typed_link], context: "#{context}[:attach_typed_link]") unless input[:attach_typed_link].nil?
-        Validators::BatchDetachTypedLink.validate!(input[:detach_typed_link], context: "#{context}[:detach_typed_link]") unless input[:detach_typed_link].nil?
-        Validators::BatchUpdateLinkAttributes.validate!(input[:update_link_attributes], context: "#{context}[:update_link_attributes]") unless input[:update_link_attributes].nil?
+        BatchCreateObject.validate!(input[:create_object], context: "#{context}[:create_object]") unless input[:create_object].nil?
+        BatchAttachObject.validate!(input[:attach_object], context: "#{context}[:attach_object]") unless input[:attach_object].nil?
+        BatchDetachObject.validate!(input[:detach_object], context: "#{context}[:detach_object]") unless input[:detach_object].nil?
+        BatchUpdateObjectAttributes.validate!(input[:update_object_attributes], context: "#{context}[:update_object_attributes]") unless input[:update_object_attributes].nil?
+        BatchDeleteObject.validate!(input[:delete_object], context: "#{context}[:delete_object]") unless input[:delete_object].nil?
+        BatchAddFacetToObject.validate!(input[:add_facet_to_object], context: "#{context}[:add_facet_to_object]") unless input[:add_facet_to_object].nil?
+        BatchRemoveFacetFromObject.validate!(input[:remove_facet_from_object], context: "#{context}[:remove_facet_from_object]") unless input[:remove_facet_from_object].nil?
+        BatchAttachPolicy.validate!(input[:attach_policy], context: "#{context}[:attach_policy]") unless input[:attach_policy].nil?
+        BatchDetachPolicy.validate!(input[:detach_policy], context: "#{context}[:detach_policy]") unless input[:detach_policy].nil?
+        BatchCreateIndex.validate!(input[:create_index], context: "#{context}[:create_index]") unless input[:create_index].nil?
+        BatchAttachToIndex.validate!(input[:attach_to_index], context: "#{context}[:attach_to_index]") unless input[:attach_to_index].nil?
+        BatchDetachFromIndex.validate!(input[:detach_from_index], context: "#{context}[:detach_from_index]") unless input[:detach_from_index].nil?
+        BatchAttachTypedLink.validate!(input[:attach_typed_link], context: "#{context}[:attach_typed_link]") unless input[:attach_typed_link].nil?
+        BatchDetachTypedLink.validate!(input[:detach_typed_link], context: "#{context}[:detach_typed_link]") unless input[:detach_typed_link].nil?
+        BatchUpdateLinkAttributes.validate!(input[:update_link_attributes], context: "#{context}[:update_link_attributes]") unless input[:update_link_attributes].nil?
       end
     end
 
@@ -783,7 +785,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchWriteOperation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchWriteOperation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -791,21 +793,21 @@ module AWS::SDK::CloudDirectory
     class BatchWriteOperationResponse
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchWriteOperationResponse, context: context)
-        Validators::BatchCreateObjectResponse.validate!(input[:create_object], context: "#{context}[:create_object]") unless input[:create_object].nil?
-        Validators::BatchAttachObjectResponse.validate!(input[:attach_object], context: "#{context}[:attach_object]") unless input[:attach_object].nil?
-        Validators::BatchDetachObjectResponse.validate!(input[:detach_object], context: "#{context}[:detach_object]") unless input[:detach_object].nil?
-        Validators::BatchUpdateObjectAttributesResponse.validate!(input[:update_object_attributes], context: "#{context}[:update_object_attributes]") unless input[:update_object_attributes].nil?
-        Validators::BatchDeleteObjectResponse.validate!(input[:delete_object], context: "#{context}[:delete_object]") unless input[:delete_object].nil?
-        Validators::BatchAddFacetToObjectResponse.validate!(input[:add_facet_to_object], context: "#{context}[:add_facet_to_object]") unless input[:add_facet_to_object].nil?
-        Validators::BatchRemoveFacetFromObjectResponse.validate!(input[:remove_facet_from_object], context: "#{context}[:remove_facet_from_object]") unless input[:remove_facet_from_object].nil?
-        Validators::BatchAttachPolicyResponse.validate!(input[:attach_policy], context: "#{context}[:attach_policy]") unless input[:attach_policy].nil?
-        Validators::BatchDetachPolicyResponse.validate!(input[:detach_policy], context: "#{context}[:detach_policy]") unless input[:detach_policy].nil?
-        Validators::BatchCreateIndexResponse.validate!(input[:create_index], context: "#{context}[:create_index]") unless input[:create_index].nil?
-        Validators::BatchAttachToIndexResponse.validate!(input[:attach_to_index], context: "#{context}[:attach_to_index]") unless input[:attach_to_index].nil?
-        Validators::BatchDetachFromIndexResponse.validate!(input[:detach_from_index], context: "#{context}[:detach_from_index]") unless input[:detach_from_index].nil?
-        Validators::BatchAttachTypedLinkResponse.validate!(input[:attach_typed_link], context: "#{context}[:attach_typed_link]") unless input[:attach_typed_link].nil?
-        Validators::BatchDetachTypedLinkResponse.validate!(input[:detach_typed_link], context: "#{context}[:detach_typed_link]") unless input[:detach_typed_link].nil?
-        Validators::BatchUpdateLinkAttributesResponse.validate!(input[:update_link_attributes], context: "#{context}[:update_link_attributes]") unless input[:update_link_attributes].nil?
+        BatchCreateObjectResponse.validate!(input[:create_object], context: "#{context}[:create_object]") unless input[:create_object].nil?
+        BatchAttachObjectResponse.validate!(input[:attach_object], context: "#{context}[:attach_object]") unless input[:attach_object].nil?
+        BatchDetachObjectResponse.validate!(input[:detach_object], context: "#{context}[:detach_object]") unless input[:detach_object].nil?
+        BatchUpdateObjectAttributesResponse.validate!(input[:update_object_attributes], context: "#{context}[:update_object_attributes]") unless input[:update_object_attributes].nil?
+        BatchDeleteObjectResponse.validate!(input[:delete_object], context: "#{context}[:delete_object]") unless input[:delete_object].nil?
+        BatchAddFacetToObjectResponse.validate!(input[:add_facet_to_object], context: "#{context}[:add_facet_to_object]") unless input[:add_facet_to_object].nil?
+        BatchRemoveFacetFromObjectResponse.validate!(input[:remove_facet_from_object], context: "#{context}[:remove_facet_from_object]") unless input[:remove_facet_from_object].nil?
+        BatchAttachPolicyResponse.validate!(input[:attach_policy], context: "#{context}[:attach_policy]") unless input[:attach_policy].nil?
+        BatchDetachPolicyResponse.validate!(input[:detach_policy], context: "#{context}[:detach_policy]") unless input[:detach_policy].nil?
+        BatchCreateIndexResponse.validate!(input[:create_index], context: "#{context}[:create_index]") unless input[:create_index].nil?
+        BatchAttachToIndexResponse.validate!(input[:attach_to_index], context: "#{context}[:attach_to_index]") unless input[:attach_to_index].nil?
+        BatchDetachFromIndexResponse.validate!(input[:detach_from_index], context: "#{context}[:detach_from_index]") unless input[:detach_from_index].nil?
+        BatchAttachTypedLinkResponse.validate!(input[:attach_typed_link], context: "#{context}[:attach_typed_link]") unless input[:attach_typed_link].nil?
+        BatchDetachTypedLinkResponse.validate!(input[:detach_typed_link], context: "#{context}[:detach_typed_link]") unless input[:detach_typed_link].nil?
+        BatchUpdateLinkAttributesResponse.validate!(input[:update_link_attributes], context: "#{context}[:update_link_attributes]") unless input[:update_link_attributes].nil?
       end
     end
 
@@ -813,7 +815,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchWriteOperationResponse.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchWriteOperationResponse.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -821,7 +823,7 @@ module AWS::SDK::CloudDirectory
     class BatchWriteOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchWriteOutput, context: context)
-        Validators::BatchWriteOperationResponseList.validate!(input[:responses], context: "#{context}[:responses]") unless input[:responses].nil?
+        BatchWriteOperationResponseList.validate!(input[:responses], context: "#{context}[:responses]") unless input[:responses].nil?
       end
     end
 
@@ -855,7 +857,7 @@ module AWS::SDK::CloudDirectory
         Hearth::Validator.validate!(input, Types::CreateFacetInput, context: context)
         Hearth::Validator.validate!(input[:schema_arn], ::String, context: "#{context}[:schema_arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::FacetAttributeList.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        FacetAttributeList.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
         Hearth::Validator.validate!(input[:object_type], ::String, context: "#{context}[:object_type]")
         Hearth::Validator.validate!(input[:facet_style], ::String, context: "#{context}[:facet_style]")
       end
@@ -871,9 +873,9 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateIndexInput, context: context)
         Hearth::Validator.validate!(input[:directory_arn], ::String, context: "#{context}[:directory_arn]")
-        Validators::AttributeKeyList.validate!(input[:ordered_indexed_attribute_list], context: "#{context}[:ordered_indexed_attribute_list]") unless input[:ordered_indexed_attribute_list].nil?
+        AttributeKeyList.validate!(input[:ordered_indexed_attribute_list], context: "#{context}[:ordered_indexed_attribute_list]") unless input[:ordered_indexed_attribute_list].nil?
         Hearth::Validator.validate!(input[:is_unique], ::TrueClass, ::FalseClass, context: "#{context}[:is_unique]")
-        Validators::ObjectReference.validate!(input[:parent_reference], context: "#{context}[:parent_reference]") unless input[:parent_reference].nil?
+        ObjectReference.validate!(input[:parent_reference], context: "#{context}[:parent_reference]") unless input[:parent_reference].nil?
         Hearth::Validator.validate!(input[:link_name], ::String, context: "#{context}[:link_name]")
       end
     end
@@ -889,9 +891,9 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateObjectInput, context: context)
         Hearth::Validator.validate!(input[:directory_arn], ::String, context: "#{context}[:directory_arn]")
-        Validators::SchemaFacetList.validate!(input[:schema_facets], context: "#{context}[:schema_facets]") unless input[:schema_facets].nil?
-        Validators::AttributeKeyAndValueList.validate!(input[:object_attribute_list], context: "#{context}[:object_attribute_list]") unless input[:object_attribute_list].nil?
-        Validators::ObjectReference.validate!(input[:parent_reference], context: "#{context}[:parent_reference]") unless input[:parent_reference].nil?
+        SchemaFacetList.validate!(input[:schema_facets], context: "#{context}[:schema_facets]") unless input[:schema_facets].nil?
+        AttributeKeyAndValueList.validate!(input[:object_attribute_list], context: "#{context}[:object_attribute_list]") unless input[:object_attribute_list].nil?
+        ObjectReference.validate!(input[:parent_reference], context: "#{context}[:parent_reference]") unless input[:parent_reference].nil?
         Hearth::Validator.validate!(input[:link_name], ::String, context: "#{context}[:link_name]")
       end
     end
@@ -921,7 +923,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateTypedLinkFacetInput, context: context)
         Hearth::Validator.validate!(input[:schema_arn], ::String, context: "#{context}[:schema_arn]")
-        Validators::TypedLinkFacet.validate!(input[:facet], context: "#{context}[:facet]") unless input[:facet].nil?
+        TypedLinkFacet.validate!(input[:facet], context: "#{context}[:facet]") unless input[:facet].nil?
       end
     end
 
@@ -963,7 +965,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteObjectInput, context: context)
         Hearth::Validator.validate!(input[:directory_arn], ::String, context: "#{context}[:directory_arn]")
-        Validators::ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
+        ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
       end
     end
 
@@ -1005,8 +1007,8 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DetachFromIndexInput, context: context)
         Hearth::Validator.validate!(input[:directory_arn], ::String, context: "#{context}[:directory_arn]")
-        Validators::ObjectReference.validate!(input[:index_reference], context: "#{context}[:index_reference]") unless input[:index_reference].nil?
-        Validators::ObjectReference.validate!(input[:target_reference], context: "#{context}[:target_reference]") unless input[:target_reference].nil?
+        ObjectReference.validate!(input[:index_reference], context: "#{context}[:index_reference]") unless input[:index_reference].nil?
+        ObjectReference.validate!(input[:target_reference], context: "#{context}[:target_reference]") unless input[:target_reference].nil?
       end
     end
 
@@ -1021,7 +1023,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DetachObjectInput, context: context)
         Hearth::Validator.validate!(input[:directory_arn], ::String, context: "#{context}[:directory_arn]")
-        Validators::ObjectReference.validate!(input[:parent_reference], context: "#{context}[:parent_reference]") unless input[:parent_reference].nil?
+        ObjectReference.validate!(input[:parent_reference], context: "#{context}[:parent_reference]") unless input[:parent_reference].nil?
         Hearth::Validator.validate!(input[:link_name], ::String, context: "#{context}[:link_name]")
       end
     end
@@ -1037,8 +1039,8 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DetachPolicyInput, context: context)
         Hearth::Validator.validate!(input[:directory_arn], ::String, context: "#{context}[:directory_arn]")
-        Validators::ObjectReference.validate!(input[:policy_reference], context: "#{context}[:policy_reference]") unless input[:policy_reference].nil?
-        Validators::ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
+        ObjectReference.validate!(input[:policy_reference], context: "#{context}[:policy_reference]") unless input[:policy_reference].nil?
+        ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
       end
     end
 
@@ -1052,7 +1054,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DetachTypedLinkInput, context: context)
         Hearth::Validator.validate!(input[:directory_arn], ::String, context: "#{context}[:directory_arn]")
-        Validators::TypedLinkSpecifier.validate!(input[:typed_link_specifier], context: "#{context}[:typed_link_specifier]") unless input[:typed_link_specifier].nil?
+        TypedLinkSpecifier.validate!(input[:typed_link_specifier], context: "#{context}[:typed_link_specifier]") unless input[:typed_link_specifier].nil?
       end
     end
 
@@ -1090,7 +1092,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Directory.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Directory.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1157,8 +1159,8 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FacetAttribute, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::FacetAttributeDefinition.validate!(input[:attribute_definition], context: "#{context}[:attribute_definition]") unless input[:attribute_definition].nil?
-        Validators::FacetAttributeReference.validate!(input[:attribute_reference], context: "#{context}[:attribute_reference]") unless input[:attribute_reference].nil?
+        FacetAttributeDefinition.validate!(input[:attribute_definition], context: "#{context}[:attribute_definition]") unless input[:attribute_definition].nil?
+        FacetAttributeReference.validate!(input[:attribute_reference], context: "#{context}[:attribute_reference]") unless input[:attribute_reference].nil?
         Hearth::Validator.validate!(input[:required_behavior], ::String, context: "#{context}[:required_behavior]")
       end
     end
@@ -1167,9 +1169,9 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FacetAttributeDefinition, context: context)
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::TypedAttributeValue.validate!(input[:default_value], context: "#{context}[:default_value]") unless input[:default_value].nil?
+        TypedAttributeValue.validate!(input[:default_value], context: "#{context}[:default_value]") unless input[:default_value].nil?
         Hearth::Validator.validate!(input[:is_immutable], ::TrueClass, ::FalseClass, context: "#{context}[:is_immutable]")
-        Validators::RuleMap.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        RuleMap.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
       end
     end
 
@@ -1177,7 +1179,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FacetAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FacetAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1193,7 +1195,7 @@ module AWS::SDK::CloudDirectory
     class FacetAttributeUpdate
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FacetAttributeUpdate, context: context)
-        Validators::FacetAttribute.validate!(input[:attribute], context: "#{context}[:attribute]") unless input[:attribute].nil?
+        FacetAttribute.validate!(input[:attribute], context: "#{context}[:attribute]") unless input[:attribute].nil?
         Hearth::Validator.validate!(input[:action], ::String, context: "#{context}[:action]")
       end
     end
@@ -1202,7 +1204,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FacetAttributeUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FacetAttributeUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1261,7 +1263,7 @@ module AWS::SDK::CloudDirectory
     class GetDirectoryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDirectoryOutput, context: context)
-        Validators::Directory.validate!(input[:directory], context: "#{context}[:directory]") unless input[:directory].nil?
+        Directory.validate!(input[:directory], context: "#{context}[:directory]") unless input[:directory].nil?
       end
     end
 
@@ -1276,7 +1278,7 @@ module AWS::SDK::CloudDirectory
     class GetFacetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetFacetOutput, context: context)
-        Validators::Facet.validate!(input[:facet], context: "#{context}[:facet]") unless input[:facet].nil?
+        Facet.validate!(input[:facet], context: "#{context}[:facet]") unless input[:facet].nil?
       end
     end
 
@@ -1284,8 +1286,8 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetLinkAttributesInput, context: context)
         Hearth::Validator.validate!(input[:directory_arn], ::String, context: "#{context}[:directory_arn]")
-        Validators::TypedLinkSpecifier.validate!(input[:typed_link_specifier], context: "#{context}[:typed_link_specifier]") unless input[:typed_link_specifier].nil?
-        Validators::AttributeNameList.validate!(input[:attribute_names], context: "#{context}[:attribute_names]") unless input[:attribute_names].nil?
+        TypedLinkSpecifier.validate!(input[:typed_link_specifier], context: "#{context}[:typed_link_specifier]") unless input[:typed_link_specifier].nil?
+        AttributeNameList.validate!(input[:attribute_names], context: "#{context}[:attribute_names]") unless input[:attribute_names].nil?
         Hearth::Validator.validate!(input[:consistency_level], ::String, context: "#{context}[:consistency_level]")
       end
     end
@@ -1293,7 +1295,7 @@ module AWS::SDK::CloudDirectory
     class GetLinkAttributesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetLinkAttributesOutput, context: context)
-        Validators::AttributeKeyAndValueList.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        AttributeKeyAndValueList.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
@@ -1301,17 +1303,17 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetObjectAttributesInput, context: context)
         Hearth::Validator.validate!(input[:directory_arn], ::String, context: "#{context}[:directory_arn]")
-        Validators::ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
+        ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
         Hearth::Validator.validate!(input[:consistency_level], ::String, context: "#{context}[:consistency_level]")
-        Validators::SchemaFacet.validate!(input[:schema_facet], context: "#{context}[:schema_facet]") unless input[:schema_facet].nil?
-        Validators::AttributeNameList.validate!(input[:attribute_names], context: "#{context}[:attribute_names]") unless input[:attribute_names].nil?
+        SchemaFacet.validate!(input[:schema_facet], context: "#{context}[:schema_facet]") unless input[:schema_facet].nil?
+        AttributeNameList.validate!(input[:attribute_names], context: "#{context}[:attribute_names]") unless input[:attribute_names].nil?
       end
     end
 
     class GetObjectAttributesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetObjectAttributesOutput, context: context)
-        Validators::AttributeKeyAndValueList.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        AttributeKeyAndValueList.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
@@ -1319,7 +1321,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetObjectInformationInput, context: context)
         Hearth::Validator.validate!(input[:directory_arn], ::String, context: "#{context}[:directory_arn]")
-        Validators::ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
+        ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
         Hearth::Validator.validate!(input[:consistency_level], ::String, context: "#{context}[:consistency_level]")
       end
     end
@@ -1327,7 +1329,7 @@ module AWS::SDK::CloudDirectory
     class GetObjectInformationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetObjectInformationOutput, context: context)
-        Validators::SchemaFacetList.validate!(input[:schema_facets], context: "#{context}[:schema_facets]") unless input[:schema_facets].nil?
+        SchemaFacetList.validate!(input[:schema_facets], context: "#{context}[:schema_facets]") unless input[:schema_facets].nil?
         Hearth::Validator.validate!(input[:object_identifier], ::String, context: "#{context}[:object_identifier]")
       end
     end
@@ -1358,7 +1360,7 @@ module AWS::SDK::CloudDirectory
     class GetTypedLinkFacetInformationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetTypedLinkFacetInformationOutput, context: context)
-        Validators::AttributeNameList.validate!(input[:identity_attribute_order], context: "#{context}[:identity_attribute_order]") unless input[:identity_attribute_order].nil?
+        AttributeNameList.validate!(input[:identity_attribute_order], context: "#{context}[:identity_attribute_order]") unless input[:identity_attribute_order].nil?
       end
     end
 
@@ -1372,7 +1374,7 @@ module AWS::SDK::CloudDirectory
     class IndexAttachment
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::IndexAttachment, context: context)
-        Validators::AttributeKeyAndValueList.validate!(input[:indexed_attributes], context: "#{context}[:indexed_attributes]") unless input[:indexed_attributes].nil?
+        AttributeKeyAndValueList.validate!(input[:indexed_attributes], context: "#{context}[:indexed_attributes]") unless input[:indexed_attributes].nil?
         Hearth::Validator.validate!(input[:object_identifier], ::String, context: "#{context}[:object_identifier]")
       end
     end
@@ -1381,7 +1383,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::IndexAttachment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          IndexAttachment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1460,15 +1462,15 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LinkAttributeAction, context: context)
         Hearth::Validator.validate!(input[:attribute_action_type], ::String, context: "#{context}[:attribute_action_type]")
-        Validators::TypedAttributeValue.validate!(input[:attribute_update_value], context: "#{context}[:attribute_update_value]") unless input[:attribute_update_value].nil?
+        TypedAttributeValue.validate!(input[:attribute_update_value], context: "#{context}[:attribute_update_value]") unless input[:attribute_update_value].nil?
       end
     end
 
     class LinkAttributeUpdate
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LinkAttributeUpdate, context: context)
-        Validators::AttributeKey.validate!(input[:attribute_key], context: "#{context}[:attribute_key]") unless input[:attribute_key].nil?
-        Validators::LinkAttributeAction.validate!(input[:attribute_action], context: "#{context}[:attribute_action]") unless input[:attribute_action].nil?
+        AttributeKey.validate!(input[:attribute_key], context: "#{context}[:attribute_key]") unless input[:attribute_key].nil?
+        LinkAttributeAction.validate!(input[:attribute_action], context: "#{context}[:attribute_action]") unless input[:attribute_action].nil?
       end
     end
 
@@ -1476,7 +1478,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LinkAttributeUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LinkAttributeUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1511,7 +1513,7 @@ module AWS::SDK::CloudDirectory
     class ListAppliedSchemaArnsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAppliedSchemaArnsOutput, context: context)
-        Validators::Arns.validate!(input[:schema_arns], context: "#{context}[:schema_arns]") unless input[:schema_arns].nil?
+        Arns.validate!(input[:schema_arns], context: "#{context}[:schema_arns]") unless input[:schema_arns].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1520,7 +1522,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAttachedIndicesInput, context: context)
         Hearth::Validator.validate!(input[:directory_arn], ::String, context: "#{context}[:directory_arn]")
-        Validators::ObjectReference.validate!(input[:target_reference], context: "#{context}[:target_reference]") unless input[:target_reference].nil?
+        ObjectReference.validate!(input[:target_reference], context: "#{context}[:target_reference]") unless input[:target_reference].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:consistency_level], ::String, context: "#{context}[:consistency_level]")
@@ -1530,7 +1532,7 @@ module AWS::SDK::CloudDirectory
     class ListAttachedIndicesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAttachedIndicesOutput, context: context)
-        Validators::IndexAttachmentList.validate!(input[:index_attachments], context: "#{context}[:index_attachments]") unless input[:index_attachments].nil?
+        IndexAttachmentList.validate!(input[:index_attachments], context: "#{context}[:index_attachments]") unless input[:index_attachments].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1546,7 +1548,7 @@ module AWS::SDK::CloudDirectory
     class ListDevelopmentSchemaArnsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDevelopmentSchemaArnsOutput, context: context)
-        Validators::Arns.validate!(input[:schema_arns], context: "#{context}[:schema_arns]") unless input[:schema_arns].nil?
+        Arns.validate!(input[:schema_arns], context: "#{context}[:schema_arns]") unless input[:schema_arns].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1563,7 +1565,7 @@ module AWS::SDK::CloudDirectory
     class ListDirectoriesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDirectoriesOutput, context: context)
-        Validators::DirectoryList.validate!(input[:directories], context: "#{context}[:directories]") unless input[:directories].nil?
+        DirectoryList.validate!(input[:directories], context: "#{context}[:directories]") unless input[:directories].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1581,7 +1583,7 @@ module AWS::SDK::CloudDirectory
     class ListFacetAttributesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFacetAttributesOutput, context: context)
-        Validators::FacetAttributeList.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        FacetAttributeList.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1598,7 +1600,7 @@ module AWS::SDK::CloudDirectory
     class ListFacetNamesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFacetNamesOutput, context: context)
-        Validators::FacetNameList.validate!(input[:facet_names], context: "#{context}[:facet_names]") unless input[:facet_names].nil?
+        FacetNameList.validate!(input[:facet_names], context: "#{context}[:facet_names]") unless input[:facet_names].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1607,9 +1609,9 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListIncomingTypedLinksInput, context: context)
         Hearth::Validator.validate!(input[:directory_arn], ::String, context: "#{context}[:directory_arn]")
-        Validators::ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
-        Validators::TypedLinkAttributeRangeList.validate!(input[:filter_attribute_ranges], context: "#{context}[:filter_attribute_ranges]") unless input[:filter_attribute_ranges].nil?
-        Validators::TypedLinkSchemaAndFacetName.validate!(input[:filter_typed_link], context: "#{context}[:filter_typed_link]") unless input[:filter_typed_link].nil?
+        ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
+        TypedLinkAttributeRangeList.validate!(input[:filter_attribute_ranges], context: "#{context}[:filter_attribute_ranges]") unless input[:filter_attribute_ranges].nil?
+        TypedLinkSchemaAndFacetName.validate!(input[:filter_typed_link], context: "#{context}[:filter_typed_link]") unless input[:filter_typed_link].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:consistency_level], ::String, context: "#{context}[:consistency_level]")
@@ -1619,7 +1621,7 @@ module AWS::SDK::CloudDirectory
     class ListIncomingTypedLinksOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListIncomingTypedLinksOutput, context: context)
-        Validators::TypedLinkSpecifierList.validate!(input[:link_specifiers], context: "#{context}[:link_specifiers]") unless input[:link_specifiers].nil?
+        TypedLinkSpecifierList.validate!(input[:link_specifiers], context: "#{context}[:link_specifiers]") unless input[:link_specifiers].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1628,8 +1630,8 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListIndexInput, context: context)
         Hearth::Validator.validate!(input[:directory_arn], ::String, context: "#{context}[:directory_arn]")
-        Validators::ObjectAttributeRangeList.validate!(input[:ranges_on_indexed_values], context: "#{context}[:ranges_on_indexed_values]") unless input[:ranges_on_indexed_values].nil?
-        Validators::ObjectReference.validate!(input[:index_reference], context: "#{context}[:index_reference]") unless input[:index_reference].nil?
+        ObjectAttributeRangeList.validate!(input[:ranges_on_indexed_values], context: "#{context}[:ranges_on_indexed_values]") unless input[:ranges_on_indexed_values].nil?
+        ObjectReference.validate!(input[:index_reference], context: "#{context}[:index_reference]") unless input[:index_reference].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:consistency_level], ::String, context: "#{context}[:consistency_level]")
@@ -1639,7 +1641,7 @@ module AWS::SDK::CloudDirectory
     class ListIndexOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListIndexOutput, context: context)
-        Validators::IndexAttachmentList.validate!(input[:index_attachments], context: "#{context}[:index_attachments]") unless input[:index_attachments].nil?
+        IndexAttachmentList.validate!(input[:index_attachments], context: "#{context}[:index_attachments]") unless input[:index_attachments].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1656,7 +1658,7 @@ module AWS::SDK::CloudDirectory
     class ListManagedSchemaArnsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListManagedSchemaArnsOutput, context: context)
-        Validators::Arns.validate!(input[:schema_arns], context: "#{context}[:schema_arns]") unless input[:schema_arns].nil?
+        Arns.validate!(input[:schema_arns], context: "#{context}[:schema_arns]") unless input[:schema_arns].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1665,18 +1667,18 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListObjectAttributesInput, context: context)
         Hearth::Validator.validate!(input[:directory_arn], ::String, context: "#{context}[:directory_arn]")
-        Validators::ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
+        ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:consistency_level], ::String, context: "#{context}[:consistency_level]")
-        Validators::SchemaFacet.validate!(input[:facet_filter], context: "#{context}[:facet_filter]") unless input[:facet_filter].nil?
+        SchemaFacet.validate!(input[:facet_filter], context: "#{context}[:facet_filter]") unless input[:facet_filter].nil?
       end
     end
 
     class ListObjectAttributesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListObjectAttributesOutput, context: context)
-        Validators::AttributeKeyAndValueList.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        AttributeKeyAndValueList.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1685,7 +1687,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListObjectChildrenInput, context: context)
         Hearth::Validator.validate!(input[:directory_arn], ::String, context: "#{context}[:directory_arn]")
-        Validators::ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
+        ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:consistency_level], ::String, context: "#{context}[:consistency_level]")
@@ -1695,7 +1697,7 @@ module AWS::SDK::CloudDirectory
     class ListObjectChildrenOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListObjectChildrenOutput, context: context)
-        Validators::LinkNameToObjectIdentifierMap.validate!(input[:children], context: "#{context}[:children]") unless input[:children].nil?
+        LinkNameToObjectIdentifierMap.validate!(input[:children], context: "#{context}[:children]") unless input[:children].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1704,7 +1706,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListObjectParentPathsInput, context: context)
         Hearth::Validator.validate!(input[:directory_arn], ::String, context: "#{context}[:directory_arn]")
-        Validators::ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
+        ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -1713,7 +1715,7 @@ module AWS::SDK::CloudDirectory
     class ListObjectParentPathsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListObjectParentPathsOutput, context: context)
-        Validators::PathToObjectIdentifiersList.validate!(input[:path_to_object_identifiers_list], context: "#{context}[:path_to_object_identifiers_list]") unless input[:path_to_object_identifiers_list].nil?
+        PathToObjectIdentifiersList.validate!(input[:path_to_object_identifiers_list], context: "#{context}[:path_to_object_identifiers_list]") unless input[:path_to_object_identifiers_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1722,7 +1724,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListObjectParentsInput, context: context)
         Hearth::Validator.validate!(input[:directory_arn], ::String, context: "#{context}[:directory_arn]")
-        Validators::ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
+        ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:consistency_level], ::String, context: "#{context}[:consistency_level]")
@@ -1733,9 +1735,9 @@ module AWS::SDK::CloudDirectory
     class ListObjectParentsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListObjectParentsOutput, context: context)
-        Validators::ObjectIdentifierToLinkNameMap.validate!(input[:parents], context: "#{context}[:parents]") unless input[:parents].nil?
+        ObjectIdentifierToLinkNameMap.validate!(input[:parents], context: "#{context}[:parents]") unless input[:parents].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ObjectIdentifierAndLinkNameList.validate!(input[:parent_links], context: "#{context}[:parent_links]") unless input[:parent_links].nil?
+        ObjectIdentifierAndLinkNameList.validate!(input[:parent_links], context: "#{context}[:parent_links]") unless input[:parent_links].nil?
       end
     end
 
@@ -1743,7 +1745,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListObjectPoliciesInput, context: context)
         Hearth::Validator.validate!(input[:directory_arn], ::String, context: "#{context}[:directory_arn]")
-        Validators::ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
+        ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:consistency_level], ::String, context: "#{context}[:consistency_level]")
@@ -1753,7 +1755,7 @@ module AWS::SDK::CloudDirectory
     class ListObjectPoliciesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListObjectPoliciesOutput, context: context)
-        Validators::ObjectIdentifierList.validate!(input[:attached_policy_ids], context: "#{context}[:attached_policy_ids]") unless input[:attached_policy_ids].nil?
+        ObjectIdentifierList.validate!(input[:attached_policy_ids], context: "#{context}[:attached_policy_ids]") unless input[:attached_policy_ids].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1762,9 +1764,9 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListOutgoingTypedLinksInput, context: context)
         Hearth::Validator.validate!(input[:directory_arn], ::String, context: "#{context}[:directory_arn]")
-        Validators::ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
-        Validators::TypedLinkAttributeRangeList.validate!(input[:filter_attribute_ranges], context: "#{context}[:filter_attribute_ranges]") unless input[:filter_attribute_ranges].nil?
-        Validators::TypedLinkSchemaAndFacetName.validate!(input[:filter_typed_link], context: "#{context}[:filter_typed_link]") unless input[:filter_typed_link].nil?
+        ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
+        TypedLinkAttributeRangeList.validate!(input[:filter_attribute_ranges], context: "#{context}[:filter_attribute_ranges]") unless input[:filter_attribute_ranges].nil?
+        TypedLinkSchemaAndFacetName.validate!(input[:filter_typed_link], context: "#{context}[:filter_typed_link]") unless input[:filter_typed_link].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:consistency_level], ::String, context: "#{context}[:consistency_level]")
@@ -1774,7 +1776,7 @@ module AWS::SDK::CloudDirectory
     class ListOutgoingTypedLinksOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListOutgoingTypedLinksOutput, context: context)
-        Validators::TypedLinkSpecifierList.validate!(input[:typed_link_specifiers], context: "#{context}[:typed_link_specifiers]") unless input[:typed_link_specifiers].nil?
+        TypedLinkSpecifierList.validate!(input[:typed_link_specifiers], context: "#{context}[:typed_link_specifiers]") unless input[:typed_link_specifiers].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1783,7 +1785,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPolicyAttachmentsInput, context: context)
         Hearth::Validator.validate!(input[:directory_arn], ::String, context: "#{context}[:directory_arn]")
-        Validators::ObjectReference.validate!(input[:policy_reference], context: "#{context}[:policy_reference]") unless input[:policy_reference].nil?
+        ObjectReference.validate!(input[:policy_reference], context: "#{context}[:policy_reference]") unless input[:policy_reference].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:consistency_level], ::String, context: "#{context}[:consistency_level]")
@@ -1793,7 +1795,7 @@ module AWS::SDK::CloudDirectory
     class ListPolicyAttachmentsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPolicyAttachmentsOutput, context: context)
-        Validators::ObjectIdentifierList.validate!(input[:object_identifiers], context: "#{context}[:object_identifiers]") unless input[:object_identifiers].nil?
+        ObjectIdentifierList.validate!(input[:object_identifiers], context: "#{context}[:object_identifiers]") unless input[:object_identifiers].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1810,7 +1812,7 @@ module AWS::SDK::CloudDirectory
     class ListPublishedSchemaArnsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPublishedSchemaArnsOutput, context: context)
-        Validators::Arns.validate!(input[:schema_arns], context: "#{context}[:schema_arns]") unless input[:schema_arns].nil?
+        Arns.validate!(input[:schema_arns], context: "#{context}[:schema_arns]") unless input[:schema_arns].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1827,7 +1829,7 @@ module AWS::SDK::CloudDirectory
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1845,7 +1847,7 @@ module AWS::SDK::CloudDirectory
     class ListTypedLinkFacetAttributesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTypedLinkFacetAttributesOutput, context: context)
-        Validators::TypedLinkAttributeDefinitionList.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        TypedLinkAttributeDefinitionList.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1862,7 +1864,7 @@ module AWS::SDK::CloudDirectory
     class ListTypedLinkFacetNamesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTypedLinkFacetNamesOutput, context: context)
-        Validators::TypedLinkNameList.validate!(input[:facet_names], context: "#{context}[:facet_names]") unless input[:facet_names].nil?
+        TypedLinkNameList.validate!(input[:facet_names], context: "#{context}[:facet_names]") unless input[:facet_names].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1871,7 +1873,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LookupPolicyInput, context: context)
         Hearth::Validator.validate!(input[:directory_arn], ::String, context: "#{context}[:directory_arn]")
-        Validators::ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
+        ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -1880,7 +1882,7 @@ module AWS::SDK::CloudDirectory
     class LookupPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LookupPolicyOutput, context: context)
-        Validators::PolicyToPathList.validate!(input[:policy_to_path_list], context: "#{context}[:policy_to_path_list]") unless input[:policy_to_path_list].nil?
+        PolicyToPathList.validate!(input[:policy_to_path_list], context: "#{context}[:policy_to_path_list]") unless input[:policy_to_path_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1917,15 +1919,15 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ObjectAttributeAction, context: context)
         Hearth::Validator.validate!(input[:object_attribute_action_type], ::String, context: "#{context}[:object_attribute_action_type]")
-        Validators::TypedAttributeValue.validate!(input[:object_attribute_update_value], context: "#{context}[:object_attribute_update_value]") unless input[:object_attribute_update_value].nil?
+        TypedAttributeValue.validate!(input[:object_attribute_update_value], context: "#{context}[:object_attribute_update_value]") unless input[:object_attribute_update_value].nil?
       end
     end
 
     class ObjectAttributeRange
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ObjectAttributeRange, context: context)
-        Validators::AttributeKey.validate!(input[:attribute_key], context: "#{context}[:attribute_key]") unless input[:attribute_key].nil?
-        Validators::TypedAttributeValueRange.validate!(input[:range], context: "#{context}[:range]") unless input[:range].nil?
+        AttributeKey.validate!(input[:attribute_key], context: "#{context}[:attribute_key]") unless input[:attribute_key].nil?
+        TypedAttributeValueRange.validate!(input[:range], context: "#{context}[:range]") unless input[:range].nil?
       end
     end
 
@@ -1933,7 +1935,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ObjectAttributeRange.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ObjectAttributeRange.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1941,8 +1943,8 @@ module AWS::SDK::CloudDirectory
     class ObjectAttributeUpdate
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ObjectAttributeUpdate, context: context)
-        Validators::AttributeKey.validate!(input[:object_attribute_key], context: "#{context}[:object_attribute_key]") unless input[:object_attribute_key].nil?
-        Validators::ObjectAttributeAction.validate!(input[:object_attribute_action], context: "#{context}[:object_attribute_action]") unless input[:object_attribute_action].nil?
+        AttributeKey.validate!(input[:object_attribute_key], context: "#{context}[:object_attribute_key]") unless input[:object_attribute_key].nil?
+        ObjectAttributeAction.validate!(input[:object_attribute_action], context: "#{context}[:object_attribute_action]") unless input[:object_attribute_action].nil?
       end
     end
 
@@ -1950,7 +1952,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ObjectAttributeUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ObjectAttributeUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1959,7 +1961,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ObjectIdentifierAndLinkNameTuple.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ObjectIdentifierAndLinkNameTuple.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2009,7 +2011,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PathToObjectIdentifiers, context: context)
         Hearth::Validator.validate!(input[:path], ::String, context: "#{context}[:path]")
-        Validators::ObjectIdentifierList.validate!(input[:object_identifiers], context: "#{context}[:object_identifiers]") unless input[:object_identifiers].nil?
+        ObjectIdentifierList.validate!(input[:object_identifiers], context: "#{context}[:object_identifiers]") unless input[:object_identifiers].nil?
       end
     end
 
@@ -2017,7 +2019,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PathToObjectIdentifiers.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PathToObjectIdentifiers.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2035,7 +2037,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PolicyAttachment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PolicyAttachment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2044,7 +2046,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PolicyToPath, context: context)
         Hearth::Validator.validate!(input[:path], ::String, context: "#{context}[:path]")
-        Validators::PolicyAttachmentList.validate!(input[:policies], context: "#{context}[:policies]") unless input[:policies].nil?
+        PolicyAttachmentList.validate!(input[:policies], context: "#{context}[:policies]") unless input[:policies].nil?
       end
     end
 
@@ -2052,7 +2054,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PolicyToPath.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PolicyToPath.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2093,8 +2095,8 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RemoveFacetFromObjectInput, context: context)
         Hearth::Validator.validate!(input[:directory_arn], ::String, context: "#{context}[:directory_arn]")
-        Validators::SchemaFacet.validate!(input[:schema_facet], context: "#{context}[:schema_facet]") unless input[:schema_facet].nil?
-        Validators::ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
+        SchemaFacet.validate!(input[:schema_facet], context: "#{context}[:schema_facet]") unless input[:schema_facet].nil?
+        ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
       end
     end
 
@@ -2122,7 +2124,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Rule, context: context)
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::RuleParameterMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        RuleParameterMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
       end
     end
 
@@ -2131,7 +2133,7 @@ module AWS::SDK::CloudDirectory
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::Rule.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          Rule.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -2172,7 +2174,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SchemaFacet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SchemaFacet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2205,7 +2207,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2214,7 +2216,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2279,9 +2281,9 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TypedAttributeValueRange, context: context)
         Hearth::Validator.validate!(input[:start_mode], ::String, context: "#{context}[:start_mode]")
-        Validators::TypedAttributeValue.validate!(input[:start_value], context: "#{context}[:start_value]") unless input[:start_value].nil?
+        TypedAttributeValue.validate!(input[:start_value], context: "#{context}[:start_value]") unless input[:start_value].nil?
         Hearth::Validator.validate!(input[:end_mode], ::String, context: "#{context}[:end_mode]")
-        Validators::TypedAttributeValue.validate!(input[:end_value], context: "#{context}[:end_value]") unless input[:end_value].nil?
+        TypedAttributeValue.validate!(input[:end_value], context: "#{context}[:end_value]") unless input[:end_value].nil?
       end
     end
 
@@ -2290,9 +2292,9 @@ module AWS::SDK::CloudDirectory
         Hearth::Validator.validate!(input, Types::TypedLinkAttributeDefinition, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::TypedAttributeValue.validate!(input[:default_value], context: "#{context}[:default_value]") unless input[:default_value].nil?
+        TypedAttributeValue.validate!(input[:default_value], context: "#{context}[:default_value]") unless input[:default_value].nil?
         Hearth::Validator.validate!(input[:is_immutable], ::TrueClass, ::FalseClass, context: "#{context}[:is_immutable]")
-        Validators::RuleMap.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        RuleMap.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
         Hearth::Validator.validate!(input[:required_behavior], ::String, context: "#{context}[:required_behavior]")
       end
     end
@@ -2301,7 +2303,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TypedLinkAttributeDefinition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TypedLinkAttributeDefinition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2310,7 +2312,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TypedLinkAttributeRange, context: context)
         Hearth::Validator.validate!(input[:attribute_name], ::String, context: "#{context}[:attribute_name]")
-        Validators::TypedAttributeValueRange.validate!(input[:range], context: "#{context}[:range]") unless input[:range].nil?
+        TypedAttributeValueRange.validate!(input[:range], context: "#{context}[:range]") unless input[:range].nil?
       end
     end
 
@@ -2318,7 +2320,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TypedLinkAttributeRange.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TypedLinkAttributeRange.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2327,15 +2329,15 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TypedLinkFacet, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::TypedLinkAttributeDefinitionList.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
-        Validators::AttributeNameList.validate!(input[:identity_attribute_order], context: "#{context}[:identity_attribute_order]") unless input[:identity_attribute_order].nil?
+        TypedLinkAttributeDefinitionList.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        AttributeNameList.validate!(input[:identity_attribute_order], context: "#{context}[:identity_attribute_order]") unless input[:identity_attribute_order].nil?
       end
     end
 
     class TypedLinkFacetAttributeUpdate
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TypedLinkFacetAttributeUpdate, context: context)
-        Validators::TypedLinkAttributeDefinition.validate!(input[:attribute], context: "#{context}[:attribute]") unless input[:attribute].nil?
+        TypedLinkAttributeDefinition.validate!(input[:attribute], context: "#{context}[:attribute]") unless input[:attribute].nil?
         Hearth::Validator.validate!(input[:action], ::String, context: "#{context}[:action]")
       end
     end
@@ -2344,7 +2346,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TypedLinkFacetAttributeUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TypedLinkFacetAttributeUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2369,10 +2371,10 @@ module AWS::SDK::CloudDirectory
     class TypedLinkSpecifier
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TypedLinkSpecifier, context: context)
-        Validators::TypedLinkSchemaAndFacetName.validate!(input[:typed_link_facet], context: "#{context}[:typed_link_facet]") unless input[:typed_link_facet].nil?
-        Validators::ObjectReference.validate!(input[:source_object_reference], context: "#{context}[:source_object_reference]") unless input[:source_object_reference].nil?
-        Validators::ObjectReference.validate!(input[:target_object_reference], context: "#{context}[:target_object_reference]") unless input[:target_object_reference].nil?
-        Validators::AttributeNameAndValueList.validate!(input[:identity_attribute_values], context: "#{context}[:identity_attribute_values]") unless input[:identity_attribute_values].nil?
+        TypedLinkSchemaAndFacetName.validate!(input[:typed_link_facet], context: "#{context}[:typed_link_facet]") unless input[:typed_link_facet].nil?
+        ObjectReference.validate!(input[:source_object_reference], context: "#{context}[:source_object_reference]") unless input[:source_object_reference].nil?
+        ObjectReference.validate!(input[:target_object_reference], context: "#{context}[:target_object_reference]") unless input[:target_object_reference].nil?
+        AttributeNameAndValueList.validate!(input[:identity_attribute_values], context: "#{context}[:identity_attribute_values]") unless input[:identity_attribute_values].nil?
       end
     end
 
@@ -2380,7 +2382,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TypedLinkSpecifier.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TypedLinkSpecifier.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2396,7 +2398,7 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -2411,7 +2413,7 @@ module AWS::SDK::CloudDirectory
         Hearth::Validator.validate!(input, Types::UpdateFacetInput, context: context)
         Hearth::Validator.validate!(input[:schema_arn], ::String, context: "#{context}[:schema_arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::FacetAttributeUpdateList.validate!(input[:attribute_updates], context: "#{context}[:attribute_updates]") unless input[:attribute_updates].nil?
+        FacetAttributeUpdateList.validate!(input[:attribute_updates], context: "#{context}[:attribute_updates]") unless input[:attribute_updates].nil?
         Hearth::Validator.validate!(input[:object_type], ::String, context: "#{context}[:object_type]")
       end
     end
@@ -2426,8 +2428,8 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateLinkAttributesInput, context: context)
         Hearth::Validator.validate!(input[:directory_arn], ::String, context: "#{context}[:directory_arn]")
-        Validators::TypedLinkSpecifier.validate!(input[:typed_link_specifier], context: "#{context}[:typed_link_specifier]") unless input[:typed_link_specifier].nil?
-        Validators::LinkAttributeUpdateList.validate!(input[:attribute_updates], context: "#{context}[:attribute_updates]") unless input[:attribute_updates].nil?
+        TypedLinkSpecifier.validate!(input[:typed_link_specifier], context: "#{context}[:typed_link_specifier]") unless input[:typed_link_specifier].nil?
+        LinkAttributeUpdateList.validate!(input[:attribute_updates], context: "#{context}[:attribute_updates]") unless input[:attribute_updates].nil?
       end
     end
 
@@ -2441,8 +2443,8 @@ module AWS::SDK::CloudDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateObjectAttributesInput, context: context)
         Hearth::Validator.validate!(input[:directory_arn], ::String, context: "#{context}[:directory_arn]")
-        Validators::ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
-        Validators::ObjectAttributeUpdateList.validate!(input[:attribute_updates], context: "#{context}[:attribute_updates]") unless input[:attribute_updates].nil?
+        ObjectReference.validate!(input[:object_reference], context: "#{context}[:object_reference]") unless input[:object_reference].nil?
+        ObjectAttributeUpdateList.validate!(input[:attribute_updates], context: "#{context}[:attribute_updates]") unless input[:attribute_updates].nil?
       end
     end
 
@@ -2473,8 +2475,8 @@ module AWS::SDK::CloudDirectory
         Hearth::Validator.validate!(input, Types::UpdateTypedLinkFacetInput, context: context)
         Hearth::Validator.validate!(input[:schema_arn], ::String, context: "#{context}[:schema_arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::TypedLinkFacetAttributeUpdateList.validate!(input[:attribute_updates], context: "#{context}[:attribute_updates]") unless input[:attribute_updates].nil?
-        Validators::AttributeNameList.validate!(input[:identity_attribute_order], context: "#{context}[:identity_attribute_order]") unless input[:identity_attribute_order].nil?
+        TypedLinkFacetAttributeUpdateList.validate!(input[:attribute_updates], context: "#{context}[:attribute_updates]") unless input[:attribute_updates].nil?
+        AttributeNameList.validate!(input[:identity_attribute_order], context: "#{context}[:identity_attribute_order]") unless input[:identity_attribute_order].nil?
       end
     end
 

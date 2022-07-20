@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::SES
@@ -86,7 +88,7 @@ module AWS::SDK::SES
     def clone_receipt_rule_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CloneReceiptRuleSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CloneReceiptRuleSetInput,
         validate_input: @config.validate_input
@@ -160,7 +162,7 @@ module AWS::SDK::SES
     def create_configuration_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateConfigurationSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateConfigurationSetInput,
         validate_input: @config.validate_input
@@ -265,7 +267,7 @@ module AWS::SDK::SES
     def create_configuration_set_event_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateConfigurationSetEventDestinationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateConfigurationSetEventDestinationInput,
         validate_input: @config.validate_input
@@ -348,7 +350,7 @@ module AWS::SDK::SES
     def create_configuration_set_tracking_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateConfigurationSetTrackingOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateConfigurationSetTrackingOptionsInput,
         validate_input: @config.validate_input
@@ -444,7 +446,7 @@ module AWS::SDK::SES
     def create_custom_verification_email_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCustomVerificationEmailTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCustomVerificationEmailTemplateInput,
         validate_input: @config.validate_input
@@ -521,7 +523,7 @@ module AWS::SDK::SES
     def create_receipt_filter(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateReceiptFilterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateReceiptFilterInput,
         validate_input: @config.validate_input
@@ -649,7 +651,7 @@ module AWS::SDK::SES
     def create_receipt_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateReceiptRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateReceiptRuleInput,
         validate_input: @config.validate_input
@@ -732,7 +734,7 @@ module AWS::SDK::SES
     def create_receipt_rule_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateReceiptRuleSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateReceiptRuleSetInput,
         validate_input: @config.validate_input
@@ -809,7 +811,7 @@ module AWS::SDK::SES
     def create_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTemplateInput,
         validate_input: @config.validate_input
@@ -879,7 +881,7 @@ module AWS::SDK::SES
     def delete_configuration_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteConfigurationSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteConfigurationSetInput,
         validate_input: @config.validate_input
@@ -954,7 +956,7 @@ module AWS::SDK::SES
     def delete_configuration_set_event_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteConfigurationSetEventDestinationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteConfigurationSetEventDestinationInput,
         validate_input: @config.validate_input
@@ -1032,7 +1034,7 @@ module AWS::SDK::SES
     def delete_configuration_set_tracking_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteConfigurationSetTrackingOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteConfigurationSetTrackingOptionsInput,
         validate_input: @config.validate_input
@@ -1103,7 +1105,7 @@ module AWS::SDK::SES
     def delete_custom_verification_email_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCustomVerificationEmailTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCustomVerificationEmailTemplateInput,
         validate_input: @config.validate_input
@@ -1173,7 +1175,7 @@ module AWS::SDK::SES
     def delete_identity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteIdentityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteIdentityInput,
         validate_input: @config.validate_input
@@ -1260,7 +1262,7 @@ module AWS::SDK::SES
     def delete_identity_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteIdentityPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteIdentityPolicyInput,
         validate_input: @config.validate_input
@@ -1331,7 +1333,7 @@ module AWS::SDK::SES
     def delete_receipt_filter(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteReceiptFilterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteReceiptFilterInput,
         validate_input: @config.validate_input
@@ -1406,7 +1408,7 @@ module AWS::SDK::SES
     def delete_receipt_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteReceiptRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteReceiptRuleInput,
         validate_input: @config.validate_input
@@ -1480,7 +1482,7 @@ module AWS::SDK::SES
     def delete_receipt_rule_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteReceiptRuleSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteReceiptRuleSetInput,
         validate_input: @config.validate_input
@@ -1549,7 +1551,7 @@ module AWS::SDK::SES
     def delete_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTemplateInput,
         validate_input: @config.validate_input
@@ -1618,7 +1620,7 @@ module AWS::SDK::SES
     def delete_verified_email_address(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVerifiedEmailAddressInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVerifiedEmailAddressInput,
         validate_input: @config.validate_input
@@ -1725,7 +1727,7 @@ module AWS::SDK::SES
     def describe_active_receipt_rule_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeActiveReceiptRuleSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeActiveReceiptRuleSetInput,
         validate_input: @config.validate_input
@@ -1829,7 +1831,7 @@ module AWS::SDK::SES
     def describe_configuration_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeConfigurationSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeConfigurationSetInput,
         validate_input: @config.validate_input
@@ -1940,7 +1942,7 @@ module AWS::SDK::SES
     def describe_receipt_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeReceiptRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeReceiptRuleInput,
         validate_input: @config.validate_input
@@ -2050,7 +2052,7 @@ module AWS::SDK::SES
     def describe_receipt_rule_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeReceiptRuleSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeReceiptRuleSetInput,
         validate_input: @config.validate_input
@@ -2115,7 +2117,7 @@ module AWS::SDK::SES
     def get_account_sending_enabled(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAccountSendingEnabledInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAccountSendingEnabledInput,
         validate_input: @config.validate_input
@@ -2193,7 +2195,7 @@ module AWS::SDK::SES
     def get_custom_verification_email_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCustomVerificationEmailTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCustomVerificationEmailTemplateInput,
         validate_input: @config.validate_input
@@ -2291,7 +2293,7 @@ module AWS::SDK::SES
     def get_identity_dkim_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetIdentityDkimAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetIdentityDkimAttributesInput,
         validate_input: @config.validate_input
@@ -2369,7 +2371,7 @@ module AWS::SDK::SES
     def get_identity_mail_from_domain_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetIdentityMailFromDomainAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetIdentityMailFromDomainAttributesInput,
         validate_input: @config.validate_input
@@ -2456,7 +2458,7 @@ module AWS::SDK::SES
     def get_identity_notification_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetIdentityNotificationAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetIdentityNotificationAttributesInput,
         validate_input: @config.validate_input
@@ -2549,7 +2551,7 @@ module AWS::SDK::SES
     def get_identity_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetIdentityPoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetIdentityPoliciesInput,
         validate_input: @config.validate_input
@@ -2638,7 +2640,7 @@ module AWS::SDK::SES
     def get_identity_verification_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetIdentityVerificationAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetIdentityVerificationAttributesInput,
         validate_input: @config.validate_input
@@ -2705,7 +2707,7 @@ module AWS::SDK::SES
     def get_send_quota(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSendQuotaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSendQuotaInput,
         validate_input: @config.validate_input
@@ -2778,7 +2780,7 @@ module AWS::SDK::SES
     def get_send_statistics(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSendStatisticsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSendStatisticsInput,
         validate_input: @config.validate_input
@@ -2853,7 +2855,7 @@ module AWS::SDK::SES
     def get_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTemplateInput,
         validate_input: @config.validate_input
@@ -2939,7 +2941,7 @@ module AWS::SDK::SES
     def list_configuration_sets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListConfigurationSetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListConfigurationSetsInput,
         validate_input: @config.validate_input
@@ -3027,7 +3029,7 @@ module AWS::SDK::SES
     def list_custom_verification_email_templates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCustomVerificationEmailTemplatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCustomVerificationEmailTemplatesInput,
         validate_input: @config.validate_input
@@ -3110,7 +3112,7 @@ module AWS::SDK::SES
     def list_identities(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListIdentitiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListIdentitiesInput,
         validate_input: @config.validate_input
@@ -3195,7 +3197,7 @@ module AWS::SDK::SES
     def list_identity_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListIdentityPoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListIdentityPoliciesInput,
         validate_input: @config.validate_input
@@ -3268,7 +3270,7 @@ module AWS::SDK::SES
     def list_receipt_filters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListReceiptFiltersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListReceiptFiltersInput,
         validate_input: @config.validate_input
@@ -3347,7 +3349,7 @@ module AWS::SDK::SES
     def list_receipt_rule_sets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListReceiptRuleSetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListReceiptRuleSetsInput,
         validate_input: @config.validate_input
@@ -3429,7 +3431,7 @@ module AWS::SDK::SES
     def list_templates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTemplatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTemplatesInput,
         validate_input: @config.validate_input
@@ -3495,7 +3497,7 @@ module AWS::SDK::SES
     def list_verified_email_addresses(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListVerifiedEmailAddressesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListVerifiedEmailAddressesInput,
         validate_input: @config.validate_input
@@ -3571,7 +3573,7 @@ module AWS::SDK::SES
     def put_configuration_set_delivery_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutConfigurationSetDeliveryOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutConfigurationSetDeliveryOptionsInput,
         validate_input: @config.validate_input
@@ -3665,7 +3667,7 @@ module AWS::SDK::SES
     def put_identity_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutIdentityPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutIdentityPolicyInput,
         validate_input: @config.validate_input
@@ -3747,7 +3749,7 @@ module AWS::SDK::SES
     def reorder_receipt_rule_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ReorderReceiptRuleSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ReorderReceiptRuleSetInput,
         validate_input: @config.validate_input
@@ -3875,7 +3877,7 @@ module AWS::SDK::SES
     def send_bounce(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendBounceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendBounceInput,
         validate_input: @config.validate_input
@@ -4097,7 +4099,7 @@ module AWS::SDK::SES
     def send_bulk_templated_email(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendBulkTemplatedEmailInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendBulkTemplatedEmailInput,
         validate_input: @config.validate_input
@@ -4183,7 +4185,7 @@ module AWS::SDK::SES
     def send_custom_verification_email(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendCustomVerificationEmailInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendCustomVerificationEmailInput,
         validate_input: @config.validate_input
@@ -4391,7 +4393,7 @@ module AWS::SDK::SES
     def send_email(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendEmailInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendEmailInput,
         validate_input: @config.validate_input
@@ -4701,7 +4703,7 @@ module AWS::SDK::SES
     def send_raw_email(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendRawEmailInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendRawEmailInput,
         validate_input: @config.validate_input
@@ -4918,7 +4920,7 @@ module AWS::SDK::SES
     def send_templated_email(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendTemplatedEmailInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendTemplatedEmailInput,
         validate_input: @config.validate_input
@@ -4993,7 +4995,7 @@ module AWS::SDK::SES
     def set_active_receipt_rule_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetActiveReceiptRuleSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetActiveReceiptRuleSetInput,
         validate_input: @config.validate_input
@@ -5078,7 +5080,7 @@ module AWS::SDK::SES
     def set_identity_dkim_enabled(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetIdentityDkimEnabledInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetIdentityDkimEnabledInput,
         validate_input: @config.validate_input
@@ -5167,7 +5169,7 @@ module AWS::SDK::SES
     def set_identity_feedback_forwarding_enabled(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetIdentityFeedbackForwardingEnabledInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetIdentityFeedbackForwardingEnabledInput,
         validate_input: @config.validate_input
@@ -5254,7 +5256,7 @@ module AWS::SDK::SES
     def set_identity_headers_in_notifications_enabled(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetIdentityHeadersInNotificationsEnabledInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetIdentityHeadersInNotificationsEnabledInput,
         validate_input: @config.validate_input
@@ -5352,7 +5354,7 @@ module AWS::SDK::SES
     def set_identity_mail_from_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetIdentityMailFromDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetIdentityMailFromDomainInput,
         validate_input: @config.validate_input
@@ -5446,7 +5448,7 @@ module AWS::SDK::SES
     def set_identity_notification_topic(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetIdentityNotificationTopicInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetIdentityNotificationTopicInput,
         validate_input: @config.validate_input
@@ -5525,7 +5527,7 @@ module AWS::SDK::SES
     def set_receipt_rule_position(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetReceiptRulePositionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetReceiptRulePositionInput,
         validate_input: @config.validate_input
@@ -5602,7 +5604,7 @@ module AWS::SDK::SES
     def test_render_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TestRenderTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TestRenderTemplateInput,
         validate_input: @config.validate_input
@@ -5676,7 +5678,7 @@ module AWS::SDK::SES
     def update_account_sending_enabled(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAccountSendingEnabledInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAccountSendingEnabledInput,
         validate_input: @config.validate_input
@@ -5783,7 +5785,7 @@ module AWS::SDK::SES
     def update_configuration_set_event_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateConfigurationSetEventDestinationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateConfigurationSetEventDestinationInput,
         validate_input: @config.validate_input
@@ -5860,7 +5862,7 @@ module AWS::SDK::SES
     def update_configuration_set_reputation_metrics_enabled(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateConfigurationSetReputationMetricsEnabledInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateConfigurationSetReputationMetricsEnabledInput,
         validate_input: @config.validate_input
@@ -5938,7 +5940,7 @@ module AWS::SDK::SES
     def update_configuration_set_sending_enabled(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateConfigurationSetSendingEnabledInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateConfigurationSetSendingEnabledInput,
         validate_input: @config.validate_input
@@ -6021,7 +6023,7 @@ module AWS::SDK::SES
     def update_configuration_set_tracking_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateConfigurationSetTrackingOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateConfigurationSetTrackingOptionsInput,
         validate_input: @config.validate_input
@@ -6117,7 +6119,7 @@ module AWS::SDK::SES
     def update_custom_verification_email_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateCustomVerificationEmailTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateCustomVerificationEmailTemplateInput,
         validate_input: @config.validate_input
@@ -6238,7 +6240,7 @@ module AWS::SDK::SES
     def update_receipt_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateReceiptRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateReceiptRuleInput,
         validate_input: @config.validate_input
@@ -6315,7 +6317,7 @@ module AWS::SDK::SES
     def update_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTemplateInput,
         validate_input: @config.validate_input
@@ -6423,7 +6425,7 @@ module AWS::SDK::SES
     def verify_domain_dkim(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::VerifyDomainDkimInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::VerifyDomainDkimInput,
         validate_input: @config.validate_input
@@ -6498,7 +6500,7 @@ module AWS::SDK::SES
     def verify_domain_identity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::VerifyDomainIdentityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::VerifyDomainIdentityInput,
         validate_input: @config.validate_input
@@ -6567,7 +6569,7 @@ module AWS::SDK::SES
     def verify_email_address(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::VerifyEmailAddressInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::VerifyEmailAddressInput,
         validate_input: @config.validate_input
@@ -6638,7 +6640,7 @@ module AWS::SDK::SES
     def verify_email_identity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::VerifyEmailIdentityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::VerifyEmailIdentityInput,
         validate_input: @config.validate_input

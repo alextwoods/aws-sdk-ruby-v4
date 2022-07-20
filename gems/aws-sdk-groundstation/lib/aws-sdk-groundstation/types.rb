@@ -1544,11 +1544,11 @@ module AWS::SDK::GroundStation
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.norad_satellite_id ||= 0
       end
-
     end
 
     # <p>Information about the ground station data.</p>
@@ -2120,11 +2120,11 @@ module AWS::SDK::GroundStation
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.norad_satellite_id ||= 0
       end
-
     end
 
     # <p>Information about endpoints.</p>

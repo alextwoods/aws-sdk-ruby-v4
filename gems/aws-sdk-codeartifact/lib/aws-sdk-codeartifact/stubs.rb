@@ -14,7 +14,7 @@ module AWS::SDK::Codeartifact
     class AssociateExternalConnection
       def self.default(visited=[])
         {
-          repository: Stubs::RepositoryDescription.default(visited),
+          repository: RepositoryDescription.default(visited),
         }
       end
 
@@ -39,8 +39,8 @@ module AWS::SDK::Codeartifact
           domain_owner: 'domain_owner',
           arn: 'arn',
           description: 'description',
-          upstreams: Stubs::UpstreamRepositoryInfoList.default(visited),
-          external_connections: Stubs::RepositoryExternalConnectionInfoList.default(visited),
+          upstreams: UpstreamRepositoryInfoList.default(visited),
+          external_connections: RepositoryExternalConnectionInfoList.default(visited),
         }
       end
 
@@ -65,7 +65,7 @@ module AWS::SDK::Codeartifact
         return nil if visited.include?('RepositoryExternalConnectionInfoList')
         visited = visited + ['RepositoryExternalConnectionInfoList']
         [
-          Stubs::RepositoryExternalConnectionInfo.default(visited)
+          RepositoryExternalConnectionInfo.default(visited)
         ]
       end
 
@@ -107,7 +107,7 @@ module AWS::SDK::Codeartifact
         return nil if visited.include?('UpstreamRepositoryInfoList')
         visited = visited + ['UpstreamRepositoryInfoList']
         [
-          Stubs::UpstreamRepositoryInfo.default(visited)
+          UpstreamRepositoryInfo.default(visited)
         ]
       end
 
@@ -143,8 +143,8 @@ module AWS::SDK::Codeartifact
     class CopyPackageVersions
       def self.default(visited=[])
         {
-          successful_versions: Stubs::SuccessfulPackageVersionInfoMap.default(visited),
-          failed_versions: Stubs::PackageVersionErrorMap.default(visited),
+          successful_versions: SuccessfulPackageVersionInfoMap.default(visited),
+          failed_versions: PackageVersionErrorMap.default(visited),
         }
       end
 
@@ -164,7 +164,7 @@ module AWS::SDK::Codeartifact
         return nil if visited.include?('PackageVersionErrorMap')
         visited = visited + ['PackageVersionErrorMap']
         {
-          test_key: Stubs::PackageVersionError.default(visited)
+          test_key: PackageVersionError.default(visited)
         }
       end
 
@@ -204,7 +204,7 @@ module AWS::SDK::Codeartifact
         return nil if visited.include?('SuccessfulPackageVersionInfoMap')
         visited = visited + ['SuccessfulPackageVersionInfoMap']
         {
-          test_key: Stubs::SuccessfulPackageVersionInfo.default(visited)
+          test_key: SuccessfulPackageVersionInfo.default(visited)
         }
       end
 
@@ -242,7 +242,7 @@ module AWS::SDK::Codeartifact
     class CreateDomain
       def self.default(visited=[])
         {
-          domain: Stubs::DomainDescription.default(visited),
+          domain: DomainDescription.default(visited),
         }
       end
 
@@ -293,7 +293,7 @@ module AWS::SDK::Codeartifact
     class CreateRepository
       def self.default(visited=[])
         {
-          repository: Stubs::RepositoryDescription.default(visited),
+          repository: RepositoryDescription.default(visited),
         }
       end
 
@@ -310,7 +310,7 @@ module AWS::SDK::Codeartifact
     class DeleteDomain
       def self.default(visited=[])
         {
-          domain: Stubs::DomainDescription.default(visited),
+          domain: DomainDescription.default(visited),
         }
       end
 
@@ -327,7 +327,7 @@ module AWS::SDK::Codeartifact
     class DeleteDomainPermissionsPolicy
       def self.default(visited=[])
         {
-          policy: Stubs::ResourcePolicy.default(visited),
+          policy: ResourcePolicy.default(visited),
         }
       end
 
@@ -366,8 +366,8 @@ module AWS::SDK::Codeartifact
     class DeletePackageVersions
       def self.default(visited=[])
         {
-          successful_versions: Stubs::SuccessfulPackageVersionInfoMap.default(visited),
-          failed_versions: Stubs::PackageVersionErrorMap.default(visited),
+          successful_versions: SuccessfulPackageVersionInfoMap.default(visited),
+          failed_versions: PackageVersionErrorMap.default(visited),
         }
       end
 
@@ -385,7 +385,7 @@ module AWS::SDK::Codeartifact
     class DeleteRepository
       def self.default(visited=[])
         {
-          repository: Stubs::RepositoryDescription.default(visited),
+          repository: RepositoryDescription.default(visited),
         }
       end
 
@@ -402,7 +402,7 @@ module AWS::SDK::Codeartifact
     class DeleteRepositoryPermissionsPolicy
       def self.default(visited=[])
         {
-          policy: Stubs::ResourcePolicy.default(visited),
+          policy: ResourcePolicy.default(visited),
         }
       end
 
@@ -419,7 +419,7 @@ module AWS::SDK::Codeartifact
     class DescribeDomain
       def self.default(visited=[])
         {
-          domain: Stubs::DomainDescription.default(visited),
+          domain: DomainDescription.default(visited),
         }
       end
 
@@ -436,7 +436,7 @@ module AWS::SDK::Codeartifact
     class DescribePackageVersion
       def self.default(visited=[])
         {
-          package_version: Stubs::PackageVersionDescription.default(visited),
+          package_version: PackageVersionDescription.default(visited),
         }
       end
 
@@ -464,7 +464,7 @@ module AWS::SDK::Codeartifact
           home_page: 'home_page',
           source_code_repository: 'source_code_repository',
           published_time: Time.now,
-          licenses: Stubs::LicenseInfoList.default(visited),
+          licenses: LicenseInfoList.default(visited),
           revision: 'revision',
           status: 'status',
         }
@@ -495,7 +495,7 @@ module AWS::SDK::Codeartifact
         return nil if visited.include?('LicenseInfoList')
         visited = visited + ['LicenseInfoList']
         [
-          Stubs::LicenseInfo.default(visited)
+          LicenseInfo.default(visited)
         ]
       end
 
@@ -533,7 +533,7 @@ module AWS::SDK::Codeartifact
     class DescribeRepository
       def self.default(visited=[])
         {
-          repository: Stubs::RepositoryDescription.default(visited),
+          repository: RepositoryDescription.default(visited),
         }
       end
 
@@ -550,7 +550,7 @@ module AWS::SDK::Codeartifact
     class DisassociateExternalConnection
       def self.default(visited=[])
         {
-          repository: Stubs::RepositoryDescription.default(visited),
+          repository: RepositoryDescription.default(visited),
         }
       end
 
@@ -567,8 +567,8 @@ module AWS::SDK::Codeartifact
     class DisposePackageVersions
       def self.default(visited=[])
         {
-          successful_versions: Stubs::SuccessfulPackageVersionInfoMap.default(visited),
-          failed_versions: Stubs::PackageVersionErrorMap.default(visited),
+          successful_versions: SuccessfulPackageVersionInfoMap.default(visited),
+          failed_versions: PackageVersionErrorMap.default(visited),
         }
       end
 
@@ -605,7 +605,7 @@ module AWS::SDK::Codeartifact
     class GetDomainPermissionsPolicy
       def self.default(visited=[])
         {
-          policy: Stubs::ResourcePolicy.default(visited),
+          policy: ResourcePolicy.default(visited),
         }
       end
 
@@ -687,7 +687,7 @@ module AWS::SDK::Codeartifact
     class GetRepositoryPermissionsPolicy
       def self.default(visited=[])
         {
-          policy: Stubs::ResourcePolicy.default(visited),
+          policy: ResourcePolicy.default(visited),
         }
       end
 
@@ -704,7 +704,7 @@ module AWS::SDK::Codeartifact
     class ListDomains
       def self.default(visited=[])
         {
-          domains: Stubs::DomainSummaryList.default(visited),
+          domains: DomainSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -725,7 +725,7 @@ module AWS::SDK::Codeartifact
         return nil if visited.include?('DomainSummaryList')
         visited = visited + ['DomainSummaryList']
         [
-          Stubs::DomainSummary.default(visited)
+          DomainSummary.default(visited)
         ]
       end
 
@@ -777,7 +777,7 @@ module AWS::SDK::Codeartifact
           version: 'version',
           version_revision: 'version_revision',
           next_token: 'next_token',
-          assets: Stubs::AssetSummaryList.default(visited),
+          assets: AssetSummaryList.default(visited),
         }
       end
 
@@ -802,7 +802,7 @@ module AWS::SDK::Codeartifact
         return nil if visited.include?('AssetSummaryList')
         visited = visited + ['AssetSummaryList']
         [
-          Stubs::AssetSummary.default(visited)
+          AssetSummary.default(visited)
         ]
       end
 
@@ -824,7 +824,7 @@ module AWS::SDK::Codeartifact
         {
           name: 'name',
           size: 1,
-          hashes: Stubs::AssetHashes.default(visited),
+          hashes: AssetHashes.default(visited),
         }
       end
 
@@ -868,7 +868,7 @@ module AWS::SDK::Codeartifact
           version: 'version',
           version_revision: 'version_revision',
           next_token: 'next_token',
-          dependencies: Stubs::PackageDependencyList.default(visited),
+          dependencies: PackageDependencyList.default(visited),
         }
       end
 
@@ -893,7 +893,7 @@ module AWS::SDK::Codeartifact
         return nil if visited.include?('PackageDependencyList')
         visited = visited + ['PackageDependencyList']
         [
-          Stubs::PackageDependency.default(visited)
+          PackageDependency.default(visited)
         ]
       end
 
@@ -939,7 +939,7 @@ module AWS::SDK::Codeartifact
           format: 'format',
           namespace: 'namespace',
           package: 'package',
-          versions: Stubs::PackageVersionSummaryList.default(visited),
+          versions: PackageVersionSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -964,7 +964,7 @@ module AWS::SDK::Codeartifact
         return nil if visited.include?('PackageVersionSummaryList')
         visited = visited + ['PackageVersionSummaryList']
         [
-          Stubs::PackageVersionSummary.default(visited)
+          PackageVersionSummary.default(visited)
         ]
       end
 
@@ -1004,7 +1004,7 @@ module AWS::SDK::Codeartifact
     class ListPackages
       def self.default(visited=[])
         {
-          packages: Stubs::PackageSummaryList.default(visited),
+          packages: PackageSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1025,7 +1025,7 @@ module AWS::SDK::Codeartifact
         return nil if visited.include?('PackageSummaryList')
         visited = visited + ['PackageSummaryList']
         [
-          Stubs::PackageSummary.default(visited)
+          PackageSummary.default(visited)
         ]
       end
 
@@ -1065,7 +1065,7 @@ module AWS::SDK::Codeartifact
     class ListRepositories
       def self.default(visited=[])
         {
-          repositories: Stubs::RepositorySummaryList.default(visited),
+          repositories: RepositorySummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1086,7 +1086,7 @@ module AWS::SDK::Codeartifact
         return nil if visited.include?('RepositorySummaryList')
         visited = visited + ['RepositorySummaryList']
         [
-          Stubs::RepositorySummary.default(visited)
+          RepositorySummary.default(visited)
         ]
       end
 
@@ -1132,7 +1132,7 @@ module AWS::SDK::Codeartifact
     class ListRepositoriesInDomain
       def self.default(visited=[])
         {
-          repositories: Stubs::RepositorySummaryList.default(visited),
+          repositories: RepositorySummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1151,7 +1151,7 @@ module AWS::SDK::Codeartifact
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -1170,7 +1170,7 @@ module AWS::SDK::Codeartifact
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -1208,7 +1208,7 @@ module AWS::SDK::Codeartifact
     class PutDomainPermissionsPolicy
       def self.default(visited=[])
         {
-          policy: Stubs::ResourcePolicy.default(visited),
+          policy: ResourcePolicy.default(visited),
         }
       end
 
@@ -1225,7 +1225,7 @@ module AWS::SDK::Codeartifact
     class PutRepositoryPermissionsPolicy
       def self.default(visited=[])
         {
-          policy: Stubs::ResourcePolicy.default(visited),
+          policy: ResourcePolicy.default(visited),
         }
       end
 
@@ -1268,8 +1268,8 @@ module AWS::SDK::Codeartifact
     class UpdatePackageVersionsStatus
       def self.default(visited=[])
         {
-          successful_versions: Stubs::SuccessfulPackageVersionInfoMap.default(visited),
-          failed_versions: Stubs::PackageVersionErrorMap.default(visited),
+          successful_versions: SuccessfulPackageVersionInfoMap.default(visited),
+          failed_versions: PackageVersionErrorMap.default(visited),
         }
       end
 
@@ -1287,7 +1287,7 @@ module AWS::SDK::Codeartifact
     class UpdateRepository
       def self.default(visited=[])
         {
-          repository: Stubs::RepositoryDescription.default(visited),
+          repository: RepositoryDescription.default(visited),
         }
       end
 

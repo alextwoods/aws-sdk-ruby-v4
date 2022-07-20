@@ -91,7 +91,7 @@ module AWS::SDK::GuardDuty
     class CreateMembers
       def self.default(visited=[])
         {
-          unprocessed_accounts: Stubs::UnprocessedAccounts.default(visited),
+          unprocessed_accounts: UnprocessedAccounts.default(visited),
         }
       end
 
@@ -110,7 +110,7 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('UnprocessedAccounts')
         visited = visited + ['UnprocessedAccounts']
         [
-          Stubs::UnprocessedAccount.default(visited)
+          UnprocessedAccount.default(visited)
         ]
       end
 
@@ -195,7 +195,7 @@ module AWS::SDK::GuardDuty
     class DeclineInvitations
       def self.default(visited=[])
         {
-          unprocessed_accounts: Stubs::UnprocessedAccounts.default(visited),
+          unprocessed_accounts: UnprocessedAccounts.default(visited),
         }
       end
 
@@ -251,7 +251,7 @@ module AWS::SDK::GuardDuty
     class DeleteInvitations
       def self.default(visited=[])
         {
-          unprocessed_accounts: Stubs::UnprocessedAccounts.default(visited),
+          unprocessed_accounts: UnprocessedAccounts.default(visited),
         }
       end
 
@@ -268,7 +268,7 @@ module AWS::SDK::GuardDuty
     class DeleteMembers
       def self.default(visited=[])
         {
-          unprocessed_accounts: Stubs::UnprocessedAccounts.default(visited),
+          unprocessed_accounts: UnprocessedAccounts.default(visited),
         }
       end
 
@@ -313,7 +313,7 @@ module AWS::SDK::GuardDuty
         {
           auto_enable: false,
           member_account_limit_reached: false,
-          data_sources: Stubs::OrganizationDataSourceConfigurationsResult.default(visited),
+          data_sources: OrganizationDataSourceConfigurationsResult.default(visited),
         }
       end
 
@@ -334,8 +334,8 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('OrganizationDataSourceConfigurationsResult')
         visited = visited + ['OrganizationDataSourceConfigurationsResult']
         {
-          s3_logs: Stubs::OrganizationS3LogsConfigurationResult.default(visited),
-          kubernetes: Stubs::OrganizationKubernetesConfigurationResult.default(visited),
+          s3_logs: OrganizationS3LogsConfigurationResult.default(visited),
+          kubernetes: OrganizationKubernetesConfigurationResult.default(visited),
         }
       end
 
@@ -354,7 +354,7 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('OrganizationKubernetesConfigurationResult')
         visited = visited + ['OrganizationKubernetesConfigurationResult']
         {
-          audit_logs: Stubs::OrganizationKubernetesAuditLogsConfigurationResult.default(visited),
+          audit_logs: OrganizationKubernetesAuditLogsConfigurationResult.default(visited),
         }
       end
 
@@ -410,7 +410,7 @@ module AWS::SDK::GuardDuty
           destination_type: 'destination_type',
           status: 'status',
           publishing_failure_start_timestamp: 1,
-          destination_properties: Stubs::DestinationProperties.default(visited),
+          destination_properties: DestinationProperties.default(visited),
         }
       end
 
@@ -477,7 +477,7 @@ module AWS::SDK::GuardDuty
     class DisassociateMembers
       def self.default(visited=[])
         {
-          unprocessed_accounts: Stubs::UnprocessedAccounts.default(visited),
+          unprocessed_accounts: UnprocessedAccounts.default(visited),
         }
       end
 
@@ -512,8 +512,8 @@ module AWS::SDK::GuardDuty
           service_role: 'service_role',
           status: 'status',
           updated_at: 'updated_at',
-          data_sources: Stubs::DataSourceConfigurationsResult.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          data_sources: DataSourceConfigurationsResult.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -558,11 +558,11 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('DataSourceConfigurationsResult')
         visited = visited + ['DataSourceConfigurationsResult']
         {
-          cloud_trail: Stubs::CloudTrailConfigurationResult.default(visited),
-          dns_logs: Stubs::DNSLogsConfigurationResult.default(visited),
-          flow_logs: Stubs::FlowLogsConfigurationResult.default(visited),
-          s3_logs: Stubs::S3LogsConfigurationResult.default(visited),
-          kubernetes: Stubs::KubernetesConfigurationResult.default(visited),
+          cloud_trail: CloudTrailConfigurationResult.default(visited),
+          dns_logs: DNSLogsConfigurationResult.default(visited),
+          flow_logs: FlowLogsConfigurationResult.default(visited),
+          s3_logs: S3LogsConfigurationResult.default(visited),
+          kubernetes: KubernetesConfigurationResult.default(visited),
         }
       end
 
@@ -584,7 +584,7 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('KubernetesConfigurationResult')
         visited = visited + ['KubernetesConfigurationResult']
         {
-          audit_logs: Stubs::KubernetesAuditLogsConfigurationResult.default(visited),
+          audit_logs: KubernetesAuditLogsConfigurationResult.default(visited),
         }
       end
 
@@ -694,8 +694,8 @@ module AWS::SDK::GuardDuty
           description: 'description',
           action: 'action',
           rank: 1,
-          finding_criteria: Stubs::FindingCriteria.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          finding_criteria: FindingCriteria.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -719,7 +719,7 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('FindingCriteria')
         visited = visited + ['FindingCriteria']
         {
-          criterion: Stubs::Criterion.default(visited),
+          criterion: Criterion.default(visited),
         }
       end
 
@@ -737,7 +737,7 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('Criterion')
         visited = visited + ['Criterion']
         {
-          test_key: Stubs::Condition.default(visited)
+          test_key: Condition.default(visited)
         }
       end
 
@@ -757,14 +757,14 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('Condition')
         visited = visited + ['Condition']
         {
-          eq: Stubs::Eq.default(visited),
-          neq: Stubs::Neq.default(visited),
+          eq: Eq.default(visited),
+          neq: Neq.default(visited),
           gt: 1,
           gte: 1,
           lt: 1,
           lte: 1,
-          equals: Stubs::Equals.default(visited),
-          not_equals: Stubs::NotEquals.default(visited),
+          equals: Equals.default(visited),
+          not_equals: NotEquals.default(visited),
           greater_than: 1,
           greater_than_or_equal: 1,
           less_than: 1,
@@ -875,7 +875,7 @@ module AWS::SDK::GuardDuty
     class GetFindings
       def self.default(visited=[])
         {
-          findings: Stubs::Findings.default(visited),
+          findings: Findings.default(visited),
         }
       end
 
@@ -894,7 +894,7 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('Findings')
         visited = visited + ['Findings']
         [
-          Stubs::Finding.default(visited)
+          Finding.default(visited)
         ]
       end
 
@@ -922,9 +922,9 @@ module AWS::SDK::GuardDuty
           id: 'id',
           partition: 'partition',
           region: 'region',
-          resource: Stubs::Resource.default(visited),
+          resource: Resource.default(visited),
           schema_version: 'schema_version',
-          service: Stubs::Service.default(visited),
+          service: Service.default(visited),
           severity: 1.0,
           title: 'title',
           type: 'type',
@@ -960,8 +960,8 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('Service')
         visited = visited + ['Service']
         {
-          action: Stubs::Action.default(visited),
-          evidence: Stubs::Evidence.default(visited),
+          action: Action.default(visited),
+          evidence: Evidence.default(visited),
           archived: false,
           count: 1,
           detector_id: 'detector_id',
@@ -996,7 +996,7 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('Evidence')
         visited = visited + ['Evidence']
         {
-          threat_intelligence_details: Stubs::ThreatIntelligenceDetails.default(visited),
+          threat_intelligence_details: ThreatIntelligenceDetails.default(visited),
         }
       end
 
@@ -1014,7 +1014,7 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('ThreatIntelligenceDetails')
         visited = visited + ['ThreatIntelligenceDetails']
         [
-          Stubs::ThreatIntelligenceDetail.default(visited)
+          ThreatIntelligenceDetail.default(visited)
         ]
       end
 
@@ -1035,7 +1035,7 @@ module AWS::SDK::GuardDuty
         visited = visited + ['ThreatIntelligenceDetail']
         {
           threat_list_name: 'threat_list_name',
-          threat_names: Stubs::ThreatNames.default(visited),
+          threat_names: ThreatNames.default(visited),
         }
       end
 
@@ -1075,11 +1075,11 @@ module AWS::SDK::GuardDuty
         visited = visited + ['Action']
         {
           action_type: 'action_type',
-          aws_api_call_action: Stubs::AwsApiCallAction.default(visited),
-          dns_request_action: Stubs::DnsRequestAction.default(visited),
-          network_connection_action: Stubs::NetworkConnectionAction.default(visited),
-          port_probe_action: Stubs::PortProbeAction.default(visited),
-          kubernetes_api_call_action: Stubs::KubernetesApiCallAction.default(visited),
+          aws_api_call_action: AwsApiCallAction.default(visited),
+          dns_request_action: DnsRequestAction.default(visited),
+          network_connection_action: NetworkConnectionAction.default(visited),
+          port_probe_action: PortProbeAction.default(visited),
+          kubernetes_api_call_action: KubernetesApiCallAction.default(visited),
         }
       end
 
@@ -1104,9 +1104,9 @@ module AWS::SDK::GuardDuty
         {
           request_uri: 'request_uri',
           verb: 'verb',
-          source_ips: Stubs::SourceIps.default(visited),
+          source_ips: SourceIps.default(visited),
           user_agent: 'user_agent',
-          remote_ip_details: Stubs::RemoteIpDetails.default(visited),
+          remote_ip_details: RemoteIpDetails.default(visited),
           status_code: 1,
           parameters: 'parameters',
         }
@@ -1132,11 +1132,11 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('RemoteIpDetails')
         visited = visited + ['RemoteIpDetails']
         {
-          city: Stubs::City.default(visited),
-          country: Stubs::Country.default(visited),
-          geo_location: Stubs::GeoLocation.default(visited),
+          city: City.default(visited),
+          country: Country.default(visited),
+          geo_location: GeoLocation.default(visited),
           ip_address_v4: 'ip_address_v4',
-          organization: Stubs::Organization.default(visited),
+          organization: Organization.default(visited),
         }
       end
 
@@ -1261,7 +1261,7 @@ module AWS::SDK::GuardDuty
         visited = visited + ['PortProbeAction']
         {
           blocked: false,
-          port_probe_details: Stubs::PortProbeDetails.default(visited),
+          port_probe_details: PortProbeDetails.default(visited),
         }
       end
 
@@ -1280,7 +1280,7 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('PortProbeDetails')
         visited = visited + ['PortProbeDetails']
         [
-          Stubs::PortProbeDetail.default(visited)
+          PortProbeDetail.default(visited)
         ]
       end
 
@@ -1300,9 +1300,9 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('PortProbeDetail')
         visited = visited + ['PortProbeDetail']
         {
-          local_port_details: Stubs::LocalPortDetails.default(visited),
-          local_ip_details: Stubs::LocalIpDetails.default(visited),
-          remote_ip_details: Stubs::RemoteIpDetails.default(visited),
+          local_port_details: LocalPortDetails.default(visited),
+          local_ip_details: LocalIpDetails.default(visited),
+          remote_ip_details: RemoteIpDetails.default(visited),
         }
       end
 
@@ -1362,11 +1362,11 @@ module AWS::SDK::GuardDuty
         {
           blocked: false,
           connection_direction: 'connection_direction',
-          local_port_details: Stubs::LocalPortDetails.default(visited),
+          local_port_details: LocalPortDetails.default(visited),
           protocol: 'protocol',
-          local_ip_details: Stubs::LocalIpDetails.default(visited),
-          remote_ip_details: Stubs::RemoteIpDetails.default(visited),
-          remote_port_details: Stubs::RemotePortDetails.default(visited),
+          local_ip_details: LocalIpDetails.default(visited),
+          remote_ip_details: RemoteIpDetails.default(visited),
+          remote_port_details: RemotePortDetails.default(visited),
         }
       end
 
@@ -1430,12 +1430,12 @@ module AWS::SDK::GuardDuty
         {
           api: 'api',
           caller_type: 'caller_type',
-          domain_details: Stubs::DomainDetails.default(visited),
+          domain_details: DomainDetails.default(visited),
           error_code: 'error_code',
           user_agent: 'user_agent',
-          remote_ip_details: Stubs::RemoteIpDetails.default(visited),
+          remote_ip_details: RemoteIpDetails.default(visited),
           service_name: 'service_name',
-          remote_account_details: Stubs::RemoteAccountDetails.default(visited),
+          remote_account_details: RemoteAccountDetails.default(visited),
         }
       end
 
@@ -1498,11 +1498,11 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('Resource')
         visited = visited + ['Resource']
         {
-          access_key_details: Stubs::AccessKeyDetails.default(visited),
-          s3_bucket_details: Stubs::S3BucketDetails.default(visited),
-          instance_details: Stubs::InstanceDetails.default(visited),
-          eks_cluster_details: Stubs::EksClusterDetails.default(visited),
-          kubernetes_details: Stubs::KubernetesDetails.default(visited),
+          access_key_details: AccessKeyDetails.default(visited),
+          s3_bucket_details: S3BucketDetails.default(visited),
+          instance_details: InstanceDetails.default(visited),
+          eks_cluster_details: EksClusterDetails.default(visited),
+          kubernetes_details: KubernetesDetails.default(visited),
           resource_type: 'resource_type',
         }
       end
@@ -1526,8 +1526,8 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('KubernetesDetails')
         visited = visited + ['KubernetesDetails']
         {
-          kubernetes_user_details: Stubs::KubernetesUserDetails.default(visited),
-          kubernetes_workload_details: Stubs::KubernetesWorkloadDetails.default(visited),
+          kubernetes_user_details: KubernetesUserDetails.default(visited),
+          kubernetes_workload_details: KubernetesWorkloadDetails.default(visited),
         }
       end
 
@@ -1551,8 +1551,8 @@ module AWS::SDK::GuardDuty
           uid: 'uid',
           namespace: 'namespace',
           host_network: false,
-          containers: Stubs::Containers.default(visited),
-          volumes: Stubs::Volumes.default(visited),
+          containers: Containers.default(visited),
+          volumes: Volumes.default(visited),
         }
       end
 
@@ -1576,7 +1576,7 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('Volumes')
         visited = visited + ['Volumes']
         [
-          Stubs::Volume.default(visited)
+          Volume.default(visited)
         ]
       end
 
@@ -1597,7 +1597,7 @@ module AWS::SDK::GuardDuty
         visited = visited + ['Volume']
         {
           name: 'name',
-          host_path: Stubs::HostPath.default(visited),
+          host_path: HostPath.default(visited),
         }
       end
 
@@ -1634,7 +1634,7 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('Containers')
         visited = visited + ['Containers']
         [
-          Stubs::Container.default(visited)
+          Container.default(visited)
         ]
       end
 
@@ -1659,8 +1659,8 @@ module AWS::SDK::GuardDuty
           name: 'name',
           image: 'image',
           image_prefix: 'image_prefix',
-          volume_mounts: Stubs::VolumeMounts.default(visited),
-          security_context: Stubs::SecurityContext.default(visited),
+          volume_mounts: VolumeMounts.default(visited),
+          security_context: SecurityContext.default(visited),
         }
       end
 
@@ -1702,7 +1702,7 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('VolumeMounts')
         visited = visited + ['VolumeMounts']
         [
-          Stubs::VolumeMount.default(visited)
+          VolumeMount.default(visited)
         ]
       end
 
@@ -1744,7 +1744,7 @@ module AWS::SDK::GuardDuty
         {
           username: 'username',
           uid: 'uid',
-          groups: Stubs::Groups.default(visited),
+          groups: Groups.default(visited),
         }
       end
 
@@ -1788,7 +1788,7 @@ module AWS::SDK::GuardDuty
           arn: 'arn',
           vpc_id: 'vpc_id',
           status: 'status',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           created_at: Time.now,
         }
       end
@@ -1812,7 +1812,7 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('Tags')
         visited = visited + ['Tags']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -1853,7 +1853,7 @@ module AWS::SDK::GuardDuty
         visited = visited + ['InstanceDetails']
         {
           availability_zone: 'availability_zone',
-          iam_instance_profile: Stubs::IamInstanceProfile.default(visited),
+          iam_instance_profile: IamInstanceProfile.default(visited),
           image_description: 'image_description',
           image_id: 'image_id',
           instance_id: 'instance_id',
@@ -1861,10 +1861,10 @@ module AWS::SDK::GuardDuty
           instance_type: 'instance_type',
           outpost_arn: 'outpost_arn',
           launch_time: 'launch_time',
-          network_interfaces: Stubs::NetworkInterfaces.default(visited),
+          network_interfaces: NetworkInterfaces.default(visited),
           platform: 'platform',
-          product_codes: Stubs::ProductCodes.default(visited),
-          tags: Stubs::Tags.default(visited),
+          product_codes: ProductCodes.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -1894,7 +1894,7 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('ProductCodes')
         visited = visited + ['ProductCodes']
         [
-          Stubs::ProductCode.default(visited)
+          ProductCode.default(visited)
         ]
       end
 
@@ -1934,7 +1934,7 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('NetworkInterfaces')
         visited = visited + ['NetworkInterfaces']
         [
-          Stubs::NetworkInterface.default(visited)
+          NetworkInterface.default(visited)
         ]
       end
 
@@ -1954,14 +1954,14 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('NetworkInterface')
         visited = visited + ['NetworkInterface']
         {
-          ipv6_addresses: Stubs::Ipv6Addresses.default(visited),
+          ipv6_addresses: Ipv6Addresses.default(visited),
           network_interface_id: 'network_interface_id',
           private_dns_name: 'private_dns_name',
           private_ip_address: 'private_ip_address',
-          private_ip_addresses: Stubs::PrivateIpAddresses.default(visited),
+          private_ip_addresses: PrivateIpAddresses.default(visited),
           public_dns_name: 'public_dns_name',
           public_ip: 'public_ip',
-          security_groups: Stubs::SecurityGroups.default(visited),
+          security_groups: SecurityGroups.default(visited),
           subnet_id: 'subnet_id',
           vpc_id: 'vpc_id',
         }
@@ -1990,7 +1990,7 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('SecurityGroups')
         visited = visited + ['SecurityGroups']
         [
-          Stubs::SecurityGroup.default(visited)
+          SecurityGroup.default(visited)
         ]
       end
 
@@ -2030,7 +2030,7 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('PrivateIpAddresses')
         visited = visited + ['PrivateIpAddresses']
         [
-          Stubs::PrivateIpAddressDetails.default(visited)
+          PrivateIpAddressDetails.default(visited)
         ]
       end
 
@@ -2110,7 +2110,7 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('S3BucketDetails')
         visited = visited + ['S3BucketDetails']
         [
-          Stubs::S3BucketDetail.default(visited)
+          S3BucketDetail.default(visited)
         ]
       end
 
@@ -2134,10 +2134,10 @@ module AWS::SDK::GuardDuty
           name: 'name',
           type: 'type',
           created_at: Time.now,
-          owner: Stubs::Owner.default(visited),
-          tags: Stubs::Tags.default(visited),
-          default_server_side_encryption: Stubs::DefaultServerSideEncryption.default(visited),
-          public_access: Stubs::PublicAccess.default(visited),
+          owner: Owner.default(visited),
+          tags: Tags.default(visited),
+          default_server_side_encryption: DefaultServerSideEncryption.default(visited),
+          public_access: PublicAccess.default(visited),
         }
       end
 
@@ -2162,7 +2162,7 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('PublicAccess')
         visited = visited + ['PublicAccess']
         {
-          permission_configuration: Stubs::PermissionConfiguration.default(visited),
+          permission_configuration: PermissionConfiguration.default(visited),
           effective_permission: 'effective_permission',
         }
       end
@@ -2182,8 +2182,8 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('PermissionConfiguration')
         visited = visited + ['PermissionConfiguration']
         {
-          bucket_level_permissions: Stubs::BucketLevelPermissions.default(visited),
-          account_level_permissions: Stubs::AccountLevelPermissions.default(visited),
+          bucket_level_permissions: BucketLevelPermissions.default(visited),
+          account_level_permissions: AccountLevelPermissions.default(visited),
         }
       end
 
@@ -2202,7 +2202,7 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('AccountLevelPermissions')
         visited = visited + ['AccountLevelPermissions']
         {
-          block_public_access: Stubs::BlockPublicAccess.default(visited),
+          block_public_access: BlockPublicAccess.default(visited),
         }
       end
 
@@ -2244,9 +2244,9 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('BucketLevelPermissions')
         visited = visited + ['BucketLevelPermissions']
         {
-          access_control_list: Stubs::AccessControlList.default(visited),
-          bucket_policy: Stubs::BucketPolicy.default(visited),
-          block_public_access: Stubs::BlockPublicAccess.default(visited),
+          access_control_list: AccessControlList.default(visited),
+          bucket_policy: BucketPolicy.default(visited),
+          block_public_access: BlockPublicAccess.default(visited),
         }
       end
 
@@ -2366,7 +2366,7 @@ module AWS::SDK::GuardDuty
     class GetFindingsStatistics
       def self.default(visited=[])
         {
-          finding_statistics: Stubs::FindingStatistics.default(visited),
+          finding_statistics: FindingStatistics.default(visited),
         }
       end
 
@@ -2385,7 +2385,7 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('FindingStatistics')
         visited = visited + ['FindingStatistics']
         {
-          count_by_severity: Stubs::CountBySeverity.default(visited),
+          count_by_severity: CountBySeverity.default(visited),
         }
       end
 
@@ -2425,7 +2425,7 @@ module AWS::SDK::GuardDuty
           format: 'format',
           location: 'location',
           status: 'status',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -2463,7 +2463,7 @@ module AWS::SDK::GuardDuty
     class GetMasterAccount
       def self.default(visited=[])
         {
-          master: Stubs::Master.default(visited),
+          master: Master.default(visited),
         }
       end
 
@@ -2504,8 +2504,8 @@ module AWS::SDK::GuardDuty
     class GetMemberDetectors
       def self.default(visited=[])
         {
-          member_data_source_configurations: Stubs::MemberDataSourceConfigurations.default(visited),
-          unprocessed_accounts: Stubs::UnprocessedAccounts.default(visited),
+          member_data_source_configurations: MemberDataSourceConfigurations.default(visited),
+          unprocessed_accounts: UnprocessedAccounts.default(visited),
         }
       end
 
@@ -2525,7 +2525,7 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('MemberDataSourceConfigurations')
         visited = visited + ['MemberDataSourceConfigurations']
         [
-          Stubs::MemberDataSourceConfiguration.default(visited)
+          MemberDataSourceConfiguration.default(visited)
         ]
       end
 
@@ -2546,7 +2546,7 @@ module AWS::SDK::GuardDuty
         visited = visited + ['MemberDataSourceConfiguration']
         {
           account_id: 'account_id',
-          data_sources: Stubs::DataSourceConfigurationsResult.default(visited),
+          data_sources: DataSourceConfigurationsResult.default(visited),
         }
       end
 
@@ -2563,8 +2563,8 @@ module AWS::SDK::GuardDuty
     class GetMembers
       def self.default(visited=[])
         {
-          members: Stubs::Members.default(visited),
-          unprocessed_accounts: Stubs::UnprocessedAccounts.default(visited),
+          members: Members.default(visited),
+          unprocessed_accounts: UnprocessedAccounts.default(visited),
         }
       end
 
@@ -2584,7 +2584,7 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('Members')
         visited = visited + ['Members']
         [
-          Stubs::Member.default(visited)
+          Member.default(visited)
         ]
       end
 
@@ -2636,7 +2636,7 @@ module AWS::SDK::GuardDuty
           format: 'format',
           location: 'location',
           status: 'status',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -2657,7 +2657,7 @@ module AWS::SDK::GuardDuty
     class GetUsageStatistics
       def self.default(visited=[])
         {
-          usage_statistics: Stubs::UsageStatistics.default(visited),
+          usage_statistics: UsageStatistics.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2678,10 +2678,10 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('UsageStatistics')
         visited = visited + ['UsageStatistics']
         {
-          sum_by_account: Stubs::UsageAccountResultList.default(visited),
-          sum_by_data_source: Stubs::UsageDataSourceResultList.default(visited),
-          sum_by_resource: Stubs::UsageResourceResultList.default(visited),
-          top_resources: Stubs::UsageResourceResultList.default(visited),
+          sum_by_account: UsageAccountResultList.default(visited),
+          sum_by_data_source: UsageDataSourceResultList.default(visited),
+          sum_by_resource: UsageResourceResultList.default(visited),
+          top_resources: UsageResourceResultList.default(visited),
         }
       end
 
@@ -2702,7 +2702,7 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('UsageResourceResultList')
         visited = visited + ['UsageResourceResultList']
         [
-          Stubs::UsageResourceResult.default(visited)
+          UsageResourceResult.default(visited)
         ]
       end
 
@@ -2723,7 +2723,7 @@ module AWS::SDK::GuardDuty
         visited = visited + ['UsageResourceResult']
         {
           resource: 'resource',
-          total: Stubs::Total.default(visited),
+          total: Total.default(visited),
         }
       end
 
@@ -2762,7 +2762,7 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('UsageDataSourceResultList')
         visited = visited + ['UsageDataSourceResultList']
         [
-          Stubs::UsageDataSourceResult.default(visited)
+          UsageDataSourceResult.default(visited)
         ]
       end
 
@@ -2783,7 +2783,7 @@ module AWS::SDK::GuardDuty
         visited = visited + ['UsageDataSourceResult']
         {
           data_source: 'data_source',
-          total: Stubs::Total.default(visited),
+          total: Total.default(visited),
         }
       end
 
@@ -2802,7 +2802,7 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('UsageAccountResultList')
         visited = visited + ['UsageAccountResultList']
         [
-          Stubs::UsageAccountResult.default(visited)
+          UsageAccountResult.default(visited)
         ]
       end
 
@@ -2823,7 +2823,7 @@ module AWS::SDK::GuardDuty
         visited = visited + ['UsageAccountResult']
         {
           account_id: 'account_id',
-          total: Stubs::Total.default(visited),
+          total: Total.default(visited),
         }
       end
 
@@ -2840,7 +2840,7 @@ module AWS::SDK::GuardDuty
     class InviteMembers
       def self.default(visited=[])
         {
-          unprocessed_accounts: Stubs::UnprocessedAccounts.default(visited),
+          unprocessed_accounts: UnprocessedAccounts.default(visited),
         }
       end
 
@@ -2857,7 +2857,7 @@ module AWS::SDK::GuardDuty
     class ListDetectors
       def self.default(visited=[])
         {
-          detector_ids: Stubs::DetectorIds.default(visited),
+          detector_ids: DetectorIds.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2896,7 +2896,7 @@ module AWS::SDK::GuardDuty
     class ListFilters
       def self.default(visited=[])
         {
-          filter_names: Stubs::FilterNames.default(visited),
+          filter_names: FilterNames.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2935,7 +2935,7 @@ module AWS::SDK::GuardDuty
     class ListFindings
       def self.default(visited=[])
         {
-          finding_ids: Stubs::FindingIds.default(visited),
+          finding_ids: FindingIds.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2974,7 +2974,7 @@ module AWS::SDK::GuardDuty
     class ListIPSets
       def self.default(visited=[])
         {
-          ip_set_ids: Stubs::IpSetIds.default(visited),
+          ip_set_ids: IpSetIds.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3013,7 +3013,7 @@ module AWS::SDK::GuardDuty
     class ListInvitations
       def self.default(visited=[])
         {
-          invitations: Stubs::Invitations.default(visited),
+          invitations: Invitations.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3034,7 +3034,7 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('Invitations')
         visited = visited + ['Invitations']
         [
-          Stubs::Invitation.default(visited)
+          Invitation.default(visited)
         ]
       end
 
@@ -3076,7 +3076,7 @@ module AWS::SDK::GuardDuty
     class ListMembers
       def self.default(visited=[])
         {
-          members: Stubs::Members.default(visited),
+          members: Members.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3095,7 +3095,7 @@ module AWS::SDK::GuardDuty
     class ListOrganizationAdminAccounts
       def self.default(visited=[])
         {
-          admin_accounts: Stubs::AdminAccounts.default(visited),
+          admin_accounts: AdminAccounts.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3116,7 +3116,7 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('AdminAccounts')
         visited = visited + ['AdminAccounts']
         [
-          Stubs::AdminAccount.default(visited)
+          AdminAccount.default(visited)
         ]
       end
 
@@ -3154,7 +3154,7 @@ module AWS::SDK::GuardDuty
     class ListPublishingDestinations
       def self.default(visited=[])
         {
-          destinations: Stubs::Destinations.default(visited),
+          destinations: Destinations.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3175,7 +3175,7 @@ module AWS::SDK::GuardDuty
         return nil if visited.include?('Destinations')
         visited = visited + ['Destinations']
         [
-          Stubs::Destination.default(visited)
+          Destination.default(visited)
         ]
       end
 
@@ -3215,7 +3215,7 @@ module AWS::SDK::GuardDuty
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -3232,7 +3232,7 @@ module AWS::SDK::GuardDuty
     class ListThreatIntelSets
       def self.default(visited=[])
         {
-          threat_intel_set_ids: Stubs::ThreatIntelSetIds.default(visited),
+          threat_intel_set_ids: ThreatIntelSetIds.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3271,7 +3271,7 @@ module AWS::SDK::GuardDuty
     class StartMonitoringMembers
       def self.default(visited=[])
         {
-          unprocessed_accounts: Stubs::UnprocessedAccounts.default(visited),
+          unprocessed_accounts: UnprocessedAccounts.default(visited),
         }
       end
 
@@ -3288,7 +3288,7 @@ module AWS::SDK::GuardDuty
     class StopMonitoringMembers
       def self.default(visited=[])
         {
-          unprocessed_accounts: Stubs::UnprocessedAccounts.default(visited),
+          unprocessed_accounts: UnprocessedAccounts.default(visited),
         }
       end
 
@@ -3400,7 +3400,7 @@ module AWS::SDK::GuardDuty
     class UpdateMemberDetectors
       def self.default(visited=[])
         {
-          unprocessed_accounts: Stubs::UnprocessedAccounts.default(visited),
+          unprocessed_accounts: UnprocessedAccounts.default(visited),
         }
       end
 

@@ -14,7 +14,7 @@ module AWS::SDK::IoTWireless
     class AssociateAwsAccountWithPartnerAccount
       def self.default(visited=[])
         {
-          sidewalk: Stubs::SidewalkAccountInfo.default(visited),
+          sidewalk: SidewalkAccountInfo.default(visited),
           arn: 'arn',
         }
       end
@@ -602,7 +602,7 @@ module AWS::SDK::IoTWireless
           arn: 'arn',
           name: 'name',
           id: 'id',
-          lo_ra_wan: Stubs::LoRaWANDeviceProfile.default(visited),
+          lo_ra_wan: LoRaWANDeviceProfile.default(visited),
         }
       end
 
@@ -637,7 +637,7 @@ module AWS::SDK::IoTWireless
           rx_dr_offset1: 1,
           rx_data_rate2: 1,
           rx_freq2: 1,
-          factory_preset_freqs_list: Stubs::FactoryPresetFreqsList.default(visited),
+          factory_preset_freqs_list: FactoryPresetFreqsList.default(visited),
           max_eirp: 1,
           max_duty_cycle: 1,
           rf_region: 'rf_region',
@@ -696,10 +696,10 @@ module AWS::SDK::IoTWireless
     class GetEventConfigurationByResourceTypes
       def self.default(visited=[])
         {
-          device_registration_state: Stubs::DeviceRegistrationStateResourceTypeEventConfiguration.default(visited),
-          proximity: Stubs::ProximityResourceTypeEventConfiguration.default(visited),
-          join: Stubs::JoinResourceTypeEventConfiguration.default(visited),
-          connection_status: Stubs::ConnectionStatusResourceTypeEventConfiguration.default(visited),
+          device_registration_state: DeviceRegistrationStateResourceTypeEventConfiguration.default(visited),
+          proximity: ProximityResourceTypeEventConfiguration.default(visited),
+          join: JoinResourceTypeEventConfiguration.default(visited),
+          connection_status: ConnectionStatusResourceTypeEventConfiguration.default(visited),
         }
       end
 
@@ -721,7 +721,7 @@ module AWS::SDK::IoTWireless
         return nil if visited.include?('ConnectionStatusResourceTypeEventConfiguration')
         visited = visited + ['ConnectionStatusResourceTypeEventConfiguration']
         {
-          lo_ra_wan: Stubs::LoRaWANConnectionStatusResourceTypeEventConfiguration.default(visited),
+          lo_ra_wan: LoRaWANConnectionStatusResourceTypeEventConfiguration.default(visited),
         }
       end
 
@@ -757,7 +757,7 @@ module AWS::SDK::IoTWireless
         return nil if visited.include?('JoinResourceTypeEventConfiguration')
         visited = visited + ['JoinResourceTypeEventConfiguration']
         {
-          lo_ra_wan: Stubs::LoRaWANJoinResourceTypeEventConfiguration.default(visited),
+          lo_ra_wan: LoRaWANJoinResourceTypeEventConfiguration.default(visited),
         }
       end
 
@@ -793,7 +793,7 @@ module AWS::SDK::IoTWireless
         return nil if visited.include?('ProximityResourceTypeEventConfiguration')
         visited = visited + ['ProximityResourceTypeEventConfiguration']
         {
-          sidewalk: Stubs::SidewalkResourceTypeEventConfiguration.default(visited),
+          sidewalk: SidewalkResourceTypeEventConfiguration.default(visited),
         }
       end
 
@@ -829,7 +829,7 @@ module AWS::SDK::IoTWireless
         return nil if visited.include?('DeviceRegistrationStateResourceTypeEventConfiguration')
         visited = visited + ['DeviceRegistrationStateResourceTypeEventConfiguration']
         {
-          sidewalk: Stubs::SidewalkResourceTypeEventConfiguration.default(visited),
+          sidewalk: SidewalkResourceTypeEventConfiguration.default(visited),
         }
       end
 
@@ -850,7 +850,7 @@ module AWS::SDK::IoTWireless
           status: 'status',
           name: 'name',
           description: 'description',
-          lo_ra_wan: Stubs::LoRaWANFuotaTaskGetInfo.default(visited),
+          lo_ra_wan: LoRaWANFuotaTaskGetInfo.default(visited),
           firmware_update_image: 'firmware_update_image',
           firmware_update_role: 'firmware_update_role',
           created_at: Time.now,
@@ -899,8 +899,8 @@ module AWS::SDK::IoTWireless
       def self.default(visited=[])
         {
           default_log_level: 'default_log_level',
-          wireless_gateway_log_options: Stubs::WirelessGatewayLogOptionList.default(visited),
-          wireless_device_log_options: Stubs::WirelessDeviceLogOptionList.default(visited),
+          wireless_gateway_log_options: WirelessGatewayLogOptionList.default(visited),
+          wireless_device_log_options: WirelessDeviceLogOptionList.default(visited),
         }
       end
 
@@ -921,7 +921,7 @@ module AWS::SDK::IoTWireless
         return nil if visited.include?('WirelessDeviceLogOptionList')
         visited = visited + ['WirelessDeviceLogOptionList']
         [
-          Stubs::WirelessDeviceLogOption.default(visited)
+          WirelessDeviceLogOption.default(visited)
         ]
       end
 
@@ -943,7 +943,7 @@ module AWS::SDK::IoTWireless
         {
           type: 'type',
           log_level: 'log_level',
-          events: Stubs::WirelessDeviceEventLogOptionList.default(visited),
+          events: WirelessDeviceEventLogOptionList.default(visited),
         }
       end
 
@@ -963,7 +963,7 @@ module AWS::SDK::IoTWireless
         return nil if visited.include?('WirelessDeviceEventLogOptionList')
         visited = visited + ['WirelessDeviceEventLogOptionList']
         [
-          Stubs::WirelessDeviceEventLogOption.default(visited)
+          WirelessDeviceEventLogOption.default(visited)
         ]
       end
 
@@ -1003,7 +1003,7 @@ module AWS::SDK::IoTWireless
         return nil if visited.include?('WirelessGatewayLogOptionList')
         visited = visited + ['WirelessGatewayLogOptionList']
         [
-          Stubs::WirelessGatewayLogOption.default(visited)
+          WirelessGatewayLogOption.default(visited)
         ]
       end
 
@@ -1025,7 +1025,7 @@ module AWS::SDK::IoTWireless
         {
           type: 'type',
           log_level: 'log_level',
-          events: Stubs::WirelessGatewayEventLogOptionList.default(visited),
+          events: WirelessGatewayEventLogOptionList.default(visited),
         }
       end
 
@@ -1045,7 +1045,7 @@ module AWS::SDK::IoTWireless
         return nil if visited.include?('WirelessGatewayEventLogOptionList')
         visited = visited + ['WirelessGatewayEventLogOptionList']
         [
-          Stubs::WirelessGatewayEventLogOption.default(visited)
+          WirelessGatewayEventLogOption.default(visited)
         ]
       end
 
@@ -1088,7 +1088,7 @@ module AWS::SDK::IoTWireless
           name: 'name',
           description: 'description',
           status: 'status',
-          lo_ra_wan: Stubs::LoRaWANMulticastGet.default(visited),
+          lo_ra_wan: LoRaWANMulticastGet.default(visited),
           created_at: Time.now,
         }
       end
@@ -1136,7 +1136,7 @@ module AWS::SDK::IoTWireless
     class GetMulticastGroupSession
       def self.default(visited=[])
         {
-          lo_ra_wan: Stubs::LoRaWANMulticastSession.default(visited),
+          lo_ra_wan: LoRaWANMulticastSession.default(visited),
         }
       end
 
@@ -1177,9 +1177,9 @@ module AWS::SDK::IoTWireless
     class GetNetworkAnalyzerConfiguration
       def self.default(visited=[])
         {
-          trace_content: Stubs::TraceContent.default(visited),
-          wireless_devices: Stubs::WirelessDeviceList.default(visited),
-          wireless_gateways: Stubs::WirelessGatewayList.default(visited),
+          trace_content: TraceContent.default(visited),
+          wireless_devices: WirelessDeviceList.default(visited),
+          wireless_gateways: WirelessGatewayList.default(visited),
           description: 'description',
           arn: 'arn',
           name: 'name',
@@ -1264,7 +1264,7 @@ module AWS::SDK::IoTWireless
     class GetPartnerAccount
       def self.default(visited=[])
         {
-          sidewalk: Stubs::SidewalkAccountInfoWithFingerprint.default(visited),
+          sidewalk: SidewalkAccountInfoWithFingerprint.default(visited),
           account_linked: false,
         }
       end
@@ -1305,10 +1305,10 @@ module AWS::SDK::IoTWireless
     class GetResourceEventConfiguration
       def self.default(visited=[])
         {
-          device_registration_state: Stubs::DeviceRegistrationStateEventConfiguration.default(visited),
-          proximity: Stubs::ProximityEventConfiguration.default(visited),
-          join: Stubs::JoinEventConfiguration.default(visited),
-          connection_status: Stubs::ConnectionStatusEventConfiguration.default(visited),
+          device_registration_state: DeviceRegistrationStateEventConfiguration.default(visited),
+          proximity: ProximityEventConfiguration.default(visited),
+          join: JoinEventConfiguration.default(visited),
+          connection_status: ConnectionStatusEventConfiguration.default(visited),
         }
       end
 
@@ -1330,7 +1330,7 @@ module AWS::SDK::IoTWireless
         return nil if visited.include?('ConnectionStatusEventConfiguration')
         visited = visited + ['ConnectionStatusEventConfiguration']
         {
-          lo_ra_wan: Stubs::LoRaWANConnectionStatusEventNotificationConfigurations.default(visited),
+          lo_ra_wan: LoRaWANConnectionStatusEventNotificationConfigurations.default(visited),
           wireless_gateway_id_event_topic: 'wireless_gateway_id_event_topic',
         }
       end
@@ -1368,7 +1368,7 @@ module AWS::SDK::IoTWireless
         return nil if visited.include?('JoinEventConfiguration')
         visited = visited + ['JoinEventConfiguration']
         {
-          lo_ra_wan: Stubs::LoRaWANJoinEventNotificationConfigurations.default(visited),
+          lo_ra_wan: LoRaWANJoinEventNotificationConfigurations.default(visited),
           wireless_device_id_event_topic: 'wireless_device_id_event_topic',
         }
       end
@@ -1406,7 +1406,7 @@ module AWS::SDK::IoTWireless
         return nil if visited.include?('ProximityEventConfiguration')
         visited = visited + ['ProximityEventConfiguration']
         {
-          sidewalk: Stubs::SidewalkEventNotificationConfigurations.default(visited),
+          sidewalk: SidewalkEventNotificationConfigurations.default(visited),
           wireless_device_id_event_topic: 'wireless_device_id_event_topic',
         }
       end
@@ -1444,7 +1444,7 @@ module AWS::SDK::IoTWireless
         return nil if visited.include?('DeviceRegistrationStateEventConfiguration')
         visited = visited + ['DeviceRegistrationStateEventConfiguration']
         {
-          sidewalk: Stubs::SidewalkEventNotificationConfigurations.default(visited),
+          sidewalk: SidewalkEventNotificationConfigurations.default(visited),
           wireless_device_id_event_topic: 'wireless_device_id_event_topic',
         }
       end
@@ -1503,7 +1503,7 @@ module AWS::SDK::IoTWireless
           arn: 'arn',
           name: 'name',
           id: 'id',
-          lo_ra_wan: Stubs::LoRaWANGetServiceProfileInfo.default(visited),
+          lo_ra_wan: LoRaWANGetServiceProfileInfo.default(visited),
         }
       end
 
@@ -1585,8 +1585,8 @@ module AWS::SDK::IoTWireless
           arn: 'arn',
           thing_name: 'thing_name',
           thing_arn: 'thing_arn',
-          lo_ra_wan: Stubs::LoRaWANDevice.default(visited),
-          sidewalk: Stubs::SidewalkDevice.default(visited),
+          lo_ra_wan: LoRaWANDevice.default(visited),
+          sidewalk: SidewalkDevice.default(visited),
         }
       end
 
@@ -1617,7 +1617,7 @@ module AWS::SDK::IoTWireless
           amazon_id: 'amazon_id',
           sidewalk_id: 'sidewalk_id',
           sidewalk_manufacturing_sn: 'sidewalk_manufacturing_sn',
-          device_certificates: Stubs::DeviceCertificateList.default(visited),
+          device_certificates: DeviceCertificateList.default(visited),
         }
       end
 
@@ -1638,7 +1638,7 @@ module AWS::SDK::IoTWireless
         return nil if visited.include?('DeviceCertificateList')
         visited = visited + ['DeviceCertificateList']
         [
-          Stubs::CertificateList.default(visited)
+          CertificateList.default(visited)
         ]
       end
 
@@ -1681,11 +1681,11 @@ module AWS::SDK::IoTWireless
           dev_eui: 'dev_eui',
           device_profile_id: 'device_profile_id',
           service_profile_id: 'service_profile_id',
-          otaa_v1_1: Stubs::OtaaV1_1.default(visited),
-          otaa_v1_0_x: Stubs::OtaaV1_0_x.default(visited),
-          abp_v1_1: Stubs::AbpV1_1.default(visited),
-          abp_v1_0_x: Stubs::AbpV1_0_x.default(visited),
-          f_ports: Stubs::FPorts.default(visited),
+          otaa_v1_1: OtaaV1_1.default(visited),
+          otaa_v1_0_x: OtaaV1_0_x.default(visited),
+          abp_v1_1: AbpV1_1.default(visited),
+          abp_v1_0_x: AbpV1_0_x.default(visited),
+          f_ports: FPorts.default(visited),
         }
       end
 
@@ -1733,7 +1733,7 @@ module AWS::SDK::IoTWireless
         visited = visited + ['AbpV1_0_x']
         {
           dev_addr: 'dev_addr',
-          session_keys: Stubs::SessionKeysAbpV1_0_x.default(visited),
+          session_keys: SessionKeysAbpV1_0_x.default(visited),
           f_cnt_start: 1,
         }
       end
@@ -1775,7 +1775,7 @@ module AWS::SDK::IoTWireless
         visited = visited + ['AbpV1_1']
         {
           dev_addr: 'dev_addr',
-          session_keys: Stubs::SessionKeysAbpV1_1.default(visited),
+          session_keys: SessionKeysAbpV1_1.default(visited),
           f_cnt_start: 1,
         }
       end
@@ -1864,8 +1864,8 @@ module AWS::SDK::IoTWireless
         {
           wireless_device_id: 'wireless_device_id',
           last_uplink_received_at: 'last_uplink_received_at',
-          lo_ra_wan: Stubs::LoRaWANDeviceMetadata.default(visited),
-          sidewalk: Stubs::SidewalkDeviceMetadata.default(visited),
+          lo_ra_wan: LoRaWANDeviceMetadata.default(visited),
+          sidewalk: SidewalkDeviceMetadata.default(visited),
         }
       end
 
@@ -1916,7 +1916,7 @@ module AWS::SDK::IoTWireless
           data_rate: 1,
           frequency: 1,
           timestamp: 'timestamp',
-          gateways: Stubs::LoRaWANGatewayMetadataList.default(visited),
+          gateways: LoRaWANGatewayMetadataList.default(visited),
         }
       end
 
@@ -1939,7 +1939,7 @@ module AWS::SDK::IoTWireless
         return nil if visited.include?('LoRaWANGatewayMetadataList')
         visited = visited + ['LoRaWANGatewayMetadataList']
         [
-          Stubs::LoRaWANGatewayMetadata.default(visited)
+          LoRaWANGatewayMetadata.default(visited)
         ]
       end
 
@@ -1982,7 +1982,7 @@ module AWS::SDK::IoTWireless
           name: 'name',
           id: 'id',
           description: 'description',
-          lo_ra_wan: Stubs::LoRaWANGateway.default(visited),
+          lo_ra_wan: LoRaWANGateway.default(visited),
           arn: 'arn',
           thing_name: 'thing_name',
           thing_arn: 'thing_arn',
@@ -2012,9 +2012,9 @@ module AWS::SDK::IoTWireless
         {
           gateway_eui: 'gateway_eui',
           rf_region: 'rf_region',
-          join_eui_filters: Stubs::JoinEuiFilters.default(visited),
-          net_id_filters: Stubs::NetIdFilters.default(visited),
-          sub_bands: Stubs::SubBands.default(visited),
+          join_eui_filters: JoinEuiFilters.default(visited),
+          net_id_filters: NetIdFilters.default(visited),
+          sub_bands: SubBands.default(visited),
         }
       end
 
@@ -2076,7 +2076,7 @@ module AWS::SDK::IoTWireless
         return nil if visited.include?('JoinEuiFilters')
         visited = visited + ['JoinEuiFilters']
         [
-          Stubs::JoinEuiRange.default(visited)
+          JoinEuiRange.default(visited)
         ]
       end
 
@@ -2133,7 +2133,7 @@ module AWS::SDK::IoTWireless
     class GetWirelessGatewayFirmwareInformation
       def self.default(visited=[])
         {
-          lo_ra_wan: Stubs::LoRaWANGatewayCurrentVersion.default(visited),
+          lo_ra_wan: LoRaWANGatewayCurrentVersion.default(visited),
         }
       end
 
@@ -2152,7 +2152,7 @@ module AWS::SDK::IoTWireless
         return nil if visited.include?('LoRaWANGatewayCurrentVersion')
         visited = visited + ['LoRaWANGatewayCurrentVersion']
         {
-          current_version: Stubs::LoRaWANGatewayVersion.default(visited),
+          current_version: LoRaWANGatewayVersion.default(visited),
         }
       end
 
@@ -2238,7 +2238,7 @@ module AWS::SDK::IoTWireless
         {
           auto_create_tasks: false,
           name: 'name',
-          update: Stubs::UpdateWirelessGatewayTaskCreate.default(visited),
+          update: UpdateWirelessGatewayTaskCreate.default(visited),
           arn: 'arn',
         }
       end
@@ -2263,7 +2263,7 @@ module AWS::SDK::IoTWireless
         {
           update_data_source: 'update_data_source',
           update_data_role: 'update_data_role',
-          lo_ra_wan: Stubs::LoRaWANUpdateGatewayTaskCreate.default(visited),
+          lo_ra_wan: LoRaWANUpdateGatewayTaskCreate.default(visited),
         }
       end
 
@@ -2285,8 +2285,8 @@ module AWS::SDK::IoTWireless
         {
           update_signature: 'update_signature',
           sig_key_crc: 1,
-          current_version: Stubs::LoRaWANGatewayVersion.default(visited),
-          update_version: Stubs::LoRaWANGatewayVersion.default(visited),
+          current_version: LoRaWANGatewayVersion.default(visited),
+          update_version: LoRaWANGatewayVersion.default(visited),
         }
       end
 
@@ -2306,7 +2306,7 @@ module AWS::SDK::IoTWireless
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          destination_list: Stubs::DestinationList.default(visited),
+          destination_list: DestinationList.default(visited),
         }
       end
 
@@ -2326,7 +2326,7 @@ module AWS::SDK::IoTWireless
         return nil if visited.include?('DestinationList')
         visited = visited + ['DestinationList']
         [
-          Stubs::Destinations.default(visited)
+          Destinations.default(visited)
         ]
       end
 
@@ -2373,7 +2373,7 @@ module AWS::SDK::IoTWireless
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          device_profile_list: Stubs::DeviceProfileList.default(visited),
+          device_profile_list: DeviceProfileList.default(visited),
         }
       end
 
@@ -2393,7 +2393,7 @@ module AWS::SDK::IoTWireless
         return nil if visited.include?('DeviceProfileList')
         visited = visited + ['DeviceProfileList']
         [
-          Stubs::DeviceProfile.default(visited)
+          DeviceProfile.default(visited)
         ]
       end
 
@@ -2434,7 +2434,7 @@ module AWS::SDK::IoTWireless
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          event_configurations_list: Stubs::EventConfigurationsList.default(visited),
+          event_configurations_list: EventConfigurationsList.default(visited),
         }
       end
 
@@ -2454,7 +2454,7 @@ module AWS::SDK::IoTWireless
         return nil if visited.include?('EventConfigurationsList')
         visited = visited + ['EventConfigurationsList']
         [
-          Stubs::EventConfigurationItem.default(visited)
+          EventConfigurationItem.default(visited)
         ]
       end
 
@@ -2477,7 +2477,7 @@ module AWS::SDK::IoTWireless
           identifier: 'identifier',
           identifier_type: 'identifier_type',
           partner_type: 'partner_type',
-          events: Stubs::EventNotificationItemConfigurations.default(visited),
+          events: EventNotificationItemConfigurations.default(visited),
         }
       end
 
@@ -2498,10 +2498,10 @@ module AWS::SDK::IoTWireless
         return nil if visited.include?('EventNotificationItemConfigurations')
         visited = visited + ['EventNotificationItemConfigurations']
         {
-          device_registration_state: Stubs::DeviceRegistrationStateEventConfiguration.default(visited),
-          proximity: Stubs::ProximityEventConfiguration.default(visited),
-          join: Stubs::JoinEventConfiguration.default(visited),
-          connection_status: Stubs::ConnectionStatusEventConfiguration.default(visited),
+          device_registration_state: DeviceRegistrationStateEventConfiguration.default(visited),
+          proximity: ProximityEventConfiguration.default(visited),
+          join: JoinEventConfiguration.default(visited),
+          connection_status: ConnectionStatusEventConfiguration.default(visited),
         }
       end
 
@@ -2521,7 +2521,7 @@ module AWS::SDK::IoTWireless
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          fuota_task_list: Stubs::FuotaTaskList.default(visited),
+          fuota_task_list: FuotaTaskList.default(visited),
         }
       end
 
@@ -2541,7 +2541,7 @@ module AWS::SDK::IoTWireless
         return nil if visited.include?('FuotaTaskList')
         visited = visited + ['FuotaTaskList']
         [
-          Stubs::FuotaTask.default(visited)
+          FuotaTask.default(visited)
         ]
       end
 
@@ -2582,7 +2582,7 @@ module AWS::SDK::IoTWireless
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          multicast_group_list: Stubs::MulticastGroupList.default(visited),
+          multicast_group_list: MulticastGroupList.default(visited),
         }
       end
 
@@ -2602,7 +2602,7 @@ module AWS::SDK::IoTWireless
         return nil if visited.include?('MulticastGroupList')
         visited = visited + ['MulticastGroupList']
         [
-          Stubs::MulticastGroup.default(visited)
+          MulticastGroup.default(visited)
         ]
       end
 
@@ -2643,7 +2643,7 @@ module AWS::SDK::IoTWireless
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          multicast_group_list: Stubs::MulticastGroupListByFuotaTask.default(visited),
+          multicast_group_list: MulticastGroupListByFuotaTask.default(visited),
         }
       end
 
@@ -2663,7 +2663,7 @@ module AWS::SDK::IoTWireless
         return nil if visited.include?('MulticastGroupListByFuotaTask')
         visited = visited + ['MulticastGroupListByFuotaTask']
         [
-          Stubs::MulticastGroupByFuotaTask.default(visited)
+          MulticastGroupByFuotaTask.default(visited)
         ]
       end
 
@@ -2700,7 +2700,7 @@ module AWS::SDK::IoTWireless
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          network_analyzer_configuration_list: Stubs::NetworkAnalyzerConfigurationList.default(visited),
+          network_analyzer_configuration_list: NetworkAnalyzerConfigurationList.default(visited),
         }
       end
 
@@ -2720,7 +2720,7 @@ module AWS::SDK::IoTWireless
         return nil if visited.include?('NetworkAnalyzerConfigurationList')
         visited = visited + ['NetworkAnalyzerConfigurationList']
         [
-          Stubs::NetworkAnalyzerConfigurations.default(visited)
+          NetworkAnalyzerConfigurations.default(visited)
         ]
       end
 
@@ -2759,7 +2759,7 @@ module AWS::SDK::IoTWireless
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          sidewalk: Stubs::SidewalkAccountList.default(visited),
+          sidewalk: SidewalkAccountList.default(visited),
         }
       end
 
@@ -2779,7 +2779,7 @@ module AWS::SDK::IoTWireless
         return nil if visited.include?('SidewalkAccountList')
         visited = visited + ['SidewalkAccountList']
         [
-          Stubs::SidewalkAccountInfoWithFingerprint.default(visited)
+          SidewalkAccountInfoWithFingerprint.default(visited)
         ]
       end
 
@@ -2798,7 +2798,7 @@ module AWS::SDK::IoTWireless
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          downlink_queue_messages_list: Stubs::DownlinkQueueMessagesList.default(visited),
+          downlink_queue_messages_list: DownlinkQueueMessagesList.default(visited),
         }
       end
 
@@ -2818,7 +2818,7 @@ module AWS::SDK::IoTWireless
         return nil if visited.include?('DownlinkQueueMessagesList')
         visited = visited + ['DownlinkQueueMessagesList']
         [
-          Stubs::DownlinkQueueMessage.default(visited)
+          DownlinkQueueMessage.default(visited)
         ]
       end
 
@@ -2841,7 +2841,7 @@ module AWS::SDK::IoTWireless
           message_id: 'message_id',
           transmit_mode: 1,
           received_at: 'received_at',
-          lo_ra_wan: Stubs::LoRaWANSendDataToDevice.default(visited),
+          lo_ra_wan: LoRaWANSendDataToDevice.default(visited),
         }
       end
 
@@ -2879,7 +2879,7 @@ module AWS::SDK::IoTWireless
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          service_profile_list: Stubs::ServiceProfileList.default(visited),
+          service_profile_list: ServiceProfileList.default(visited),
         }
       end
 
@@ -2899,7 +2899,7 @@ module AWS::SDK::IoTWireless
         return nil if visited.include?('ServiceProfileList')
         visited = visited + ['ServiceProfileList']
         [
-          Stubs::ServiceProfile.default(visited)
+          ServiceProfile.default(visited)
         ]
       end
 
@@ -2939,7 +2939,7 @@ module AWS::SDK::IoTWireless
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -2958,7 +2958,7 @@ module AWS::SDK::IoTWireless
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -2997,7 +2997,7 @@ module AWS::SDK::IoTWireless
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          wireless_device_list: Stubs::WirelessDeviceStatisticsList.default(visited),
+          wireless_device_list: WirelessDeviceStatisticsList.default(visited),
         }
       end
 
@@ -3017,7 +3017,7 @@ module AWS::SDK::IoTWireless
         return nil if visited.include?('WirelessDeviceStatisticsList')
         visited = visited + ['WirelessDeviceStatisticsList']
         [
-          Stubs::WirelessDeviceStatistics.default(visited)
+          WirelessDeviceStatistics.default(visited)
         ]
       end
 
@@ -3043,8 +3043,8 @@ module AWS::SDK::IoTWireless
           name: 'name',
           destination_name: 'destination_name',
           last_uplink_received_at: 'last_uplink_received_at',
-          lo_ra_wan: Stubs::LoRaWANListDevice.default(visited),
-          sidewalk: Stubs::SidewalkListDevice.default(visited),
+          lo_ra_wan: LoRaWANListDevice.default(visited),
+          sidewalk: SidewalkListDevice.default(visited),
           fuota_device_status: 'fuota_device_status',
           multicast_device_status: 'multicast_device_status',
           mc_group_id: 1,
@@ -3078,7 +3078,7 @@ module AWS::SDK::IoTWireless
           amazon_id: 'amazon_id',
           sidewalk_id: 'sidewalk_id',
           sidewalk_manufacturing_sn: 'sidewalk_manufacturing_sn',
-          device_certificates: Stubs::DeviceCertificateList.default(visited),
+          device_certificates: DeviceCertificateList.default(visited),
         }
       end
 
@@ -3116,7 +3116,7 @@ module AWS::SDK::IoTWireless
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          task_definitions: Stubs::WirelessGatewayTaskDefinitionList.default(visited),
+          task_definitions: WirelessGatewayTaskDefinitionList.default(visited),
         }
       end
 
@@ -3136,7 +3136,7 @@ module AWS::SDK::IoTWireless
         return nil if visited.include?('WirelessGatewayTaskDefinitionList')
         visited = visited + ['WirelessGatewayTaskDefinitionList']
         [
-          Stubs::UpdateWirelessGatewayTaskEntry.default(visited)
+          UpdateWirelessGatewayTaskEntry.default(visited)
         ]
       end
 
@@ -3157,7 +3157,7 @@ module AWS::SDK::IoTWireless
         visited = visited + ['UpdateWirelessGatewayTaskEntry']
         {
           id: 'id',
-          lo_ra_wan: Stubs::LoRaWANUpdateGatewayTaskEntry.default(visited),
+          lo_ra_wan: LoRaWANUpdateGatewayTaskEntry.default(visited),
           arn: 'arn',
         }
       end
@@ -3178,8 +3178,8 @@ module AWS::SDK::IoTWireless
         return nil if visited.include?('LoRaWANUpdateGatewayTaskEntry')
         visited = visited + ['LoRaWANUpdateGatewayTaskEntry']
         {
-          current_version: Stubs::LoRaWANGatewayVersion.default(visited),
-          update_version: Stubs::LoRaWANGatewayVersion.default(visited),
+          current_version: LoRaWANGatewayVersion.default(visited),
+          update_version: LoRaWANGatewayVersion.default(visited),
         }
       end
 
@@ -3197,7 +3197,7 @@ module AWS::SDK::IoTWireless
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          wireless_gateway_list: Stubs::WirelessGatewayStatisticsList.default(visited),
+          wireless_gateway_list: WirelessGatewayStatisticsList.default(visited),
         }
       end
 
@@ -3217,7 +3217,7 @@ module AWS::SDK::IoTWireless
         return nil if visited.include?('WirelessGatewayStatisticsList')
         visited = visited + ['WirelessGatewayStatisticsList']
         [
-          Stubs::WirelessGatewayStatistics.default(visited)
+          WirelessGatewayStatistics.default(visited)
         ]
       end
 
@@ -3241,7 +3241,7 @@ module AWS::SDK::IoTWireless
           id: 'id',
           name: 'name',
           description: 'description',
-          lo_ra_wan: Stubs::LoRaWANGateway.default(visited),
+          lo_ra_wan: LoRaWANGateway.default(visited),
           last_uplink_received_at: 'last_uplink_received_at',
         }
       end

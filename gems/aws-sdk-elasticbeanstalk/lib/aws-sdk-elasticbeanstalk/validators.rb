@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::ElasticBeanstalk
   module Validators
 
@@ -32,9 +34,9 @@ module AWS::SDK::ElasticBeanstalk
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:date_created], ::Time, context: "#{context}[:date_created]")
         Hearth::Validator.validate!(input[:date_updated], ::Time, context: "#{context}[:date_updated]")
-        Validators::VersionLabelsList.validate!(input[:versions], context: "#{context}[:versions]") unless input[:versions].nil?
-        Validators::ConfigurationTemplateNamesList.validate!(input[:configuration_templates], context: "#{context}[:configuration_templates]") unless input[:configuration_templates].nil?
-        Validators::ApplicationResourceLifecycleConfig.validate!(input[:resource_lifecycle_config], context: "#{context}[:resource_lifecycle_config]") unless input[:resource_lifecycle_config].nil?
+        VersionLabelsList.validate!(input[:versions], context: "#{context}[:versions]") unless input[:versions].nil?
+        ConfigurationTemplateNamesList.validate!(input[:configuration_templates], context: "#{context}[:configuration_templates]") unless input[:configuration_templates].nil?
+        ApplicationResourceLifecycleConfig.validate!(input[:resource_lifecycle_config], context: "#{context}[:resource_lifecycle_config]") unless input[:resource_lifecycle_config].nil?
       end
     end
 
@@ -42,7 +44,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ApplicationDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ApplicationDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -52,8 +54,8 @@ module AWS::SDK::ElasticBeanstalk
         Hearth::Validator.validate!(input, Types::ApplicationMetrics, context: context)
         Hearth::Validator.validate!(input[:duration], ::Integer, context: "#{context}[:duration]")
         Hearth::Validator.validate!(input[:request_count], ::Integer, context: "#{context}[:request_count]")
-        Validators::StatusCodes.validate!(input[:status_codes], context: "#{context}[:status_codes]") unless input[:status_codes].nil?
-        Validators::Latency.validate!(input[:latency], context: "#{context}[:latency]") unless input[:latency].nil?
+        StatusCodes.validate!(input[:status_codes], context: "#{context}[:status_codes]") unless input[:status_codes].nil?
+        Latency.validate!(input[:latency], context: "#{context}[:latency]") unless input[:latency].nil?
       end
     end
 
@@ -70,7 +72,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ApplicationResourceLifecycleConfig, context: context)
         Hearth::Validator.validate!(input[:service_role], ::String, context: "#{context}[:service_role]")
-        Validators::ApplicationVersionLifecycleConfig.validate!(input[:version_lifecycle_config], context: "#{context}[:version_lifecycle_config]") unless input[:version_lifecycle_config].nil?
+        ApplicationVersionLifecycleConfig.validate!(input[:version_lifecycle_config], context: "#{context}[:version_lifecycle_config]") unless input[:version_lifecycle_config].nil?
       end
     end
 
@@ -81,9 +83,9 @@ module AWS::SDK::ElasticBeanstalk
         Hearth::Validator.validate!(input[:application_name], ::String, context: "#{context}[:application_name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:version_label], ::String, context: "#{context}[:version_label]")
-        Validators::SourceBuildInformation.validate!(input[:source_build_information], context: "#{context}[:source_build_information]") unless input[:source_build_information].nil?
+        SourceBuildInformation.validate!(input[:source_build_information], context: "#{context}[:source_build_information]") unless input[:source_build_information].nil?
         Hearth::Validator.validate!(input[:build_arn], ::String, context: "#{context}[:build_arn]")
-        Validators::S3Location.validate!(input[:source_bundle], context: "#{context}[:source_bundle]") unless input[:source_bundle].nil?
+        S3Location.validate!(input[:source_bundle], context: "#{context}[:source_bundle]") unless input[:source_bundle].nil?
         Hearth::Validator.validate!(input[:date_created], ::Time, context: "#{context}[:date_created]")
         Hearth::Validator.validate!(input[:date_updated], ::Time, context: "#{context}[:date_updated]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
@@ -94,7 +96,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ApplicationVersionDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ApplicationVersionDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -102,8 +104,8 @@ module AWS::SDK::ElasticBeanstalk
     class ApplicationVersionLifecycleConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ApplicationVersionLifecycleConfig, context: context)
-        Validators::MaxCountRule.validate!(input[:max_count_rule], context: "#{context}[:max_count_rule]") unless input[:max_count_rule].nil?
-        Validators::MaxAgeRule.validate!(input[:max_age_rule], context: "#{context}[:max_age_rule]") unless input[:max_age_rule].nil?
+        MaxCountRule.validate!(input[:max_count_rule], context: "#{context}[:max_count_rule]") unless input[:max_count_rule].nil?
+        MaxAgeRule.validate!(input[:max_age_rule], context: "#{context}[:max_age_rule]") unless input[:max_age_rule].nil?
       end
     end
 
@@ -151,7 +153,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AutoScalingGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AutoScalingGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -160,7 +162,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SolutionStackDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SolutionStackDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -242,14 +244,14 @@ module AWS::SDK::ElasticBeanstalk
         Hearth::Validator.validate!(input, Types::ComposeEnvironmentsInput, context: context)
         Hearth::Validator.validate!(input[:application_name], ::String, context: "#{context}[:application_name]")
         Hearth::Validator.validate!(input[:group_name], ::String, context: "#{context}[:group_name]")
-        Validators::VersionLabels.validate!(input[:version_labels], context: "#{context}[:version_labels]") unless input[:version_labels].nil?
+        VersionLabels.validate!(input[:version_labels], context: "#{context}[:version_labels]") unless input[:version_labels].nil?
       end
     end
 
     class ComposeEnvironmentsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ComposeEnvironmentsOutput, context: context)
-        Validators::EnvironmentDescriptionsList.validate!(input[:environments], context: "#{context}[:environments]") unless input[:environments].nil?
+        EnvironmentDescriptionsList.validate!(input[:environments], context: "#{context}[:environments]") unless input[:environments].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -263,11 +265,11 @@ module AWS::SDK::ElasticBeanstalk
         Hearth::Validator.validate!(input[:change_severity], ::String, context: "#{context}[:change_severity]")
         Hearth::Validator.validate!(input[:user_defined], ::TrueClass, ::FalseClass, context: "#{context}[:user_defined]")
         Hearth::Validator.validate!(input[:value_type], ::String, context: "#{context}[:value_type]")
-        Validators::ConfigurationOptionPossibleValues.validate!(input[:value_options], context: "#{context}[:value_options]") unless input[:value_options].nil?
+        ConfigurationOptionPossibleValues.validate!(input[:value_options], context: "#{context}[:value_options]") unless input[:value_options].nil?
         Hearth::Validator.validate!(input[:min_value], ::Integer, context: "#{context}[:min_value]")
         Hearth::Validator.validate!(input[:max_value], ::Integer, context: "#{context}[:max_value]")
         Hearth::Validator.validate!(input[:max_length], ::Integer, context: "#{context}[:max_length]")
-        Validators::OptionRestrictionRegex.validate!(input[:regex], context: "#{context}[:regex]") unless input[:regex].nil?
+        OptionRestrictionRegex.validate!(input[:regex], context: "#{context}[:regex]") unless input[:regex].nil?
       end
     end
 
@@ -275,7 +277,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ConfigurationOptionDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ConfigurationOptionDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -303,7 +305,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ConfigurationOptionSetting.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ConfigurationOptionSetting.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -320,7 +322,7 @@ module AWS::SDK::ElasticBeanstalk
         Hearth::Validator.validate!(input[:deployment_status], ::String, context: "#{context}[:deployment_status]")
         Hearth::Validator.validate!(input[:date_created], ::Time, context: "#{context}[:date_created]")
         Hearth::Validator.validate!(input[:date_updated], ::Time, context: "#{context}[:date_updated]")
-        Validators::ConfigurationOptionSettingsList.validate!(input[:option_settings], context: "#{context}[:option_settings]") unless input[:option_settings].nil?
+        ConfigurationOptionSettingsList.validate!(input[:option_settings], context: "#{context}[:option_settings]") unless input[:option_settings].nil?
       end
     end
 
@@ -328,7 +330,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ConfigurationSettingsDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ConfigurationSettingsDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -347,15 +349,15 @@ module AWS::SDK::ElasticBeanstalk
         Hearth::Validator.validate!(input, Types::CreateApplicationInput, context: context)
         Hearth::Validator.validate!(input[:application_name], ::String, context: "#{context}[:application_name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ApplicationResourceLifecycleConfig.validate!(input[:resource_lifecycle_config], context: "#{context}[:resource_lifecycle_config]") unless input[:resource_lifecycle_config].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ApplicationResourceLifecycleConfig.validate!(input[:resource_lifecycle_config], context: "#{context}[:resource_lifecycle_config]") unless input[:resource_lifecycle_config].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateApplicationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateApplicationOutput, context: context)
-        Validators::ApplicationDescription.validate!(input[:application], context: "#{context}[:application]") unless input[:application].nil?
+        ApplicationDescription.validate!(input[:application], context: "#{context}[:application]") unless input[:application].nil?
       end
     end
 
@@ -365,19 +367,19 @@ module AWS::SDK::ElasticBeanstalk
         Hearth::Validator.validate!(input[:application_name], ::String, context: "#{context}[:application_name]")
         Hearth::Validator.validate!(input[:version_label], ::String, context: "#{context}[:version_label]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::SourceBuildInformation.validate!(input[:source_build_information], context: "#{context}[:source_build_information]") unless input[:source_build_information].nil?
-        Validators::S3Location.validate!(input[:source_bundle], context: "#{context}[:source_bundle]") unless input[:source_bundle].nil?
-        Validators::BuildConfiguration.validate!(input[:build_configuration], context: "#{context}[:build_configuration]") unless input[:build_configuration].nil?
+        SourceBuildInformation.validate!(input[:source_build_information], context: "#{context}[:source_build_information]") unless input[:source_build_information].nil?
+        S3Location.validate!(input[:source_bundle], context: "#{context}[:source_bundle]") unless input[:source_bundle].nil?
+        BuildConfiguration.validate!(input[:build_configuration], context: "#{context}[:build_configuration]") unless input[:build_configuration].nil?
         Hearth::Validator.validate!(input[:auto_create_application], ::TrueClass, ::FalseClass, context: "#{context}[:auto_create_application]")
         Hearth::Validator.validate!(input[:process], ::TrueClass, ::FalseClass, context: "#{context}[:process]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateApplicationVersionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateApplicationVersionOutput, context: context)
-        Validators::ApplicationVersionDescription.validate!(input[:application_version], context: "#{context}[:application_version]") unless input[:application_version].nil?
+        ApplicationVersionDescription.validate!(input[:application_version], context: "#{context}[:application_version]") unless input[:application_version].nil?
       end
     end
 
@@ -388,11 +390,11 @@ module AWS::SDK::ElasticBeanstalk
         Hearth::Validator.validate!(input[:template_name], ::String, context: "#{context}[:template_name]")
         Hearth::Validator.validate!(input[:solution_stack_name], ::String, context: "#{context}[:solution_stack_name]")
         Hearth::Validator.validate!(input[:platform_arn], ::String, context: "#{context}[:platform_arn]")
-        Validators::SourceConfiguration.validate!(input[:source_configuration], context: "#{context}[:source_configuration]") unless input[:source_configuration].nil?
+        SourceConfiguration.validate!(input[:source_configuration], context: "#{context}[:source_configuration]") unless input[:source_configuration].nil?
         Hearth::Validator.validate!(input[:environment_id], ::String, context: "#{context}[:environment_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ConfigurationOptionSettingsList.validate!(input[:option_settings], context: "#{context}[:option_settings]") unless input[:option_settings].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ConfigurationOptionSettingsList.validate!(input[:option_settings], context: "#{context}[:option_settings]") unless input[:option_settings].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -408,7 +410,7 @@ module AWS::SDK::ElasticBeanstalk
         Hearth::Validator.validate!(input[:deployment_status], ::String, context: "#{context}[:deployment_status]")
         Hearth::Validator.validate!(input[:date_created], ::Time, context: "#{context}[:date_created]")
         Hearth::Validator.validate!(input[:date_updated], ::Time, context: "#{context}[:date_updated]")
-        Validators::ConfigurationOptionSettingsList.validate!(input[:option_settings], context: "#{context}[:option_settings]") unless input[:option_settings].nil?
+        ConfigurationOptionSettingsList.validate!(input[:option_settings], context: "#{context}[:option_settings]") unless input[:option_settings].nil?
       end
     end
 
@@ -420,14 +422,14 @@ module AWS::SDK::ElasticBeanstalk
         Hearth::Validator.validate!(input[:group_name], ::String, context: "#{context}[:group_name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:cname_prefix], ::String, context: "#{context}[:cname_prefix]")
-        Validators::EnvironmentTier.validate!(input[:tier], context: "#{context}[:tier]") unless input[:tier].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        EnvironmentTier.validate!(input[:tier], context: "#{context}[:tier]") unless input[:tier].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:version_label], ::String, context: "#{context}[:version_label]")
         Hearth::Validator.validate!(input[:template_name], ::String, context: "#{context}[:template_name]")
         Hearth::Validator.validate!(input[:solution_stack_name], ::String, context: "#{context}[:solution_stack_name]")
         Hearth::Validator.validate!(input[:platform_arn], ::String, context: "#{context}[:platform_arn]")
-        Validators::ConfigurationOptionSettingsList.validate!(input[:option_settings], context: "#{context}[:option_settings]") unless input[:option_settings].nil?
-        Validators::OptionsSpecifierList.validate!(input[:options_to_remove], context: "#{context}[:options_to_remove]") unless input[:options_to_remove].nil?
+        ConfigurationOptionSettingsList.validate!(input[:option_settings], context: "#{context}[:option_settings]") unless input[:option_settings].nil?
+        OptionsSpecifierList.validate!(input[:options_to_remove], context: "#{context}[:options_to_remove]") unless input[:options_to_remove].nil?
         Hearth::Validator.validate!(input[:operations_role], ::String, context: "#{context}[:operations_role]")
       end
     end
@@ -451,9 +453,9 @@ module AWS::SDK::ElasticBeanstalk
         Hearth::Validator.validate!(input[:abortable_operation_in_progress], ::TrueClass, ::FalseClass, context: "#{context}[:abortable_operation_in_progress]")
         Hearth::Validator.validate!(input[:health], ::String, context: "#{context}[:health]")
         Hearth::Validator.validate!(input[:health_status], ::String, context: "#{context}[:health_status]")
-        Validators::EnvironmentResourcesDescription.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
-        Validators::EnvironmentTier.validate!(input[:tier], context: "#{context}[:tier]") unless input[:tier].nil?
-        Validators::EnvironmentLinks.validate!(input[:environment_links], context: "#{context}[:environment_links]") unless input[:environment_links].nil?
+        EnvironmentResourcesDescription.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
+        EnvironmentTier.validate!(input[:tier], context: "#{context}[:tier]") unless input[:tier].nil?
+        EnvironmentLinks.validate!(input[:environment_links], context: "#{context}[:environment_links]") unless input[:environment_links].nil?
         Hearth::Validator.validate!(input[:environment_arn], ::String, context: "#{context}[:environment_arn]")
         Hearth::Validator.validate!(input[:operations_role], ::String, context: "#{context}[:operations_role]")
       end
@@ -464,18 +466,18 @@ module AWS::SDK::ElasticBeanstalk
         Hearth::Validator.validate!(input, Types::CreatePlatformVersionInput, context: context)
         Hearth::Validator.validate!(input[:platform_name], ::String, context: "#{context}[:platform_name]")
         Hearth::Validator.validate!(input[:platform_version], ::String, context: "#{context}[:platform_version]")
-        Validators::S3Location.validate!(input[:platform_definition_bundle], context: "#{context}[:platform_definition_bundle]") unless input[:platform_definition_bundle].nil?
+        S3Location.validate!(input[:platform_definition_bundle], context: "#{context}[:platform_definition_bundle]") unless input[:platform_definition_bundle].nil?
         Hearth::Validator.validate!(input[:environment_name], ::String, context: "#{context}[:environment_name]")
-        Validators::ConfigurationOptionSettingsList.validate!(input[:option_settings], context: "#{context}[:option_settings]") unless input[:option_settings].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ConfigurationOptionSettingsList.validate!(input[:option_settings], context: "#{context}[:option_settings]") unless input[:option_settings].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreatePlatformVersionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreatePlatformVersionOutput, context: context)
-        Validators::PlatformSummary.validate!(input[:platform_summary], context: "#{context}[:platform_summary]") unless input[:platform_summary].nil?
-        Validators::Builder.validate!(input[:builder], context: "#{context}[:builder]") unless input[:builder].nil?
+        PlatformSummary.validate!(input[:platform_summary], context: "#{context}[:platform_summary]") unless input[:platform_summary].nil?
+        Builder.validate!(input[:builder], context: "#{context}[:builder]") unless input[:builder].nil?
       end
     end
 
@@ -504,7 +506,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CustomAmi.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CustomAmi.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -576,7 +578,7 @@ module AWS::SDK::ElasticBeanstalk
     class DeletePlatformVersionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeletePlatformVersionOutput, context: context)
-        Validators::PlatformSummary.validate!(input[:platform_summary], context: "#{context}[:platform_summary]") unless input[:platform_summary].nil?
+        PlatformSummary.validate!(input[:platform_summary], context: "#{context}[:platform_summary]") unless input[:platform_summary].nil?
       end
     end
 
@@ -599,7 +601,7 @@ module AWS::SDK::ElasticBeanstalk
     class DescribeAccountAttributesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAccountAttributesOutput, context: context)
-        Validators::ResourceQuotas.validate!(input[:resource_quotas], context: "#{context}[:resource_quotas]") unless input[:resource_quotas].nil?
+        ResourceQuotas.validate!(input[:resource_quotas], context: "#{context}[:resource_quotas]") unless input[:resource_quotas].nil?
       end
     end
 
@@ -607,7 +609,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeApplicationVersionsInput, context: context)
         Hearth::Validator.validate!(input[:application_name], ::String, context: "#{context}[:application_name]")
-        Validators::VersionLabelsList.validate!(input[:version_labels], context: "#{context}[:version_labels]") unless input[:version_labels].nil?
+        VersionLabelsList.validate!(input[:version_labels], context: "#{context}[:version_labels]") unless input[:version_labels].nil?
         Hearth::Validator.validate!(input[:max_records], ::Integer, context: "#{context}[:max_records]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -616,7 +618,7 @@ module AWS::SDK::ElasticBeanstalk
     class DescribeApplicationVersionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeApplicationVersionsOutput, context: context)
-        Validators::ApplicationVersionDescriptionList.validate!(input[:application_versions], context: "#{context}[:application_versions]") unless input[:application_versions].nil?
+        ApplicationVersionDescriptionList.validate!(input[:application_versions], context: "#{context}[:application_versions]") unless input[:application_versions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -624,14 +626,14 @@ module AWS::SDK::ElasticBeanstalk
     class DescribeApplicationsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeApplicationsInput, context: context)
-        Validators::ApplicationNamesList.validate!(input[:application_names], context: "#{context}[:application_names]") unless input[:application_names].nil?
+        ApplicationNamesList.validate!(input[:application_names], context: "#{context}[:application_names]") unless input[:application_names].nil?
       end
     end
 
     class DescribeApplicationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeApplicationsOutput, context: context)
-        Validators::ApplicationDescriptionList.validate!(input[:applications], context: "#{context}[:applications]") unless input[:applications].nil?
+        ApplicationDescriptionList.validate!(input[:applications], context: "#{context}[:applications]") unless input[:applications].nil?
       end
     end
 
@@ -643,7 +645,7 @@ module AWS::SDK::ElasticBeanstalk
         Hearth::Validator.validate!(input[:environment_name], ::String, context: "#{context}[:environment_name]")
         Hearth::Validator.validate!(input[:solution_stack_name], ::String, context: "#{context}[:solution_stack_name]")
         Hearth::Validator.validate!(input[:platform_arn], ::String, context: "#{context}[:platform_arn]")
-        Validators::OptionsSpecifierList.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
+        OptionsSpecifierList.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
       end
     end
 
@@ -652,7 +654,7 @@ module AWS::SDK::ElasticBeanstalk
         Hearth::Validator.validate!(input, Types::DescribeConfigurationOptionsOutput, context: context)
         Hearth::Validator.validate!(input[:solution_stack_name], ::String, context: "#{context}[:solution_stack_name]")
         Hearth::Validator.validate!(input[:platform_arn], ::String, context: "#{context}[:platform_arn]")
-        Validators::ConfigurationOptionDescriptionsList.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
+        ConfigurationOptionDescriptionsList.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
       end
     end
 
@@ -668,7 +670,7 @@ module AWS::SDK::ElasticBeanstalk
     class DescribeConfigurationSettingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeConfigurationSettingsOutput, context: context)
-        Validators::ConfigurationSettingsDescriptionList.validate!(input[:configuration_settings], context: "#{context}[:configuration_settings]") unless input[:configuration_settings].nil?
+        ConfigurationSettingsDescriptionList.validate!(input[:configuration_settings], context: "#{context}[:configuration_settings]") unless input[:configuration_settings].nil?
       end
     end
 
@@ -677,7 +679,7 @@ module AWS::SDK::ElasticBeanstalk
         Hearth::Validator.validate!(input, Types::DescribeEnvironmentHealthInput, context: context)
         Hearth::Validator.validate!(input[:environment_name], ::String, context: "#{context}[:environment_name]")
         Hearth::Validator.validate!(input[:environment_id], ::String, context: "#{context}[:environment_id]")
-        Validators::EnvironmentHealthAttributes.validate!(input[:attribute_names], context: "#{context}[:attribute_names]") unless input[:attribute_names].nil?
+        EnvironmentHealthAttributes.validate!(input[:attribute_names], context: "#{context}[:attribute_names]") unless input[:attribute_names].nil?
       end
     end
 
@@ -688,9 +690,9 @@ module AWS::SDK::ElasticBeanstalk
         Hearth::Validator.validate!(input[:health_status], ::String, context: "#{context}[:health_status]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:color], ::String, context: "#{context}[:color]")
-        Validators::Causes.validate!(input[:causes], context: "#{context}[:causes]") unless input[:causes].nil?
-        Validators::ApplicationMetrics.validate!(input[:application_metrics], context: "#{context}[:application_metrics]") unless input[:application_metrics].nil?
-        Validators::InstanceHealthSummary.validate!(input[:instances_health], context: "#{context}[:instances_health]") unless input[:instances_health].nil?
+        Causes.validate!(input[:causes], context: "#{context}[:causes]") unless input[:causes].nil?
+        ApplicationMetrics.validate!(input[:application_metrics], context: "#{context}[:application_metrics]") unless input[:application_metrics].nil?
+        InstanceHealthSummary.validate!(input[:instances_health], context: "#{context}[:instances_health]") unless input[:instances_health].nil?
         Hearth::Validator.validate!(input[:refreshed_at], ::Time, context: "#{context}[:refreshed_at]")
       end
     end
@@ -708,7 +710,7 @@ module AWS::SDK::ElasticBeanstalk
     class DescribeEnvironmentManagedActionHistoryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEnvironmentManagedActionHistoryOutput, context: context)
-        Validators::ManagedActionHistoryItems.validate!(input[:managed_action_history_items], context: "#{context}[:managed_action_history_items]") unless input[:managed_action_history_items].nil?
+        ManagedActionHistoryItems.validate!(input[:managed_action_history_items], context: "#{context}[:managed_action_history_items]") unless input[:managed_action_history_items].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -725,7 +727,7 @@ module AWS::SDK::ElasticBeanstalk
     class DescribeEnvironmentManagedActionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEnvironmentManagedActionsOutput, context: context)
-        Validators::ManagedActions.validate!(input[:managed_actions], context: "#{context}[:managed_actions]") unless input[:managed_actions].nil?
+        ManagedActions.validate!(input[:managed_actions], context: "#{context}[:managed_actions]") unless input[:managed_actions].nil?
       end
     end
 
@@ -740,7 +742,7 @@ module AWS::SDK::ElasticBeanstalk
     class DescribeEnvironmentResourcesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEnvironmentResourcesOutput, context: context)
-        Validators::EnvironmentResourceDescription.validate!(input[:environment_resources], context: "#{context}[:environment_resources]") unless input[:environment_resources].nil?
+        EnvironmentResourceDescription.validate!(input[:environment_resources], context: "#{context}[:environment_resources]") unless input[:environment_resources].nil?
       end
     end
 
@@ -749,8 +751,8 @@ module AWS::SDK::ElasticBeanstalk
         Hearth::Validator.validate!(input, Types::DescribeEnvironmentsInput, context: context)
         Hearth::Validator.validate!(input[:application_name], ::String, context: "#{context}[:application_name]")
         Hearth::Validator.validate!(input[:version_label], ::String, context: "#{context}[:version_label]")
-        Validators::EnvironmentIdList.validate!(input[:environment_ids], context: "#{context}[:environment_ids]") unless input[:environment_ids].nil?
-        Validators::EnvironmentNamesList.validate!(input[:environment_names], context: "#{context}[:environment_names]") unless input[:environment_names].nil?
+        EnvironmentIdList.validate!(input[:environment_ids], context: "#{context}[:environment_ids]") unless input[:environment_ids].nil?
+        EnvironmentNamesList.validate!(input[:environment_names], context: "#{context}[:environment_names]") unless input[:environment_names].nil?
         Hearth::Validator.validate!(input[:include_deleted], ::TrueClass, ::FalseClass, context: "#{context}[:include_deleted]")
         Hearth::Validator.validate!(input[:included_deleted_back_to], ::Time, context: "#{context}[:included_deleted_back_to]")
         Hearth::Validator.validate!(input[:max_records], ::Integer, context: "#{context}[:max_records]")
@@ -761,7 +763,7 @@ module AWS::SDK::ElasticBeanstalk
     class DescribeEnvironmentsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEnvironmentsOutput, context: context)
-        Validators::EnvironmentDescriptionsList.validate!(input[:environments], context: "#{context}[:environments]") unless input[:environments].nil?
+        EnvironmentDescriptionsList.validate!(input[:environments], context: "#{context}[:environments]") unless input[:environments].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -787,7 +789,7 @@ module AWS::SDK::ElasticBeanstalk
     class DescribeEventsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEventsOutput, context: context)
-        Validators::EventDescriptionList.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
+        EventDescriptionList.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -797,7 +799,7 @@ module AWS::SDK::ElasticBeanstalk
         Hearth::Validator.validate!(input, Types::DescribeInstancesHealthInput, context: context)
         Hearth::Validator.validate!(input[:environment_name], ::String, context: "#{context}[:environment_name]")
         Hearth::Validator.validate!(input[:environment_id], ::String, context: "#{context}[:environment_id]")
-        Validators::InstancesHealthAttributes.validate!(input[:attribute_names], context: "#{context}[:attribute_names]") unless input[:attribute_names].nil?
+        InstancesHealthAttributes.validate!(input[:attribute_names], context: "#{context}[:attribute_names]") unless input[:attribute_names].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -805,7 +807,7 @@ module AWS::SDK::ElasticBeanstalk
     class DescribeInstancesHealthOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeInstancesHealthOutput, context: context)
-        Validators::InstanceHealthList.validate!(input[:instance_health_list], context: "#{context}[:instance_health_list]") unless input[:instance_health_list].nil?
+        InstanceHealthList.validate!(input[:instance_health_list], context: "#{context}[:instance_health_list]") unless input[:instance_health_list].nil?
         Hearth::Validator.validate!(input[:refreshed_at], ::Time, context: "#{context}[:refreshed_at]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -821,7 +823,7 @@ module AWS::SDK::ElasticBeanstalk
     class DescribePlatformVersionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribePlatformVersionOutput, context: context)
-        Validators::PlatformDescription.validate!(input[:platform_description], context: "#{context}[:platform_description]") unless input[:platform_description].nil?
+        PlatformDescription.validate!(input[:platform_description], context: "#{context}[:platform_description]") unless input[:platform_description].nil?
       end
     end
 
@@ -864,9 +866,9 @@ module AWS::SDK::ElasticBeanstalk
         Hearth::Validator.validate!(input[:abortable_operation_in_progress], ::TrueClass, ::FalseClass, context: "#{context}[:abortable_operation_in_progress]")
         Hearth::Validator.validate!(input[:health], ::String, context: "#{context}[:health]")
         Hearth::Validator.validate!(input[:health_status], ::String, context: "#{context}[:health_status]")
-        Validators::EnvironmentResourcesDescription.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
-        Validators::EnvironmentTier.validate!(input[:tier], context: "#{context}[:tier]") unless input[:tier].nil?
-        Validators::EnvironmentLinks.validate!(input[:environment_links], context: "#{context}[:environment_links]") unless input[:environment_links].nil?
+        EnvironmentResourcesDescription.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
+        EnvironmentTier.validate!(input[:tier], context: "#{context}[:tier]") unless input[:tier].nil?
+        EnvironmentLinks.validate!(input[:environment_links], context: "#{context}[:environment_links]") unless input[:environment_links].nil?
         Hearth::Validator.validate!(input[:environment_arn], ::String, context: "#{context}[:environment_arn]")
         Hearth::Validator.validate!(input[:operations_role], ::String, context: "#{context}[:operations_role]")
       end
@@ -876,7 +878,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EnvironmentDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EnvironmentDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -913,7 +915,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EnvironmentInfoDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EnvironmentInfoDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -930,7 +932,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EnvironmentLink.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EnvironmentLink.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -948,20 +950,20 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EnvironmentResourceDescription, context: context)
         Hearth::Validator.validate!(input[:environment_name], ::String, context: "#{context}[:environment_name]")
-        Validators::AutoScalingGroupList.validate!(input[:auto_scaling_groups], context: "#{context}[:auto_scaling_groups]") unless input[:auto_scaling_groups].nil?
-        Validators::InstanceList.validate!(input[:instances], context: "#{context}[:instances]") unless input[:instances].nil?
-        Validators::LaunchConfigurationList.validate!(input[:launch_configurations], context: "#{context}[:launch_configurations]") unless input[:launch_configurations].nil?
-        Validators::LaunchTemplateList.validate!(input[:launch_templates], context: "#{context}[:launch_templates]") unless input[:launch_templates].nil?
-        Validators::LoadBalancerList.validate!(input[:load_balancers], context: "#{context}[:load_balancers]") unless input[:load_balancers].nil?
-        Validators::TriggerList.validate!(input[:triggers], context: "#{context}[:triggers]") unless input[:triggers].nil?
-        Validators::QueueList.validate!(input[:queues], context: "#{context}[:queues]") unless input[:queues].nil?
+        AutoScalingGroupList.validate!(input[:auto_scaling_groups], context: "#{context}[:auto_scaling_groups]") unless input[:auto_scaling_groups].nil?
+        InstanceList.validate!(input[:instances], context: "#{context}[:instances]") unless input[:instances].nil?
+        LaunchConfigurationList.validate!(input[:launch_configurations], context: "#{context}[:launch_configurations]") unless input[:launch_configurations].nil?
+        LaunchTemplateList.validate!(input[:launch_templates], context: "#{context}[:launch_templates]") unless input[:launch_templates].nil?
+        LoadBalancerList.validate!(input[:load_balancers], context: "#{context}[:load_balancers]") unless input[:load_balancers].nil?
+        TriggerList.validate!(input[:triggers], context: "#{context}[:triggers]") unless input[:triggers].nil?
+        QueueList.validate!(input[:queues], context: "#{context}[:queues]") unless input[:queues].nil?
       end
     end
 
     class EnvironmentResourcesDescription
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EnvironmentResourcesDescription, context: context)
-        Validators::LoadBalancerDescription.validate!(input[:load_balancer], context: "#{context}[:load_balancer]") unless input[:load_balancer].nil?
+        LoadBalancerDescription.validate!(input[:load_balancer], context: "#{context}[:load_balancer]") unless input[:load_balancer].nil?
       end
     end
 
@@ -993,7 +995,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EventDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EventDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1009,7 +1011,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SingleInstanceHealth.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SingleInstanceHealth.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1032,7 +1034,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Instance.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Instance.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1085,7 +1087,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LaunchConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LaunchConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1101,7 +1103,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LaunchTemplate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LaunchTemplate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1115,15 +1117,15 @@ module AWS::SDK::ElasticBeanstalk
     class ListAvailableSolutionStacksOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAvailableSolutionStacksOutput, context: context)
-        Validators::AvailableSolutionStackNamesList.validate!(input[:solution_stacks], context: "#{context}[:solution_stacks]") unless input[:solution_stacks].nil?
-        Validators::AvailableSolutionStackDetailsList.validate!(input[:solution_stack_details], context: "#{context}[:solution_stack_details]") unless input[:solution_stack_details].nil?
+        AvailableSolutionStackNamesList.validate!(input[:solution_stacks], context: "#{context}[:solution_stacks]") unless input[:solution_stacks].nil?
+        AvailableSolutionStackDetailsList.validate!(input[:solution_stack_details], context: "#{context}[:solution_stack_details]") unless input[:solution_stack_details].nil?
       end
     end
 
     class ListPlatformBranchesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPlatformBranchesInput, context: context)
-        Validators::SearchFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        SearchFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_records], ::Integer, context: "#{context}[:max_records]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -1132,7 +1134,7 @@ module AWS::SDK::ElasticBeanstalk
     class ListPlatformBranchesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPlatformBranchesOutput, context: context)
-        Validators::PlatformBranchSummaryList.validate!(input[:platform_branch_summary_list], context: "#{context}[:platform_branch_summary_list]") unless input[:platform_branch_summary_list].nil?
+        PlatformBranchSummaryList.validate!(input[:platform_branch_summary_list], context: "#{context}[:platform_branch_summary_list]") unless input[:platform_branch_summary_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1140,7 +1142,7 @@ module AWS::SDK::ElasticBeanstalk
     class ListPlatformVersionsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPlatformVersionsInput, context: context)
-        Validators::PlatformFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        PlatformFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_records], ::Integer, context: "#{context}[:max_records]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -1149,7 +1151,7 @@ module AWS::SDK::ElasticBeanstalk
     class ListPlatformVersionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPlatformVersionsOutput, context: context)
-        Validators::PlatformSummaryList.validate!(input[:platform_summary_list], context: "#{context}[:platform_summary_list]") unless input[:platform_summary_list].nil?
+        PlatformSummaryList.validate!(input[:platform_summary_list], context: "#{context}[:platform_summary_list]") unless input[:platform_summary_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1165,7 +1167,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
+        TagList.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
       end
     end
 
@@ -1198,7 +1200,7 @@ module AWS::SDK::ElasticBeanstalk
         Hearth::Validator.validate!(input, Types::LoadBalancerDescription, context: context)
         Hearth::Validator.validate!(input[:load_balancer_name], ::String, context: "#{context}[:load_balancer_name]")
         Hearth::Validator.validate!(input[:domain], ::String, context: "#{context}[:domain]")
-        Validators::LoadBalancerListenersDescription.validate!(input[:listeners], context: "#{context}[:listeners]") unless input[:listeners].nil?
+        LoadBalancerListenersDescription.validate!(input[:listeners], context: "#{context}[:listeners]") unless input[:listeners].nil?
       end
     end
 
@@ -1206,7 +1208,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LoadBalancer.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LoadBalancer.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1215,7 +1217,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Listener.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Listener.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1249,7 +1251,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ManagedActionHistoryItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ManagedActionHistoryItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1265,7 +1267,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ManagedAction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ManagedAction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1316,7 +1318,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OptionSpecification.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OptionSpecification.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1328,7 +1330,7 @@ module AWS::SDK::ElasticBeanstalk
         Hearth::Validator.validate!(input[:branch_name], ::String, context: "#{context}[:branch_name]")
         Hearth::Validator.validate!(input[:lifecycle_state], ::String, context: "#{context}[:lifecycle_state]")
         Hearth::Validator.validate!(input[:branch_order], ::Integer, context: "#{context}[:branch_order]")
-        Validators::SupportedTierList.validate!(input[:supported_tier_list], context: "#{context}[:supported_tier_list]") unless input[:supported_tier_list].nil?
+        SupportedTierList.validate!(input[:supported_tier_list], context: "#{context}[:supported_tier_list]") unless input[:supported_tier_list].nil?
       end
     end
 
@@ -1336,7 +1338,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PlatformBranchSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PlatformBranchSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1357,11 +1359,11 @@ module AWS::SDK::ElasticBeanstalk
         Hearth::Validator.validate!(input[:maintainer], ::String, context: "#{context}[:maintainer]")
         Hearth::Validator.validate!(input[:operating_system_name], ::String, context: "#{context}[:operating_system_name]")
         Hearth::Validator.validate!(input[:operating_system_version], ::String, context: "#{context}[:operating_system_version]")
-        Validators::PlatformProgrammingLanguages.validate!(input[:programming_languages], context: "#{context}[:programming_languages]") unless input[:programming_languages].nil?
-        Validators::PlatformFrameworks.validate!(input[:frameworks], context: "#{context}[:frameworks]") unless input[:frameworks].nil?
-        Validators::CustomAmiList.validate!(input[:custom_ami_list], context: "#{context}[:custom_ami_list]") unless input[:custom_ami_list].nil?
-        Validators::SupportedTierList.validate!(input[:supported_tier_list], context: "#{context}[:supported_tier_list]") unless input[:supported_tier_list].nil?
-        Validators::SupportedAddonList.validate!(input[:supported_addon_list], context: "#{context}[:supported_addon_list]") unless input[:supported_addon_list].nil?
+        PlatformProgrammingLanguages.validate!(input[:programming_languages], context: "#{context}[:programming_languages]") unless input[:programming_languages].nil?
+        PlatformFrameworks.validate!(input[:frameworks], context: "#{context}[:frameworks]") unless input[:frameworks].nil?
+        CustomAmiList.validate!(input[:custom_ami_list], context: "#{context}[:custom_ami_list]") unless input[:custom_ami_list].nil?
+        SupportedTierList.validate!(input[:supported_tier_list], context: "#{context}[:supported_tier_list]") unless input[:supported_tier_list].nil?
+        SupportedAddonList.validate!(input[:supported_addon_list], context: "#{context}[:supported_addon_list]") unless input[:supported_addon_list].nil?
         Hearth::Validator.validate!(input[:platform_lifecycle_state], ::String, context: "#{context}[:platform_lifecycle_state]")
         Hearth::Validator.validate!(input[:platform_branch_name], ::String, context: "#{context}[:platform_branch_name]")
         Hearth::Validator.validate!(input[:platform_branch_lifecycle_state], ::String, context: "#{context}[:platform_branch_lifecycle_state]")
@@ -1373,7 +1375,7 @@ module AWS::SDK::ElasticBeanstalk
         Hearth::Validator.validate!(input, Types::PlatformFilter, context: context)
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:operator], ::String, context: "#{context}[:operator]")
-        Validators::PlatformFilterValueList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        PlatformFilterValueList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -1390,7 +1392,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PlatformFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PlatformFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1407,7 +1409,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PlatformFramework.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PlatformFramework.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1424,7 +1426,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PlatformProgrammingLanguage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PlatformProgrammingLanguage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1438,8 +1440,8 @@ module AWS::SDK::ElasticBeanstalk
         Hearth::Validator.validate!(input[:platform_category], ::String, context: "#{context}[:platform_category]")
         Hearth::Validator.validate!(input[:operating_system_name], ::String, context: "#{context}[:operating_system_name]")
         Hearth::Validator.validate!(input[:operating_system_version], ::String, context: "#{context}[:operating_system_version]")
-        Validators::SupportedTierList.validate!(input[:supported_tier_list], context: "#{context}[:supported_tier_list]") unless input[:supported_tier_list].nil?
-        Validators::SupportedAddonList.validate!(input[:supported_addon_list], context: "#{context}[:supported_addon_list]") unless input[:supported_addon_list].nil?
+        SupportedTierList.validate!(input[:supported_tier_list], context: "#{context}[:supported_tier_list]") unless input[:supported_tier_list].nil?
+        SupportedAddonList.validate!(input[:supported_addon_list], context: "#{context}[:supported_addon_list]") unless input[:supported_addon_list].nil?
         Hearth::Validator.validate!(input[:platform_lifecycle_state], ::String, context: "#{context}[:platform_lifecycle_state]")
         Hearth::Validator.validate!(input[:platform_version], ::String, context: "#{context}[:platform_version]")
         Hearth::Validator.validate!(input[:platform_branch_name], ::String, context: "#{context}[:platform_branch_name]")
@@ -1451,7 +1453,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PlatformSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PlatformSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1475,7 +1477,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Queue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Queue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1526,11 +1528,11 @@ module AWS::SDK::ElasticBeanstalk
     class ResourceQuotas
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResourceQuotas, context: context)
-        Validators::ResourceQuota.validate!(input[:application_quota], context: "#{context}[:application_quota]") unless input[:application_quota].nil?
-        Validators::ResourceQuota.validate!(input[:application_version_quota], context: "#{context}[:application_version_quota]") unless input[:application_version_quota].nil?
-        Validators::ResourceQuota.validate!(input[:environment_quota], context: "#{context}[:environment_quota]") unless input[:environment_quota].nil?
-        Validators::ResourceQuota.validate!(input[:configuration_template_quota], context: "#{context}[:configuration_template_quota]") unless input[:configuration_template_quota].nil?
-        Validators::ResourceQuota.validate!(input[:custom_platform_quota], context: "#{context}[:custom_platform_quota]") unless input[:custom_platform_quota].nil?
+        ResourceQuota.validate!(input[:application_quota], context: "#{context}[:application_quota]") unless input[:application_quota].nil?
+        ResourceQuota.validate!(input[:application_version_quota], context: "#{context}[:application_version_quota]") unless input[:application_version_quota].nil?
+        ResourceQuota.validate!(input[:environment_quota], context: "#{context}[:environment_quota]") unless input[:environment_quota].nil?
+        ResourceQuota.validate!(input[:configuration_template_quota], context: "#{context}[:configuration_template_quota]") unless input[:configuration_template_quota].nil?
+        ResourceQuota.validate!(input[:custom_platform_quota], context: "#{context}[:custom_platform_quota]") unless input[:custom_platform_quota].nil?
       end
     end
 
@@ -1567,7 +1569,7 @@ module AWS::SDK::ElasticBeanstalk
     class RetrieveEnvironmentInfoOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RetrieveEnvironmentInfoOutput, context: context)
-        Validators::EnvironmentInfoDescriptionList.validate!(input[:environment_info], context: "#{context}[:environment_info]") unless input[:environment_info].nil?
+        EnvironmentInfoDescriptionList.validate!(input[:environment_info], context: "#{context}[:environment_info]") unless input[:environment_info].nil?
       end
     end
 
@@ -1598,7 +1600,7 @@ module AWS::SDK::ElasticBeanstalk
         Hearth::Validator.validate!(input, Types::SearchFilter, context: context)
         Hearth::Validator.validate!(input[:attribute], ::String, context: "#{context}[:attribute]")
         Hearth::Validator.validate!(input[:operator], ::String, context: "#{context}[:operator]")
-        Validators::SearchFilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        SearchFilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -1615,7 +1617,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SearchFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SearchFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1626,11 +1628,11 @@ module AWS::SDK::ElasticBeanstalk
         Hearth::Validator.validate!(input[:instance_id], ::String, context: "#{context}[:instance_id]")
         Hearth::Validator.validate!(input[:health_status], ::String, context: "#{context}[:health_status]")
         Hearth::Validator.validate!(input[:color], ::String, context: "#{context}[:color]")
-        Validators::Causes.validate!(input[:causes], context: "#{context}[:causes]") unless input[:causes].nil?
+        Causes.validate!(input[:causes], context: "#{context}[:causes]") unless input[:causes].nil?
         Hearth::Validator.validate!(input[:launched_at], ::Time, context: "#{context}[:launched_at]")
-        Validators::ApplicationMetrics.validate!(input[:application_metrics], context: "#{context}[:application_metrics]") unless input[:application_metrics].nil?
-        Validators::SystemStatus.validate!(input[:system], context: "#{context}[:system]") unless input[:system].nil?
-        Validators::Deployment.validate!(input[:deployment], context: "#{context}[:deployment]") unless input[:deployment].nil?
+        ApplicationMetrics.validate!(input[:application_metrics], context: "#{context}[:application_metrics]") unless input[:application_metrics].nil?
+        SystemStatus.validate!(input[:system], context: "#{context}[:system]") unless input[:system].nil?
+        Deployment.validate!(input[:deployment], context: "#{context}[:deployment]") unless input[:deployment].nil?
         Hearth::Validator.validate!(input[:availability_zone], ::String, context: "#{context}[:availability_zone]")
         Hearth::Validator.validate!(input[:instance_type], ::String, context: "#{context}[:instance_type]")
       end
@@ -1640,7 +1642,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SolutionStackDescription, context: context)
         Hearth::Validator.validate!(input[:solution_stack_name], ::String, context: "#{context}[:solution_stack_name]")
-        Validators::SolutionStackFileTypeList.validate!(input[:permitted_file_types], context: "#{context}[:permitted_file_types]") unless input[:permitted_file_types].nil?
+        SolutionStackFileTypeList.validate!(input[:permitted_file_types], context: "#{context}[:permitted_file_types]") unless input[:permitted_file_types].nil?
       end
     end
 
@@ -1724,8 +1726,8 @@ module AWS::SDK::ElasticBeanstalk
     class SystemStatus
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SystemStatus, context: context)
-        Validators::CPUUtilization.validate!(input[:cpu_utilization], context: "#{context}[:cpu_utilization]") unless input[:cpu_utilization].nil?
-        Validators::LoadAverage.validate!(input[:load_average], context: "#{context}[:load_average]") unless input[:load_average].nil?
+        CPUUtilization.validate!(input[:cpu_utilization], context: "#{context}[:cpu_utilization]") unless input[:cpu_utilization].nil?
+        LoadAverage.validate!(input[:load_average], context: "#{context}[:load_average]") unless input[:load_average].nil?
       end
     end
 
@@ -1750,7 +1752,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1759,7 +1761,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1793,9 +1795,9 @@ module AWS::SDK::ElasticBeanstalk
         Hearth::Validator.validate!(input[:abortable_operation_in_progress], ::TrueClass, ::FalseClass, context: "#{context}[:abortable_operation_in_progress]")
         Hearth::Validator.validate!(input[:health], ::String, context: "#{context}[:health]")
         Hearth::Validator.validate!(input[:health_status], ::String, context: "#{context}[:health_status]")
-        Validators::EnvironmentResourcesDescription.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
-        Validators::EnvironmentTier.validate!(input[:tier], context: "#{context}[:tier]") unless input[:tier].nil?
-        Validators::EnvironmentLinks.validate!(input[:environment_links], context: "#{context}[:environment_links]") unless input[:environment_links].nil?
+        EnvironmentResourcesDescription.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
+        EnvironmentTier.validate!(input[:tier], context: "#{context}[:tier]") unless input[:tier].nil?
+        EnvironmentLinks.validate!(input[:environment_links], context: "#{context}[:environment_links]") unless input[:environment_links].nil?
         Hearth::Validator.validate!(input[:environment_arn], ::String, context: "#{context}[:environment_arn]")
         Hearth::Validator.validate!(input[:operations_role], ::String, context: "#{context}[:operations_role]")
       end
@@ -1861,7 +1863,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Trigger.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Trigger.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1877,7 +1879,7 @@ module AWS::SDK::ElasticBeanstalk
     class UpdateApplicationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateApplicationOutput, context: context)
-        Validators::ApplicationDescription.validate!(input[:application], context: "#{context}[:application]") unless input[:application].nil?
+        ApplicationDescription.validate!(input[:application], context: "#{context}[:application]") unless input[:application].nil?
       end
     end
 
@@ -1885,7 +1887,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateApplicationResourceLifecycleInput, context: context)
         Hearth::Validator.validate!(input[:application_name], ::String, context: "#{context}[:application_name]")
-        Validators::ApplicationResourceLifecycleConfig.validate!(input[:resource_lifecycle_config], context: "#{context}[:resource_lifecycle_config]") unless input[:resource_lifecycle_config].nil?
+        ApplicationResourceLifecycleConfig.validate!(input[:resource_lifecycle_config], context: "#{context}[:resource_lifecycle_config]") unless input[:resource_lifecycle_config].nil?
       end
     end
 
@@ -1893,7 +1895,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateApplicationResourceLifecycleOutput, context: context)
         Hearth::Validator.validate!(input[:application_name], ::String, context: "#{context}[:application_name]")
-        Validators::ApplicationResourceLifecycleConfig.validate!(input[:resource_lifecycle_config], context: "#{context}[:resource_lifecycle_config]") unless input[:resource_lifecycle_config].nil?
+        ApplicationResourceLifecycleConfig.validate!(input[:resource_lifecycle_config], context: "#{context}[:resource_lifecycle_config]") unless input[:resource_lifecycle_config].nil?
       end
     end
 
@@ -1909,7 +1911,7 @@ module AWS::SDK::ElasticBeanstalk
     class UpdateApplicationVersionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateApplicationVersionOutput, context: context)
-        Validators::ApplicationVersionDescription.validate!(input[:application_version], context: "#{context}[:application_version]") unless input[:application_version].nil?
+        ApplicationVersionDescription.validate!(input[:application_version], context: "#{context}[:application_version]") unless input[:application_version].nil?
       end
     end
 
@@ -1919,8 +1921,8 @@ module AWS::SDK::ElasticBeanstalk
         Hearth::Validator.validate!(input[:application_name], ::String, context: "#{context}[:application_name]")
         Hearth::Validator.validate!(input[:template_name], ::String, context: "#{context}[:template_name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ConfigurationOptionSettingsList.validate!(input[:option_settings], context: "#{context}[:option_settings]") unless input[:option_settings].nil?
-        Validators::OptionsSpecifierList.validate!(input[:options_to_remove], context: "#{context}[:options_to_remove]") unless input[:options_to_remove].nil?
+        ConfigurationOptionSettingsList.validate!(input[:option_settings], context: "#{context}[:option_settings]") unless input[:option_settings].nil?
+        OptionsSpecifierList.validate!(input[:options_to_remove], context: "#{context}[:options_to_remove]") unless input[:options_to_remove].nil?
       end
     end
 
@@ -1936,7 +1938,7 @@ module AWS::SDK::ElasticBeanstalk
         Hearth::Validator.validate!(input[:deployment_status], ::String, context: "#{context}[:deployment_status]")
         Hearth::Validator.validate!(input[:date_created], ::Time, context: "#{context}[:date_created]")
         Hearth::Validator.validate!(input[:date_updated], ::Time, context: "#{context}[:date_updated]")
-        Validators::ConfigurationOptionSettingsList.validate!(input[:option_settings], context: "#{context}[:option_settings]") unless input[:option_settings].nil?
+        ConfigurationOptionSettingsList.validate!(input[:option_settings], context: "#{context}[:option_settings]") unless input[:option_settings].nil?
       end
     end
 
@@ -1948,13 +1950,13 @@ module AWS::SDK::ElasticBeanstalk
         Hearth::Validator.validate!(input[:environment_name], ::String, context: "#{context}[:environment_name]")
         Hearth::Validator.validate!(input[:group_name], ::String, context: "#{context}[:group_name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::EnvironmentTier.validate!(input[:tier], context: "#{context}[:tier]") unless input[:tier].nil?
+        EnvironmentTier.validate!(input[:tier], context: "#{context}[:tier]") unless input[:tier].nil?
         Hearth::Validator.validate!(input[:version_label], ::String, context: "#{context}[:version_label]")
         Hearth::Validator.validate!(input[:template_name], ::String, context: "#{context}[:template_name]")
         Hearth::Validator.validate!(input[:solution_stack_name], ::String, context: "#{context}[:solution_stack_name]")
         Hearth::Validator.validate!(input[:platform_arn], ::String, context: "#{context}[:platform_arn]")
-        Validators::ConfigurationOptionSettingsList.validate!(input[:option_settings], context: "#{context}[:option_settings]") unless input[:option_settings].nil?
-        Validators::OptionsSpecifierList.validate!(input[:options_to_remove], context: "#{context}[:options_to_remove]") unless input[:options_to_remove].nil?
+        ConfigurationOptionSettingsList.validate!(input[:option_settings], context: "#{context}[:option_settings]") unless input[:option_settings].nil?
+        OptionsSpecifierList.validate!(input[:options_to_remove], context: "#{context}[:options_to_remove]") unless input[:options_to_remove].nil?
       end
     end
 
@@ -1977,9 +1979,9 @@ module AWS::SDK::ElasticBeanstalk
         Hearth::Validator.validate!(input[:abortable_operation_in_progress], ::TrueClass, ::FalseClass, context: "#{context}[:abortable_operation_in_progress]")
         Hearth::Validator.validate!(input[:health], ::String, context: "#{context}[:health]")
         Hearth::Validator.validate!(input[:health_status], ::String, context: "#{context}[:health_status]")
-        Validators::EnvironmentResourcesDescription.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
-        Validators::EnvironmentTier.validate!(input[:tier], context: "#{context}[:tier]") unless input[:tier].nil?
-        Validators::EnvironmentLinks.validate!(input[:environment_links], context: "#{context}[:environment_links]") unless input[:environment_links].nil?
+        EnvironmentResourcesDescription.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
+        EnvironmentTier.validate!(input[:tier], context: "#{context}[:tier]") unless input[:tier].nil?
+        EnvironmentLinks.validate!(input[:environment_links], context: "#{context}[:environment_links]") unless input[:environment_links].nil?
         Hearth::Validator.validate!(input[:environment_arn], ::String, context: "#{context}[:environment_arn]")
         Hearth::Validator.validate!(input[:operations_role], ::String, context: "#{context}[:operations_role]")
       end
@@ -1989,8 +1991,8 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateTagsForResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags_to_add], context: "#{context}[:tags_to_add]") unless input[:tags_to_add].nil?
-        Validators::TagKeyList.validate!(input[:tags_to_remove], context: "#{context}[:tags_to_remove]") unless input[:tags_to_remove].nil?
+        TagList.validate!(input[:tags_to_add], context: "#{context}[:tags_to_add]") unless input[:tags_to_add].nil?
+        TagKeyList.validate!(input[:tags_to_remove], context: "#{context}[:tags_to_remove]") unless input[:tags_to_remove].nil?
       end
     end
 
@@ -2006,14 +2008,14 @@ module AWS::SDK::ElasticBeanstalk
         Hearth::Validator.validate!(input[:application_name], ::String, context: "#{context}[:application_name]")
         Hearth::Validator.validate!(input[:template_name], ::String, context: "#{context}[:template_name]")
         Hearth::Validator.validate!(input[:environment_name], ::String, context: "#{context}[:environment_name]")
-        Validators::ConfigurationOptionSettingsList.validate!(input[:option_settings], context: "#{context}[:option_settings]") unless input[:option_settings].nil?
+        ConfigurationOptionSettingsList.validate!(input[:option_settings], context: "#{context}[:option_settings]") unless input[:option_settings].nil?
       end
     end
 
     class ValidateConfigurationSettingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ValidateConfigurationSettingsOutput, context: context)
-        Validators::ValidationMessagesList.validate!(input[:messages], context: "#{context}[:messages]") unless input[:messages].nil?
+        ValidationMessagesList.validate!(input[:messages], context: "#{context}[:messages]") unless input[:messages].nil?
       end
     end
 
@@ -2031,7 +2033,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ValidationMessage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ValidationMessage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

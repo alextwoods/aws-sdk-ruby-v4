@@ -14,7 +14,7 @@ module AWS::SDK::LakeFormation
     class AddLFTagsToResource
       def self.default(visited=[])
         {
-          failures: Stubs::LFTagErrors.default(visited),
+          failures: LFTagErrors.default(visited),
         }
       end
 
@@ -33,7 +33,7 @@ module AWS::SDK::LakeFormation
         return nil if visited.include?('LFTagErrors')
         visited = visited + ['LFTagErrors']
         [
-          Stubs::LFTagError.default(visited)
+          LFTagError.default(visited)
         ]
       end
 
@@ -53,8 +53,8 @@ module AWS::SDK::LakeFormation
         return nil if visited.include?('LFTagError')
         visited = visited + ['LFTagError']
         {
-          lf_tag: Stubs::LFTagPair.default(visited),
-          error: Stubs::ErrorDetail.default(visited),
+          lf_tag: LFTagPair.default(visited),
+          error: ErrorDetail.default(visited),
         }
       end
 
@@ -95,7 +95,7 @@ module AWS::SDK::LakeFormation
         {
           catalog_id: 'catalog_id',
           tag_key: 'tag_key',
-          tag_values: Stubs::TagValueList.default(visited),
+          tag_values: TagValueList.default(visited),
         }
       end
 
@@ -133,7 +133,7 @@ module AWS::SDK::LakeFormation
     class BatchGrantPermissions
       def self.default(visited=[])
         {
-          failures: Stubs::BatchPermissionsFailureList.default(visited),
+          failures: BatchPermissionsFailureList.default(visited),
         }
       end
 
@@ -152,7 +152,7 @@ module AWS::SDK::LakeFormation
         return nil if visited.include?('BatchPermissionsFailureList')
         visited = visited + ['BatchPermissionsFailureList']
         [
-          Stubs::BatchPermissionsFailureEntry.default(visited)
+          BatchPermissionsFailureEntry.default(visited)
         ]
       end
 
@@ -172,8 +172,8 @@ module AWS::SDK::LakeFormation
         return nil if visited.include?('BatchPermissionsFailureEntry')
         visited = visited + ['BatchPermissionsFailureEntry']
         {
-          request_entry: Stubs::BatchPermissionsRequestEntry.default(visited),
-          error: Stubs::ErrorDetail.default(visited),
+          request_entry: BatchPermissionsRequestEntry.default(visited),
+          error: ErrorDetail.default(visited),
         }
       end
 
@@ -193,10 +193,10 @@ module AWS::SDK::LakeFormation
         visited = visited + ['BatchPermissionsRequestEntry']
         {
           id: 'id',
-          principal: Stubs::DataLakePrincipal.default(visited),
-          resource: Stubs::Resource.default(visited),
-          permissions: Stubs::PermissionList.default(visited),
-          permissions_with_grant_option: Stubs::PermissionList.default(visited),
+          principal: DataLakePrincipal.default(visited),
+          resource: Resource.default(visited),
+          permissions: PermissionList.default(visited),
+          permissions_with_grant_option: PermissionList.default(visited),
         }
       end
 
@@ -238,14 +238,14 @@ module AWS::SDK::LakeFormation
         return nil if visited.include?('Resource')
         visited = visited + ['Resource']
         {
-          catalog: Stubs::CatalogResource.default(visited),
-          database: Stubs::DatabaseResource.default(visited),
-          table: Stubs::TableResource.default(visited),
-          table_with_columns: Stubs::TableWithColumnsResource.default(visited),
-          data_location: Stubs::DataLocationResource.default(visited),
-          data_cells_filter: Stubs::DataCellsFilterResource.default(visited),
-          lf_tag: Stubs::LFTagKeyResource.default(visited),
-          lf_tag_policy: Stubs::LFTagPolicyResource.default(visited),
+          catalog: CatalogResource.default(visited),
+          database: DatabaseResource.default(visited),
+          table: TableResource.default(visited),
+          table_with_columns: TableWithColumnsResource.default(visited),
+          data_location: DataLocationResource.default(visited),
+          data_cells_filter: DataCellsFilterResource.default(visited),
+          lf_tag: LFTagKeyResource.default(visited),
+          lf_tag_policy: LFTagPolicyResource.default(visited),
         }
       end
 
@@ -272,7 +272,7 @@ module AWS::SDK::LakeFormation
         {
           catalog_id: 'catalog_id',
           resource_type: 'resource_type',
-          expression: Stubs::Expression.default(visited),
+          expression: Expression.default(visited),
         }
       end
 
@@ -292,7 +292,7 @@ module AWS::SDK::LakeFormation
         return nil if visited.include?('Expression')
         visited = visited + ['Expression']
         [
-          Stubs::LFTag.default(visited)
+          LFTag.default(visited)
         ]
       end
 
@@ -313,7 +313,7 @@ module AWS::SDK::LakeFormation
         visited = visited + ['LFTag']
         {
           tag_key: 'tag_key',
-          tag_values: Stubs::TagValueList.default(visited),
+          tag_values: TagValueList.default(visited),
         }
       end
 
@@ -334,7 +334,7 @@ module AWS::SDK::LakeFormation
         {
           catalog_id: 'catalog_id',
           tag_key: 'tag_key',
-          tag_values: Stubs::TagValueList.default(visited),
+          tag_values: TagValueList.default(visited),
         }
       end
 
@@ -401,8 +401,8 @@ module AWS::SDK::LakeFormation
           catalog_id: 'catalog_id',
           database_name: 'database_name',
           name: 'name',
-          column_names: Stubs::ColumnNames.default(visited),
-          column_wildcard: Stubs::ColumnWildcard.default(visited),
+          column_names: ColumnNames.default(visited),
+          column_wildcard: ColumnWildcard.default(visited),
         }
       end
 
@@ -424,7 +424,7 @@ module AWS::SDK::LakeFormation
         return nil if visited.include?('ColumnWildcard')
         visited = visited + ['ColumnWildcard']
         {
-          excluded_column_names: Stubs::ColumnNames.default(visited),
+          excluded_column_names: ColumnNames.default(visited),
         }
       end
 
@@ -465,7 +465,7 @@ module AWS::SDK::LakeFormation
           catalog_id: 'catalog_id',
           database_name: 'database_name',
           name: 'name',
-          table_wildcard: Stubs::TableWildcard.default(visited),
+          table_wildcard: TableWildcard.default(visited),
         }
       end
 
@@ -554,7 +554,7 @@ module AWS::SDK::LakeFormation
     class BatchRevokePermissions
       def self.default(visited=[])
         {
-          failures: Stubs::BatchPermissionsFailureList.default(visited),
+          failures: BatchPermissionsFailureList.default(visited),
         }
       end
 
@@ -679,7 +679,7 @@ module AWS::SDK::LakeFormation
     class DescribeResource
       def self.default(visited=[])
         {
-          resource_info: Stubs::ResourceInfo.default(visited),
+          resource_info: ResourceInfo.default(visited),
         }
       end
 
@@ -718,7 +718,7 @@ module AWS::SDK::LakeFormation
     class DescribeTransaction
       def self.default(visited=[])
         {
-          transaction_description: Stubs::TransactionDescription.default(visited),
+          transaction_description: TransactionDescription.default(visited),
         }
       end
 
@@ -772,7 +772,7 @@ module AWS::SDK::LakeFormation
     class GetDataLakeSettings
       def self.default(visited=[])
         {
-          data_lake_settings: Stubs::DataLakeSettings.default(visited),
+          data_lake_settings: DataLakeSettings.default(visited),
         }
       end
 
@@ -791,13 +791,13 @@ module AWS::SDK::LakeFormation
         return nil if visited.include?('DataLakeSettings')
         visited = visited + ['DataLakeSettings']
         {
-          data_lake_admins: Stubs::DataLakePrincipalList.default(visited),
-          create_database_default_permissions: Stubs::PrincipalPermissionsList.default(visited),
-          create_table_default_permissions: Stubs::PrincipalPermissionsList.default(visited),
-          trusted_resource_owners: Stubs::TrustedResourceOwners.default(visited),
+          data_lake_admins: DataLakePrincipalList.default(visited),
+          create_database_default_permissions: PrincipalPermissionsList.default(visited),
+          create_table_default_permissions: PrincipalPermissionsList.default(visited),
+          trusted_resource_owners: TrustedResourceOwners.default(visited),
           allow_external_data_filtering: false,
-          external_data_filtering_allow_list: Stubs::DataLakePrincipalList.default(visited),
-          authorized_session_tag_value_list: Stubs::AuthorizedSessionTagValueList.default(visited),
+          external_data_filtering_allow_list: DataLakePrincipalList.default(visited),
+          authorized_session_tag_value_list: AuthorizedSessionTagValueList.default(visited),
         }
       end
 
@@ -841,7 +841,7 @@ module AWS::SDK::LakeFormation
         return nil if visited.include?('DataLakePrincipalList')
         visited = visited + ['DataLakePrincipalList']
         [
-          Stubs::DataLakePrincipal.default(visited)
+          DataLakePrincipal.default(visited)
         ]
       end
 
@@ -881,7 +881,7 @@ module AWS::SDK::LakeFormation
         return nil if visited.include?('PrincipalPermissionsList')
         visited = visited + ['PrincipalPermissionsList']
         [
-          Stubs::PrincipalPermissions.default(visited)
+          PrincipalPermissions.default(visited)
         ]
       end
 
@@ -901,8 +901,8 @@ module AWS::SDK::LakeFormation
         return nil if visited.include?('PrincipalPermissions')
         visited = visited + ['PrincipalPermissions']
         {
-          principal: Stubs::DataLakePrincipal.default(visited),
-          permissions: Stubs::PermissionList.default(visited),
+          principal: DataLakePrincipal.default(visited),
+          permissions: PermissionList.default(visited),
         }
       end
 
@@ -919,7 +919,7 @@ module AWS::SDK::LakeFormation
     class GetEffectivePermissionsForPath
       def self.default(visited=[])
         {
-          permissions: Stubs::PrincipalResourcePermissionsList.default(visited),
+          permissions: PrincipalResourcePermissionsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -940,7 +940,7 @@ module AWS::SDK::LakeFormation
         return nil if visited.include?('PrincipalResourcePermissionsList')
         visited = visited + ['PrincipalResourcePermissionsList']
         [
-          Stubs::PrincipalResourcePermissions.default(visited)
+          PrincipalResourcePermissions.default(visited)
         ]
       end
 
@@ -960,11 +960,11 @@ module AWS::SDK::LakeFormation
         return nil if visited.include?('PrincipalResourcePermissions')
         visited = visited + ['PrincipalResourcePermissions']
         {
-          principal: Stubs::DataLakePrincipal.default(visited),
-          resource: Stubs::Resource.default(visited),
-          permissions: Stubs::PermissionList.default(visited),
-          permissions_with_grant_option: Stubs::PermissionList.default(visited),
-          additional_details: Stubs::DetailsMap.default(visited),
+          principal: DataLakePrincipal.default(visited),
+          resource: Resource.default(visited),
+          permissions: PermissionList.default(visited),
+          permissions_with_grant_option: PermissionList.default(visited),
+          additional_details: DetailsMap.default(visited),
         }
       end
 
@@ -986,7 +986,7 @@ module AWS::SDK::LakeFormation
         return nil if visited.include?('DetailsMap')
         visited = visited + ['DetailsMap']
         {
-          resource_share: Stubs::ResourceShareList.default(visited),
+          resource_share: ResourceShareList.default(visited),
         }
       end
 
@@ -1024,7 +1024,7 @@ module AWS::SDK::LakeFormation
         {
           catalog_id: 'catalog_id',
           tag_key: 'tag_key',
-          tag_values: Stubs::TagValueList.default(visited),
+          tag_values: TagValueList.default(visited),
         }
       end
 
@@ -1062,8 +1062,8 @@ module AWS::SDK::LakeFormation
     class GetQueryStatistics
       def self.default(visited=[])
         {
-          execution_statistics: Stubs::ExecutionStatistics.default(visited),
-          planning_statistics: Stubs::PlanningStatistics.default(visited),
+          execution_statistics: ExecutionStatistics.default(visited),
+          planning_statistics: PlanningStatistics.default(visited),
           query_submission_time: Time.now,
         }
       end
@@ -1129,9 +1129,9 @@ module AWS::SDK::LakeFormation
     class GetResourceLFTags
       def self.default(visited=[])
         {
-          lf_tag_on_database: Stubs::LFTagsList.default(visited),
-          lf_tags_on_table: Stubs::LFTagsList.default(visited),
-          lf_tags_on_columns: Stubs::ColumnLFTagsList.default(visited),
+          lf_tag_on_database: LFTagsList.default(visited),
+          lf_tags_on_table: LFTagsList.default(visited),
+          lf_tags_on_columns: ColumnLFTagsList.default(visited),
         }
       end
 
@@ -1152,7 +1152,7 @@ module AWS::SDK::LakeFormation
         return nil if visited.include?('ColumnLFTagsList')
         visited = visited + ['ColumnLFTagsList']
         [
-          Stubs::ColumnLFTag.default(visited)
+          ColumnLFTag.default(visited)
         ]
       end
 
@@ -1173,7 +1173,7 @@ module AWS::SDK::LakeFormation
         visited = visited + ['ColumnLFTag']
         {
           name: 'name',
-          lf_tags: Stubs::LFTagsList.default(visited),
+          lf_tags: LFTagsList.default(visited),
         }
       end
 
@@ -1192,7 +1192,7 @@ module AWS::SDK::LakeFormation
         return nil if visited.include?('LFTagsList')
         visited = visited + ['LFTagsList']
         [
-          Stubs::LFTagPair.default(visited)
+          LFTagPair.default(visited)
         ]
       end
 
@@ -1210,7 +1210,7 @@ module AWS::SDK::LakeFormation
     class GetTableObjects
       def self.default(visited=[])
         {
-          objects: Stubs::PartitionedTableObjectsList.default(visited),
+          objects: PartitionedTableObjectsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1231,7 +1231,7 @@ module AWS::SDK::LakeFormation
         return nil if visited.include?('PartitionedTableObjectsList')
         visited = visited + ['PartitionedTableObjectsList']
         [
-          Stubs::PartitionObjects.default(visited)
+          PartitionObjects.default(visited)
         ]
       end
 
@@ -1251,8 +1251,8 @@ module AWS::SDK::LakeFormation
         return nil if visited.include?('PartitionObjects')
         visited = visited + ['PartitionObjects']
         {
-          partition_values: Stubs::PartitionValuesList.default(visited),
-          objects: Stubs::TableObjectList.default(visited),
+          partition_values: PartitionValuesList.default(visited),
+          objects: TableObjectList.default(visited),
         }
       end
 
@@ -1271,7 +1271,7 @@ module AWS::SDK::LakeFormation
         return nil if visited.include?('TableObjectList')
         visited = visited + ['TableObjectList']
         [
-          Stubs::TableObject.default(visited)
+          TableObject.default(visited)
         ]
       end
 
@@ -1394,7 +1394,7 @@ module AWS::SDK::LakeFormation
         {
           next_token: 'next_token',
           query_id: 'query_id',
-          work_unit_ranges: Stubs::WorkUnitRangeList.default(visited),
+          work_unit_ranges: WorkUnitRangeList.default(visited),
         }
       end
 
@@ -1415,7 +1415,7 @@ module AWS::SDK::LakeFormation
         return nil if visited.include?('WorkUnitRangeList')
         visited = visited + ['WorkUnitRangeList']
         [
-          Stubs::WorkUnitRange.default(visited)
+          WorkUnitRange.default(visited)
         ]
       end
 
@@ -1468,7 +1468,7 @@ module AWS::SDK::LakeFormation
     class ListDataCellsFilter
       def self.default(visited=[])
         {
-          data_cells_filters: Stubs::DataCellsFilterList.default(visited),
+          data_cells_filters: DataCellsFilterList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1489,7 +1489,7 @@ module AWS::SDK::LakeFormation
         return nil if visited.include?('DataCellsFilterList')
         visited = visited + ['DataCellsFilterList']
         [
-          Stubs::DataCellsFilter.default(visited)
+          DataCellsFilter.default(visited)
         ]
       end
 
@@ -1513,9 +1513,9 @@ module AWS::SDK::LakeFormation
           database_name: 'database_name',
           table_name: 'table_name',
           name: 'name',
-          row_filter: Stubs::RowFilter.default(visited),
-          column_names: Stubs::ColumnNames.default(visited),
-          column_wildcard: Stubs::ColumnWildcard.default(visited),
+          row_filter: RowFilter.default(visited),
+          column_names: ColumnNames.default(visited),
+          column_wildcard: ColumnWildcard.default(visited),
         }
       end
 
@@ -1540,7 +1540,7 @@ module AWS::SDK::LakeFormation
         visited = visited + ['RowFilter']
         {
           filter_expression: 'filter_expression',
-          all_rows_wildcard: Stubs::AllRowsWildcard.default(visited),
+          all_rows_wildcard: AllRowsWildcard.default(visited),
         }
       end
 
@@ -1573,7 +1573,7 @@ module AWS::SDK::LakeFormation
     class ListLFTags
       def self.default(visited=[])
         {
-          lf_tags: Stubs::LFTagsList.default(visited),
+          lf_tags: LFTagsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1592,7 +1592,7 @@ module AWS::SDK::LakeFormation
     class ListPermissions
       def self.default(visited=[])
         {
-          principal_resource_permissions: Stubs::PrincipalResourcePermissionsList.default(visited),
+          principal_resource_permissions: PrincipalResourcePermissionsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1611,7 +1611,7 @@ module AWS::SDK::LakeFormation
     class ListResources
       def self.default(visited=[])
         {
-          resource_info_list: Stubs::ResourceInfoList.default(visited),
+          resource_info_list: ResourceInfoList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1632,7 +1632,7 @@ module AWS::SDK::LakeFormation
         return nil if visited.include?('ResourceInfoList')
         visited = visited + ['ResourceInfoList']
         [
-          Stubs::ResourceInfo.default(visited)
+          ResourceInfo.default(visited)
         ]
       end
 
@@ -1650,7 +1650,7 @@ module AWS::SDK::LakeFormation
     class ListTableStorageOptimizers
       def self.default(visited=[])
         {
-          storage_optimizer_list: Stubs::StorageOptimizerList.default(visited),
+          storage_optimizer_list: StorageOptimizerList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1671,7 +1671,7 @@ module AWS::SDK::LakeFormation
         return nil if visited.include?('StorageOptimizerList')
         visited = visited + ['StorageOptimizerList']
         [
-          Stubs::StorageOptimizer.default(visited)
+          StorageOptimizer.default(visited)
         ]
       end
 
@@ -1692,7 +1692,7 @@ module AWS::SDK::LakeFormation
         visited = visited + ['StorageOptimizer']
         {
           storage_optimizer_type: 'storage_optimizer_type',
-          config: Stubs::StorageOptimizerConfig.default(visited),
+          config: StorageOptimizerConfig.default(visited),
           error_message: 'error_message',
           warnings: 'warnings',
           last_run_details: 'last_run_details',
@@ -1735,7 +1735,7 @@ module AWS::SDK::LakeFormation
     class ListTransactions
       def self.default(visited=[])
         {
-          transactions: Stubs::TransactionDescriptionList.default(visited),
+          transactions: TransactionDescriptionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1756,7 +1756,7 @@ module AWS::SDK::LakeFormation
         return nil if visited.include?('TransactionDescriptionList')
         visited = visited + ['TransactionDescriptionList']
         [
-          Stubs::TransactionDescription.default(visited)
+          TransactionDescription.default(visited)
         ]
       end
 
@@ -1800,7 +1800,7 @@ module AWS::SDK::LakeFormation
     class RemoveLFTagsFromResource
       def self.default(visited=[])
         {
-          failures: Stubs::LFTagErrors.default(visited),
+          failures: LFTagErrors.default(visited),
         }
       end
 
@@ -1831,7 +1831,7 @@ module AWS::SDK::LakeFormation
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          database_list: Stubs::DatabaseLFTagsList.default(visited),
+          database_list: DatabaseLFTagsList.default(visited),
         }
       end
 
@@ -1851,7 +1851,7 @@ module AWS::SDK::LakeFormation
         return nil if visited.include?('DatabaseLFTagsList')
         visited = visited + ['DatabaseLFTagsList']
         [
-          Stubs::TaggedDatabase.default(visited)
+          TaggedDatabase.default(visited)
         ]
       end
 
@@ -1871,8 +1871,8 @@ module AWS::SDK::LakeFormation
         return nil if visited.include?('TaggedDatabase')
         visited = visited + ['TaggedDatabase']
         {
-          database: Stubs::DatabaseResource.default(visited),
-          lf_tags: Stubs::LFTagsList.default(visited),
+          database: DatabaseResource.default(visited),
+          lf_tags: LFTagsList.default(visited),
         }
       end
 
@@ -1890,7 +1890,7 @@ module AWS::SDK::LakeFormation
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          table_list: Stubs::TableLFTagsList.default(visited),
+          table_list: TableLFTagsList.default(visited),
         }
       end
 
@@ -1910,7 +1910,7 @@ module AWS::SDK::LakeFormation
         return nil if visited.include?('TableLFTagsList')
         visited = visited + ['TableLFTagsList']
         [
-          Stubs::TaggedTable.default(visited)
+          TaggedTable.default(visited)
         ]
       end
 
@@ -1930,10 +1930,10 @@ module AWS::SDK::LakeFormation
         return nil if visited.include?('TaggedTable')
         visited = visited + ['TaggedTable']
         {
-          table: Stubs::TableResource.default(visited),
-          lf_tag_on_database: Stubs::LFTagsList.default(visited),
-          lf_tags_on_table: Stubs::LFTagsList.default(visited),
-          lf_tags_on_columns: Stubs::ColumnLFTagsList.default(visited),
+          table: TableResource.default(visited),
+          lf_tag_on_database: LFTagsList.default(visited),
+          lf_tags_on_table: LFTagsList.default(visited),
+          lf_tags_on_columns: ColumnLFTagsList.default(visited),
         }
       end
 

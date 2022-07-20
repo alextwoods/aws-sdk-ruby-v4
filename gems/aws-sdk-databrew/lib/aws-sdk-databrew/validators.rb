@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::DataBrew
   module Validators
 
@@ -21,7 +23,7 @@ module AWS::SDK::DataBrew
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AllowedStatistics.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AllowedStatistics.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -29,7 +31,7 @@ module AWS::SDK::DataBrew
     class AllowedStatistics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AllowedStatistics, context: context)
-        Validators::StatisticList.validate!(input[:statistics], context: "#{context}[:statistics]") unless input[:statistics].nil?
+        StatisticList.validate!(input[:statistics], context: "#{context}[:statistics]") unless input[:statistics].nil?
       end
     end
 
@@ -37,7 +39,7 @@ module AWS::SDK::DataBrew
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDeleteRecipeVersionInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::RecipeVersionList.validate!(input[:recipe_versions], context: "#{context}[:recipe_versions]") unless input[:recipe_versions].nil?
+        RecipeVersionList.validate!(input[:recipe_versions], context: "#{context}[:recipe_versions]") unless input[:recipe_versions].nil?
       end
     end
 
@@ -45,7 +47,7 @@ module AWS::SDK::DataBrew
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDeleteRecipeVersionOutput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::RecipeErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        RecipeErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
       end
     end
 
@@ -70,7 +72,7 @@ module AWS::SDK::DataBrew
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ColumnSelector.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ColumnSelector.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -78,8 +80,8 @@ module AWS::SDK::DataBrew
     class ColumnStatisticsConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ColumnStatisticsConfiguration, context: context)
-        Validators::ColumnSelectorList.validate!(input[:selectors], context: "#{context}[:selectors]") unless input[:selectors].nil?
-        Validators::StatisticsConfiguration.validate!(input[:statistics], context: "#{context}[:statistics]") unless input[:statistics].nil?
+        ColumnSelectorList.validate!(input[:selectors], context: "#{context}[:selectors]") unless input[:selectors].nil?
+        StatisticsConfiguration.validate!(input[:statistics], context: "#{context}[:statistics]") unless input[:statistics].nil?
       end
     end
 
@@ -87,7 +89,7 @@ module AWS::SDK::DataBrew
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ColumnStatisticsConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ColumnStatisticsConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -105,7 +107,7 @@ module AWS::SDK::DataBrew
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ConditionExpression.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ConditionExpression.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -122,10 +124,10 @@ module AWS::SDK::DataBrew
         Hearth::Validator.validate!(input, Types::CreateDatasetInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:format], ::String, context: "#{context}[:format]")
-        Validators::FormatOptions.validate!(input[:format_options], context: "#{context}[:format_options]") unless input[:format_options].nil?
-        Validators::Input.validate!(input[:input], context: "#{context}[:input]") unless input[:input].nil?
-        Validators::PathOptions.validate!(input[:path_options], context: "#{context}[:path_options]") unless input[:path_options].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        FormatOptions.validate!(input[:format_options], context: "#{context}[:format_options]") unless input[:format_options].nil?
+        Input.validate!(input[:input], context: "#{context}[:input]") unless input[:input].nil?
+        PathOptions.validate!(input[:path_options], context: "#{context}[:path_options]") unless input[:path_options].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -146,13 +148,13 @@ module AWS::SDK::DataBrew
         Hearth::Validator.validate!(input[:log_subscription], ::String, context: "#{context}[:log_subscription]")
         Hearth::Validator.validate!(input[:max_capacity], ::Integer, context: "#{context}[:max_capacity]")
         Hearth::Validator.validate!(input[:max_retries], ::Integer, context: "#{context}[:max_retries]")
-        Validators::S3Location.validate!(input[:output_location], context: "#{context}[:output_location]") unless input[:output_location].nil?
-        Validators::ProfileConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
-        Validators::ValidationConfigurationList.validate!(input[:validation_configurations], context: "#{context}[:validation_configurations]") unless input[:validation_configurations].nil?
+        S3Location.validate!(input[:output_location], context: "#{context}[:output_location]") unless input[:output_location].nil?
+        ProfileConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        ValidationConfigurationList.validate!(input[:validation_configurations], context: "#{context}[:validation_configurations]") unless input[:validation_configurations].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:timeout], ::Integer, context: "#{context}[:timeout]")
-        Validators::JobSample.validate!(input[:job_sample], context: "#{context}[:job_sample]") unless input[:job_sample].nil?
+        JobSample.validate!(input[:job_sample], context: "#{context}[:job_sample]") unless input[:job_sample].nil?
       end
     end
 
@@ -169,9 +171,9 @@ module AWS::SDK::DataBrew
         Hearth::Validator.validate!(input[:dataset_name], ::String, context: "#{context}[:dataset_name]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:recipe_name], ::String, context: "#{context}[:recipe_name]")
-        Validators::Sample.validate!(input[:sample], context: "#{context}[:sample]") unless input[:sample].nil?
+        Sample.validate!(input[:sample], context: "#{context}[:sample]") unless input[:sample].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -187,8 +189,8 @@ module AWS::SDK::DataBrew
         Hearth::Validator.validate!(input, Types::CreateRecipeInput, context: context)
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::RecipeStepList.validate!(input[:steps], context: "#{context}[:steps]") unless input[:steps].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        RecipeStepList.validate!(input[:steps], context: "#{context}[:steps]") unless input[:steps].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -202,13 +204,13 @@ module AWS::SDK::DataBrew
         Hearth::Validator.validate!(input[:log_subscription], ::String, context: "#{context}[:log_subscription]")
         Hearth::Validator.validate!(input[:max_capacity], ::Integer, context: "#{context}[:max_capacity]")
         Hearth::Validator.validate!(input[:max_retries], ::Integer, context: "#{context}[:max_retries]")
-        Validators::OutputList.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
-        Validators::DataCatalogOutputList.validate!(input[:data_catalog_outputs], context: "#{context}[:data_catalog_outputs]") unless input[:data_catalog_outputs].nil?
-        Validators::DatabaseOutputList.validate!(input[:database_outputs], context: "#{context}[:database_outputs]") unless input[:database_outputs].nil?
+        OutputList.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
+        DataCatalogOutputList.validate!(input[:data_catalog_outputs], context: "#{context}[:data_catalog_outputs]") unless input[:data_catalog_outputs].nil?
+        DatabaseOutputList.validate!(input[:database_outputs], context: "#{context}[:database_outputs]") unless input[:database_outputs].nil?
         Hearth::Validator.validate!(input[:project_name], ::String, context: "#{context}[:project_name]")
-        Validators::RecipeReference.validate!(input[:recipe_reference], context: "#{context}[:recipe_reference]") unless input[:recipe_reference].nil?
+        RecipeReference.validate!(input[:recipe_reference], context: "#{context}[:recipe_reference]") unless input[:recipe_reference].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:timeout], ::Integer, context: "#{context}[:timeout]")
       end
     end
@@ -233,8 +235,8 @@ module AWS::SDK::DataBrew
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:target_arn], ::String, context: "#{context}[:target_arn]")
-        Validators::RuleList.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        RuleList.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -248,9 +250,9 @@ module AWS::SDK::DataBrew
     class CreateScheduleInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateScheduleInput, context: context)
-        Validators::JobNameList.validate!(input[:job_names], context: "#{context}[:job_names]") unless input[:job_names].nil?
+        JobNameList.validate!(input[:job_names], context: "#{context}[:job_names]") unless input[:job_names].nil?
         Hearth::Validator.validate!(input[:cron_expression], ::String, context: "#{context}[:cron_expression]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
       end
     end
@@ -283,7 +285,7 @@ module AWS::SDK::DataBrew
         Hearth::Validator.validate!(input[:catalog_id], ::String, context: "#{context}[:catalog_id]")
         Hearth::Validator.validate!(input[:database_name], ::String, context: "#{context}[:database_name]")
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
-        Validators::S3Location.validate!(input[:temp_directory], context: "#{context}[:temp_directory]") unless input[:temp_directory].nil?
+        S3Location.validate!(input[:temp_directory], context: "#{context}[:temp_directory]") unless input[:temp_directory].nil?
       end
     end
 
@@ -293,8 +295,8 @@ module AWS::SDK::DataBrew
         Hearth::Validator.validate!(input[:catalog_id], ::String, context: "#{context}[:catalog_id]")
         Hearth::Validator.validate!(input[:database_name], ::String, context: "#{context}[:database_name]")
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
-        Validators::S3TableOutputOptions.validate!(input[:s3_options], context: "#{context}[:s3_options]") unless input[:s3_options].nil?
-        Validators::DatabaseTableOutputOptions.validate!(input[:database_options], context: "#{context}[:database_options]") unless input[:database_options].nil?
+        S3TableOutputOptions.validate!(input[:s3_options], context: "#{context}[:s3_options]") unless input[:s3_options].nil?
+        DatabaseTableOutputOptions.validate!(input[:database_options], context: "#{context}[:database_options]") unless input[:database_options].nil?
         Hearth::Validator.validate!(input[:overwrite], ::TrueClass, ::FalseClass, context: "#{context}[:overwrite]")
       end
     end
@@ -303,7 +305,7 @@ module AWS::SDK::DataBrew
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DataCatalogOutput.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DataCatalogOutput.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -313,7 +315,7 @@ module AWS::SDK::DataBrew
         Hearth::Validator.validate!(input, Types::DatabaseInputDefinition, context: context)
         Hearth::Validator.validate!(input[:glue_connection_name], ::String, context: "#{context}[:glue_connection_name]")
         Hearth::Validator.validate!(input[:database_table_name], ::String, context: "#{context}[:database_table_name]")
-        Validators::S3Location.validate!(input[:temp_directory], context: "#{context}[:temp_directory]") unless input[:temp_directory].nil?
+        S3Location.validate!(input[:temp_directory], context: "#{context}[:temp_directory]") unless input[:temp_directory].nil?
         Hearth::Validator.validate!(input[:query_string], ::String, context: "#{context}[:query_string]")
       end
     end
@@ -322,7 +324,7 @@ module AWS::SDK::DataBrew
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DatabaseOutput, context: context)
         Hearth::Validator.validate!(input[:glue_connection_name], ::String, context: "#{context}[:glue_connection_name]")
-        Validators::DatabaseTableOutputOptions.validate!(input[:database_options], context: "#{context}[:database_options]") unless input[:database_options].nil?
+        DatabaseTableOutputOptions.validate!(input[:database_options], context: "#{context}[:database_options]") unless input[:database_options].nil?
         Hearth::Validator.validate!(input[:database_output_mode], ::String, context: "#{context}[:database_output_mode]")
       end
     end
@@ -331,7 +333,7 @@ module AWS::SDK::DataBrew
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DatabaseOutput.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DatabaseOutput.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -339,7 +341,7 @@ module AWS::SDK::DataBrew
     class DatabaseTableOutputOptions
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DatabaseTableOutputOptions, context: context)
-        Validators::S3Location.validate!(input[:temp_directory], context: "#{context}[:temp_directory]") unless input[:temp_directory].nil?
+        S3Location.validate!(input[:temp_directory], context: "#{context}[:temp_directory]") unless input[:temp_directory].nil?
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
       end
     end
@@ -352,13 +354,13 @@ module AWS::SDK::DataBrew
         Hearth::Validator.validate!(input[:create_date], ::Time, context: "#{context}[:create_date]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:format], ::String, context: "#{context}[:format]")
-        Validators::FormatOptions.validate!(input[:format_options], context: "#{context}[:format_options]") unless input[:format_options].nil?
-        Validators::Input.validate!(input[:input], context: "#{context}[:input]") unless input[:input].nil?
+        FormatOptions.validate!(input[:format_options], context: "#{context}[:format_options]") unless input[:format_options].nil?
+        Input.validate!(input[:input], context: "#{context}[:input]") unless input[:input].nil?
         Hearth::Validator.validate!(input[:last_modified_date], ::Time, context: "#{context}[:last_modified_date]")
         Hearth::Validator.validate!(input[:last_modified_by], ::String, context: "#{context}[:last_modified_by]")
         Hearth::Validator.validate!(input[:source], ::String, context: "#{context}[:source]")
-        Validators::PathOptions.validate!(input[:path_options], context: "#{context}[:path_options]") unless input[:path_options].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        PathOptions.validate!(input[:path_options], context: "#{context}[:path_options]") unless input[:path_options].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
       end
     end
@@ -367,7 +369,7 @@ module AWS::SDK::DataBrew
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Dataset.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Dataset.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -377,9 +379,9 @@ module AWS::SDK::DataBrew
         Hearth::Validator.validate!(input, Types::DatasetParameter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::DatetimeOptions.validate!(input[:datetime_options], context: "#{context}[:datetime_options]") unless input[:datetime_options].nil?
+        DatetimeOptions.validate!(input[:datetime_options], context: "#{context}[:datetime_options]") unless input[:datetime_options].nil?
         Hearth::Validator.validate!(input[:create_column], ::TrueClass, ::FalseClass, context: "#{context}[:create_column]")
-        Validators::FilterExpression.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        FilterExpression.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
       end
     end
 
@@ -492,13 +494,13 @@ module AWS::SDK::DataBrew
         Hearth::Validator.validate!(input[:create_date], ::Time, context: "#{context}[:create_date]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:format], ::String, context: "#{context}[:format]")
-        Validators::FormatOptions.validate!(input[:format_options], context: "#{context}[:format_options]") unless input[:format_options].nil?
-        Validators::Input.validate!(input[:input], context: "#{context}[:input]") unless input[:input].nil?
+        FormatOptions.validate!(input[:format_options], context: "#{context}[:format_options]") unless input[:format_options].nil?
+        Input.validate!(input[:input], context: "#{context}[:input]") unless input[:input].nil?
         Hearth::Validator.validate!(input[:last_modified_date], ::Time, context: "#{context}[:last_modified_date]")
         Hearth::Validator.validate!(input[:last_modified_by], ::String, context: "#{context}[:last_modified_by]")
         Hearth::Validator.validate!(input[:source], ::String, context: "#{context}[:source]")
-        Validators::PathOptions.validate!(input[:path_options], context: "#{context}[:path_options]") unless input[:path_options].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        PathOptions.validate!(input[:path_options], context: "#{context}[:path_options]") unless input[:path_options].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
       end
     end
@@ -525,18 +527,18 @@ module AWS::SDK::DataBrew
         Hearth::Validator.validate!(input[:log_subscription], ::String, context: "#{context}[:log_subscription]")
         Hearth::Validator.validate!(input[:max_capacity], ::Integer, context: "#{context}[:max_capacity]")
         Hearth::Validator.validate!(input[:max_retries], ::Integer, context: "#{context}[:max_retries]")
-        Validators::OutputList.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
-        Validators::DataCatalogOutputList.validate!(input[:data_catalog_outputs], context: "#{context}[:data_catalog_outputs]") unless input[:data_catalog_outputs].nil?
-        Validators::DatabaseOutputList.validate!(input[:database_outputs], context: "#{context}[:database_outputs]") unless input[:database_outputs].nil?
+        OutputList.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
+        DataCatalogOutputList.validate!(input[:data_catalog_outputs], context: "#{context}[:data_catalog_outputs]") unless input[:data_catalog_outputs].nil?
+        DatabaseOutputList.validate!(input[:database_outputs], context: "#{context}[:database_outputs]") unless input[:database_outputs].nil?
         Hearth::Validator.validate!(input[:project_name], ::String, context: "#{context}[:project_name]")
-        Validators::ProfileConfiguration.validate!(input[:profile_configuration], context: "#{context}[:profile_configuration]") unless input[:profile_configuration].nil?
-        Validators::ValidationConfigurationList.validate!(input[:validation_configurations], context: "#{context}[:validation_configurations]") unless input[:validation_configurations].nil?
-        Validators::RecipeReference.validate!(input[:recipe_reference], context: "#{context}[:recipe_reference]") unless input[:recipe_reference].nil?
+        ProfileConfiguration.validate!(input[:profile_configuration], context: "#{context}[:profile_configuration]") unless input[:profile_configuration].nil?
+        ValidationConfigurationList.validate!(input[:validation_configurations], context: "#{context}[:validation_configurations]") unless input[:validation_configurations].nil?
+        RecipeReference.validate!(input[:recipe_reference], context: "#{context}[:recipe_reference]") unless input[:recipe_reference].nil?
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:timeout], ::Integer, context: "#{context}[:timeout]")
-        Validators::JobSample.validate!(input[:job_sample], context: "#{context}[:job_sample]") unless input[:job_sample].nil?
+        JobSample.validate!(input[:job_sample], context: "#{context}[:job_sample]") unless input[:job_sample].nil?
       end
     end
 
@@ -557,19 +559,19 @@ module AWS::SDK::DataBrew
         Hearth::Validator.validate!(input[:error_message], ::String, context: "#{context}[:error_message]")
         Hearth::Validator.validate!(input[:execution_time], ::Integer, context: "#{context}[:execution_time]")
         Hearth::Validator.validate!(input[:job_name], ::String, context: "#{context}[:job_name]")
-        Validators::ProfileConfiguration.validate!(input[:profile_configuration], context: "#{context}[:profile_configuration]") unless input[:profile_configuration].nil?
-        Validators::ValidationConfigurationList.validate!(input[:validation_configurations], context: "#{context}[:validation_configurations]") unless input[:validation_configurations].nil?
+        ProfileConfiguration.validate!(input[:profile_configuration], context: "#{context}[:profile_configuration]") unless input[:profile_configuration].nil?
+        ValidationConfigurationList.validate!(input[:validation_configurations], context: "#{context}[:validation_configurations]") unless input[:validation_configurations].nil?
         Hearth::Validator.validate!(input[:run_id], ::String, context: "#{context}[:run_id]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:log_subscription], ::String, context: "#{context}[:log_subscription]")
         Hearth::Validator.validate!(input[:log_group_name], ::String, context: "#{context}[:log_group_name]")
-        Validators::OutputList.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
-        Validators::DataCatalogOutputList.validate!(input[:data_catalog_outputs], context: "#{context}[:data_catalog_outputs]") unless input[:data_catalog_outputs].nil?
-        Validators::DatabaseOutputList.validate!(input[:database_outputs], context: "#{context}[:database_outputs]") unless input[:database_outputs].nil?
-        Validators::RecipeReference.validate!(input[:recipe_reference], context: "#{context}[:recipe_reference]") unless input[:recipe_reference].nil?
+        OutputList.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
+        DataCatalogOutputList.validate!(input[:data_catalog_outputs], context: "#{context}[:data_catalog_outputs]") unless input[:data_catalog_outputs].nil?
+        DatabaseOutputList.validate!(input[:database_outputs], context: "#{context}[:database_outputs]") unless input[:database_outputs].nil?
+        RecipeReference.validate!(input[:recipe_reference], context: "#{context}[:recipe_reference]") unless input[:recipe_reference].nil?
         Hearth::Validator.validate!(input[:started_by], ::String, context: "#{context}[:started_by]")
         Hearth::Validator.validate!(input[:started_on], ::Time, context: "#{context}[:started_on]")
-        Validators::JobSample.validate!(input[:job_sample], context: "#{context}[:job_sample]") unless input[:job_sample].nil?
+        JobSample.validate!(input[:job_sample], context: "#{context}[:job_sample]") unless input[:job_sample].nil?
       end
     end
 
@@ -591,9 +593,9 @@ module AWS::SDK::DataBrew
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:recipe_name], ::String, context: "#{context}[:recipe_name]")
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::Sample.validate!(input[:sample], context: "#{context}[:sample]") unless input[:sample].nil?
+        Sample.validate!(input[:sample], context: "#{context}[:sample]") unless input[:sample].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:session_status], ::String, context: "#{context}[:session_status]")
         Hearth::Validator.validate!(input[:opened_by], ::String, context: "#{context}[:opened_by]")
         Hearth::Validator.validate!(input[:open_date], ::Time, context: "#{context}[:open_date]")
@@ -620,8 +622,8 @@ module AWS::SDK::DataBrew
         Hearth::Validator.validate!(input[:published_date], ::Time, context: "#{context}[:published_date]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::RecipeStepList.validate!(input[:steps], context: "#{context}[:steps]") unless input[:steps].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        RecipeStepList.validate!(input[:steps], context: "#{context}[:steps]") unless input[:steps].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
         Hearth::Validator.validate!(input[:recipe_version], ::String, context: "#{context}[:recipe_version]")
       end
@@ -640,13 +642,13 @@ module AWS::SDK::DataBrew
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:target_arn], ::String, context: "#{context}[:target_arn]")
-        Validators::RuleList.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        RuleList.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
         Hearth::Validator.validate!(input[:create_date], ::Time, context: "#{context}[:create_date]")
         Hearth::Validator.validate!(input[:created_by], ::String, context: "#{context}[:created_by]")
         Hearth::Validator.validate!(input[:last_modified_by], ::String, context: "#{context}[:last_modified_by]")
         Hearth::Validator.validate!(input[:last_modified_date], ::Time, context: "#{context}[:last_modified_date]")
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -662,12 +664,12 @@ module AWS::SDK::DataBrew
         Hearth::Validator.validate!(input, Types::DescribeScheduleOutput, context: context)
         Hearth::Validator.validate!(input[:create_date], ::Time, context: "#{context}[:create_date]")
         Hearth::Validator.validate!(input[:created_by], ::String, context: "#{context}[:created_by]")
-        Validators::JobNameList.validate!(input[:job_names], context: "#{context}[:job_names]") unless input[:job_names].nil?
+        JobNameList.validate!(input[:job_names], context: "#{context}[:job_names]") unless input[:job_names].nil?
         Hearth::Validator.validate!(input[:last_modified_by], ::String, context: "#{context}[:last_modified_by]")
         Hearth::Validator.validate!(input[:last_modified_date], ::Time, context: "#{context}[:last_modified_date]")
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
         Hearth::Validator.validate!(input[:cron_expression], ::String, context: "#{context}[:cron_expression]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
       end
     end
@@ -675,8 +677,8 @@ module AWS::SDK::DataBrew
     class EntityDetectorConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EntityDetectorConfiguration, context: context)
-        Validators::EntityTypeList.validate!(input[:entity_types], context: "#{context}[:entity_types]") unless input[:entity_types].nil?
-        Validators::AllowedStatisticList.validate!(input[:allowed_statistics], context: "#{context}[:allowed_statistics]") unless input[:allowed_statistics].nil?
+        EntityTypeList.validate!(input[:entity_types], context: "#{context}[:entity_types]") unless input[:entity_types].nil?
+        AllowedStatisticList.validate!(input[:allowed_statistics], context: "#{context}[:allowed_statistics]") unless input[:allowed_statistics].nil?
       end
     end
 
@@ -692,8 +694,8 @@ module AWS::SDK::DataBrew
     class ExcelOptions
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExcelOptions, context: context)
-        Validators::SheetNameList.validate!(input[:sheet_names], context: "#{context}[:sheet_names]") unless input[:sheet_names].nil?
-        Validators::SheetIndexList.validate!(input[:sheet_indexes], context: "#{context}[:sheet_indexes]") unless input[:sheet_indexes].nil?
+        SheetNameList.validate!(input[:sheet_names], context: "#{context}[:sheet_names]") unless input[:sheet_names].nil?
+        SheetIndexList.validate!(input[:sheet_indexes], context: "#{context}[:sheet_indexes]") unless input[:sheet_indexes].nil?
         Hearth::Validator.validate!(input[:header_row], ::TrueClass, ::FalseClass, context: "#{context}[:header_row]")
       end
     end
@@ -711,16 +713,16 @@ module AWS::SDK::DataBrew
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FilterExpression, context: context)
         Hearth::Validator.validate!(input[:expression], ::String, context: "#{context}[:expression]")
-        Validators::ValuesMap.validate!(input[:values_map], context: "#{context}[:values_map]") unless input[:values_map].nil?
+        ValuesMap.validate!(input[:values_map], context: "#{context}[:values_map]") unless input[:values_map].nil?
       end
     end
 
     class FormatOptions
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FormatOptions, context: context)
-        Validators::JsonOptions.validate!(input[:json], context: "#{context}[:json]") unless input[:json].nil?
-        Validators::ExcelOptions.validate!(input[:excel], context: "#{context}[:excel]") unless input[:excel].nil?
-        Validators::CsvOptions.validate!(input[:csv], context: "#{context}[:csv]") unless input[:csv].nil?
+        JsonOptions.validate!(input[:json], context: "#{context}[:json]") unless input[:json].nil?
+        ExcelOptions.validate!(input[:excel], context: "#{context}[:excel]") unless input[:excel].nil?
+        CsvOptions.validate!(input[:csv], context: "#{context}[:csv]") unless input[:csv].nil?
       end
     end
 
@@ -736,10 +738,10 @@ module AWS::SDK::DataBrew
     class Input
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Input, context: context)
-        Validators::S3Location.validate!(input[:s3_input_definition], context: "#{context}[:s3_input_definition]") unless input[:s3_input_definition].nil?
-        Validators::DataCatalogInputDefinition.validate!(input[:data_catalog_input_definition], context: "#{context}[:data_catalog_input_definition]") unless input[:data_catalog_input_definition].nil?
-        Validators::DatabaseInputDefinition.validate!(input[:database_input_definition], context: "#{context}[:database_input_definition]") unless input[:database_input_definition].nil?
-        Validators::Metadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
+        S3Location.validate!(input[:s3_input_definition], context: "#{context}[:s3_input_definition]") unless input[:s3_input_definition].nil?
+        DataCatalogInputDefinition.validate!(input[:data_catalog_input_definition], context: "#{context}[:data_catalog_input_definition]") unless input[:data_catalog_input_definition].nil?
+        DatabaseInputDefinition.validate!(input[:database_input_definition], context: "#{context}[:database_input_definition]") unless input[:database_input_definition].nil?
+        Metadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
       end
     end
 
@@ -766,17 +768,17 @@ module AWS::SDK::DataBrew
         Hearth::Validator.validate!(input[:log_subscription], ::String, context: "#{context}[:log_subscription]")
         Hearth::Validator.validate!(input[:max_capacity], ::Integer, context: "#{context}[:max_capacity]")
         Hearth::Validator.validate!(input[:max_retries], ::Integer, context: "#{context}[:max_retries]")
-        Validators::OutputList.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
-        Validators::DataCatalogOutputList.validate!(input[:data_catalog_outputs], context: "#{context}[:data_catalog_outputs]") unless input[:data_catalog_outputs].nil?
-        Validators::DatabaseOutputList.validate!(input[:database_outputs], context: "#{context}[:database_outputs]") unless input[:database_outputs].nil?
+        OutputList.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
+        DataCatalogOutputList.validate!(input[:data_catalog_outputs], context: "#{context}[:data_catalog_outputs]") unless input[:data_catalog_outputs].nil?
+        DatabaseOutputList.validate!(input[:database_outputs], context: "#{context}[:database_outputs]") unless input[:database_outputs].nil?
         Hearth::Validator.validate!(input[:project_name], ::String, context: "#{context}[:project_name]")
-        Validators::RecipeReference.validate!(input[:recipe_reference], context: "#{context}[:recipe_reference]") unless input[:recipe_reference].nil?
+        RecipeReference.validate!(input[:recipe_reference], context: "#{context}[:recipe_reference]") unless input[:recipe_reference].nil?
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:timeout], ::Integer, context: "#{context}[:timeout]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::JobSample.validate!(input[:job_sample], context: "#{context}[:job_sample]") unless input[:job_sample].nil?
-        Validators::ValidationConfigurationList.validate!(input[:validation_configurations], context: "#{context}[:validation_configurations]") unless input[:validation_configurations].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        JobSample.validate!(input[:job_sample], context: "#{context}[:job_sample]") unless input[:job_sample].nil?
+        ValidationConfigurationList.validate!(input[:validation_configurations], context: "#{context}[:validation_configurations]") unless input[:validation_configurations].nil?
       end
     end
 
@@ -784,7 +786,7 @@ module AWS::SDK::DataBrew
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Job.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Job.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -811,14 +813,14 @@ module AWS::SDK::DataBrew
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:log_subscription], ::String, context: "#{context}[:log_subscription]")
         Hearth::Validator.validate!(input[:log_group_name], ::String, context: "#{context}[:log_group_name]")
-        Validators::OutputList.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
-        Validators::DataCatalogOutputList.validate!(input[:data_catalog_outputs], context: "#{context}[:data_catalog_outputs]") unless input[:data_catalog_outputs].nil?
-        Validators::DatabaseOutputList.validate!(input[:database_outputs], context: "#{context}[:database_outputs]") unless input[:database_outputs].nil?
-        Validators::RecipeReference.validate!(input[:recipe_reference], context: "#{context}[:recipe_reference]") unless input[:recipe_reference].nil?
+        OutputList.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
+        DataCatalogOutputList.validate!(input[:data_catalog_outputs], context: "#{context}[:data_catalog_outputs]") unless input[:data_catalog_outputs].nil?
+        DatabaseOutputList.validate!(input[:database_outputs], context: "#{context}[:database_outputs]") unless input[:database_outputs].nil?
+        RecipeReference.validate!(input[:recipe_reference], context: "#{context}[:recipe_reference]") unless input[:recipe_reference].nil?
         Hearth::Validator.validate!(input[:started_by], ::String, context: "#{context}[:started_by]")
         Hearth::Validator.validate!(input[:started_on], ::Time, context: "#{context}[:started_on]")
-        Validators::JobSample.validate!(input[:job_sample], context: "#{context}[:job_sample]") unless input[:job_sample].nil?
-        Validators::ValidationConfigurationList.validate!(input[:validation_configurations], context: "#{context}[:validation_configurations]") unless input[:validation_configurations].nil?
+        JobSample.validate!(input[:job_sample], context: "#{context}[:job_sample]") unless input[:job_sample].nil?
+        ValidationConfigurationList.validate!(input[:validation_configurations], context: "#{context}[:validation_configurations]") unless input[:validation_configurations].nil?
       end
     end
 
@@ -826,7 +828,7 @@ module AWS::SDK::DataBrew
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::JobRun.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          JobRun.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -857,7 +859,7 @@ module AWS::SDK::DataBrew
     class ListDatasetsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDatasetsOutput, context: context)
-        Validators::DatasetList.validate!(input[:datasets], context: "#{context}[:datasets]") unless input[:datasets].nil?
+        DatasetList.validate!(input[:datasets], context: "#{context}[:datasets]") unless input[:datasets].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -874,7 +876,7 @@ module AWS::SDK::DataBrew
     class ListJobRunsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListJobRunsOutput, context: context)
-        Validators::JobRunList.validate!(input[:job_runs], context: "#{context}[:job_runs]") unless input[:job_runs].nil?
+        JobRunList.validate!(input[:job_runs], context: "#{context}[:job_runs]") unless input[:job_runs].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -892,7 +894,7 @@ module AWS::SDK::DataBrew
     class ListJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListJobsOutput, context: context)
-        Validators::JobList.validate!(input[:jobs], context: "#{context}[:jobs]") unless input[:jobs].nil?
+        JobList.validate!(input[:jobs], context: "#{context}[:jobs]") unless input[:jobs].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -908,7 +910,7 @@ module AWS::SDK::DataBrew
     class ListProjectsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListProjectsOutput, context: context)
-        Validators::ProjectList.validate!(input[:projects], context: "#{context}[:projects]") unless input[:projects].nil?
+        ProjectList.validate!(input[:projects], context: "#{context}[:projects]") unless input[:projects].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -926,7 +928,7 @@ module AWS::SDK::DataBrew
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRecipeVersionsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::RecipeList.validate!(input[:recipes], context: "#{context}[:recipes]") unless input[:recipes].nil?
+        RecipeList.validate!(input[:recipes], context: "#{context}[:recipes]") unless input[:recipes].nil?
       end
     end
 
@@ -942,7 +944,7 @@ module AWS::SDK::DataBrew
     class ListRecipesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRecipesOutput, context: context)
-        Validators::RecipeList.validate!(input[:recipes], context: "#{context}[:recipes]") unless input[:recipes].nil?
+        RecipeList.validate!(input[:recipes], context: "#{context}[:recipes]") unless input[:recipes].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -959,7 +961,7 @@ module AWS::SDK::DataBrew
     class ListRulesetsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRulesetsOutput, context: context)
-        Validators::RulesetItemList.validate!(input[:rulesets], context: "#{context}[:rulesets]") unless input[:rulesets].nil?
+        RulesetItemList.validate!(input[:rulesets], context: "#{context}[:rulesets]") unless input[:rulesets].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -976,7 +978,7 @@ module AWS::SDK::DataBrew
     class ListSchedulesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSchedulesOutput, context: context)
-        Validators::ScheduleList.validate!(input[:schedules], context: "#{context}[:schedules]") unless input[:schedules].nil?
+        ScheduleList.validate!(input[:schedules], context: "#{context}[:schedules]") unless input[:schedules].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -991,7 +993,7 @@ module AWS::SDK::DataBrew
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1007,10 +1009,10 @@ module AWS::SDK::DataBrew
         Hearth::Validator.validate!(input, Types::Output, context: context)
         Hearth::Validator.validate!(input[:compression_format], ::String, context: "#{context}[:compression_format]")
         Hearth::Validator.validate!(input[:format], ::String, context: "#{context}[:format]")
-        Validators::ColumnNameList.validate!(input[:partition_columns], context: "#{context}[:partition_columns]") unless input[:partition_columns].nil?
-        Validators::S3Location.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        ColumnNameList.validate!(input[:partition_columns], context: "#{context}[:partition_columns]") unless input[:partition_columns].nil?
+        S3Location.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
         Hearth::Validator.validate!(input[:overwrite], ::TrueClass, ::FalseClass, context: "#{context}[:overwrite]")
-        Validators::OutputFormatOptions.validate!(input[:format_options], context: "#{context}[:format_options]") unless input[:format_options].nil?
+        OutputFormatOptions.validate!(input[:format_options], context: "#{context}[:format_options]") unless input[:format_options].nil?
         Hearth::Validator.validate!(input[:max_output_files], ::Integer, context: "#{context}[:max_output_files]")
       end
     end
@@ -1018,7 +1020,7 @@ module AWS::SDK::DataBrew
     class OutputFormatOptions
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OutputFormatOptions, context: context)
-        Validators::CsvOutputOptions.validate!(input[:csv], context: "#{context}[:csv]") unless input[:csv].nil?
+        CsvOutputOptions.validate!(input[:csv], context: "#{context}[:csv]") unless input[:csv].nil?
       end
     end
 
@@ -1026,7 +1028,7 @@ module AWS::SDK::DataBrew
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Output.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Output.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1044,9 +1046,9 @@ module AWS::SDK::DataBrew
     class PathOptions
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PathOptions, context: context)
-        Validators::FilterExpression.validate!(input[:last_modified_date_condition], context: "#{context}[:last_modified_date_condition]") unless input[:last_modified_date_condition].nil?
-        Validators::FilesLimit.validate!(input[:files_limit], context: "#{context}[:files_limit]") unless input[:files_limit].nil?
-        Validators::PathParametersMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        FilterExpression.validate!(input[:last_modified_date_condition], context: "#{context}[:last_modified_date_condition]") unless input[:last_modified_date_condition].nil?
+        FilesLimit.validate!(input[:files_limit], context: "#{context}[:files_limit]") unless input[:files_limit].nil?
+        PathParametersMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
       end
     end
 
@@ -1055,7 +1057,7 @@ module AWS::SDK::DataBrew
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::DatasetParameter.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          DatasetParameter.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -1063,10 +1065,10 @@ module AWS::SDK::DataBrew
     class ProfileConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ProfileConfiguration, context: context)
-        Validators::StatisticsConfiguration.validate!(input[:dataset_statistics_configuration], context: "#{context}[:dataset_statistics_configuration]") unless input[:dataset_statistics_configuration].nil?
-        Validators::ColumnSelectorList.validate!(input[:profile_columns], context: "#{context}[:profile_columns]") unless input[:profile_columns].nil?
-        Validators::ColumnStatisticsConfigurationList.validate!(input[:column_statistics_configurations], context: "#{context}[:column_statistics_configurations]") unless input[:column_statistics_configurations].nil?
-        Validators::EntityDetectorConfiguration.validate!(input[:entity_detector_configuration], context: "#{context}[:entity_detector_configuration]") unless input[:entity_detector_configuration].nil?
+        StatisticsConfiguration.validate!(input[:dataset_statistics_configuration], context: "#{context}[:dataset_statistics_configuration]") unless input[:dataset_statistics_configuration].nil?
+        ColumnSelectorList.validate!(input[:profile_columns], context: "#{context}[:profile_columns]") unless input[:profile_columns].nil?
+        ColumnStatisticsConfigurationList.validate!(input[:column_statistics_configurations], context: "#{context}[:column_statistics_configurations]") unless input[:column_statistics_configurations].nil?
+        EntityDetectorConfiguration.validate!(input[:entity_detector_configuration], context: "#{context}[:entity_detector_configuration]") unless input[:entity_detector_configuration].nil?
       end
     end
 
@@ -1082,8 +1084,8 @@ module AWS::SDK::DataBrew
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:recipe_name], ::String, context: "#{context}[:recipe_name]")
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::Sample.validate!(input[:sample], context: "#{context}[:sample]") unless input[:sample].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Sample.validate!(input[:sample], context: "#{context}[:sample]") unless input[:sample].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:opened_by], ::String, context: "#{context}[:opened_by]")
         Hearth::Validator.validate!(input[:open_date], ::Time, context: "#{context}[:open_date]")
@@ -1094,7 +1096,7 @@ module AWS::SDK::DataBrew
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Project.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Project.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1127,8 +1129,8 @@ module AWS::SDK::DataBrew
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::RecipeStepList.validate!(input[:steps], context: "#{context}[:steps]") unless input[:steps].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        RecipeStepList.validate!(input[:steps], context: "#{context}[:steps]") unless input[:steps].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:recipe_version], ::String, context: "#{context}[:recipe_version]")
       end
     end
@@ -1137,7 +1139,7 @@ module AWS::SDK::DataBrew
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RecipeAction, context: context)
         Hearth::Validator.validate!(input[:operation], ::String, context: "#{context}[:operation]")
-        Validators::ParameterMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        ParameterMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
       end
     end
 
@@ -1145,7 +1147,7 @@ module AWS::SDK::DataBrew
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RecipeVersionErrorDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RecipeVersionErrorDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1154,7 +1156,7 @@ module AWS::SDK::DataBrew
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Recipe.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Recipe.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1170,8 +1172,8 @@ module AWS::SDK::DataBrew
     class RecipeStep
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RecipeStep, context: context)
-        Validators::RecipeAction.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
-        Validators::ConditionExpressionList.validate!(input[:condition_expressions], context: "#{context}[:condition_expressions]") unless input[:condition_expressions].nil?
+        RecipeAction.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
+        ConditionExpressionList.validate!(input[:condition_expressions], context: "#{context}[:condition_expressions]") unless input[:condition_expressions].nil?
       end
     end
 
@@ -1179,7 +1181,7 @@ module AWS::SDK::DataBrew
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RecipeStep.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RecipeStep.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1215,9 +1217,9 @@ module AWS::SDK::DataBrew
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:disabled], ::TrueClass, ::FalseClass, context: "#{context}[:disabled]")
         Hearth::Validator.validate!(input[:check_expression], ::String, context: "#{context}[:check_expression]")
-        Validators::ValuesMap.validate!(input[:substitution_map], context: "#{context}[:substitution_map]") unless input[:substitution_map].nil?
-        Validators::Threshold.validate!(input[:threshold], context: "#{context}[:threshold]") unless input[:threshold].nil?
-        Validators::ColumnSelectorList.validate!(input[:column_selectors], context: "#{context}[:column_selectors]") unless input[:column_selectors].nil?
+        ValuesMap.validate!(input[:substitution_map], context: "#{context}[:substitution_map]") unless input[:substitution_map].nil?
+        Threshold.validate!(input[:threshold], context: "#{context}[:threshold]") unless input[:threshold].nil?
+        ColumnSelectorList.validate!(input[:column_selectors], context: "#{context}[:column_selectors]") unless input[:column_selectors].nil?
       end
     end
 
@@ -1225,7 +1227,7 @@ module AWS::SDK::DataBrew
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Rule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Rule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1242,7 +1244,7 @@ module AWS::SDK::DataBrew
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
         Hearth::Validator.validate!(input[:rule_count], ::Integer, context: "#{context}[:rule_count]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:target_arn], ::String, context: "#{context}[:target_arn]")
       end
     end
@@ -1251,7 +1253,7 @@ module AWS::SDK::DataBrew
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RulesetItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RulesetItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1268,7 +1270,7 @@ module AWS::SDK::DataBrew
     class S3TableOutputOptions
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::S3TableOutputOptions, context: context)
-        Validators::S3Location.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        S3Location.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
       end
     end
 
@@ -1286,12 +1288,12 @@ module AWS::SDK::DataBrew
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
         Hearth::Validator.validate!(input[:created_by], ::String, context: "#{context}[:created_by]")
         Hearth::Validator.validate!(input[:create_date], ::Time, context: "#{context}[:create_date]")
-        Validators::JobNameList.validate!(input[:job_names], context: "#{context}[:job_names]") unless input[:job_names].nil?
+        JobNameList.validate!(input[:job_names], context: "#{context}[:job_names]") unless input[:job_names].nil?
         Hearth::Validator.validate!(input[:last_modified_by], ::String, context: "#{context}[:last_modified_by]")
         Hearth::Validator.validate!(input[:last_modified_date], ::Time, context: "#{context}[:last_modified_date]")
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
         Hearth::Validator.validate!(input[:cron_expression], ::String, context: "#{context}[:cron_expression]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
       end
     end
@@ -1300,7 +1302,7 @@ module AWS::SDK::DataBrew
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Schedule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Schedule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1310,10 +1312,10 @@ module AWS::SDK::DataBrew
         Hearth::Validator.validate!(input, Types::SendProjectSessionActionInput, context: context)
         Hearth::Validator.validate!(input[:preview], ::TrueClass, ::FalseClass, context: "#{context}[:preview]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::RecipeStep.validate!(input[:recipe_step], context: "#{context}[:recipe_step]") unless input[:recipe_step].nil?
+        RecipeStep.validate!(input[:recipe_step], context: "#{context}[:recipe_step]") unless input[:recipe_step].nil?
         Hearth::Validator.validate!(input[:step_index], ::Integer, context: "#{context}[:step_index]")
         Hearth::Validator.validate!(input[:client_session_id], ::String, context: "#{context}[:client_session_id]")
-        Validators::ViewFrame.validate!(input[:view_frame], context: "#{context}[:view_frame]") unless input[:view_frame].nil?
+        ViewFrame.validate!(input[:view_frame], context: "#{context}[:view_frame]") unless input[:view_frame].nil?
       end
     end
 
@@ -1394,7 +1396,7 @@ module AWS::SDK::DataBrew
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StatisticOverride, context: context)
         Hearth::Validator.validate!(input[:statistic], ::String, context: "#{context}[:statistic]")
-        Validators::ParameterMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        ParameterMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
       end
     end
 
@@ -1402,7 +1404,7 @@ module AWS::SDK::DataBrew
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StatisticOverride.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StatisticOverride.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1410,8 +1412,8 @@ module AWS::SDK::DataBrew
     class StatisticsConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StatisticsConfiguration, context: context)
-        Validators::StatisticList.validate!(input[:included_statistics], context: "#{context}[:included_statistics]") unless input[:included_statistics].nil?
-        Validators::StatisticOverrideList.validate!(input[:overrides], context: "#{context}[:overrides]") unless input[:overrides].nil?
+        StatisticList.validate!(input[:included_statistics], context: "#{context}[:included_statistics]") unless input[:included_statistics].nil?
+        StatisticOverrideList.validate!(input[:overrides], context: "#{context}[:overrides]") unless input[:overrides].nil?
       end
     end
 
@@ -1453,7 +1455,7 @@ module AWS::SDK::DataBrew
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1476,7 +1478,7 @@ module AWS::SDK::DataBrew
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1491,9 +1493,9 @@ module AWS::SDK::DataBrew
         Hearth::Validator.validate!(input, Types::UpdateDatasetInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:format], ::String, context: "#{context}[:format]")
-        Validators::FormatOptions.validate!(input[:format_options], context: "#{context}[:format_options]") unless input[:format_options].nil?
-        Validators::Input.validate!(input[:input], context: "#{context}[:input]") unless input[:input].nil?
-        Validators::PathOptions.validate!(input[:path_options], context: "#{context}[:path_options]") unless input[:path_options].nil?
+        FormatOptions.validate!(input[:format_options], context: "#{context}[:format_options]") unless input[:format_options].nil?
+        Input.validate!(input[:input], context: "#{context}[:input]") unless input[:input].nil?
+        PathOptions.validate!(input[:path_options], context: "#{context}[:path_options]") unless input[:path_options].nil?
       end
     end
 
@@ -1507,18 +1509,18 @@ module AWS::SDK::DataBrew
     class UpdateProfileJobInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateProfileJobInput, context: context)
-        Validators::ProfileConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        ProfileConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
         Hearth::Validator.validate!(input[:encryption_key_arn], ::String, context: "#{context}[:encryption_key_arn]")
         Hearth::Validator.validate!(input[:encryption_mode], ::String, context: "#{context}[:encryption_mode]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:log_subscription], ::String, context: "#{context}[:log_subscription]")
         Hearth::Validator.validate!(input[:max_capacity], ::Integer, context: "#{context}[:max_capacity]")
         Hearth::Validator.validate!(input[:max_retries], ::Integer, context: "#{context}[:max_retries]")
-        Validators::S3Location.validate!(input[:output_location], context: "#{context}[:output_location]") unless input[:output_location].nil?
-        Validators::ValidationConfigurationList.validate!(input[:validation_configurations], context: "#{context}[:validation_configurations]") unless input[:validation_configurations].nil?
+        S3Location.validate!(input[:output_location], context: "#{context}[:output_location]") unless input[:output_location].nil?
+        ValidationConfigurationList.validate!(input[:validation_configurations], context: "#{context}[:validation_configurations]") unless input[:validation_configurations].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:timeout], ::Integer, context: "#{context}[:timeout]")
-        Validators::JobSample.validate!(input[:job_sample], context: "#{context}[:job_sample]") unless input[:job_sample].nil?
+        JobSample.validate!(input[:job_sample], context: "#{context}[:job_sample]") unless input[:job_sample].nil?
       end
     end
 
@@ -1532,7 +1534,7 @@ module AWS::SDK::DataBrew
     class UpdateProjectInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateProjectInput, context: context)
-        Validators::Sample.validate!(input[:sample], context: "#{context}[:sample]") unless input[:sample].nil?
+        Sample.validate!(input[:sample], context: "#{context}[:sample]") unless input[:sample].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
       end
@@ -1551,7 +1553,7 @@ module AWS::SDK::DataBrew
         Hearth::Validator.validate!(input, Types::UpdateRecipeInput, context: context)
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::RecipeStepList.validate!(input[:steps], context: "#{context}[:steps]") unless input[:steps].nil?
+        RecipeStepList.validate!(input[:steps], context: "#{context}[:steps]") unless input[:steps].nil?
       end
     end
 
@@ -1564,9 +1566,9 @@ module AWS::SDK::DataBrew
         Hearth::Validator.validate!(input[:log_subscription], ::String, context: "#{context}[:log_subscription]")
         Hearth::Validator.validate!(input[:max_capacity], ::Integer, context: "#{context}[:max_capacity]")
         Hearth::Validator.validate!(input[:max_retries], ::Integer, context: "#{context}[:max_retries]")
-        Validators::OutputList.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
-        Validators::DataCatalogOutputList.validate!(input[:data_catalog_outputs], context: "#{context}[:data_catalog_outputs]") unless input[:data_catalog_outputs].nil?
-        Validators::DatabaseOutputList.validate!(input[:database_outputs], context: "#{context}[:database_outputs]") unless input[:database_outputs].nil?
+        OutputList.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
+        DataCatalogOutputList.validate!(input[:data_catalog_outputs], context: "#{context}[:data_catalog_outputs]") unless input[:data_catalog_outputs].nil?
+        DatabaseOutputList.validate!(input[:database_outputs], context: "#{context}[:database_outputs]") unless input[:database_outputs].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:timeout], ::Integer, context: "#{context}[:timeout]")
       end
@@ -1591,7 +1593,7 @@ module AWS::SDK::DataBrew
         Hearth::Validator.validate!(input, Types::UpdateRulesetInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::RuleList.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        RuleList.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
       end
     end
 
@@ -1605,7 +1607,7 @@ module AWS::SDK::DataBrew
     class UpdateScheduleInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateScheduleInput, context: context)
-        Validators::JobNameList.validate!(input[:job_names], context: "#{context}[:job_names]") unless input[:job_names].nil?
+        JobNameList.validate!(input[:job_names], context: "#{context}[:job_names]") unless input[:job_names].nil?
         Hearth::Validator.validate!(input[:cron_expression], ::String, context: "#{context}[:cron_expression]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
       end
@@ -1630,7 +1632,7 @@ module AWS::SDK::DataBrew
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ValidationConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ValidationConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1657,7 +1659,7 @@ module AWS::SDK::DataBrew
         Hearth::Validator.validate!(input, Types::ViewFrame, context: context)
         Hearth::Validator.validate!(input[:start_column_index], ::Integer, context: "#{context}[:start_column_index]")
         Hearth::Validator.validate!(input[:column_range], ::Integer, context: "#{context}[:column_range]")
-        Validators::HiddenColumnList.validate!(input[:hidden_columns], context: "#{context}[:hidden_columns]") unless input[:hidden_columns].nil?
+        HiddenColumnList.validate!(input[:hidden_columns], context: "#{context}[:hidden_columns]") unless input[:hidden_columns].nil?
         Hearth::Validator.validate!(input[:start_row_index], ::Integer, context: "#{context}[:start_row_index]")
         Hearth::Validator.validate!(input[:row_range], ::Integer, context: "#{context}[:row_range]")
         Hearth::Validator.validate!(input[:analytics], ::String, context: "#{context}[:analytics]")

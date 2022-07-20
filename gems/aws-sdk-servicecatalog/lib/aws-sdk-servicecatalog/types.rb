@@ -979,11 +979,11 @@ module AWS::SDK::ServiceCatalog
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.share_tag_options ||= false
       end
-
     end
 
     # @!attribute portfolio_share_token
@@ -1665,11 +1665,11 @@ module AWS::SDK::ServiceCatalog
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ignore_errors ||= false
       end
-
     end
 
     DeleteProvisionedProductPlanOutput = ::Struct.new(
@@ -2064,11 +2064,11 @@ module AWS::SDK::ServiceCatalog
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.page_size ||= 0
       end
-
     end
 
     # @!attribute next_page_token
@@ -2403,11 +2403,11 @@ module AWS::SDK::ServiceCatalog
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.page_size ||= 0
       end
-
     end
 
     # @!attribute provisioned_product_plan_details
@@ -2488,11 +2488,11 @@ module AWS::SDK::ServiceCatalog
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.verbose ||= false
       end
-
     end
 
     # @!attribute provisioning_artifact_detail
@@ -2680,11 +2680,11 @@ module AWS::SDK::ServiceCatalog
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.page_size ||= 0
       end
-
     end
 
     # @!attribute record_detail
@@ -3330,11 +3330,11 @@ module AWS::SDK::ServiceCatalog
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.page_size ||= 0
       end
-
     end
 
     # @!attribute outputs
@@ -3579,11 +3579,11 @@ module AWS::SDK::ServiceCatalog
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.page_size ||= 0
       end
-
     end
 
     # @!attribute portfolio_details
@@ -3646,11 +3646,11 @@ module AWS::SDK::ServiceCatalog
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.page_size ||= 0
       end
-
     end
 
     # @!attribute budgets
@@ -3719,11 +3719,11 @@ module AWS::SDK::ServiceCatalog
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.page_size ||= 0
       end
-
     end
 
     # @!attribute constraint_details
@@ -3786,11 +3786,11 @@ module AWS::SDK::ServiceCatalog
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.page_size ||= 0
       end
-
     end
 
     # @!attribute launch_path_summaries
@@ -3875,11 +3875,11 @@ module AWS::SDK::ServiceCatalog
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.page_size ||= 0
       end
-
     end
 
     # @!attribute organization_nodes
@@ -3948,11 +3948,11 @@ module AWS::SDK::ServiceCatalog
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.page_size ||= 0
       end
-
     end
 
     # @!attribute account_ids
@@ -4015,11 +4015,11 @@ module AWS::SDK::ServiceCatalog
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.page_size ||= 0
       end
-
     end
 
     # @!attribute portfolio_details
@@ -4076,11 +4076,11 @@ module AWS::SDK::ServiceCatalog
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.page_size ||= 0
       end
-
     end
 
     # @!attribute portfolio_details
@@ -4143,11 +4143,11 @@ module AWS::SDK::ServiceCatalog
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.page_size ||= 0
       end
-
     end
 
     # @!attribute principals
@@ -4216,11 +4216,11 @@ module AWS::SDK::ServiceCatalog
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.page_size ||= 0
       end
-
     end
 
     # @!attribute provisioned_product_plans
@@ -4283,11 +4283,11 @@ module AWS::SDK::ServiceCatalog
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.page_size ||= 0
       end
-
     end
 
     # @!attribute provisioning_artifact_views
@@ -4406,11 +4406,11 @@ module AWS::SDK::ServiceCatalog
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.page_size ||= 0
       end
-
     end
 
     # @!attribute record_details
@@ -4501,11 +4501,11 @@ module AWS::SDK::ServiceCatalog
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.page_size ||= 0
       end
-
     end
 
     # @!attribute resource_details
@@ -4574,11 +4574,11 @@ module AWS::SDK::ServiceCatalog
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.page_size ||= 0
       end
-
     end
 
     # @!attribute service_action_summaries
@@ -4635,11 +4635,11 @@ module AWS::SDK::ServiceCatalog
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.page_size ||= 0
       end
-
     end
 
     # @!attribute service_action_summaries
@@ -4702,11 +4702,11 @@ module AWS::SDK::ServiceCatalog
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.page_size ||= 0
       end
-
     end
 
     # @!attribute stack_instances
@@ -4775,11 +4775,11 @@ module AWS::SDK::ServiceCatalog
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.page_size ||= 0
       end
-
     end
 
     # @!attribute tag_option_details
@@ -4993,12 +4993,12 @@ module AWS::SDK::ServiceCatalog
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.accepted ||= false
         self.share_tag_options ||= false
       end
-
     end
 
     # Includes enum constants for PortfolioShareType
@@ -5086,11 +5086,11 @@ module AWS::SDK::ServiceCatalog
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.approximate_count ||= 0
       end
-
     end
 
     # <p>Information about a product view.</p>
@@ -5259,11 +5259,11 @@ module AWS::SDK::ServiceCatalog
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.has_default_path ||= false
       end
-
     end
 
     # Includes enum constants for PropertyKey
@@ -6160,11 +6160,11 @@ module AWS::SDK::ServiceCatalog
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_no_echo ||= false
       end
-
     end
 
     # <p>The user-defined preferences that will be applied during product provisioning, unless overridden by <code>ProvisioningPreferences</code> or <code>UpdateProvisioningPreferences</code>.</p>
@@ -6252,11 +6252,11 @@ module AWS::SDK::ServiceCatalog
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.disable_template_validation ||= false
       end
-
     end
 
     # Includes enum constants for ProvisioningArtifactPropertyName
@@ -7005,11 +7005,11 @@ module AWS::SDK::ServiceCatalog
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.page_size ||= 0
       end
-
     end
 
     # @!attribute provisioned_products
@@ -7103,11 +7103,11 @@ module AWS::SDK::ServiceCatalog
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.page_size ||= 0
       end
-
     end
 
     # @!attribute product_view_details
@@ -7187,11 +7187,11 @@ module AWS::SDK::ServiceCatalog
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.page_size ||= 0
       end
-
     end
 
     # @!attribute product_view_summaries
@@ -7289,11 +7289,11 @@ module AWS::SDK::ServiceCatalog
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.page_size ||= 0
       end
-
     end
 
     # @!attribute provisioned_products
@@ -7318,11 +7318,11 @@ module AWS::SDK::ServiceCatalog
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_results_count ||= 0
       end
-
     end
 
     # <p>A self-service action association consisting of the Action ID, the Product ID, and the Provisioning Artifact ID.</p>
@@ -7788,12 +7788,12 @@ module AWS::SDK::ServiceCatalog
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ignore_errors ||= false
         self.retain_physical_resources ||= false
       end
-
     end
 
     # @!attribute record_detail
@@ -8510,11 +8510,11 @@ module AWS::SDK::ServiceCatalog
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.use_previous_value ||= false
       end
-
     end
 
     # <p>The user-defined preferences that will be applied when updating a provisioned product. Not all preferences are applicable to all provisioned product types.</p>

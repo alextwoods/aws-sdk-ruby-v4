@@ -79,7 +79,7 @@ module AWS::SDK::IoT1ClickProjects
     class DescribePlacement
       def self.default(visited=[])
         {
-          placement: Stubs::PlacementDescription.default(visited),
+          placement: PlacementDescription.default(visited),
         }
       end
 
@@ -100,7 +100,7 @@ module AWS::SDK::IoT1ClickProjects
         {
           project_name: 'project_name',
           placement_name: 'placement_name',
-          attributes: Stubs::PlacementAttributeMap.default(visited),
+          attributes: PlacementAttributeMap.default(visited),
           created_date: Time.now,
           updated_date: Time.now,
         }
@@ -142,7 +142,7 @@ module AWS::SDK::IoT1ClickProjects
     class DescribeProject
       def self.default(visited=[])
         {
-          project: Stubs::ProjectDescription.default(visited),
+          project: ProjectDescription.default(visited),
         }
       end
 
@@ -166,8 +166,8 @@ module AWS::SDK::IoT1ClickProjects
           description: 'description',
           created_date: Time.now,
           updated_date: Time.now,
-          placement_template: Stubs::PlacementTemplate.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          placement_template: PlacementTemplate.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -211,8 +211,8 @@ module AWS::SDK::IoT1ClickProjects
         return nil if visited.include?('PlacementTemplate')
         visited = visited + ['PlacementTemplate']
         {
-          default_attributes: Stubs::DefaultPlacementAttributeMap.default(visited),
-          device_templates: Stubs::DeviceTemplateMap.default(visited),
+          default_attributes: DefaultPlacementAttributeMap.default(visited),
+          device_templates: DeviceTemplateMap.default(visited),
         }
       end
 
@@ -231,7 +231,7 @@ module AWS::SDK::IoT1ClickProjects
         return nil if visited.include?('DeviceTemplateMap')
         visited = visited + ['DeviceTemplateMap']
         {
-          test_key: Stubs::DeviceTemplate.default(visited)
+          test_key: DeviceTemplate.default(visited)
         }
       end
 
@@ -252,7 +252,7 @@ module AWS::SDK::IoT1ClickProjects
         visited = visited + ['DeviceTemplate']
         {
           device_type: 'device_type',
-          callback_overrides: Stubs::DeviceCallbackOverrideMap.default(visited),
+          callback_overrides: DeviceCallbackOverrideMap.default(visited),
         }
       end
 
@@ -322,7 +322,7 @@ module AWS::SDK::IoT1ClickProjects
     class GetDevicesInPlacement
       def self.default(visited=[])
         {
-          devices: Stubs::DeviceMap.default(visited),
+          devices: DeviceMap.default(visited),
         }
       end
 
@@ -359,7 +359,7 @@ module AWS::SDK::IoT1ClickProjects
     class ListPlacements
       def self.default(visited=[])
         {
-          placements: Stubs::PlacementSummaryList.default(visited),
+          placements: PlacementSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -380,7 +380,7 @@ module AWS::SDK::IoT1ClickProjects
         return nil if visited.include?('PlacementSummaryList')
         visited = visited + ['PlacementSummaryList']
         [
-          Stubs::PlacementSummary.default(visited)
+          PlacementSummary.default(visited)
         ]
       end
 
@@ -422,7 +422,7 @@ module AWS::SDK::IoT1ClickProjects
     class ListProjects
       def self.default(visited=[])
         {
-          projects: Stubs::ProjectSummaryList.default(visited),
+          projects: ProjectSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -443,7 +443,7 @@ module AWS::SDK::IoT1ClickProjects
         return nil if visited.include?('ProjectSummaryList')
         visited = visited + ['ProjectSummaryList']
         [
-          Stubs::ProjectSummary.default(visited)
+          ProjectSummary.default(visited)
         ]
       end
 
@@ -467,7 +467,7 @@ module AWS::SDK::IoT1ClickProjects
           project_name: 'project_name',
           created_date: Time.now,
           updated_date: Time.now,
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -487,7 +487,7 @@ module AWS::SDK::IoT1ClickProjects
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 

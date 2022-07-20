@@ -14,7 +14,7 @@ module AWS::SDK::RoboMaker
     class BatchDeleteWorlds
       def self.default(visited=[])
         {
-          unprocessed_worlds: Stubs::Arns.default(visited),
+          unprocessed_worlds: Arns.default(visited),
         }
       end
 
@@ -51,8 +51,8 @@ module AWS::SDK::RoboMaker
     class BatchDescribeSimulationJob
       def self.default(visited=[])
         {
-          jobs: Stubs::SimulationJobs.default(visited),
-          unprocessed_jobs: Stubs::Arns.default(visited),
+          jobs: SimulationJobs.default(visited),
+          unprocessed_jobs: Arns.default(visited),
         }
       end
 
@@ -72,7 +72,7 @@ module AWS::SDK::RoboMaker
         return nil if visited.include?('SimulationJobs')
         visited = visited + ['SimulationJobs']
         [
-          Stubs::SimulationJob.default(visited)
+          SimulationJob.default(visited)
         ]
       end
 
@@ -101,18 +101,18 @@ module AWS::SDK::RoboMaker
           failure_code: 'failure_code',
           failure_reason: 'failure_reason',
           client_request_token: 'client_request_token',
-          output_location: Stubs::OutputLocation.default(visited),
-          logging_config: Stubs::LoggingConfig.default(visited),
+          output_location: OutputLocation.default(visited),
+          logging_config: LoggingConfig.default(visited),
           max_job_duration_in_seconds: 1,
           simulation_time_millis: 1,
           iam_role: 'iam_role',
-          robot_applications: Stubs::RobotApplicationConfigs.default(visited),
-          simulation_applications: Stubs::SimulationApplicationConfigs.default(visited),
-          data_sources: Stubs::DataSources.default(visited),
-          tags: Stubs::TagMap.default(visited),
-          vpc_config: Stubs::VPCConfigResponse.default(visited),
-          network_interface: Stubs::NetworkInterface.default(visited),
-          compute: Stubs::ComputeResponse.default(visited),
+          robot_applications: RobotApplicationConfigs.default(visited),
+          simulation_applications: SimulationApplicationConfigs.default(visited),
+          data_sources: DataSources.default(visited),
+          tags: TagMap.default(visited),
+          vpc_config: VPCConfigResponse.default(visited),
+          network_interface: NetworkInterface.default(visited),
+          compute: ComputeResponse.default(visited),
         }
       end
 
@@ -194,8 +194,8 @@ module AWS::SDK::RoboMaker
         return nil if visited.include?('VPCConfigResponse')
         visited = visited + ['VPCConfigResponse']
         {
-          subnets: Stubs::Subnets.default(visited),
-          security_groups: Stubs::SecurityGroups.default(visited),
+          subnets: Subnets.default(visited),
+          security_groups: SecurityGroups.default(visited),
           vpc_id: 'vpc_id',
           assign_public_ip: false,
         }
@@ -278,7 +278,7 @@ module AWS::SDK::RoboMaker
         return nil if visited.include?('DataSources')
         visited = visited + ['DataSources']
         [
-          Stubs::DataSource.default(visited)
+          DataSource.default(visited)
         ]
       end
 
@@ -300,7 +300,7 @@ module AWS::SDK::RoboMaker
         {
           name: 'name',
           s3_bucket: 's3_bucket',
-          s3_keys: Stubs::S3KeyOutputs.default(visited),
+          s3_keys: S3KeyOutputs.default(visited),
           type: 'type',
           destination: 'destination',
         }
@@ -324,7 +324,7 @@ module AWS::SDK::RoboMaker
         return nil if visited.include?('S3KeyOutputs')
         visited = visited + ['S3KeyOutputs']
         [
-          Stubs::S3KeyOutput.default(visited)
+          S3KeyOutput.default(visited)
         ]
       end
 
@@ -364,7 +364,7 @@ module AWS::SDK::RoboMaker
         return nil if visited.include?('SimulationApplicationConfigs')
         visited = visited + ['SimulationApplicationConfigs']
         [
-          Stubs::SimulationApplicationConfig.default(visited)
+          SimulationApplicationConfig.default(visited)
         ]
       end
 
@@ -386,11 +386,11 @@ module AWS::SDK::RoboMaker
         {
           application: 'application',
           application_version: 'application_version',
-          launch_config: Stubs::LaunchConfig.default(visited),
-          upload_configurations: Stubs::UploadConfigurations.default(visited),
-          world_configs: Stubs::WorldConfigs.default(visited),
+          launch_config: LaunchConfig.default(visited),
+          upload_configurations: UploadConfigurations.default(visited),
+          world_configs: WorldConfigs.default(visited),
           use_default_upload_configurations: false,
-          tools: Stubs::Tools.default(visited),
+          tools: Tools.default(visited),
           use_default_tools: false,
         }
       end
@@ -416,7 +416,7 @@ module AWS::SDK::RoboMaker
         return nil if visited.include?('Tools')
         visited = visited + ['Tools']
         [
-          Stubs::Tool.default(visited)
+          Tool.default(visited)
         ]
       end
 
@@ -462,7 +462,7 @@ module AWS::SDK::RoboMaker
         return nil if visited.include?('WorldConfigs')
         visited = visited + ['WorldConfigs']
         [
-          Stubs::WorldConfig.default(visited)
+          WorldConfig.default(visited)
         ]
       end
 
@@ -500,7 +500,7 @@ module AWS::SDK::RoboMaker
         return nil if visited.include?('UploadConfigurations')
         visited = visited + ['UploadConfigurations']
         [
-          Stubs::UploadConfiguration.default(visited)
+          UploadConfiguration.default(visited)
         ]
       end
 
@@ -544,10 +544,10 @@ module AWS::SDK::RoboMaker
         {
           package_name: 'package_name',
           launch_file: 'launch_file',
-          environment_variables: Stubs::EnvironmentVariableMap.default(visited),
-          port_forwarding_config: Stubs::PortForwardingConfig.default(visited),
+          environment_variables: EnvironmentVariableMap.default(visited),
+          port_forwarding_config: PortForwardingConfig.default(visited),
           stream_ui: false,
-          command: Stubs::CommandList.default(visited),
+          command: CommandList.default(visited),
         }
       end
 
@@ -590,7 +590,7 @@ module AWS::SDK::RoboMaker
         return nil if visited.include?('PortForwardingConfig')
         visited = visited + ['PortForwardingConfig']
         {
-          port_mappings: Stubs::PortMappingList.default(visited),
+          port_mappings: PortMappingList.default(visited),
         }
       end
 
@@ -608,7 +608,7 @@ module AWS::SDK::RoboMaker
         return nil if visited.include?('PortMappingList')
         visited = visited + ['PortMappingList']
         [
-          Stubs::PortMapping.default(visited)
+          PortMapping.default(visited)
         ]
       end
 
@@ -670,7 +670,7 @@ module AWS::SDK::RoboMaker
         return nil if visited.include?('RobotApplicationConfigs')
         visited = visited + ['RobotApplicationConfigs']
         [
-          Stubs::RobotApplicationConfig.default(visited)
+          RobotApplicationConfig.default(visited)
         ]
       end
 
@@ -692,10 +692,10 @@ module AWS::SDK::RoboMaker
         {
           application: 'application',
           application_version: 'application_version',
-          launch_config: Stubs::LaunchConfig.default(visited),
-          upload_configurations: Stubs::UploadConfigurations.default(visited),
+          launch_config: LaunchConfig.default(visited),
+          upload_configurations: UploadConfigurations.default(visited),
           use_default_upload_configurations: false,
-          tools: Stubs::Tools.default(visited),
+          tools: Tools.default(visited),
           use_default_tools: false,
         }
       end
@@ -824,12 +824,12 @@ module AWS::SDK::RoboMaker
           arn: 'arn',
           fleet: 'fleet',
           status: 'status',
-          deployment_application_configs: Stubs::DeploymentApplicationConfigs.default(visited),
+          deployment_application_configs: DeploymentApplicationConfigs.default(visited),
           failure_reason: 'failure_reason',
           failure_code: 'failure_code',
           created_at: Time.now,
-          deployment_config: Stubs::DeploymentConfig.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          deployment_config: DeploymentConfig.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -859,7 +859,7 @@ module AWS::SDK::RoboMaker
           concurrent_deployment_percentage: 1,
           failure_threshold_percentage: 1,
           robot_deployment_timeout_in_seconds: 1,
-          download_condition_file: Stubs::S3Object.default(visited),
+          download_condition_file: S3Object.default(visited),
         }
       end
 
@@ -902,7 +902,7 @@ module AWS::SDK::RoboMaker
         return nil if visited.include?('DeploymentApplicationConfigs')
         visited = visited + ['DeploymentApplicationConfigs']
         [
-          Stubs::DeploymentApplicationConfig.default(visited)
+          DeploymentApplicationConfig.default(visited)
         ]
       end
 
@@ -924,7 +924,7 @@ module AWS::SDK::RoboMaker
         {
           application: 'application',
           application_version: 'application_version',
-          launch_config: Stubs::DeploymentLaunchConfig.default(visited),
+          launch_config: DeploymentLaunchConfig.default(visited),
         }
       end
 
@@ -948,7 +948,7 @@ module AWS::SDK::RoboMaker
           pre_launch_file: 'pre_launch_file',
           launch_file: 'launch_file',
           post_launch_file: 'post_launch_file',
-          environment_variables: Stubs::EnvironmentVariableMap.default(visited),
+          environment_variables: EnvironmentVariableMap.default(visited),
         }
       end
 
@@ -971,7 +971,7 @@ module AWS::SDK::RoboMaker
           arn: 'arn',
           name: 'name',
           created_at: Time.now,
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -996,7 +996,7 @@ module AWS::SDK::RoboMaker
           created_at: Time.now,
           greengrass_group_id: 'greengrass_group_id',
           architecture: 'architecture',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1021,12 +1021,12 @@ module AWS::SDK::RoboMaker
           arn: 'arn',
           name: 'name',
           version: 'version',
-          sources: Stubs::Sources.default(visited),
-          robot_software_suite: Stubs::RobotSoftwareSuite.default(visited),
+          sources: Sources.default(visited),
+          robot_software_suite: RobotSoftwareSuite.default(visited),
           last_updated_at: Time.now,
           revision_id: 'revision_id',
-          tags: Stubs::TagMap.default(visited),
-          environment: Stubs::Environment.default(visited),
+          tags: TagMap.default(visited),
+          environment: Environment.default(visited),
         }
       end
 
@@ -1091,7 +1091,7 @@ module AWS::SDK::RoboMaker
         return nil if visited.include?('Sources')
         visited = visited + ['Sources']
         [
-          Stubs::Source.default(visited)
+          Source.default(visited)
         ]
       end
 
@@ -1136,11 +1136,11 @@ module AWS::SDK::RoboMaker
           arn: 'arn',
           name: 'name',
           version: 'version',
-          sources: Stubs::Sources.default(visited),
-          robot_software_suite: Stubs::RobotSoftwareSuite.default(visited),
+          sources: Sources.default(visited),
+          robot_software_suite: RobotSoftwareSuite.default(visited),
           last_updated_at: Time.now,
           revision_id: 'revision_id',
-          environment: Stubs::Environment.default(visited),
+          environment: Environment.default(visited),
         }
       end
 
@@ -1167,14 +1167,14 @@ module AWS::SDK::RoboMaker
           arn: 'arn',
           name: 'name',
           version: 'version',
-          sources: Stubs::Sources.default(visited),
-          simulation_software_suite: Stubs::SimulationSoftwareSuite.default(visited),
-          robot_software_suite: Stubs::RobotSoftwareSuite.default(visited),
-          rendering_engine: Stubs::RenderingEngine.default(visited),
+          sources: Sources.default(visited),
+          simulation_software_suite: SimulationSoftwareSuite.default(visited),
+          robot_software_suite: RobotSoftwareSuite.default(visited),
+          rendering_engine: RenderingEngine.default(visited),
           last_updated_at: Time.now,
           revision_id: 'revision_id',
-          tags: Stubs::TagMap.default(visited),
-          environment: Stubs::Environment.default(visited),
+          tags: TagMap.default(visited),
+          environment: Environment.default(visited),
         }
       end
 
@@ -1244,13 +1244,13 @@ module AWS::SDK::RoboMaker
           arn: 'arn',
           name: 'name',
           version: 'version',
-          sources: Stubs::Sources.default(visited),
-          simulation_software_suite: Stubs::SimulationSoftwareSuite.default(visited),
-          robot_software_suite: Stubs::RobotSoftwareSuite.default(visited),
-          rendering_engine: Stubs::RenderingEngine.default(visited),
+          sources: Sources.default(visited),
+          simulation_software_suite: SimulationSoftwareSuite.default(visited),
+          robot_software_suite: RobotSoftwareSuite.default(visited),
+          rendering_engine: RenderingEngine.default(visited),
           last_updated_at: Time.now,
           revision_id: 'revision_id',
-          environment: Stubs::Environment.default(visited),
+          environment: Environment.default(visited),
         }
       end
 
@@ -1283,17 +1283,17 @@ module AWS::SDK::RoboMaker
           failure_behavior: 'failure_behavior',
           failure_code: 'failure_code',
           client_request_token: 'client_request_token',
-          output_location: Stubs::OutputLocation.default(visited),
-          logging_config: Stubs::LoggingConfig.default(visited),
+          output_location: OutputLocation.default(visited),
+          logging_config: LoggingConfig.default(visited),
           max_job_duration_in_seconds: 1,
           simulation_time_millis: 1,
           iam_role: 'iam_role',
-          robot_applications: Stubs::RobotApplicationConfigs.default(visited),
-          simulation_applications: Stubs::SimulationApplicationConfigs.default(visited),
-          data_sources: Stubs::DataSources.default(visited),
-          tags: Stubs::TagMap.default(visited),
-          vpc_config: Stubs::VPCConfigResponse.default(visited),
-          compute: Stubs::ComputeResponse.default(visited),
+          robot_applications: RobotApplicationConfigs.default(visited),
+          simulation_applications: SimulationApplicationConfigs.default(visited),
+          data_sources: DataSources.default(visited),
+          tags: TagMap.default(visited),
+          vpc_config: VPCConfigResponse.default(visited),
+          compute: ComputeResponse.default(visited),
         }
       end
 
@@ -1332,9 +1332,9 @@ module AWS::SDK::RoboMaker
           created_at: Time.now,
           failure_code: 'failure_code',
           client_request_token: 'client_request_token',
-          output_location: Stubs::OutputLocation.default(visited),
+          output_location: OutputLocation.default(visited),
           iam_role: 'iam_role',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1364,9 +1364,9 @@ module AWS::SDK::RoboMaker
           failure_code: 'failure_code',
           client_request_token: 'client_request_token',
           template: 'template',
-          world_count: Stubs::WorldCount.default(visited),
-          tags: Stubs::TagMap.default(visited),
-          world_tags: Stubs::TagMap.default(visited),
+          world_count: WorldCount.default(visited),
+          tags: TagMap.default(visited),
+          world_tags: TagMap.default(visited),
         }
       end
 
@@ -1415,7 +1415,7 @@ module AWS::SDK::RoboMaker
           client_request_token: 'client_request_token',
           created_at: Time.now,
           name: 'name',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1523,13 +1523,13 @@ module AWS::SDK::RoboMaker
           arn: 'arn',
           fleet: 'fleet',
           status: 'status',
-          deployment_config: Stubs::DeploymentConfig.default(visited),
-          deployment_application_configs: Stubs::DeploymentApplicationConfigs.default(visited),
+          deployment_config: DeploymentConfig.default(visited),
+          deployment_application_configs: DeploymentApplicationConfigs.default(visited),
           failure_reason: 'failure_reason',
           failure_code: 'failure_code',
           created_at: Time.now,
-          robot_deployment_summary: Stubs::RobotDeploymentSummary.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          robot_deployment_summary: RobotDeploymentSummary.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1557,7 +1557,7 @@ module AWS::SDK::RoboMaker
         return nil if visited.include?('RobotDeploymentSummary')
         visited = visited + ['RobotDeploymentSummary']
         [
-          Stubs::RobotDeployment.default(visited)
+          RobotDeployment.default(visited)
         ]
       end
 
@@ -1581,7 +1581,7 @@ module AWS::SDK::RoboMaker
           deployment_start_time: Time.now,
           deployment_finish_time: Time.now,
           status: 'status',
-          progress_detail: Stubs::ProgressDetail.default(visited),
+          progress_detail: ProgressDetail.default(visited),
           failure_reason: 'failure_reason',
           failure_code: 'failure_code',
         }
@@ -1631,12 +1631,12 @@ module AWS::SDK::RoboMaker
         {
           name: 'name',
           arn: 'arn',
-          robots: Stubs::Robots.default(visited),
+          robots: Robots.default(visited),
           created_at: Time.now,
           last_deployment_status: 'last_deployment_status',
           last_deployment_job: 'last_deployment_job',
           last_deployment_time: Time.now,
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1662,7 +1662,7 @@ module AWS::SDK::RoboMaker
         return nil if visited.include?('Robots')
         visited = visited + ['Robots']
         [
-          Stubs::Robot.default(visited)
+          Robot.default(visited)
         ]
       end
 
@@ -1723,7 +1723,7 @@ module AWS::SDK::RoboMaker
           architecture: 'architecture',
           last_deployment_job: 'last_deployment_job',
           last_deployment_time: Time.now,
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1752,12 +1752,12 @@ module AWS::SDK::RoboMaker
           arn: 'arn',
           name: 'name',
           version: 'version',
-          sources: Stubs::Sources.default(visited),
-          robot_software_suite: Stubs::RobotSoftwareSuite.default(visited),
+          sources: Sources.default(visited),
+          robot_software_suite: RobotSoftwareSuite.default(visited),
           revision_id: 'revision_id',
           last_updated_at: Time.now,
-          tags: Stubs::TagMap.default(visited),
-          environment: Stubs::Environment.default(visited),
+          tags: TagMap.default(visited),
+          environment: Environment.default(visited),
           image_digest: 'image_digest',
         }
       end
@@ -1787,14 +1787,14 @@ module AWS::SDK::RoboMaker
           arn: 'arn',
           name: 'name',
           version: 'version',
-          sources: Stubs::Sources.default(visited),
-          simulation_software_suite: Stubs::SimulationSoftwareSuite.default(visited),
-          robot_software_suite: Stubs::RobotSoftwareSuite.default(visited),
-          rendering_engine: Stubs::RenderingEngine.default(visited),
+          sources: Sources.default(visited),
+          simulation_software_suite: SimulationSoftwareSuite.default(visited),
+          robot_software_suite: RobotSoftwareSuite.default(visited),
+          rendering_engine: RenderingEngine.default(visited),
           revision_id: 'revision_id',
           last_updated_at: Time.now,
-          tags: Stubs::TagMap.default(visited),
-          environment: Stubs::Environment.default(visited),
+          tags: TagMap.default(visited),
+          environment: Environment.default(visited),
           image_digest: 'image_digest',
         }
       end
@@ -1832,18 +1832,18 @@ module AWS::SDK::RoboMaker
           failure_code: 'failure_code',
           failure_reason: 'failure_reason',
           client_request_token: 'client_request_token',
-          output_location: Stubs::OutputLocation.default(visited),
-          logging_config: Stubs::LoggingConfig.default(visited),
+          output_location: OutputLocation.default(visited),
+          logging_config: LoggingConfig.default(visited),
           max_job_duration_in_seconds: 1,
           simulation_time_millis: 1,
           iam_role: 'iam_role',
-          robot_applications: Stubs::RobotApplicationConfigs.default(visited),
-          simulation_applications: Stubs::SimulationApplicationConfigs.default(visited),
-          data_sources: Stubs::DataSources.default(visited),
-          tags: Stubs::TagMap.default(visited),
-          vpc_config: Stubs::VPCConfigResponse.default(visited),
-          network_interface: Stubs::NetworkInterface.default(visited),
-          compute: Stubs::ComputeResponse.default(visited),
+          robot_applications: RobotApplicationConfigs.default(visited),
+          simulation_applications: SimulationApplicationConfigs.default(visited),
+          data_sources: DataSources.default(visited),
+          tags: TagMap.default(visited),
+          vpc_config: VPCConfigResponse.default(visited),
+          network_interface: NetworkInterface.default(visited),
+          compute: ComputeResponse.default(visited),
         }
       end
 
@@ -1885,13 +1885,13 @@ module AWS::SDK::RoboMaker
           last_updated_at: Time.now,
           created_at: Time.now,
           client_request_token: 'client_request_token',
-          batch_policy: Stubs::BatchPolicy.default(visited),
+          batch_policy: BatchPolicy.default(visited),
           failure_code: 'failure_code',
           failure_reason: 'failure_reason',
-          failed_requests: Stubs::FailedCreateSimulationJobRequests.default(visited),
-          pending_requests: Stubs::CreateSimulationJobRequests.default(visited),
-          created_requests: Stubs::SimulationJobSummaries.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          failed_requests: FailedCreateSimulationJobRequests.default(visited),
+          pending_requests: CreateSimulationJobRequests.default(visited),
+          created_requests: SimulationJobSummaries.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1921,7 +1921,7 @@ module AWS::SDK::RoboMaker
         return nil if visited.include?('SimulationJobSummaries')
         visited = visited + ['SimulationJobSummaries']
         [
-          Stubs::SimulationJobSummary.default(visited)
+          SimulationJobSummary.default(visited)
         ]
       end
 
@@ -1945,9 +1945,9 @@ module AWS::SDK::RoboMaker
           last_updated_at: Time.now,
           name: 'name',
           status: 'status',
-          simulation_application_names: Stubs::SimulationApplicationNames.default(visited),
-          robot_application_names: Stubs::RobotApplicationNames.default(visited),
-          data_source_names: Stubs::DataSourceNames.default(visited),
+          simulation_application_names: SimulationApplicationNames.default(visited),
+          robot_application_names: RobotApplicationNames.default(visited),
+          data_source_names: DataSourceNames.default(visited),
           compute_type: 'compute_type',
         }
       end
@@ -2033,7 +2033,7 @@ module AWS::SDK::RoboMaker
         return nil if visited.include?('CreateSimulationJobRequests')
         visited = visited + ['CreateSimulationJobRequests']
         [
-          Stubs::SimulationJobRequest.default(visited)
+          SimulationJobRequest.default(visited)
         ]
       end
 
@@ -2053,18 +2053,18 @@ module AWS::SDK::RoboMaker
         return nil if visited.include?('SimulationJobRequest')
         visited = visited + ['SimulationJobRequest']
         {
-          output_location: Stubs::OutputLocation.default(visited),
-          logging_config: Stubs::LoggingConfig.default(visited),
+          output_location: OutputLocation.default(visited),
+          logging_config: LoggingConfig.default(visited),
           max_job_duration_in_seconds: 1,
           iam_role: 'iam_role',
           failure_behavior: 'failure_behavior',
           use_default_applications: false,
-          robot_applications: Stubs::RobotApplicationConfigs.default(visited),
-          simulation_applications: Stubs::SimulationApplicationConfigs.default(visited),
-          data_sources: Stubs::DataSourceConfigs.default(visited),
-          vpc_config: Stubs::VPCConfig.default(visited),
-          compute: Stubs::Compute.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          robot_applications: RobotApplicationConfigs.default(visited),
+          simulation_applications: SimulationApplicationConfigs.default(visited),
+          data_sources: DataSourceConfigs.default(visited),
+          vpc_config: VPCConfig.default(visited),
+          compute: Compute.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -2115,8 +2115,8 @@ module AWS::SDK::RoboMaker
         return nil if visited.include?('VPCConfig')
         visited = visited + ['VPCConfig']
         {
-          subnets: Stubs::Subnets.default(visited),
-          security_groups: Stubs::SecurityGroups.default(visited),
+          subnets: Subnets.default(visited),
+          security_groups: SecurityGroups.default(visited),
           assign_public_ip: false,
         }
       end
@@ -2137,7 +2137,7 @@ module AWS::SDK::RoboMaker
         return nil if visited.include?('DataSourceConfigs')
         visited = visited + ['DataSourceConfigs']
         [
-          Stubs::DataSourceConfig.default(visited)
+          DataSourceConfig.default(visited)
         ]
       end
 
@@ -2159,7 +2159,7 @@ module AWS::SDK::RoboMaker
         {
           name: 'name',
           s3_bucket: 's3_bucket',
-          s3_keys: Stubs::S3KeysOrPrefixes.default(visited),
+          s3_keys: S3KeysOrPrefixes.default(visited),
           type: 'type',
           destination: 'destination',
         }
@@ -2203,7 +2203,7 @@ module AWS::SDK::RoboMaker
         return nil if visited.include?('FailedCreateSimulationJobRequests')
         visited = visited + ['FailedCreateSimulationJobRequests']
         [
-          Stubs::FailedCreateSimulationJobRequest.default(visited)
+          FailedCreateSimulationJobRequest.default(visited)
         ]
       end
 
@@ -2223,7 +2223,7 @@ module AWS::SDK::RoboMaker
         return nil if visited.include?('FailedCreateSimulationJobRequest')
         visited = visited + ['FailedCreateSimulationJobRequest']
         {
-          request: Stubs::SimulationJobRequest.default(visited),
+          request: SimulationJobRequest.default(visited),
           failure_reason: 'failure_reason',
           failure_code: 'failure_code',
           failed_at: Time.now,
@@ -2269,7 +2269,7 @@ module AWS::SDK::RoboMaker
           generation_job: 'generation_job',
           template: 'template',
           created_at: Time.now,
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
           world_description_body: 'world_description_body',
         }
       end
@@ -2298,10 +2298,10 @@ module AWS::SDK::RoboMaker
           failure_code: 'failure_code',
           failure_reason: 'failure_reason',
           client_request_token: 'client_request_token',
-          worlds: Stubs::Arns.default(visited),
-          output_location: Stubs::OutputLocation.default(visited),
+          worlds: Arns.default(visited),
+          output_location: OutputLocation.default(visited),
           iam_role: 'iam_role',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -2334,10 +2334,10 @@ module AWS::SDK::RoboMaker
           failure_reason: 'failure_reason',
           client_request_token: 'client_request_token',
           template: 'template',
-          world_count: Stubs::WorldCount.default(visited),
-          finished_worlds_summary: Stubs::FinishedWorldsSummary.default(visited),
-          tags: Stubs::TagMap.default(visited),
-          world_tags: Stubs::TagMap.default(visited),
+          world_count: WorldCount.default(visited),
+          finished_worlds_summary: FinishedWorldsSummary.default(visited),
+          tags: TagMap.default(visited),
+          world_tags: TagMap.default(visited),
         }
       end
 
@@ -2367,8 +2367,8 @@ module AWS::SDK::RoboMaker
         visited = visited + ['FinishedWorldsSummary']
         {
           finished_count: 1,
-          succeeded_worlds: Stubs::Arns.default(visited),
-          failure_summary: Stubs::FailureSummary.default(visited),
+          succeeded_worlds: Arns.default(visited),
+          failure_summary: FailureSummary.default(visited),
         }
       end
 
@@ -2389,7 +2389,7 @@ module AWS::SDK::RoboMaker
         visited = visited + ['FailureSummary']
         {
           total_failure_count: 1,
-          failures: Stubs::WorldFailures.default(visited),
+          failures: WorldFailures.default(visited),
         }
       end
 
@@ -2408,7 +2408,7 @@ module AWS::SDK::RoboMaker
         return nil if visited.include?('WorldFailures')
         visited = visited + ['WorldFailures']
         [
-          Stubs::WorldFailure.default(visited)
+          WorldFailure.default(visited)
         ]
       end
 
@@ -2453,7 +2453,7 @@ module AWS::SDK::RoboMaker
           name: 'name',
           created_at: Time.now,
           last_updated_at: Time.now,
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
           version: 'version',
         }
       end
@@ -2494,7 +2494,7 @@ module AWS::SDK::RoboMaker
     class ListDeploymentJobs
       def self.default(visited=[])
         {
-          deployment_jobs: Stubs::DeploymentJobs.default(visited),
+          deployment_jobs: DeploymentJobs.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2515,7 +2515,7 @@ module AWS::SDK::RoboMaker
         return nil if visited.include?('DeploymentJobs')
         visited = visited + ['DeploymentJobs']
         [
-          Stubs::DeploymentJob.default(visited)
+          DeploymentJob.default(visited)
         ]
       end
 
@@ -2538,8 +2538,8 @@ module AWS::SDK::RoboMaker
           arn: 'arn',
           fleet: 'fleet',
           status: 'status',
-          deployment_application_configs: Stubs::DeploymentApplicationConfigs.default(visited),
-          deployment_config: Stubs::DeploymentConfig.default(visited),
+          deployment_application_configs: DeploymentApplicationConfigs.default(visited),
+          deployment_config: DeploymentConfig.default(visited),
           failure_reason: 'failure_reason',
           failure_code: 'failure_code',
           created_at: Time.now,
@@ -2565,7 +2565,7 @@ module AWS::SDK::RoboMaker
     class ListFleets
       def self.default(visited=[])
         {
-          fleet_details: Stubs::Fleets.default(visited),
+          fleet_details: Fleets.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2586,7 +2586,7 @@ module AWS::SDK::RoboMaker
         return nil if visited.include?('Fleets')
         visited = visited + ['Fleets']
         [
-          Stubs::Fleet.default(visited)
+          Fleet.default(visited)
         ]
       end
 
@@ -2632,7 +2632,7 @@ module AWS::SDK::RoboMaker
     class ListRobotApplications
       def self.default(visited=[])
         {
-          robot_application_summaries: Stubs::RobotApplicationSummaries.default(visited),
+          robot_application_summaries: RobotApplicationSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2653,7 +2653,7 @@ module AWS::SDK::RoboMaker
         return nil if visited.include?('RobotApplicationSummaries')
         visited = visited + ['RobotApplicationSummaries']
         [
-          Stubs::RobotApplicationSummary.default(visited)
+          RobotApplicationSummary.default(visited)
         ]
       end
 
@@ -2677,7 +2677,7 @@ module AWS::SDK::RoboMaker
           arn: 'arn',
           version: 'version',
           last_updated_at: Time.now,
-          robot_software_suite: Stubs::RobotSoftwareSuite.default(visited),
+          robot_software_suite: RobotSoftwareSuite.default(visited),
         }
       end
 
@@ -2697,7 +2697,7 @@ module AWS::SDK::RoboMaker
     class ListRobots
       def self.default(visited=[])
         {
-          robots: Stubs::Robots.default(visited),
+          robots: Robots.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2716,7 +2716,7 @@ module AWS::SDK::RoboMaker
     class ListSimulationApplications
       def self.default(visited=[])
         {
-          simulation_application_summaries: Stubs::SimulationApplicationSummaries.default(visited),
+          simulation_application_summaries: SimulationApplicationSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2737,7 +2737,7 @@ module AWS::SDK::RoboMaker
         return nil if visited.include?('SimulationApplicationSummaries')
         visited = visited + ['SimulationApplicationSummaries']
         [
-          Stubs::SimulationApplicationSummary.default(visited)
+          SimulationApplicationSummary.default(visited)
         ]
       end
 
@@ -2761,8 +2761,8 @@ module AWS::SDK::RoboMaker
           arn: 'arn',
           version: 'version',
           last_updated_at: Time.now,
-          robot_software_suite: Stubs::RobotSoftwareSuite.default(visited),
-          simulation_software_suite: Stubs::SimulationSoftwareSuite.default(visited),
+          robot_software_suite: RobotSoftwareSuite.default(visited),
+          simulation_software_suite: SimulationSoftwareSuite.default(visited),
         }
       end
 
@@ -2783,7 +2783,7 @@ module AWS::SDK::RoboMaker
     class ListSimulationJobBatches
       def self.default(visited=[])
         {
-          simulation_job_batch_summaries: Stubs::SimulationJobBatchSummaries.default(visited),
+          simulation_job_batch_summaries: SimulationJobBatchSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2804,7 +2804,7 @@ module AWS::SDK::RoboMaker
         return nil if visited.include?('SimulationJobBatchSummaries')
         visited = visited + ['SimulationJobBatchSummaries']
         [
-          Stubs::SimulationJobBatchSummary.default(visited)
+          SimulationJobBatchSummary.default(visited)
         ]
       end
 
@@ -2852,7 +2852,7 @@ module AWS::SDK::RoboMaker
     class ListSimulationJobs
       def self.default(visited=[])
         {
-          simulation_job_summaries: Stubs::SimulationJobSummaries.default(visited),
+          simulation_job_summaries: SimulationJobSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2871,7 +2871,7 @@ module AWS::SDK::RoboMaker
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -2888,7 +2888,7 @@ module AWS::SDK::RoboMaker
     class ListWorldExportJobs
       def self.default(visited=[])
         {
-          world_export_job_summaries: Stubs::WorldExportJobSummaries.default(visited),
+          world_export_job_summaries: WorldExportJobSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2909,7 +2909,7 @@ module AWS::SDK::RoboMaker
         return nil if visited.include?('WorldExportJobSummaries')
         visited = visited + ['WorldExportJobSummaries']
         [
-          Stubs::WorldExportJobSummary.default(visited)
+          WorldExportJobSummary.default(visited)
         ]
       end
 
@@ -2932,8 +2932,8 @@ module AWS::SDK::RoboMaker
           arn: 'arn',
           status: 'status',
           created_at: Time.now,
-          worlds: Stubs::Arns.default(visited),
-          output_location: Stubs::OutputLocation.default(visited),
+          worlds: Arns.default(visited),
+          output_location: OutputLocation.default(visited),
         }
       end
 
@@ -2953,7 +2953,7 @@ module AWS::SDK::RoboMaker
     class ListWorldGenerationJobs
       def self.default(visited=[])
         {
-          world_generation_job_summaries: Stubs::WorldGenerationJobSummaries.default(visited),
+          world_generation_job_summaries: WorldGenerationJobSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2974,7 +2974,7 @@ module AWS::SDK::RoboMaker
         return nil if visited.include?('WorldGenerationJobSummaries')
         visited = visited + ['WorldGenerationJobSummaries']
         [
-          Stubs::WorldGenerationJobSummary.default(visited)
+          WorldGenerationJobSummary.default(visited)
         ]
       end
 
@@ -2998,7 +2998,7 @@ module AWS::SDK::RoboMaker
           template: 'template',
           created_at: Time.now,
           status: 'status',
-          world_count: Stubs::WorldCount.default(visited),
+          world_count: WorldCount.default(visited),
           succeeded_world_count: 1,
           failed_world_count: 1,
         }
@@ -3022,7 +3022,7 @@ module AWS::SDK::RoboMaker
     class ListWorldTemplates
       def self.default(visited=[])
         {
-          template_summaries: Stubs::TemplateSummaries.default(visited),
+          template_summaries: TemplateSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3043,7 +3043,7 @@ module AWS::SDK::RoboMaker
         return nil if visited.include?('TemplateSummaries')
         visited = visited + ['TemplateSummaries']
         [
-          Stubs::TemplateSummary.default(visited)
+          TemplateSummary.default(visited)
         ]
       end
 
@@ -3087,7 +3087,7 @@ module AWS::SDK::RoboMaker
     class ListWorlds
       def self.default(visited=[])
         {
-          world_summaries: Stubs::WorldSummaries.default(visited),
+          world_summaries: WorldSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3108,7 +3108,7 @@ module AWS::SDK::RoboMaker
         return nil if visited.include?('WorldSummaries')
         visited = visited + ['WorldSummaries']
         [
-          Stubs::WorldSummary.default(visited)
+          WorldSummary.default(visited)
         ]
       end
 
@@ -3186,13 +3186,13 @@ module AWS::SDK::RoboMaker
           status: 'status',
           created_at: Time.now,
           client_request_token: 'client_request_token',
-          batch_policy: Stubs::BatchPolicy.default(visited),
+          batch_policy: BatchPolicy.default(visited),
           failure_code: 'failure_code',
           failure_reason: 'failure_reason',
-          failed_requests: Stubs::FailedCreateSimulationJobRequests.default(visited),
-          pending_requests: Stubs::CreateSimulationJobRequests.default(visited),
-          created_requests: Stubs::SimulationJobSummaries.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          failed_requests: FailedCreateSimulationJobRequests.default(visited),
+          pending_requests: CreateSimulationJobRequests.default(visited),
+          created_requests: SimulationJobSummaries.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -3222,8 +3222,8 @@ module AWS::SDK::RoboMaker
           arn: 'arn',
           fleet: 'fleet',
           status: 'status',
-          deployment_config: Stubs::DeploymentConfig.default(visited),
-          deployment_application_configs: Stubs::DeploymentApplicationConfigs.default(visited),
+          deployment_config: DeploymentConfig.default(visited),
+          deployment_application_configs: DeploymentApplicationConfigs.default(visited),
           failure_reason: 'failure_reason',
           failure_code: 'failure_code',
           created_at: Time.now,
@@ -3279,11 +3279,11 @@ module AWS::SDK::RoboMaker
           arn: 'arn',
           name: 'name',
           version: 'version',
-          sources: Stubs::Sources.default(visited),
-          robot_software_suite: Stubs::RobotSoftwareSuite.default(visited),
+          sources: Sources.default(visited),
+          robot_software_suite: RobotSoftwareSuite.default(visited),
           last_updated_at: Time.now,
           revision_id: 'revision_id',
-          environment: Stubs::Environment.default(visited),
+          environment: Environment.default(visited),
         }
       end
 
@@ -3310,13 +3310,13 @@ module AWS::SDK::RoboMaker
           arn: 'arn',
           name: 'name',
           version: 'version',
-          sources: Stubs::Sources.default(visited),
-          simulation_software_suite: Stubs::SimulationSoftwareSuite.default(visited),
-          robot_software_suite: Stubs::RobotSoftwareSuite.default(visited),
-          rendering_engine: Stubs::RenderingEngine.default(visited),
+          sources: Sources.default(visited),
+          simulation_software_suite: SimulationSoftwareSuite.default(visited),
+          robot_software_suite: RobotSoftwareSuite.default(visited),
+          rendering_engine: RenderingEngine.default(visited),
           last_updated_at: Time.now,
           revision_id: 'revision_id',
-          environment: Stubs::Environment.default(visited),
+          environment: Environment.default(visited),
         }
       end
 

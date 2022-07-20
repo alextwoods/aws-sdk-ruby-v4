@@ -38,7 +38,7 @@ module AWS::SDK::NetworkFirewall
         {
           firewall_arn: 'firewall_arn',
           firewall_name: 'firewall_name',
-          subnet_mappings: Stubs::SubnetMappings.default(visited),
+          subnet_mappings: SubnetMappings.default(visited),
           update_token: 'update_token',
         }
       end
@@ -60,7 +60,7 @@ module AWS::SDK::NetworkFirewall
         return nil if visited.include?('SubnetMappings')
         visited = visited + ['SubnetMappings']
         [
-          Stubs::SubnetMapping.default(visited)
+          SubnetMapping.default(visited)
         ]
       end
 
@@ -96,8 +96,8 @@ module AWS::SDK::NetworkFirewall
     class CreateFirewall
       def self.default(visited=[])
         {
-          firewall: Stubs::Firewall.default(visited),
-          firewall_status: Stubs::FirewallStatus.default(visited),
+          firewall: Firewall.default(visited),
+          firewall_status: FirewallStatus.default(visited),
         }
       end
 
@@ -118,7 +118,7 @@ module AWS::SDK::NetworkFirewall
         {
           status: 'status',
           configuration_sync_state_summary: 'configuration_sync_state_summary',
-          sync_states: Stubs::SyncStates.default(visited),
+          sync_states: SyncStates.default(visited),
         }
       end
 
@@ -138,7 +138,7 @@ module AWS::SDK::NetworkFirewall
         return nil if visited.include?('SyncStates')
         visited = visited + ['SyncStates']
         {
-          test_key: Stubs::SyncState.default(visited)
+          test_key: SyncState.default(visited)
         }
       end
 
@@ -158,8 +158,8 @@ module AWS::SDK::NetworkFirewall
         return nil if visited.include?('SyncState')
         visited = visited + ['SyncState']
         {
-          attachment: Stubs::Attachment.default(visited),
-          config: Stubs::SyncStateConfig.default(visited),
+          attachment: Attachment.default(visited),
+          config: SyncStateConfig.default(visited),
         }
       end
 
@@ -178,7 +178,7 @@ module AWS::SDK::NetworkFirewall
         return nil if visited.include?('SyncStateConfig')
         visited = visited + ['SyncStateConfig']
         {
-          test_key: Stubs::PerObjectStatus.default(visited)
+          test_key: PerObjectStatus.default(visited)
         }
       end
 
@@ -244,14 +244,14 @@ module AWS::SDK::NetworkFirewall
           firewall_arn: 'firewall_arn',
           firewall_policy_arn: 'firewall_policy_arn',
           vpc_id: 'vpc_id',
-          subnet_mappings: Stubs::SubnetMappings.default(visited),
+          subnet_mappings: SubnetMappings.default(visited),
           delete_protection: false,
           subnet_change_protection: false,
           firewall_policy_change_protection: false,
           description: 'description',
           firewall_id: 'firewall_id',
-          tags: Stubs::TagList.default(visited),
-          encryption_configuration: Stubs::EncryptionConfiguration.default(visited),
+          tags: TagList.default(visited),
+          encryption_configuration: EncryptionConfiguration.default(visited),
         }
       end
 
@@ -300,7 +300,7 @@ module AWS::SDK::NetworkFirewall
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -339,7 +339,7 @@ module AWS::SDK::NetworkFirewall
       def self.default(visited=[])
         {
           update_token: 'update_token',
-          firewall_policy_response: Stubs::FirewallPolicyResponse.default(visited),
+          firewall_policy_response: FirewallPolicyResponse.default(visited),
         }
       end
 
@@ -363,11 +363,11 @@ module AWS::SDK::NetworkFirewall
           firewall_policy_id: 'firewall_policy_id',
           description: 'description',
           firewall_policy_status: 'firewall_policy_status',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           consumed_stateless_rule_capacity: 1,
           consumed_stateful_rule_capacity: 1,
           number_of_associations: 1,
-          encryption_configuration: Stubs::EncryptionConfiguration.default(visited),
+          encryption_configuration: EncryptionConfiguration.default(visited),
           last_modified_time: Time.now,
         }
       end
@@ -395,7 +395,7 @@ module AWS::SDK::NetworkFirewall
       def self.default(visited=[])
         {
           update_token: 'update_token',
-          rule_group_response: Stubs::RuleGroupResponse.default(visited),
+          rule_group_response: RuleGroupResponse.default(visited),
         }
       end
 
@@ -421,11 +421,11 @@ module AWS::SDK::NetworkFirewall
           type: 'type',
           capacity: 1,
           rule_group_status: 'rule_group_status',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           consumed_capacity: 1,
           number_of_associations: 1,
-          encryption_configuration: Stubs::EncryptionConfiguration.default(visited),
-          source_metadata: Stubs::SourceMetadata.default(visited),
+          encryption_configuration: EncryptionConfiguration.default(visited),
+          source_metadata: SourceMetadata.default(visited),
           sns_topic: 'sns_topic',
           last_modified_time: Time.now,
         }
@@ -476,8 +476,8 @@ module AWS::SDK::NetworkFirewall
     class DeleteFirewall
       def self.default(visited=[])
         {
-          firewall: Stubs::Firewall.default(visited),
-          firewall_status: Stubs::FirewallStatus.default(visited),
+          firewall: Firewall.default(visited),
+          firewall_status: FirewallStatus.default(visited),
         }
       end
 
@@ -494,7 +494,7 @@ module AWS::SDK::NetworkFirewall
     class DeleteFirewallPolicy
       def self.default(visited=[])
         {
-          firewall_policy_response: Stubs::FirewallPolicyResponse.default(visited),
+          firewall_policy_response: FirewallPolicyResponse.default(visited),
         }
       end
 
@@ -524,7 +524,7 @@ module AWS::SDK::NetworkFirewall
     class DeleteRuleGroup
       def self.default(visited=[])
         {
-          rule_group_response: Stubs::RuleGroupResponse.default(visited),
+          rule_group_response: RuleGroupResponse.default(visited),
         }
       end
 
@@ -541,8 +541,8 @@ module AWS::SDK::NetworkFirewall
       def self.default(visited=[])
         {
           update_token: 'update_token',
-          firewall: Stubs::Firewall.default(visited),
-          firewall_status: Stubs::FirewallStatus.default(visited),
+          firewall: Firewall.default(visited),
+          firewall_status: FirewallStatus.default(visited),
         }
       end
 
@@ -561,8 +561,8 @@ module AWS::SDK::NetworkFirewall
       def self.default(visited=[])
         {
           update_token: 'update_token',
-          firewall_policy_response: Stubs::FirewallPolicyResponse.default(visited),
-          firewall_policy: Stubs::FirewallPolicy.default(visited),
+          firewall_policy_response: FirewallPolicyResponse.default(visited),
+          firewall_policy: FirewallPolicy.default(visited),
         }
       end
 
@@ -582,13 +582,13 @@ module AWS::SDK::NetworkFirewall
         return nil if visited.include?('FirewallPolicy')
         visited = visited + ['FirewallPolicy']
         {
-          stateless_rule_group_references: Stubs::StatelessRuleGroupReferences.default(visited),
-          stateless_default_actions: Stubs::StatelessActions.default(visited),
-          stateless_fragment_default_actions: Stubs::StatelessActions.default(visited),
-          stateless_custom_actions: Stubs::CustomActions.default(visited),
-          stateful_rule_group_references: Stubs::StatefulRuleGroupReferences.default(visited),
-          stateful_default_actions: Stubs::StatefulActions.default(visited),
-          stateful_engine_options: Stubs::StatefulEngineOptions.default(visited),
+          stateless_rule_group_references: StatelessRuleGroupReferences.default(visited),
+          stateless_default_actions: StatelessActions.default(visited),
+          stateless_fragment_default_actions: StatelessActions.default(visited),
+          stateless_custom_actions: CustomActions.default(visited),
+          stateful_rule_group_references: StatefulRuleGroupReferences.default(visited),
+          stateful_default_actions: StatefulActions.default(visited),
+          stateful_engine_options: StatefulEngineOptions.default(visited),
         }
       end
 
@@ -650,7 +650,7 @@ module AWS::SDK::NetworkFirewall
         return nil if visited.include?('StatefulRuleGroupReferences')
         visited = visited + ['StatefulRuleGroupReferences']
         [
-          Stubs::StatefulRuleGroupReference.default(visited)
+          StatefulRuleGroupReference.default(visited)
         ]
       end
 
@@ -672,7 +672,7 @@ module AWS::SDK::NetworkFirewall
         {
           resource_arn: 'resource_arn',
           priority: 1,
-          override: Stubs::StatefulRuleGroupOverride.default(visited),
+          override: StatefulRuleGroupOverride.default(visited),
         }
       end
 
@@ -710,7 +710,7 @@ module AWS::SDK::NetworkFirewall
         return nil if visited.include?('CustomActions')
         visited = visited + ['CustomActions']
         [
-          Stubs::CustomAction.default(visited)
+          CustomAction.default(visited)
         ]
       end
 
@@ -731,7 +731,7 @@ module AWS::SDK::NetworkFirewall
         visited = visited + ['CustomAction']
         {
           action_name: 'action_name',
-          action_definition: Stubs::ActionDefinition.default(visited),
+          action_definition: ActionDefinition.default(visited),
         }
       end
 
@@ -750,7 +750,7 @@ module AWS::SDK::NetworkFirewall
         return nil if visited.include?('ActionDefinition')
         visited = visited + ['ActionDefinition']
         {
-          publish_metric_action: Stubs::PublishMetricAction.default(visited),
+          publish_metric_action: PublishMetricAction.default(visited),
         }
       end
 
@@ -768,7 +768,7 @@ module AWS::SDK::NetworkFirewall
         return nil if visited.include?('PublishMetricAction')
         visited = visited + ['PublishMetricAction']
         {
-          dimensions: Stubs::Dimensions.default(visited),
+          dimensions: Dimensions.default(visited),
         }
       end
 
@@ -786,7 +786,7 @@ module AWS::SDK::NetworkFirewall
         return nil if visited.include?('Dimensions')
         visited = visited + ['Dimensions']
         [
-          Stubs::Dimension.default(visited)
+          Dimension.default(visited)
         ]
       end
 
@@ -844,7 +844,7 @@ module AWS::SDK::NetworkFirewall
         return nil if visited.include?('StatelessRuleGroupReferences')
         visited = visited + ['StatelessRuleGroupReferences']
         [
-          Stubs::StatelessRuleGroupReference.default(visited)
+          StatelessRuleGroupReference.default(visited)
         ]
       end
 
@@ -883,7 +883,7 @@ module AWS::SDK::NetworkFirewall
       def self.default(visited=[])
         {
           firewall_arn: 'firewall_arn',
-          logging_configuration: Stubs::LoggingConfiguration.default(visited),
+          logging_configuration: LoggingConfiguration.default(visited),
         }
       end
 
@@ -902,7 +902,7 @@ module AWS::SDK::NetworkFirewall
         return nil if visited.include?('LoggingConfiguration')
         visited = visited + ['LoggingConfiguration']
         {
-          log_destination_configs: Stubs::LogDestinationConfigs.default(visited),
+          log_destination_configs: LogDestinationConfigs.default(visited),
         }
       end
 
@@ -920,7 +920,7 @@ module AWS::SDK::NetworkFirewall
         return nil if visited.include?('LogDestinationConfigs')
         visited = visited + ['LogDestinationConfigs']
         [
-          Stubs::LogDestinationConfig.default(visited)
+          LogDestinationConfig.default(visited)
         ]
       end
 
@@ -942,7 +942,7 @@ module AWS::SDK::NetworkFirewall
         {
           log_type: 'log_type',
           log_destination_type: 'log_destination_type',
-          log_destination: Stubs::LogDestinationMap.default(visited),
+          log_destination: LogDestinationMap.default(visited),
         }
       end
 
@@ -997,8 +997,8 @@ module AWS::SDK::NetworkFirewall
       def self.default(visited=[])
         {
           update_token: 'update_token',
-          rule_group: Stubs::RuleGroup.default(visited),
-          rule_group_response: Stubs::RuleGroupResponse.default(visited),
+          rule_group: RuleGroup.default(visited),
+          rule_group_response: RuleGroupResponse.default(visited),
         }
       end
 
@@ -1018,9 +1018,9 @@ module AWS::SDK::NetworkFirewall
         return nil if visited.include?('RuleGroup')
         visited = visited + ['RuleGroup']
         {
-          rule_variables: Stubs::RuleVariables.default(visited),
-          rules_source: Stubs::RulesSource.default(visited),
-          stateful_rule_options: Stubs::StatefulRuleOptions.default(visited),
+          rule_variables: RuleVariables.default(visited),
+          rules_source: RulesSource.default(visited),
+          stateful_rule_options: StatefulRuleOptions.default(visited),
         }
       end
 
@@ -1059,9 +1059,9 @@ module AWS::SDK::NetworkFirewall
         visited = visited + ['RulesSource']
         {
           rules_string: 'rules_string',
-          rules_source_list: Stubs::RulesSourceList.default(visited),
-          stateful_rules: Stubs::StatefulRules.default(visited),
-          stateless_rules_and_custom_actions: Stubs::StatelessRulesAndCustomActions.default(visited),
+          rules_source_list: RulesSourceList.default(visited),
+          stateful_rules: StatefulRules.default(visited),
+          stateless_rules_and_custom_actions: StatelessRulesAndCustomActions.default(visited),
         }
       end
 
@@ -1082,8 +1082,8 @@ module AWS::SDK::NetworkFirewall
         return nil if visited.include?('StatelessRulesAndCustomActions')
         visited = visited + ['StatelessRulesAndCustomActions']
         {
-          stateless_rules: Stubs::StatelessRules.default(visited),
-          custom_actions: Stubs::CustomActions.default(visited),
+          stateless_rules: StatelessRules.default(visited),
+          custom_actions: CustomActions.default(visited),
         }
       end
 
@@ -1102,7 +1102,7 @@ module AWS::SDK::NetworkFirewall
         return nil if visited.include?('StatelessRules')
         visited = visited + ['StatelessRules']
         [
-          Stubs::StatelessRule.default(visited)
+          StatelessRule.default(visited)
         ]
       end
 
@@ -1122,7 +1122,7 @@ module AWS::SDK::NetworkFirewall
         return nil if visited.include?('StatelessRule')
         visited = visited + ['StatelessRule']
         {
-          rule_definition: Stubs::RuleDefinition.default(visited),
+          rule_definition: RuleDefinition.default(visited),
           priority: 1,
         }
       end
@@ -1142,8 +1142,8 @@ module AWS::SDK::NetworkFirewall
         return nil if visited.include?('RuleDefinition')
         visited = visited + ['RuleDefinition']
         {
-          match_attributes: Stubs::MatchAttributes.default(visited),
-          actions: Stubs::StatelessActions.default(visited),
+          match_attributes: MatchAttributes.default(visited),
+          actions: StatelessActions.default(visited),
         }
       end
 
@@ -1162,12 +1162,12 @@ module AWS::SDK::NetworkFirewall
         return nil if visited.include?('MatchAttributes')
         visited = visited + ['MatchAttributes']
         {
-          sources: Stubs::Addresses.default(visited),
-          destinations: Stubs::Addresses.default(visited),
-          source_ports: Stubs::PortRanges.default(visited),
-          destination_ports: Stubs::PortRanges.default(visited),
-          protocols: Stubs::ProtocolNumbers.default(visited),
-          tcp_flags: Stubs::TCPFlags.default(visited),
+          sources: Addresses.default(visited),
+          destinations: Addresses.default(visited),
+          source_ports: PortRanges.default(visited),
+          destination_ports: PortRanges.default(visited),
+          protocols: ProtocolNumbers.default(visited),
+          tcp_flags: TCPFlags.default(visited),
         }
       end
 
@@ -1190,7 +1190,7 @@ module AWS::SDK::NetworkFirewall
         return nil if visited.include?('TCPFlags')
         visited = visited + ['TCPFlags']
         [
-          Stubs::TCPFlagField.default(visited)
+          TCPFlagField.default(visited)
         ]
       end
 
@@ -1210,8 +1210,8 @@ module AWS::SDK::NetworkFirewall
         return nil if visited.include?('TCPFlagField')
         visited = visited + ['TCPFlagField']
         {
-          flags: Stubs::Flags.default(visited),
-          masks: Stubs::Flags.default(visited),
+          flags: Flags.default(visited),
+          masks: Flags.default(visited),
         }
       end
 
@@ -1270,7 +1270,7 @@ module AWS::SDK::NetworkFirewall
         return nil if visited.include?('PortRanges')
         visited = visited + ['PortRanges']
         [
-          Stubs::PortRange.default(visited)
+          PortRange.default(visited)
         ]
       end
 
@@ -1310,7 +1310,7 @@ module AWS::SDK::NetworkFirewall
         return nil if visited.include?('Addresses')
         visited = visited + ['Addresses']
         [
-          Stubs::Address.default(visited)
+          Address.default(visited)
         ]
       end
 
@@ -1348,7 +1348,7 @@ module AWS::SDK::NetworkFirewall
         return nil if visited.include?('StatefulRules')
         visited = visited + ['StatefulRules']
         [
-          Stubs::StatefulRule.default(visited)
+          StatefulRule.default(visited)
         ]
       end
 
@@ -1369,8 +1369,8 @@ module AWS::SDK::NetworkFirewall
         visited = visited + ['StatefulRule']
         {
           action: 'action',
-          header: Stubs::Header.default(visited),
-          rule_options: Stubs::RuleOptions.default(visited),
+          header: Header.default(visited),
+          rule_options: RuleOptions.default(visited),
         }
       end
 
@@ -1390,7 +1390,7 @@ module AWS::SDK::NetworkFirewall
         return nil if visited.include?('RuleOptions')
         visited = visited + ['RuleOptions']
         [
-          Stubs::RuleOption.default(visited)
+          RuleOption.default(visited)
         ]
       end
 
@@ -1411,7 +1411,7 @@ module AWS::SDK::NetworkFirewall
         visited = visited + ['RuleOption']
         {
           keyword: 'keyword',
-          settings: Stubs::Settings.default(visited),
+          settings: Settings.default(visited),
         }
       end
 
@@ -1478,8 +1478,8 @@ module AWS::SDK::NetworkFirewall
         return nil if visited.include?('RulesSourceList')
         visited = visited + ['RulesSourceList']
         {
-          targets: Stubs::RuleTargets.default(visited),
-          target_types: Stubs::TargetTypes.default(visited),
+          targets: RuleTargets.default(visited),
+          target_types: TargetTypes.default(visited),
           generated_rules_type: 'generated_rules_type',
         }
       end
@@ -1540,8 +1540,8 @@ module AWS::SDK::NetworkFirewall
         return nil if visited.include?('RuleVariables')
         visited = visited + ['RuleVariables']
         {
-          ip_sets: Stubs::IPSets.default(visited),
-          port_sets: Stubs::PortSets.default(visited),
+          ip_sets: IPSets.default(visited),
+          port_sets: PortSets.default(visited),
         }
       end
 
@@ -1560,7 +1560,7 @@ module AWS::SDK::NetworkFirewall
         return nil if visited.include?('PortSets')
         visited = visited + ['PortSets']
         {
-          test_key: Stubs::PortSet.default(visited)
+          test_key: PortSet.default(visited)
         }
       end
 
@@ -1580,7 +1580,7 @@ module AWS::SDK::NetworkFirewall
         return nil if visited.include?('PortSet')
         visited = visited + ['PortSet']
         {
-          definition: Stubs::VariableDefinitionList.default(visited),
+          definition: VariableDefinitionList.default(visited),
         }
       end
 
@@ -1618,7 +1618,7 @@ module AWS::SDK::NetworkFirewall
         return nil if visited.include?('IPSets')
         visited = visited + ['IPSets']
         {
-          test_key: Stubs::IPSet.default(visited)
+          test_key: IPSet.default(visited)
         }
       end
 
@@ -1638,7 +1638,7 @@ module AWS::SDK::NetworkFirewall
         return nil if visited.include?('IPSet')
         visited = visited + ['IPSet']
         {
-          definition: Stubs::VariableDefinitionList.default(visited),
+          definition: VariableDefinitionList.default(visited),
         }
       end
 
@@ -1659,7 +1659,7 @@ module AWS::SDK::NetworkFirewall
           description: 'description',
           type: 'type',
           capacity: 1,
-          stateful_rule_options: Stubs::StatefulRuleOptions.default(visited),
+          stateful_rule_options: StatefulRuleOptions.default(visited),
           last_modified_time: Time.now,
         }
       end
@@ -1684,7 +1684,7 @@ module AWS::SDK::NetworkFirewall
         {
           firewall_arn: 'firewall_arn',
           firewall_name: 'firewall_name',
-          subnet_mappings: Stubs::SubnetMappings.default(visited),
+          subnet_mappings: SubnetMappings.default(visited),
           update_token: 'update_token',
         }
       end
@@ -1705,7 +1705,7 @@ module AWS::SDK::NetworkFirewall
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          firewall_policies: Stubs::FirewallPolicies.default(visited),
+          firewall_policies: FirewallPolicies.default(visited),
         }
       end
 
@@ -1724,7 +1724,7 @@ module AWS::SDK::NetworkFirewall
         return nil if visited.include?('FirewallPolicies')
         visited = visited + ['FirewallPolicies']
         [
-          Stubs::FirewallPolicyMetadata.default(visited)
+          FirewallPolicyMetadata.default(visited)
         ]
       end
 
@@ -1763,7 +1763,7 @@ module AWS::SDK::NetworkFirewall
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          firewalls: Stubs::Firewalls.default(visited),
+          firewalls: Firewalls.default(visited),
         }
       end
 
@@ -1782,7 +1782,7 @@ module AWS::SDK::NetworkFirewall
         return nil if visited.include?('Firewalls')
         visited = visited + ['Firewalls']
         [
-          Stubs::FirewallMetadata.default(visited)
+          FirewallMetadata.default(visited)
         ]
       end
 
@@ -1821,7 +1821,7 @@ module AWS::SDK::NetworkFirewall
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          rule_groups: Stubs::RuleGroups.default(visited),
+          rule_groups: RuleGroups.default(visited),
         }
       end
 
@@ -1840,7 +1840,7 @@ module AWS::SDK::NetworkFirewall
         return nil if visited.include?('RuleGroups')
         visited = visited + ['RuleGroups']
         [
-          Stubs::RuleGroupMetadata.default(visited)
+          RuleGroupMetadata.default(visited)
         ]
       end
 
@@ -1879,7 +1879,7 @@ module AWS::SDK::NetworkFirewall
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -1985,7 +1985,7 @@ module AWS::SDK::NetworkFirewall
           firewall_arn: 'firewall_arn',
           firewall_name: 'firewall_name',
           update_token: 'update_token',
-          encryption_configuration: Stubs::EncryptionConfiguration.default(visited),
+          encryption_configuration: EncryptionConfiguration.default(visited),
         }
       end
 
@@ -2005,7 +2005,7 @@ module AWS::SDK::NetworkFirewall
       def self.default(visited=[])
         {
           update_token: 'update_token',
-          firewall_policy_response: Stubs::FirewallPolicyResponse.default(visited),
+          firewall_policy_response: FirewallPolicyResponse.default(visited),
         }
       end
 
@@ -2046,7 +2046,7 @@ module AWS::SDK::NetworkFirewall
         {
           firewall_arn: 'firewall_arn',
           firewall_name: 'firewall_name',
-          logging_configuration: Stubs::LoggingConfiguration.default(visited),
+          logging_configuration: LoggingConfiguration.default(visited),
         }
       end
 
@@ -2065,7 +2065,7 @@ module AWS::SDK::NetworkFirewall
       def self.default(visited=[])
         {
           update_token: 'update_token',
-          rule_group_response: Stubs::RuleGroupResponse.default(visited),
+          rule_group_response: RuleGroupResponse.default(visited),
         }
       end
 

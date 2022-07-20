@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Batch
@@ -76,7 +78,7 @@ module AWS::SDK::Batch
     def cancel_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelJobInput,
         validate_input: @config.validate_input
@@ -314,7 +316,7 @@ module AWS::SDK::Batch
     def create_compute_environment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateComputeEnvironmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateComputeEnvironmentInput,
         validate_input: @config.validate_input
@@ -441,7 +443,7 @@ module AWS::SDK::Batch
     def create_job_queue(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateJobQueueInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateJobQueueInput,
         validate_input: @config.validate_input
@@ -534,7 +536,7 @@ module AWS::SDK::Batch
     def create_scheduling_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSchedulingPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSchedulingPolicyInput,
         validate_input: @config.validate_input
@@ -605,7 +607,7 @@ module AWS::SDK::Batch
     def delete_compute_environment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteComputeEnvironmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteComputeEnvironmentInput,
         validate_input: @config.validate_input
@@ -676,7 +678,7 @@ module AWS::SDK::Batch
     def delete_job_queue(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteJobQueueInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteJobQueueInput,
         validate_input: @config.validate_input
@@ -745,7 +747,7 @@ module AWS::SDK::Batch
     def delete_scheduling_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSchedulingPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSchedulingPolicyInput,
         validate_input: @config.validate_input
@@ -813,7 +815,7 @@ module AWS::SDK::Batch
     def deregister_job_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterJobDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterJobDefinitionInput,
         validate_input: @config.validate_input
@@ -950,7 +952,7 @@ module AWS::SDK::Batch
     def describe_compute_environments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeComputeEnvironmentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeComputeEnvironmentsInput,
         validate_input: @config.validate_input
@@ -1157,7 +1159,7 @@ module AWS::SDK::Batch
     def describe_job_definitions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeJobDefinitionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeJobDefinitionsInput,
         validate_input: @config.validate_input
@@ -1263,7 +1265,7 @@ module AWS::SDK::Batch
     def describe_job_queues(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeJobQueuesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeJobQueuesInput,
         validate_input: @config.validate_input
@@ -1497,7 +1499,7 @@ module AWS::SDK::Batch
     def describe_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeJobsInput,
         validate_input: @config.validate_input
@@ -1580,7 +1582,7 @@ module AWS::SDK::Batch
     def describe_scheduling_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSchedulingPoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSchedulingPoliciesInput,
         validate_input: @config.validate_input
@@ -1768,7 +1770,7 @@ module AWS::SDK::Batch
     def list_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListJobsInput,
         validate_input: @config.validate_input
@@ -1858,7 +1860,7 @@ module AWS::SDK::Batch
     def list_scheduling_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSchedulingPoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSchedulingPoliciesInput,
         validate_input: @config.validate_input
@@ -1930,7 +1932,7 @@ module AWS::SDK::Batch
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2196,7 +2198,7 @@ module AWS::SDK::Batch
     def register_job_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterJobDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterJobDefinitionInput,
         validate_input: @config.validate_input
@@ -2416,7 +2418,7 @@ module AWS::SDK::Batch
     def submit_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SubmitJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SubmitJobInput,
         validate_input: @config.validate_input
@@ -2496,7 +2498,7 @@ module AWS::SDK::Batch
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2572,7 +2574,7 @@ module AWS::SDK::Batch
     def terminate_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TerminateJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TerminateJobInput,
         validate_input: @config.validate_input
@@ -2647,7 +2649,7 @@ module AWS::SDK::Batch
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2800,7 +2802,7 @@ module AWS::SDK::Batch
     def update_compute_environment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateComputeEnvironmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateComputeEnvironmentInput,
         validate_input: @config.validate_input
@@ -2911,7 +2913,7 @@ module AWS::SDK::Batch
     def update_job_queue(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateJobQueueInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateJobQueueInput,
         validate_input: @config.validate_input
@@ -2992,7 +2994,7 @@ module AWS::SDK::Batch
     def update_scheduling_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSchedulingPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSchedulingPolicyInput,
         validate_input: @config.validate_input

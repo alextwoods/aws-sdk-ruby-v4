@@ -44,7 +44,7 @@ module AWS::SDK::WAFV2
     class CreateIPSet
       def self.default(visited=[])
         {
-          summary: Stubs::IPSetSummary.default(visited),
+          summary: IPSetSummary.default(visited),
         }
       end
 
@@ -86,7 +86,7 @@ module AWS::SDK::WAFV2
     class CreateRegexPatternSet
       def self.default(visited=[])
         {
-          summary: Stubs::RegexPatternSetSummary.default(visited),
+          summary: RegexPatternSetSummary.default(visited),
         }
       end
 
@@ -128,7 +128,7 @@ module AWS::SDK::WAFV2
     class CreateRuleGroup
       def self.default(visited=[])
         {
-          summary: Stubs::RuleGroupSummary.default(visited),
+          summary: RuleGroupSummary.default(visited),
         }
       end
 
@@ -170,7 +170,7 @@ module AWS::SDK::WAFV2
     class CreateWebACL
       def self.default(visited=[])
         {
-          summary: Stubs::WebACLSummary.default(visited),
+          summary: WebACLSummary.default(visited),
         }
       end
 
@@ -315,10 +315,10 @@ module AWS::SDK::WAFV2
           version_name: 'version_name',
           sns_topic_arn: 'sns_topic_arn',
           capacity: 1,
-          rules: Stubs::RuleSummaries.default(visited),
+          rules: RuleSummaries.default(visited),
           label_namespace: 'label_namespace',
-          available_labels: Stubs::LabelSummaries.default(visited),
-          consumed_labels: Stubs::LabelSummaries.default(visited),
+          available_labels: LabelSummaries.default(visited),
+          consumed_labels: LabelSummaries.default(visited),
         }
       end
 
@@ -342,7 +342,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('LabelSummaries')
         visited = visited + ['LabelSummaries']
         [
-          Stubs::LabelSummary.default(visited)
+          LabelSummary.default(visited)
         ]
       end
 
@@ -380,7 +380,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('RuleSummaries')
         visited = visited + ['RuleSummaries']
         [
-          Stubs::RuleSummary.default(visited)
+          RuleSummary.default(visited)
         ]
       end
 
@@ -401,7 +401,7 @@ module AWS::SDK::WAFV2
         visited = visited + ['RuleSummary']
         {
           name: 'name',
-          action: Stubs::RuleAction.default(visited),
+          action: RuleAction.default(visited),
         }
       end
 
@@ -420,10 +420,10 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('RuleAction')
         visited = visited + ['RuleAction']
         {
-          block: Stubs::BlockAction.default(visited),
-          allow: Stubs::AllowAction.default(visited),
-          count: Stubs::CountAction.default(visited),
-          captcha: Stubs::CaptchaAction.default(visited),
+          block: BlockAction.default(visited),
+          allow: AllowAction.default(visited),
+          count: CountAction.default(visited),
+          captcha: CaptchaAction.default(visited),
         }
       end
 
@@ -444,7 +444,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('CaptchaAction')
         visited = visited + ['CaptchaAction']
         {
-          custom_request_handling: Stubs::CustomRequestHandling.default(visited),
+          custom_request_handling: CustomRequestHandling.default(visited),
         }
       end
 
@@ -462,7 +462,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('CustomRequestHandling')
         visited = visited + ['CustomRequestHandling']
         {
-          insert_headers: Stubs::CustomHTTPHeaders.default(visited),
+          insert_headers: CustomHTTPHeaders.default(visited),
         }
       end
 
@@ -480,7 +480,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('CustomHTTPHeaders')
         visited = visited + ['CustomHTTPHeaders']
         [
-          Stubs::CustomHTTPHeader.default(visited)
+          CustomHTTPHeader.default(visited)
         ]
       end
 
@@ -520,7 +520,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('CountAction')
         visited = visited + ['CountAction']
         {
-          custom_request_handling: Stubs::CustomRequestHandling.default(visited),
+          custom_request_handling: CustomRequestHandling.default(visited),
         }
       end
 
@@ -538,7 +538,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('AllowAction')
         visited = visited + ['AllowAction']
         {
-          custom_request_handling: Stubs::CustomRequestHandling.default(visited),
+          custom_request_handling: CustomRequestHandling.default(visited),
         }
       end
 
@@ -556,7 +556,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('BlockAction')
         visited = visited + ['BlockAction']
         {
-          custom_response: Stubs::CustomResponse.default(visited),
+          custom_response: CustomResponse.default(visited),
         }
       end
 
@@ -576,7 +576,7 @@ module AWS::SDK::WAFV2
         {
           response_code: 1,
           custom_response_body_key: 'custom_response_body_key',
-          response_headers: Stubs::CustomHTTPHeaders.default(visited),
+          response_headers: CustomHTTPHeaders.default(visited),
         }
       end
 
@@ -624,7 +624,7 @@ module AWS::SDK::WAFV2
     class GetIPSet
       def self.default(visited=[])
         {
-          ip_set: Stubs::IPSet.default(visited),
+          ip_set: IPSet.default(visited),
           lock_token: 'lock_token',
         }
       end
@@ -649,7 +649,7 @@ module AWS::SDK::WAFV2
           arn: 'arn',
           description: 'description',
           ip_address_version: 'ip_address_version',
-          addresses: Stubs::IPAddresses.default(visited),
+          addresses: IPAddresses.default(visited),
         }
       end
 
@@ -690,7 +690,7 @@ module AWS::SDK::WAFV2
     class GetLoggingConfiguration
       def self.default(visited=[])
         {
-          logging_configuration: Stubs::LoggingConfiguration.default(visited),
+          logging_configuration: LoggingConfiguration.default(visited),
         }
       end
 
@@ -709,10 +709,10 @@ module AWS::SDK::WAFV2
         visited = visited + ['LoggingConfiguration']
         {
           resource_arn: 'resource_arn',
-          log_destination_configs: Stubs::LogDestinationConfigs.default(visited),
-          redacted_fields: Stubs::RedactedFields.default(visited),
+          log_destination_configs: LogDestinationConfigs.default(visited),
+          redacted_fields: RedactedFields.default(visited),
           managed_by_firewall_manager: false,
-          logging_filter: Stubs::LoggingFilter.default(visited),
+          logging_filter: LoggingFilter.default(visited),
         }
       end
 
@@ -734,7 +734,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('LoggingFilter')
         visited = visited + ['LoggingFilter']
         {
-          filters: Stubs::Filters.default(visited),
+          filters: Filters.default(visited),
           default_behavior: 'default_behavior',
         }
       end
@@ -754,7 +754,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('Filters')
         visited = visited + ['Filters']
         [
-          Stubs::Filter.default(visited)
+          Filter.default(visited)
         ]
       end
 
@@ -776,7 +776,7 @@ module AWS::SDK::WAFV2
         {
           behavior: 'behavior',
           requirement: 'requirement',
-          conditions: Stubs::Conditions.default(visited),
+          conditions: Conditions.default(visited),
         }
       end
 
@@ -796,7 +796,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('Conditions')
         visited = visited + ['Conditions']
         [
-          Stubs::Condition.default(visited)
+          Condition.default(visited)
         ]
       end
 
@@ -816,8 +816,8 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('Condition')
         visited = visited + ['Condition']
         {
-          action_condition: Stubs::ActionCondition.default(visited),
-          label_name_condition: Stubs::LabelNameCondition.default(visited),
+          action_condition: ActionCondition.default(visited),
+          label_name_condition: LabelNameCondition.default(visited),
         }
       end
 
@@ -872,7 +872,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('RedactedFields')
         visited = visited + ['RedactedFields']
         [
-          Stubs::FieldToMatch.default(visited)
+          FieldToMatch.default(visited)
         ]
       end
 
@@ -892,16 +892,16 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('FieldToMatch')
         visited = visited + ['FieldToMatch']
         {
-          single_header: Stubs::SingleHeader.default(visited),
-          single_query_argument: Stubs::SingleQueryArgument.default(visited),
-          all_query_arguments: Stubs::AllQueryArguments.default(visited),
-          uri_path: Stubs::UriPath.default(visited),
-          query_string: Stubs::QueryString.default(visited),
-          body: Stubs::Body.default(visited),
-          member_method: Stubs::Method.default(visited),
-          json_body: Stubs::JsonBody.default(visited),
-          headers: Stubs::Headers.default(visited),
-          cookies: Stubs::Cookies.default(visited),
+          single_header: SingleHeader.default(visited),
+          single_query_argument: SingleQueryArgument.default(visited),
+          all_query_arguments: AllQueryArguments.default(visited),
+          uri_path: UriPath.default(visited),
+          query_string: QueryString.default(visited),
+          body: Body.default(visited),
+          member_method: Method.default(visited),
+          json_body: JsonBody.default(visited),
+          headers: Headers.default(visited),
+          cookies: Cookies.default(visited),
         }
       end
 
@@ -928,7 +928,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('Cookies')
         visited = visited + ['Cookies']
         {
-          match_pattern: Stubs::CookieMatchPattern.default(visited),
+          match_pattern: CookieMatchPattern.default(visited),
           match_scope: 'match_scope',
           oversize_handling: 'oversize_handling',
         }
@@ -950,9 +950,9 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('CookieMatchPattern')
         visited = visited + ['CookieMatchPattern']
         {
-          all: Stubs::All.default(visited),
-          included_cookies: Stubs::CookieNames.default(visited),
-          excluded_cookies: Stubs::CookieNames.default(visited),
+          all: All.default(visited),
+          included_cookies: CookieNames.default(visited),
+          excluded_cookies: CookieNames.default(visited),
         }
       end
 
@@ -1008,7 +1008,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('Headers')
         visited = visited + ['Headers']
         {
-          match_pattern: Stubs::HeaderMatchPattern.default(visited),
+          match_pattern: HeaderMatchPattern.default(visited),
           match_scope: 'match_scope',
           oversize_handling: 'oversize_handling',
         }
@@ -1030,9 +1030,9 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('HeaderMatchPattern')
         visited = visited + ['HeaderMatchPattern']
         {
-          all: Stubs::All.default(visited),
-          included_headers: Stubs::HeaderNames.default(visited),
-          excluded_headers: Stubs::HeaderNames.default(visited),
+          all: All.default(visited),
+          included_headers: HeaderNames.default(visited),
+          excluded_headers: HeaderNames.default(visited),
         }
       end
 
@@ -1072,7 +1072,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('JsonBody')
         visited = visited + ['JsonBody']
         {
-          match_pattern: Stubs::JsonMatchPattern.default(visited),
+          match_pattern: JsonMatchPattern.default(visited),
           match_scope: 'match_scope',
           invalid_fallback_behavior: 'invalid_fallback_behavior',
           oversize_handling: 'oversize_handling',
@@ -1096,8 +1096,8 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('JsonMatchPattern')
         visited = visited + ['JsonMatchPattern']
         {
-          all: Stubs::All.default(visited),
-          included_paths: Stubs::JsonPointerPaths.default(visited),
+          all: All.default(visited),
+          included_paths: JsonPointerPaths.default(visited),
         }
       end
 
@@ -1272,7 +1272,7 @@ module AWS::SDK::WAFV2
     class GetManagedRuleSet
       def self.default(visited=[])
         {
-          managed_rule_set: Stubs::ManagedRuleSet.default(visited),
+          managed_rule_set: ManagedRuleSet.default(visited),
           lock_token: 'lock_token',
         }
       end
@@ -1296,7 +1296,7 @@ module AWS::SDK::WAFV2
           id: 'id',
           arn: 'arn',
           description: 'description',
-          published_versions: Stubs::PublishedVersions.default(visited),
+          published_versions: PublishedVersions.default(visited),
           recommended_version: 'recommended_version',
           label_namespace: 'label_namespace',
         }
@@ -1322,7 +1322,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('PublishedVersions')
         visited = visited + ['PublishedVersions']
         {
-          test_key: Stubs::ManagedRuleSetVersion.default(visited)
+          test_key: ManagedRuleSetVersion.default(visited)
         }
       end
 
@@ -1368,7 +1368,7 @@ module AWS::SDK::WAFV2
     class GetMobileSdkRelease
       def self.default(visited=[])
         {
-          mobile_sdk_release: Stubs::MobileSdkRelease.default(visited),
+          mobile_sdk_release: MobileSdkRelease.default(visited),
         }
       end
 
@@ -1389,7 +1389,7 @@ module AWS::SDK::WAFV2
           release_version: 'release_version',
           timestamp: Time.now,
           release_notes: 'release_notes',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -1410,7 +1410,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -1464,8 +1464,8 @@ module AWS::SDK::WAFV2
     class GetRateBasedStatementManagedKeys
       def self.default(visited=[])
         {
-          managed_keys_ipv4: Stubs::RateBasedStatementManagedKeysIPSet.default(visited),
-          managed_keys_ipv6: Stubs::RateBasedStatementManagedKeysIPSet.default(visited),
+          managed_keys_ipv4: RateBasedStatementManagedKeysIPSet.default(visited),
+          managed_keys_ipv6: RateBasedStatementManagedKeysIPSet.default(visited),
         }
       end
 
@@ -1485,7 +1485,7 @@ module AWS::SDK::WAFV2
         visited = visited + ['RateBasedStatementManagedKeysIPSet']
         {
           ip_address_version: 'ip_address_version',
-          addresses: Stubs::IPAddresses.default(visited),
+          addresses: IPAddresses.default(visited),
         }
       end
 
@@ -1502,7 +1502,7 @@ module AWS::SDK::WAFV2
     class GetRegexPatternSet
       def self.default(visited=[])
         {
-          regex_pattern_set: Stubs::RegexPatternSet.default(visited),
+          regex_pattern_set: RegexPatternSet.default(visited),
           lock_token: 'lock_token',
         }
       end
@@ -1526,7 +1526,7 @@ module AWS::SDK::WAFV2
           id: 'id',
           arn: 'arn',
           description: 'description',
-          regular_expression_list: Stubs::RegularExpressionList.default(visited),
+          regular_expression_list: RegularExpressionList.default(visited),
         }
       end
 
@@ -1548,7 +1548,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('RegularExpressionList')
         visited = visited + ['RegularExpressionList']
         [
-          Stubs::Regex.default(visited)
+          Regex.default(visited)
         ]
       end
 
@@ -1584,7 +1584,7 @@ module AWS::SDK::WAFV2
     class GetRuleGroup
       def self.default(visited=[])
         {
-          rule_group: Stubs::RuleGroup.default(visited),
+          rule_group: RuleGroup.default(visited),
           lock_token: 'lock_token',
         }
       end
@@ -1609,12 +1609,12 @@ module AWS::SDK::WAFV2
           capacity: 1,
           arn: 'arn',
           description: 'description',
-          rules: Stubs::Rules.default(visited),
-          visibility_config: Stubs::VisibilityConfig.default(visited),
+          rules: Rules.default(visited),
+          visibility_config: VisibilityConfig.default(visited),
           label_namespace: 'label_namespace',
-          custom_response_bodies: Stubs::CustomResponseBodies.default(visited),
-          available_labels: Stubs::LabelSummaries.default(visited),
-          consumed_labels: Stubs::LabelSummaries.default(visited),
+          custom_response_bodies: CustomResponseBodies.default(visited),
+          available_labels: LabelSummaries.default(visited),
+          consumed_labels: LabelSummaries.default(visited),
         }
       end
 
@@ -1642,7 +1642,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('CustomResponseBodies')
         visited = visited + ['CustomResponseBodies']
         {
-          test_key: Stubs::CustomResponseBody.default(visited)
+          test_key: CustomResponseBody.default(visited)
         }
       end
 
@@ -1704,7 +1704,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('Rules')
         visited = visited + ['Rules']
         [
-          Stubs::Rule.default(visited)
+          Rule.default(visited)
         ]
       end
 
@@ -1726,12 +1726,12 @@ module AWS::SDK::WAFV2
         {
           name: 'name',
           priority: 1,
-          statement: Stubs::Statement.default(visited),
-          action: Stubs::RuleAction.default(visited),
-          override_action: Stubs::OverrideAction.default(visited),
-          rule_labels: Stubs::Labels.default(visited),
-          visibility_config: Stubs::VisibilityConfig.default(visited),
-          captcha_config: Stubs::CaptchaConfig.default(visited),
+          statement: Statement.default(visited),
+          action: RuleAction.default(visited),
+          override_action: OverrideAction.default(visited),
+          rule_labels: Labels.default(visited),
+          visibility_config: VisibilityConfig.default(visited),
+          captcha_config: CaptchaConfig.default(visited),
         }
       end
 
@@ -1756,7 +1756,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('CaptchaConfig')
         visited = visited + ['CaptchaConfig']
         {
-          immunity_time_property: Stubs::ImmunityTimeProperty.default(visited),
+          immunity_time_property: ImmunityTimeProperty.default(visited),
         }
       end
 
@@ -1792,7 +1792,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('Labels')
         visited = visited + ['Labels']
         [
-          Stubs::Label.default(visited)
+          Label.default(visited)
         ]
       end
 
@@ -1830,8 +1830,8 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('OverrideAction')
         visited = visited + ['OverrideAction']
         {
-          count: Stubs::CountAction.default(visited),
-          none: Stubs::NoneAction.default(visited),
+          count: CountAction.default(visited),
+          none: NoneAction.default(visited),
         }
       end
 
@@ -1866,21 +1866,21 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('Statement')
         visited = visited + ['Statement']
         {
-          byte_match_statement: Stubs::ByteMatchStatement.default(visited),
-          sqli_match_statement: Stubs::SqliMatchStatement.default(visited),
-          xss_match_statement: Stubs::XssMatchStatement.default(visited),
-          size_constraint_statement: Stubs::SizeConstraintStatement.default(visited),
-          geo_match_statement: Stubs::GeoMatchStatement.default(visited),
-          rule_group_reference_statement: Stubs::RuleGroupReferenceStatement.default(visited),
-          ip_set_reference_statement: Stubs::IPSetReferenceStatement.default(visited),
-          regex_pattern_set_reference_statement: Stubs::RegexPatternSetReferenceStatement.default(visited),
-          rate_based_statement: Stubs::RateBasedStatement.default(visited),
-          and_statement: Stubs::AndStatement.default(visited),
-          or_statement: Stubs::OrStatement.default(visited),
-          not_statement: Stubs::NotStatement.default(visited),
-          managed_rule_group_statement: Stubs::ManagedRuleGroupStatement.default(visited),
-          label_match_statement: Stubs::LabelMatchStatement.default(visited),
-          regex_match_statement: Stubs::RegexMatchStatement.default(visited),
+          byte_match_statement: ByteMatchStatement.default(visited),
+          sqli_match_statement: SqliMatchStatement.default(visited),
+          xss_match_statement: XssMatchStatement.default(visited),
+          size_constraint_statement: SizeConstraintStatement.default(visited),
+          geo_match_statement: GeoMatchStatement.default(visited),
+          rule_group_reference_statement: RuleGroupReferenceStatement.default(visited),
+          ip_set_reference_statement: IPSetReferenceStatement.default(visited),
+          regex_pattern_set_reference_statement: RegexPatternSetReferenceStatement.default(visited),
+          rate_based_statement: RateBasedStatement.default(visited),
+          and_statement: AndStatement.default(visited),
+          or_statement: OrStatement.default(visited),
+          not_statement: NotStatement.default(visited),
+          managed_rule_group_statement: ManagedRuleGroupStatement.default(visited),
+          label_match_statement: LabelMatchStatement.default(visited),
+          regex_match_statement: RegexMatchStatement.default(visited),
         }
       end
 
@@ -1913,8 +1913,8 @@ module AWS::SDK::WAFV2
         visited = visited + ['RegexMatchStatement']
         {
           regex_string: 'regex_string',
-          field_to_match: Stubs::FieldToMatch.default(visited),
-          text_transformations: Stubs::TextTransformations.default(visited),
+          field_to_match: FieldToMatch.default(visited),
+          text_transformations: TextTransformations.default(visited),
         }
       end
 
@@ -1934,7 +1934,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('TextTransformations')
         visited = visited + ['TextTransformations']
         [
-          Stubs::TextTransformation.default(visited)
+          TextTransformation.default(visited)
         ]
       end
 
@@ -1997,9 +1997,9 @@ module AWS::SDK::WAFV2
           vendor_name: 'vendor_name',
           name: 'name',
           version: 'version',
-          excluded_rules: Stubs::ExcludedRules.default(visited),
-          scope_down_statement: Stubs::Statement.default(visited),
-          managed_rule_group_configs: Stubs::ManagedRuleGroupConfigs.default(visited),
+          excluded_rules: ExcludedRules.default(visited),
+          scope_down_statement: Statement.default(visited),
+          managed_rule_group_configs: ManagedRuleGroupConfigs.default(visited),
         }
       end
 
@@ -2022,7 +2022,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('ManagedRuleGroupConfigs')
         visited = visited + ['ManagedRuleGroupConfigs']
         [
-          Stubs::ManagedRuleGroupConfig.default(visited)
+          ManagedRuleGroupConfig.default(visited)
         ]
       end
 
@@ -2044,8 +2044,8 @@ module AWS::SDK::WAFV2
         {
           login_path: 'login_path',
           payload_type: 'payload_type',
-          username_field: Stubs::UsernameField.default(visited),
-          password_field: Stubs::PasswordField.default(visited),
+          username_field: UsernameField.default(visited),
+          password_field: PasswordField.default(visited),
         }
       end
 
@@ -2102,7 +2102,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('ExcludedRules')
         visited = visited + ['ExcludedRules']
         [
-          Stubs::ExcludedRule.default(visited)
+          ExcludedRule.default(visited)
         ]
       end
 
@@ -2140,7 +2140,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('NotStatement')
         visited = visited + ['NotStatement']
         {
-          statement: Stubs::Statement.default(visited),
+          statement: Statement.default(visited),
         }
       end
 
@@ -2158,7 +2158,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('OrStatement')
         visited = visited + ['OrStatement']
         {
-          statements: Stubs::Statements.default(visited),
+          statements: Statements.default(visited),
         }
       end
 
@@ -2176,7 +2176,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('Statements')
         visited = visited + ['Statements']
         [
-          Stubs::Statement.default(visited)
+          Statement.default(visited)
         ]
       end
 
@@ -2196,7 +2196,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('AndStatement')
         visited = visited + ['AndStatement']
         {
-          statements: Stubs::Statements.default(visited),
+          statements: Statements.default(visited),
         }
       end
 
@@ -2216,8 +2216,8 @@ module AWS::SDK::WAFV2
         {
           limit: 1,
           aggregate_key_type: 'aggregate_key_type',
-          scope_down_statement: Stubs::Statement.default(visited),
-          forwarded_ip_config: Stubs::ForwardedIPConfig.default(visited),
+          scope_down_statement: Statement.default(visited),
+          forwarded_ip_config: ForwardedIPConfig.default(visited),
         }
       end
 
@@ -2259,8 +2259,8 @@ module AWS::SDK::WAFV2
         visited = visited + ['RegexPatternSetReferenceStatement']
         {
           arn: 'arn',
-          field_to_match: Stubs::FieldToMatch.default(visited),
-          text_transformations: Stubs::TextTransformations.default(visited),
+          field_to_match: FieldToMatch.default(visited),
+          text_transformations: TextTransformations.default(visited),
         }
       end
 
@@ -2281,7 +2281,7 @@ module AWS::SDK::WAFV2
         visited = visited + ['IPSetReferenceStatement']
         {
           arn: 'arn',
-          ip_set_forwarded_ip_config: Stubs::IPSetForwardedIPConfig.default(visited),
+          ip_set_forwarded_ip_config: IPSetForwardedIPConfig.default(visited),
         }
       end
 
@@ -2323,7 +2323,7 @@ module AWS::SDK::WAFV2
         visited = visited + ['RuleGroupReferenceStatement']
         {
           arn: 'arn',
-          excluded_rules: Stubs::ExcludedRules.default(visited),
+          excluded_rules: ExcludedRules.default(visited),
         }
       end
 
@@ -2342,8 +2342,8 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('GeoMatchStatement')
         visited = visited + ['GeoMatchStatement']
         {
-          country_codes: Stubs::CountryCodes.default(visited),
-          forwarded_ip_config: Stubs::ForwardedIPConfig.default(visited),
+          country_codes: CountryCodes.default(visited),
+          forwarded_ip_config: ForwardedIPConfig.default(visited),
         }
       end
 
@@ -2382,10 +2382,10 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('SizeConstraintStatement')
         visited = visited + ['SizeConstraintStatement']
         {
-          field_to_match: Stubs::FieldToMatch.default(visited),
+          field_to_match: FieldToMatch.default(visited),
           comparison_operator: 'comparison_operator',
           size: 1,
-          text_transformations: Stubs::TextTransformations.default(visited),
+          text_transformations: TextTransformations.default(visited),
         }
       end
 
@@ -2406,8 +2406,8 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('XssMatchStatement')
         visited = visited + ['XssMatchStatement']
         {
-          field_to_match: Stubs::FieldToMatch.default(visited),
-          text_transformations: Stubs::TextTransformations.default(visited),
+          field_to_match: FieldToMatch.default(visited),
+          text_transformations: TextTransformations.default(visited),
         }
       end
 
@@ -2426,8 +2426,8 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('SqliMatchStatement')
         visited = visited + ['SqliMatchStatement']
         {
-          field_to_match: Stubs::FieldToMatch.default(visited),
-          text_transformations: Stubs::TextTransformations.default(visited),
+          field_to_match: FieldToMatch.default(visited),
+          text_transformations: TextTransformations.default(visited),
         }
       end
 
@@ -2447,8 +2447,8 @@ module AWS::SDK::WAFV2
         visited = visited + ['ByteMatchStatement']
         {
           search_string: 'search_string',
-          field_to_match: Stubs::FieldToMatch.default(visited),
-          text_transformations: Stubs::TextTransformations.default(visited),
+          field_to_match: FieldToMatch.default(visited),
+          text_transformations: TextTransformations.default(visited),
           positional_constraint: 'positional_constraint',
         }
       end
@@ -2468,9 +2468,9 @@ module AWS::SDK::WAFV2
     class GetSampledRequests
       def self.default(visited=[])
         {
-          sampled_requests: Stubs::SampledHTTPRequests.default(visited),
+          sampled_requests: SampledHTTPRequests.default(visited),
           population_size: 1,
-          time_window: Stubs::TimeWindow.default(visited),
+          time_window: TimeWindow.default(visited),
         }
       end
 
@@ -2510,7 +2510,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('SampledHTTPRequests')
         visited = visited + ['SampledHTTPRequests']
         [
-          Stubs::SampledHTTPRequest.default(visited)
+          SampledHTTPRequest.default(visited)
         ]
       end
 
@@ -2530,15 +2530,15 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('SampledHTTPRequest')
         visited = visited + ['SampledHTTPRequest']
         {
-          request: Stubs::HTTPRequest.default(visited),
+          request: HTTPRequest.default(visited),
           weight: 1,
           timestamp: Time.now,
           action: 'action',
           rule_name_within_rule_group: 'rule_name_within_rule_group',
-          request_headers_inserted: Stubs::HTTPHeaders.default(visited),
+          request_headers_inserted: HTTPHeaders.default(visited),
           response_code_sent: 1,
-          labels: Stubs::Labels.default(visited),
-          captcha_response: Stubs::CaptchaResponse.default(visited),
+          labels: Labels.default(visited),
+          captcha_response: CaptchaResponse.default(visited),
         }
       end
 
@@ -2586,7 +2586,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('HTTPHeaders')
         visited = visited + ['HTTPHeaders']
         [
-          Stubs::HTTPHeader.default(visited)
+          HTTPHeader.default(visited)
         ]
       end
 
@@ -2631,7 +2631,7 @@ module AWS::SDK::WAFV2
           uri: 'uri',
           member_method: 'member_method',
           http_version: 'http_version',
-          headers: Stubs::HTTPHeaders.default(visited),
+          headers: HTTPHeaders.default(visited),
         }
       end
 
@@ -2652,7 +2652,7 @@ module AWS::SDK::WAFV2
     class GetWebACL
       def self.default(visited=[])
         {
-          web_acl: Stubs::WebACL.default(visited),
+          web_acl: WebACL.default(visited),
           lock_token: 'lock_token',
           application_integration_url: 'application_integration_url',
         }
@@ -2677,17 +2677,17 @@ module AWS::SDK::WAFV2
           name: 'name',
           id: 'id',
           arn: 'arn',
-          default_action: Stubs::DefaultAction.default(visited),
+          default_action: DefaultAction.default(visited),
           description: 'description',
-          rules: Stubs::Rules.default(visited),
-          visibility_config: Stubs::VisibilityConfig.default(visited),
+          rules: Rules.default(visited),
+          visibility_config: VisibilityConfig.default(visited),
           capacity: 1,
-          pre_process_firewall_manager_rule_groups: Stubs::FirewallManagerRuleGroups.default(visited),
-          post_process_firewall_manager_rule_groups: Stubs::FirewallManagerRuleGroups.default(visited),
+          pre_process_firewall_manager_rule_groups: FirewallManagerRuleGroups.default(visited),
+          post_process_firewall_manager_rule_groups: FirewallManagerRuleGroups.default(visited),
           managed_by_firewall_manager: false,
           label_namespace: 'label_namespace',
-          custom_response_bodies: Stubs::CustomResponseBodies.default(visited),
-          captcha_config: Stubs::CaptchaConfig.default(visited),
+          custom_response_bodies: CustomResponseBodies.default(visited),
+          captcha_config: CaptchaConfig.default(visited),
         }
       end
 
@@ -2718,7 +2718,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('FirewallManagerRuleGroups')
         visited = visited + ['FirewallManagerRuleGroups']
         [
-          Stubs::FirewallManagerRuleGroup.default(visited)
+          FirewallManagerRuleGroup.default(visited)
         ]
       end
 
@@ -2740,9 +2740,9 @@ module AWS::SDK::WAFV2
         {
           name: 'name',
           priority: 1,
-          firewall_manager_statement: Stubs::FirewallManagerStatement.default(visited),
-          override_action: Stubs::OverrideAction.default(visited),
-          visibility_config: Stubs::VisibilityConfig.default(visited),
+          firewall_manager_statement: FirewallManagerStatement.default(visited),
+          override_action: OverrideAction.default(visited),
+          visibility_config: VisibilityConfig.default(visited),
         }
       end
 
@@ -2764,8 +2764,8 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('FirewallManagerStatement')
         visited = visited + ['FirewallManagerStatement']
         {
-          managed_rule_group_statement: Stubs::ManagedRuleGroupStatement.default(visited),
-          rule_group_reference_statement: Stubs::RuleGroupReferenceStatement.default(visited),
+          managed_rule_group_statement: ManagedRuleGroupStatement.default(visited),
+          rule_group_reference_statement: RuleGroupReferenceStatement.default(visited),
         }
       end
 
@@ -2784,8 +2784,8 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('DefaultAction')
         visited = visited + ['DefaultAction']
         {
-          block: Stubs::BlockAction.default(visited),
-          allow: Stubs::AllowAction.default(visited),
+          block: BlockAction.default(visited),
+          allow: AllowAction.default(visited),
         }
       end
 
@@ -2802,7 +2802,7 @@ module AWS::SDK::WAFV2
     class GetWebACLForResource
       def self.default(visited=[])
         {
-          web_acl: Stubs::WebACL.default(visited),
+          web_acl: WebACL.default(visited),
         }
       end
 
@@ -2819,7 +2819,7 @@ module AWS::SDK::WAFV2
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
-          versions: Stubs::ManagedRuleGroupVersions.default(visited),
+          versions: ManagedRuleGroupVersions.default(visited),
           current_default_version: 'current_default_version',
         }
       end
@@ -2840,7 +2840,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('ManagedRuleGroupVersions')
         visited = visited + ['ManagedRuleGroupVersions']
         [
-          Stubs::ManagedRuleGroupVersion.default(visited)
+          ManagedRuleGroupVersion.default(visited)
         ]
       end
 
@@ -2879,7 +2879,7 @@ module AWS::SDK::WAFV2
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
-          managed_rule_groups: Stubs::ManagedRuleGroupSummaries.default(visited),
+          managed_rule_groups: ManagedRuleGroupSummaries.default(visited),
         }
       end
 
@@ -2898,7 +2898,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('ManagedRuleGroupSummaries')
         visited = visited + ['ManagedRuleGroupSummaries']
         [
-          Stubs::ManagedRuleGroupSummary.default(visited)
+          ManagedRuleGroupSummary.default(visited)
         ]
       end
 
@@ -2941,7 +2941,7 @@ module AWS::SDK::WAFV2
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
-          ip_sets: Stubs::IPSetSummaries.default(visited),
+          ip_sets: IPSetSummaries.default(visited),
         }
       end
 
@@ -2960,7 +2960,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('IPSetSummaries')
         visited = visited + ['IPSetSummaries']
         [
-          Stubs::IPSetSummary.default(visited)
+          IPSetSummary.default(visited)
         ]
       end
 
@@ -2978,7 +2978,7 @@ module AWS::SDK::WAFV2
     class ListLoggingConfigurations
       def self.default(visited=[])
         {
-          logging_configurations: Stubs::LoggingConfigurations.default(visited),
+          logging_configurations: LoggingConfigurations.default(visited),
           next_marker: 'next_marker',
         }
       end
@@ -2998,7 +2998,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('LoggingConfigurations')
         visited = visited + ['LoggingConfigurations']
         [
-          Stubs::LoggingConfiguration.default(visited)
+          LoggingConfiguration.default(visited)
         ]
       end
 
@@ -3017,7 +3017,7 @@ module AWS::SDK::WAFV2
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
-          managed_rule_sets: Stubs::ManagedRuleSetSummaries.default(visited),
+          managed_rule_sets: ManagedRuleSetSummaries.default(visited),
         }
       end
 
@@ -3036,7 +3036,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('ManagedRuleSetSummaries')
         visited = visited + ['ManagedRuleSetSummaries']
         [
-          Stubs::ManagedRuleSetSummary.default(visited)
+          ManagedRuleSetSummary.default(visited)
         ]
       end
 
@@ -3082,7 +3082,7 @@ module AWS::SDK::WAFV2
     class ListMobileSdkReleases
       def self.default(visited=[])
         {
-          release_summaries: Stubs::ReleaseSummaries.default(visited),
+          release_summaries: ReleaseSummaries.default(visited),
           next_marker: 'next_marker',
         }
       end
@@ -3102,7 +3102,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('ReleaseSummaries')
         visited = visited + ['ReleaseSummaries']
         [
-          Stubs::ReleaseSummary.default(visited)
+          ReleaseSummary.default(visited)
         ]
       end
 
@@ -3141,7 +3141,7 @@ module AWS::SDK::WAFV2
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
-          regex_pattern_sets: Stubs::RegexPatternSetSummaries.default(visited),
+          regex_pattern_sets: RegexPatternSetSummaries.default(visited),
         }
       end
 
@@ -3160,7 +3160,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('RegexPatternSetSummaries')
         visited = visited + ['RegexPatternSetSummaries']
         [
-          Stubs::RegexPatternSetSummary.default(visited)
+          RegexPatternSetSummary.default(visited)
         ]
       end
 
@@ -3178,7 +3178,7 @@ module AWS::SDK::WAFV2
     class ListResourcesForWebACL
       def self.default(visited=[])
         {
-          resource_arns: Stubs::ResourceArns.default(visited),
+          resource_arns: ResourceArns.default(visited),
         }
       end
 
@@ -3215,7 +3215,7 @@ module AWS::SDK::WAFV2
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
-          rule_groups: Stubs::RuleGroupSummaries.default(visited),
+          rule_groups: RuleGroupSummaries.default(visited),
         }
       end
 
@@ -3234,7 +3234,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('RuleGroupSummaries')
         visited = visited + ['RuleGroupSummaries']
         [
-          Stubs::RuleGroupSummary.default(visited)
+          RuleGroupSummary.default(visited)
         ]
       end
 
@@ -3253,7 +3253,7 @@ module AWS::SDK::WAFV2
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
-          tag_info_for_resource: Stubs::TagInfoForResource.default(visited),
+          tag_info_for_resource: TagInfoForResource.default(visited),
         }
       end
 
@@ -3273,7 +3273,7 @@ module AWS::SDK::WAFV2
         visited = visited + ['TagInfoForResource']
         {
           resource_arn: 'resource_arn',
-          tag_list: Stubs::TagList.default(visited),
+          tag_list: TagList.default(visited),
         }
       end
 
@@ -3291,7 +3291,7 @@ module AWS::SDK::WAFV2
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
-          web_ac_ls: Stubs::WebACLSummaries.default(visited),
+          web_ac_ls: WebACLSummaries.default(visited),
         }
       end
 
@@ -3310,7 +3310,7 @@ module AWS::SDK::WAFV2
         return nil if visited.include?('WebACLSummaries')
         visited = visited + ['WebACLSummaries']
         [
-          Stubs::WebACLSummary.default(visited)
+          WebACLSummary.default(visited)
         ]
       end
 
@@ -3328,7 +3328,7 @@ module AWS::SDK::WAFV2
     class PutLoggingConfiguration
       def self.default(visited=[])
         {
-          logging_configuration: Stubs::LoggingConfiguration.default(visited),
+          logging_configuration: LoggingConfiguration.default(visited),
         }
       end
 

@@ -510,11 +510,11 @@ module AWS::SDK::GameSparks
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable_termination_protection ||= false
       end
-
     end
 
     # Includes enum constants for GameState
@@ -1483,11 +1483,11 @@ module AWS::SDK::GameSparks
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.size ||= 0
       end
-
     end
 
     # <p>A single modification to the configuration section.</p>

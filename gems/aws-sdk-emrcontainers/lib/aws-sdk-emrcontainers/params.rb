@@ -127,7 +127,7 @@ module AWS::SDK::EMRContainers
         type.execution_role_arn = params[:execution_role_arn]
         type.certificate_arn = params[:certificate_arn]
         type.configuration_overrides = ConfigurationOverrides.build(params[:configuration_overrides], context: "#{context}[:configuration_overrides]") unless params[:configuration_overrides].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -151,7 +151,7 @@ module AWS::SDK::EMRContainers
         type = Types::CreateVirtualClusterInput.new
         type.name = params[:name]
         type.container_provider = ContainerProvider.build(params[:container_provider], context: "#{context}[:container_provider]") unless params[:container_provider].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -555,7 +555,7 @@ module AWS::SDK::EMRContainers
         type = Types::StartJobRunInput.new
         type.name = params[:name]
         type.virtual_cluster_id = params[:virtual_cluster_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.execution_role_arn = params[:execution_role_arn]
         type.release_label = params[:release_label]
         type.job_driver = JobDriver.build(params[:job_driver], context: "#{context}[:job_driver]") unless params[:job_driver].nil?

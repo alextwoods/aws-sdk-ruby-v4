@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::ConnectContactLens
@@ -101,7 +103,7 @@ module AWS::SDK::ConnectContactLens
     def list_realtime_contact_analysis_segments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRealtimeContactAnalysisSegmentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRealtimeContactAnalysisSegmentsInput,
         validate_input: @config.validate_input

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::OpsWorksCM
@@ -204,7 +206,7 @@ module AWS::SDK::OpsWorksCM
     def associate_node(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateNodeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateNodeInput,
         validate_input: @config.validate_input
@@ -350,7 +352,7 @@ module AWS::SDK::OpsWorksCM
     def create_backup(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBackupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBackupInput,
         validate_input: @config.validate_input
@@ -732,7 +734,7 @@ module AWS::SDK::OpsWorksCM
     def create_server(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateServerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateServerInput,
         validate_input: @config.validate_input
@@ -809,7 +811,7 @@ module AWS::SDK::OpsWorksCM
     def delete_backup(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBackupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBackupInput,
         validate_input: @config.validate_input
@@ -892,7 +894,7 @@ module AWS::SDK::OpsWorksCM
     def delete_server(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteServerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteServerInput,
         validate_input: @config.validate_input
@@ -965,7 +967,7 @@ module AWS::SDK::OpsWorksCM
     def describe_account_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAccountAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAccountAttributesInput,
         validate_input: @config.validate_input
@@ -1085,7 +1087,7 @@ module AWS::SDK::OpsWorksCM
     def describe_backups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeBackupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeBackupsInput,
         validate_input: @config.validate_input
@@ -1188,7 +1190,7 @@ module AWS::SDK::OpsWorksCM
     def describe_events(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEventsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEventsInput,
         validate_input: @config.validate_input
@@ -1273,7 +1275,7 @@ module AWS::SDK::OpsWorksCM
     def describe_node_association_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeNodeAssociationStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeNodeAssociationStatusInput,
         validate_input: @config.validate_input
@@ -1393,7 +1395,7 @@ module AWS::SDK::OpsWorksCM
     def describe_servers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeServersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeServersInput,
         validate_input: @config.validate_input
@@ -1497,7 +1499,7 @@ module AWS::SDK::OpsWorksCM
     def disassociate_node(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateNodeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateNodeInput,
         validate_input: @config.validate_input
@@ -1619,7 +1621,7 @@ module AWS::SDK::OpsWorksCM
     def export_server_engine_attribute(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExportServerEngineAttributeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExportServerEngineAttributeInput,
         validate_input: @config.validate_input
@@ -1711,7 +1713,7 @@ module AWS::SDK::OpsWorksCM
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -1841,7 +1843,7 @@ module AWS::SDK::OpsWorksCM
     def restore_server(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RestoreServerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RestoreServerInput,
         validate_input: @config.validate_input
@@ -1967,7 +1969,7 @@ module AWS::SDK::OpsWorksCM
     def start_maintenance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartMaintenanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartMaintenanceInput,
         validate_input: @config.validate_input
@@ -2064,7 +2066,7 @@ module AWS::SDK::OpsWorksCM
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2139,7 +2141,7 @@ module AWS::SDK::OpsWorksCM
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2272,7 +2274,7 @@ module AWS::SDK::OpsWorksCM
     def update_server(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateServerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateServerInput,
         validate_input: @config.validate_input
@@ -2393,7 +2395,7 @@ module AWS::SDK::OpsWorksCM
     def update_server_engine_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateServerEngineAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateServerEngineAttributesInput,
         validate_input: @config.validate_input

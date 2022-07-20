@@ -148,7 +148,7 @@ module AWS::SDK::FMS
     class GetAppsList
       def self.default(visited=[])
         {
-          apps_list: Stubs::AppsListData.default(visited),
+          apps_list: AppsListData.default(visited),
           apps_list_arn: 'apps_list_arn',
         }
       end
@@ -173,8 +173,8 @@ module AWS::SDK::FMS
           list_update_token: 'list_update_token',
           create_time: Time.now,
           last_update_time: Time.now,
-          apps_list: Stubs::AppsList.default(visited),
-          previous_apps_list: Stubs::PreviousAppsList.default(visited),
+          apps_list: AppsList.default(visited),
+          previous_apps_list: PreviousAppsList.default(visited),
         }
       end
 
@@ -198,7 +198,7 @@ module AWS::SDK::FMS
         return nil if visited.include?('PreviousAppsList')
         visited = visited + ['PreviousAppsList']
         {
-          test_key: Stubs::AppsList.default(visited)
+          test_key: AppsList.default(visited)
         }
       end
 
@@ -218,7 +218,7 @@ module AWS::SDK::FMS
         return nil if visited.include?('AppsList')
         visited = visited + ['AppsList']
         [
-          Stubs::App.default(visited)
+          App.default(visited)
         ]
       end
 
@@ -258,7 +258,7 @@ module AWS::SDK::FMS
     class GetComplianceDetail
       def self.default(visited=[])
         {
-          policy_compliance_detail: Stubs::PolicyComplianceDetail.default(visited),
+          policy_compliance_detail: PolicyComplianceDetail.default(visited),
         }
       end
 
@@ -279,10 +279,10 @@ module AWS::SDK::FMS
           policy_owner: 'policy_owner',
           policy_id: 'policy_id',
           member_account: 'member_account',
-          violators: Stubs::ComplianceViolators.default(visited),
+          violators: ComplianceViolators.default(visited),
           evaluation_limit_exceeded: false,
           expired_at: Time.now,
-          issue_info_map: Stubs::IssueInfoMap.default(visited),
+          issue_info_map: IssueInfoMap.default(visited),
         }
       end
 
@@ -326,7 +326,7 @@ module AWS::SDK::FMS
         return nil if visited.include?('ComplianceViolators')
         visited = visited + ['ComplianceViolators']
         [
-          Stubs::ComplianceViolator.default(visited)
+          ComplianceViolator.default(visited)
         ]
       end
 
@@ -349,7 +349,7 @@ module AWS::SDK::FMS
           resource_id: 'resource_id',
           violation_reason: 'violation_reason',
           resource_type: 'resource_type',
-          metadata: Stubs::ComplianceViolatorMetadata.default(visited),
+          metadata: ComplianceViolatorMetadata.default(visited),
         }
       end
 
@@ -406,7 +406,7 @@ module AWS::SDK::FMS
     class GetPolicy
       def self.default(visited=[])
         {
-          policy: Stubs::Policy.default(visited),
+          policy: Policy.default(visited),
           policy_arn: 'policy_arn',
         }
       end
@@ -429,15 +429,15 @@ module AWS::SDK::FMS
           policy_id: 'policy_id',
           policy_name: 'policy_name',
           policy_update_token: 'policy_update_token',
-          security_service_policy_data: Stubs::SecurityServicePolicyData.default(visited),
+          security_service_policy_data: SecurityServicePolicyData.default(visited),
           resource_type: 'resource_type',
-          resource_type_list: Stubs::ResourceTypeList.default(visited),
-          resource_tags: Stubs::ResourceTags.default(visited),
+          resource_type_list: ResourceTypeList.default(visited),
+          resource_tags: ResourceTags.default(visited),
           exclude_resource_tags: false,
           remediation_enabled: false,
           delete_unused_fm_managed_resources: false,
-          include_map: Stubs::CustomerPolicyScopeMap.default(visited),
-          exclude_map: Stubs::CustomerPolicyScopeMap.default(visited),
+          include_map: CustomerPolicyScopeMap.default(visited),
+          exclude_map: CustomerPolicyScopeMap.default(visited),
         }
       end
 
@@ -466,7 +466,7 @@ module AWS::SDK::FMS
         return nil if visited.include?('CustomerPolicyScopeMap')
         visited = visited + ['CustomerPolicyScopeMap']
         {
-          test_key: Stubs::CustomerPolicyScopeIdList.default(visited)
+          test_key: CustomerPolicyScopeIdList.default(visited)
         }
       end
 
@@ -506,7 +506,7 @@ module AWS::SDK::FMS
         return nil if visited.include?('ResourceTags')
         visited = visited + ['ResourceTags']
         [
-          Stubs::ResourceTag.default(visited)
+          ResourceTag.default(visited)
         ]
       end
 
@@ -568,7 +568,7 @@ module AWS::SDK::FMS
         {
           type: 'type',
           managed_service_data: 'managed_service_data',
-          policy_option: Stubs::PolicyOption.default(visited),
+          policy_option: PolicyOption.default(visited),
         }
       end
 
@@ -588,8 +588,8 @@ module AWS::SDK::FMS
         return nil if visited.include?('PolicyOption')
         visited = visited + ['PolicyOption']
         {
-          network_firewall_policy: Stubs::NetworkFirewallPolicy.default(visited),
-          third_party_firewall_policy: Stubs::ThirdPartyFirewallPolicy.default(visited),
+          network_firewall_policy: NetworkFirewallPolicy.default(visited),
+          third_party_firewall_policy: ThirdPartyFirewallPolicy.default(visited),
         }
       end
 
@@ -664,7 +664,7 @@ module AWS::SDK::FMS
     class GetProtocolsList
       def self.default(visited=[])
         {
-          protocols_list: Stubs::ProtocolsListData.default(visited),
+          protocols_list: ProtocolsListData.default(visited),
           protocols_list_arn: 'protocols_list_arn',
         }
       end
@@ -689,8 +689,8 @@ module AWS::SDK::FMS
           list_update_token: 'list_update_token',
           create_time: Time.now,
           last_update_time: Time.now,
-          protocols_list: Stubs::ProtocolsList.default(visited),
-          previous_protocols_list: Stubs::PreviousProtocolsList.default(visited),
+          protocols_list: ProtocolsList.default(visited),
+          previous_protocols_list: PreviousProtocolsList.default(visited),
         }
       end
 
@@ -714,7 +714,7 @@ module AWS::SDK::FMS
         return nil if visited.include?('PreviousProtocolsList')
         visited = visited + ['PreviousProtocolsList']
         {
-          test_key: Stubs::ProtocolsList.default(visited)
+          test_key: ProtocolsList.default(visited)
         }
       end
 
@@ -770,7 +770,7 @@ module AWS::SDK::FMS
     class GetViolationDetails
       def self.default(visited=[])
         {
-          violation_detail: Stubs::ViolationDetail.default(visited),
+          violation_detail: ViolationDetail.default(visited),
         }
       end
 
@@ -792,8 +792,8 @@ module AWS::SDK::FMS
           member_account: 'member_account',
           resource_id: 'resource_id',
           resource_type: 'resource_type',
-          resource_violations: Stubs::ResourceViolations.default(visited),
-          resource_tags: Stubs::TagList.default(visited),
+          resource_violations: ResourceViolations.default(visited),
+          resource_tags: TagList.default(visited),
           resource_description: 'resource_description',
         }
       end
@@ -818,7 +818,7 @@ module AWS::SDK::FMS
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -858,7 +858,7 @@ module AWS::SDK::FMS
         return nil if visited.include?('ResourceViolations')
         visited = visited + ['ResourceViolations']
         [
-          Stubs::ResourceViolation.default(visited)
+          ResourceViolation.default(visited)
         ]
       end
 
@@ -878,29 +878,29 @@ module AWS::SDK::FMS
         return nil if visited.include?('ResourceViolation')
         visited = visited + ['ResourceViolation']
         {
-          aws_vpc_security_group_violation: Stubs::AwsVPCSecurityGroupViolation.default(visited),
-          aws_ec2_network_interface_violation: Stubs::AwsEc2NetworkInterfaceViolation.default(visited),
-          aws_ec2_instance_violation: Stubs::AwsEc2InstanceViolation.default(visited),
-          network_firewall_missing_firewall_violation: Stubs::NetworkFirewallMissingFirewallViolation.default(visited),
-          network_firewall_missing_subnet_violation: Stubs::NetworkFirewallMissingSubnetViolation.default(visited),
-          network_firewall_missing_expected_rt_violation: Stubs::NetworkFirewallMissingExpectedRTViolation.default(visited),
-          network_firewall_policy_modified_violation: Stubs::NetworkFirewallPolicyModifiedViolation.default(visited),
-          network_firewall_internet_traffic_not_inspected_violation: Stubs::NetworkFirewallInternetTrafficNotInspectedViolation.default(visited),
-          network_firewall_invalid_route_configuration_violation: Stubs::NetworkFirewallInvalidRouteConfigurationViolation.default(visited),
-          network_firewall_black_hole_route_detected_violation: Stubs::NetworkFirewallBlackHoleRouteDetectedViolation.default(visited),
-          network_firewall_unexpected_firewall_routes_violation: Stubs::NetworkFirewallUnexpectedFirewallRoutesViolation.default(visited),
-          network_firewall_unexpected_gateway_routes_violation: Stubs::NetworkFirewallUnexpectedGatewayRoutesViolation.default(visited),
-          network_firewall_missing_expected_routes_violation: Stubs::NetworkFirewallMissingExpectedRoutesViolation.default(visited),
-          dns_rule_group_priority_conflict_violation: Stubs::DnsRuleGroupPriorityConflictViolation.default(visited),
-          dns_duplicate_rule_group_violation: Stubs::DnsDuplicateRuleGroupViolation.default(visited),
-          dns_rule_group_limit_exceeded_violation: Stubs::DnsRuleGroupLimitExceededViolation.default(visited),
-          possible_remediation_actions: Stubs::PossibleRemediationActions.default(visited),
-          firewall_subnet_is_out_of_scope_violation: Stubs::FirewallSubnetIsOutOfScopeViolation.default(visited),
-          route_has_out_of_scope_endpoint_violation: Stubs::RouteHasOutOfScopeEndpointViolation.default(visited),
-          third_party_firewall_missing_firewall_violation: Stubs::ThirdPartyFirewallMissingFirewallViolation.default(visited),
-          third_party_firewall_missing_subnet_violation: Stubs::ThirdPartyFirewallMissingSubnetViolation.default(visited),
-          third_party_firewall_missing_expected_route_table_violation: Stubs::ThirdPartyFirewallMissingExpectedRouteTableViolation.default(visited),
-          firewall_subnet_missing_vpc_endpoint_violation: Stubs::FirewallSubnetMissingVPCEndpointViolation.default(visited),
+          aws_vpc_security_group_violation: AwsVPCSecurityGroupViolation.default(visited),
+          aws_ec2_network_interface_violation: AwsEc2NetworkInterfaceViolation.default(visited),
+          aws_ec2_instance_violation: AwsEc2InstanceViolation.default(visited),
+          network_firewall_missing_firewall_violation: NetworkFirewallMissingFirewallViolation.default(visited),
+          network_firewall_missing_subnet_violation: NetworkFirewallMissingSubnetViolation.default(visited),
+          network_firewall_missing_expected_rt_violation: NetworkFirewallMissingExpectedRTViolation.default(visited),
+          network_firewall_policy_modified_violation: NetworkFirewallPolicyModifiedViolation.default(visited),
+          network_firewall_internet_traffic_not_inspected_violation: NetworkFirewallInternetTrafficNotInspectedViolation.default(visited),
+          network_firewall_invalid_route_configuration_violation: NetworkFirewallInvalidRouteConfigurationViolation.default(visited),
+          network_firewall_black_hole_route_detected_violation: NetworkFirewallBlackHoleRouteDetectedViolation.default(visited),
+          network_firewall_unexpected_firewall_routes_violation: NetworkFirewallUnexpectedFirewallRoutesViolation.default(visited),
+          network_firewall_unexpected_gateway_routes_violation: NetworkFirewallUnexpectedGatewayRoutesViolation.default(visited),
+          network_firewall_missing_expected_routes_violation: NetworkFirewallMissingExpectedRoutesViolation.default(visited),
+          dns_rule_group_priority_conflict_violation: DnsRuleGroupPriorityConflictViolation.default(visited),
+          dns_duplicate_rule_group_violation: DnsDuplicateRuleGroupViolation.default(visited),
+          dns_rule_group_limit_exceeded_violation: DnsRuleGroupLimitExceededViolation.default(visited),
+          possible_remediation_actions: PossibleRemediationActions.default(visited),
+          firewall_subnet_is_out_of_scope_violation: FirewallSubnetIsOutOfScopeViolation.default(visited),
+          route_has_out_of_scope_endpoint_violation: RouteHasOutOfScopeEndpointViolation.default(visited),
+          third_party_firewall_missing_firewall_violation: ThirdPartyFirewallMissingFirewallViolation.default(visited),
+          third_party_firewall_missing_subnet_violation: ThirdPartyFirewallMissingSubnetViolation.default(visited),
+          third_party_firewall_missing_expected_route_table_violation: ThirdPartyFirewallMissingExpectedRouteTableViolation.default(visited),
+          firewall_subnet_missing_vpc_endpoint_violation: FirewallSubnetMissingVPCEndpointViolation.default(visited),
         }
       end
 
@@ -1041,15 +1041,15 @@ module AWS::SDK::FMS
           subnet_id: 'subnet_id',
           vpc_id: 'vpc_id',
           route_table_id: 'route_table_id',
-          violating_routes: Stubs::Routes.default(visited),
+          violating_routes: Routes.default(visited),
           subnet_availability_zone: 'subnet_availability_zone',
           subnet_availability_zone_id: 'subnet_availability_zone_id',
           current_firewall_subnet_route_table: 'current_firewall_subnet_route_table',
           firewall_subnet_id: 'firewall_subnet_id',
-          firewall_subnet_routes: Stubs::Routes.default(visited),
+          firewall_subnet_routes: Routes.default(visited),
           internet_gateway_id: 'internet_gateway_id',
           current_internet_gateway_route_table: 'current_internet_gateway_route_table',
-          internet_gateway_routes: Stubs::Routes.default(visited),
+          internet_gateway_routes: Routes.default(visited),
         }
       end
 
@@ -1078,7 +1078,7 @@ module AWS::SDK::FMS
         return nil if visited.include?('Routes')
         visited = visited + ['Routes']
         [
-          Stubs::Route.default(visited)
+          Route.default(visited)
         ]
       end
 
@@ -1149,7 +1149,7 @@ module AWS::SDK::FMS
         visited = visited + ['PossibleRemediationActions']
         {
           description: 'description',
-          actions: Stubs::PossibleRemediationActionList.default(visited),
+          actions: PossibleRemediationActionList.default(visited),
         }
       end
 
@@ -1168,7 +1168,7 @@ module AWS::SDK::FMS
         return nil if visited.include?('PossibleRemediationActionList')
         visited = visited + ['PossibleRemediationActionList']
         [
-          Stubs::PossibleRemediationAction.default(visited)
+          PossibleRemediationAction.default(visited)
         ]
       end
 
@@ -1189,7 +1189,7 @@ module AWS::SDK::FMS
         visited = visited + ['PossibleRemediationAction']
         {
           description: 'description',
-          ordered_remediation_actions: Stubs::OrderedRemediationActions.default(visited),
+          ordered_remediation_actions: OrderedRemediationActions.default(visited),
           is_default_action: false,
         }
       end
@@ -1210,7 +1210,7 @@ module AWS::SDK::FMS
         return nil if visited.include?('OrderedRemediationActions')
         visited = visited + ['OrderedRemediationActions']
         [
-          Stubs::RemediationActionWithOrder.default(visited)
+          RemediationActionWithOrder.default(visited)
         ]
       end
 
@@ -1230,7 +1230,7 @@ module AWS::SDK::FMS
         return nil if visited.include?('RemediationActionWithOrder')
         visited = visited + ['RemediationActionWithOrder']
         {
-          remediation_action: Stubs::RemediationAction.default(visited),
+          remediation_action: RemediationAction.default(visited),
           order: 1,
         }
       end
@@ -1251,14 +1251,14 @@ module AWS::SDK::FMS
         visited = visited + ['RemediationAction']
         {
           description: 'description',
-          ec2_create_route_action: Stubs::EC2CreateRouteAction.default(visited),
-          ec2_replace_route_action: Stubs::EC2ReplaceRouteAction.default(visited),
-          ec2_delete_route_action: Stubs::EC2DeleteRouteAction.default(visited),
-          ec2_copy_route_table_action: Stubs::EC2CopyRouteTableAction.default(visited),
-          ec2_replace_route_table_association_action: Stubs::EC2ReplaceRouteTableAssociationAction.default(visited),
-          ec2_associate_route_table_action: Stubs::EC2AssociateRouteTableAction.default(visited),
-          ec2_create_route_table_action: Stubs::EC2CreateRouteTableAction.default(visited),
-          fms_policy_update_firewall_creation_config_action: Stubs::FMSPolicyUpdateFirewallCreationConfigAction.default(visited),
+          ec2_create_route_action: EC2CreateRouteAction.default(visited),
+          ec2_replace_route_action: EC2ReplaceRouteAction.default(visited),
+          ec2_delete_route_action: EC2DeleteRouteAction.default(visited),
+          ec2_copy_route_table_action: EC2CopyRouteTableAction.default(visited),
+          ec2_replace_route_table_association_action: EC2ReplaceRouteTableAssociationAction.default(visited),
+          ec2_associate_route_table_action: EC2AssociateRouteTableAction.default(visited),
+          ec2_create_route_table_action: EC2CreateRouteTableAction.default(visited),
+          fms_policy_update_firewall_creation_config_action: FMSPolicyUpdateFirewallCreationConfigAction.default(visited),
         }
       end
 
@@ -1305,7 +1305,7 @@ module AWS::SDK::FMS
         visited = visited + ['EC2CreateRouteTableAction']
         {
           description: 'description',
-          vpc_id: Stubs::ActionTarget.default(visited),
+          vpc_id: ActionTarget.default(visited),
         }
       end
 
@@ -1345,9 +1345,9 @@ module AWS::SDK::FMS
         visited = visited + ['EC2AssociateRouteTableAction']
         {
           description: 'description',
-          route_table_id: Stubs::ActionTarget.default(visited),
-          subnet_id: Stubs::ActionTarget.default(visited),
-          gateway_id: Stubs::ActionTarget.default(visited),
+          route_table_id: ActionTarget.default(visited),
+          subnet_id: ActionTarget.default(visited),
+          gateway_id: ActionTarget.default(visited),
         }
       end
 
@@ -1369,8 +1369,8 @@ module AWS::SDK::FMS
         visited = visited + ['EC2ReplaceRouteTableAssociationAction']
         {
           description: 'description',
-          association_id: Stubs::ActionTarget.default(visited),
-          route_table_id: Stubs::ActionTarget.default(visited),
+          association_id: ActionTarget.default(visited),
+          route_table_id: ActionTarget.default(visited),
         }
       end
 
@@ -1391,8 +1391,8 @@ module AWS::SDK::FMS
         visited = visited + ['EC2CopyRouteTableAction']
         {
           description: 'description',
-          vpc_id: Stubs::ActionTarget.default(visited),
-          route_table_id: Stubs::ActionTarget.default(visited),
+          vpc_id: ActionTarget.default(visited),
+          route_table_id: ActionTarget.default(visited),
         }
       end
 
@@ -1416,7 +1416,7 @@ module AWS::SDK::FMS
           destination_cidr_block: 'destination_cidr_block',
           destination_prefix_list_id: 'destination_prefix_list_id',
           destination_ipv6_cidr_block: 'destination_ipv6_cidr_block',
-          route_table_id: Stubs::ActionTarget.default(visited),
+          route_table_id: ActionTarget.default(visited),
         }
       end
 
@@ -1442,8 +1442,8 @@ module AWS::SDK::FMS
           destination_cidr_block: 'destination_cidr_block',
           destination_prefix_list_id: 'destination_prefix_list_id',
           destination_ipv6_cidr_block: 'destination_ipv6_cidr_block',
-          gateway_id: Stubs::ActionTarget.default(visited),
-          route_table_id: Stubs::ActionTarget.default(visited),
+          gateway_id: ActionTarget.default(visited),
+          route_table_id: ActionTarget.default(visited),
         }
       end
 
@@ -1470,9 +1470,9 @@ module AWS::SDK::FMS
           destination_cidr_block: 'destination_cidr_block',
           destination_prefix_list_id: 'destination_prefix_list_id',
           destination_ipv6_cidr_block: 'destination_ipv6_cidr_block',
-          vpc_endpoint_id: Stubs::ActionTarget.default(visited),
-          gateway_id: Stubs::ActionTarget.default(visited),
-          route_table_id: Stubs::ActionTarget.default(visited),
+          vpc_endpoint_id: ActionTarget.default(visited),
+          gateway_id: ActionTarget.default(visited),
+          route_table_id: ActionTarget.default(visited),
         }
       end
 
@@ -1542,7 +1542,7 @@ module AWS::SDK::FMS
           violation_target_description: 'violation_target_description',
           conflicting_priority: 1,
           conflicting_policy_id: 'conflicting_policy_id',
-          unavailable_priorities: Stubs::DnsRuleGroupPriorities.default(visited),
+          unavailable_priorities: DnsRuleGroupPriorities.default(visited),
         }
       end
 
@@ -1585,7 +1585,7 @@ module AWS::SDK::FMS
         visited = visited + ['NetworkFirewallMissingExpectedRoutesViolation']
         {
           violation_target: 'violation_target',
-          expected_routes: Stubs::ExpectedRoutes.default(visited),
+          expected_routes: ExpectedRoutes.default(visited),
           vpc_id: 'vpc_id',
         }
       end
@@ -1606,7 +1606,7 @@ module AWS::SDK::FMS
         return nil if visited.include?('ExpectedRoutes')
         visited = visited + ['ExpectedRoutes']
         [
-          Stubs::ExpectedRoute.default(visited)
+          ExpectedRoute.default(visited)
         ]
       end
 
@@ -1629,8 +1629,8 @@ module AWS::SDK::FMS
           ip_v4_cidr: 'ip_v4_cidr',
           prefix_list_id: 'prefix_list_id',
           ip_v6_cidr: 'ip_v6_cidr',
-          contributing_subnets: Stubs::ResourceIdList.default(visited),
-          allowed_targets: Stubs::LengthBoundedStringList.default(visited),
+          contributing_subnets: ResourceIdList.default(visited),
+          allowed_targets: LengthBoundedStringList.default(visited),
           route_table_id: 'route_table_id',
         }
       end
@@ -1695,7 +1695,7 @@ module AWS::SDK::FMS
         visited = visited + ['NetworkFirewallUnexpectedGatewayRoutesViolation']
         {
           gateway_id: 'gateway_id',
-          violating_routes: Stubs::Routes.default(visited),
+          violating_routes: Routes.default(visited),
           route_table_id: 'route_table_id',
           vpc_id: 'vpc_id',
         }
@@ -1719,7 +1719,7 @@ module AWS::SDK::FMS
         visited = visited + ['NetworkFirewallUnexpectedFirewallRoutesViolation']
         {
           firewall_subnet_id: 'firewall_subnet_id',
-          violating_routes: Stubs::Routes.default(visited),
+          violating_routes: Routes.default(visited),
           route_table_id: 'route_table_id',
           firewall_endpoint: 'firewall_endpoint',
           vpc_id: 'vpc_id',
@@ -1747,7 +1747,7 @@ module AWS::SDK::FMS
           violation_target: 'violation_target',
           route_table_id: 'route_table_id',
           vpc_id: 'vpc_id',
-          violating_routes: Stubs::Routes.default(visited),
+          violating_routes: Routes.default(visited),
         }
       end
 
@@ -1768,21 +1768,21 @@ module AWS::SDK::FMS
         return nil if visited.include?('NetworkFirewallInvalidRouteConfigurationViolation')
         visited = visited + ['NetworkFirewallInvalidRouteConfigurationViolation']
         {
-          affected_subnets: Stubs::ResourceIdList.default(visited),
+          affected_subnets: ResourceIdList.default(visited),
           route_table_id: 'route_table_id',
           is_route_table_used_in_different_az: false,
-          violating_route: Stubs::Route.default(visited),
+          violating_route: Route.default(visited),
           current_firewall_subnet_route_table: 'current_firewall_subnet_route_table',
           expected_firewall_endpoint: 'expected_firewall_endpoint',
           actual_firewall_endpoint: 'actual_firewall_endpoint',
           expected_firewall_subnet_id: 'expected_firewall_subnet_id',
           actual_firewall_subnet_id: 'actual_firewall_subnet_id',
-          expected_firewall_subnet_routes: Stubs::ExpectedRoutes.default(visited),
-          actual_firewall_subnet_routes: Stubs::Routes.default(visited),
+          expected_firewall_subnet_routes: ExpectedRoutes.default(visited),
+          actual_firewall_subnet_routes: Routes.default(visited),
           internet_gateway_id: 'internet_gateway_id',
           current_internet_gateway_route_table: 'current_internet_gateway_route_table',
-          expected_internet_gateway_routes: Stubs::ExpectedRoutes.default(visited),
-          actual_internet_gateway_routes: Stubs::Routes.default(visited),
+          expected_internet_gateway_routes: ExpectedRoutes.default(visited),
+          actual_internet_gateway_routes: Routes.default(visited),
           vpc_id: 'vpc_id',
         }
       end
@@ -1819,17 +1819,17 @@ module AWS::SDK::FMS
           subnet_id: 'subnet_id',
           subnet_availability_zone: 'subnet_availability_zone',
           route_table_id: 'route_table_id',
-          violating_routes: Stubs::Routes.default(visited),
+          violating_routes: Routes.default(visited),
           is_route_table_used_in_different_az: false,
           current_firewall_subnet_route_table: 'current_firewall_subnet_route_table',
           expected_firewall_endpoint: 'expected_firewall_endpoint',
           firewall_subnet_id: 'firewall_subnet_id',
-          expected_firewall_subnet_routes: Stubs::ExpectedRoutes.default(visited),
-          actual_firewall_subnet_routes: Stubs::Routes.default(visited),
+          expected_firewall_subnet_routes: ExpectedRoutes.default(visited),
+          actual_firewall_subnet_routes: Routes.default(visited),
           internet_gateway_id: 'internet_gateway_id',
           current_internet_gateway_route_table: 'current_internet_gateway_route_table',
-          expected_internet_gateway_routes: Stubs::ExpectedRoutes.default(visited),
-          actual_internet_gateway_routes: Stubs::Routes.default(visited),
+          expected_internet_gateway_routes: ExpectedRoutes.default(visited),
+          actual_internet_gateway_routes: Routes.default(visited),
           vpc_id: 'vpc_id',
         }
       end
@@ -1863,8 +1863,8 @@ module AWS::SDK::FMS
         visited = visited + ['NetworkFirewallPolicyModifiedViolation']
         {
           violation_target: 'violation_target',
-          current_policy_description: Stubs::NetworkFirewallPolicyDescription.default(visited),
-          expected_policy_description: Stubs::NetworkFirewallPolicyDescription.default(visited),
+          current_policy_description: NetworkFirewallPolicyDescription.default(visited),
+          expected_policy_description: NetworkFirewallPolicyDescription.default(visited),
         }
       end
 
@@ -1884,11 +1884,11 @@ module AWS::SDK::FMS
         return nil if visited.include?('NetworkFirewallPolicyDescription')
         visited = visited + ['NetworkFirewallPolicyDescription']
         {
-          stateless_rule_groups: Stubs::StatelessRuleGroupList.default(visited),
-          stateless_default_actions: Stubs::NetworkFirewallActionList.default(visited),
-          stateless_fragment_default_actions: Stubs::NetworkFirewallActionList.default(visited),
-          stateless_custom_actions: Stubs::NetworkFirewallActionList.default(visited),
-          stateful_rule_groups: Stubs::StatefulRuleGroupList.default(visited),
+          stateless_rule_groups: StatelessRuleGroupList.default(visited),
+          stateless_default_actions: NetworkFirewallActionList.default(visited),
+          stateless_fragment_default_actions: NetworkFirewallActionList.default(visited),
+          stateless_custom_actions: NetworkFirewallActionList.default(visited),
+          stateful_rule_groups: StatefulRuleGroupList.default(visited),
         }
       end
 
@@ -1910,7 +1910,7 @@ module AWS::SDK::FMS
         return nil if visited.include?('StatefulRuleGroupList')
         visited = visited + ['StatefulRuleGroupList']
         [
-          Stubs::StatefulRuleGroup.default(visited)
+          StatefulRuleGroup.default(visited)
         ]
       end
 
@@ -1970,7 +1970,7 @@ module AWS::SDK::FMS
         return nil if visited.include?('StatelessRuleGroupList')
         visited = visited + ['StatelessRuleGroupList']
         [
-          Stubs::StatelessRuleGroup.default(visited)
+          StatelessRuleGroup.default(visited)
         ]
       end
 
@@ -2087,7 +2087,7 @@ module AWS::SDK::FMS
         visited = visited + ['AwsEc2InstanceViolation']
         {
           violation_target: 'violation_target',
-          aws_ec2_network_interface_violations: Stubs::AwsEc2NetworkInterfaceViolations.default(visited),
+          aws_ec2_network_interface_violations: AwsEc2NetworkInterfaceViolations.default(visited),
         }
       end
 
@@ -2106,7 +2106,7 @@ module AWS::SDK::FMS
         return nil if visited.include?('AwsEc2NetworkInterfaceViolations')
         visited = visited + ['AwsEc2NetworkInterfaceViolations']
         [
-          Stubs::AwsEc2NetworkInterfaceViolation.default(visited)
+          AwsEc2NetworkInterfaceViolation.default(visited)
         ]
       end
 
@@ -2127,7 +2127,7 @@ module AWS::SDK::FMS
         visited = visited + ['AwsEc2NetworkInterfaceViolation']
         {
           violation_target: 'violation_target',
-          violating_security_groups: Stubs::ResourceIdList.default(visited),
+          violating_security_groups: ResourceIdList.default(visited),
         }
       end
 
@@ -2148,8 +2148,8 @@ module AWS::SDK::FMS
         {
           violation_target: 'violation_target',
           violation_target_description: 'violation_target_description',
-          partial_matches: Stubs::PartialMatches.default(visited),
-          possible_security_group_remediation_actions: Stubs::SecurityGroupRemediationActions.default(visited),
+          partial_matches: PartialMatches.default(visited),
+          possible_security_group_remediation_actions: SecurityGroupRemediationActions.default(visited),
         }
       end
 
@@ -2170,7 +2170,7 @@ module AWS::SDK::FMS
         return nil if visited.include?('SecurityGroupRemediationActions')
         visited = visited + ['SecurityGroupRemediationActions']
         [
-          Stubs::SecurityGroupRemediationAction.default(visited)
+          SecurityGroupRemediationAction.default(visited)
         ]
       end
 
@@ -2192,7 +2192,7 @@ module AWS::SDK::FMS
         {
           remediation_action_type: 'remediation_action_type',
           description: 'description',
-          remediation_result: Stubs::SecurityGroupRuleDescription.default(visited),
+          remediation_result: SecurityGroupRuleDescription.default(visited),
           is_default_action: false,
         }
       end
@@ -2242,7 +2242,7 @@ module AWS::SDK::FMS
         return nil if visited.include?('PartialMatches')
         visited = visited + ['PartialMatches']
         [
-          Stubs::PartialMatch.default(visited)
+          PartialMatch.default(visited)
         ]
       end
 
@@ -2263,7 +2263,7 @@ module AWS::SDK::FMS
         visited = visited + ['PartialMatch']
         {
           reference: 'reference',
-          target_violation_reasons: Stubs::TargetViolationReasons.default(visited),
+          target_violation_reasons: TargetViolationReasons.default(visited),
         }
       end
 
@@ -2300,7 +2300,7 @@ module AWS::SDK::FMS
     class ListAppsLists
       def self.default(visited=[])
         {
-          apps_lists: Stubs::AppsListsData.default(visited),
+          apps_lists: AppsListsData.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2320,7 +2320,7 @@ module AWS::SDK::FMS
         return nil if visited.include?('AppsListsData')
         visited = visited + ['AppsListsData']
         [
-          Stubs::AppsListDataSummary.default(visited)
+          AppsListDataSummary.default(visited)
         ]
       end
 
@@ -2343,7 +2343,7 @@ module AWS::SDK::FMS
           list_arn: 'list_arn',
           list_id: 'list_id',
           list_name: 'list_name',
-          apps_list: Stubs::AppsList.default(visited),
+          apps_list: AppsList.default(visited),
         }
       end
 
@@ -2362,7 +2362,7 @@ module AWS::SDK::FMS
     class ListComplianceStatus
       def self.default(visited=[])
         {
-          policy_compliance_status_list: Stubs::PolicyComplianceStatusList.default(visited),
+          policy_compliance_status_list: PolicyComplianceStatusList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2382,7 +2382,7 @@ module AWS::SDK::FMS
         return nil if visited.include?('PolicyComplianceStatusList')
         visited = visited + ['PolicyComplianceStatusList']
         [
-          Stubs::PolicyComplianceStatus.default(visited)
+          PolicyComplianceStatus.default(visited)
         ]
       end
 
@@ -2406,9 +2406,9 @@ module AWS::SDK::FMS
           policy_id: 'policy_id',
           policy_name: 'policy_name',
           member_account: 'member_account',
-          evaluation_results: Stubs::EvaluationResults.default(visited),
+          evaluation_results: EvaluationResults.default(visited),
           last_updated: Time.now,
-          issue_info_map: Stubs::IssueInfoMap.default(visited),
+          issue_info_map: IssueInfoMap.default(visited),
         }
       end
 
@@ -2432,7 +2432,7 @@ module AWS::SDK::FMS
         return nil if visited.include?('EvaluationResults')
         visited = visited + ['EvaluationResults']
         [
-          Stubs::EvaluationResult.default(visited)
+          EvaluationResult.default(visited)
         ]
       end
 
@@ -2472,7 +2472,7 @@ module AWS::SDK::FMS
     class ListMemberAccounts
       def self.default(visited=[])
         {
-          member_accounts: Stubs::MemberAccounts.default(visited),
+          member_accounts: MemberAccounts.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2510,7 +2510,7 @@ module AWS::SDK::FMS
     class ListPolicies
       def self.default(visited=[])
         {
-          policy_list: Stubs::PolicySummaryList.default(visited),
+          policy_list: PolicySummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2530,7 +2530,7 @@ module AWS::SDK::FMS
         return nil if visited.include?('PolicySummaryList')
         visited = visited + ['PolicySummaryList']
         [
-          Stubs::PolicySummary.default(visited)
+          PolicySummary.default(visited)
         ]
       end
 
@@ -2578,7 +2578,7 @@ module AWS::SDK::FMS
     class ListProtocolsLists
       def self.default(visited=[])
         {
-          protocols_lists: Stubs::ProtocolsListsData.default(visited),
+          protocols_lists: ProtocolsListsData.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2598,7 +2598,7 @@ module AWS::SDK::FMS
         return nil if visited.include?('ProtocolsListsData')
         visited = visited + ['ProtocolsListsData']
         [
-          Stubs::ProtocolsListDataSummary.default(visited)
+          ProtocolsListDataSummary.default(visited)
         ]
       end
 
@@ -2621,7 +2621,7 @@ module AWS::SDK::FMS
           list_arn: 'list_arn',
           list_id: 'list_id',
           list_name: 'list_name',
-          protocols_list: Stubs::ProtocolsList.default(visited),
+          protocols_list: ProtocolsList.default(visited),
         }
       end
 
@@ -2640,7 +2640,7 @@ module AWS::SDK::FMS
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tag_list: Stubs::TagList.default(visited),
+          tag_list: TagList.default(visited),
         }
       end
 
@@ -2656,7 +2656,7 @@ module AWS::SDK::FMS
     class ListThirdPartyFirewallFirewallPolicies
       def self.default(visited=[])
         {
-          third_party_firewall_firewall_policies: Stubs::ThirdPartyFirewallFirewallPolicies.default(visited),
+          third_party_firewall_firewall_policies: ThirdPartyFirewallFirewallPolicies.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2676,7 +2676,7 @@ module AWS::SDK::FMS
         return nil if visited.include?('ThirdPartyFirewallFirewallPolicies')
         visited = visited + ['ThirdPartyFirewallFirewallPolicies']
         [
-          Stubs::ThirdPartyFirewallFirewallPolicy.default(visited)
+          ThirdPartyFirewallFirewallPolicy.default(visited)
         ]
       end
 
@@ -2714,7 +2714,7 @@ module AWS::SDK::FMS
     class PutAppsList
       def self.default(visited=[])
         {
-          apps_list: Stubs::AppsListData.default(visited),
+          apps_list: AppsListData.default(visited),
           apps_list_arn: 'apps_list_arn',
         }
       end
@@ -2746,7 +2746,7 @@ module AWS::SDK::FMS
     class PutPolicy
       def self.default(visited=[])
         {
-          policy: Stubs::Policy.default(visited),
+          policy: Policy.default(visited),
           policy_arn: 'policy_arn',
         }
       end
@@ -2764,7 +2764,7 @@ module AWS::SDK::FMS
     class PutProtocolsList
       def self.default(visited=[])
         {
-          protocols_list: Stubs::ProtocolsListData.default(visited),
+          protocols_list: ProtocolsListData.default(visited),
           protocols_list_arn: 'protocols_list_arn',
         }
       end

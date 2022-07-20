@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::CloudTrail
@@ -92,7 +94,7 @@ module AWS::SDK::CloudTrail
     def add_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddTagsInput,
         validate_input: @config.validate_input
@@ -169,7 +171,7 @@ module AWS::SDK::CloudTrail
     def cancel_query(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelQueryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelQueryInput,
         validate_input: @config.validate_input
@@ -309,7 +311,7 @@ module AWS::SDK::CloudTrail
     def create_event_data_store(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateEventDataStoreInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEventDataStoreInput,
         validate_input: @config.validate_input
@@ -489,7 +491,7 @@ module AWS::SDK::CloudTrail
     def create_trail(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTrailInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTrailInput,
         validate_input: @config.validate_input
@@ -563,7 +565,7 @@ module AWS::SDK::CloudTrail
     def delete_event_data_store(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEventDataStoreInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEventDataStoreInput,
         validate_input: @config.validate_input
@@ -636,7 +638,7 @@ module AWS::SDK::CloudTrail
     def delete_trail(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTrailInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTrailInput,
         validate_input: @config.validate_input
@@ -719,7 +721,7 @@ module AWS::SDK::CloudTrail
     def describe_query(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeQueryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeQueryInput,
         validate_input: @config.validate_input
@@ -830,7 +832,7 @@ module AWS::SDK::CloudTrail
     def describe_trails(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTrailsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTrailsInput,
         validate_input: @config.validate_input
@@ -920,7 +922,7 @@ module AWS::SDK::CloudTrail
     def get_event_data_store(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEventDataStoreInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEventDataStoreInput,
         validate_input: @config.validate_input
@@ -1052,7 +1054,7 @@ module AWS::SDK::CloudTrail
     def get_event_selectors(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEventSelectorsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEventSelectorsInput,
         validate_input: @config.validate_input
@@ -1153,7 +1155,7 @@ module AWS::SDK::CloudTrail
     def get_insight_selectors(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetInsightSelectorsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetInsightSelectorsInput,
         validate_input: @config.validate_input
@@ -1245,7 +1247,7 @@ module AWS::SDK::CloudTrail
     def get_query_results(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetQueryResultsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetQueryResultsInput,
         validate_input: @config.validate_input
@@ -1330,7 +1332,7 @@ module AWS::SDK::CloudTrail
     def get_trail(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTrailInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTrailInput,
         validate_input: @config.validate_input
@@ -1419,7 +1421,7 @@ module AWS::SDK::CloudTrail
     def get_trail_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTrailStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTrailStatusInput,
         validate_input: @config.validate_input
@@ -1516,7 +1518,7 @@ module AWS::SDK::CloudTrail
     def list_event_data_stores(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEventDataStoresInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEventDataStoresInput,
         validate_input: @config.validate_input
@@ -1606,7 +1608,7 @@ module AWS::SDK::CloudTrail
     def list_public_keys(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPublicKeysInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPublicKeysInput,
         validate_input: @config.validate_input
@@ -1707,7 +1709,7 @@ module AWS::SDK::CloudTrail
     def list_queries(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListQueriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListQueriesInput,
         validate_input: @config.validate_input
@@ -1790,7 +1792,7 @@ module AWS::SDK::CloudTrail
     def list_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsInput,
         validate_input: @config.validate_input
@@ -1867,7 +1869,7 @@ module AWS::SDK::CloudTrail
     def list_trails(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTrailsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTrailsInput,
         validate_input: @config.validate_input
@@ -2024,7 +2026,7 @@ module AWS::SDK::CloudTrail
     def lookup_events(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::LookupEventsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::LookupEventsInput,
         validate_input: @config.validate_input
@@ -2230,7 +2232,7 @@ module AWS::SDK::CloudTrail
     def put_event_selectors(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutEventSelectorsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutEventSelectorsInput,
         validate_input: @config.validate_input
@@ -2313,7 +2315,7 @@ module AWS::SDK::CloudTrail
     def put_insight_selectors(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutInsightSelectorsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutInsightSelectorsInput,
         validate_input: @config.validate_input
@@ -2395,7 +2397,7 @@ module AWS::SDK::CloudTrail
     def remove_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveTagsInput,
         validate_input: @config.validate_input
@@ -2487,7 +2489,7 @@ module AWS::SDK::CloudTrail
     def restore_event_data_store(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RestoreEventDataStoreInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RestoreEventDataStoreInput,
         validate_input: @config.validate_input
@@ -2559,7 +2561,7 @@ module AWS::SDK::CloudTrail
     def start_logging(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartLoggingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartLoggingInput,
         validate_input: @config.validate_input
@@ -2629,7 +2631,7 @@ module AWS::SDK::CloudTrail
     def start_query(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartQueryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartQueryInput,
         validate_input: @config.validate_input
@@ -2707,7 +2709,7 @@ module AWS::SDK::CloudTrail
     def stop_logging(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopLoggingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopLoggingInput,
         validate_input: @config.validate_input
@@ -2838,7 +2840,7 @@ module AWS::SDK::CloudTrail
     def update_event_data_store(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateEventDataStoreInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateEventDataStoreInput,
         validate_input: @config.validate_input
@@ -3021,7 +3023,7 @@ module AWS::SDK::CloudTrail
     def update_trail(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTrailInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTrailInput,
         validate_input: @config.validate_input

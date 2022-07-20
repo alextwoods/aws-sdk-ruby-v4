@@ -23,11 +23,11 @@ module AWS::SDK::S3Control
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.days_after_initiation ||= 0
       end
-
     end
 
     # <p>An access point used to access a bucket.</p>
@@ -117,11 +117,11 @@ module AWS::SDK::S3Control
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_enabled ||= false
       end
-
     end
 
     # <p>Error details for the failed asynchronous operation.</p>
@@ -423,11 +423,11 @@ module AWS::SDK::S3Control
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_enabled ||= false
       end
-
     end
 
     # @!attribute account_id
@@ -648,11 +648,11 @@ module AWS::SDK::S3Control
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.object_lock_enabled_for_bucket ||= false
       end
-
     end
 
     # @!attribute location
@@ -1714,11 +1714,11 @@ module AWS::SDK::S3Control
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.public_access_block_enabled ||= false
       end
-
     end
 
     # @!attribute account_id
@@ -2206,11 +2206,11 @@ module AWS::SDK::S3Control
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.priority ||= 0
       end
-
     end
 
     # <p>If this job failed, this element indicates why the job failed.</p>
@@ -2296,11 +2296,11 @@ module AWS::SDK::S3Control
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.priority ||= 0
       end
-
     end
 
     # <p>Contains the configuration information for a job's manifest.</p>
@@ -2630,11 +2630,11 @@ module AWS::SDK::S3Control
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # Includes enum constants for JobReportFormat
@@ -2797,12 +2797,12 @@ module AWS::SDK::S3Control
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.days ||= 0
         self.expired_object_delete_marker ||= false
       end
-
     end
 
     # <p>The container for the Outposts bucket lifecycle rule.</p>
@@ -2960,11 +2960,11 @@ module AWS::SDK::S3Control
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute object_lambda_access_point_list
@@ -3022,11 +3022,11 @@ module AWS::SDK::S3Control
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute access_point_list
@@ -3128,11 +3128,11 @@ module AWS::SDK::S3Control
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute access_points
@@ -3186,11 +3186,11 @@ module AWS::SDK::S3Control
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute regional_bucket_list
@@ -3249,11 +3249,11 @@ module AWS::SDK::S3Control
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_enabled ||= false
       end
-
     end
 
     # @!attribute account_id
@@ -3479,11 +3479,11 @@ module AWS::SDK::S3Control
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.noncurrent_days ||= 0
       end
-
     end
 
     # <p>The container for the noncurrent version transition.</p>
@@ -3509,11 +3509,11 @@ module AWS::SDK::S3Control
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.noncurrent_days ||= 0
       end
-
     end
 
     # <p></p>
@@ -3593,11 +3593,11 @@ module AWS::SDK::S3Control
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cloud_watch_metrics_enabled ||= false
       end
-
     end
 
     # <p>A container for AwsLambdaTransformation.</p>
@@ -3718,11 +3718,11 @@ module AWS::SDK::S3Control
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_public ||= false
       end
-
     end
 
     # <p>A container for the prefix-level configuration.</p>
@@ -3757,11 +3757,11 @@ module AWS::SDK::S3Control
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_enabled ||= false
       end
-
     end
 
     # <p>The proposed access control policy for the Multi-Region Access Point.</p>
@@ -3847,6 +3847,7 @@ module AWS::SDK::S3Control
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.block_public_acls ||= false
@@ -3854,7 +3855,6 @@ module AWS::SDK::S3Control
         self.block_public_policy ||= false
         self.restrict_public_buckets ||= false
       end
-
     end
 
     # @!attribute account_id
@@ -4019,11 +4019,11 @@ module AWS::SDK::S3Control
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.confirm_remove_self_bucket_access ||= false
       end
-
     end
 
     PutBucketPolicyOutput = ::Struct.new(
@@ -4326,11 +4326,11 @@ module AWS::SDK::S3Control
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.public_access_block_enabled ||= false
       end
-
     end
 
     # Includes enum constants for ReplicationStatus
@@ -4655,12 +4655,12 @@ module AWS::SDK::S3Control
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.requester_pays ||= false
         self.bucket_key_enabled ||= false
       end
-
     end
 
     # <p>Contains no configuration parameters because the DELETE Object tagging API only accepts
@@ -4850,11 +4850,11 @@ module AWS::SDK::S3Control
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable_manifest_output ||= false
       end
-
     end
 
     # <p>Location details for where the generated manifest should be written.</p>
@@ -5038,11 +5038,11 @@ module AWS::SDK::S3Control
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.requester_charged ||= false
       end
-
     end
 
     # <p></p>
@@ -5346,12 +5346,12 @@ module AWS::SDK::S3Control
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_depth ||= 0
         self.min_storage_bytes_percentage ||= 0
       end
-
     end
 
     # <p>The Amazon Web Services organization for your S3 Storage Lens.</p>
@@ -5434,11 +5434,11 @@ module AWS::SDK::S3Control
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_enabled ||= false
       end
-
     end
 
     # <p>A container to specify the properties of your S3 Storage Lens metrics export, including the
@@ -5577,11 +5577,11 @@ module AWS::SDK::S3Control
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.days ||= 0
       end
-
     end
 
     # Includes enum constants for TransitionStorageClass
@@ -5630,11 +5630,11 @@ module AWS::SDK::S3Control
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.priority ||= 0
       end
-
     end
 
     # @!attribute job_id
@@ -5653,11 +5653,11 @@ module AWS::SDK::S3Control
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.priority ||= 0
       end
-
     end
 
     # @!attribute account_id

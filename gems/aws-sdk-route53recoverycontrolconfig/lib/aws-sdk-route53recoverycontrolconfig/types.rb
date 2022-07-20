@@ -73,11 +73,11 @@ module AWS::SDK::Route53RecoveryControlConfig
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.wait_period_ms ||= 0
       end
-
     end
 
     # <p>An update to an assertion rule. You can update the name or the evaluation period (wait period). If you don't specify one of the items to update, the item is unchanged.</p>
@@ -104,11 +104,11 @@ module AWS::SDK::Route53RecoveryControlConfig
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.wait_period_ms ||= 0
       end
-
     end
 
     # <p>A set of five redundant Regional endpoints against which you can execute API calls to update or get the state of routing controls. You can host multiple control panels and routing controls on one cluster.</p>
@@ -222,12 +222,12 @@ module AWS::SDK::Route53RecoveryControlConfig
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.default_control_panel ||= false
         self.routing_control_count ||= 0
       end
-
     end
 
     # <p>Creates a cluster.</p>
@@ -640,11 +640,11 @@ module AWS::SDK::Route53RecoveryControlConfig
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.wait_period_ms ||= 0
       end
-
     end
 
     # <p>Update to a gating rule. You can update the name or the evaluation period (wait period). If you don't specify one of the items to update, the item is unchanged.</p>
@@ -671,11 +671,11 @@ module AWS::SDK::Route53RecoveryControlConfig
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.wait_period_ms ||= 0
       end
-
     end
 
     # <p>500 response - InternalServiceError. Temporary service error. Retry the request.</p>
@@ -713,11 +713,11 @@ module AWS::SDK::Route53RecoveryControlConfig
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute health_check_ids
@@ -754,11 +754,11 @@ module AWS::SDK::Route53RecoveryControlConfig
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute clusters
@@ -801,11 +801,11 @@ module AWS::SDK::Route53RecoveryControlConfig
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute control_panels
@@ -848,11 +848,11 @@ module AWS::SDK::Route53RecoveryControlConfig
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -895,11 +895,11 @@ module AWS::SDK::Route53RecoveryControlConfig
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -980,11 +980,11 @@ module AWS::SDK::Route53RecoveryControlConfig
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.wait_period_ms ||= 0
       end
-
     end
 
     # <p>A new gating rule for a control panel.</p>
@@ -1029,11 +1029,11 @@ module AWS::SDK::Route53RecoveryControlConfig
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.wait_period_ms ||= 0
       end
-
     end
 
     # <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found..</p>
@@ -1129,12 +1129,12 @@ module AWS::SDK::Route53RecoveryControlConfig
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.inverted ||= false
         self.threshold ||= 0
       end
-
     end
 
     # Includes enum constants for RuleType

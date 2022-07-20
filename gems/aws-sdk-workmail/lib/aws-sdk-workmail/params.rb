@@ -128,7 +128,7 @@ module AWS::SDK::WorkMail
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CancelMailboxExportJobInput, context: context)
         type = Types::CancelMailboxExportJobInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.job_id = params[:job_id]
         type.organization_id = params[:organization_id]
         type
@@ -186,7 +186,7 @@ module AWS::SDK::WorkMail
         Hearth::Validator.validate!(params, ::Hash, Types::CreateMobileDeviceAccessRuleInput, context: context)
         type = Types::CreateMobileDeviceAccessRuleInput.new
         type.organization_id = params[:organization_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.name = params[:name]
         type.description = params[:description]
         type.effect = params[:effect]
@@ -217,7 +217,7 @@ module AWS::SDK::WorkMail
         type = Types::CreateOrganizationInput.new
         type.directory_id = params[:directory_id]
         type.alias = params[:alias]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.domains = Domains.build(params[:domains], context: "#{context}[:domains]") unless params[:domains].nil?
         type.kms_key_arn = params[:kms_key_arn]
         type.enable_interoperability = params[:enable_interoperability]
@@ -417,7 +417,7 @@ module AWS::SDK::WorkMail
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::DeleteOrganizationInput, context: context)
         type = Types::DeleteOrganizationInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.organization_id = params[:organization_id]
         type.delete_directory = params[:delete_directory]
         type
@@ -1801,7 +1801,7 @@ module AWS::SDK::WorkMail
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::RegisterMailDomainInput, context: context)
         type = Types::RegisterMailDomainInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.organization_id = params[:organization_id]
         type.domain_name = params[:domain_name]
         type
@@ -1913,7 +1913,7 @@ module AWS::SDK::WorkMail
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::StartMailboxExportJobInput, context: context)
         type = Types::StartMailboxExportJobInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.organization_id = params[:organization_id]
         type.entity_id = params[:entity_id]
         type.description = params[:description]

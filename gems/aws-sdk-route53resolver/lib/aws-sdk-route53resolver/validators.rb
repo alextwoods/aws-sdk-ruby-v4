@@ -26,14 +26,14 @@ module AWS::SDK::Route53Resolver
         Hearth::Validator.validate!(input[:priority], ::Integer, context: "#{context}[:priority]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:mutation_protection], ::String, context: "#{context}[:mutation_protection]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class AssociateFirewallRuleGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AssociateFirewallRuleGroupOutput, context: context)
-        Validators::FirewallRuleGroupAssociation.validate!(input[:firewall_rule_group_association], context: "#{context}[:firewall_rule_group_association]") unless input[:firewall_rule_group_association].nil?
+        FirewallRuleGroupAssociation.validate!(input[:firewall_rule_group_association], context: "#{context}[:firewall_rule_group_association]") unless input[:firewall_rule_group_association].nil?
       end
     end
 
@@ -41,14 +41,14 @@ module AWS::SDK::Route53Resolver
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AssociateResolverEndpointIpAddressInput, context: context)
         Hearth::Validator.validate!(input[:resolver_endpoint_id], ::String, context: "#{context}[:resolver_endpoint_id]")
-        Validators::IpAddressUpdate.validate!(input[:ip_address], context: "#{context}[:ip_address]") unless input[:ip_address].nil?
+        IpAddressUpdate.validate!(input[:ip_address], context: "#{context}[:ip_address]") unless input[:ip_address].nil?
       end
     end
 
     class AssociateResolverEndpointIpAddressOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AssociateResolverEndpointIpAddressOutput, context: context)
-        Validators::ResolverEndpoint.validate!(input[:resolver_endpoint], context: "#{context}[:resolver_endpoint]") unless input[:resolver_endpoint].nil?
+        ResolverEndpoint.validate!(input[:resolver_endpoint], context: "#{context}[:resolver_endpoint]") unless input[:resolver_endpoint].nil?
       end
     end
 
@@ -63,7 +63,7 @@ module AWS::SDK::Route53Resolver
     class AssociateResolverQueryLogConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AssociateResolverQueryLogConfigOutput, context: context)
-        Validators::ResolverQueryLogConfigAssociation.validate!(input[:resolver_query_log_config_association], context: "#{context}[:resolver_query_log_config_association]") unless input[:resolver_query_log_config_association].nil?
+        ResolverQueryLogConfigAssociation.validate!(input[:resolver_query_log_config_association], context: "#{context}[:resolver_query_log_config_association]") unless input[:resolver_query_log_config_association].nil?
       end
     end
 
@@ -79,7 +79,7 @@ module AWS::SDK::Route53Resolver
     class AssociateResolverRuleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AssociateResolverRuleOutput, context: context)
-        Validators::ResolverRuleAssociation.validate!(input[:resolver_rule_association], context: "#{context}[:resolver_rule_association]") unless input[:resolver_rule_association].nil?
+        ResolverRuleAssociation.validate!(input[:resolver_rule_association], context: "#{context}[:resolver_rule_association]") unless input[:resolver_rule_association].nil?
       end
     end
 
@@ -95,14 +95,14 @@ module AWS::SDK::Route53Resolver
         Hearth::Validator.validate!(input, Types::CreateFirewallDomainListInput, context: context)
         Hearth::Validator.validate!(input[:creator_request_id], ::String, context: "#{context}[:creator_request_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateFirewallDomainListOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateFirewallDomainListOutput, context: context)
-        Validators::FirewallDomainList.validate!(input[:firewall_domain_list], context: "#{context}[:firewall_domain_list]") unless input[:firewall_domain_list].nil?
+        FirewallDomainList.validate!(input[:firewall_domain_list], context: "#{context}[:firewall_domain_list]") unless input[:firewall_domain_list].nil?
       end
     end
 
@@ -111,14 +111,14 @@ module AWS::SDK::Route53Resolver
         Hearth::Validator.validate!(input, Types::CreateFirewallRuleGroupInput, context: context)
         Hearth::Validator.validate!(input[:creator_request_id], ::String, context: "#{context}[:creator_request_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateFirewallRuleGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateFirewallRuleGroupOutput, context: context)
-        Validators::FirewallRuleGroup.validate!(input[:firewall_rule_group], context: "#{context}[:firewall_rule_group]") unless input[:firewall_rule_group].nil?
+        FirewallRuleGroup.validate!(input[:firewall_rule_group], context: "#{context}[:firewall_rule_group]") unless input[:firewall_rule_group].nil?
       end
     end
 
@@ -141,7 +141,7 @@ module AWS::SDK::Route53Resolver
     class CreateFirewallRuleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateFirewallRuleOutput, context: context)
-        Validators::FirewallRule.validate!(input[:firewall_rule], context: "#{context}[:firewall_rule]") unless input[:firewall_rule].nil?
+        FirewallRule.validate!(input[:firewall_rule], context: "#{context}[:firewall_rule]") unless input[:firewall_rule].nil?
       end
     end
 
@@ -150,17 +150,17 @@ module AWS::SDK::Route53Resolver
         Hearth::Validator.validate!(input, Types::CreateResolverEndpointInput, context: context)
         Hearth::Validator.validate!(input[:creator_request_id], ::String, context: "#{context}[:creator_request_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::SecurityGroupIds.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        SecurityGroupIds.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
         Hearth::Validator.validate!(input[:direction], ::String, context: "#{context}[:direction]")
-        Validators::IpAddressesRequest.validate!(input[:ip_addresses], context: "#{context}[:ip_addresses]") unless input[:ip_addresses].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        IpAddressesRequest.validate!(input[:ip_addresses], context: "#{context}[:ip_addresses]") unless input[:ip_addresses].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateResolverEndpointOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateResolverEndpointOutput, context: context)
-        Validators::ResolverEndpoint.validate!(input[:resolver_endpoint], context: "#{context}[:resolver_endpoint]") unless input[:resolver_endpoint].nil?
+        ResolverEndpoint.validate!(input[:resolver_endpoint], context: "#{context}[:resolver_endpoint]") unless input[:resolver_endpoint].nil?
       end
     end
 
@@ -170,14 +170,14 @@ module AWS::SDK::Route53Resolver
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:destination_arn], ::String, context: "#{context}[:destination_arn]")
         Hearth::Validator.validate!(input[:creator_request_id], ::String, context: "#{context}[:creator_request_id]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateResolverQueryLogConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateResolverQueryLogConfigOutput, context: context)
-        Validators::ResolverQueryLogConfig.validate!(input[:resolver_query_log_config], context: "#{context}[:resolver_query_log_config]") unless input[:resolver_query_log_config].nil?
+        ResolverQueryLogConfig.validate!(input[:resolver_query_log_config], context: "#{context}[:resolver_query_log_config]") unless input[:resolver_query_log_config].nil?
       end
     end
 
@@ -188,16 +188,16 @@ module AWS::SDK::Route53Resolver
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:rule_type], ::String, context: "#{context}[:rule_type]")
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
-        Validators::TargetList.validate!(input[:target_ips], context: "#{context}[:target_ips]") unless input[:target_ips].nil?
+        TargetList.validate!(input[:target_ips], context: "#{context}[:target_ips]") unless input[:target_ips].nil?
         Hearth::Validator.validate!(input[:resolver_endpoint_id], ::String, context: "#{context}[:resolver_endpoint_id]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateResolverRuleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateResolverRuleOutput, context: context)
-        Validators::ResolverRule.validate!(input[:resolver_rule], context: "#{context}[:resolver_rule]") unless input[:resolver_rule].nil?
+        ResolverRule.validate!(input[:resolver_rule], context: "#{context}[:resolver_rule]") unless input[:resolver_rule].nil?
       end
     end
 
@@ -211,7 +211,7 @@ module AWS::SDK::Route53Resolver
     class DeleteFirewallDomainListOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteFirewallDomainListOutput, context: context)
-        Validators::FirewallDomainList.validate!(input[:firewall_domain_list], context: "#{context}[:firewall_domain_list]") unless input[:firewall_domain_list].nil?
+        FirewallDomainList.validate!(input[:firewall_domain_list], context: "#{context}[:firewall_domain_list]") unless input[:firewall_domain_list].nil?
       end
     end
 
@@ -225,7 +225,7 @@ module AWS::SDK::Route53Resolver
     class DeleteFirewallRuleGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteFirewallRuleGroupOutput, context: context)
-        Validators::FirewallRuleGroup.validate!(input[:firewall_rule_group], context: "#{context}[:firewall_rule_group]") unless input[:firewall_rule_group].nil?
+        FirewallRuleGroup.validate!(input[:firewall_rule_group], context: "#{context}[:firewall_rule_group]") unless input[:firewall_rule_group].nil?
       end
     end
 
@@ -240,7 +240,7 @@ module AWS::SDK::Route53Resolver
     class DeleteFirewallRuleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteFirewallRuleOutput, context: context)
-        Validators::FirewallRule.validate!(input[:firewall_rule], context: "#{context}[:firewall_rule]") unless input[:firewall_rule].nil?
+        FirewallRule.validate!(input[:firewall_rule], context: "#{context}[:firewall_rule]") unless input[:firewall_rule].nil?
       end
     end
 
@@ -254,7 +254,7 @@ module AWS::SDK::Route53Resolver
     class DeleteResolverEndpointOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteResolverEndpointOutput, context: context)
-        Validators::ResolverEndpoint.validate!(input[:resolver_endpoint], context: "#{context}[:resolver_endpoint]") unless input[:resolver_endpoint].nil?
+        ResolverEndpoint.validate!(input[:resolver_endpoint], context: "#{context}[:resolver_endpoint]") unless input[:resolver_endpoint].nil?
       end
     end
 
@@ -268,7 +268,7 @@ module AWS::SDK::Route53Resolver
     class DeleteResolverQueryLogConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteResolverQueryLogConfigOutput, context: context)
-        Validators::ResolverQueryLogConfig.validate!(input[:resolver_query_log_config], context: "#{context}[:resolver_query_log_config]") unless input[:resolver_query_log_config].nil?
+        ResolverQueryLogConfig.validate!(input[:resolver_query_log_config], context: "#{context}[:resolver_query_log_config]") unless input[:resolver_query_log_config].nil?
       end
     end
 
@@ -282,7 +282,7 @@ module AWS::SDK::Route53Resolver
     class DeleteResolverRuleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteResolverRuleOutput, context: context)
-        Validators::ResolverRule.validate!(input[:resolver_rule], context: "#{context}[:resolver_rule]") unless input[:resolver_rule].nil?
+        ResolverRule.validate!(input[:resolver_rule], context: "#{context}[:resolver_rule]") unless input[:resolver_rule].nil?
       end
     end
 
@@ -296,7 +296,7 @@ module AWS::SDK::Route53Resolver
     class DisassociateFirewallRuleGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DisassociateFirewallRuleGroupOutput, context: context)
-        Validators::FirewallRuleGroupAssociation.validate!(input[:firewall_rule_group_association], context: "#{context}[:firewall_rule_group_association]") unless input[:firewall_rule_group_association].nil?
+        FirewallRuleGroupAssociation.validate!(input[:firewall_rule_group_association], context: "#{context}[:firewall_rule_group_association]") unless input[:firewall_rule_group_association].nil?
       end
     end
 
@@ -304,14 +304,14 @@ module AWS::SDK::Route53Resolver
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DisassociateResolverEndpointIpAddressInput, context: context)
         Hearth::Validator.validate!(input[:resolver_endpoint_id], ::String, context: "#{context}[:resolver_endpoint_id]")
-        Validators::IpAddressUpdate.validate!(input[:ip_address], context: "#{context}[:ip_address]") unless input[:ip_address].nil?
+        IpAddressUpdate.validate!(input[:ip_address], context: "#{context}[:ip_address]") unless input[:ip_address].nil?
       end
     end
 
     class DisassociateResolverEndpointIpAddressOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DisassociateResolverEndpointIpAddressOutput, context: context)
-        Validators::ResolverEndpoint.validate!(input[:resolver_endpoint], context: "#{context}[:resolver_endpoint]") unless input[:resolver_endpoint].nil?
+        ResolverEndpoint.validate!(input[:resolver_endpoint], context: "#{context}[:resolver_endpoint]") unless input[:resolver_endpoint].nil?
       end
     end
 
@@ -326,7 +326,7 @@ module AWS::SDK::Route53Resolver
     class DisassociateResolverQueryLogConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DisassociateResolverQueryLogConfigOutput, context: context)
-        Validators::ResolverQueryLogConfigAssociation.validate!(input[:resolver_query_log_config_association], context: "#{context}[:resolver_query_log_config_association]") unless input[:resolver_query_log_config_association].nil?
+        ResolverQueryLogConfigAssociation.validate!(input[:resolver_query_log_config_association], context: "#{context}[:resolver_query_log_config_association]") unless input[:resolver_query_log_config_association].nil?
       end
     end
 
@@ -341,7 +341,7 @@ module AWS::SDK::Route53Resolver
     class DisassociateResolverRuleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DisassociateResolverRuleOutput, context: context)
-        Validators::ResolverRuleAssociation.validate!(input[:resolver_rule_association], context: "#{context}[:resolver_rule_association]") unless input[:resolver_rule_association].nil?
+        ResolverRuleAssociation.validate!(input[:resolver_rule_association], context: "#{context}[:resolver_rule_association]") unless input[:resolver_rule_association].nil?
       end
     end
 
@@ -349,7 +349,7 @@ module AWS::SDK::Route53Resolver
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Filter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::FilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        FilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -366,7 +366,7 @@ module AWS::SDK::Route53Resolver
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -385,7 +385,7 @@ module AWS::SDK::Route53Resolver
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FirewallConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FirewallConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -421,7 +421,7 @@ module AWS::SDK::Route53Resolver
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FirewallDomainListMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FirewallDomainListMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -493,7 +493,7 @@ module AWS::SDK::Route53Resolver
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FirewallRuleGroupAssociation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FirewallRuleGroupAssociation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -514,7 +514,7 @@ module AWS::SDK::Route53Resolver
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FirewallRuleGroupMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FirewallRuleGroupMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -523,7 +523,7 @@ module AWS::SDK::Route53Resolver
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FirewallRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FirewallRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -538,7 +538,7 @@ module AWS::SDK::Route53Resolver
     class GetFirewallConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetFirewallConfigOutput, context: context)
-        Validators::FirewallConfig.validate!(input[:firewall_config], context: "#{context}[:firewall_config]") unless input[:firewall_config].nil?
+        FirewallConfig.validate!(input[:firewall_config], context: "#{context}[:firewall_config]") unless input[:firewall_config].nil?
       end
     end
 
@@ -552,7 +552,7 @@ module AWS::SDK::Route53Resolver
     class GetFirewallDomainListOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetFirewallDomainListOutput, context: context)
-        Validators::FirewallDomainList.validate!(input[:firewall_domain_list], context: "#{context}[:firewall_domain_list]") unless input[:firewall_domain_list].nil?
+        FirewallDomainList.validate!(input[:firewall_domain_list], context: "#{context}[:firewall_domain_list]") unless input[:firewall_domain_list].nil?
       end
     end
 
@@ -566,7 +566,7 @@ module AWS::SDK::Route53Resolver
     class GetFirewallRuleGroupAssociationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetFirewallRuleGroupAssociationOutput, context: context)
-        Validators::FirewallRuleGroupAssociation.validate!(input[:firewall_rule_group_association], context: "#{context}[:firewall_rule_group_association]") unless input[:firewall_rule_group_association].nil?
+        FirewallRuleGroupAssociation.validate!(input[:firewall_rule_group_association], context: "#{context}[:firewall_rule_group_association]") unless input[:firewall_rule_group_association].nil?
       end
     end
 
@@ -580,7 +580,7 @@ module AWS::SDK::Route53Resolver
     class GetFirewallRuleGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetFirewallRuleGroupOutput, context: context)
-        Validators::FirewallRuleGroup.validate!(input[:firewall_rule_group], context: "#{context}[:firewall_rule_group]") unless input[:firewall_rule_group].nil?
+        FirewallRuleGroup.validate!(input[:firewall_rule_group], context: "#{context}[:firewall_rule_group]") unless input[:firewall_rule_group].nil?
       end
     end
 
@@ -608,7 +608,7 @@ module AWS::SDK::Route53Resolver
     class GetResolverConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetResolverConfigOutput, context: context)
-        Validators::ResolverConfig.validate!(input[:resolver_config], context: "#{context}[:resolver_config]") unless input[:resolver_config].nil?
+        ResolverConfig.validate!(input[:resolver_config], context: "#{context}[:resolver_config]") unless input[:resolver_config].nil?
       end
     end
 
@@ -622,7 +622,7 @@ module AWS::SDK::Route53Resolver
     class GetResolverDnssecConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetResolverDnssecConfigOutput, context: context)
-        Validators::ResolverDnssecConfig.validate!(input[:resolver_dnssec_config], context: "#{context}[:resolver_dnssec_config]") unless input[:resolver_dnssec_config].nil?
+        ResolverDnssecConfig.validate!(input[:resolver_dnssec_config], context: "#{context}[:resolver_dnssec_config]") unless input[:resolver_dnssec_config].nil?
       end
     end
 
@@ -636,7 +636,7 @@ module AWS::SDK::Route53Resolver
     class GetResolverEndpointOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetResolverEndpointOutput, context: context)
-        Validators::ResolverEndpoint.validate!(input[:resolver_endpoint], context: "#{context}[:resolver_endpoint]") unless input[:resolver_endpoint].nil?
+        ResolverEndpoint.validate!(input[:resolver_endpoint], context: "#{context}[:resolver_endpoint]") unless input[:resolver_endpoint].nil?
       end
     end
 
@@ -650,7 +650,7 @@ module AWS::SDK::Route53Resolver
     class GetResolverQueryLogConfigAssociationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetResolverQueryLogConfigAssociationOutput, context: context)
-        Validators::ResolverQueryLogConfigAssociation.validate!(input[:resolver_query_log_config_association], context: "#{context}[:resolver_query_log_config_association]") unless input[:resolver_query_log_config_association].nil?
+        ResolverQueryLogConfigAssociation.validate!(input[:resolver_query_log_config_association], context: "#{context}[:resolver_query_log_config_association]") unless input[:resolver_query_log_config_association].nil?
       end
     end
 
@@ -664,7 +664,7 @@ module AWS::SDK::Route53Resolver
     class GetResolverQueryLogConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetResolverQueryLogConfigOutput, context: context)
-        Validators::ResolverQueryLogConfig.validate!(input[:resolver_query_log_config], context: "#{context}[:resolver_query_log_config]") unless input[:resolver_query_log_config].nil?
+        ResolverQueryLogConfig.validate!(input[:resolver_query_log_config], context: "#{context}[:resolver_query_log_config]") unless input[:resolver_query_log_config].nil?
       end
     end
 
@@ -692,7 +692,7 @@ module AWS::SDK::Route53Resolver
     class GetResolverRuleAssociationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetResolverRuleAssociationOutput, context: context)
-        Validators::ResolverRuleAssociation.validate!(input[:resolver_rule_association], context: "#{context}[:resolver_rule_association]") unless input[:resolver_rule_association].nil?
+        ResolverRuleAssociation.validate!(input[:resolver_rule_association], context: "#{context}[:resolver_rule_association]") unless input[:resolver_rule_association].nil?
       end
     end
 
@@ -706,7 +706,7 @@ module AWS::SDK::Route53Resolver
     class GetResolverRuleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetResolverRuleOutput, context: context)
-        Validators::ResolverRule.validate!(input[:resolver_rule], context: "#{context}[:resolver_rule]") unless input[:resolver_rule].nil?
+        ResolverRule.validate!(input[:resolver_rule], context: "#{context}[:resolver_rule]") unless input[:resolver_rule].nil?
       end
     end
 
@@ -820,7 +820,7 @@ module AWS::SDK::Route53Resolver
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::IpAddressRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          IpAddressRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -829,7 +829,7 @@ module AWS::SDK::Route53Resolver
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::IpAddressResponse.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          IpAddressResponse.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -854,7 +854,7 @@ module AWS::SDK::Route53Resolver
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFirewallConfigsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::FirewallConfigList.validate!(input[:firewall_configs], context: "#{context}[:firewall_configs]") unless input[:firewall_configs].nil?
+        FirewallConfigList.validate!(input[:firewall_configs], context: "#{context}[:firewall_configs]") unless input[:firewall_configs].nil?
       end
     end
 
@@ -870,7 +870,7 @@ module AWS::SDK::Route53Resolver
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFirewallDomainListsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::FirewallDomainListMetadataList.validate!(input[:firewall_domain_lists], context: "#{context}[:firewall_domain_lists]") unless input[:firewall_domain_lists].nil?
+        FirewallDomainListMetadataList.validate!(input[:firewall_domain_lists], context: "#{context}[:firewall_domain_lists]") unless input[:firewall_domain_lists].nil?
       end
     end
 
@@ -887,7 +887,7 @@ module AWS::SDK::Route53Resolver
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFirewallDomainsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::FirewallDomains.validate!(input[:domains], context: "#{context}[:domains]") unless input[:domains].nil?
+        FirewallDomains.validate!(input[:domains], context: "#{context}[:domains]") unless input[:domains].nil?
       end
     end
 
@@ -907,7 +907,7 @@ module AWS::SDK::Route53Resolver
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFirewallRuleGroupAssociationsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::FirewallRuleGroupAssociations.validate!(input[:firewall_rule_group_associations], context: "#{context}[:firewall_rule_group_associations]") unless input[:firewall_rule_group_associations].nil?
+        FirewallRuleGroupAssociations.validate!(input[:firewall_rule_group_associations], context: "#{context}[:firewall_rule_group_associations]") unless input[:firewall_rule_group_associations].nil?
       end
     end
 
@@ -923,7 +923,7 @@ module AWS::SDK::Route53Resolver
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFirewallRuleGroupsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::FirewallRuleGroupMetadataList.validate!(input[:firewall_rule_groups], context: "#{context}[:firewall_rule_groups]") unless input[:firewall_rule_groups].nil?
+        FirewallRuleGroupMetadataList.validate!(input[:firewall_rule_groups], context: "#{context}[:firewall_rule_groups]") unless input[:firewall_rule_groups].nil?
       end
     end
 
@@ -942,7 +942,7 @@ module AWS::SDK::Route53Resolver
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFirewallRulesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::FirewallRules.validate!(input[:firewall_rules], context: "#{context}[:firewall_rules]") unless input[:firewall_rules].nil?
+        FirewallRules.validate!(input[:firewall_rules], context: "#{context}[:firewall_rules]") unless input[:firewall_rules].nil?
       end
     end
 
@@ -958,7 +958,7 @@ module AWS::SDK::Route53Resolver
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListResolverConfigsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ResolverConfigList.validate!(input[:resolver_configs], context: "#{context}[:resolver_configs]") unless input[:resolver_configs].nil?
+        ResolverConfigList.validate!(input[:resolver_configs], context: "#{context}[:resolver_configs]") unless input[:resolver_configs].nil?
       end
     end
 
@@ -967,7 +967,7 @@ module AWS::SDK::Route53Resolver
         Hearth::Validator.validate!(input, Types::ListResolverDnssecConfigsInput, context: context)
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
@@ -975,7 +975,7 @@ module AWS::SDK::Route53Resolver
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListResolverDnssecConfigsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ResolverDnssecConfigList.validate!(input[:resolver_dnssec_configs], context: "#{context}[:resolver_dnssec_configs]") unless input[:resolver_dnssec_configs].nil?
+        ResolverDnssecConfigList.validate!(input[:resolver_dnssec_configs], context: "#{context}[:resolver_dnssec_configs]") unless input[:resolver_dnssec_configs].nil?
       end
     end
 
@@ -993,7 +993,7 @@ module AWS::SDK::Route53Resolver
         Hearth::Validator.validate!(input, Types::ListResolverEndpointIpAddressesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::IpAddressesResponse.validate!(input[:ip_addresses], context: "#{context}[:ip_addresses]") unless input[:ip_addresses].nil?
+        IpAddressesResponse.validate!(input[:ip_addresses], context: "#{context}[:ip_addresses]") unless input[:ip_addresses].nil?
       end
     end
 
@@ -1002,7 +1002,7 @@ module AWS::SDK::Route53Resolver
         Hearth::Validator.validate!(input, Types::ListResolverEndpointsInput, context: context)
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
@@ -1011,7 +1011,7 @@ module AWS::SDK::Route53Resolver
         Hearth::Validator.validate!(input, Types::ListResolverEndpointsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::ResolverEndpoints.validate!(input[:resolver_endpoints], context: "#{context}[:resolver_endpoints]") unless input[:resolver_endpoints].nil?
+        ResolverEndpoints.validate!(input[:resolver_endpoints], context: "#{context}[:resolver_endpoints]") unless input[:resolver_endpoints].nil?
       end
     end
 
@@ -1020,7 +1020,7 @@ module AWS::SDK::Route53Resolver
         Hearth::Validator.validate!(input, Types::ListResolverQueryLogConfigAssociationsInput, context: context)
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:sort_by], ::String, context: "#{context}[:sort_by]")
         Hearth::Validator.validate!(input[:sort_order], ::String, context: "#{context}[:sort_order]")
       end
@@ -1032,7 +1032,7 @@ module AWS::SDK::Route53Resolver
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:total_count], ::Integer, context: "#{context}[:total_count]")
         Hearth::Validator.validate!(input[:total_filtered_count], ::Integer, context: "#{context}[:total_filtered_count]")
-        Validators::ResolverQueryLogConfigAssociationList.validate!(input[:resolver_query_log_config_associations], context: "#{context}[:resolver_query_log_config_associations]") unless input[:resolver_query_log_config_associations].nil?
+        ResolverQueryLogConfigAssociationList.validate!(input[:resolver_query_log_config_associations], context: "#{context}[:resolver_query_log_config_associations]") unless input[:resolver_query_log_config_associations].nil?
       end
     end
 
@@ -1041,7 +1041,7 @@ module AWS::SDK::Route53Resolver
         Hearth::Validator.validate!(input, Types::ListResolverQueryLogConfigsInput, context: context)
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:sort_by], ::String, context: "#{context}[:sort_by]")
         Hearth::Validator.validate!(input[:sort_order], ::String, context: "#{context}[:sort_order]")
       end
@@ -1053,7 +1053,7 @@ module AWS::SDK::Route53Resolver
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:total_count], ::Integer, context: "#{context}[:total_count]")
         Hearth::Validator.validate!(input[:total_filtered_count], ::Integer, context: "#{context}[:total_filtered_count]")
-        Validators::ResolverQueryLogConfigList.validate!(input[:resolver_query_log_configs], context: "#{context}[:resolver_query_log_configs]") unless input[:resolver_query_log_configs].nil?
+        ResolverQueryLogConfigList.validate!(input[:resolver_query_log_configs], context: "#{context}[:resolver_query_log_configs]") unless input[:resolver_query_log_configs].nil?
       end
     end
 
@@ -1062,7 +1062,7 @@ module AWS::SDK::Route53Resolver
         Hearth::Validator.validate!(input, Types::ListResolverRuleAssociationsInput, context: context)
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
@@ -1071,7 +1071,7 @@ module AWS::SDK::Route53Resolver
         Hearth::Validator.validate!(input, Types::ListResolverRuleAssociationsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::ResolverRuleAssociations.validate!(input[:resolver_rule_associations], context: "#{context}[:resolver_rule_associations]") unless input[:resolver_rule_associations].nil?
+        ResolverRuleAssociations.validate!(input[:resolver_rule_associations], context: "#{context}[:resolver_rule_associations]") unless input[:resolver_rule_associations].nil?
       end
     end
 
@@ -1080,7 +1080,7 @@ module AWS::SDK::Route53Resolver
         Hearth::Validator.validate!(input, Types::ListResolverRulesInput, context: context)
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
@@ -1089,7 +1089,7 @@ module AWS::SDK::Route53Resolver
         Hearth::Validator.validate!(input, Types::ListResolverRulesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::ResolverRules.validate!(input[:resolver_rules], context: "#{context}[:resolver_rules]") unless input[:resolver_rules].nil?
+        ResolverRules.validate!(input[:resolver_rules], context: "#{context}[:resolver_rules]") unless input[:resolver_rules].nil?
       end
     end
 
@@ -1105,7 +1105,7 @@ module AWS::SDK::Route53Resolver
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1169,7 +1169,7 @@ module AWS::SDK::Route53Resolver
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResolverConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResolverConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1188,7 +1188,7 @@ module AWS::SDK::Route53Resolver
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResolverDnssecConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResolverDnssecConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1200,7 +1200,7 @@ module AWS::SDK::Route53Resolver
         Hearth::Validator.validate!(input[:creator_request_id], ::String, context: "#{context}[:creator_request_id]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::SecurityGroupIds.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        SecurityGroupIds.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
         Hearth::Validator.validate!(input[:direction], ::String, context: "#{context}[:direction]")
         Hearth::Validator.validate!(input[:ip_address_count], ::Integer, context: "#{context}[:ip_address_count]")
         Hearth::Validator.validate!(input[:host_vpc_id], ::String, context: "#{context}[:host_vpc_id]")
@@ -1215,7 +1215,7 @@ module AWS::SDK::Route53Resolver
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResolverEndpoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResolverEndpoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1253,7 +1253,7 @@ module AWS::SDK::Route53Resolver
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResolverQueryLogConfigAssociation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResolverQueryLogConfigAssociation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1262,7 +1262,7 @@ module AWS::SDK::Route53Resolver
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResolverQueryLogConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResolverQueryLogConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1278,7 +1278,7 @@ module AWS::SDK::Route53Resolver
         Hearth::Validator.validate!(input[:status_message], ::String, context: "#{context}[:status_message]")
         Hearth::Validator.validate!(input[:rule_type], ::String, context: "#{context}[:rule_type]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::TargetList.validate!(input[:target_ips], context: "#{context}[:target_ips]") unless input[:target_ips].nil?
+        TargetList.validate!(input[:target_ips], context: "#{context}[:target_ips]") unless input[:target_ips].nil?
         Hearth::Validator.validate!(input[:resolver_endpoint_id], ::String, context: "#{context}[:resolver_endpoint_id]")
         Hearth::Validator.validate!(input[:owner_id], ::String, context: "#{context}[:owner_id]")
         Hearth::Validator.validate!(input[:share_status], ::String, context: "#{context}[:share_status]")
@@ -1303,7 +1303,7 @@ module AWS::SDK::Route53Resolver
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResolverRuleAssociation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResolverRuleAssociation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1312,7 +1312,7 @@ module AWS::SDK::Route53Resolver
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResolverRuleConfig, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::TargetList.validate!(input[:target_ips], context: "#{context}[:target_ips]") unless input[:target_ips].nil?
+        TargetList.validate!(input[:target_ips], context: "#{context}[:target_ips]") unless input[:target_ips].nil?
         Hearth::Validator.validate!(input[:resolver_endpoint_id], ::String, context: "#{context}[:resolver_endpoint_id]")
       end
     end
@@ -1321,7 +1321,7 @@ module AWS::SDK::Route53Resolver
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResolverRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResolverRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1388,7 +1388,7 @@ module AWS::SDK::Route53Resolver
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1397,7 +1397,7 @@ module AWS::SDK::Route53Resolver
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1419,7 +1419,7 @@ module AWS::SDK::Route53Resolver
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TargetAddress.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TargetAddress.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1442,7 +1442,7 @@ module AWS::SDK::Route53Resolver
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1463,7 +1463,7 @@ module AWS::SDK::Route53Resolver
     class UpdateFirewallConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateFirewallConfigOutput, context: context)
-        Validators::FirewallConfig.validate!(input[:firewall_config], context: "#{context}[:firewall_config]") unless input[:firewall_config].nil?
+        FirewallConfig.validate!(input[:firewall_config], context: "#{context}[:firewall_config]") unless input[:firewall_config].nil?
       end
     end
 
@@ -1472,7 +1472,7 @@ module AWS::SDK::Route53Resolver
         Hearth::Validator.validate!(input, Types::UpdateFirewallDomainsInput, context: context)
         Hearth::Validator.validate!(input[:firewall_domain_list_id], ::String, context: "#{context}[:firewall_domain_list_id]")
         Hearth::Validator.validate!(input[:operation], ::String, context: "#{context}[:operation]")
-        Validators::FirewallDomains.validate!(input[:domains], context: "#{context}[:domains]") unless input[:domains].nil?
+        FirewallDomains.validate!(input[:domains], context: "#{context}[:domains]") unless input[:domains].nil?
       end
     end
 
@@ -1499,7 +1499,7 @@ module AWS::SDK::Route53Resolver
     class UpdateFirewallRuleGroupAssociationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateFirewallRuleGroupAssociationOutput, context: context)
-        Validators::FirewallRuleGroupAssociation.validate!(input[:firewall_rule_group_association], context: "#{context}[:firewall_rule_group_association]") unless input[:firewall_rule_group_association].nil?
+        FirewallRuleGroupAssociation.validate!(input[:firewall_rule_group_association], context: "#{context}[:firewall_rule_group_association]") unless input[:firewall_rule_group_association].nil?
       end
     end
 
@@ -1521,7 +1521,7 @@ module AWS::SDK::Route53Resolver
     class UpdateFirewallRuleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateFirewallRuleOutput, context: context)
-        Validators::FirewallRule.validate!(input[:firewall_rule], context: "#{context}[:firewall_rule]") unless input[:firewall_rule].nil?
+        FirewallRule.validate!(input[:firewall_rule], context: "#{context}[:firewall_rule]") unless input[:firewall_rule].nil?
       end
     end
 
@@ -1536,7 +1536,7 @@ module AWS::SDK::Route53Resolver
     class UpdateResolverConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateResolverConfigOutput, context: context)
-        Validators::ResolverConfig.validate!(input[:resolver_config], context: "#{context}[:resolver_config]") unless input[:resolver_config].nil?
+        ResolverConfig.validate!(input[:resolver_config], context: "#{context}[:resolver_config]") unless input[:resolver_config].nil?
       end
     end
 
@@ -1551,7 +1551,7 @@ module AWS::SDK::Route53Resolver
     class UpdateResolverDnssecConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateResolverDnssecConfigOutput, context: context)
-        Validators::ResolverDnssecConfig.validate!(input[:resolver_dnssec_config], context: "#{context}[:resolver_dnssec_config]") unless input[:resolver_dnssec_config].nil?
+        ResolverDnssecConfig.validate!(input[:resolver_dnssec_config], context: "#{context}[:resolver_dnssec_config]") unless input[:resolver_dnssec_config].nil?
       end
     end
 
@@ -1566,7 +1566,7 @@ module AWS::SDK::Route53Resolver
     class UpdateResolverEndpointOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateResolverEndpointOutput, context: context)
-        Validators::ResolverEndpoint.validate!(input[:resolver_endpoint], context: "#{context}[:resolver_endpoint]") unless input[:resolver_endpoint].nil?
+        ResolverEndpoint.validate!(input[:resolver_endpoint], context: "#{context}[:resolver_endpoint]") unless input[:resolver_endpoint].nil?
       end
     end
 
@@ -1574,14 +1574,14 @@ module AWS::SDK::Route53Resolver
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateResolverRuleInput, context: context)
         Hearth::Validator.validate!(input[:resolver_rule_id], ::String, context: "#{context}[:resolver_rule_id]")
-        Validators::ResolverRuleConfig.validate!(input[:config], context: "#{context}[:config]") unless input[:config].nil?
+        ResolverRuleConfig.validate!(input[:config], context: "#{context}[:config]") unless input[:config].nil?
       end
     end
 
     class UpdateResolverRuleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateResolverRuleOutput, context: context)
-        Validators::ResolverRule.validate!(input[:resolver_rule], context: "#{context}[:resolver_rule]") unless input[:resolver_rule].nil?
+        ResolverRule.validate!(input[:resolver_rule], context: "#{context}[:resolver_rule]") unless input[:resolver_rule].nil?
       end
     end
 

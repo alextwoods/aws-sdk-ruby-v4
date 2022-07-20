@@ -897,11 +897,11 @@ module AWS::SDK::Synthetics
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delete_lambda ||= false
       end
-
     end
 
     DeleteCanaryOutput = ::Struct.new(

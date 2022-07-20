@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Panorama
@@ -99,7 +101,7 @@ module AWS::SDK::Panorama
     def create_application_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateApplicationInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateApplicationInstanceInput,
         validate_input: @config.validate_input
@@ -185,7 +187,7 @@ module AWS::SDK::Panorama
     def create_job_for_devices(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateJobForDevicesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateJobForDevicesInput,
         validate_input: @config.validate_input
@@ -287,7 +289,7 @@ module AWS::SDK::Panorama
     def create_node_from_template_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateNodeFromTemplateJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateNodeFromTemplateJobInput,
         validate_input: @config.validate_input
@@ -369,7 +371,7 @@ module AWS::SDK::Panorama
     def create_package(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePackageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePackageInput,
         validate_input: @config.validate_input
@@ -475,7 +477,7 @@ module AWS::SDK::Panorama
     def create_package_import_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePackageImportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePackageImportJobInput,
         validate_input: @config.validate_input
@@ -544,7 +546,7 @@ module AWS::SDK::Panorama
     def delete_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDeviceInput,
         validate_input: @config.validate_input
@@ -620,7 +622,7 @@ module AWS::SDK::Panorama
     def delete_package(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePackageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePackageInput,
         validate_input: @config.validate_input
@@ -703,7 +705,7 @@ module AWS::SDK::Panorama
     def deregister_package_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterPackageVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterPackageVersionInput,
         validate_input: @config.validate_input
@@ -785,7 +787,7 @@ module AWS::SDK::Panorama
     def describe_application_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeApplicationInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeApplicationInstanceInput,
         validate_input: @config.validate_input
@@ -851,8 +853,10 @@ module AWS::SDK::Panorama
     #   resp.data.name #=> String
     #   resp.data.description #=> String
     #   resp.data.default_runtime_context_device #=> String
-    #   resp.data.manifest_payload #=> ManifestPayload
-    #   resp.data.manifest_overrides_payload #=> ManifestOverridesPayload
+    #   resp.data.manifest_payload #=> Types::ManifestPayload, one of [PayloadData]
+    #   resp.data.manifest_payload.payload_data #=> String
+    #   resp.data.manifest_overrides_payload #=> Types::ManifestOverridesPayload, one of [PayloadData]
+    #   resp.data.manifest_overrides_payload.payload_data #=> String
     #   resp.data.application_instance_id_to_replace #=> String
     #   resp.data.created_time #=> Time
     #   resp.data.application_instance_id #=> String
@@ -860,7 +864,7 @@ module AWS::SDK::Panorama
     def describe_application_instance_details(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeApplicationInstanceDetailsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeApplicationInstanceDetailsInput,
         validate_input: @config.validate_input
@@ -970,7 +974,7 @@ module AWS::SDK::Panorama
     def describe_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDeviceInput,
         validate_input: @config.validate_input
@@ -1045,7 +1049,7 @@ module AWS::SDK::Panorama
     def describe_device_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDeviceJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDeviceJobInput,
         validate_input: @config.validate_input
@@ -1142,7 +1146,7 @@ module AWS::SDK::Panorama
     def describe_node(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeNodeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeNodeInput,
         validate_input: @config.validate_input
@@ -1226,7 +1230,7 @@ module AWS::SDK::Panorama
     def describe_node_from_template_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeNodeFromTemplateJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeNodeFromTemplateJobInput,
         validate_input: @config.validate_input
@@ -1308,7 +1312,7 @@ module AWS::SDK::Panorama
     def describe_package(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePackageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePackageInput,
         validate_input: @config.validate_input
@@ -1405,7 +1409,7 @@ module AWS::SDK::Panorama
     def describe_package_import_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePackageImportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePackageImportJobInput,
         validate_input: @config.validate_input
@@ -1494,7 +1498,7 @@ module AWS::SDK::Panorama
     def describe_package_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePackageVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePackageVersionInput,
         validate_input: @config.validate_input
@@ -1575,7 +1579,7 @@ module AWS::SDK::Panorama
     def list_application_instance_dependencies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListApplicationInstanceDependenciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListApplicationInstanceDependenciesInput,
         validate_input: @config.validate_input
@@ -1660,7 +1664,7 @@ module AWS::SDK::Panorama
     def list_application_instance_node_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListApplicationInstanceNodeInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListApplicationInstanceNodeInstancesInput,
         validate_input: @config.validate_input
@@ -1754,7 +1758,7 @@ module AWS::SDK::Panorama
     def list_application_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListApplicationInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListApplicationInstancesInput,
         validate_input: @config.validate_input
@@ -1835,7 +1839,7 @@ module AWS::SDK::Panorama
     def list_devices(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDevicesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDevicesInput,
         validate_input: @config.validate_input
@@ -1917,7 +1921,7 @@ module AWS::SDK::Panorama
     def list_devices_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDevicesJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDevicesJobsInput,
         validate_input: @config.validate_input
@@ -1997,7 +2001,7 @@ module AWS::SDK::Panorama
     def list_node_from_template_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListNodeFromTemplateJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListNodeFromTemplateJobsInput,
         validate_input: @config.validate_input
@@ -2102,7 +2106,7 @@ module AWS::SDK::Panorama
     def list_nodes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListNodesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListNodesInput,
         validate_input: @config.validate_input
@@ -2182,7 +2186,7 @@ module AWS::SDK::Panorama
     def list_package_import_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPackageImportJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPackageImportJobsInput,
         validate_input: @config.validate_input
@@ -2262,7 +2266,7 @@ module AWS::SDK::Panorama
     def list_packages(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPackagesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPackagesInput,
         validate_input: @config.validate_input
@@ -2331,7 +2335,7 @@ module AWS::SDK::Panorama
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2437,7 +2441,7 @@ module AWS::SDK::Panorama
     def provision_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ProvisionDeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ProvisionDeviceInput,
         validate_input: @config.validate_input
@@ -2521,7 +2525,7 @@ module AWS::SDK::Panorama
     def register_package_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterPackageVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterPackageVersionInput,
         validate_input: @config.validate_input
@@ -2589,7 +2593,7 @@ module AWS::SDK::Panorama
     def remove_application_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveApplicationInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveApplicationInstanceInput,
         validate_input: @config.validate_input
@@ -2662,7 +2666,7 @@ module AWS::SDK::Panorama
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2736,7 +2740,7 @@ module AWS::SDK::Panorama
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2808,7 +2812,7 @@ module AWS::SDK::Panorama
     def update_device_metadata(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDeviceMetadataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDeviceMetadataInput,
         validate_input: @config.validate_input

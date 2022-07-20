@@ -88,11 +88,11 @@ module AWS::SDK::LexRuntimeService
         http_req.body = input[:input_stream]
         http_req.headers['Transfer-Encoding'] = 'chunked'
         http_req.headers['Content-Type'] = 'application/octet-stream'
-        http_req.headers['x-amz-lex-session-attributes'] = Base64::encode64(input[:session_attributes]).strip unless input[:session_attributes].nil? || input[:session_attributes].empty?
-        http_req.headers['x-amz-lex-request-attributes'] = Base64::encode64(input[:request_attributes]).strip unless input[:request_attributes].nil? || input[:request_attributes].empty?
+        http_req.headers['x-amz-lex-session-attributes'] = ::Base64::encode64(input[:session_attributes]).strip unless input[:session_attributes].nil? || input[:session_attributes].empty?
+        http_req.headers['x-amz-lex-request-attributes'] = ::Base64::encode64(input[:request_attributes]).strip unless input[:request_attributes].nil? || input[:request_attributes].empty?
         http_req.headers['Content-Type'] = input[:content_type] unless input[:content_type].nil? || input[:content_type].empty?
         http_req.headers['Accept'] = input[:accept] unless input[:accept].nil? || input[:accept].empty?
-        http_req.headers['x-amz-lex-active-contexts'] = Base64::encode64(input[:active_contexts]).strip unless input[:active_contexts].nil? || input[:active_contexts].empty?
+        http_req.headers['x-amz-lex-active-contexts'] = ::Base64::encode64(input[:active_contexts]).strip unless input[:active_contexts].nil? || input[:active_contexts].empty?
       end
     end
 

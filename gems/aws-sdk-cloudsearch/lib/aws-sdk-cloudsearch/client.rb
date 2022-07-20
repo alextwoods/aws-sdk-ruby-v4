@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::CloudSearch
@@ -65,7 +67,7 @@ module AWS::SDK::CloudSearch
     def build_suggesters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BuildSuggestersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BuildSuggestersInput,
         validate_input: @config.validate_input
@@ -151,7 +153,7 @@ module AWS::SDK::CloudSearch
     def create_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDomainInput,
         validate_input: @config.validate_input
@@ -249,7 +251,7 @@ module AWS::SDK::CloudSearch
     def define_analysis_scheme(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DefineAnalysisSchemeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DefineAnalysisSchemeInput,
         validate_input: @config.validate_input
@@ -334,7 +336,7 @@ module AWS::SDK::CloudSearch
     def define_expression(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DefineExpressionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DefineExpressionInput,
         validate_input: @config.validate_input
@@ -574,7 +576,7 @@ module AWS::SDK::CloudSearch
     def define_index_field(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DefineIndexFieldInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DefineIndexFieldInput,
         validate_input: @config.validate_input
@@ -666,7 +668,7 @@ module AWS::SDK::CloudSearch
     def define_suggester(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DefineSuggesterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DefineSuggesterInput,
         validate_input: @config.validate_input
@@ -754,7 +756,7 @@ module AWS::SDK::CloudSearch
     def delete_analysis_scheme(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAnalysisSchemeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAnalysisSchemeInput,
         validate_input: @config.validate_input
@@ -840,7 +842,7 @@ module AWS::SDK::CloudSearch
     def delete_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDomainInput,
         validate_input: @config.validate_input
@@ -922,7 +924,7 @@ module AWS::SDK::CloudSearch
     def delete_expression(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteExpressionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteExpressionInput,
         validate_input: @config.validate_input
@@ -1076,7 +1078,7 @@ module AWS::SDK::CloudSearch
     def delete_index_field(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteIndexFieldInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteIndexFieldInput,
         validate_input: @config.validate_input
@@ -1161,7 +1163,7 @@ module AWS::SDK::CloudSearch
     def delete_suggester(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSuggesterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSuggesterInput,
         validate_input: @config.validate_input
@@ -1256,7 +1258,7 @@ module AWS::SDK::CloudSearch
     def describe_analysis_schemes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAnalysisSchemesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAnalysisSchemesInput,
         validate_input: @config.validate_input
@@ -1336,7 +1338,7 @@ module AWS::SDK::CloudSearch
     def describe_availability_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAvailabilityOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAvailabilityOptionsInput,
         validate_input: @config.validate_input
@@ -1418,7 +1420,7 @@ module AWS::SDK::CloudSearch
     def describe_domain_endpoint_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDomainEndpointOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDomainEndpointOptionsInput,
         validate_input: @config.validate_input
@@ -1508,7 +1510,7 @@ module AWS::SDK::CloudSearch
     def describe_domains(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDomainsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDomainsInput,
         validate_input: @config.validate_input
@@ -1597,7 +1599,7 @@ module AWS::SDK::CloudSearch
     def describe_expressions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeExpressionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeExpressionsInput,
         validate_input: @config.validate_input
@@ -1760,7 +1762,7 @@ module AWS::SDK::CloudSearch
     def describe_index_fields(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeIndexFieldsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeIndexFieldsInput,
         validate_input: @config.validate_input
@@ -1839,7 +1841,7 @@ module AWS::SDK::CloudSearch
     def describe_scaling_parameters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeScalingParametersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeScalingParametersInput,
         validate_input: @config.validate_input
@@ -1920,7 +1922,7 @@ module AWS::SDK::CloudSearch
     def describe_service_access_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeServiceAccessPoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeServiceAccessPoliciesInput,
         validate_input: @config.validate_input
@@ -2012,7 +2014,7 @@ module AWS::SDK::CloudSearch
     def describe_suggesters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSuggestersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSuggestersInput,
         validate_input: @config.validate_input
@@ -2082,7 +2084,7 @@ module AWS::SDK::CloudSearch
     def index_documents(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::IndexDocumentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::IndexDocumentsInput,
         validate_input: @config.validate_input
@@ -2147,7 +2149,7 @@ module AWS::SDK::CloudSearch
     def list_domain_names(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDomainNamesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDomainNamesInput,
         validate_input: @config.validate_input
@@ -2227,7 +2229,7 @@ module AWS::SDK::CloudSearch
     def update_availability_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAvailabilityOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAvailabilityOptionsInput,
         validate_input: @config.validate_input
@@ -2312,7 +2314,7 @@ module AWS::SDK::CloudSearch
     def update_domain_endpoint_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDomainEndpointOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDomainEndpointOptionsInput,
         validate_input: @config.validate_input
@@ -2399,7 +2401,7 @@ module AWS::SDK::CloudSearch
     def update_scaling_parameters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateScalingParametersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateScalingParametersInput,
         validate_input: @config.validate_input
@@ -2481,7 +2483,7 @@ module AWS::SDK::CloudSearch
     def update_service_access_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateServiceAccessPoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateServiceAccessPoliciesInput,
         validate_input: @config.validate_input

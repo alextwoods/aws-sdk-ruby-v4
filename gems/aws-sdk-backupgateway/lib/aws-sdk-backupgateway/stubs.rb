@@ -94,7 +94,7 @@ module AWS::SDK::BackupGateway
     class GetGateway
       def self.default(visited=[])
         {
-          gateway: Stubs::GatewayDetails.default(visited),
+          gateway: GatewayDetails.default(visited),
         }
       end
 
@@ -156,7 +156,7 @@ module AWS::SDK::BackupGateway
     class ListGateways
       def self.default(visited=[])
         {
-          gateways: Stubs::Gateways.default(visited),
+          gateways: Gateways.default(visited),
           next_token: 'next_token',
         }
       end
@@ -176,7 +176,7 @@ module AWS::SDK::BackupGateway
         return nil if visited.include?('Gateways')
         visited = visited + ['Gateways']
         [
-          Stubs::Gateway.default(visited)
+          Gateway.default(visited)
         ]
       end
 
@@ -220,7 +220,7 @@ module AWS::SDK::BackupGateway
     class ListHypervisors
       def self.default(visited=[])
         {
-          hypervisors: Stubs::Hypervisors.default(visited),
+          hypervisors: Hypervisors.default(visited),
           next_token: 'next_token',
         }
       end
@@ -240,7 +240,7 @@ module AWS::SDK::BackupGateway
         return nil if visited.include?('Hypervisors')
         visited = visited + ['Hypervisors']
         [
-          Stubs::Hypervisor.default(visited)
+          Hypervisor.default(visited)
         ]
       end
 
@@ -285,7 +285,7 @@ module AWS::SDK::BackupGateway
       def self.default(visited=[])
         {
           resource_arn: 'resource_arn',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -304,7 +304,7 @@ module AWS::SDK::BackupGateway
         return nil if visited.include?('Tags')
         visited = visited + ['Tags']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -342,7 +342,7 @@ module AWS::SDK::BackupGateway
     class ListVirtualMachines
       def self.default(visited=[])
         {
-          virtual_machines: Stubs::VirtualMachines.default(visited),
+          virtual_machines: VirtualMachines.default(visited),
           next_token: 'next_token',
         }
       end
@@ -362,7 +362,7 @@ module AWS::SDK::BackupGateway
         return nil if visited.include?('VirtualMachines')
         visited = visited + ['VirtualMachines']
         [
-          Stubs::VirtualMachine.default(visited)
+          VirtualMachine.default(visited)
         ]
       end
 

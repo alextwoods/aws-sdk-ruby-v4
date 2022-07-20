@@ -14,7 +14,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
     class CreateMediaCapturePipeline
       def self.default(visited=[])
         {
-          media_capture_pipeline: Stubs::MediaCapturePipeline.default(visited),
+          media_capture_pipeline: MediaCapturePipeline.default(visited),
         }
       end
 
@@ -42,7 +42,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
           sink_arn: 'sink_arn',
           created_timestamp: Time.now,
           updated_timestamp: Time.now,
-          chime_sdk_meeting_configuration: Stubs::ChimeSdkMeetingConfiguration.default(visited),
+          chime_sdk_meeting_configuration: ChimeSdkMeetingConfiguration.default(visited),
         }
       end
 
@@ -69,8 +69,8 @@ module AWS::SDK::ChimeSDKMediaPipelines
         return nil if visited.include?('ChimeSdkMeetingConfiguration')
         visited = visited + ['ChimeSdkMeetingConfiguration']
         {
-          source_configuration: Stubs::SourceConfiguration.default(visited),
-          artifacts_configuration: Stubs::ArtifactsConfiguration.default(visited),
+          source_configuration: SourceConfiguration.default(visited),
+          artifacts_configuration: ArtifactsConfiguration.default(visited),
         }
       end
 
@@ -89,9 +89,9 @@ module AWS::SDK::ChimeSDKMediaPipelines
         return nil if visited.include?('ArtifactsConfiguration')
         visited = visited + ['ArtifactsConfiguration']
         {
-          audio: Stubs::AudioArtifactsConfiguration.default(visited),
-          video: Stubs::VideoArtifactsConfiguration.default(visited),
-          content: Stubs::ContentArtifactsConfiguration.default(visited),
+          audio: AudioArtifactsConfiguration.default(visited),
+          video: VideoArtifactsConfiguration.default(visited),
+          content: ContentArtifactsConfiguration.default(visited),
         }
       end
 
@@ -169,7 +169,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
         return nil if visited.include?('SourceConfiguration')
         visited = visited + ['SourceConfiguration']
         {
-          selected_video_streams: Stubs::SelectedVideoStreams.default(visited),
+          selected_video_streams: SelectedVideoStreams.default(visited),
         }
       end
 
@@ -187,8 +187,8 @@ module AWS::SDK::ChimeSDKMediaPipelines
         return nil if visited.include?('SelectedVideoStreams')
         visited = visited + ['SelectedVideoStreams']
         {
-          attendee_ids: Stubs::AttendeeIdList.default(visited),
-          external_user_ids: Stubs::ExternalUserIdList.default(visited),
+          attendee_ids: AttendeeIdList.default(visited),
+          external_user_ids: ExternalUserIdList.default(visited),
         }
       end
 
@@ -258,7 +258,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
     class GetMediaCapturePipeline
       def self.default(visited=[])
         {
-          media_capture_pipeline: Stubs::MediaCapturePipeline.default(visited),
+          media_capture_pipeline: MediaCapturePipeline.default(visited),
         }
       end
 
@@ -275,7 +275,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
     class ListMediaCapturePipelines
       def self.default(visited=[])
         {
-          media_capture_pipelines: Stubs::MediaCapturePipelineSummaryList.default(visited),
+          media_capture_pipelines: MediaCapturePipelineSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -296,7 +296,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
         return nil if visited.include?('MediaCapturePipelineSummaryList')
         visited = visited + ['MediaCapturePipelineSummaryList']
         [
-          Stubs::MediaCapturePipelineSummary.default(visited)
+          MediaCapturePipelineSummary.default(visited)
         ]
       end
 
@@ -334,7 +334,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -353,7 +353,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 

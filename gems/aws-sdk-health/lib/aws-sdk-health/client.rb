@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Health
@@ -135,7 +137,7 @@ module AWS::SDK::Health
     def describe_affected_accounts_for_organization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAffectedAccountsForOrganizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAffectedAccountsForOrganizationInput,
         validate_input: @config.validate_input
@@ -271,7 +273,7 @@ module AWS::SDK::Health
     def describe_affected_entities(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAffectedEntitiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAffectedEntitiesInput,
         validate_input: @config.validate_input
@@ -397,7 +399,7 @@ module AWS::SDK::Health
     def describe_affected_entities_for_organization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAffectedEntitiesForOrganizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAffectedEntitiesForOrganizationInput,
         validate_input: @config.validate_input
@@ -472,7 +474,7 @@ module AWS::SDK::Health
     def describe_entity_aggregates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEntityAggregatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEntityAggregatesInput,
         validate_input: @config.validate_input
@@ -604,7 +606,7 @@ module AWS::SDK::Health
     def describe_event_aggregates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEventAggregatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEventAggregatesInput,
         validate_input: @config.validate_input
@@ -711,7 +713,7 @@ module AWS::SDK::Health
     def describe_event_details(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEventDetailsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEventDetailsInput,
         validate_input: @config.validate_input
@@ -846,7 +848,7 @@ module AWS::SDK::Health
     def describe_event_details_for_organization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEventDetailsForOrganizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEventDetailsForOrganizationInput,
         validate_input: @config.validate_input
@@ -952,7 +954,7 @@ module AWS::SDK::Health
     def describe_event_types(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEventTypesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEventTypesInput,
         validate_input: @config.validate_input
@@ -1110,7 +1112,7 @@ module AWS::SDK::Health
     def describe_events(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEventsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEventsInput,
         validate_input: @config.validate_input
@@ -1266,7 +1268,7 @@ module AWS::SDK::Health
     def describe_events_for_organization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEventsForOrganizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEventsForOrganizationInput,
         validate_input: @config.validate_input
@@ -1333,7 +1335,7 @@ module AWS::SDK::Health
     def describe_health_service_status_for_organization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeHealthServiceStatusForOrganizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeHealthServiceStatusForOrganizationInput,
         validate_input: @config.validate_input
@@ -1410,7 +1412,7 @@ module AWS::SDK::Health
     def disable_health_service_access_for_organization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableHealthServiceAccessForOrganizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableHealthServiceAccessForOrganizationInput,
         validate_input: @config.validate_input
@@ -1495,7 +1497,7 @@ module AWS::SDK::Health
     def enable_health_service_access_for_organization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableHealthServiceAccessForOrganizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableHealthServiceAccessForOrganizationInput,
         validate_input: @config.validate_input

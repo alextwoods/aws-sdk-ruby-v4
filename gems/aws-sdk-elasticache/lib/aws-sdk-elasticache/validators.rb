@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::ElastiCache
   module Validators
 
@@ -21,14 +23,14 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddTagsToResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_name], ::String, context: "#{context}[:resource_name]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class AddTagsToResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddTagsToResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
+        TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
       end
     end
 
@@ -66,7 +68,7 @@ module AWS::SDK::ElastiCache
     class AuthorizeCacheSecurityGroupIngressOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AuthorizeCacheSecurityGroupIngressOutput, context: context)
-        Validators::CacheSecurityGroup.validate!(input[:cache_security_group], context: "#{context}[:cache_security_group]") unless input[:cache_security_group].nil?
+        CacheSecurityGroup.validate!(input[:cache_security_group], context: "#{context}[:cache_security_group]") unless input[:cache_security_group].nil?
       end
     end
 
@@ -89,8 +91,8 @@ module AWS::SDK::ElastiCache
     class BatchApplyUpdateActionInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchApplyUpdateActionInput, context: context)
-        Validators::ReplicationGroupIdList.validate!(input[:replication_group_ids], context: "#{context}[:replication_group_ids]") unless input[:replication_group_ids].nil?
-        Validators::CacheClusterIdList.validate!(input[:cache_cluster_ids], context: "#{context}[:cache_cluster_ids]") unless input[:cache_cluster_ids].nil?
+        ReplicationGroupIdList.validate!(input[:replication_group_ids], context: "#{context}[:replication_group_ids]") unless input[:replication_group_ids].nil?
+        CacheClusterIdList.validate!(input[:cache_cluster_ids], context: "#{context}[:cache_cluster_ids]") unless input[:cache_cluster_ids].nil?
         Hearth::Validator.validate!(input[:service_update_name], ::String, context: "#{context}[:service_update_name]")
       end
     end
@@ -98,16 +100,16 @@ module AWS::SDK::ElastiCache
     class BatchApplyUpdateActionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchApplyUpdateActionOutput, context: context)
-        Validators::ProcessedUpdateActionList.validate!(input[:processed_update_actions], context: "#{context}[:processed_update_actions]") unless input[:processed_update_actions].nil?
-        Validators::UnprocessedUpdateActionList.validate!(input[:unprocessed_update_actions], context: "#{context}[:unprocessed_update_actions]") unless input[:unprocessed_update_actions].nil?
+        ProcessedUpdateActionList.validate!(input[:processed_update_actions], context: "#{context}[:processed_update_actions]") unless input[:processed_update_actions].nil?
+        UnprocessedUpdateActionList.validate!(input[:unprocessed_update_actions], context: "#{context}[:unprocessed_update_actions]") unless input[:unprocessed_update_actions].nil?
       end
     end
 
     class BatchStopUpdateActionInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchStopUpdateActionInput, context: context)
-        Validators::ReplicationGroupIdList.validate!(input[:replication_group_ids], context: "#{context}[:replication_group_ids]") unless input[:replication_group_ids].nil?
-        Validators::CacheClusterIdList.validate!(input[:cache_cluster_ids], context: "#{context}[:cache_cluster_ids]") unless input[:cache_cluster_ids].nil?
+        ReplicationGroupIdList.validate!(input[:replication_group_ids], context: "#{context}[:replication_group_ids]") unless input[:replication_group_ids].nil?
+        CacheClusterIdList.validate!(input[:cache_cluster_ids], context: "#{context}[:cache_cluster_ids]") unless input[:cache_cluster_ids].nil?
         Hearth::Validator.validate!(input[:service_update_name], ::String, context: "#{context}[:service_update_name]")
       end
     end
@@ -115,8 +117,8 @@ module AWS::SDK::ElastiCache
     class BatchStopUpdateActionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchStopUpdateActionOutput, context: context)
-        Validators::ProcessedUpdateActionList.validate!(input[:processed_update_actions], context: "#{context}[:processed_update_actions]") unless input[:processed_update_actions].nil?
-        Validators::UnprocessedUpdateActionList.validate!(input[:unprocessed_update_actions], context: "#{context}[:unprocessed_update_actions]") unless input[:unprocessed_update_actions].nil?
+        ProcessedUpdateActionList.validate!(input[:processed_update_actions], context: "#{context}[:processed_update_actions]") unless input[:processed_update_actions].nil?
+        UnprocessedUpdateActionList.validate!(input[:unprocessed_update_actions], context: "#{context}[:unprocessed_update_actions]") unless input[:unprocessed_update_actions].nil?
       end
     end
 
@@ -124,7 +126,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CacheCluster, context: context)
         Hearth::Validator.validate!(input[:cache_cluster_id], ::String, context: "#{context}[:cache_cluster_id]")
-        Validators::Endpoint.validate!(input[:configuration_endpoint], context: "#{context}[:configuration_endpoint]") unless input[:configuration_endpoint].nil?
+        Endpoint.validate!(input[:configuration_endpoint], context: "#{context}[:configuration_endpoint]") unless input[:configuration_endpoint].nil?
         Hearth::Validator.validate!(input[:client_download_landing_page], ::String, context: "#{context}[:client_download_landing_page]")
         Hearth::Validator.validate!(input[:cache_node_type], ::String, context: "#{context}[:cache_node_type]")
         Hearth::Validator.validate!(input[:engine], ::String, context: "#{context}[:engine]")
@@ -135,14 +137,14 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input[:preferred_outpost_arn], ::String, context: "#{context}[:preferred_outpost_arn]")
         Hearth::Validator.validate!(input[:cache_cluster_create_time], ::Time, context: "#{context}[:cache_cluster_create_time]")
         Hearth::Validator.validate!(input[:preferred_maintenance_window], ::String, context: "#{context}[:preferred_maintenance_window]")
-        Validators::PendingModifiedValues.validate!(input[:pending_modified_values], context: "#{context}[:pending_modified_values]") unless input[:pending_modified_values].nil?
-        Validators::NotificationConfiguration.validate!(input[:notification_configuration], context: "#{context}[:notification_configuration]") unless input[:notification_configuration].nil?
-        Validators::CacheSecurityGroupMembershipList.validate!(input[:cache_security_groups], context: "#{context}[:cache_security_groups]") unless input[:cache_security_groups].nil?
-        Validators::CacheParameterGroupStatus.validate!(input[:cache_parameter_group], context: "#{context}[:cache_parameter_group]") unless input[:cache_parameter_group].nil?
+        PendingModifiedValues.validate!(input[:pending_modified_values], context: "#{context}[:pending_modified_values]") unless input[:pending_modified_values].nil?
+        NotificationConfiguration.validate!(input[:notification_configuration], context: "#{context}[:notification_configuration]") unless input[:notification_configuration].nil?
+        CacheSecurityGroupMembershipList.validate!(input[:cache_security_groups], context: "#{context}[:cache_security_groups]") unless input[:cache_security_groups].nil?
+        CacheParameterGroupStatus.validate!(input[:cache_parameter_group], context: "#{context}[:cache_parameter_group]") unless input[:cache_parameter_group].nil?
         Hearth::Validator.validate!(input[:cache_subnet_group_name], ::String, context: "#{context}[:cache_subnet_group_name]")
-        Validators::CacheNodeList.validate!(input[:cache_nodes], context: "#{context}[:cache_nodes]") unless input[:cache_nodes].nil?
+        CacheNodeList.validate!(input[:cache_nodes], context: "#{context}[:cache_nodes]") unless input[:cache_nodes].nil?
         Hearth::Validator.validate!(input[:auto_minor_version_upgrade], ::TrueClass, ::FalseClass, context: "#{context}[:auto_minor_version_upgrade]")
-        Validators::SecurityGroupMembershipList.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
+        SecurityGroupMembershipList.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
         Hearth::Validator.validate!(input[:replication_group_id], ::String, context: "#{context}[:replication_group_id]")
         Hearth::Validator.validate!(input[:snapshot_retention_limit], ::Integer, context: "#{context}[:snapshot_retention_limit]")
         Hearth::Validator.validate!(input[:snapshot_window], ::String, context: "#{context}[:snapshot_window]")
@@ -152,7 +154,7 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input[:at_rest_encryption_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:at_rest_encryption_enabled]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:replication_group_log_delivery_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:replication_group_log_delivery_enabled]")
-        Validators::LogDeliveryConfigurationList.validate!(input[:log_delivery_configurations], context: "#{context}[:log_delivery_configurations]") unless input[:log_delivery_configurations].nil?
+        LogDeliveryConfigurationList.validate!(input[:log_delivery_configurations], context: "#{context}[:log_delivery_configurations]") unless input[:log_delivery_configurations].nil?
       end
     end
 
@@ -176,7 +178,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CacheCluster.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CacheCluster.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -203,7 +205,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CacheEngineVersion.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CacheEngineVersion.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -214,7 +216,7 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input[:cache_node_id], ::String, context: "#{context}[:cache_node_id]")
         Hearth::Validator.validate!(input[:cache_node_status], ::String, context: "#{context}[:cache_node_status]")
         Hearth::Validator.validate!(input[:cache_node_create_time], ::Time, context: "#{context}[:cache_node_create_time]")
-        Validators::Endpoint.validate!(input[:endpoint], context: "#{context}[:endpoint]") unless input[:endpoint].nil?
+        Endpoint.validate!(input[:endpoint], context: "#{context}[:endpoint]") unless input[:endpoint].nil?
         Hearth::Validator.validate!(input[:parameter_group_status], ::String, context: "#{context}[:parameter_group_status]")
         Hearth::Validator.validate!(input[:source_cache_node_id], ::String, context: "#{context}[:source_cache_node_id]")
         Hearth::Validator.validate!(input[:customer_availability_zone], ::String, context: "#{context}[:customer_availability_zone]")
@@ -235,7 +237,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CacheNode.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CacheNode.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -250,7 +252,7 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input[:allowed_values], ::String, context: "#{context}[:allowed_values]")
         Hearth::Validator.validate!(input[:is_modifiable], ::TrueClass, ::FalseClass, context: "#{context}[:is_modifiable]")
         Hearth::Validator.validate!(input[:minimum_engine_version], ::String, context: "#{context}[:minimum_engine_version]")
-        Validators::CacheNodeTypeSpecificValueList.validate!(input[:cache_node_type_specific_values], context: "#{context}[:cache_node_type_specific_values]") unless input[:cache_node_type_specific_values].nil?
+        CacheNodeTypeSpecificValueList.validate!(input[:cache_node_type_specific_values], context: "#{context}[:cache_node_type_specific_values]") unless input[:cache_node_type_specific_values].nil?
         Hearth::Validator.validate!(input[:change_type], ::String, context: "#{context}[:change_type]")
       end
     end
@@ -259,7 +261,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CacheNodeTypeSpecificParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CacheNodeTypeSpecificParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -276,7 +278,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CacheNodeTypeSpecificValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CacheNodeTypeSpecificValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -299,7 +301,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CacheNodeUpdateStatus.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CacheNodeUpdateStatus.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -326,7 +328,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CacheParameterGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CacheParameterGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -350,7 +352,7 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input, Types::CacheParameterGroupStatus, context: context)
         Hearth::Validator.validate!(input[:cache_parameter_group_name], ::String, context: "#{context}[:cache_parameter_group_name]")
         Hearth::Validator.validate!(input[:parameter_apply_status], ::String, context: "#{context}[:parameter_apply_status]")
-        Validators::CacheNodeIdsList.validate!(input[:cache_node_ids_to_reboot], context: "#{context}[:cache_node_ids_to_reboot]") unless input[:cache_node_ids_to_reboot].nil?
+        CacheNodeIdsList.validate!(input[:cache_node_ids_to_reboot], context: "#{context}[:cache_node_ids_to_reboot]") unless input[:cache_node_ids_to_reboot].nil?
       end
     end
 
@@ -360,7 +362,7 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input[:owner_id], ::String, context: "#{context}[:owner_id]")
         Hearth::Validator.validate!(input[:cache_security_group_name], ::String, context: "#{context}[:cache_security_group_name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::EC2SecurityGroupList.validate!(input[:ec2_security_groups], context: "#{context}[:ec2_security_groups]") unless input[:ec2_security_groups].nil?
+        EC2SecurityGroupList.validate!(input[:ec2_security_groups], context: "#{context}[:ec2_security_groups]") unless input[:ec2_security_groups].nil?
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
       end
     end
@@ -384,7 +386,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CacheSecurityGroupMembership.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CacheSecurityGroupMembership.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -416,7 +418,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CacheSecurityGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CacheSecurityGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -427,7 +429,7 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input[:cache_subnet_group_name], ::String, context: "#{context}[:cache_subnet_group_name]")
         Hearth::Validator.validate!(input[:cache_subnet_group_description], ::String, context: "#{context}[:cache_subnet_group_description]")
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
-        Validators::SubnetList.validate!(input[:subnets], context: "#{context}[:subnets]") unless input[:subnets].nil?
+        SubnetList.validate!(input[:subnets], context: "#{context}[:subnets]") unless input[:subnets].nil?
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
       end
     end
@@ -464,7 +466,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CacheSubnetGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CacheSubnetGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -510,7 +512,7 @@ module AWS::SDK::ElastiCache
     class CompleteMigrationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CompleteMigrationOutput, context: context)
-        Validators::ReplicationGroup.validate!(input[:replication_group], context: "#{context}[:replication_group]") unless input[:replication_group].nil?
+        ReplicationGroup.validate!(input[:replication_group], context: "#{context}[:replication_group]") unless input[:replication_group].nil?
       end
     end
 
@@ -519,8 +521,8 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input, Types::ConfigureShard, context: context)
         Hearth::Validator.validate!(input[:node_group_id], ::String, context: "#{context}[:node_group_id]")
         Hearth::Validator.validate!(input[:new_replica_count], ::Integer, context: "#{context}[:new_replica_count]")
-        Validators::PreferredAvailabilityZoneList.validate!(input[:preferred_availability_zones], context: "#{context}[:preferred_availability_zones]") unless input[:preferred_availability_zones].nil?
-        Validators::PreferredOutpostArnList.validate!(input[:preferred_outpost_arns], context: "#{context}[:preferred_outpost_arns]") unless input[:preferred_outpost_arns].nil?
+        PreferredAvailabilityZoneList.validate!(input[:preferred_availability_zones], context: "#{context}[:preferred_availability_zones]") unless input[:preferred_availability_zones].nil?
+        PreferredOutpostArnList.validate!(input[:preferred_outpost_arns], context: "#{context}[:preferred_outpost_arns]") unless input[:preferred_outpost_arns].nil?
       end
     end
 
@@ -531,14 +533,14 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input[:target_snapshot_name], ::String, context: "#{context}[:target_snapshot_name]")
         Hearth::Validator.validate!(input[:target_bucket], ::String, context: "#{context}[:target_bucket]")
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CopySnapshotOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CopySnapshotOutput, context: context)
-        Validators::Snapshot.validate!(input[:snapshot], context: "#{context}[:snapshot]") unless input[:snapshot].nil?
+        Snapshot.validate!(input[:snapshot], context: "#{context}[:snapshot]") unless input[:snapshot].nil?
       end
     end
 
@@ -549,17 +551,17 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input[:replication_group_id], ::String, context: "#{context}[:replication_group_id]")
         Hearth::Validator.validate!(input[:az_mode], ::String, context: "#{context}[:az_mode]")
         Hearth::Validator.validate!(input[:preferred_availability_zone], ::String, context: "#{context}[:preferred_availability_zone]")
-        Validators::PreferredAvailabilityZoneList.validate!(input[:preferred_availability_zones], context: "#{context}[:preferred_availability_zones]") unless input[:preferred_availability_zones].nil?
+        PreferredAvailabilityZoneList.validate!(input[:preferred_availability_zones], context: "#{context}[:preferred_availability_zones]") unless input[:preferred_availability_zones].nil?
         Hearth::Validator.validate!(input[:num_cache_nodes], ::Integer, context: "#{context}[:num_cache_nodes]")
         Hearth::Validator.validate!(input[:cache_node_type], ::String, context: "#{context}[:cache_node_type]")
         Hearth::Validator.validate!(input[:engine], ::String, context: "#{context}[:engine]")
         Hearth::Validator.validate!(input[:engine_version], ::String, context: "#{context}[:engine_version]")
         Hearth::Validator.validate!(input[:cache_parameter_group_name], ::String, context: "#{context}[:cache_parameter_group_name]")
         Hearth::Validator.validate!(input[:cache_subnet_group_name], ::String, context: "#{context}[:cache_subnet_group_name]")
-        Validators::CacheSecurityGroupNameList.validate!(input[:cache_security_group_names], context: "#{context}[:cache_security_group_names]") unless input[:cache_security_group_names].nil?
-        Validators::SecurityGroupIdsList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::SnapshotArnsList.validate!(input[:snapshot_arns], context: "#{context}[:snapshot_arns]") unless input[:snapshot_arns].nil?
+        CacheSecurityGroupNameList.validate!(input[:cache_security_group_names], context: "#{context}[:cache_security_group_names]") unless input[:cache_security_group_names].nil?
+        SecurityGroupIdsList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        SnapshotArnsList.validate!(input[:snapshot_arns], context: "#{context}[:snapshot_arns]") unless input[:snapshot_arns].nil?
         Hearth::Validator.validate!(input[:snapshot_name], ::String, context: "#{context}[:snapshot_name]")
         Hearth::Validator.validate!(input[:preferred_maintenance_window], ::String, context: "#{context}[:preferred_maintenance_window]")
         Hearth::Validator.validate!(input[:port], ::Integer, context: "#{context}[:port]")
@@ -570,8 +572,8 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input[:auth_token], ::String, context: "#{context}[:auth_token]")
         Hearth::Validator.validate!(input[:outpost_mode], ::String, context: "#{context}[:outpost_mode]")
         Hearth::Validator.validate!(input[:preferred_outpost_arn], ::String, context: "#{context}[:preferred_outpost_arn]")
-        Validators::PreferredOutpostArnList.validate!(input[:preferred_outpost_arns], context: "#{context}[:preferred_outpost_arns]") unless input[:preferred_outpost_arns].nil?
-        Validators::LogDeliveryConfigurationRequestList.validate!(input[:log_delivery_configurations], context: "#{context}[:log_delivery_configurations]") unless input[:log_delivery_configurations].nil?
+        PreferredOutpostArnList.validate!(input[:preferred_outpost_arns], context: "#{context}[:preferred_outpost_arns]") unless input[:preferred_outpost_arns].nil?
+        LogDeliveryConfigurationRequestList.validate!(input[:log_delivery_configurations], context: "#{context}[:log_delivery_configurations]") unless input[:log_delivery_configurations].nil?
         Hearth::Validator.validate!(input[:transit_encryption_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:transit_encryption_enabled]")
       end
     end
@@ -579,7 +581,7 @@ module AWS::SDK::ElastiCache
     class CreateCacheClusterOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateCacheClusterOutput, context: context)
-        Validators::CacheCluster.validate!(input[:cache_cluster], context: "#{context}[:cache_cluster]") unless input[:cache_cluster].nil?
+        CacheCluster.validate!(input[:cache_cluster], context: "#{context}[:cache_cluster]") unless input[:cache_cluster].nil?
       end
     end
 
@@ -589,14 +591,14 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input[:cache_parameter_group_name], ::String, context: "#{context}[:cache_parameter_group_name]")
         Hearth::Validator.validate!(input[:cache_parameter_group_family], ::String, context: "#{context}[:cache_parameter_group_family]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateCacheParameterGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateCacheParameterGroupOutput, context: context)
-        Validators::CacheParameterGroup.validate!(input[:cache_parameter_group], context: "#{context}[:cache_parameter_group]") unless input[:cache_parameter_group].nil?
+        CacheParameterGroup.validate!(input[:cache_parameter_group], context: "#{context}[:cache_parameter_group]") unless input[:cache_parameter_group].nil?
       end
     end
 
@@ -605,14 +607,14 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input, Types::CreateCacheSecurityGroupInput, context: context)
         Hearth::Validator.validate!(input[:cache_security_group_name], ::String, context: "#{context}[:cache_security_group_name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateCacheSecurityGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateCacheSecurityGroupOutput, context: context)
-        Validators::CacheSecurityGroup.validate!(input[:cache_security_group], context: "#{context}[:cache_security_group]") unless input[:cache_security_group].nil?
+        CacheSecurityGroup.validate!(input[:cache_security_group], context: "#{context}[:cache_security_group]") unless input[:cache_security_group].nil?
       end
     end
 
@@ -621,15 +623,15 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input, Types::CreateCacheSubnetGroupInput, context: context)
         Hearth::Validator.validate!(input[:cache_subnet_group_name], ::String, context: "#{context}[:cache_subnet_group_name]")
         Hearth::Validator.validate!(input[:cache_subnet_group_description], ::String, context: "#{context}[:cache_subnet_group_description]")
-        Validators::SubnetIdentifierList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        SubnetIdentifierList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateCacheSubnetGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateCacheSubnetGroupOutput, context: context)
-        Validators::CacheSubnetGroup.validate!(input[:cache_subnet_group], context: "#{context}[:cache_subnet_group]") unless input[:cache_subnet_group].nil?
+        CacheSubnetGroup.validate!(input[:cache_subnet_group], context: "#{context}[:cache_subnet_group]") unless input[:cache_subnet_group].nil?
       end
     end
 
@@ -645,7 +647,7 @@ module AWS::SDK::ElastiCache
     class CreateGlobalReplicationGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateGlobalReplicationGroupOutput, context: context)
-        Validators::GlobalReplicationGroup.validate!(input[:global_replication_group], context: "#{context}[:global_replication_group]") unless input[:global_replication_group].nil?
+        GlobalReplicationGroup.validate!(input[:global_replication_group], context: "#{context}[:global_replication_group]") unless input[:global_replication_group].nil?
       end
     end
 
@@ -659,19 +661,19 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input[:automatic_failover_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:automatic_failover_enabled]")
         Hearth::Validator.validate!(input[:multi_az_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:multi_az_enabled]")
         Hearth::Validator.validate!(input[:num_cache_clusters], ::Integer, context: "#{context}[:num_cache_clusters]")
-        Validators::AvailabilityZonesList.validate!(input[:preferred_cache_cluster_a_zs], context: "#{context}[:preferred_cache_cluster_a_zs]") unless input[:preferred_cache_cluster_a_zs].nil?
+        AvailabilityZonesList.validate!(input[:preferred_cache_cluster_a_zs], context: "#{context}[:preferred_cache_cluster_a_zs]") unless input[:preferred_cache_cluster_a_zs].nil?
         Hearth::Validator.validate!(input[:num_node_groups], ::Integer, context: "#{context}[:num_node_groups]")
         Hearth::Validator.validate!(input[:replicas_per_node_group], ::Integer, context: "#{context}[:replicas_per_node_group]")
-        Validators::NodeGroupConfigurationList.validate!(input[:node_group_configuration], context: "#{context}[:node_group_configuration]") unless input[:node_group_configuration].nil?
+        NodeGroupConfigurationList.validate!(input[:node_group_configuration], context: "#{context}[:node_group_configuration]") unless input[:node_group_configuration].nil?
         Hearth::Validator.validate!(input[:cache_node_type], ::String, context: "#{context}[:cache_node_type]")
         Hearth::Validator.validate!(input[:engine], ::String, context: "#{context}[:engine]")
         Hearth::Validator.validate!(input[:engine_version], ::String, context: "#{context}[:engine_version]")
         Hearth::Validator.validate!(input[:cache_parameter_group_name], ::String, context: "#{context}[:cache_parameter_group_name]")
         Hearth::Validator.validate!(input[:cache_subnet_group_name], ::String, context: "#{context}[:cache_subnet_group_name]")
-        Validators::CacheSecurityGroupNameList.validate!(input[:cache_security_group_names], context: "#{context}[:cache_security_group_names]") unless input[:cache_security_group_names].nil?
-        Validators::SecurityGroupIdsList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::SnapshotArnsList.validate!(input[:snapshot_arns], context: "#{context}[:snapshot_arns]") unless input[:snapshot_arns].nil?
+        CacheSecurityGroupNameList.validate!(input[:cache_security_group_names], context: "#{context}[:cache_security_group_names]") unless input[:cache_security_group_names].nil?
+        SecurityGroupIdsList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        SnapshotArnsList.validate!(input[:snapshot_arns], context: "#{context}[:snapshot_arns]") unless input[:snapshot_arns].nil?
         Hearth::Validator.validate!(input[:snapshot_name], ::String, context: "#{context}[:snapshot_name]")
         Hearth::Validator.validate!(input[:preferred_maintenance_window], ::String, context: "#{context}[:preferred_maintenance_window]")
         Hearth::Validator.validate!(input[:port], ::Integer, context: "#{context}[:port]")
@@ -683,8 +685,8 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input[:transit_encryption_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:transit_encryption_enabled]")
         Hearth::Validator.validate!(input[:at_rest_encryption_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:at_rest_encryption_enabled]")
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
-        Validators::UserGroupIdListInput.validate!(input[:user_group_ids], context: "#{context}[:user_group_ids]") unless input[:user_group_ids].nil?
-        Validators::LogDeliveryConfigurationRequestList.validate!(input[:log_delivery_configurations], context: "#{context}[:log_delivery_configurations]") unless input[:log_delivery_configurations].nil?
+        UserGroupIdListInput.validate!(input[:user_group_ids], context: "#{context}[:user_group_ids]") unless input[:user_group_ids].nil?
+        LogDeliveryConfigurationRequestList.validate!(input[:log_delivery_configurations], context: "#{context}[:log_delivery_configurations]") unless input[:log_delivery_configurations].nil?
         Hearth::Validator.validate!(input[:data_tiering_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:data_tiering_enabled]")
       end
     end
@@ -692,7 +694,7 @@ module AWS::SDK::ElastiCache
     class CreateReplicationGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateReplicationGroupOutput, context: context)
-        Validators::ReplicationGroup.validate!(input[:replication_group], context: "#{context}[:replication_group]") unless input[:replication_group].nil?
+        ReplicationGroup.validate!(input[:replication_group], context: "#{context}[:replication_group]") unless input[:replication_group].nil?
       end
     end
 
@@ -703,14 +705,14 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input[:cache_cluster_id], ::String, context: "#{context}[:cache_cluster_id]")
         Hearth::Validator.validate!(input[:snapshot_name], ::String, context: "#{context}[:snapshot_name]")
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateSnapshotOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateSnapshotOutput, context: context)
-        Validators::Snapshot.validate!(input[:snapshot], context: "#{context}[:snapshot]") unless input[:snapshot].nil?
+        Snapshot.validate!(input[:snapshot], context: "#{context}[:snapshot]") unless input[:snapshot].nil?
       end
     end
 
@@ -719,8 +721,8 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input, Types::CreateUserGroupInput, context: context)
         Hearth::Validator.validate!(input[:user_group_id], ::String, context: "#{context}[:user_group_id]")
         Hearth::Validator.validate!(input[:engine], ::String, context: "#{context}[:engine]")
-        Validators::UserIdListInput.validate!(input[:user_ids], context: "#{context}[:user_ids]") unless input[:user_ids].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        UserIdListInput.validate!(input[:user_ids], context: "#{context}[:user_ids]") unless input[:user_ids].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -730,10 +732,10 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input[:user_group_id], ::String, context: "#{context}[:user_group_id]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:engine], ::String, context: "#{context}[:engine]")
-        Validators::UserIdList.validate!(input[:user_ids], context: "#{context}[:user_ids]") unless input[:user_ids].nil?
+        UserIdList.validate!(input[:user_ids], context: "#{context}[:user_ids]") unless input[:user_ids].nil?
         Hearth::Validator.validate!(input[:minimum_engine_version], ::String, context: "#{context}[:minimum_engine_version]")
-        Validators::UserGroupPendingChanges.validate!(input[:pending_changes], context: "#{context}[:pending_changes]") unless input[:pending_changes].nil?
-        Validators::UGReplicationGroupIdList.validate!(input[:replication_groups], context: "#{context}[:replication_groups]") unless input[:replication_groups].nil?
+        UserGroupPendingChanges.validate!(input[:pending_changes], context: "#{context}[:pending_changes]") unless input[:pending_changes].nil?
+        UGReplicationGroupIdList.validate!(input[:replication_groups], context: "#{context}[:replication_groups]") unless input[:replication_groups].nil?
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
       end
     end
@@ -744,10 +746,10 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input[:user_id], ::String, context: "#{context}[:user_id]")
         Hearth::Validator.validate!(input[:user_name], ::String, context: "#{context}[:user_name]")
         Hearth::Validator.validate!(input[:engine], ::String, context: "#{context}[:engine]")
-        Validators::PasswordListInput.validate!(input[:passwords], context: "#{context}[:passwords]") unless input[:passwords].nil?
+        PasswordListInput.validate!(input[:passwords], context: "#{context}[:passwords]") unless input[:passwords].nil?
         Hearth::Validator.validate!(input[:access_string], ::String, context: "#{context}[:access_string]")
         Hearth::Validator.validate!(input[:no_password_required], ::TrueClass, ::FalseClass, context: "#{context}[:no_password_required]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -760,8 +762,8 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input[:engine], ::String, context: "#{context}[:engine]")
         Hearth::Validator.validate!(input[:minimum_engine_version], ::String, context: "#{context}[:minimum_engine_version]")
         Hearth::Validator.validate!(input[:access_string], ::String, context: "#{context}[:access_string]")
-        Validators::UserGroupIdList.validate!(input[:user_group_ids], context: "#{context}[:user_group_ids]") unless input[:user_group_ids].nil?
-        Validators::Authentication.validate!(input[:authentication], context: "#{context}[:authentication]") unless input[:authentication].nil?
+        UserGroupIdList.validate!(input[:user_group_ids], context: "#{context}[:user_group_ids]") unless input[:user_group_ids].nil?
+        Authentication.validate!(input[:authentication], context: "#{context}[:authentication]") unless input[:authentication].nil?
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
       end
     end
@@ -778,7 +780,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CustomerNodeEndpoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CustomerNodeEndpoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -788,8 +790,8 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input, Types::DecreaseNodeGroupsInGlobalReplicationGroupInput, context: context)
         Hearth::Validator.validate!(input[:global_replication_group_id], ::String, context: "#{context}[:global_replication_group_id]")
         Hearth::Validator.validate!(input[:node_group_count], ::Integer, context: "#{context}[:node_group_count]")
-        Validators::GlobalNodeGroupIdList.validate!(input[:global_node_groups_to_remove], context: "#{context}[:global_node_groups_to_remove]") unless input[:global_node_groups_to_remove].nil?
-        Validators::GlobalNodeGroupIdList.validate!(input[:global_node_groups_to_retain], context: "#{context}[:global_node_groups_to_retain]") unless input[:global_node_groups_to_retain].nil?
+        GlobalNodeGroupIdList.validate!(input[:global_node_groups_to_remove], context: "#{context}[:global_node_groups_to_remove]") unless input[:global_node_groups_to_remove].nil?
+        GlobalNodeGroupIdList.validate!(input[:global_node_groups_to_retain], context: "#{context}[:global_node_groups_to_retain]") unless input[:global_node_groups_to_retain].nil?
         Hearth::Validator.validate!(input[:apply_immediately], ::TrueClass, ::FalseClass, context: "#{context}[:apply_immediately]")
       end
     end
@@ -797,7 +799,7 @@ module AWS::SDK::ElastiCache
     class DecreaseNodeGroupsInGlobalReplicationGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DecreaseNodeGroupsInGlobalReplicationGroupOutput, context: context)
-        Validators::GlobalReplicationGroup.validate!(input[:global_replication_group], context: "#{context}[:global_replication_group]") unless input[:global_replication_group].nil?
+        GlobalReplicationGroup.validate!(input[:global_replication_group], context: "#{context}[:global_replication_group]") unless input[:global_replication_group].nil?
       end
     end
 
@@ -806,8 +808,8 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input, Types::DecreaseReplicaCountInput, context: context)
         Hearth::Validator.validate!(input[:replication_group_id], ::String, context: "#{context}[:replication_group_id]")
         Hearth::Validator.validate!(input[:new_replica_count], ::Integer, context: "#{context}[:new_replica_count]")
-        Validators::ReplicaConfigurationList.validate!(input[:replica_configuration], context: "#{context}[:replica_configuration]") unless input[:replica_configuration].nil?
-        Validators::RemoveReplicasList.validate!(input[:replicas_to_remove], context: "#{context}[:replicas_to_remove]") unless input[:replicas_to_remove].nil?
+        ReplicaConfigurationList.validate!(input[:replica_configuration], context: "#{context}[:replica_configuration]") unless input[:replica_configuration].nil?
+        RemoveReplicasList.validate!(input[:replicas_to_remove], context: "#{context}[:replicas_to_remove]") unless input[:replicas_to_remove].nil?
         Hearth::Validator.validate!(input[:apply_immediately], ::TrueClass, ::FalseClass, context: "#{context}[:apply_immediately]")
       end
     end
@@ -815,7 +817,7 @@ module AWS::SDK::ElastiCache
     class DecreaseReplicaCountOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DecreaseReplicaCountOutput, context: context)
-        Validators::ReplicationGroup.validate!(input[:replication_group], context: "#{context}[:replication_group]") unless input[:replication_group].nil?
+        ReplicationGroup.validate!(input[:replication_group], context: "#{context}[:replication_group]") unless input[:replication_group].nil?
       end
     end
 
@@ -844,7 +846,7 @@ module AWS::SDK::ElastiCache
     class DeleteCacheClusterOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteCacheClusterOutput, context: context)
-        Validators::CacheCluster.validate!(input[:cache_cluster], context: "#{context}[:cache_cluster]") unless input[:cache_cluster].nil?
+        CacheCluster.validate!(input[:cache_cluster], context: "#{context}[:cache_cluster]") unless input[:cache_cluster].nil?
       end
     end
 
@@ -898,7 +900,7 @@ module AWS::SDK::ElastiCache
     class DeleteGlobalReplicationGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteGlobalReplicationGroupOutput, context: context)
-        Validators::GlobalReplicationGroup.validate!(input[:global_replication_group], context: "#{context}[:global_replication_group]") unless input[:global_replication_group].nil?
+        GlobalReplicationGroup.validate!(input[:global_replication_group], context: "#{context}[:global_replication_group]") unless input[:global_replication_group].nil?
       end
     end
 
@@ -914,7 +916,7 @@ module AWS::SDK::ElastiCache
     class DeleteReplicationGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteReplicationGroupOutput, context: context)
-        Validators::ReplicationGroup.validate!(input[:replication_group], context: "#{context}[:replication_group]") unless input[:replication_group].nil?
+        ReplicationGroup.validate!(input[:replication_group], context: "#{context}[:replication_group]") unless input[:replication_group].nil?
       end
     end
 
@@ -928,7 +930,7 @@ module AWS::SDK::ElastiCache
     class DeleteSnapshotOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteSnapshotOutput, context: context)
-        Validators::Snapshot.validate!(input[:snapshot], context: "#{context}[:snapshot]") unless input[:snapshot].nil?
+        Snapshot.validate!(input[:snapshot], context: "#{context}[:snapshot]") unless input[:snapshot].nil?
       end
     end
 
@@ -945,10 +947,10 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input[:user_group_id], ::String, context: "#{context}[:user_group_id]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:engine], ::String, context: "#{context}[:engine]")
-        Validators::UserIdList.validate!(input[:user_ids], context: "#{context}[:user_ids]") unless input[:user_ids].nil?
+        UserIdList.validate!(input[:user_ids], context: "#{context}[:user_ids]") unless input[:user_ids].nil?
         Hearth::Validator.validate!(input[:minimum_engine_version], ::String, context: "#{context}[:minimum_engine_version]")
-        Validators::UserGroupPendingChanges.validate!(input[:pending_changes], context: "#{context}[:pending_changes]") unless input[:pending_changes].nil?
-        Validators::UGReplicationGroupIdList.validate!(input[:replication_groups], context: "#{context}[:replication_groups]") unless input[:replication_groups].nil?
+        UserGroupPendingChanges.validate!(input[:pending_changes], context: "#{context}[:pending_changes]") unless input[:pending_changes].nil?
+        UGReplicationGroupIdList.validate!(input[:replication_groups], context: "#{context}[:replication_groups]") unless input[:replication_groups].nil?
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
       end
     end
@@ -969,8 +971,8 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input[:engine], ::String, context: "#{context}[:engine]")
         Hearth::Validator.validate!(input[:minimum_engine_version], ::String, context: "#{context}[:minimum_engine_version]")
         Hearth::Validator.validate!(input[:access_string], ::String, context: "#{context}[:access_string]")
-        Validators::UserGroupIdList.validate!(input[:user_group_ids], context: "#{context}[:user_group_ids]") unless input[:user_group_ids].nil?
-        Validators::Authentication.validate!(input[:authentication], context: "#{context}[:authentication]") unless input[:authentication].nil?
+        UserGroupIdList.validate!(input[:user_group_ids], context: "#{context}[:user_group_ids]") unless input[:user_group_ids].nil?
+        Authentication.validate!(input[:authentication], context: "#{context}[:authentication]") unless input[:authentication].nil?
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
       end
     end
@@ -990,7 +992,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeCacheClustersOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::CacheClusterList.validate!(input[:cache_clusters], context: "#{context}[:cache_clusters]") unless input[:cache_clusters].nil?
+        CacheClusterList.validate!(input[:cache_clusters], context: "#{context}[:cache_clusters]") unless input[:cache_clusters].nil?
       end
     end
 
@@ -1010,7 +1012,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeCacheEngineVersionsOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::CacheEngineVersionList.validate!(input[:cache_engine_versions], context: "#{context}[:cache_engine_versions]") unless input[:cache_engine_versions].nil?
+        CacheEngineVersionList.validate!(input[:cache_engine_versions], context: "#{context}[:cache_engine_versions]") unless input[:cache_engine_versions].nil?
       end
     end
 
@@ -1027,7 +1029,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeCacheParameterGroupsOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::CacheParameterGroupList.validate!(input[:cache_parameter_groups], context: "#{context}[:cache_parameter_groups]") unless input[:cache_parameter_groups].nil?
+        CacheParameterGroupList.validate!(input[:cache_parameter_groups], context: "#{context}[:cache_parameter_groups]") unless input[:cache_parameter_groups].nil?
       end
     end
 
@@ -1045,8 +1047,8 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeCacheParametersOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::ParametersList.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
-        Validators::CacheNodeTypeSpecificParametersList.validate!(input[:cache_node_type_specific_parameters], context: "#{context}[:cache_node_type_specific_parameters]") unless input[:cache_node_type_specific_parameters].nil?
+        ParametersList.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        CacheNodeTypeSpecificParametersList.validate!(input[:cache_node_type_specific_parameters], context: "#{context}[:cache_node_type_specific_parameters]") unless input[:cache_node_type_specific_parameters].nil?
       end
     end
 
@@ -1063,7 +1065,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeCacheSecurityGroupsOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::CacheSecurityGroups.validate!(input[:cache_security_groups], context: "#{context}[:cache_security_groups]") unless input[:cache_security_groups].nil?
+        CacheSecurityGroups.validate!(input[:cache_security_groups], context: "#{context}[:cache_security_groups]") unless input[:cache_security_groups].nil?
       end
     end
 
@@ -1080,7 +1082,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeCacheSubnetGroupsOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::CacheSubnetGroups.validate!(input[:cache_subnet_groups], context: "#{context}[:cache_subnet_groups]") unless input[:cache_subnet_groups].nil?
+        CacheSubnetGroups.validate!(input[:cache_subnet_groups], context: "#{context}[:cache_subnet_groups]") unless input[:cache_subnet_groups].nil?
       end
     end
 
@@ -1096,7 +1098,7 @@ module AWS::SDK::ElastiCache
     class DescribeEngineDefaultParametersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEngineDefaultParametersOutput, context: context)
-        Validators::EngineDefaults.validate!(input[:engine_defaults], context: "#{context}[:engine_defaults]") unless input[:engine_defaults].nil?
+        EngineDefaults.validate!(input[:engine_defaults], context: "#{context}[:engine_defaults]") unless input[:engine_defaults].nil?
       end
     end
 
@@ -1117,7 +1119,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEventsOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::EventList.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
+        EventList.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
       end
     end
 
@@ -1135,7 +1137,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeGlobalReplicationGroupsOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::GlobalReplicationGroupList.validate!(input[:global_replication_groups], context: "#{context}[:global_replication_groups]") unless input[:global_replication_groups].nil?
+        GlobalReplicationGroupList.validate!(input[:global_replication_groups], context: "#{context}[:global_replication_groups]") unless input[:global_replication_groups].nil?
       end
     end
 
@@ -1152,7 +1154,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeReplicationGroupsOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::ReplicationGroupList.validate!(input[:replication_groups], context: "#{context}[:replication_groups]") unless input[:replication_groups].nil?
+        ReplicationGroupList.validate!(input[:replication_groups], context: "#{context}[:replication_groups]") unless input[:replication_groups].nil?
       end
     end
 
@@ -1187,7 +1189,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeReservedCacheNodesOfferingsOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::ReservedCacheNodesOfferingList.validate!(input[:reserved_cache_nodes_offerings], context: "#{context}[:reserved_cache_nodes_offerings]") unless input[:reserved_cache_nodes_offerings].nil?
+        ReservedCacheNodesOfferingList.validate!(input[:reserved_cache_nodes_offerings], context: "#{context}[:reserved_cache_nodes_offerings]") unless input[:reserved_cache_nodes_offerings].nil?
       end
     end
 
@@ -1195,7 +1197,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeReservedCacheNodesOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::ReservedCacheNodeList.validate!(input[:reserved_cache_nodes], context: "#{context}[:reserved_cache_nodes]") unless input[:reserved_cache_nodes].nil?
+        ReservedCacheNodeList.validate!(input[:reserved_cache_nodes], context: "#{context}[:reserved_cache_nodes]") unless input[:reserved_cache_nodes].nil?
       end
     end
 
@@ -1203,7 +1205,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeServiceUpdatesInput, context: context)
         Hearth::Validator.validate!(input[:service_update_name], ::String, context: "#{context}[:service_update_name]")
-        Validators::ServiceUpdateStatusList.validate!(input[:service_update_status], context: "#{context}[:service_update_status]") unless input[:service_update_status].nil?
+        ServiceUpdateStatusList.validate!(input[:service_update_status], context: "#{context}[:service_update_status]") unless input[:service_update_status].nil?
         Hearth::Validator.validate!(input[:max_records], ::Integer, context: "#{context}[:max_records]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -1213,7 +1215,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeServiceUpdatesOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::ServiceUpdateList.validate!(input[:service_updates], context: "#{context}[:service_updates]") unless input[:service_updates].nil?
+        ServiceUpdateList.validate!(input[:service_updates], context: "#{context}[:service_updates]") unless input[:service_updates].nil?
       end
     end
 
@@ -1234,7 +1236,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeSnapshotsOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::SnapshotList.validate!(input[:snapshots], context: "#{context}[:snapshots]") unless input[:snapshots].nil?
+        SnapshotList.validate!(input[:snapshots], context: "#{context}[:snapshots]") unless input[:snapshots].nil?
       end
     end
 
@@ -1242,12 +1244,12 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeUpdateActionsInput, context: context)
         Hearth::Validator.validate!(input[:service_update_name], ::String, context: "#{context}[:service_update_name]")
-        Validators::ReplicationGroupIdList.validate!(input[:replication_group_ids], context: "#{context}[:replication_group_ids]") unless input[:replication_group_ids].nil?
-        Validators::CacheClusterIdList.validate!(input[:cache_cluster_ids], context: "#{context}[:cache_cluster_ids]") unless input[:cache_cluster_ids].nil?
+        ReplicationGroupIdList.validate!(input[:replication_group_ids], context: "#{context}[:replication_group_ids]") unless input[:replication_group_ids].nil?
+        CacheClusterIdList.validate!(input[:cache_cluster_ids], context: "#{context}[:cache_cluster_ids]") unless input[:cache_cluster_ids].nil?
         Hearth::Validator.validate!(input[:engine], ::String, context: "#{context}[:engine]")
-        Validators::ServiceUpdateStatusList.validate!(input[:service_update_status], context: "#{context}[:service_update_status]") unless input[:service_update_status].nil?
-        Validators::TimeRangeFilter.validate!(input[:service_update_time_range], context: "#{context}[:service_update_time_range]") unless input[:service_update_time_range].nil?
-        Validators::UpdateActionStatusList.validate!(input[:update_action_status], context: "#{context}[:update_action_status]") unless input[:update_action_status].nil?
+        ServiceUpdateStatusList.validate!(input[:service_update_status], context: "#{context}[:service_update_status]") unless input[:service_update_status].nil?
+        TimeRangeFilter.validate!(input[:service_update_time_range], context: "#{context}[:service_update_time_range]") unless input[:service_update_time_range].nil?
+        UpdateActionStatusList.validate!(input[:update_action_status], context: "#{context}[:update_action_status]") unless input[:update_action_status].nil?
         Hearth::Validator.validate!(input[:show_node_level_update_status], ::TrueClass, ::FalseClass, context: "#{context}[:show_node_level_update_status]")
         Hearth::Validator.validate!(input[:max_records], ::Integer, context: "#{context}[:max_records]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
@@ -1258,7 +1260,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeUpdateActionsOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::UpdateActionList.validate!(input[:update_actions], context: "#{context}[:update_actions]") unless input[:update_actions].nil?
+        UpdateActionList.validate!(input[:update_actions], context: "#{context}[:update_actions]") unless input[:update_actions].nil?
       end
     end
 
@@ -1274,7 +1276,7 @@ module AWS::SDK::ElastiCache
     class DescribeUserGroupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeUserGroupsOutput, context: context)
-        Validators::UserGroupList.validate!(input[:user_groups], context: "#{context}[:user_groups]") unless input[:user_groups].nil?
+        UserGroupList.validate!(input[:user_groups], context: "#{context}[:user_groups]") unless input[:user_groups].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -1284,7 +1286,7 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input, Types::DescribeUsersInput, context: context)
         Hearth::Validator.validate!(input[:engine], ::String, context: "#{context}[:engine]")
         Hearth::Validator.validate!(input[:user_id], ::String, context: "#{context}[:user_id]")
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_records], ::Integer, context: "#{context}[:max_records]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -1293,7 +1295,7 @@ module AWS::SDK::ElastiCache
     class DescribeUsersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeUsersOutput, context: context)
-        Validators::UserList.validate!(input[:users], context: "#{context}[:users]") unless input[:users].nil?
+        UserList.validate!(input[:users], context: "#{context}[:users]") unless input[:users].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -1301,8 +1303,8 @@ module AWS::SDK::ElastiCache
     class DestinationDetails
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DestinationDetails, context: context)
-        Validators::CloudWatchLogsDestinationDetails.validate!(input[:cloud_watch_logs_details], context: "#{context}[:cloud_watch_logs_details]") unless input[:cloud_watch_logs_details].nil?
-        Validators::KinesisFirehoseDestinationDetails.validate!(input[:kinesis_firehose_details], context: "#{context}[:kinesis_firehose_details]") unless input[:kinesis_firehose_details].nil?
+        CloudWatchLogsDestinationDetails.validate!(input[:cloud_watch_logs_details], context: "#{context}[:cloud_watch_logs_details]") unless input[:cloud_watch_logs_details].nil?
+        KinesisFirehoseDestinationDetails.validate!(input[:kinesis_firehose_details], context: "#{context}[:kinesis_firehose_details]") unless input[:kinesis_firehose_details].nil?
       end
     end
 
@@ -1318,7 +1320,7 @@ module AWS::SDK::ElastiCache
     class DisassociateGlobalReplicationGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DisassociateGlobalReplicationGroupOutput, context: context)
-        Validators::GlobalReplicationGroup.validate!(input[:global_replication_group], context: "#{context}[:global_replication_group]") unless input[:global_replication_group].nil?
+        GlobalReplicationGroup.validate!(input[:global_replication_group], context: "#{context}[:global_replication_group]") unless input[:global_replication_group].nil?
       end
     end
 
@@ -1342,7 +1344,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EC2SecurityGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EC2SecurityGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1360,8 +1362,8 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input, Types::EngineDefaults, context: context)
         Hearth::Validator.validate!(input[:cache_parameter_group_family], ::String, context: "#{context}[:cache_parameter_group_family]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::ParametersList.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
-        Validators::CacheNodeTypeSpecificParametersList.validate!(input[:cache_node_type_specific_parameters], context: "#{context}[:cache_node_type_specific_parameters]") unless input[:cache_node_type_specific_parameters].nil?
+        ParametersList.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        CacheNodeTypeSpecificParametersList.validate!(input[:cache_node_type_specific_parameters], context: "#{context}[:cache_node_type_specific_parameters]") unless input[:cache_node_type_specific_parameters].nil?
       end
     end
 
@@ -1379,7 +1381,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Event.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Event.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1396,7 +1398,7 @@ module AWS::SDK::ElastiCache
     class FailoverGlobalReplicationGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FailoverGlobalReplicationGroupOutput, context: context)
-        Validators::GlobalReplicationGroup.validate!(input[:global_replication_group], context: "#{context}[:global_replication_group]") unless input[:global_replication_group].nil?
+        GlobalReplicationGroup.validate!(input[:global_replication_group], context: "#{context}[:global_replication_group]") unless input[:global_replication_group].nil?
       end
     end
 
@@ -1404,7 +1406,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Filter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::FilterValueList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        FilterValueList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -1412,7 +1414,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1447,7 +1449,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GlobalNodeGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GlobalNodeGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1461,9 +1463,9 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input[:cache_node_type], ::String, context: "#{context}[:cache_node_type]")
         Hearth::Validator.validate!(input[:engine], ::String, context: "#{context}[:engine]")
         Hearth::Validator.validate!(input[:engine_version], ::String, context: "#{context}[:engine_version]")
-        Validators::GlobalReplicationGroupMemberList.validate!(input[:members], context: "#{context}[:members]") unless input[:members].nil?
+        GlobalReplicationGroupMemberList.validate!(input[:members], context: "#{context}[:members]") unless input[:members].nil?
         Hearth::Validator.validate!(input[:cluster_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:cluster_enabled]")
-        Validators::GlobalNodeGroupList.validate!(input[:global_node_groups], context: "#{context}[:global_node_groups]") unless input[:global_node_groups].nil?
+        GlobalNodeGroupList.validate!(input[:global_node_groups], context: "#{context}[:global_node_groups]") unless input[:global_node_groups].nil?
         Hearth::Validator.validate!(input[:auth_token_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:auth_token_enabled]")
         Hearth::Validator.validate!(input[:transit_encryption_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:transit_encryption_enabled]")
         Hearth::Validator.validate!(input[:at_rest_encryption_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:at_rest_encryption_enabled]")
@@ -1490,7 +1492,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GlobalReplicationGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GlobalReplicationGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1510,7 +1512,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GlobalReplicationGroupMember.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GlobalReplicationGroupMember.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1527,7 +1529,7 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input, Types::IncreaseNodeGroupsInGlobalReplicationGroupInput, context: context)
         Hearth::Validator.validate!(input[:global_replication_group_id], ::String, context: "#{context}[:global_replication_group_id]")
         Hearth::Validator.validate!(input[:node_group_count], ::Integer, context: "#{context}[:node_group_count]")
-        Validators::RegionalConfigurationList.validate!(input[:regional_configurations], context: "#{context}[:regional_configurations]") unless input[:regional_configurations].nil?
+        RegionalConfigurationList.validate!(input[:regional_configurations], context: "#{context}[:regional_configurations]") unless input[:regional_configurations].nil?
         Hearth::Validator.validate!(input[:apply_immediately], ::TrueClass, ::FalseClass, context: "#{context}[:apply_immediately]")
       end
     end
@@ -1535,7 +1537,7 @@ module AWS::SDK::ElastiCache
     class IncreaseNodeGroupsInGlobalReplicationGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::IncreaseNodeGroupsInGlobalReplicationGroupOutput, context: context)
-        Validators::GlobalReplicationGroup.validate!(input[:global_replication_group], context: "#{context}[:global_replication_group]") unless input[:global_replication_group].nil?
+        GlobalReplicationGroup.validate!(input[:global_replication_group], context: "#{context}[:global_replication_group]") unless input[:global_replication_group].nil?
       end
     end
 
@@ -1544,7 +1546,7 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input, Types::IncreaseReplicaCountInput, context: context)
         Hearth::Validator.validate!(input[:replication_group_id], ::String, context: "#{context}[:replication_group_id]")
         Hearth::Validator.validate!(input[:new_replica_count], ::Integer, context: "#{context}[:new_replica_count]")
-        Validators::ReplicaConfigurationList.validate!(input[:replica_configuration], context: "#{context}[:replica_configuration]") unless input[:replica_configuration].nil?
+        ReplicaConfigurationList.validate!(input[:replica_configuration], context: "#{context}[:replica_configuration]") unless input[:replica_configuration].nil?
         Hearth::Validator.validate!(input[:apply_immediately], ::TrueClass, ::FalseClass, context: "#{context}[:apply_immediately]")
       end
     end
@@ -1552,7 +1554,7 @@ module AWS::SDK::ElastiCache
     class IncreaseReplicaCountOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::IncreaseReplicaCountOutput, context: context)
-        Validators::ReplicationGroup.validate!(input[:replication_group], context: "#{context}[:replication_group]") unless input[:replication_group].nil?
+        ReplicationGroup.validate!(input[:replication_group], context: "#{context}[:replication_group]") unless input[:replication_group].nil?
       end
     end
 
@@ -1688,8 +1690,8 @@ module AWS::SDK::ElastiCache
     class ListAllowedNodeTypeModificationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAllowedNodeTypeModificationsOutput, context: context)
-        Validators::NodeTypeList.validate!(input[:scale_up_modifications], context: "#{context}[:scale_up_modifications]") unless input[:scale_up_modifications].nil?
-        Validators::NodeTypeList.validate!(input[:scale_down_modifications], context: "#{context}[:scale_down_modifications]") unless input[:scale_down_modifications].nil?
+        NodeTypeList.validate!(input[:scale_up_modifications], context: "#{context}[:scale_up_modifications]") unless input[:scale_up_modifications].nil?
+        NodeTypeList.validate!(input[:scale_down_modifications], context: "#{context}[:scale_down_modifications]") unless input[:scale_down_modifications].nil?
       end
     end
 
@@ -1703,7 +1705,7 @@ module AWS::SDK::ElastiCache
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
+        TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
       end
     end
 
@@ -1712,7 +1714,7 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input, Types::LogDeliveryConfiguration, context: context)
         Hearth::Validator.validate!(input[:log_type], ::String, context: "#{context}[:log_type]")
         Hearth::Validator.validate!(input[:destination_type], ::String, context: "#{context}[:destination_type]")
-        Validators::DestinationDetails.validate!(input[:destination_details], context: "#{context}[:destination_details]") unless input[:destination_details].nil?
+        DestinationDetails.validate!(input[:destination_details], context: "#{context}[:destination_details]") unless input[:destination_details].nil?
         Hearth::Validator.validate!(input[:log_format], ::String, context: "#{context}[:log_format]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
@@ -1723,7 +1725,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LogDeliveryConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LogDeliveryConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1733,7 +1735,7 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input, Types::LogDeliveryConfigurationRequest, context: context)
         Hearth::Validator.validate!(input[:log_type], ::String, context: "#{context}[:log_type]")
         Hearth::Validator.validate!(input[:destination_type], ::String, context: "#{context}[:destination_type]")
-        Validators::DestinationDetails.validate!(input[:destination_details], context: "#{context}[:destination_details]") unless input[:destination_details].nil?
+        DestinationDetails.validate!(input[:destination_details], context: "#{context}[:destination_details]") unless input[:destination_details].nil?
         Hearth::Validator.validate!(input[:log_format], ::String, context: "#{context}[:log_format]")
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
       end
@@ -1743,7 +1745,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LogDeliveryConfigurationRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LogDeliveryConfigurationRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1753,11 +1755,11 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input, Types::ModifyCacheClusterInput, context: context)
         Hearth::Validator.validate!(input[:cache_cluster_id], ::String, context: "#{context}[:cache_cluster_id]")
         Hearth::Validator.validate!(input[:num_cache_nodes], ::Integer, context: "#{context}[:num_cache_nodes]")
-        Validators::CacheNodeIdsList.validate!(input[:cache_node_ids_to_remove], context: "#{context}[:cache_node_ids_to_remove]") unless input[:cache_node_ids_to_remove].nil?
+        CacheNodeIdsList.validate!(input[:cache_node_ids_to_remove], context: "#{context}[:cache_node_ids_to_remove]") unless input[:cache_node_ids_to_remove].nil?
         Hearth::Validator.validate!(input[:az_mode], ::String, context: "#{context}[:az_mode]")
-        Validators::PreferredAvailabilityZoneList.validate!(input[:new_availability_zones], context: "#{context}[:new_availability_zones]") unless input[:new_availability_zones].nil?
-        Validators::CacheSecurityGroupNameList.validate!(input[:cache_security_group_names], context: "#{context}[:cache_security_group_names]") unless input[:cache_security_group_names].nil?
-        Validators::SecurityGroupIdsList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        PreferredAvailabilityZoneList.validate!(input[:new_availability_zones], context: "#{context}[:new_availability_zones]") unless input[:new_availability_zones].nil?
+        CacheSecurityGroupNameList.validate!(input[:cache_security_group_names], context: "#{context}[:cache_security_group_names]") unless input[:cache_security_group_names].nil?
+        SecurityGroupIdsList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
         Hearth::Validator.validate!(input[:preferred_maintenance_window], ::String, context: "#{context}[:preferred_maintenance_window]")
         Hearth::Validator.validate!(input[:notification_topic_arn], ::String, context: "#{context}[:notification_topic_arn]")
         Hearth::Validator.validate!(input[:cache_parameter_group_name], ::String, context: "#{context}[:cache_parameter_group_name]")
@@ -1770,14 +1772,14 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input[:cache_node_type], ::String, context: "#{context}[:cache_node_type]")
         Hearth::Validator.validate!(input[:auth_token], ::String, context: "#{context}[:auth_token]")
         Hearth::Validator.validate!(input[:auth_token_update_strategy], ::String, context: "#{context}[:auth_token_update_strategy]")
-        Validators::LogDeliveryConfigurationRequestList.validate!(input[:log_delivery_configurations], context: "#{context}[:log_delivery_configurations]") unless input[:log_delivery_configurations].nil?
+        LogDeliveryConfigurationRequestList.validate!(input[:log_delivery_configurations], context: "#{context}[:log_delivery_configurations]") unless input[:log_delivery_configurations].nil?
       end
     end
 
     class ModifyCacheClusterOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyCacheClusterOutput, context: context)
-        Validators::CacheCluster.validate!(input[:cache_cluster], context: "#{context}[:cache_cluster]") unless input[:cache_cluster].nil?
+        CacheCluster.validate!(input[:cache_cluster], context: "#{context}[:cache_cluster]") unless input[:cache_cluster].nil?
       end
     end
 
@@ -1785,7 +1787,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyCacheParameterGroupInput, context: context)
         Hearth::Validator.validate!(input[:cache_parameter_group_name], ::String, context: "#{context}[:cache_parameter_group_name]")
-        Validators::ParameterNameValueList.validate!(input[:parameter_name_values], context: "#{context}[:parameter_name_values]") unless input[:parameter_name_values].nil?
+        ParameterNameValueList.validate!(input[:parameter_name_values], context: "#{context}[:parameter_name_values]") unless input[:parameter_name_values].nil?
       end
     end
 
@@ -1801,14 +1803,14 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input, Types::ModifyCacheSubnetGroupInput, context: context)
         Hearth::Validator.validate!(input[:cache_subnet_group_name], ::String, context: "#{context}[:cache_subnet_group_name]")
         Hearth::Validator.validate!(input[:cache_subnet_group_description], ::String, context: "#{context}[:cache_subnet_group_description]")
-        Validators::SubnetIdentifierList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        SubnetIdentifierList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
       end
     end
 
     class ModifyCacheSubnetGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyCacheSubnetGroupOutput, context: context)
-        Validators::CacheSubnetGroup.validate!(input[:cache_subnet_group], context: "#{context}[:cache_subnet_group]") unless input[:cache_subnet_group].nil?
+        CacheSubnetGroup.validate!(input[:cache_subnet_group], context: "#{context}[:cache_subnet_group]") unless input[:cache_subnet_group].nil?
       end
     end
 
@@ -1828,7 +1830,7 @@ module AWS::SDK::ElastiCache
     class ModifyGlobalReplicationGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyGlobalReplicationGroupOutput, context: context)
-        Validators::GlobalReplicationGroup.validate!(input[:global_replication_group], context: "#{context}[:global_replication_group]") unless input[:global_replication_group].nil?
+        GlobalReplicationGroup.validate!(input[:global_replication_group], context: "#{context}[:global_replication_group]") unless input[:global_replication_group].nil?
       end
     end
 
@@ -1842,8 +1844,8 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input[:automatic_failover_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:automatic_failover_enabled]")
         Hearth::Validator.validate!(input[:multi_az_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:multi_az_enabled]")
         Hearth::Validator.validate!(input[:node_group_id], ::String, context: "#{context}[:node_group_id]")
-        Validators::CacheSecurityGroupNameList.validate!(input[:cache_security_group_names], context: "#{context}[:cache_security_group_names]") unless input[:cache_security_group_names].nil?
-        Validators::SecurityGroupIdsList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        CacheSecurityGroupNameList.validate!(input[:cache_security_group_names], context: "#{context}[:cache_security_group_names]") unless input[:cache_security_group_names].nil?
+        SecurityGroupIdsList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
         Hearth::Validator.validate!(input[:preferred_maintenance_window], ::String, context: "#{context}[:preferred_maintenance_window]")
         Hearth::Validator.validate!(input[:notification_topic_arn], ::String, context: "#{context}[:notification_topic_arn]")
         Hearth::Validator.validate!(input[:cache_parameter_group_name], ::String, context: "#{context}[:cache_parameter_group_name]")
@@ -1856,17 +1858,17 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input[:cache_node_type], ::String, context: "#{context}[:cache_node_type]")
         Hearth::Validator.validate!(input[:auth_token], ::String, context: "#{context}[:auth_token]")
         Hearth::Validator.validate!(input[:auth_token_update_strategy], ::String, context: "#{context}[:auth_token_update_strategy]")
-        Validators::UserGroupIdList.validate!(input[:user_group_ids_to_add], context: "#{context}[:user_group_ids_to_add]") unless input[:user_group_ids_to_add].nil?
-        Validators::UserGroupIdList.validate!(input[:user_group_ids_to_remove], context: "#{context}[:user_group_ids_to_remove]") unless input[:user_group_ids_to_remove].nil?
+        UserGroupIdList.validate!(input[:user_group_ids_to_add], context: "#{context}[:user_group_ids_to_add]") unless input[:user_group_ids_to_add].nil?
+        UserGroupIdList.validate!(input[:user_group_ids_to_remove], context: "#{context}[:user_group_ids_to_remove]") unless input[:user_group_ids_to_remove].nil?
         Hearth::Validator.validate!(input[:remove_user_groups], ::TrueClass, ::FalseClass, context: "#{context}[:remove_user_groups]")
-        Validators::LogDeliveryConfigurationRequestList.validate!(input[:log_delivery_configurations], context: "#{context}[:log_delivery_configurations]") unless input[:log_delivery_configurations].nil?
+        LogDeliveryConfigurationRequestList.validate!(input[:log_delivery_configurations], context: "#{context}[:log_delivery_configurations]") unless input[:log_delivery_configurations].nil?
       end
     end
 
     class ModifyReplicationGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyReplicationGroupOutput, context: context)
-        Validators::ReplicationGroup.validate!(input[:replication_group], context: "#{context}[:replication_group]") unless input[:replication_group].nil?
+        ReplicationGroup.validate!(input[:replication_group], context: "#{context}[:replication_group]") unless input[:replication_group].nil?
       end
     end
 
@@ -1876,16 +1878,16 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input[:replication_group_id], ::String, context: "#{context}[:replication_group_id]")
         Hearth::Validator.validate!(input[:node_group_count], ::Integer, context: "#{context}[:node_group_count]")
         Hearth::Validator.validate!(input[:apply_immediately], ::TrueClass, ::FalseClass, context: "#{context}[:apply_immediately]")
-        Validators::ReshardingConfigurationList.validate!(input[:resharding_configuration], context: "#{context}[:resharding_configuration]") unless input[:resharding_configuration].nil?
-        Validators::NodeGroupsToRemoveList.validate!(input[:node_groups_to_remove], context: "#{context}[:node_groups_to_remove]") unless input[:node_groups_to_remove].nil?
-        Validators::NodeGroupsToRetainList.validate!(input[:node_groups_to_retain], context: "#{context}[:node_groups_to_retain]") unless input[:node_groups_to_retain].nil?
+        ReshardingConfigurationList.validate!(input[:resharding_configuration], context: "#{context}[:resharding_configuration]") unless input[:resharding_configuration].nil?
+        NodeGroupsToRemoveList.validate!(input[:node_groups_to_remove], context: "#{context}[:node_groups_to_remove]") unless input[:node_groups_to_remove].nil?
+        NodeGroupsToRetainList.validate!(input[:node_groups_to_retain], context: "#{context}[:node_groups_to_retain]") unless input[:node_groups_to_retain].nil?
       end
     end
 
     class ModifyReplicationGroupShardConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyReplicationGroupShardConfigurationOutput, context: context)
-        Validators::ReplicationGroup.validate!(input[:replication_group], context: "#{context}[:replication_group]") unless input[:replication_group].nil?
+        ReplicationGroup.validate!(input[:replication_group], context: "#{context}[:replication_group]") unless input[:replication_group].nil?
       end
     end
 
@@ -1893,8 +1895,8 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyUserGroupInput, context: context)
         Hearth::Validator.validate!(input[:user_group_id], ::String, context: "#{context}[:user_group_id]")
-        Validators::UserIdListInput.validate!(input[:user_ids_to_add], context: "#{context}[:user_ids_to_add]") unless input[:user_ids_to_add].nil?
-        Validators::UserIdListInput.validate!(input[:user_ids_to_remove], context: "#{context}[:user_ids_to_remove]") unless input[:user_ids_to_remove].nil?
+        UserIdListInput.validate!(input[:user_ids_to_add], context: "#{context}[:user_ids_to_add]") unless input[:user_ids_to_add].nil?
+        UserIdListInput.validate!(input[:user_ids_to_remove], context: "#{context}[:user_ids_to_remove]") unless input[:user_ids_to_remove].nil?
       end
     end
 
@@ -1904,10 +1906,10 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input[:user_group_id], ::String, context: "#{context}[:user_group_id]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:engine], ::String, context: "#{context}[:engine]")
-        Validators::UserIdList.validate!(input[:user_ids], context: "#{context}[:user_ids]") unless input[:user_ids].nil?
+        UserIdList.validate!(input[:user_ids], context: "#{context}[:user_ids]") unless input[:user_ids].nil?
         Hearth::Validator.validate!(input[:minimum_engine_version], ::String, context: "#{context}[:minimum_engine_version]")
-        Validators::UserGroupPendingChanges.validate!(input[:pending_changes], context: "#{context}[:pending_changes]") unless input[:pending_changes].nil?
-        Validators::UGReplicationGroupIdList.validate!(input[:replication_groups], context: "#{context}[:replication_groups]") unless input[:replication_groups].nil?
+        UserGroupPendingChanges.validate!(input[:pending_changes], context: "#{context}[:pending_changes]") unless input[:pending_changes].nil?
+        UGReplicationGroupIdList.validate!(input[:replication_groups], context: "#{context}[:replication_groups]") unless input[:replication_groups].nil?
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
       end
     end
@@ -1918,7 +1920,7 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input[:user_id], ::String, context: "#{context}[:user_id]")
         Hearth::Validator.validate!(input[:access_string], ::String, context: "#{context}[:access_string]")
         Hearth::Validator.validate!(input[:append_access_string], ::String, context: "#{context}[:append_access_string]")
-        Validators::PasswordListInput.validate!(input[:passwords], context: "#{context}[:passwords]") unless input[:passwords].nil?
+        PasswordListInput.validate!(input[:passwords], context: "#{context}[:passwords]") unless input[:passwords].nil?
         Hearth::Validator.validate!(input[:no_password_required], ::TrueClass, ::FalseClass, context: "#{context}[:no_password_required]")
       end
     end
@@ -1932,8 +1934,8 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input[:engine], ::String, context: "#{context}[:engine]")
         Hearth::Validator.validate!(input[:minimum_engine_version], ::String, context: "#{context}[:minimum_engine_version]")
         Hearth::Validator.validate!(input[:access_string], ::String, context: "#{context}[:access_string]")
-        Validators::UserGroupIdList.validate!(input[:user_group_ids], context: "#{context}[:user_group_ids]") unless input[:user_group_ids].nil?
-        Validators::Authentication.validate!(input[:authentication], context: "#{context}[:authentication]") unless input[:authentication].nil?
+        UserGroupIdList.validate!(input[:user_group_ids], context: "#{context}[:user_group_ids]") unless input[:user_group_ids].nil?
+        Authentication.validate!(input[:authentication], context: "#{context}[:authentication]") unless input[:authentication].nil?
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
       end
     end
@@ -1950,10 +1952,10 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input, Types::NodeGroup, context: context)
         Hearth::Validator.validate!(input[:node_group_id], ::String, context: "#{context}[:node_group_id]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::Endpoint.validate!(input[:primary_endpoint], context: "#{context}[:primary_endpoint]") unless input[:primary_endpoint].nil?
-        Validators::Endpoint.validate!(input[:reader_endpoint], context: "#{context}[:reader_endpoint]") unless input[:reader_endpoint].nil?
+        Endpoint.validate!(input[:primary_endpoint], context: "#{context}[:primary_endpoint]") unless input[:primary_endpoint].nil?
+        Endpoint.validate!(input[:reader_endpoint], context: "#{context}[:reader_endpoint]") unless input[:reader_endpoint].nil?
         Hearth::Validator.validate!(input[:slots], ::String, context: "#{context}[:slots]")
-        Validators::NodeGroupMemberList.validate!(input[:node_group_members], context: "#{context}[:node_group_members]") unless input[:node_group_members].nil?
+        NodeGroupMemberList.validate!(input[:node_group_members], context: "#{context}[:node_group_members]") unless input[:node_group_members].nil?
       end
     end
 
@@ -1964,9 +1966,9 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input[:slots], ::String, context: "#{context}[:slots]")
         Hearth::Validator.validate!(input[:replica_count], ::Integer, context: "#{context}[:replica_count]")
         Hearth::Validator.validate!(input[:primary_availability_zone], ::String, context: "#{context}[:primary_availability_zone]")
-        Validators::AvailabilityZonesList.validate!(input[:replica_availability_zones], context: "#{context}[:replica_availability_zones]") unless input[:replica_availability_zones].nil?
+        AvailabilityZonesList.validate!(input[:replica_availability_zones], context: "#{context}[:replica_availability_zones]") unless input[:replica_availability_zones].nil?
         Hearth::Validator.validate!(input[:primary_outpost_arn], ::String, context: "#{context}[:primary_outpost_arn]")
-        Validators::OutpostArnsList.validate!(input[:replica_outpost_arns], context: "#{context}[:replica_outpost_arns]") unless input[:replica_outpost_arns].nil?
+        OutpostArnsList.validate!(input[:replica_outpost_arns], context: "#{context}[:replica_outpost_arns]") unless input[:replica_outpost_arns].nil?
       end
     end
 
@@ -1974,7 +1976,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NodeGroupConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NodeGroupConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1983,7 +1985,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NodeGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NodeGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1993,7 +1995,7 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input, Types::NodeGroupMember, context: context)
         Hearth::Validator.validate!(input[:cache_cluster_id], ::String, context: "#{context}[:cache_cluster_id]")
         Hearth::Validator.validate!(input[:cache_node_id], ::String, context: "#{context}[:cache_node_id]")
-        Validators::Endpoint.validate!(input[:read_endpoint], context: "#{context}[:read_endpoint]") unless input[:read_endpoint].nil?
+        Endpoint.validate!(input[:read_endpoint], context: "#{context}[:read_endpoint]") unless input[:read_endpoint].nil?
         Hearth::Validator.validate!(input[:preferred_availability_zone], ::String, context: "#{context}[:preferred_availability_zone]")
         Hearth::Validator.validate!(input[:preferred_outpost_arn], ::String, context: "#{context}[:preferred_outpost_arn]")
         Hearth::Validator.validate!(input[:current_role], ::String, context: "#{context}[:current_role]")
@@ -2004,7 +2006,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NodeGroupMember.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NodeGroupMember.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2028,7 +2030,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NodeGroupMemberUpdateStatus.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NodeGroupMemberUpdateStatus.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2044,7 +2046,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NodeGroupUpdateStatus, context: context)
         Hearth::Validator.validate!(input[:node_group_id], ::String, context: "#{context}[:node_group_id]")
-        Validators::NodeGroupMemberUpdateStatusList.validate!(input[:node_group_member_update_status], context: "#{context}[:node_group_member_update_status]") unless input[:node_group_member_update_status].nil?
+        NodeGroupMemberUpdateStatusList.validate!(input[:node_group_member_update_status], context: "#{context}[:node_group_member_update_status]") unless input[:node_group_member_update_status].nil?
       end
     end
 
@@ -2052,7 +2054,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NodeGroupUpdateStatus.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NodeGroupUpdateStatus.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2102,7 +2104,7 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input[:cache_cluster_id], ::String, context: "#{context}[:cache_cluster_id]")
         Hearth::Validator.validate!(input[:node_group_id], ::String, context: "#{context}[:node_group_id]")
         Hearth::Validator.validate!(input[:cache_node_id], ::String, context: "#{context}[:cache_node_id]")
-        Validators::NodeGroupConfiguration.validate!(input[:node_group_configuration], context: "#{context}[:node_group_configuration]") unless input[:node_group_configuration].nil?
+        NodeGroupConfiguration.validate!(input[:node_group_configuration], context: "#{context}[:node_group_configuration]") unless input[:node_group_configuration].nil?
         Hearth::Validator.validate!(input[:cache_size], ::String, context: "#{context}[:cache_size]")
         Hearth::Validator.validate!(input[:cache_node_create_time], ::Time, context: "#{context}[:cache_node_create_time]")
         Hearth::Validator.validate!(input[:snapshot_create_time], ::Time, context: "#{context}[:snapshot_create_time]")
@@ -2113,7 +2115,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NodeSnapshot.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NodeSnapshot.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2171,7 +2173,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ParameterNameValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ParameterNameValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2180,7 +2182,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Parameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Parameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2199,7 +2201,7 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input, Types::PendingLogDeliveryConfiguration, context: context)
         Hearth::Validator.validate!(input[:log_type], ::String, context: "#{context}[:log_type]")
         Hearth::Validator.validate!(input[:destination_type], ::String, context: "#{context}[:destination_type]")
-        Validators::DestinationDetails.validate!(input[:destination_details], context: "#{context}[:destination_details]") unless input[:destination_details].nil?
+        DestinationDetails.validate!(input[:destination_details], context: "#{context}[:destination_details]") unless input[:destination_details].nil?
         Hearth::Validator.validate!(input[:log_format], ::String, context: "#{context}[:log_format]")
       end
     end
@@ -2208,7 +2210,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PendingLogDeliveryConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PendingLogDeliveryConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2217,11 +2219,11 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PendingModifiedValues, context: context)
         Hearth::Validator.validate!(input[:num_cache_nodes], ::Integer, context: "#{context}[:num_cache_nodes]")
-        Validators::CacheNodeIdsList.validate!(input[:cache_node_ids_to_remove], context: "#{context}[:cache_node_ids_to_remove]") unless input[:cache_node_ids_to_remove].nil?
+        CacheNodeIdsList.validate!(input[:cache_node_ids_to_remove], context: "#{context}[:cache_node_ids_to_remove]") unless input[:cache_node_ids_to_remove].nil?
         Hearth::Validator.validate!(input[:engine_version], ::String, context: "#{context}[:engine_version]")
         Hearth::Validator.validate!(input[:cache_node_type], ::String, context: "#{context}[:cache_node_type]")
         Hearth::Validator.validate!(input[:auth_token_status], ::String, context: "#{context}[:auth_token_status]")
-        Validators::PendingLogDeliveryConfigurationList.validate!(input[:log_delivery_configurations], context: "#{context}[:log_delivery_configurations]") unless input[:log_delivery_configurations].nil?
+        PendingLogDeliveryConfigurationList.validate!(input[:log_delivery_configurations], context: "#{context}[:log_delivery_configurations]") unless input[:log_delivery_configurations].nil?
       end
     end
 
@@ -2257,7 +2259,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProcessedUpdateAction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProcessedUpdateAction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2268,14 +2270,14 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input[:reserved_cache_nodes_offering_id], ::String, context: "#{context}[:reserved_cache_nodes_offering_id]")
         Hearth::Validator.validate!(input[:reserved_cache_node_id], ::String, context: "#{context}[:reserved_cache_node_id]")
         Hearth::Validator.validate!(input[:cache_node_count], ::Integer, context: "#{context}[:cache_node_count]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class PurchaseReservedCacheNodesOfferingOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PurchaseReservedCacheNodesOfferingOutput, context: context)
-        Validators::ReservedCacheNode.validate!(input[:reserved_cache_node], context: "#{context}[:reserved_cache_node]") unless input[:reserved_cache_node].nil?
+        ReservedCacheNode.validate!(input[:reserved_cache_node], context: "#{context}[:reserved_cache_node]") unless input[:reserved_cache_node].nil?
       end
     end
 
@@ -2290,7 +2292,7 @@ module AWS::SDK::ElastiCache
     class RebalanceSlotsInGlobalReplicationGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RebalanceSlotsInGlobalReplicationGroupOutput, context: context)
-        Validators::GlobalReplicationGroup.validate!(input[:global_replication_group], context: "#{context}[:global_replication_group]") unless input[:global_replication_group].nil?
+        GlobalReplicationGroup.validate!(input[:global_replication_group], context: "#{context}[:global_replication_group]") unless input[:global_replication_group].nil?
       end
     end
 
@@ -2298,14 +2300,14 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RebootCacheClusterInput, context: context)
         Hearth::Validator.validate!(input[:cache_cluster_id], ::String, context: "#{context}[:cache_cluster_id]")
-        Validators::CacheNodeIdsList.validate!(input[:cache_node_ids_to_reboot], context: "#{context}[:cache_node_ids_to_reboot]") unless input[:cache_node_ids_to_reboot].nil?
+        CacheNodeIdsList.validate!(input[:cache_node_ids_to_reboot], context: "#{context}[:cache_node_ids_to_reboot]") unless input[:cache_node_ids_to_reboot].nil?
       end
     end
 
     class RebootCacheClusterOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RebootCacheClusterOutput, context: context)
-        Validators::CacheCluster.validate!(input[:cache_cluster], context: "#{context}[:cache_cluster]") unless input[:cache_cluster].nil?
+        CacheCluster.validate!(input[:cache_cluster], context: "#{context}[:cache_cluster]") unless input[:cache_cluster].nil?
       end
     end
 
@@ -2321,7 +2323,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RecurringCharge.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RecurringCharge.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2331,7 +2333,7 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input, Types::RegionalConfiguration, context: context)
         Hearth::Validator.validate!(input[:replication_group_id], ::String, context: "#{context}[:replication_group_id]")
         Hearth::Validator.validate!(input[:replication_group_region], ::String, context: "#{context}[:replication_group_region]")
-        Validators::ReshardingConfigurationList.validate!(input[:resharding_configuration], context: "#{context}[:resharding_configuration]") unless input[:resharding_configuration].nil?
+        ReshardingConfigurationList.validate!(input[:resharding_configuration], context: "#{context}[:resharding_configuration]") unless input[:resharding_configuration].nil?
       end
     end
 
@@ -2339,7 +2341,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RegionalConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RegionalConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2357,14 +2359,14 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RemoveTagsFromResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_name], ::String, context: "#{context}[:resource_name]")
-        Validators::KeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        KeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
     class RemoveTagsFromResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RemoveTagsFromResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
+        TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
       end
     end
 
@@ -2372,7 +2374,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ConfigureShard.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ConfigureShard.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2382,15 +2384,15 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input, Types::ReplicationGroup, context: context)
         Hearth::Validator.validate!(input[:replication_group_id], ::String, context: "#{context}[:replication_group_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::GlobalReplicationGroupInfo.validate!(input[:global_replication_group_info], context: "#{context}[:global_replication_group_info]") unless input[:global_replication_group_info].nil?
+        GlobalReplicationGroupInfo.validate!(input[:global_replication_group_info], context: "#{context}[:global_replication_group_info]") unless input[:global_replication_group_info].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::ReplicationGroupPendingModifiedValues.validate!(input[:pending_modified_values], context: "#{context}[:pending_modified_values]") unless input[:pending_modified_values].nil?
-        Validators::ClusterIdList.validate!(input[:member_clusters], context: "#{context}[:member_clusters]") unless input[:member_clusters].nil?
-        Validators::NodeGroupList.validate!(input[:node_groups], context: "#{context}[:node_groups]") unless input[:node_groups].nil?
+        ReplicationGroupPendingModifiedValues.validate!(input[:pending_modified_values], context: "#{context}[:pending_modified_values]") unless input[:pending_modified_values].nil?
+        ClusterIdList.validate!(input[:member_clusters], context: "#{context}[:member_clusters]") unless input[:member_clusters].nil?
+        NodeGroupList.validate!(input[:node_groups], context: "#{context}[:node_groups]") unless input[:node_groups].nil?
         Hearth::Validator.validate!(input[:snapshotting_cluster_id], ::String, context: "#{context}[:snapshotting_cluster_id]")
         Hearth::Validator.validate!(input[:automatic_failover], ::String, context: "#{context}[:automatic_failover]")
         Hearth::Validator.validate!(input[:multi_az], ::String, context: "#{context}[:multi_az]")
-        Validators::Endpoint.validate!(input[:configuration_endpoint], context: "#{context}[:configuration_endpoint]") unless input[:configuration_endpoint].nil?
+        Endpoint.validate!(input[:configuration_endpoint], context: "#{context}[:configuration_endpoint]") unless input[:configuration_endpoint].nil?
         Hearth::Validator.validate!(input[:snapshot_retention_limit], ::Integer, context: "#{context}[:snapshot_retention_limit]")
         Hearth::Validator.validate!(input[:snapshot_window], ::String, context: "#{context}[:snapshot_window]")
         Hearth::Validator.validate!(input[:cluster_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:cluster_enabled]")
@@ -2399,11 +2401,11 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input[:auth_token_last_modified_date], ::Time, context: "#{context}[:auth_token_last_modified_date]")
         Hearth::Validator.validate!(input[:transit_encryption_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:transit_encryption_enabled]")
         Hearth::Validator.validate!(input[:at_rest_encryption_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:at_rest_encryption_enabled]")
-        Validators::ReplicationGroupOutpostArnList.validate!(input[:member_clusters_outpost_arns], context: "#{context}[:member_clusters_outpost_arns]") unless input[:member_clusters_outpost_arns].nil?
+        ReplicationGroupOutpostArnList.validate!(input[:member_clusters_outpost_arns], context: "#{context}[:member_clusters_outpost_arns]") unless input[:member_clusters_outpost_arns].nil?
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::UserGroupIdList.validate!(input[:user_group_ids], context: "#{context}[:user_group_ids]") unless input[:user_group_ids].nil?
-        Validators::LogDeliveryConfigurationList.validate!(input[:log_delivery_configurations], context: "#{context}[:log_delivery_configurations]") unless input[:log_delivery_configurations].nil?
+        UserGroupIdList.validate!(input[:user_group_ids], context: "#{context}[:user_group_ids]") unless input[:user_group_ids].nil?
+        LogDeliveryConfigurationList.validate!(input[:log_delivery_configurations], context: "#{context}[:log_delivery_configurations]") unless input[:log_delivery_configurations].nil?
         Hearth::Validator.validate!(input[:replication_group_create_time], ::Time, context: "#{context}[:replication_group_create_time]")
         Hearth::Validator.validate!(input[:data_tiering], ::String, context: "#{context}[:data_tiering]")
       end
@@ -2436,7 +2438,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReplicationGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReplicationGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2469,10 +2471,10 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input, Types::ReplicationGroupPendingModifiedValues, context: context)
         Hearth::Validator.validate!(input[:primary_cluster_id], ::String, context: "#{context}[:primary_cluster_id]")
         Hearth::Validator.validate!(input[:automatic_failover_status], ::String, context: "#{context}[:automatic_failover_status]")
-        Validators::ReshardingStatus.validate!(input[:resharding], context: "#{context}[:resharding]") unless input[:resharding].nil?
+        ReshardingStatus.validate!(input[:resharding], context: "#{context}[:resharding]") unless input[:resharding].nil?
         Hearth::Validator.validate!(input[:auth_token_status], ::String, context: "#{context}[:auth_token_status]")
-        Validators::UserGroupsUpdateStatus.validate!(input[:user_groups], context: "#{context}[:user_groups]") unless input[:user_groups].nil?
-        Validators::PendingLogDeliveryConfigurationList.validate!(input[:log_delivery_configurations], context: "#{context}[:log_delivery_configurations]") unless input[:log_delivery_configurations].nil?
+        UserGroupsUpdateStatus.validate!(input[:user_groups], context: "#{context}[:user_groups]") unless input[:user_groups].nil?
+        PendingLogDeliveryConfigurationList.validate!(input[:log_delivery_configurations], context: "#{context}[:log_delivery_configurations]") unless input[:log_delivery_configurations].nil?
       end
     end
 
@@ -2490,7 +2492,7 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input[:product_description], ::String, context: "#{context}[:product_description]")
         Hearth::Validator.validate!(input[:offering_type], ::String, context: "#{context}[:offering_type]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::RecurringChargeList.validate!(input[:recurring_charges], context: "#{context}[:recurring_charges]") unless input[:recurring_charges].nil?
+        RecurringChargeList.validate!(input[:recurring_charges], context: "#{context}[:recurring_charges]") unless input[:recurring_charges].nil?
         Hearth::Validator.validate!(input[:reservation_arn], ::String, context: "#{context}[:reservation_arn]")
       end
     end
@@ -2506,7 +2508,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReservedCacheNode.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReservedCacheNode.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2535,7 +2537,7 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input[:usage_price], ::Float, context: "#{context}[:usage_price]")
         Hearth::Validator.validate!(input[:product_description], ::String, context: "#{context}[:product_description]")
         Hearth::Validator.validate!(input[:offering_type], ::String, context: "#{context}[:offering_type]")
-        Validators::RecurringChargeList.validate!(input[:recurring_charges], context: "#{context}[:recurring_charges]") unless input[:recurring_charges].nil?
+        RecurringChargeList.validate!(input[:recurring_charges], context: "#{context}[:recurring_charges]") unless input[:recurring_charges].nil?
       end
     end
 
@@ -2543,7 +2545,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReservedCacheNodesOffering.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReservedCacheNodesOffering.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2560,7 +2562,7 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input, Types::ResetCacheParameterGroupInput, context: context)
         Hearth::Validator.validate!(input[:cache_parameter_group_name], ::String, context: "#{context}[:cache_parameter_group_name]")
         Hearth::Validator.validate!(input[:reset_all_parameters], ::TrueClass, ::FalseClass, context: "#{context}[:reset_all_parameters]")
-        Validators::ParameterNameValueList.validate!(input[:parameter_name_values], context: "#{context}[:parameter_name_values]") unless input[:parameter_name_values].nil?
+        ParameterNameValueList.validate!(input[:parameter_name_values], context: "#{context}[:parameter_name_values]") unless input[:parameter_name_values].nil?
       end
     end
 
@@ -2575,7 +2577,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ReshardingConfiguration, context: context)
         Hearth::Validator.validate!(input[:node_group_id], ::String, context: "#{context}[:node_group_id]")
-        Validators::AvailabilityZonesList.validate!(input[:preferred_availability_zones], context: "#{context}[:preferred_availability_zones]") unless input[:preferred_availability_zones].nil?
+        AvailabilityZonesList.validate!(input[:preferred_availability_zones], context: "#{context}[:preferred_availability_zones]") unless input[:preferred_availability_zones].nil?
       end
     end
 
@@ -2583,7 +2585,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReshardingConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReshardingConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2591,7 +2593,7 @@ module AWS::SDK::ElastiCache
     class ReshardingStatus
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ReshardingStatus, context: context)
-        Validators::SlotMigration.validate!(input[:slot_migration], context: "#{context}[:slot_migration]") unless input[:slot_migration].nil?
+        SlotMigration.validate!(input[:slot_migration], context: "#{context}[:slot_migration]") unless input[:slot_migration].nil?
       end
     end
 
@@ -2607,7 +2609,7 @@ module AWS::SDK::ElastiCache
     class RevokeCacheSecurityGroupIngressOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RevokeCacheSecurityGroupIngressOutput, context: context)
-        Validators::CacheSecurityGroup.validate!(input[:cache_security_group], context: "#{context}[:cache_security_group]") unless input[:cache_security_group].nil?
+        CacheSecurityGroup.validate!(input[:cache_security_group], context: "#{context}[:cache_security_group]") unless input[:cache_security_group].nil?
       end
     end
 
@@ -2632,7 +2634,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SecurityGroupMembership.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SecurityGroupMembership.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2666,7 +2668,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ServiceUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ServiceUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2721,7 +2723,7 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input[:snapshot_window], ::String, context: "#{context}[:snapshot_window]")
         Hearth::Validator.validate!(input[:num_node_groups], ::Integer, context: "#{context}[:num_node_groups]")
         Hearth::Validator.validate!(input[:automatic_failover], ::String, context: "#{context}[:automatic_failover]")
-        Validators::NodeSnapshotList.validate!(input[:node_snapshots], context: "#{context}[:node_snapshots]") unless input[:node_snapshots].nil?
+        NodeSnapshotList.validate!(input[:node_snapshots], context: "#{context}[:node_snapshots]") unless input[:node_snapshots].nil?
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:data_tiering], ::String, context: "#{context}[:data_tiering]")
@@ -2755,7 +2757,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Snapshot.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Snapshot.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2778,14 +2780,14 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartMigrationInput, context: context)
         Hearth::Validator.validate!(input[:replication_group_id], ::String, context: "#{context}[:replication_group_id]")
-        Validators::CustomerNodeEndpointList.validate!(input[:customer_node_endpoint_list], context: "#{context}[:customer_node_endpoint_list]") unless input[:customer_node_endpoint_list].nil?
+        CustomerNodeEndpointList.validate!(input[:customer_node_endpoint_list], context: "#{context}[:customer_node_endpoint_list]") unless input[:customer_node_endpoint_list].nil?
       end
     end
 
     class StartMigrationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartMigrationOutput, context: context)
-        Validators::ReplicationGroup.validate!(input[:replication_group], context: "#{context}[:replication_group]") unless input[:replication_group].nil?
+        ReplicationGroup.validate!(input[:replication_group], context: "#{context}[:replication_group]") unless input[:replication_group].nil?
       end
     end
 
@@ -2793,8 +2795,8 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Subnet, context: context)
         Hearth::Validator.validate!(input[:subnet_identifier], ::String, context: "#{context}[:subnet_identifier]")
-        Validators::AvailabilityZone.validate!(input[:subnet_availability_zone], context: "#{context}[:subnet_availability_zone]") unless input[:subnet_availability_zone].nil?
-        Validators::SubnetOutpost.validate!(input[:subnet_outpost], context: "#{context}[:subnet_outpost]") unless input[:subnet_outpost].nil?
+        AvailabilityZone.validate!(input[:subnet_availability_zone], context: "#{context}[:subnet_availability_zone]") unless input[:subnet_availability_zone].nil?
+        SubnetOutpost.validate!(input[:subnet_outpost], context: "#{context}[:subnet_outpost]") unless input[:subnet_outpost].nil?
       end
     end
 
@@ -2818,7 +2820,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Subnet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Subnet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2849,7 +2851,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2886,7 +2888,7 @@ module AWS::SDK::ElastiCache
     class TestFailoverOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TestFailoverOutput, context: context)
-        Validators::ReplicationGroup.validate!(input[:replication_group], context: "#{context}[:replication_group]") unless input[:replication_group].nil?
+        ReplicationGroup.validate!(input[:replication_group], context: "#{context}[:replication_group]") unless input[:replication_group].nil?
       end
     end
 
@@ -2922,7 +2924,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UnprocessedUpdateAction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UnprocessedUpdateAction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2943,8 +2945,8 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input[:nodes_updated], ::String, context: "#{context}[:nodes_updated]")
         Hearth::Validator.validate!(input[:update_action_status_modified_date], ::Time, context: "#{context}[:update_action_status_modified_date]")
         Hearth::Validator.validate!(input[:sla_met], ::String, context: "#{context}[:sla_met]")
-        Validators::NodeGroupUpdateStatusList.validate!(input[:node_group_update_status], context: "#{context}[:node_group_update_status]") unless input[:node_group_update_status].nil?
-        Validators::CacheNodeUpdateStatusList.validate!(input[:cache_node_update_status], context: "#{context}[:cache_node_update_status]") unless input[:cache_node_update_status].nil?
+        NodeGroupUpdateStatusList.validate!(input[:node_group_update_status], context: "#{context}[:node_group_update_status]") unless input[:node_group_update_status].nil?
+        CacheNodeUpdateStatusList.validate!(input[:cache_node_update_status], context: "#{context}[:cache_node_update_status]") unless input[:cache_node_update_status].nil?
         Hearth::Validator.validate!(input[:estimated_update_time], ::String, context: "#{context}[:estimated_update_time]")
         Hearth::Validator.validate!(input[:engine], ::String, context: "#{context}[:engine]")
       end
@@ -2954,7 +2956,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UpdateAction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UpdateAction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2977,8 +2979,8 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input[:engine], ::String, context: "#{context}[:engine]")
         Hearth::Validator.validate!(input[:minimum_engine_version], ::String, context: "#{context}[:minimum_engine_version]")
         Hearth::Validator.validate!(input[:access_string], ::String, context: "#{context}[:access_string]")
-        Validators::UserGroupIdList.validate!(input[:user_group_ids], context: "#{context}[:user_group_ids]") unless input[:user_group_ids].nil?
-        Validators::Authentication.validate!(input[:authentication], context: "#{context}[:authentication]") unless input[:authentication].nil?
+        UserGroupIdList.validate!(input[:user_group_ids], context: "#{context}[:user_group_ids]") unless input[:user_group_ids].nil?
+        Authentication.validate!(input[:authentication], context: "#{context}[:authentication]") unless input[:authentication].nil?
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
       end
     end
@@ -2996,10 +2998,10 @@ module AWS::SDK::ElastiCache
         Hearth::Validator.validate!(input[:user_group_id], ::String, context: "#{context}[:user_group_id]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:engine], ::String, context: "#{context}[:engine]")
-        Validators::UserIdList.validate!(input[:user_ids], context: "#{context}[:user_ids]") unless input[:user_ids].nil?
+        UserIdList.validate!(input[:user_ids], context: "#{context}[:user_ids]") unless input[:user_ids].nil?
         Hearth::Validator.validate!(input[:minimum_engine_version], ::String, context: "#{context}[:minimum_engine_version]")
-        Validators::UserGroupPendingChanges.validate!(input[:pending_changes], context: "#{context}[:pending_changes]") unless input[:pending_changes].nil?
-        Validators::UGReplicationGroupIdList.validate!(input[:replication_groups], context: "#{context}[:replication_groups]") unless input[:replication_groups].nil?
+        UserGroupPendingChanges.validate!(input[:pending_changes], context: "#{context}[:pending_changes]") unless input[:pending_changes].nil?
+        UGReplicationGroupIdList.validate!(input[:replication_groups], context: "#{context}[:replication_groups]") unless input[:replication_groups].nil?
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
       end
     end
@@ -3033,7 +3035,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UserGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UserGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3048,8 +3050,8 @@ module AWS::SDK::ElastiCache
     class UserGroupPendingChanges
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UserGroupPendingChanges, context: context)
-        Validators::UserIdList.validate!(input[:user_ids_to_remove], context: "#{context}[:user_ids_to_remove]") unless input[:user_ids_to_remove].nil?
-        Validators::UserIdList.validate!(input[:user_ids_to_add], context: "#{context}[:user_ids_to_add]") unless input[:user_ids_to_add].nil?
+        UserIdList.validate!(input[:user_ids_to_remove], context: "#{context}[:user_ids_to_remove]") unless input[:user_ids_to_remove].nil?
+        UserIdList.validate!(input[:user_ids_to_add], context: "#{context}[:user_ids_to_add]") unless input[:user_ids_to_add].nil?
       end
     end
 
@@ -3063,8 +3065,8 @@ module AWS::SDK::ElastiCache
     class UserGroupsUpdateStatus
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UserGroupsUpdateStatus, context: context)
-        Validators::UserGroupIdList.validate!(input[:user_group_ids_to_add], context: "#{context}[:user_group_ids_to_add]") unless input[:user_group_ids_to_add].nil?
-        Validators::UserGroupIdList.validate!(input[:user_group_ids_to_remove], context: "#{context}[:user_group_ids_to_remove]") unless input[:user_group_ids_to_remove].nil?
+        UserGroupIdList.validate!(input[:user_group_ids_to_add], context: "#{context}[:user_group_ids_to_add]") unless input[:user_group_ids_to_add].nil?
+        UserGroupIdList.validate!(input[:user_group_ids_to_remove], context: "#{context}[:user_group_ids_to_remove]") unless input[:user_group_ids_to_remove].nil?
       end
     end
 
@@ -3090,7 +3092,7 @@ module AWS::SDK::ElastiCache
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::User.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          User.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

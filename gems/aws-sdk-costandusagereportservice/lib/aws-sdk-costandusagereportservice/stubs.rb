@@ -30,7 +30,7 @@ module AWS::SDK::CostAndUsageReportService
     class DescribeReportDefinitions
       def self.default(visited=[])
         {
-          report_definitions: Stubs::ReportDefinitionList.default(visited),
+          report_definitions: ReportDefinitionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -50,7 +50,7 @@ module AWS::SDK::CostAndUsageReportService
         return nil if visited.include?('ReportDefinitionList')
         visited = visited + ['ReportDefinitionList']
         [
-          Stubs::ReportDefinition.default(visited)
+          ReportDefinition.default(visited)
         ]
       end
 
@@ -74,11 +74,11 @@ module AWS::SDK::CostAndUsageReportService
           time_unit: 'time_unit',
           format: 'format',
           compression: 'compression',
-          additional_schema_elements: Stubs::SchemaElementList.default(visited),
+          additional_schema_elements: SchemaElementList.default(visited),
           s3_bucket: 's3_bucket',
           s3_prefix: 's3_prefix',
           s3_region: 's3_region',
-          additional_artifacts: Stubs::AdditionalArtifactList.default(visited),
+          additional_artifacts: AdditionalArtifactList.default(visited),
           refresh_closed_reports: false,
           report_versioning: 'report_versioning',
           billing_view_arn: 'billing_view_arn',

@@ -50,8 +50,8 @@ module AWS::SDK::SQS
     class ChangeMessageVisibilityBatch
       def self.default(visited=[])
         {
-          successful: Stubs::ChangeMessageVisibilityBatchResultEntryList.default(visited),
-          failed: Stubs::BatchResultErrorEntryList.default(visited),
+          successful: ChangeMessageVisibilityBatchResultEntryList.default(visited),
+          failed: BatchResultErrorEntryList.default(visited),
         }
       end
 
@@ -74,7 +74,7 @@ module AWS::SDK::SQS
         return nil if visited.include?('BatchResultErrorEntryList')
         visited = visited + ['BatchResultErrorEntryList']
         [
-          Stubs::BatchResultErrorEntry.default(visited)
+          BatchResultErrorEntry.default(visited)
         ]
       end
 
@@ -117,7 +117,7 @@ module AWS::SDK::SQS
         return nil if visited.include?('ChangeMessageVisibilityBatchResultEntryList')
         visited = visited + ['ChangeMessageVisibilityBatchResultEntryList']
         [
-          Stubs::ChangeMessageVisibilityBatchResultEntry.default(visited)
+          ChangeMessageVisibilityBatchResultEntry.default(visited)
         ]
       end
 
@@ -190,8 +190,8 @@ module AWS::SDK::SQS
     class DeleteMessageBatch
       def self.default(visited=[])
         {
-          successful: Stubs::DeleteMessageBatchResultEntryList.default(visited),
-          failed: Stubs::BatchResultErrorEntryList.default(visited),
+          successful: DeleteMessageBatchResultEntryList.default(visited),
+          failed: BatchResultErrorEntryList.default(visited),
         }
       end
 
@@ -214,7 +214,7 @@ module AWS::SDK::SQS
         return nil if visited.include?('DeleteMessageBatchResultEntryList')
         visited = visited + ['DeleteMessageBatchResultEntryList']
         [
-          Stubs::DeleteMessageBatchResultEntry.default(visited)
+          DeleteMessageBatchResultEntry.default(visited)
         ]
       end
 
@@ -267,7 +267,7 @@ module AWS::SDK::SQS
     class GetQueueAttributes
       def self.default(visited=[])
         {
-          attributes: Stubs::QueueAttributeMap.default(visited),
+          attributes: QueueAttributeMap.default(visited),
         }
       end
 
@@ -329,7 +329,7 @@ module AWS::SDK::SQS
     class ListDeadLetterSourceQueues
       def self.default(visited=[])
         {
-          queue_urls: Stubs::QueueUrlList.default(visited),
+          queue_urls: QueueUrlList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -370,7 +370,7 @@ module AWS::SDK::SQS
     class ListQueueTags
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -413,7 +413,7 @@ module AWS::SDK::SQS
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          queue_urls: Stubs::QueueUrlList.default(visited),
+          queue_urls: QueueUrlList.default(visited),
         }
       end
 
@@ -452,7 +452,7 @@ module AWS::SDK::SQS
     class ReceiveMessage
       def self.default(visited=[])
         {
-          messages: Stubs::MessageList.default(visited),
+          messages: MessageList.default(visited),
         }
       end
 
@@ -474,7 +474,7 @@ module AWS::SDK::SQS
         return nil if visited.include?('MessageList')
         visited = visited + ['MessageList']
         [
-          Stubs::Message.default(visited)
+          Message.default(visited)
         ]
       end
 
@@ -497,9 +497,9 @@ module AWS::SDK::SQS
           receipt_handle: 'receipt_handle',
           md5_of_body: 'md5_of_body',
           body: 'body',
-          attributes: Stubs::MessageSystemAttributeMap.default(visited),
+          attributes: MessageSystemAttributeMap.default(visited),
           md5_of_message_attributes: 'md5_of_message_attributes',
-          message_attributes: Stubs::MessageBodyAttributeMap.default(visited),
+          message_attributes: MessageBodyAttributeMap.default(visited),
         }
       end
 
@@ -523,7 +523,7 @@ module AWS::SDK::SQS
         return nil if visited.include?('MessageBodyAttributeMap')
         visited = visited + ['MessageBodyAttributeMap']
         {
-          test_key: Stubs::MessageAttributeValue.default(visited)
+          test_key: MessageAttributeValue.default(visited)
         }
       end
 
@@ -547,8 +547,8 @@ module AWS::SDK::SQS
         {
           string_value: 'string_value',
           binary_value: 'binary_value',
-          string_list_values: Stubs::StringList.default(visited),
-          binary_list_values: Stubs::BinaryList.default(visited),
+          string_list_values: StringList.default(visited),
+          binary_list_values: BinaryList.default(visited),
           data_type: 'data_type',
         }
       end
@@ -675,8 +675,8 @@ module AWS::SDK::SQS
     class SendMessageBatch
       def self.default(visited=[])
         {
-          successful: Stubs::SendMessageBatchResultEntryList.default(visited),
-          failed: Stubs::BatchResultErrorEntryList.default(visited),
+          successful: SendMessageBatchResultEntryList.default(visited),
+          failed: BatchResultErrorEntryList.default(visited),
         }
       end
 
@@ -699,7 +699,7 @@ module AWS::SDK::SQS
         return nil if visited.include?('SendMessageBatchResultEntryList')
         visited = visited + ['SendMessageBatchResultEntryList']
         [
-          Stubs::SendMessageBatchResultEntry.default(visited)
+          SendMessageBatchResultEntry.default(visited)
         ]
       end
 

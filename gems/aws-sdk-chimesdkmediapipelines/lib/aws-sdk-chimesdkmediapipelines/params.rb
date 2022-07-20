@@ -82,7 +82,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
         type.source_arn = params[:source_arn]
         type.sink_type = params[:sink_type]
         type.sink_arn = params[:sink_arn]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.chime_sdk_meeting_configuration = ChimeSdkMeetingConfiguration.build(params[:chime_sdk_meeting_configuration], context: "#{context}[:chime_sdk_meeting_configuration]") unless params[:chime_sdk_meeting_configuration].nil?
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type

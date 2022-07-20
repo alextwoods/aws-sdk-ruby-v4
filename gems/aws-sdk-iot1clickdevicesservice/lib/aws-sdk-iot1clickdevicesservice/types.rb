@@ -46,11 +46,11 @@ module AWS::SDK::IoT1ClickDevicesService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total ||= 0
       end
-
     end
 
     # @!attribute device_id
@@ -149,12 +149,12 @@ module AWS::SDK::IoT1ClickDevicesService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
         self.remaining_life ||= 0
       end
-
     end
 
     # @!attribute device
@@ -404,11 +404,11 @@ module AWS::SDK::IoT1ClickDevicesService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute events
@@ -453,11 +453,11 @@ module AWS::SDK::IoT1ClickDevicesService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute devices
@@ -674,11 +674,11 @@ module AWS::SDK::IoT1ClickDevicesService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     UpdateDeviceStateOutput = ::Struct.new(

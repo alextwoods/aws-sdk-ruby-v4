@@ -26,11 +26,11 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.days_after_initiation ||= 0
       end
-
     end
 
     # @!attribute bucket
@@ -631,11 +631,11 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_age_seconds ||= 0
       end
-
     end
 
     # <p>Describes how an uncompressed comma-separated values (CSV)-formatted input object is
@@ -721,11 +721,11 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allow_quoted_record_delimiter ||= false
       end
-
     end
 
     # <p>Describes how uncompressed comma-separated values (CSV)-formatted results are
@@ -1125,6 +1125,7 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bucket_key_enabled ||= false
@@ -1220,11 +1221,11 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.part_number ||= 0
       end
-
     end
 
     # Includes enum constants for CompressionType
@@ -1628,6 +1629,7 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bucket_key_enabled ||= false
@@ -1761,6 +1763,7 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bucket_key_enabled ||= false
@@ -1991,11 +1994,11 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.object_lock_enabled_for_bucket ||= false
       end
-
     end
 
     # @!attribute location
@@ -2246,6 +2249,7 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bucket_key_enabled ||= false
@@ -2394,6 +2398,7 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bucket_key_enabled ||= false
@@ -2460,12 +2465,12 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.days ||= 0
         self.years ||= 0
       end
-
     end
 
     # <p>Container for the objects to delete.</p>
@@ -2487,11 +2492,11 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.quiet ||= false
       end
-
     end
 
     # @!attribute bucket
@@ -2875,11 +2880,11 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_latest ||= false
       end
-
     end
 
     # <p>Specifies whether Amazon S3 replicates delete markers. If you specify a <code>Filter</code>
@@ -2982,11 +2987,11 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bypass_governance_retention ||= false
       end
-
     end
 
     # @!attribute delete_marker
@@ -3016,11 +3021,11 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delete_marker ||= false
       end
-
     end
 
     # @!attribute bucket
@@ -3136,11 +3141,11 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bypass_governance_retention ||= false
       end
-
     end
 
     # @!attribute deleted
@@ -3232,11 +3237,11 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delete_marker ||= false
       end
-
     end
 
     # <p>Specifies information about where to publish analysis or configuration results for an
@@ -6268,6 +6273,7 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_parts ||= 0
@@ -6359,12 +6365,12 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delete_marker ||= false
         self.object_size ||= 0
       end
-
     end
 
     # <p>A collection of parts associated with a multipart upload.</p>
@@ -6414,13 +6420,13 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_parts_count ||= 0
         self.max_parts ||= 0
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute bucket
@@ -6581,6 +6587,7 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.part_number ||= 0
@@ -6964,6 +6971,7 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delete_marker ||= false
@@ -7475,6 +7483,7 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.part_number ||= 0
@@ -7820,6 +7829,7 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delete_marker ||= false
@@ -8144,11 +8154,11 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_enabled ||= false
       end
-
     end
 
     # <p>Specifies the inventory configuration for an Amazon S3 bucket.</p>
@@ -8471,12 +8481,12 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.days ||= 0
         self.expired_object_delete_marker ||= false
       end
-
     end
 
     # <p>A lifecycle rule for individual objects in an Amazon S3 bucket.</p>
@@ -8599,12 +8609,12 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.object_size_greater_than ||= 0
         self.object_size_less_than ||= 0
       end
-
     end
 
     # <p>The <code>Filter</code> is used to identify objects that a Lifecycle Rule applies to. A
@@ -8752,11 +8762,11 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute bucket
@@ -8811,11 +8821,11 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute bucket
@@ -8877,11 +8887,11 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute bucket
@@ -8945,11 +8955,11 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     ListBucketsInput = ::Struct.new(
@@ -9059,11 +9069,11 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_uploads ||= 0
       end
-
     end
 
     # @!attribute bucket
@@ -9161,12 +9171,12 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_uploads ||= 0
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute bucket
@@ -9239,11 +9249,11 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_keys ||= 0
       end
-
     end
 
     # @!attribute is_truncated
@@ -9350,12 +9360,12 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
         self.max_keys ||= 0
       end
-
     end
 
     # @!attribute bucket
@@ -9425,11 +9435,11 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_keys ||= 0
       end
-
     end
 
     # @!attribute is_truncated
@@ -9522,12 +9532,12 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
         self.max_keys ||= 0
       end
-
     end
 
     # @!attribute bucket
@@ -9608,12 +9618,12 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_keys ||= 0
         self.fetch_owner ||= false
       end
-
     end
 
     # @!attribute is_truncated
@@ -9734,13 +9744,13 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
         self.max_keys ||= 0
         self.key_count ||= 0
       end
-
     end
 
     # @!attribute bucket
@@ -9825,6 +9835,7 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_parts ||= 0
@@ -9968,12 +9979,12 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_parts ||= 0
         self.is_truncated ||= false
       end
-
     end
 
     # <p>Describes where logs are stored and the prefix that Amazon S3 assigns to all log object keys
@@ -10334,12 +10345,12 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.noncurrent_days ||= 0
         self.newer_noncurrent_versions ||= 0
       end
-
     end
 
     # <p>Container for the transition rule that describes when noncurrent objects transition to
@@ -10381,12 +10392,12 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.noncurrent_days ||= 0
         self.newer_noncurrent_versions ||= 0
       end
-
     end
 
     # <p>The specified content does not exist.</p>
@@ -10522,11 +10533,11 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.size ||= 0
       end
-
     end
 
     # <p>This action is not allowed against this storage tier.</p>
@@ -10826,12 +10837,12 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.part_number ||= 0
         self.size ||= 0
       end
-
     end
 
     # Includes enum constants for ObjectStorageClass
@@ -10937,12 +10948,12 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.size ||= 0
         self.is_latest ||= false
       end
-
     end
 
     # Includes enum constants for ObjectVersionStorageClass
@@ -11131,12 +11142,12 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.part_number ||= 0
         self.size ||= 0
       end
-
     end
 
     # Includes enum constants for Payer
@@ -11188,11 +11199,11 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_public ||= false
       end
-
     end
 
     # <p>This data type contains information about progress of an operation.</p>
@@ -11219,13 +11230,13 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bytes_scanned ||= 0
         self.bytes_processed ||= 0
         self.bytes_returned ||= 0
       end
-
     end
 
     # <p>This data type contains information about the progress event of an operation.</p>
@@ -11314,6 +11325,7 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.block_public_acls ||= false
@@ -11321,7 +11333,6 @@ module AWS::SDK::S3
         self.block_public_policy ||= false
         self.restrict_public_buckets ||= false
       end
-
     end
 
     # @!attribute bucket
@@ -11846,11 +11857,11 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.skip_destination_validation ||= false
       end
-
     end
 
     PutBucketNotificationConfigurationOutput = ::Struct.new(
@@ -11949,11 +11960,11 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.confirm_remove_self_bucket_access ||= false
       end
-
     end
 
     PutBucketPolicyOutput = ::Struct.new(
@@ -12714,6 +12725,7 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.content_length ||= 0
@@ -13042,6 +13054,7 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bucket_key_enabled ||= false
@@ -13142,11 +13155,11 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bypass_governance_retention ||= false
       end
-
     end
 
     # @!attribute request_charged
@@ -13604,11 +13617,11 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.priority ||= 0
       end
-
     end
 
     # <p>A container for specifying rule filters. The filters determine the subset of objects to
@@ -13800,11 +13813,11 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.minutes ||= 0
       end
-
     end
 
     # Includes enum constants for RequestCharged
@@ -13853,11 +13866,11 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # @!attribute bucket
@@ -14002,11 +14015,11 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.days ||= 0
       end
-
     end
 
     # Includes enum constants for RestoreRequestType
@@ -14178,12 +14191,12 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.start ||= 0
         self.end ||= 0
       end
-
     end
 
     # <p>The container for selecting objects from a content event stream.</p>
@@ -14548,11 +14561,11 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bucket_key_enabled ||= false
       end
-
     end
 
     # <p>A container that describes additional filters for identifying the source objects that
@@ -14643,13 +14656,13 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bytes_scanned ||= 0
         self.bytes_processed ||= 0
         self.bytes_returned ||= 0
       end
-
     end
 
     # <p>Container for the Stats Event.</p>
@@ -14868,11 +14881,11 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.days ||= 0
       end
-
     end
 
     # <p>A container for specifying the configuration for publication of messages to an Amazon
@@ -14944,11 +14957,11 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.days ||= 0
       end
-
     end
 
     # Includes enum constants for TransitionStorageClass
@@ -15159,6 +15172,7 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.part_number ||= 0
@@ -15251,6 +15265,7 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bucket_key_enabled ||= false
@@ -15416,6 +15431,7 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.content_length ||= 0
@@ -15536,6 +15552,7 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bucket_key_enabled ||= false
@@ -16014,6 +16031,7 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status_code ||= 0

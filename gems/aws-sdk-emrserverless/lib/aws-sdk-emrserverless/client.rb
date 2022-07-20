@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::EMRServerless
@@ -84,7 +86,7 @@ module AWS::SDK::EMRServerless
     def cancel_job_run(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelJobRunInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelJobRunInput,
         validate_input: @config.validate_input
@@ -220,7 +222,7 @@ module AWS::SDK::EMRServerless
     def create_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateApplicationInput,
         validate_input: @config.validate_input
@@ -289,7 +291,7 @@ module AWS::SDK::EMRServerless
     def delete_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteApplicationInput,
         validate_input: @config.validate_input
@@ -389,7 +391,7 @@ module AWS::SDK::EMRServerless
     def get_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetApplicationInput,
         validate_input: @config.validate_input
@@ -482,7 +484,16 @@ module AWS::SDK::EMRServerless
     #   resp.data.job_run.configuration_overrides.monitoring_configuration.managed_persistence_monitoring_configuration #=> Types::ManagedPersistenceMonitoringConfiguration
     #   resp.data.job_run.configuration_overrides.monitoring_configuration.managed_persistence_monitoring_configuration.enabled #=> Boolean
     #   resp.data.job_run.configuration_overrides.monitoring_configuration.managed_persistence_monitoring_configuration.encryption_key_arn #=> String
-    #   resp.data.job_run.job_driver #=> JobDriver
+    #   resp.data.job_run.job_driver #=> Types::JobDriver, one of [SparkSubmit, Hive]
+    #   resp.data.job_run.job_driver.spark_submit #=> Types::SparkSubmit
+    #   resp.data.job_run.job_driver.spark_submit.entry_point #=> String
+    #   resp.data.job_run.job_driver.spark_submit.entry_point_arguments #=> Array<String>
+    #   resp.data.job_run.job_driver.spark_submit.entry_point_arguments[0] #=> String
+    #   resp.data.job_run.job_driver.spark_submit.spark_submit_parameters #=> String
+    #   resp.data.job_run.job_driver.hive #=> Types::Hive
+    #   resp.data.job_run.job_driver.hive.query #=> String
+    #   resp.data.job_run.job_driver.hive.init_query_file #=> String
+    #   resp.data.job_run.job_driver.hive.parameters #=> String
     #   resp.data.job_run.tags #=> Hash<String, String>
     #   resp.data.job_run.tags['key'] #=> String
     #   resp.data.job_run.total_resource_utilization #=> Types::TotalResourceUtilization
@@ -499,7 +510,7 @@ module AWS::SDK::EMRServerless
     def get_job_run(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetJobRunInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetJobRunInput,
         validate_input: @config.validate_input
@@ -554,7 +565,7 @@ module AWS::SDK::EMRServerless
     # @option params [Integer] :max_results
     #   <p>The maximum number of applications that can be listed.</p>
     #
-    # @option params [Set<String>] :states
+    # @option params [Array<String>] :states
     #   <p>An optional filter for application states. Note that if this filter contains multiple states, the resulting list will be grouped by the state.</p>
     #
     # @return [Types::ListApplicationsOutput]
@@ -588,7 +599,7 @@ module AWS::SDK::EMRServerless
     def list_applications(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListApplicationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListApplicationsInput,
         validate_input: @config.validate_input
@@ -652,7 +663,7 @@ module AWS::SDK::EMRServerless
     # @option params [Time] :created_at_before
     #   <p>The upper bound of the option to filter by creation date and time.</p>
     #
-    # @option params [Set<String>] :states
+    # @option params [Array<String>] :states
     #   <p>An optional filter for job run states. Note that if this filter contains multiple states, the resulting list will be grouped by the state.</p>
     #
     # @return [Types::ListJobRunsOutput]
@@ -692,7 +703,7 @@ module AWS::SDK::EMRServerless
     def list_job_runs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListJobRunsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListJobRunsInput,
         validate_input: @config.validate_input
@@ -761,7 +772,7 @@ module AWS::SDK::EMRServerless
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -828,7 +839,7 @@ module AWS::SDK::EMRServerless
     def start_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartApplicationInput,
         validate_input: @config.validate_input
@@ -962,7 +973,7 @@ module AWS::SDK::EMRServerless
     def start_job_run(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartJobRunInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartJobRunInput,
         validate_input: @config.validate_input
@@ -1031,7 +1042,7 @@ module AWS::SDK::EMRServerless
     def stop_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopApplicationInput,
         validate_input: @config.validate_input
@@ -1108,7 +1119,7 @@ module AWS::SDK::EMRServerless
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -1182,7 +1193,7 @@ module AWS::SDK::EMRServerless
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -1335,7 +1346,7 @@ module AWS::SDK::EMRServerless
     def update_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateApplicationInput,
         validate_input: @config.validate_input

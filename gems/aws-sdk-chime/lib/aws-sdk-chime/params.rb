@@ -963,7 +963,7 @@ module AWS::SDK::Chime
         type = Types::CreateAppInstanceInput.new
         type.name = params[:name]
         type.metadata = params[:metadata]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -986,7 +986,7 @@ module AWS::SDK::Chime
         type.app_instance_user_id = params[:app_instance_user_id]
         type.name = params[:name]
         type.metadata = params[:metadata]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -1103,7 +1103,7 @@ module AWS::SDK::Chime
         type.mode = params[:mode]
         type.privacy = params[:privacy]
         type.metadata = params[:metadata]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type.chime_bearer = params[:chime_bearer]
         type
@@ -1170,7 +1170,7 @@ module AWS::SDK::Chime
         type.source_arn = params[:source_arn]
         type.sink_type = params[:sink_type]
         type.sink_arn = params[:sink_arn]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.chime_sdk_meeting_configuration = ChimeSdkMeetingConfiguration.build(params[:chime_sdk_meeting_configuration], context: "#{context}[:chime_sdk_meeting_configuration]") unless params[:chime_sdk_meeting_configuration].nil?
         type
       end
@@ -1210,7 +1210,7 @@ module AWS::SDK::Chime
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateMeetingInput, context: context)
         type = Types::CreateMeetingInput.new
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.external_meeting_id = params[:external_meeting_id]
         type.meeting_host_id = params[:meeting_host_id]
         type.media_region = params[:media_region]
@@ -1233,7 +1233,7 @@ module AWS::SDK::Chime
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateMeetingWithAttendeesInput, context: context)
         type = Types::CreateMeetingWithAttendeesInput.new
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.external_meeting_id = params[:external_meeting_id]
         type.meeting_host_id = params[:meeting_host_id]
         type.media_region = params[:media_region]
@@ -1316,7 +1316,7 @@ module AWS::SDK::Chime
         type = Types::CreateRoomInput.new
         type.account_id = params[:account_id]
         type.name = params[:name]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -4635,7 +4635,7 @@ module AWS::SDK::Chime
         type.type = params[:type]
         type.persistence = params[:persistence]
         type.metadata = params[:metadata]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.chime_bearer = params[:chime_bearer]
         type
       end

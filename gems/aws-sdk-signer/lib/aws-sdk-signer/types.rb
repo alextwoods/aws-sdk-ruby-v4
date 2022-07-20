@@ -407,12 +407,12 @@ module AWS::SDK::Signer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_size_in_mb ||= 0
         self.revocation_supported ||= false
       end
-
     end
 
     # @!attribute profile_name
@@ -642,11 +642,11 @@ module AWS::SDK::Signer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.policy_size_bytes ||= 0
       end
-
     end
 
     # @!attribute status
@@ -719,11 +719,11 @@ module AWS::SDK::Signer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_revoked ||= false
       end
-
     end
 
     # @!attribute jobs
@@ -839,11 +839,11 @@ module AWS::SDK::Signer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_canceled ||= false
       end
-
     end
 
     # @!attribute profiles
@@ -1247,11 +1247,11 @@ module AWS::SDK::Signer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= 0
       end
-
     end
 
     # <p>Points to an <code>S3SignedObject</code> object that contains information about your
@@ -1433,11 +1433,11 @@ module AWS::SDK::Signer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_revoked ||= false
       end
-
     end
 
     # <p>Revocation information for a signing job.</p>
@@ -1545,12 +1545,12 @@ module AWS::SDK::Signer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_size_in_mb ||= 0
         self.revocation_supported ||= false
       end
-
     end
 
     # <p>Any overrides that are applied to the signing configuration of a code signing

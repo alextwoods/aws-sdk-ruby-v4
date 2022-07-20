@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::DeviceFarm
   module Validators
 
@@ -14,11 +16,11 @@ module AWS::SDK::DeviceFarm
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AccountSettings, context: context)
         Hearth::Validator.validate!(input[:aws_account_number], ::String, context: "#{context}[:aws_account_number]")
-        Validators::PurchasedDevicesMap.validate!(input[:unmetered_devices], context: "#{context}[:unmetered_devices]") unless input[:unmetered_devices].nil?
-        Validators::PurchasedDevicesMap.validate!(input[:unmetered_remote_access_devices], context: "#{context}[:unmetered_remote_access_devices]") unless input[:unmetered_remote_access_devices].nil?
+        PurchasedDevicesMap.validate!(input[:unmetered_devices], context: "#{context}[:unmetered_devices]") unless input[:unmetered_devices].nil?
+        PurchasedDevicesMap.validate!(input[:unmetered_remote_access_devices], context: "#{context}[:unmetered_remote_access_devices]") unless input[:unmetered_remote_access_devices].nil?
         Hearth::Validator.validate!(input[:max_job_timeout_minutes], ::Integer, context: "#{context}[:max_job_timeout_minutes]")
-        Validators::TrialMinutes.validate!(input[:trial_minutes], context: "#{context}[:trial_minutes]") unless input[:trial_minutes].nil?
-        Validators::MaxSlotMap.validate!(input[:max_slots], context: "#{context}[:max_slots]") unless input[:max_slots].nil?
+        TrialMinutes.validate!(input[:trial_minutes], context: "#{context}[:trial_minutes]") unless input[:trial_minutes].nil?
+        MaxSlotMap.validate!(input[:max_slots], context: "#{context}[:max_slots]") unless input[:max_slots].nil?
         Hearth::Validator.validate!(input[:default_job_timeout_minutes], ::Integer, context: "#{context}[:default_job_timeout_minutes]")
         Hearth::Validator.validate!(input[:skip_app_resign], ::TrueClass, ::FalseClass, context: "#{context}[:skip_app_resign]")
       end
@@ -64,7 +66,7 @@ module AWS::SDK::DeviceFarm
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Artifact.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Artifact.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -104,7 +106,7 @@ module AWS::SDK::DeviceFarm
         Hearth::Validator.validate!(input[:project_arn], ::String, context: "#{context}[:project_arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::Rules.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        Rules.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
         Hearth::Validator.validate!(input[:max_devices], ::Integer, context: "#{context}[:max_devices]")
       end
     end
@@ -112,7 +114,7 @@ module AWS::SDK::DeviceFarm
     class CreateDevicePoolOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateDevicePoolOutput, context: context)
-        Validators::DevicePool.validate!(input[:device_pool], context: "#{context}[:device_pool]") unless input[:device_pool].nil?
+        DevicePool.validate!(input[:device_pool], context: "#{context}[:device_pool]") unless input[:device_pool].nil?
       end
     end
 
@@ -122,7 +124,7 @@ module AWS::SDK::DeviceFarm
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:package_cleanup], ::TrueClass, ::FalseClass, context: "#{context}[:package_cleanup]")
-        Validators::PackageIds.validate!(input[:exclude_app_packages_from_cleanup], context: "#{context}[:exclude_app_packages_from_cleanup]") unless input[:exclude_app_packages_from_cleanup].nil?
+        PackageIds.validate!(input[:exclude_app_packages_from_cleanup], context: "#{context}[:exclude_app_packages_from_cleanup]") unless input[:exclude_app_packages_from_cleanup].nil?
         Hearth::Validator.validate!(input[:reboot_after_use], ::TrueClass, ::FalseClass, context: "#{context}[:reboot_after_use]")
       end
     end
@@ -130,7 +132,7 @@ module AWS::SDK::DeviceFarm
     class CreateInstanceProfileOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateInstanceProfileOutput, context: context)
-        Validators::InstanceProfile.validate!(input[:instance_profile], context: "#{context}[:instance_profile]") unless input[:instance_profile].nil?
+        InstanceProfile.validate!(input[:instance_profile], context: "#{context}[:instance_profile]") unless input[:instance_profile].nil?
       end
     end
 
@@ -155,7 +157,7 @@ module AWS::SDK::DeviceFarm
     class CreateNetworkProfileOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateNetworkProfileOutput, context: context)
-        Validators::NetworkProfile.validate!(input[:network_profile], context: "#{context}[:network_profile]") unless input[:network_profile].nil?
+        NetworkProfile.validate!(input[:network_profile], context: "#{context}[:network_profile]") unless input[:network_profile].nil?
       end
     end
 
@@ -170,7 +172,7 @@ module AWS::SDK::DeviceFarm
     class CreateProjectOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateProjectOutput, context: context)
-        Validators::Project.validate!(input[:project], context: "#{context}[:project]") unless input[:project].nil?
+        Project.validate!(input[:project], context: "#{context}[:project]") unless input[:project].nil?
       end
     end
 
@@ -178,7 +180,7 @@ module AWS::SDK::DeviceFarm
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateRemoteAccessSessionConfiguration, context: context)
         Hearth::Validator.validate!(input[:billing_method], ::String, context: "#{context}[:billing_method]")
-        Validators::AmazonResourceNames.validate!(input[:vpce_configuration_arns], context: "#{context}[:vpce_configuration_arns]") unless input[:vpce_configuration_arns].nil?
+        AmazonResourceNames.validate!(input[:vpce_configuration_arns], context: "#{context}[:vpce_configuration_arns]") unless input[:vpce_configuration_arns].nil?
       end
     end
 
@@ -194,7 +196,7 @@ module AWS::SDK::DeviceFarm
         Hearth::Validator.validate!(input[:remote_record_app_arn], ::String, context: "#{context}[:remote_record_app_arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:client_id], ::String, context: "#{context}[:client_id]")
-        Validators::CreateRemoteAccessSessionConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        CreateRemoteAccessSessionConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
         Hearth::Validator.validate!(input[:interaction_mode], ::String, context: "#{context}[:interaction_mode]")
         Hearth::Validator.validate!(input[:skip_app_resign], ::TrueClass, ::FalseClass, context: "#{context}[:skip_app_resign]")
       end
@@ -203,7 +205,7 @@ module AWS::SDK::DeviceFarm
     class CreateRemoteAccessSessionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateRemoteAccessSessionOutput, context: context)
-        Validators::RemoteAccessSession.validate!(input[:remote_access_session], context: "#{context}[:remote_access_session]") unless input[:remote_access_session].nil?
+        RemoteAccessSession.validate!(input[:remote_access_session], context: "#{context}[:remote_access_session]") unless input[:remote_access_session].nil?
       end
     end
 
@@ -212,14 +214,14 @@ module AWS::SDK::DeviceFarm
         Hearth::Validator.validate!(input, Types::CreateTestGridProjectInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TestGridVpcConfig.validate!(input[:vpc_config], context: "#{context}[:vpc_config]") unless input[:vpc_config].nil?
+        TestGridVpcConfig.validate!(input[:vpc_config], context: "#{context}[:vpc_config]") unless input[:vpc_config].nil?
       end
     end
 
     class CreateTestGridProjectOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateTestGridProjectOutput, context: context)
-        Validators::TestGridProject.validate!(input[:test_grid_project], context: "#{context}[:test_grid_project]") unless input[:test_grid_project].nil?
+        TestGridProject.validate!(input[:test_grid_project], context: "#{context}[:test_grid_project]") unless input[:test_grid_project].nil?
       end
     end
 
@@ -252,7 +254,7 @@ module AWS::SDK::DeviceFarm
     class CreateUploadOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateUploadOutput, context: context)
-        Validators::Upload.validate!(input[:upload], context: "#{context}[:upload]") unless input[:upload].nil?
+        Upload.validate!(input[:upload], context: "#{context}[:upload]") unless input[:upload].nil?
       end
     end
 
@@ -269,16 +271,16 @@ module AWS::SDK::DeviceFarm
     class CreateVPCEConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateVPCEConfigurationOutput, context: context)
-        Validators::VPCEConfiguration.validate!(input[:vpce_configuration], context: "#{context}[:vpce_configuration]") unless input[:vpce_configuration].nil?
+        VPCEConfiguration.validate!(input[:vpce_configuration], context: "#{context}[:vpce_configuration]") unless input[:vpce_configuration].nil?
       end
     end
 
     class CustomerArtifactPaths
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CustomerArtifactPaths, context: context)
-        Validators::IosPaths.validate!(input[:ios_paths], context: "#{context}[:ios_paths]") unless input[:ios_paths].nil?
-        Validators::AndroidPaths.validate!(input[:android_paths], context: "#{context}[:android_paths]") unless input[:android_paths].nil?
-        Validators::DeviceHostPaths.validate!(input[:device_host_paths], context: "#{context}[:device_host_paths]") unless input[:device_host_paths].nil?
+        IosPaths.validate!(input[:ios_paths], context: "#{context}[:ios_paths]") unless input[:ios_paths].nil?
+        AndroidPaths.validate!(input[:android_paths], context: "#{context}[:android_paths]") unless input[:android_paths].nil?
+        DeviceHostPaths.validate!(input[:device_host_paths], context: "#{context}[:device_host_paths]") unless input[:device_host_paths].nil?
       end
     end
 
@@ -410,8 +412,8 @@ module AWS::SDK::DeviceFarm
         Hearth::Validator.validate!(input[:form_factor], ::String, context: "#{context}[:form_factor]")
         Hearth::Validator.validate!(input[:platform], ::String, context: "#{context}[:platform]")
         Hearth::Validator.validate!(input[:os], ::String, context: "#{context}[:os]")
-        Validators::CPU.validate!(input[:cpu], context: "#{context}[:cpu]") unless input[:cpu].nil?
-        Validators::Resolution.validate!(input[:resolution], context: "#{context}[:resolution]") unless input[:resolution].nil?
+        CPU.validate!(input[:cpu], context: "#{context}[:cpu]") unless input[:cpu].nil?
+        Resolution.validate!(input[:resolution], context: "#{context}[:resolution]") unless input[:resolution].nil?
         Hearth::Validator.validate!(input[:heap_size], ::Integer, context: "#{context}[:heap_size]")
         Hearth::Validator.validate!(input[:memory], ::Integer, context: "#{context}[:memory]")
         Hearth::Validator.validate!(input[:image], ::String, context: "#{context}[:image]")
@@ -421,7 +423,7 @@ module AWS::SDK::DeviceFarm
         Hearth::Validator.validate!(input[:remote_debug_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:remote_debug_enabled]")
         Hearth::Validator.validate!(input[:fleet_type], ::String, context: "#{context}[:fleet_type]")
         Hearth::Validator.validate!(input[:fleet_name], ::String, context: "#{context}[:fleet_name]")
-        Validators::DeviceInstances.validate!(input[:instances], context: "#{context}[:instances]") unless input[:instances].nil?
+        DeviceInstances.validate!(input[:instances], context: "#{context}[:instances]") unless input[:instances].nil?
         Hearth::Validator.validate!(input[:availability], ::String, context: "#{context}[:availability]")
       end
     end
@@ -431,7 +433,7 @@ module AWS::SDK::DeviceFarm
         Hearth::Validator.validate!(input, Types::DeviceFilter, context: context)
         Hearth::Validator.validate!(input[:attribute], ::String, context: "#{context}[:attribute]")
         Hearth::Validator.validate!(input[:operator], ::String, context: "#{context}[:operator]")
-        Validators::DeviceFilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        DeviceFilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -448,7 +450,7 @@ module AWS::SDK::DeviceFarm
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DeviceFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DeviceFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -467,10 +469,10 @@ module AWS::SDK::DeviceFarm
         Hearth::Validator.validate!(input, Types::DeviceInstance, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:device_arn], ::String, context: "#{context}[:device_arn]")
-        Validators::InstanceLabels.validate!(input[:labels], context: "#{context}[:labels]") unless input[:labels].nil?
+        InstanceLabels.validate!(input[:labels], context: "#{context}[:labels]") unless input[:labels].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:udid], ::String, context: "#{context}[:udid]")
-        Validators::InstanceProfile.validate!(input[:instance_profile], context: "#{context}[:instance_profile]") unless input[:instance_profile].nil?
+        InstanceProfile.validate!(input[:instance_profile], context: "#{context}[:instance_profile]") unless input[:instance_profile].nil?
       end
     end
 
@@ -478,7 +480,7 @@ module AWS::SDK::DeviceFarm
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DeviceInstance.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DeviceInstance.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -499,7 +501,7 @@ module AWS::SDK::DeviceFarm
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::Rules.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        Rules.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
         Hearth::Validator.validate!(input[:max_devices], ::Integer, context: "#{context}[:max_devices]")
       end
     end
@@ -507,9 +509,9 @@ module AWS::SDK::DeviceFarm
     class DevicePoolCompatibilityResult
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DevicePoolCompatibilityResult, context: context)
-        Validators::Device.validate!(input[:device], context: "#{context}[:device]") unless input[:device].nil?
+        Device.validate!(input[:device], context: "#{context}[:device]") unless input[:device].nil?
         Hearth::Validator.validate!(input[:compatible], ::TrueClass, ::FalseClass, context: "#{context}[:compatible]")
-        Validators::IncompatibilityMessages.validate!(input[:incompatibility_messages], context: "#{context}[:incompatibility_messages]") unless input[:incompatibility_messages].nil?
+        IncompatibilityMessages.validate!(input[:incompatibility_messages], context: "#{context}[:incompatibility_messages]") unless input[:incompatibility_messages].nil?
       end
     end
 
@@ -517,7 +519,7 @@ module AWS::SDK::DeviceFarm
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DevicePoolCompatibilityResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DevicePoolCompatibilityResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -526,7 +528,7 @@ module AWS::SDK::DeviceFarm
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DevicePool.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DevicePool.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -534,7 +536,7 @@ module AWS::SDK::DeviceFarm
     class DeviceSelectionConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeviceSelectionConfiguration, context: context)
-        Validators::DeviceFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        DeviceFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_devices], ::Integer, context: "#{context}[:max_devices]")
       end
     end
@@ -542,7 +544,7 @@ module AWS::SDK::DeviceFarm
     class DeviceSelectionResult
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeviceSelectionResult, context: context)
-        Validators::DeviceFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        DeviceFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:matched_devices_count], ::Integer, context: "#{context}[:matched_devices_count]")
         Hearth::Validator.validate!(input[:max_devices], ::Integer, context: "#{context}[:max_devices]")
       end
@@ -552,7 +554,7 @@ module AWS::SDK::DeviceFarm
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Device.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Device.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -577,7 +579,7 @@ module AWS::SDK::DeviceFarm
     class GetAccountSettingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAccountSettingsOutput, context: context)
-        Validators::AccountSettings.validate!(input[:account_settings], context: "#{context}[:account_settings]") unless input[:account_settings].nil?
+        AccountSettings.validate!(input[:account_settings], context: "#{context}[:account_settings]") unless input[:account_settings].nil?
       end
     end
 
@@ -598,14 +600,14 @@ module AWS::SDK::DeviceFarm
     class GetDeviceInstanceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDeviceInstanceOutput, context: context)
-        Validators::DeviceInstance.validate!(input[:device_instance], context: "#{context}[:device_instance]") unless input[:device_instance].nil?
+        DeviceInstance.validate!(input[:device_instance], context: "#{context}[:device_instance]") unless input[:device_instance].nil?
       end
     end
 
     class GetDeviceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDeviceOutput, context: context)
-        Validators::Device.validate!(input[:device], context: "#{context}[:device]") unless input[:device].nil?
+        Device.validate!(input[:device], context: "#{context}[:device]") unless input[:device].nil?
       end
     end
 
@@ -615,16 +617,16 @@ module AWS::SDK::DeviceFarm
         Hearth::Validator.validate!(input[:device_pool_arn], ::String, context: "#{context}[:device_pool_arn]")
         Hearth::Validator.validate!(input[:app_arn], ::String, context: "#{context}[:app_arn]")
         Hearth::Validator.validate!(input[:test_type], ::String, context: "#{context}[:test_type]")
-        Validators::ScheduleRunTest.validate!(input[:test], context: "#{context}[:test]") unless input[:test].nil?
-        Validators::ScheduleRunConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        ScheduleRunTest.validate!(input[:test], context: "#{context}[:test]") unless input[:test].nil?
+        ScheduleRunConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
       end
     end
 
     class GetDevicePoolCompatibilityOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDevicePoolCompatibilityOutput, context: context)
-        Validators::DevicePoolCompatibilityResults.validate!(input[:compatible_devices], context: "#{context}[:compatible_devices]") unless input[:compatible_devices].nil?
-        Validators::DevicePoolCompatibilityResults.validate!(input[:incompatible_devices], context: "#{context}[:incompatible_devices]") unless input[:incompatible_devices].nil?
+        DevicePoolCompatibilityResults.validate!(input[:compatible_devices], context: "#{context}[:compatible_devices]") unless input[:compatible_devices].nil?
+        DevicePoolCompatibilityResults.validate!(input[:incompatible_devices], context: "#{context}[:incompatible_devices]") unless input[:incompatible_devices].nil?
       end
     end
 
@@ -638,7 +640,7 @@ module AWS::SDK::DeviceFarm
     class GetDevicePoolOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDevicePoolOutput, context: context)
-        Validators::DevicePool.validate!(input[:device_pool], context: "#{context}[:device_pool]") unless input[:device_pool].nil?
+        DevicePool.validate!(input[:device_pool], context: "#{context}[:device_pool]") unless input[:device_pool].nil?
       end
     end
 
@@ -652,7 +654,7 @@ module AWS::SDK::DeviceFarm
     class GetInstanceProfileOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetInstanceProfileOutput, context: context)
-        Validators::InstanceProfile.validate!(input[:instance_profile], context: "#{context}[:instance_profile]") unless input[:instance_profile].nil?
+        InstanceProfile.validate!(input[:instance_profile], context: "#{context}[:instance_profile]") unless input[:instance_profile].nil?
       end
     end
 
@@ -666,7 +668,7 @@ module AWS::SDK::DeviceFarm
     class GetJobOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetJobOutput, context: context)
-        Validators::Job.validate!(input[:job], context: "#{context}[:job]") unless input[:job].nil?
+        Job.validate!(input[:job], context: "#{context}[:job]") unless input[:job].nil?
       end
     end
 
@@ -680,7 +682,7 @@ module AWS::SDK::DeviceFarm
     class GetNetworkProfileOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetNetworkProfileOutput, context: context)
-        Validators::NetworkProfile.validate!(input[:network_profile], context: "#{context}[:network_profile]") unless input[:network_profile].nil?
+        NetworkProfile.validate!(input[:network_profile], context: "#{context}[:network_profile]") unless input[:network_profile].nil?
       end
     end
 
@@ -694,8 +696,8 @@ module AWS::SDK::DeviceFarm
     class GetOfferingStatusOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetOfferingStatusOutput, context: context)
-        Validators::OfferingStatusMap.validate!(input[:current], context: "#{context}[:current]") unless input[:current].nil?
-        Validators::OfferingStatusMap.validate!(input[:next_period], context: "#{context}[:next_period]") unless input[:next_period].nil?
+        OfferingStatusMap.validate!(input[:current], context: "#{context}[:current]") unless input[:current].nil?
+        OfferingStatusMap.validate!(input[:next_period], context: "#{context}[:next_period]") unless input[:next_period].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -710,7 +712,7 @@ module AWS::SDK::DeviceFarm
     class GetProjectOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetProjectOutput, context: context)
-        Validators::Project.validate!(input[:project], context: "#{context}[:project]") unless input[:project].nil?
+        Project.validate!(input[:project], context: "#{context}[:project]") unless input[:project].nil?
       end
     end
 
@@ -724,7 +726,7 @@ module AWS::SDK::DeviceFarm
     class GetRemoteAccessSessionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRemoteAccessSessionOutput, context: context)
-        Validators::RemoteAccessSession.validate!(input[:remote_access_session], context: "#{context}[:remote_access_session]") unless input[:remote_access_session].nil?
+        RemoteAccessSession.validate!(input[:remote_access_session], context: "#{context}[:remote_access_session]") unless input[:remote_access_session].nil?
       end
     end
 
@@ -738,7 +740,7 @@ module AWS::SDK::DeviceFarm
     class GetRunOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRunOutput, context: context)
-        Validators::Run.validate!(input[:run], context: "#{context}[:run]") unless input[:run].nil?
+        Run.validate!(input[:run], context: "#{context}[:run]") unless input[:run].nil?
       end
     end
 
@@ -752,7 +754,7 @@ module AWS::SDK::DeviceFarm
     class GetSuiteOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSuiteOutput, context: context)
-        Validators::Suite.validate!(input[:suite], context: "#{context}[:suite]") unless input[:suite].nil?
+        Suite.validate!(input[:suite], context: "#{context}[:suite]") unless input[:suite].nil?
       end
     end
 
@@ -766,7 +768,7 @@ module AWS::SDK::DeviceFarm
     class GetTestGridProjectOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetTestGridProjectOutput, context: context)
-        Validators::TestGridProject.validate!(input[:test_grid_project], context: "#{context}[:test_grid_project]") unless input[:test_grid_project].nil?
+        TestGridProject.validate!(input[:test_grid_project], context: "#{context}[:test_grid_project]") unless input[:test_grid_project].nil?
       end
     end
 
@@ -782,7 +784,7 @@ module AWS::SDK::DeviceFarm
     class GetTestGridSessionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetTestGridSessionOutput, context: context)
-        Validators::TestGridSession.validate!(input[:test_grid_session], context: "#{context}[:test_grid_session]") unless input[:test_grid_session].nil?
+        TestGridSession.validate!(input[:test_grid_session], context: "#{context}[:test_grid_session]") unless input[:test_grid_session].nil?
       end
     end
 
@@ -796,7 +798,7 @@ module AWS::SDK::DeviceFarm
     class GetTestOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetTestOutput, context: context)
-        Validators::Test.validate!(input[:test], context: "#{context}[:test]") unless input[:test].nil?
+        Test.validate!(input[:test], context: "#{context}[:test]") unless input[:test].nil?
       end
     end
 
@@ -810,7 +812,7 @@ module AWS::SDK::DeviceFarm
     class GetUploadOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetUploadOutput, context: context)
-        Validators::Upload.validate!(input[:upload], context: "#{context}[:upload]") unless input[:upload].nil?
+        Upload.validate!(input[:upload], context: "#{context}[:upload]") unless input[:upload].nil?
       end
     end
 
@@ -824,7 +826,7 @@ module AWS::SDK::DeviceFarm
     class GetVPCEConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetVPCEConfigurationOutput, context: context)
-        Validators::VPCEConfiguration.validate!(input[:vpce_configuration], context: "#{context}[:vpce_configuration]") unless input[:vpce_configuration].nil?
+        VPCEConfiguration.validate!(input[:vpce_configuration], context: "#{context}[:vpce_configuration]") unless input[:vpce_configuration].nil?
       end
     end
 
@@ -847,7 +849,7 @@ module AWS::SDK::DeviceFarm
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::IncompatibilityMessage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          IncompatibilityMessage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -863,7 +865,7 @@ module AWS::SDK::DeviceFarm
     class InstallToRemoteAccessSessionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InstallToRemoteAccessSessionOutput, context: context)
-        Validators::Upload.validate!(input[:app_upload], context: "#{context}[:app_upload]") unless input[:app_upload].nil?
+        Upload.validate!(input[:app_upload], context: "#{context}[:app_upload]") unless input[:app_upload].nil?
       end
     end
 
@@ -881,7 +883,7 @@ module AWS::SDK::DeviceFarm
         Hearth::Validator.validate!(input, Types::InstanceProfile, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:package_cleanup], ::TrueClass, ::FalseClass, context: "#{context}[:package_cleanup]")
-        Validators::PackageIds.validate!(input[:exclude_app_packages_from_cleanup], context: "#{context}[:exclude_app_packages_from_cleanup]") unless input[:exclude_app_packages_from_cleanup].nil?
+        PackageIds.validate!(input[:exclude_app_packages_from_cleanup], context: "#{context}[:exclude_app_packages_from_cleanup]") unless input[:exclude_app_packages_from_cleanup].nil?
         Hearth::Validator.validate!(input[:reboot_after_use], ::TrueClass, ::FalseClass, context: "#{context}[:reboot_after_use]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
@@ -892,7 +894,7 @@ module AWS::SDK::DeviceFarm
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InstanceProfile.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InstanceProfile.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -931,11 +933,11 @@ module AWS::SDK::DeviceFarm
         Hearth::Validator.validate!(input[:result], ::String, context: "#{context}[:result]")
         Hearth::Validator.validate!(input[:started], ::Time, context: "#{context}[:started]")
         Hearth::Validator.validate!(input[:stopped], ::Time, context: "#{context}[:stopped]")
-        Validators::Counters.validate!(input[:counters], context: "#{context}[:counters]") unless input[:counters].nil?
+        Counters.validate!(input[:counters], context: "#{context}[:counters]") unless input[:counters].nil?
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
-        Validators::Device.validate!(input[:device], context: "#{context}[:device]") unless input[:device].nil?
+        Device.validate!(input[:device], context: "#{context}[:device]") unless input[:device].nil?
         Hearth::Validator.validate!(input[:instance_arn], ::String, context: "#{context}[:instance_arn]")
-        Validators::DeviceMinutes.validate!(input[:device_minutes], context: "#{context}[:device_minutes]") unless input[:device_minutes].nil?
+        DeviceMinutes.validate!(input[:device_minutes], context: "#{context}[:device_minutes]") unless input[:device_minutes].nil?
         Hearth::Validator.validate!(input[:video_endpoint], ::String, context: "#{context}[:video_endpoint]")
         Hearth::Validator.validate!(input[:video_capture], ::TrueClass, ::FalseClass, context: "#{context}[:video_capture]")
       end
@@ -945,7 +947,7 @@ module AWS::SDK::DeviceFarm
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Job.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Job.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -969,7 +971,7 @@ module AWS::SDK::DeviceFarm
     class ListArtifactsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListArtifactsOutput, context: context)
-        Validators::Artifacts.validate!(input[:artifacts], context: "#{context}[:artifacts]") unless input[:artifacts].nil?
+        Artifacts.validate!(input[:artifacts], context: "#{context}[:artifacts]") unless input[:artifacts].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -985,7 +987,7 @@ module AWS::SDK::DeviceFarm
     class ListDeviceInstancesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDeviceInstancesOutput, context: context)
-        Validators::DeviceInstances.validate!(input[:device_instances], context: "#{context}[:device_instances]") unless input[:device_instances].nil?
+        DeviceInstances.validate!(input[:device_instances], context: "#{context}[:device_instances]") unless input[:device_instances].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1002,7 +1004,7 @@ module AWS::SDK::DeviceFarm
     class ListDevicePoolsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDevicePoolsOutput, context: context)
-        Validators::DevicePools.validate!(input[:device_pools], context: "#{context}[:device_pools]") unless input[:device_pools].nil?
+        DevicePools.validate!(input[:device_pools], context: "#{context}[:device_pools]") unless input[:device_pools].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1012,14 +1014,14 @@ module AWS::SDK::DeviceFarm
         Hearth::Validator.validate!(input, Types::ListDevicesInput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::DeviceFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        DeviceFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
     class ListDevicesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDevicesOutput, context: context)
-        Validators::Devices.validate!(input[:devices], context: "#{context}[:devices]") unless input[:devices].nil?
+        Devices.validate!(input[:devices], context: "#{context}[:devices]") unless input[:devices].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1035,7 +1037,7 @@ module AWS::SDK::DeviceFarm
     class ListInstanceProfilesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListInstanceProfilesOutput, context: context)
-        Validators::InstanceProfiles.validate!(input[:instance_profiles], context: "#{context}[:instance_profiles]") unless input[:instance_profiles].nil?
+        InstanceProfiles.validate!(input[:instance_profiles], context: "#{context}[:instance_profiles]") unless input[:instance_profiles].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1051,7 +1053,7 @@ module AWS::SDK::DeviceFarm
     class ListJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListJobsOutput, context: context)
-        Validators::Jobs.validate!(input[:jobs], context: "#{context}[:jobs]") unless input[:jobs].nil?
+        Jobs.validate!(input[:jobs], context: "#{context}[:jobs]") unless input[:jobs].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1068,7 +1070,7 @@ module AWS::SDK::DeviceFarm
     class ListNetworkProfilesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListNetworkProfilesOutput, context: context)
-        Validators::NetworkProfiles.validate!(input[:network_profiles], context: "#{context}[:network_profiles]") unless input[:network_profiles].nil?
+        NetworkProfiles.validate!(input[:network_profiles], context: "#{context}[:network_profiles]") unless input[:network_profiles].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1083,7 +1085,7 @@ module AWS::SDK::DeviceFarm
     class ListOfferingPromotionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListOfferingPromotionsOutput, context: context)
-        Validators::OfferingPromotions.validate!(input[:offering_promotions], context: "#{context}[:offering_promotions]") unless input[:offering_promotions].nil?
+        OfferingPromotions.validate!(input[:offering_promotions], context: "#{context}[:offering_promotions]") unless input[:offering_promotions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1098,7 +1100,7 @@ module AWS::SDK::DeviceFarm
     class ListOfferingTransactionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListOfferingTransactionsOutput, context: context)
-        Validators::OfferingTransactions.validate!(input[:offering_transactions], context: "#{context}[:offering_transactions]") unless input[:offering_transactions].nil?
+        OfferingTransactions.validate!(input[:offering_transactions], context: "#{context}[:offering_transactions]") unless input[:offering_transactions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1113,7 +1115,7 @@ module AWS::SDK::DeviceFarm
     class ListOfferingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListOfferingsOutput, context: context)
-        Validators::Offerings.validate!(input[:offerings], context: "#{context}[:offerings]") unless input[:offerings].nil?
+        Offerings.validate!(input[:offerings], context: "#{context}[:offerings]") unless input[:offerings].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1129,7 +1131,7 @@ module AWS::SDK::DeviceFarm
     class ListProjectsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListProjectsOutput, context: context)
-        Validators::Projects.validate!(input[:projects], context: "#{context}[:projects]") unless input[:projects].nil?
+        Projects.validate!(input[:projects], context: "#{context}[:projects]") unless input[:projects].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1145,7 +1147,7 @@ module AWS::SDK::DeviceFarm
     class ListRemoteAccessSessionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRemoteAccessSessionsOutput, context: context)
-        Validators::RemoteAccessSessions.validate!(input[:remote_access_sessions], context: "#{context}[:remote_access_sessions]") unless input[:remote_access_sessions].nil?
+        RemoteAccessSessions.validate!(input[:remote_access_sessions], context: "#{context}[:remote_access_sessions]") unless input[:remote_access_sessions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1161,7 +1163,7 @@ module AWS::SDK::DeviceFarm
     class ListRunsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRunsOutput, context: context)
-        Validators::Runs.validate!(input[:runs], context: "#{context}[:runs]") unless input[:runs].nil?
+        Runs.validate!(input[:runs], context: "#{context}[:runs]") unless input[:runs].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1177,7 +1179,7 @@ module AWS::SDK::DeviceFarm
     class ListSamplesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSamplesOutput, context: context)
-        Validators::Samples.validate!(input[:samples], context: "#{context}[:samples]") unless input[:samples].nil?
+        Samples.validate!(input[:samples], context: "#{context}[:samples]") unless input[:samples].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1193,7 +1195,7 @@ module AWS::SDK::DeviceFarm
     class ListSuitesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSuitesOutput, context: context)
-        Validators::Suites.validate!(input[:suites], context: "#{context}[:suites]") unless input[:suites].nil?
+        Suites.validate!(input[:suites], context: "#{context}[:suites]") unless input[:suites].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1208,7 +1210,7 @@ module AWS::SDK::DeviceFarm
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1223,7 +1225,7 @@ module AWS::SDK::DeviceFarm
     class ListTestGridProjectsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTestGridProjectsOutput, context: context)
-        Validators::TestGridProjects.validate!(input[:test_grid_projects], context: "#{context}[:test_grid_projects]") unless input[:test_grid_projects].nil?
+        TestGridProjects.validate!(input[:test_grid_projects], context: "#{context}[:test_grid_projects]") unless input[:test_grid_projects].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1240,7 +1242,7 @@ module AWS::SDK::DeviceFarm
     class ListTestGridSessionActionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTestGridSessionActionsOutput, context: context)
-        Validators::TestGridSessionActions.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
+        TestGridSessionActions.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1258,7 +1260,7 @@ module AWS::SDK::DeviceFarm
     class ListTestGridSessionArtifactsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTestGridSessionArtifactsOutput, context: context)
-        Validators::TestGridSessionArtifacts.validate!(input[:artifacts], context: "#{context}[:artifacts]") unless input[:artifacts].nil?
+        TestGridSessionArtifacts.validate!(input[:artifacts], context: "#{context}[:artifacts]") unless input[:artifacts].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1280,7 +1282,7 @@ module AWS::SDK::DeviceFarm
     class ListTestGridSessionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTestGridSessionsOutput, context: context)
-        Validators::TestGridSessions.validate!(input[:test_grid_sessions], context: "#{context}[:test_grid_sessions]") unless input[:test_grid_sessions].nil?
+        TestGridSessions.validate!(input[:test_grid_sessions], context: "#{context}[:test_grid_sessions]") unless input[:test_grid_sessions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1296,7 +1298,7 @@ module AWS::SDK::DeviceFarm
     class ListTestsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTestsOutput, context: context)
-        Validators::Tests.validate!(input[:tests], context: "#{context}[:tests]") unless input[:tests].nil?
+        Tests.validate!(input[:tests], context: "#{context}[:tests]") unless input[:tests].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1312,7 +1314,7 @@ module AWS::SDK::DeviceFarm
     class ListUniqueProblemsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListUniqueProblemsOutput, context: context)
-        Validators::UniqueProblemsByExecutionResultMap.validate!(input[:unique_problems], context: "#{context}[:unique_problems]") unless input[:unique_problems].nil?
+        UniqueProblemsByExecutionResultMap.validate!(input[:unique_problems], context: "#{context}[:unique_problems]") unless input[:unique_problems].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1329,7 +1331,7 @@ module AWS::SDK::DeviceFarm
     class ListUploadsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListUploadsOutput, context: context)
-        Validators::Uploads.validate!(input[:uploads], context: "#{context}[:uploads]") unless input[:uploads].nil?
+        Uploads.validate!(input[:uploads], context: "#{context}[:uploads]") unless input[:uploads].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1345,7 +1347,7 @@ module AWS::SDK::DeviceFarm
     class ListVPCEConfigurationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListVPCEConfigurationsOutput, context: context)
-        Validators::VPCEConfigurations.validate!(input[:vpce_configurations], context: "#{context}[:vpce_configurations]") unless input[:vpce_configurations].nil?
+        VPCEConfigurations.validate!(input[:vpce_configurations], context: "#{context}[:vpce_configurations]") unless input[:vpce_configurations].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1398,7 +1400,7 @@ module AWS::SDK::DeviceFarm
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NetworkProfile.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NetworkProfile.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1424,7 +1426,7 @@ module AWS::SDK::DeviceFarm
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:platform], ::String, context: "#{context}[:platform]")
-        Validators::RecurringCharges.validate!(input[:recurring_charges], context: "#{context}[:recurring_charges]") unless input[:recurring_charges].nil?
+        RecurringCharges.validate!(input[:recurring_charges], context: "#{context}[:recurring_charges]") unless input[:recurring_charges].nil?
       end
     end
 
@@ -1440,7 +1442,7 @@ module AWS::SDK::DeviceFarm
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OfferingPromotion.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OfferingPromotion.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1449,7 +1451,7 @@ module AWS::SDK::DeviceFarm
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OfferingStatus, context: context)
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::Offering.validate!(input[:offering], context: "#{context}[:offering]") unless input[:offering].nil?
+        Offering.validate!(input[:offering], context: "#{context}[:offering]") unless input[:offering].nil?
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
         Hearth::Validator.validate!(input[:effective_on], ::Time, context: "#{context}[:effective_on]")
       end
@@ -1460,7 +1462,7 @@ module AWS::SDK::DeviceFarm
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::OfferingStatus.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          OfferingStatus.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -1468,11 +1470,11 @@ module AWS::SDK::DeviceFarm
     class OfferingTransaction
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OfferingTransaction, context: context)
-        Validators::OfferingStatus.validate!(input[:offering_status], context: "#{context}[:offering_status]") unless input[:offering_status].nil?
+        OfferingStatus.validate!(input[:offering_status], context: "#{context}[:offering_status]") unless input[:offering_status].nil?
         Hearth::Validator.validate!(input[:transaction_id], ::String, context: "#{context}[:transaction_id]")
         Hearth::Validator.validate!(input[:offering_promotion_id], ::String, context: "#{context}[:offering_promotion_id]")
         Hearth::Validator.validate!(input[:created_on], ::Time, context: "#{context}[:created_on]")
-        Validators::MonetaryAmount.validate!(input[:cost], context: "#{context}[:cost]") unless input[:cost].nil?
+        MonetaryAmount.validate!(input[:cost], context: "#{context}[:cost]") unless input[:cost].nil?
       end
     end
 
@@ -1480,7 +1482,7 @@ module AWS::SDK::DeviceFarm
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OfferingTransaction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OfferingTransaction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1489,7 +1491,7 @@ module AWS::SDK::DeviceFarm
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Offering.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Offering.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1506,11 +1508,11 @@ module AWS::SDK::DeviceFarm
     class Problem
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Problem, context: context)
-        Validators::ProblemDetail.validate!(input[:run], context: "#{context}[:run]") unless input[:run].nil?
-        Validators::ProblemDetail.validate!(input[:job], context: "#{context}[:job]") unless input[:job].nil?
-        Validators::ProblemDetail.validate!(input[:suite], context: "#{context}[:suite]") unless input[:suite].nil?
-        Validators::ProblemDetail.validate!(input[:test], context: "#{context}[:test]") unless input[:test].nil?
-        Validators::Device.validate!(input[:device], context: "#{context}[:device]") unless input[:device].nil?
+        ProblemDetail.validate!(input[:run], context: "#{context}[:run]") unless input[:run].nil?
+        ProblemDetail.validate!(input[:job], context: "#{context}[:job]") unless input[:job].nil?
+        ProblemDetail.validate!(input[:suite], context: "#{context}[:suite]") unless input[:suite].nil?
+        ProblemDetail.validate!(input[:test], context: "#{context}[:test]") unless input[:test].nil?
+        Device.validate!(input[:device], context: "#{context}[:device]") unless input[:device].nil?
         Hearth::Validator.validate!(input[:result], ::String, context: "#{context}[:result]")
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
       end
@@ -1528,7 +1530,7 @@ module AWS::SDK::DeviceFarm
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Problem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Problem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1547,7 +1549,7 @@ module AWS::SDK::DeviceFarm
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Project.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Project.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1564,7 +1566,7 @@ module AWS::SDK::DeviceFarm
     class PurchaseOfferingOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PurchaseOfferingOutput, context: context)
-        Validators::OfferingTransaction.validate!(input[:offering_transaction], context: "#{context}[:offering_transaction]") unless input[:offering_transaction].nil?
+        OfferingTransaction.validate!(input[:offering_transaction], context: "#{context}[:offering_transaction]") unless input[:offering_transaction].nil?
       end
     end
 
@@ -1591,7 +1593,7 @@ module AWS::SDK::DeviceFarm
     class RecurringCharge
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RecurringCharge, context: context)
-        Validators::MonetaryAmount.validate!(input[:cost], context: "#{context}[:cost]") unless input[:cost].nil?
+        MonetaryAmount.validate!(input[:cost], context: "#{context}[:cost]") unless input[:cost].nil?
         Hearth::Validator.validate!(input[:frequency], ::String, context: "#{context}[:frequency]")
       end
     end
@@ -1600,7 +1602,7 @@ module AWS::SDK::DeviceFarm
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RecurringCharge.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RecurringCharge.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1616,7 +1618,7 @@ module AWS::SDK::DeviceFarm
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:started], ::Time, context: "#{context}[:started]")
         Hearth::Validator.validate!(input[:stopped], ::Time, context: "#{context}[:stopped]")
-        Validators::Device.validate!(input[:device], context: "#{context}[:device]") unless input[:device].nil?
+        Device.validate!(input[:device], context: "#{context}[:device]") unless input[:device].nil?
         Hearth::Validator.validate!(input[:instance_arn], ::String, context: "#{context}[:instance_arn]")
         Hearth::Validator.validate!(input[:remote_debug_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:remote_debug_enabled]")
         Hearth::Validator.validate!(input[:remote_record_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:remote_record_enabled]")
@@ -1624,7 +1626,7 @@ module AWS::SDK::DeviceFarm
         Hearth::Validator.validate!(input[:host_address], ::String, context: "#{context}[:host_address]")
         Hearth::Validator.validate!(input[:client_id], ::String, context: "#{context}[:client_id]")
         Hearth::Validator.validate!(input[:billing_method], ::String, context: "#{context}[:billing_method]")
-        Validators::DeviceMinutes.validate!(input[:device_minutes], context: "#{context}[:device_minutes]") unless input[:device_minutes].nil?
+        DeviceMinutes.validate!(input[:device_minutes], context: "#{context}[:device_minutes]") unless input[:device_minutes].nil?
         Hearth::Validator.validate!(input[:endpoint], ::String, context: "#{context}[:endpoint]")
         Hearth::Validator.validate!(input[:device_udid], ::String, context: "#{context}[:device_udid]")
         Hearth::Validator.validate!(input[:interaction_mode], ::String, context: "#{context}[:interaction_mode]")
@@ -1636,7 +1638,7 @@ module AWS::SDK::DeviceFarm
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RemoteAccessSession.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RemoteAccessSession.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1652,7 +1654,7 @@ module AWS::SDK::DeviceFarm
     class RenewOfferingOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RenewOfferingOutput, context: context)
-        Validators::OfferingTransaction.validate!(input[:offering_transaction], context: "#{context}[:offering_transaction]") unless input[:offering_transaction].nil?
+        OfferingTransaction.validate!(input[:offering_transaction], context: "#{context}[:offering_transaction]") unless input[:offering_transaction].nil?
       end
     end
 
@@ -1677,7 +1679,7 @@ module AWS::SDK::DeviceFarm
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Rule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Rule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1694,13 +1696,13 @@ module AWS::SDK::DeviceFarm
         Hearth::Validator.validate!(input[:result], ::String, context: "#{context}[:result]")
         Hearth::Validator.validate!(input[:started], ::Time, context: "#{context}[:started]")
         Hearth::Validator.validate!(input[:stopped], ::Time, context: "#{context}[:stopped]")
-        Validators::Counters.validate!(input[:counters], context: "#{context}[:counters]") unless input[:counters].nil?
+        Counters.validate!(input[:counters], context: "#{context}[:counters]") unless input[:counters].nil?
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:total_jobs], ::Integer, context: "#{context}[:total_jobs]")
         Hearth::Validator.validate!(input[:completed_jobs], ::Integer, context: "#{context}[:completed_jobs]")
         Hearth::Validator.validate!(input[:billing_method], ::String, context: "#{context}[:billing_method]")
-        Validators::DeviceMinutes.validate!(input[:device_minutes], context: "#{context}[:device_minutes]") unless input[:device_minutes].nil?
-        Validators::NetworkProfile.validate!(input[:network_profile], context: "#{context}[:network_profile]") unless input[:network_profile].nil?
+        DeviceMinutes.validate!(input[:device_minutes], context: "#{context}[:device_minutes]") unless input[:device_minutes].nil?
+        NetworkProfile.validate!(input[:network_profile], context: "#{context}[:network_profile]") unless input[:network_profile].nil?
         Hearth::Validator.validate!(input[:parsing_result_url], ::String, context: "#{context}[:parsing_result_url]")
         Hearth::Validator.validate!(input[:result_code], ::String, context: "#{context}[:result_code]")
         Hearth::Validator.validate!(input[:seed], ::Integer, context: "#{context}[:seed]")
@@ -1709,13 +1711,13 @@ module AWS::SDK::DeviceFarm
         Hearth::Validator.validate!(input[:job_timeout_minutes], ::Integer, context: "#{context}[:job_timeout_minutes]")
         Hearth::Validator.validate!(input[:device_pool_arn], ::String, context: "#{context}[:device_pool_arn]")
         Hearth::Validator.validate!(input[:locale], ::String, context: "#{context}[:locale]")
-        Validators::Radios.validate!(input[:radios], context: "#{context}[:radios]") unless input[:radios].nil?
-        Validators::Location.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
-        Validators::CustomerArtifactPaths.validate!(input[:customer_artifact_paths], context: "#{context}[:customer_artifact_paths]") unless input[:customer_artifact_paths].nil?
+        Radios.validate!(input[:radios], context: "#{context}[:radios]") unless input[:radios].nil?
+        Location.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        CustomerArtifactPaths.validate!(input[:customer_artifact_paths], context: "#{context}[:customer_artifact_paths]") unless input[:customer_artifact_paths].nil?
         Hearth::Validator.validate!(input[:web_url], ::String, context: "#{context}[:web_url]")
         Hearth::Validator.validate!(input[:skip_app_resign], ::TrueClass, ::FalseClass, context: "#{context}[:skip_app_resign]")
         Hearth::Validator.validate!(input[:test_spec_arn], ::String, context: "#{context}[:test_spec_arn]")
-        Validators::DeviceSelectionResult.validate!(input[:device_selection_result], context: "#{context}[:device_selection_result]") unless input[:device_selection_result].nil?
+        DeviceSelectionResult.validate!(input[:device_selection_result], context: "#{context}[:device_selection_result]") unless input[:device_selection_result].nil?
       end
     end
 
@@ -1723,7 +1725,7 @@ module AWS::SDK::DeviceFarm
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Run.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Run.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1741,7 +1743,7 @@ module AWS::SDK::DeviceFarm
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Sample.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Sample.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1752,11 +1754,11 @@ module AWS::SDK::DeviceFarm
         Hearth::Validator.validate!(input[:extra_data_package_arn], ::String, context: "#{context}[:extra_data_package_arn]")
         Hearth::Validator.validate!(input[:network_profile_arn], ::String, context: "#{context}[:network_profile_arn]")
         Hearth::Validator.validate!(input[:locale], ::String, context: "#{context}[:locale]")
-        Validators::Location.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
-        Validators::AmazonResourceNames.validate!(input[:vpce_configuration_arns], context: "#{context}[:vpce_configuration_arns]") unless input[:vpce_configuration_arns].nil?
-        Validators::CustomerArtifactPaths.validate!(input[:customer_artifact_paths], context: "#{context}[:customer_artifact_paths]") unless input[:customer_artifact_paths].nil?
-        Validators::Radios.validate!(input[:radios], context: "#{context}[:radios]") unless input[:radios].nil?
-        Validators::AmazonResourceNames.validate!(input[:auxiliary_apps], context: "#{context}[:auxiliary_apps]") unless input[:auxiliary_apps].nil?
+        Location.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        AmazonResourceNames.validate!(input[:vpce_configuration_arns], context: "#{context}[:vpce_configuration_arns]") unless input[:vpce_configuration_arns].nil?
+        CustomerArtifactPaths.validate!(input[:customer_artifact_paths], context: "#{context}[:customer_artifact_paths]") unless input[:customer_artifact_paths].nil?
+        Radios.validate!(input[:radios], context: "#{context}[:radios]") unless input[:radios].nil?
+        AmazonResourceNames.validate!(input[:auxiliary_apps], context: "#{context}[:auxiliary_apps]") unless input[:auxiliary_apps].nil?
         Hearth::Validator.validate!(input[:billing_method], ::String, context: "#{context}[:billing_method]")
       end
     end
@@ -1767,18 +1769,18 @@ module AWS::SDK::DeviceFarm
         Hearth::Validator.validate!(input[:project_arn], ::String, context: "#{context}[:project_arn]")
         Hearth::Validator.validate!(input[:app_arn], ::String, context: "#{context}[:app_arn]")
         Hearth::Validator.validate!(input[:device_pool_arn], ::String, context: "#{context}[:device_pool_arn]")
-        Validators::DeviceSelectionConfiguration.validate!(input[:device_selection_configuration], context: "#{context}[:device_selection_configuration]") unless input[:device_selection_configuration].nil?
+        DeviceSelectionConfiguration.validate!(input[:device_selection_configuration], context: "#{context}[:device_selection_configuration]") unless input[:device_selection_configuration].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ScheduleRunTest.validate!(input[:test], context: "#{context}[:test]") unless input[:test].nil?
-        Validators::ScheduleRunConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
-        Validators::ExecutionConfiguration.validate!(input[:execution_configuration], context: "#{context}[:execution_configuration]") unless input[:execution_configuration].nil?
+        ScheduleRunTest.validate!(input[:test], context: "#{context}[:test]") unless input[:test].nil?
+        ScheduleRunConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        ExecutionConfiguration.validate!(input[:execution_configuration], context: "#{context}[:execution_configuration]") unless input[:execution_configuration].nil?
       end
     end
 
     class ScheduleRunOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ScheduleRunOutput, context: context)
-        Validators::Run.validate!(input[:run], context: "#{context}[:run]") unless input[:run].nil?
+        Run.validate!(input[:run], context: "#{context}[:run]") unless input[:run].nil?
       end
     end
 
@@ -1789,7 +1791,7 @@ module AWS::SDK::DeviceFarm
         Hearth::Validator.validate!(input[:test_package_arn], ::String, context: "#{context}[:test_package_arn]")
         Hearth::Validator.validate!(input[:test_spec_arn], ::String, context: "#{context}[:test_spec_arn]")
         Hearth::Validator.validate!(input[:filter], ::String, context: "#{context}[:filter]")
-        Validators::TestParameters.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        TestParameters.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
       end
     end
 
@@ -1819,7 +1821,7 @@ module AWS::SDK::DeviceFarm
     class StopJobOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StopJobOutput, context: context)
-        Validators::Job.validate!(input[:job], context: "#{context}[:job]") unless input[:job].nil?
+        Job.validate!(input[:job], context: "#{context}[:job]") unless input[:job].nil?
       end
     end
 
@@ -1833,7 +1835,7 @@ module AWS::SDK::DeviceFarm
     class StopRemoteAccessSessionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StopRemoteAccessSessionOutput, context: context)
-        Validators::RemoteAccessSession.validate!(input[:remote_access_session], context: "#{context}[:remote_access_session]") unless input[:remote_access_session].nil?
+        RemoteAccessSession.validate!(input[:remote_access_session], context: "#{context}[:remote_access_session]") unless input[:remote_access_session].nil?
       end
     end
 
@@ -1847,7 +1849,7 @@ module AWS::SDK::DeviceFarm
     class StopRunOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StopRunOutput, context: context)
-        Validators::Run.validate!(input[:run], context: "#{context}[:run]") unless input[:run].nil?
+        Run.validate!(input[:run], context: "#{context}[:run]") unless input[:run].nil?
       end
     end
 
@@ -1871,9 +1873,9 @@ module AWS::SDK::DeviceFarm
         Hearth::Validator.validate!(input[:result], ::String, context: "#{context}[:result]")
         Hearth::Validator.validate!(input[:started], ::Time, context: "#{context}[:started]")
         Hearth::Validator.validate!(input[:stopped], ::Time, context: "#{context}[:stopped]")
-        Validators::Counters.validate!(input[:counters], context: "#{context}[:counters]") unless input[:counters].nil?
+        Counters.validate!(input[:counters], context: "#{context}[:counters]") unless input[:counters].nil?
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
-        Validators::DeviceMinutes.validate!(input[:device_minutes], context: "#{context}[:device_minutes]") unless input[:device_minutes].nil?
+        DeviceMinutes.validate!(input[:device_minutes], context: "#{context}[:device_minutes]") unless input[:device_minutes].nil?
       end
     end
 
@@ -1881,7 +1883,7 @@ module AWS::SDK::DeviceFarm
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Suite.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Suite.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1907,7 +1909,7 @@ module AWS::SDK::DeviceFarm
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1932,7 +1934,7 @@ module AWS::SDK::DeviceFarm
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1953,9 +1955,9 @@ module AWS::SDK::DeviceFarm
         Hearth::Validator.validate!(input[:result], ::String, context: "#{context}[:result]")
         Hearth::Validator.validate!(input[:started], ::Time, context: "#{context}[:started]")
         Hearth::Validator.validate!(input[:stopped], ::Time, context: "#{context}[:stopped]")
-        Validators::Counters.validate!(input[:counters], context: "#{context}[:counters]") unless input[:counters].nil?
+        Counters.validate!(input[:counters], context: "#{context}[:counters]") unless input[:counters].nil?
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
-        Validators::DeviceMinutes.validate!(input[:device_minutes], context: "#{context}[:device_minutes]") unless input[:device_minutes].nil?
+        DeviceMinutes.validate!(input[:device_minutes], context: "#{context}[:device_minutes]") unless input[:device_minutes].nil?
       end
     end
 
@@ -1965,7 +1967,7 @@ module AWS::SDK::DeviceFarm
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TestGridVpcConfig.validate!(input[:vpc_config], context: "#{context}[:vpc_config]") unless input[:vpc_config].nil?
+        TestGridVpcConfig.validate!(input[:vpc_config], context: "#{context}[:vpc_config]") unless input[:vpc_config].nil?
         Hearth::Validator.validate!(input[:created], ::Time, context: "#{context}[:created]")
       end
     end
@@ -1974,7 +1976,7 @@ module AWS::SDK::DeviceFarm
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TestGridProject.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TestGridProject.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2006,7 +2008,7 @@ module AWS::SDK::DeviceFarm
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TestGridSessionAction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TestGridSessionAction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2024,7 +2026,7 @@ module AWS::SDK::DeviceFarm
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TestGridSessionArtifact.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TestGridSessionArtifact.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2033,7 +2035,7 @@ module AWS::SDK::DeviceFarm
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TestGridSession.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TestGridSession.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2041,8 +2043,8 @@ module AWS::SDK::DeviceFarm
     class TestGridVpcConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TestGridVpcConfig, context: context)
-        Validators::SecurityGroupIds.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
-        Validators::SubnetIds.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        SecurityGroupIds.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        SubnetIds.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
       end
     end
@@ -2061,7 +2063,7 @@ module AWS::SDK::DeviceFarm
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Test.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Test.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2086,7 +2088,7 @@ module AWS::SDK::DeviceFarm
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UniqueProblem, context: context)
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
-        Validators::Problems.validate!(input[:problems], context: "#{context}[:problems]") unless input[:problems].nil?
+        Problems.validate!(input[:problems], context: "#{context}[:problems]") unless input[:problems].nil?
       end
     end
 
@@ -2094,7 +2096,7 @@ module AWS::SDK::DeviceFarm
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UniqueProblem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UniqueProblem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2104,7 +2106,7 @@ module AWS::SDK::DeviceFarm
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::UniqueProblems.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          UniqueProblems.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -2113,7 +2115,7 @@ module AWS::SDK::DeviceFarm
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -2128,14 +2130,14 @@ module AWS::SDK::DeviceFarm
         Hearth::Validator.validate!(input, Types::UpdateDeviceInstanceInput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:profile_arn], ::String, context: "#{context}[:profile_arn]")
-        Validators::InstanceLabels.validate!(input[:labels], context: "#{context}[:labels]") unless input[:labels].nil?
+        InstanceLabels.validate!(input[:labels], context: "#{context}[:labels]") unless input[:labels].nil?
       end
     end
 
     class UpdateDeviceInstanceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateDeviceInstanceOutput, context: context)
-        Validators::DeviceInstance.validate!(input[:device_instance], context: "#{context}[:device_instance]") unless input[:device_instance].nil?
+        DeviceInstance.validate!(input[:device_instance], context: "#{context}[:device_instance]") unless input[:device_instance].nil?
       end
     end
 
@@ -2145,7 +2147,7 @@ module AWS::SDK::DeviceFarm
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::Rules.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        Rules.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
         Hearth::Validator.validate!(input[:max_devices], ::Integer, context: "#{context}[:max_devices]")
         Hearth::Validator.validate!(input[:clear_max_devices], ::TrueClass, ::FalseClass, context: "#{context}[:clear_max_devices]")
       end
@@ -2154,7 +2156,7 @@ module AWS::SDK::DeviceFarm
     class UpdateDevicePoolOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateDevicePoolOutput, context: context)
-        Validators::DevicePool.validate!(input[:device_pool], context: "#{context}[:device_pool]") unless input[:device_pool].nil?
+        DevicePool.validate!(input[:device_pool], context: "#{context}[:device_pool]") unless input[:device_pool].nil?
       end
     end
 
@@ -2165,7 +2167,7 @@ module AWS::SDK::DeviceFarm
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:package_cleanup], ::TrueClass, ::FalseClass, context: "#{context}[:package_cleanup]")
-        Validators::PackageIds.validate!(input[:exclude_app_packages_from_cleanup], context: "#{context}[:exclude_app_packages_from_cleanup]") unless input[:exclude_app_packages_from_cleanup].nil?
+        PackageIds.validate!(input[:exclude_app_packages_from_cleanup], context: "#{context}[:exclude_app_packages_from_cleanup]") unless input[:exclude_app_packages_from_cleanup].nil?
         Hearth::Validator.validate!(input[:reboot_after_use], ::TrueClass, ::FalseClass, context: "#{context}[:reboot_after_use]")
       end
     end
@@ -2173,7 +2175,7 @@ module AWS::SDK::DeviceFarm
     class UpdateInstanceProfileOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateInstanceProfileOutput, context: context)
-        Validators::InstanceProfile.validate!(input[:instance_profile], context: "#{context}[:instance_profile]") unless input[:instance_profile].nil?
+        InstanceProfile.validate!(input[:instance_profile], context: "#{context}[:instance_profile]") unless input[:instance_profile].nil?
       end
     end
 
@@ -2198,7 +2200,7 @@ module AWS::SDK::DeviceFarm
     class UpdateNetworkProfileOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateNetworkProfileOutput, context: context)
-        Validators::NetworkProfile.validate!(input[:network_profile], context: "#{context}[:network_profile]") unless input[:network_profile].nil?
+        NetworkProfile.validate!(input[:network_profile], context: "#{context}[:network_profile]") unless input[:network_profile].nil?
       end
     end
 
@@ -2214,7 +2216,7 @@ module AWS::SDK::DeviceFarm
     class UpdateProjectOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateProjectOutput, context: context)
-        Validators::Project.validate!(input[:project], context: "#{context}[:project]") unless input[:project].nil?
+        Project.validate!(input[:project], context: "#{context}[:project]") unless input[:project].nil?
       end
     end
 
@@ -2224,14 +2226,14 @@ module AWS::SDK::DeviceFarm
         Hearth::Validator.validate!(input[:project_arn], ::String, context: "#{context}[:project_arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TestGridVpcConfig.validate!(input[:vpc_config], context: "#{context}[:vpc_config]") unless input[:vpc_config].nil?
+        TestGridVpcConfig.validate!(input[:vpc_config], context: "#{context}[:vpc_config]") unless input[:vpc_config].nil?
       end
     end
 
     class UpdateTestGridProjectOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateTestGridProjectOutput, context: context)
-        Validators::TestGridProject.validate!(input[:test_grid_project], context: "#{context}[:test_grid_project]") unless input[:test_grid_project].nil?
+        TestGridProject.validate!(input[:test_grid_project], context: "#{context}[:test_grid_project]") unless input[:test_grid_project].nil?
       end
     end
 
@@ -2248,7 +2250,7 @@ module AWS::SDK::DeviceFarm
     class UpdateUploadOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateUploadOutput, context: context)
-        Validators::Upload.validate!(input[:upload], context: "#{context}[:upload]") unless input[:upload].nil?
+        Upload.validate!(input[:upload], context: "#{context}[:upload]") unless input[:upload].nil?
       end
     end
 
@@ -2266,7 +2268,7 @@ module AWS::SDK::DeviceFarm
     class UpdateVPCEConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateVPCEConfigurationOutput, context: context)
-        Validators::VPCEConfiguration.validate!(input[:vpce_configuration], context: "#{context}[:vpce_configuration]") unless input[:vpce_configuration].nil?
+        VPCEConfiguration.validate!(input[:vpce_configuration], context: "#{context}[:vpce_configuration]") unless input[:vpce_configuration].nil?
       end
     end
 
@@ -2290,7 +2292,7 @@ module AWS::SDK::DeviceFarm
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Upload.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Upload.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2310,7 +2312,7 @@ module AWS::SDK::DeviceFarm
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::VPCEConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          VPCEConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

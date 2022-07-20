@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::IoTSiteWise
@@ -74,7 +76,7 @@ module AWS::SDK::IoTSiteWise
     def associate_assets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateAssetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateAssetsInput,
         validate_input: @config.validate_input
@@ -158,7 +160,7 @@ module AWS::SDK::IoTSiteWise
     def associate_time_series_to_asset_property(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateTimeSeriesToAssetPropertyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateTimeSeriesToAssetPropertyInput,
         validate_input: @config.validate_input
@@ -245,7 +247,7 @@ module AWS::SDK::IoTSiteWise
     def batch_associate_project_assets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchAssociateProjectAssetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchAssociateProjectAssetsInput,
         validate_input: @config.validate_input
@@ -332,7 +334,7 @@ module AWS::SDK::IoTSiteWise
     def batch_disassociate_project_assets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchDisassociateProjectAssetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchDisassociateProjectAssetsInput,
         validate_input: @config.validate_input
@@ -468,7 +470,7 @@ module AWS::SDK::IoTSiteWise
     def batch_get_asset_property_aggregates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetAssetPropertyAggregatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetAssetPropertyAggregatesInput,
         validate_input: @config.validate_input
@@ -579,7 +581,7 @@ module AWS::SDK::IoTSiteWise
     def batch_get_asset_property_value(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetAssetPropertyValueInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetAssetPropertyValueInput,
         validate_input: @config.validate_input
@@ -710,7 +712,7 @@ module AWS::SDK::IoTSiteWise
     def batch_get_asset_property_value_history(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetAssetPropertyValueHistoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetAssetPropertyValueHistoryInput,
         validate_input: @config.validate_input
@@ -840,7 +842,7 @@ module AWS::SDK::IoTSiteWise
     def batch_put_asset_property_value(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchPutAssetPropertyValueInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchPutAssetPropertyValueInput,
         validate_input: @config.validate_input
@@ -955,7 +957,7 @@ module AWS::SDK::IoTSiteWise
     def create_access_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAccessPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAccessPolicyInput,
         validate_input: @config.validate_input
@@ -1059,7 +1061,7 @@ module AWS::SDK::IoTSiteWise
     def create_asset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAssetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAssetInput,
         validate_input: @config.validate_input
@@ -1241,7 +1243,7 @@ module AWS::SDK::IoTSiteWise
     def create_asset_model(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAssetModelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAssetModelInput,
         validate_input: @config.validate_input
@@ -1340,7 +1342,7 @@ module AWS::SDK::IoTSiteWise
     def create_dashboard(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDashboardInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDashboardInput,
         validate_input: @config.validate_input
@@ -1435,7 +1437,7 @@ module AWS::SDK::IoTSiteWise
     def create_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateGatewayInput,
         validate_input: @config.validate_input
@@ -1597,7 +1599,7 @@ module AWS::SDK::IoTSiteWise
     def create_portal(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePortalInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePortalInput,
         validate_input: @config.validate_input
@@ -1695,7 +1697,7 @@ module AWS::SDK::IoTSiteWise
     def create_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateProjectInput,
         validate_input: @config.validate_input
@@ -1773,7 +1775,7 @@ module AWS::SDK::IoTSiteWise
     def delete_access_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAccessPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAccessPolicyInput,
         validate_input: @config.validate_input
@@ -1862,7 +1864,7 @@ module AWS::SDK::IoTSiteWise
     def delete_asset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAssetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAssetInput,
         validate_input: @config.validate_input
@@ -1950,7 +1952,7 @@ module AWS::SDK::IoTSiteWise
     def delete_asset_model(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAssetModelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAssetModelInput,
         validate_input: @config.validate_input
@@ -2025,7 +2027,7 @@ module AWS::SDK::IoTSiteWise
     def delete_dashboard(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDashboardInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDashboardInput,
         validate_input: @config.validate_input
@@ -2097,7 +2099,7 @@ module AWS::SDK::IoTSiteWise
     def delete_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteGatewayInput,
         validate_input: @config.validate_input
@@ -2177,7 +2179,7 @@ module AWS::SDK::IoTSiteWise
     def delete_portal(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePortalInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePortalInput,
         validate_input: @config.validate_input
@@ -2252,7 +2254,7 @@ module AWS::SDK::IoTSiteWise
     def delete_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteProjectInput,
         validate_input: @config.validate_input
@@ -2356,7 +2358,7 @@ module AWS::SDK::IoTSiteWise
     def delete_time_series(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTimeSeriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTimeSeriesInput,
         validate_input: @config.validate_input
@@ -2448,7 +2450,7 @@ module AWS::SDK::IoTSiteWise
     def describe_access_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAccessPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAccessPolicyInput,
         validate_input: @config.validate_input
@@ -2556,7 +2558,7 @@ module AWS::SDK::IoTSiteWise
     def describe_asset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAssetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAssetInput,
         validate_input: @config.validate_input
@@ -2687,7 +2689,7 @@ module AWS::SDK::IoTSiteWise
     def describe_asset_model(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAssetModelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAssetModelInput,
         validate_input: @config.validate_input
@@ -2812,7 +2814,7 @@ module AWS::SDK::IoTSiteWise
     def describe_asset_property(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAssetPropertyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAssetPropertyInput,
         validate_input: @config.validate_input
@@ -2891,7 +2893,7 @@ module AWS::SDK::IoTSiteWise
     def describe_dashboard(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDashboardInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDashboardInput,
         validate_input: @config.validate_input
@@ -2966,7 +2968,7 @@ module AWS::SDK::IoTSiteWise
     def describe_default_encryption_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDefaultEncryptionConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDefaultEncryptionConfigurationInput,
         validate_input: @config.validate_input
@@ -3051,7 +3053,7 @@ module AWS::SDK::IoTSiteWise
     def describe_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeGatewayInput,
         validate_input: @config.validate_input
@@ -3138,7 +3140,7 @@ module AWS::SDK::IoTSiteWise
     def describe_gateway_capability_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeGatewayCapabilityConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeGatewayCapabilityConfigurationInput,
         validate_input: @config.validate_input
@@ -3206,7 +3208,7 @@ module AWS::SDK::IoTSiteWise
     def describe_logging_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLoggingOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLoggingOptionsInput,
         validate_input: @config.validate_input
@@ -3300,7 +3302,7 @@ module AWS::SDK::IoTSiteWise
     def describe_portal(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePortalInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePortalInput,
         validate_input: @config.validate_input
@@ -3378,7 +3380,7 @@ module AWS::SDK::IoTSiteWise
     def describe_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeProjectInput,
         validate_input: @config.validate_input
@@ -3459,7 +3461,7 @@ module AWS::SDK::IoTSiteWise
     def describe_storage_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeStorageConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeStorageConfigurationInput,
         validate_input: @config.validate_input
@@ -3565,7 +3567,7 @@ module AWS::SDK::IoTSiteWise
     def describe_time_series(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTimeSeriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTimeSeriesInput,
         validate_input: @config.validate_input
@@ -3652,7 +3654,7 @@ module AWS::SDK::IoTSiteWise
     def disassociate_assets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateAssetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateAssetsInput,
         validate_input: @config.validate_input
@@ -3736,7 +3738,7 @@ module AWS::SDK::IoTSiteWise
     def disassociate_time_series_from_asset_property(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateTimeSeriesFromAssetPropertyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateTimeSeriesFromAssetPropertyInput,
         validate_input: @config.validate_input
@@ -3881,7 +3883,7 @@ module AWS::SDK::IoTSiteWise
     def get_asset_property_aggregates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAssetPropertyAggregatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAssetPropertyAggregatesInput,
         validate_input: @config.validate_input
@@ -3984,7 +3986,7 @@ module AWS::SDK::IoTSiteWise
     def get_asset_property_value(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAssetPropertyValueInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAssetPropertyValueInput,
         validate_input: @config.validate_input
@@ -4118,7 +4120,7 @@ module AWS::SDK::IoTSiteWise
     def get_asset_property_value_history(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAssetPropertyValueHistoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAssetPropertyValueHistoryInput,
         validate_input: @config.validate_input
@@ -4318,7 +4320,7 @@ module AWS::SDK::IoTSiteWise
     def get_interpolated_asset_property_values(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetInterpolatedAssetPropertyValuesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetInterpolatedAssetPropertyValuesInput,
         validate_input: @config.validate_input
@@ -4442,7 +4444,7 @@ module AWS::SDK::IoTSiteWise
     def list_access_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAccessPoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAccessPoliciesInput,
         validate_input: @config.validate_input
@@ -4536,7 +4538,7 @@ module AWS::SDK::IoTSiteWise
     def list_asset_models(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAssetModelsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAssetModelsInput,
         validate_input: @config.validate_input
@@ -4637,7 +4639,7 @@ module AWS::SDK::IoTSiteWise
     def list_asset_relationships(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAssetRelationshipsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAssetRelationshipsInput,
         validate_input: @config.validate_input
@@ -4772,7 +4774,7 @@ module AWS::SDK::IoTSiteWise
     def list_assets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAssetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAssetsInput,
         validate_input: @config.validate_input
@@ -4910,7 +4912,7 @@ module AWS::SDK::IoTSiteWise
     def list_associated_assets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAssociatedAssetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAssociatedAssetsInput,
         validate_input: @config.validate_input
@@ -4998,7 +5000,7 @@ module AWS::SDK::IoTSiteWise
     def list_dashboards(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDashboardsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDashboardsInput,
         validate_input: @config.validate_input
@@ -5090,7 +5092,7 @@ module AWS::SDK::IoTSiteWise
     def list_gateways(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListGatewaysInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListGatewaysInput,
         validate_input: @config.validate_input
@@ -5181,7 +5183,7 @@ module AWS::SDK::IoTSiteWise
     def list_portals(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPortalsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPortalsInput,
         validate_input: @config.validate_input
@@ -5264,7 +5266,7 @@ module AWS::SDK::IoTSiteWise
     def list_project_assets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListProjectAssetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListProjectAssetsInput,
         validate_input: @config.validate_input
@@ -5352,7 +5354,7 @@ module AWS::SDK::IoTSiteWise
     def list_projects(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListProjectsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListProjectsInput,
         validate_input: @config.validate_input
@@ -5425,7 +5427,7 @@ module AWS::SDK::IoTSiteWise
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -5536,7 +5538,7 @@ module AWS::SDK::IoTSiteWise
     def list_time_series(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTimeSeriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTimeSeriesInput,
         validate_input: @config.validate_input
@@ -5621,7 +5623,7 @@ module AWS::SDK::IoTSiteWise
     def put_default_encryption_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutDefaultEncryptionConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutDefaultEncryptionConfigurationInput,
         validate_input: @config.validate_input
@@ -5695,7 +5697,7 @@ module AWS::SDK::IoTSiteWise
     def put_logging_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutLoggingOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutLoggingOptionsInput,
         validate_input: @config.validate_input
@@ -5831,7 +5833,7 @@ module AWS::SDK::IoTSiteWise
     def put_storage_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutStorageConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutStorageConfigurationInput,
         validate_input: @config.validate_input
@@ -5912,7 +5914,7 @@ module AWS::SDK::IoTSiteWise
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -5990,7 +5992,7 @@ module AWS::SDK::IoTSiteWise
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -6098,7 +6100,7 @@ module AWS::SDK::IoTSiteWise
     def update_access_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAccessPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAccessPolicyInput,
         validate_input: @config.validate_input
@@ -6192,7 +6194,7 @@ module AWS::SDK::IoTSiteWise
     def update_asset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAssetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAssetInput,
         validate_input: @config.validate_input
@@ -6378,7 +6380,7 @@ module AWS::SDK::IoTSiteWise
     def update_asset_model(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAssetModelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAssetModelInput,
         validate_input: @config.validate_input
@@ -6478,7 +6480,7 @@ module AWS::SDK::IoTSiteWise
     def update_asset_property(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAssetPropertyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAssetPropertyInput,
         validate_input: @config.validate_input
@@ -6567,7 +6569,7 @@ module AWS::SDK::IoTSiteWise
     def update_dashboard(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDashboardInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDashboardInput,
         validate_input: @config.validate_input
@@ -6643,7 +6645,7 @@ module AWS::SDK::IoTSiteWise
     def update_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGatewayInput,
         validate_input: @config.validate_input
@@ -6734,7 +6736,7 @@ module AWS::SDK::IoTSiteWise
     def update_gateway_capability_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGatewayCapabilityConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGatewayCapabilityConfigurationInput,
         validate_input: @config.validate_input
@@ -6864,7 +6866,7 @@ module AWS::SDK::IoTSiteWise
     def update_portal(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePortalInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePortalInput,
         validate_input: @config.validate_input
@@ -6948,7 +6950,7 @@ module AWS::SDK::IoTSiteWise
     def update_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateProjectInput,
         validate_input: @config.validate_input

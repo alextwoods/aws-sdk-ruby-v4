@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::OpenSearch
   module Validators
 
@@ -29,7 +31,7 @@ module AWS::SDK::OpenSearch
     class AcceptInboundConnectionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AcceptInboundConnectionOutput, context: context)
-        Validators::InboundConnection.validate!(input[:connection], context: "#{context}[:connection]") unless input[:connection].nil?
+        InboundConnection.validate!(input[:connection], context: "#{context}[:connection]") unless input[:connection].nil?
       end
     end
 
@@ -44,7 +46,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AccessPoliciesStatus, context: context)
         Hearth::Validator.validate!(input[:options], ::String, context: "#{context}[:options]")
-        Validators::OptionStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        OptionStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
       end
     end
 
@@ -52,7 +54,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddTagsInput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
+        TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
       end
     end
 
@@ -66,7 +68,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AdditionalLimit, context: context)
         Hearth::Validator.validate!(input[:limit_name], ::String, context: "#{context}[:limit_name]")
-        Validators::LimitValueList.validate!(input[:limit_values], context: "#{context}[:limit_values]") unless input[:limit_values].nil?
+        LimitValueList.validate!(input[:limit_values], context: "#{context}[:limit_values]") unless input[:limit_values].nil?
       end
     end
 
@@ -74,7 +76,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AdditionalLimit.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AdditionalLimit.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -92,8 +94,8 @@ module AWS::SDK::OpenSearch
     class AdvancedOptionsStatus
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AdvancedOptionsStatus, context: context)
-        Validators::AdvancedOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
-        Validators::OptionStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        AdvancedOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
+        OptionStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
       end
     end
 
@@ -102,7 +104,7 @@ module AWS::SDK::OpenSearch
         Hearth::Validator.validate!(input, Types::AdvancedSecurityOptions, context: context)
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
         Hearth::Validator.validate!(input[:internal_user_database_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:internal_user_database_enabled]")
-        Validators::SAMLOptionsOutput.validate!(input[:saml_options], context: "#{context}[:saml_options]") unless input[:saml_options].nil?
+        SAMLOptionsOutput.validate!(input[:saml_options], context: "#{context}[:saml_options]") unless input[:saml_options].nil?
         Hearth::Validator.validate!(input[:anonymous_auth_disable_date], ::Time, context: "#{context}[:anonymous_auth_disable_date]")
         Hearth::Validator.validate!(input[:anonymous_auth_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:anonymous_auth_enabled]")
       end
@@ -113,8 +115,8 @@ module AWS::SDK::OpenSearch
         Hearth::Validator.validate!(input, Types::AdvancedSecurityOptionsInput, context: context)
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
         Hearth::Validator.validate!(input[:internal_user_database_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:internal_user_database_enabled]")
-        Validators::MasterUserOptions.validate!(input[:master_user_options], context: "#{context}[:master_user_options]") unless input[:master_user_options].nil?
-        Validators::SAMLOptionsInput.validate!(input[:saml_options], context: "#{context}[:saml_options]") unless input[:saml_options].nil?
+        MasterUserOptions.validate!(input[:master_user_options], context: "#{context}[:master_user_options]") unless input[:master_user_options].nil?
+        SAMLOptionsInput.validate!(input[:saml_options], context: "#{context}[:saml_options]") unless input[:saml_options].nil?
         Hearth::Validator.validate!(input[:anonymous_auth_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:anonymous_auth_enabled]")
       end
     end
@@ -122,8 +124,8 @@ module AWS::SDK::OpenSearch
     class AdvancedSecurityOptionsStatus
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AdvancedSecurityOptionsStatus, context: context)
-        Validators::AdvancedSecurityOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
-        Validators::OptionStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        AdvancedSecurityOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
+        OptionStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
       end
     end
 
@@ -138,7 +140,7 @@ module AWS::SDK::OpenSearch
     class AssociatePackageOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AssociatePackageOutput, context: context)
-        Validators::DomainPackageDetails.validate!(input[:domain_package_details], context: "#{context}[:domain_package_details]") unless input[:domain_package_details].nil?
+        DomainPackageDetails.validate!(input[:domain_package_details], context: "#{context}[:domain_package_details]") unless input[:domain_package_details].nil?
       end
     end
 
@@ -146,14 +148,14 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AutoTune, context: context)
         Hearth::Validator.validate!(input[:auto_tune_type], ::String, context: "#{context}[:auto_tune_type]")
-        Validators::AutoTuneDetails.validate!(input[:auto_tune_details], context: "#{context}[:auto_tune_details]") unless input[:auto_tune_details].nil?
+        AutoTuneDetails.validate!(input[:auto_tune_details], context: "#{context}[:auto_tune_details]") unless input[:auto_tune_details].nil?
       end
     end
 
     class AutoTuneDetails
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AutoTuneDetails, context: context)
-        Validators::ScheduledAutoTuneDetails.validate!(input[:scheduled_auto_tune_details], context: "#{context}[:scheduled_auto_tune_details]") unless input[:scheduled_auto_tune_details].nil?
+        ScheduledAutoTuneDetails.validate!(input[:scheduled_auto_tune_details], context: "#{context}[:scheduled_auto_tune_details]") unless input[:scheduled_auto_tune_details].nil?
       end
     end
 
@@ -161,7 +163,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AutoTune.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AutoTune.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -170,7 +172,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AutoTuneMaintenanceSchedule, context: context)
         Hearth::Validator.validate!(input[:start_at], ::Time, context: "#{context}[:start_at]")
-        Validators::Duration.validate!(input[:duration], context: "#{context}[:duration]") unless input[:duration].nil?
+        Duration.validate!(input[:duration], context: "#{context}[:duration]") unless input[:duration].nil?
         Hearth::Validator.validate!(input[:cron_expression_for_recurrence], ::String, context: "#{context}[:cron_expression_for_recurrence]")
       end
     end
@@ -179,7 +181,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AutoTuneMaintenanceSchedule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AutoTuneMaintenanceSchedule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -189,7 +191,7 @@ module AWS::SDK::OpenSearch
         Hearth::Validator.validate!(input, Types::AutoTuneOptions, context: context)
         Hearth::Validator.validate!(input[:desired_state], ::String, context: "#{context}[:desired_state]")
         Hearth::Validator.validate!(input[:rollback_on_disable], ::String, context: "#{context}[:rollback_on_disable]")
-        Validators::AutoTuneMaintenanceScheduleList.validate!(input[:maintenance_schedules], context: "#{context}[:maintenance_schedules]") unless input[:maintenance_schedules].nil?
+        AutoTuneMaintenanceScheduleList.validate!(input[:maintenance_schedules], context: "#{context}[:maintenance_schedules]") unless input[:maintenance_schedules].nil?
       end
     end
 
@@ -197,7 +199,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AutoTuneOptionsInput, context: context)
         Hearth::Validator.validate!(input[:desired_state], ::String, context: "#{context}[:desired_state]")
-        Validators::AutoTuneMaintenanceScheduleList.validate!(input[:maintenance_schedules], context: "#{context}[:maintenance_schedules]") unless input[:maintenance_schedules].nil?
+        AutoTuneMaintenanceScheduleList.validate!(input[:maintenance_schedules], context: "#{context}[:maintenance_schedules]") unless input[:maintenance_schedules].nil?
       end
     end
 
@@ -212,8 +214,8 @@ module AWS::SDK::OpenSearch
     class AutoTuneOptionsStatus
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AutoTuneOptionsStatus, context: context)
-        Validators::AutoTuneOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
-        Validators::AutoTuneStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        AutoTuneOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
+        AutoTuneStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
       end
     end
 
@@ -246,7 +248,7 @@ module AWS::SDK::OpenSearch
     class CancelServiceSoftwareUpdateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CancelServiceSoftwareUpdateOutput, context: context)
-        Validators::ServiceSoftwareOptions.validate!(input[:service_software_options], context: "#{context}[:service_software_options]") unless input[:service_software_options].nil?
+        ServiceSoftwareOptions.validate!(input[:service_software_options], context: "#{context}[:service_software_options]") unless input[:service_software_options].nil?
       end
     end
 
@@ -272,7 +274,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ChangeProgressStage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ChangeProgressStage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -283,10 +285,10 @@ module AWS::SDK::OpenSearch
         Hearth::Validator.validate!(input[:change_id], ::String, context: "#{context}[:change_id]")
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::StringList.validate!(input[:pending_properties], context: "#{context}[:pending_properties]") unless input[:pending_properties].nil?
-        Validators::StringList.validate!(input[:completed_properties], context: "#{context}[:completed_properties]") unless input[:completed_properties].nil?
+        StringList.validate!(input[:pending_properties], context: "#{context}[:pending_properties]") unless input[:pending_properties].nil?
+        StringList.validate!(input[:completed_properties], context: "#{context}[:completed_properties]") unless input[:completed_properties].nil?
         Hearth::Validator.validate!(input[:total_number_of_stages], ::Integer, context: "#{context}[:total_number_of_stages]")
-        Validators::ChangeProgressStageList.validate!(input[:change_progress_stages], context: "#{context}[:change_progress_stages]") unless input[:change_progress_stages].nil?
+        ChangeProgressStageList.validate!(input[:change_progress_stages], context: "#{context}[:change_progress_stages]") unless input[:change_progress_stages].nil?
       end
     end
 
@@ -297,21 +299,21 @@ module AWS::SDK::OpenSearch
         Hearth::Validator.validate!(input[:instance_count], ::Integer, context: "#{context}[:instance_count]")
         Hearth::Validator.validate!(input[:dedicated_master_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:dedicated_master_enabled]")
         Hearth::Validator.validate!(input[:zone_awareness_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:zone_awareness_enabled]")
-        Validators::ZoneAwarenessConfig.validate!(input[:zone_awareness_config], context: "#{context}[:zone_awareness_config]") unless input[:zone_awareness_config].nil?
+        ZoneAwarenessConfig.validate!(input[:zone_awareness_config], context: "#{context}[:zone_awareness_config]") unless input[:zone_awareness_config].nil?
         Hearth::Validator.validate!(input[:dedicated_master_type], ::String, context: "#{context}[:dedicated_master_type]")
         Hearth::Validator.validate!(input[:dedicated_master_count], ::Integer, context: "#{context}[:dedicated_master_count]")
         Hearth::Validator.validate!(input[:warm_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:warm_enabled]")
         Hearth::Validator.validate!(input[:warm_type], ::String, context: "#{context}[:warm_type]")
         Hearth::Validator.validate!(input[:warm_count], ::Integer, context: "#{context}[:warm_count]")
-        Validators::ColdStorageOptions.validate!(input[:cold_storage_options], context: "#{context}[:cold_storage_options]") unless input[:cold_storage_options].nil?
+        ColdStorageOptions.validate!(input[:cold_storage_options], context: "#{context}[:cold_storage_options]") unless input[:cold_storage_options].nil?
       end
     end
 
     class ClusterConfigStatus
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ClusterConfigStatus, context: context)
-        Validators::ClusterConfig.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
-        Validators::OptionStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        ClusterConfig.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
+        OptionStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
       end
     end
 
@@ -328,8 +330,8 @@ module AWS::SDK::OpenSearch
     class CognitoOptionsStatus
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CognitoOptionsStatus, context: context)
-        Validators::CognitoOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
-        Validators::OptionStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        CognitoOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
+        OptionStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
       end
     end
 
@@ -344,7 +346,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CompatibleVersionsMap.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CompatibleVersionsMap.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -353,7 +355,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CompatibleVersionsMap, context: context)
         Hearth::Validator.validate!(input[:source_version], ::String, context: "#{context}[:source_version]")
-        Validators::VersionList.validate!(input[:target_versions], context: "#{context}[:target_versions]") unless input[:target_versions].nil?
+        VersionList.validate!(input[:target_versions], context: "#{context}[:target_versions]") unless input[:target_versions].nil?
       end
     end
 
@@ -369,35 +371,35 @@ module AWS::SDK::OpenSearch
         Hearth::Validator.validate!(input, Types::CreateDomainInput, context: context)
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
         Hearth::Validator.validate!(input[:engine_version], ::String, context: "#{context}[:engine_version]")
-        Validators::ClusterConfig.validate!(input[:cluster_config], context: "#{context}[:cluster_config]") unless input[:cluster_config].nil?
-        Validators::EBSOptions.validate!(input[:ebs_options], context: "#{context}[:ebs_options]") unless input[:ebs_options].nil?
+        ClusterConfig.validate!(input[:cluster_config], context: "#{context}[:cluster_config]") unless input[:cluster_config].nil?
+        EBSOptions.validate!(input[:ebs_options], context: "#{context}[:ebs_options]") unless input[:ebs_options].nil?
         Hearth::Validator.validate!(input[:access_policies], ::String, context: "#{context}[:access_policies]")
-        Validators::SnapshotOptions.validate!(input[:snapshot_options], context: "#{context}[:snapshot_options]") unless input[:snapshot_options].nil?
-        Validators::VPCOptions.validate!(input[:vpc_options], context: "#{context}[:vpc_options]") unless input[:vpc_options].nil?
-        Validators::CognitoOptions.validate!(input[:cognito_options], context: "#{context}[:cognito_options]") unless input[:cognito_options].nil?
-        Validators::EncryptionAtRestOptions.validate!(input[:encryption_at_rest_options], context: "#{context}[:encryption_at_rest_options]") unless input[:encryption_at_rest_options].nil?
-        Validators::NodeToNodeEncryptionOptions.validate!(input[:node_to_node_encryption_options], context: "#{context}[:node_to_node_encryption_options]") unless input[:node_to_node_encryption_options].nil?
-        Validators::AdvancedOptions.validate!(input[:advanced_options], context: "#{context}[:advanced_options]") unless input[:advanced_options].nil?
-        Validators::LogPublishingOptions.validate!(input[:log_publishing_options], context: "#{context}[:log_publishing_options]") unless input[:log_publishing_options].nil?
-        Validators::DomainEndpointOptions.validate!(input[:domain_endpoint_options], context: "#{context}[:domain_endpoint_options]") unless input[:domain_endpoint_options].nil?
-        Validators::AdvancedSecurityOptionsInput.validate!(input[:advanced_security_options], context: "#{context}[:advanced_security_options]") unless input[:advanced_security_options].nil?
-        Validators::TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
-        Validators::AutoTuneOptionsInput.validate!(input[:auto_tune_options], context: "#{context}[:auto_tune_options]") unless input[:auto_tune_options].nil?
+        SnapshotOptions.validate!(input[:snapshot_options], context: "#{context}[:snapshot_options]") unless input[:snapshot_options].nil?
+        VPCOptions.validate!(input[:vpc_options], context: "#{context}[:vpc_options]") unless input[:vpc_options].nil?
+        CognitoOptions.validate!(input[:cognito_options], context: "#{context}[:cognito_options]") unless input[:cognito_options].nil?
+        EncryptionAtRestOptions.validate!(input[:encryption_at_rest_options], context: "#{context}[:encryption_at_rest_options]") unless input[:encryption_at_rest_options].nil?
+        NodeToNodeEncryptionOptions.validate!(input[:node_to_node_encryption_options], context: "#{context}[:node_to_node_encryption_options]") unless input[:node_to_node_encryption_options].nil?
+        AdvancedOptions.validate!(input[:advanced_options], context: "#{context}[:advanced_options]") unless input[:advanced_options].nil?
+        LogPublishingOptions.validate!(input[:log_publishing_options], context: "#{context}[:log_publishing_options]") unless input[:log_publishing_options].nil?
+        DomainEndpointOptions.validate!(input[:domain_endpoint_options], context: "#{context}[:domain_endpoint_options]") unless input[:domain_endpoint_options].nil?
+        AdvancedSecurityOptionsInput.validate!(input[:advanced_security_options], context: "#{context}[:advanced_security_options]") unless input[:advanced_security_options].nil?
+        TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
+        AutoTuneOptionsInput.validate!(input[:auto_tune_options], context: "#{context}[:auto_tune_options]") unless input[:auto_tune_options].nil?
       end
     end
 
     class CreateDomainOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateDomainOutput, context: context)
-        Validators::DomainStatus.validate!(input[:domain_status], context: "#{context}[:domain_status]") unless input[:domain_status].nil?
+        DomainStatus.validate!(input[:domain_status], context: "#{context}[:domain_status]") unless input[:domain_status].nil?
       end
     end
 
     class CreateOutboundConnectionInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateOutboundConnectionInput, context: context)
-        Validators::DomainInformationContainer.validate!(input[:local_domain_info], context: "#{context}[:local_domain_info]") unless input[:local_domain_info].nil?
-        Validators::DomainInformationContainer.validate!(input[:remote_domain_info], context: "#{context}[:remote_domain_info]") unless input[:remote_domain_info].nil?
+        DomainInformationContainer.validate!(input[:local_domain_info], context: "#{context}[:local_domain_info]") unless input[:local_domain_info].nil?
+        DomainInformationContainer.validate!(input[:remote_domain_info], context: "#{context}[:remote_domain_info]") unless input[:remote_domain_info].nil?
         Hearth::Validator.validate!(input[:connection_alias], ::String, context: "#{context}[:connection_alias]")
       end
     end
@@ -405,10 +407,10 @@ module AWS::SDK::OpenSearch
     class CreateOutboundConnectionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateOutboundConnectionOutput, context: context)
-        Validators::DomainInformationContainer.validate!(input[:local_domain_info], context: "#{context}[:local_domain_info]") unless input[:local_domain_info].nil?
-        Validators::DomainInformationContainer.validate!(input[:remote_domain_info], context: "#{context}[:remote_domain_info]") unless input[:remote_domain_info].nil?
+        DomainInformationContainer.validate!(input[:local_domain_info], context: "#{context}[:local_domain_info]") unless input[:local_domain_info].nil?
+        DomainInformationContainer.validate!(input[:remote_domain_info], context: "#{context}[:remote_domain_info]") unless input[:remote_domain_info].nil?
         Hearth::Validator.validate!(input[:connection_alias], ::String, context: "#{context}[:connection_alias]")
-        Validators::OutboundConnectionStatus.validate!(input[:connection_status], context: "#{context}[:connection_status]") unless input[:connection_status].nil?
+        OutboundConnectionStatus.validate!(input[:connection_status], context: "#{context}[:connection_status]") unless input[:connection_status].nil?
         Hearth::Validator.validate!(input[:connection_id], ::String, context: "#{context}[:connection_id]")
       end
     end
@@ -419,14 +421,14 @@ module AWS::SDK::OpenSearch
         Hearth::Validator.validate!(input[:package_name], ::String, context: "#{context}[:package_name]")
         Hearth::Validator.validate!(input[:package_type], ::String, context: "#{context}[:package_type]")
         Hearth::Validator.validate!(input[:package_description], ::String, context: "#{context}[:package_description]")
-        Validators::PackageSource.validate!(input[:package_source], context: "#{context}[:package_source]") unless input[:package_source].nil?
+        PackageSource.validate!(input[:package_source], context: "#{context}[:package_source]") unless input[:package_source].nil?
       end
     end
 
     class CreatePackageOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreatePackageOutput, context: context)
-        Validators::PackageDetails.validate!(input[:package_details], context: "#{context}[:package_details]") unless input[:package_details].nil?
+        PackageDetails.validate!(input[:package_details], context: "#{context}[:package_details]") unless input[:package_details].nil?
       end
     end
 
@@ -440,7 +442,7 @@ module AWS::SDK::OpenSearch
     class DeleteDomainOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteDomainOutput, context: context)
-        Validators::DomainStatus.validate!(input[:domain_status], context: "#{context}[:domain_status]") unless input[:domain_status].nil?
+        DomainStatus.validate!(input[:domain_status], context: "#{context}[:domain_status]") unless input[:domain_status].nil?
       end
     end
 
@@ -454,7 +456,7 @@ module AWS::SDK::OpenSearch
     class DeleteInboundConnectionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteInboundConnectionOutput, context: context)
-        Validators::InboundConnection.validate!(input[:connection], context: "#{context}[:connection]") unless input[:connection].nil?
+        InboundConnection.validate!(input[:connection], context: "#{context}[:connection]") unless input[:connection].nil?
       end
     end
 
@@ -468,7 +470,7 @@ module AWS::SDK::OpenSearch
     class DeleteOutboundConnectionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteOutboundConnectionOutput, context: context)
-        Validators::OutboundConnection.validate!(input[:connection], context: "#{context}[:connection]") unless input[:connection].nil?
+        OutboundConnection.validate!(input[:connection], context: "#{context}[:connection]") unless input[:connection].nil?
       end
     end
 
@@ -482,7 +484,7 @@ module AWS::SDK::OpenSearch
     class DeletePackageOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeletePackageOutput, context: context)
-        Validators::PackageDetails.validate!(input[:package_details], context: "#{context}[:package_details]") unless input[:package_details].nil?
+        PackageDetails.validate!(input[:package_details], context: "#{context}[:package_details]") unless input[:package_details].nil?
       end
     end
 
@@ -498,7 +500,7 @@ module AWS::SDK::OpenSearch
     class DescribeDomainAutoTunesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeDomainAutoTunesOutput, context: context)
-        Validators::AutoTuneList.validate!(input[:auto_tunes], context: "#{context}[:auto_tunes]") unless input[:auto_tunes].nil?
+        AutoTuneList.validate!(input[:auto_tunes], context: "#{context}[:auto_tunes]") unless input[:auto_tunes].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -514,7 +516,7 @@ module AWS::SDK::OpenSearch
     class DescribeDomainChangeProgressOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeDomainChangeProgressOutput, context: context)
-        Validators::ChangeProgressStatusDetails.validate!(input[:change_progress_status], context: "#{context}[:change_progress_status]") unless input[:change_progress_status].nil?
+        ChangeProgressStatusDetails.validate!(input[:change_progress_status], context: "#{context}[:change_progress_status]") unless input[:change_progress_status].nil?
       end
     end
 
@@ -528,7 +530,7 @@ module AWS::SDK::OpenSearch
     class DescribeDomainConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeDomainConfigOutput, context: context)
-        Validators::DomainConfig.validate!(input[:domain_config], context: "#{context}[:domain_config]") unless input[:domain_config].nil?
+        DomainConfig.validate!(input[:domain_config], context: "#{context}[:domain_config]") unless input[:domain_config].nil?
       end
     end
 
@@ -542,28 +544,28 @@ module AWS::SDK::OpenSearch
     class DescribeDomainOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeDomainOutput, context: context)
-        Validators::DomainStatus.validate!(input[:domain_status], context: "#{context}[:domain_status]") unless input[:domain_status].nil?
+        DomainStatus.validate!(input[:domain_status], context: "#{context}[:domain_status]") unless input[:domain_status].nil?
       end
     end
 
     class DescribeDomainsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeDomainsInput, context: context)
-        Validators::DomainNameList.validate!(input[:domain_names], context: "#{context}[:domain_names]") unless input[:domain_names].nil?
+        DomainNameList.validate!(input[:domain_names], context: "#{context}[:domain_names]") unless input[:domain_names].nil?
       end
     end
 
     class DescribeDomainsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeDomainsOutput, context: context)
-        Validators::DomainStatusList.validate!(input[:domain_status_list], context: "#{context}[:domain_status_list]") unless input[:domain_status_list].nil?
+        DomainStatusList.validate!(input[:domain_status_list], context: "#{context}[:domain_status_list]") unless input[:domain_status_list].nil?
       end
     end
 
     class DescribeInboundConnectionsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeInboundConnectionsInput, context: context)
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -572,7 +574,7 @@ module AWS::SDK::OpenSearch
     class DescribeInboundConnectionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeInboundConnectionsOutput, context: context)
-        Validators::InboundConnections.validate!(input[:connections], context: "#{context}[:connections]") unless input[:connections].nil?
+        InboundConnections.validate!(input[:connections], context: "#{context}[:connections]") unless input[:connections].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -589,14 +591,14 @@ module AWS::SDK::OpenSearch
     class DescribeInstanceTypeLimitsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeInstanceTypeLimitsOutput, context: context)
-        Validators::LimitsByRole.validate!(input[:limits_by_role], context: "#{context}[:limits_by_role]") unless input[:limits_by_role].nil?
+        LimitsByRole.validate!(input[:limits_by_role], context: "#{context}[:limits_by_role]") unless input[:limits_by_role].nil?
       end
     end
 
     class DescribeOutboundConnectionsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeOutboundConnectionsInput, context: context)
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -605,7 +607,7 @@ module AWS::SDK::OpenSearch
     class DescribeOutboundConnectionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeOutboundConnectionsOutput, context: context)
-        Validators::OutboundConnections.validate!(input[:connections], context: "#{context}[:connections]") unless input[:connections].nil?
+        OutboundConnections.validate!(input[:connections], context: "#{context}[:connections]") unless input[:connections].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -614,7 +616,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribePackagesFilter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::DescribePackagesFilterValues.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
+        DescribePackagesFilterValues.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
       end
     end
 
@@ -622,7 +624,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DescribePackagesFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DescribePackagesFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -639,7 +641,7 @@ module AWS::SDK::OpenSearch
     class DescribePackagesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribePackagesInput, context: context)
-        Validators::DescribePackagesFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        DescribePackagesFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -648,7 +650,7 @@ module AWS::SDK::OpenSearch
     class DescribePackagesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribePackagesOutput, context: context)
-        Validators::PackageDetailsList.validate!(input[:package_details_list], context: "#{context}[:package_details_list]") unless input[:package_details_list].nil?
+        PackageDetailsList.validate!(input[:package_details_list], context: "#{context}[:package_details_list]") unless input[:package_details_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -666,7 +668,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeReservedInstanceOfferingsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ReservedInstanceOfferingList.validate!(input[:reserved_instance_offerings], context: "#{context}[:reserved_instance_offerings]") unless input[:reserved_instance_offerings].nil?
+        ReservedInstanceOfferingList.validate!(input[:reserved_instance_offerings], context: "#{context}[:reserved_instance_offerings]") unless input[:reserved_instance_offerings].nil?
       end
     end
 
@@ -683,7 +685,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeReservedInstancesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ReservedInstanceList.validate!(input[:reserved_instances], context: "#{context}[:reserved_instances]") unless input[:reserved_instances].nil?
+        ReservedInstanceList.validate!(input[:reserved_instances], context: "#{context}[:reserved_instances]") unless input[:reserved_instances].nil?
       end
     end
 
@@ -705,28 +707,28 @@ module AWS::SDK::OpenSearch
     class DissociatePackageOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DissociatePackageOutput, context: context)
-        Validators::DomainPackageDetails.validate!(input[:domain_package_details], context: "#{context}[:domain_package_details]") unless input[:domain_package_details].nil?
+        DomainPackageDetails.validate!(input[:domain_package_details], context: "#{context}[:domain_package_details]") unless input[:domain_package_details].nil?
       end
     end
 
     class DomainConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DomainConfig, context: context)
-        Validators::VersionStatus.validate!(input[:engine_version], context: "#{context}[:engine_version]") unless input[:engine_version].nil?
-        Validators::ClusterConfigStatus.validate!(input[:cluster_config], context: "#{context}[:cluster_config]") unless input[:cluster_config].nil?
-        Validators::EBSOptionsStatus.validate!(input[:ebs_options], context: "#{context}[:ebs_options]") unless input[:ebs_options].nil?
-        Validators::AccessPoliciesStatus.validate!(input[:access_policies], context: "#{context}[:access_policies]") unless input[:access_policies].nil?
-        Validators::SnapshotOptionsStatus.validate!(input[:snapshot_options], context: "#{context}[:snapshot_options]") unless input[:snapshot_options].nil?
-        Validators::VPCDerivedInfoStatus.validate!(input[:vpc_options], context: "#{context}[:vpc_options]") unless input[:vpc_options].nil?
-        Validators::CognitoOptionsStatus.validate!(input[:cognito_options], context: "#{context}[:cognito_options]") unless input[:cognito_options].nil?
-        Validators::EncryptionAtRestOptionsStatus.validate!(input[:encryption_at_rest_options], context: "#{context}[:encryption_at_rest_options]") unless input[:encryption_at_rest_options].nil?
-        Validators::NodeToNodeEncryptionOptionsStatus.validate!(input[:node_to_node_encryption_options], context: "#{context}[:node_to_node_encryption_options]") unless input[:node_to_node_encryption_options].nil?
-        Validators::AdvancedOptionsStatus.validate!(input[:advanced_options], context: "#{context}[:advanced_options]") unless input[:advanced_options].nil?
-        Validators::LogPublishingOptionsStatus.validate!(input[:log_publishing_options], context: "#{context}[:log_publishing_options]") unless input[:log_publishing_options].nil?
-        Validators::DomainEndpointOptionsStatus.validate!(input[:domain_endpoint_options], context: "#{context}[:domain_endpoint_options]") unless input[:domain_endpoint_options].nil?
-        Validators::AdvancedSecurityOptionsStatus.validate!(input[:advanced_security_options], context: "#{context}[:advanced_security_options]") unless input[:advanced_security_options].nil?
-        Validators::AutoTuneOptionsStatus.validate!(input[:auto_tune_options], context: "#{context}[:auto_tune_options]") unless input[:auto_tune_options].nil?
-        Validators::ChangeProgressDetails.validate!(input[:change_progress_details], context: "#{context}[:change_progress_details]") unless input[:change_progress_details].nil?
+        VersionStatus.validate!(input[:engine_version], context: "#{context}[:engine_version]") unless input[:engine_version].nil?
+        ClusterConfigStatus.validate!(input[:cluster_config], context: "#{context}[:cluster_config]") unless input[:cluster_config].nil?
+        EBSOptionsStatus.validate!(input[:ebs_options], context: "#{context}[:ebs_options]") unless input[:ebs_options].nil?
+        AccessPoliciesStatus.validate!(input[:access_policies], context: "#{context}[:access_policies]") unless input[:access_policies].nil?
+        SnapshotOptionsStatus.validate!(input[:snapshot_options], context: "#{context}[:snapshot_options]") unless input[:snapshot_options].nil?
+        VPCDerivedInfoStatus.validate!(input[:vpc_options], context: "#{context}[:vpc_options]") unless input[:vpc_options].nil?
+        CognitoOptionsStatus.validate!(input[:cognito_options], context: "#{context}[:cognito_options]") unless input[:cognito_options].nil?
+        EncryptionAtRestOptionsStatus.validate!(input[:encryption_at_rest_options], context: "#{context}[:encryption_at_rest_options]") unless input[:encryption_at_rest_options].nil?
+        NodeToNodeEncryptionOptionsStatus.validate!(input[:node_to_node_encryption_options], context: "#{context}[:node_to_node_encryption_options]") unless input[:node_to_node_encryption_options].nil?
+        AdvancedOptionsStatus.validate!(input[:advanced_options], context: "#{context}[:advanced_options]") unless input[:advanced_options].nil?
+        LogPublishingOptionsStatus.validate!(input[:log_publishing_options], context: "#{context}[:log_publishing_options]") unless input[:log_publishing_options].nil?
+        DomainEndpointOptionsStatus.validate!(input[:domain_endpoint_options], context: "#{context}[:domain_endpoint_options]") unless input[:domain_endpoint_options].nil?
+        AdvancedSecurityOptionsStatus.validate!(input[:advanced_security_options], context: "#{context}[:advanced_security_options]") unless input[:advanced_security_options].nil?
+        AutoTuneOptionsStatus.validate!(input[:auto_tune_options], context: "#{context}[:auto_tune_options]") unless input[:auto_tune_options].nil?
+        ChangeProgressDetails.validate!(input[:change_progress_details], context: "#{context}[:change_progress_details]") unless input[:change_progress_details].nil?
       end
     end
 
@@ -744,8 +746,8 @@ module AWS::SDK::OpenSearch
     class DomainEndpointOptionsStatus
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DomainEndpointOptionsStatus, context: context)
-        Validators::DomainEndpointOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
-        Validators::OptionStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        DomainEndpointOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
+        OptionStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
       end
     end
 
@@ -761,7 +763,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DomainInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DomainInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -769,7 +771,7 @@ module AWS::SDK::OpenSearch
     class DomainInformationContainer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DomainInformationContainer, context: context)
-        Validators::AWSDomainInformation.validate!(input[:aws_domain_information], context: "#{context}[:aws_domain_information]") unless input[:aws_domain_information].nil?
+        AWSDomainInformation.validate!(input[:aws_domain_information], context: "#{context}[:aws_domain_information]") unless input[:aws_domain_information].nil?
       end
     end
 
@@ -793,7 +795,7 @@ module AWS::SDK::OpenSearch
         Hearth::Validator.validate!(input[:domain_package_status], ::String, context: "#{context}[:domain_package_status]")
         Hearth::Validator.validate!(input[:package_version], ::String, context: "#{context}[:package_version]")
         Hearth::Validator.validate!(input[:reference_path], ::String, context: "#{context}[:reference_path]")
-        Validators::ErrorDetails.validate!(input[:error_details], context: "#{context}[:error_details]") unless input[:error_details].nil?
+        ErrorDetails.validate!(input[:error_details], context: "#{context}[:error_details]") unless input[:error_details].nil?
       end
     end
 
@@ -801,7 +803,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DomainPackageDetails.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DomainPackageDetails.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -815,25 +817,25 @@ module AWS::SDK::OpenSearch
         Hearth::Validator.validate!(input[:created], ::TrueClass, ::FalseClass, context: "#{context}[:created]")
         Hearth::Validator.validate!(input[:deleted], ::TrueClass, ::FalseClass, context: "#{context}[:deleted]")
         Hearth::Validator.validate!(input[:endpoint], ::String, context: "#{context}[:endpoint]")
-        Validators::EndpointsMap.validate!(input[:endpoints], context: "#{context}[:endpoints]") unless input[:endpoints].nil?
+        EndpointsMap.validate!(input[:endpoints], context: "#{context}[:endpoints]") unless input[:endpoints].nil?
         Hearth::Validator.validate!(input[:processing], ::TrueClass, ::FalseClass, context: "#{context}[:processing]")
         Hearth::Validator.validate!(input[:upgrade_processing], ::TrueClass, ::FalseClass, context: "#{context}[:upgrade_processing]")
         Hearth::Validator.validate!(input[:engine_version], ::String, context: "#{context}[:engine_version]")
-        Validators::ClusterConfig.validate!(input[:cluster_config], context: "#{context}[:cluster_config]") unless input[:cluster_config].nil?
-        Validators::EBSOptions.validate!(input[:ebs_options], context: "#{context}[:ebs_options]") unless input[:ebs_options].nil?
+        ClusterConfig.validate!(input[:cluster_config], context: "#{context}[:cluster_config]") unless input[:cluster_config].nil?
+        EBSOptions.validate!(input[:ebs_options], context: "#{context}[:ebs_options]") unless input[:ebs_options].nil?
         Hearth::Validator.validate!(input[:access_policies], ::String, context: "#{context}[:access_policies]")
-        Validators::SnapshotOptions.validate!(input[:snapshot_options], context: "#{context}[:snapshot_options]") unless input[:snapshot_options].nil?
-        Validators::VPCDerivedInfo.validate!(input[:vpc_options], context: "#{context}[:vpc_options]") unless input[:vpc_options].nil?
-        Validators::CognitoOptions.validate!(input[:cognito_options], context: "#{context}[:cognito_options]") unless input[:cognito_options].nil?
-        Validators::EncryptionAtRestOptions.validate!(input[:encryption_at_rest_options], context: "#{context}[:encryption_at_rest_options]") unless input[:encryption_at_rest_options].nil?
-        Validators::NodeToNodeEncryptionOptions.validate!(input[:node_to_node_encryption_options], context: "#{context}[:node_to_node_encryption_options]") unless input[:node_to_node_encryption_options].nil?
-        Validators::AdvancedOptions.validate!(input[:advanced_options], context: "#{context}[:advanced_options]") unless input[:advanced_options].nil?
-        Validators::LogPublishingOptions.validate!(input[:log_publishing_options], context: "#{context}[:log_publishing_options]") unless input[:log_publishing_options].nil?
-        Validators::ServiceSoftwareOptions.validate!(input[:service_software_options], context: "#{context}[:service_software_options]") unless input[:service_software_options].nil?
-        Validators::DomainEndpointOptions.validate!(input[:domain_endpoint_options], context: "#{context}[:domain_endpoint_options]") unless input[:domain_endpoint_options].nil?
-        Validators::AdvancedSecurityOptions.validate!(input[:advanced_security_options], context: "#{context}[:advanced_security_options]") unless input[:advanced_security_options].nil?
-        Validators::AutoTuneOptionsOutput.validate!(input[:auto_tune_options], context: "#{context}[:auto_tune_options]") unless input[:auto_tune_options].nil?
-        Validators::ChangeProgressDetails.validate!(input[:change_progress_details], context: "#{context}[:change_progress_details]") unless input[:change_progress_details].nil?
+        SnapshotOptions.validate!(input[:snapshot_options], context: "#{context}[:snapshot_options]") unless input[:snapshot_options].nil?
+        VPCDerivedInfo.validate!(input[:vpc_options], context: "#{context}[:vpc_options]") unless input[:vpc_options].nil?
+        CognitoOptions.validate!(input[:cognito_options], context: "#{context}[:cognito_options]") unless input[:cognito_options].nil?
+        EncryptionAtRestOptions.validate!(input[:encryption_at_rest_options], context: "#{context}[:encryption_at_rest_options]") unless input[:encryption_at_rest_options].nil?
+        NodeToNodeEncryptionOptions.validate!(input[:node_to_node_encryption_options], context: "#{context}[:node_to_node_encryption_options]") unless input[:node_to_node_encryption_options].nil?
+        AdvancedOptions.validate!(input[:advanced_options], context: "#{context}[:advanced_options]") unless input[:advanced_options].nil?
+        LogPublishingOptions.validate!(input[:log_publishing_options], context: "#{context}[:log_publishing_options]") unless input[:log_publishing_options].nil?
+        ServiceSoftwareOptions.validate!(input[:service_software_options], context: "#{context}[:service_software_options]") unless input[:service_software_options].nil?
+        DomainEndpointOptions.validate!(input[:domain_endpoint_options], context: "#{context}[:domain_endpoint_options]") unless input[:domain_endpoint_options].nil?
+        AdvancedSecurityOptions.validate!(input[:advanced_security_options], context: "#{context}[:advanced_security_options]") unless input[:advanced_security_options].nil?
+        AutoTuneOptionsOutput.validate!(input[:auto_tune_options], context: "#{context}[:auto_tune_options]") unless input[:auto_tune_options].nil?
+        ChangeProgressDetails.validate!(input[:change_progress_details], context: "#{context}[:change_progress_details]") unless input[:change_progress_details].nil?
       end
     end
 
@@ -841,7 +843,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DomainStatus.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DomainStatus.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -875,8 +877,8 @@ module AWS::SDK::OpenSearch
     class EBSOptionsStatus
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EBSOptionsStatus, context: context)
-        Validators::EBSOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
-        Validators::OptionStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        EBSOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
+        OptionStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
       end
     end
 
@@ -891,8 +893,8 @@ module AWS::SDK::OpenSearch
     class EncryptionAtRestOptionsStatus
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EncryptionAtRestOptionsStatus, context: context)
-        Validators::EncryptionAtRestOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
-        Validators::OptionStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        EncryptionAtRestOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
+        OptionStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
       end
     end
 
@@ -918,7 +920,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Filter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ValueStringList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        ValueStringList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -926,7 +928,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -941,7 +943,7 @@ module AWS::SDK::OpenSearch
     class GetCompatibleVersionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetCompatibleVersionsOutput, context: context)
-        Validators::CompatibleVersionsList.validate!(input[:compatible_versions], context: "#{context}[:compatible_versions]") unless input[:compatible_versions].nil?
+        CompatibleVersionsList.validate!(input[:compatible_versions], context: "#{context}[:compatible_versions]") unless input[:compatible_versions].nil?
       end
     end
 
@@ -958,7 +960,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetPackageVersionHistoryOutput, context: context)
         Hearth::Validator.validate!(input[:package_id], ::String, context: "#{context}[:package_id]")
-        Validators::PackageVersionHistoryList.validate!(input[:package_version_history_list], context: "#{context}[:package_version_history_list]") unless input[:package_version_history_list].nil?
+        PackageVersionHistoryList.validate!(input[:package_version_history_list], context: "#{context}[:package_version_history_list]") unless input[:package_version_history_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -975,7 +977,7 @@ module AWS::SDK::OpenSearch
     class GetUpgradeHistoryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetUpgradeHistoryOutput, context: context)
-        Validators::UpgradeHistoryList.validate!(input[:upgrade_histories], context: "#{context}[:upgrade_histories]") unless input[:upgrade_histories].nil?
+        UpgradeHistoryList.validate!(input[:upgrade_histories], context: "#{context}[:upgrade_histories]") unless input[:upgrade_histories].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -999,10 +1001,10 @@ module AWS::SDK::OpenSearch
     class InboundConnection
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InboundConnection, context: context)
-        Validators::DomainInformationContainer.validate!(input[:local_domain_info], context: "#{context}[:local_domain_info]") unless input[:local_domain_info].nil?
-        Validators::DomainInformationContainer.validate!(input[:remote_domain_info], context: "#{context}[:remote_domain_info]") unless input[:remote_domain_info].nil?
+        DomainInformationContainer.validate!(input[:local_domain_info], context: "#{context}[:local_domain_info]") unless input[:local_domain_info].nil?
+        DomainInformationContainer.validate!(input[:remote_domain_info], context: "#{context}[:remote_domain_info]") unless input[:remote_domain_info].nil?
         Hearth::Validator.validate!(input[:connection_id], ::String, context: "#{context}[:connection_id]")
-        Validators::InboundConnectionStatus.validate!(input[:connection_status], context: "#{context}[:connection_status]") unless input[:connection_status].nil?
+        InboundConnectionStatus.validate!(input[:connection_status], context: "#{context}[:connection_status]") unless input[:connection_status].nil?
       end
     end
 
@@ -1018,7 +1020,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InboundConnection.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InboundConnection.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1034,7 +1036,7 @@ module AWS::SDK::OpenSearch
     class InstanceLimits
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InstanceLimits, context: context)
-        Validators::InstanceCountLimits.validate!(input[:instance_count_limits], context: "#{context}[:instance_count_limits]") unless input[:instance_count_limits].nil?
+        InstanceCountLimits.validate!(input[:instance_count_limits], context: "#{context}[:instance_count_limits]") unless input[:instance_count_limits].nil?
       end
     end
 
@@ -1056,7 +1058,7 @@ module AWS::SDK::OpenSearch
         Hearth::Validator.validate!(input[:app_logs_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:app_logs_enabled]")
         Hearth::Validator.validate!(input[:advanced_security_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:advanced_security_enabled]")
         Hearth::Validator.validate!(input[:warm_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:warm_enabled]")
-        Validators::InstanceRoleList.validate!(input[:instance_role], context: "#{context}[:instance_role]") unless input[:instance_role].nil?
+        InstanceRoleList.validate!(input[:instance_role], context: "#{context}[:instance_role]") unless input[:instance_role].nil?
       end
     end
 
@@ -1064,7 +1066,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InstanceTypeDetails.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InstanceTypeDetails.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1118,9 +1120,9 @@ module AWS::SDK::OpenSearch
     class Limits
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Limits, context: context)
-        Validators::StorageTypeList.validate!(input[:storage_types], context: "#{context}[:storage_types]") unless input[:storage_types].nil?
-        Validators::InstanceLimits.validate!(input[:instance_limits], context: "#{context}[:instance_limits]") unless input[:instance_limits].nil?
-        Validators::AdditionalLimitList.validate!(input[:additional_limits], context: "#{context}[:additional_limits]") unless input[:additional_limits].nil?
+        StorageTypeList.validate!(input[:storage_types], context: "#{context}[:storage_types]") unless input[:storage_types].nil?
+        InstanceLimits.validate!(input[:instance_limits], context: "#{context}[:instance_limits]") unless input[:instance_limits].nil?
+        AdditionalLimitList.validate!(input[:additional_limits], context: "#{context}[:additional_limits]") unless input[:additional_limits].nil?
       end
     end
 
@@ -1129,7 +1131,7 @@ module AWS::SDK::OpenSearch
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::Limits.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          Limits.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -1144,7 +1146,7 @@ module AWS::SDK::OpenSearch
     class ListDomainNamesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDomainNamesOutput, context: context)
-        Validators::DomainInfoList.validate!(input[:domain_names], context: "#{context}[:domain_names]") unless input[:domain_names].nil?
+        DomainInfoList.validate!(input[:domain_names], context: "#{context}[:domain_names]") unless input[:domain_names].nil?
       end
     end
 
@@ -1160,7 +1162,7 @@ module AWS::SDK::OpenSearch
     class ListDomainsForPackageOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDomainsForPackageOutput, context: context)
-        Validators::DomainPackageDetailsList.validate!(input[:domain_package_details_list], context: "#{context}[:domain_package_details_list]") unless input[:domain_package_details_list].nil?
+        DomainPackageDetailsList.validate!(input[:domain_package_details_list], context: "#{context}[:domain_package_details_list]") unless input[:domain_package_details_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1178,7 +1180,7 @@ module AWS::SDK::OpenSearch
     class ListInstanceTypeDetailsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListInstanceTypeDetailsOutput, context: context)
-        Validators::InstanceTypeDetailsList.validate!(input[:instance_type_details], context: "#{context}[:instance_type_details]") unless input[:instance_type_details].nil?
+        InstanceTypeDetailsList.validate!(input[:instance_type_details], context: "#{context}[:instance_type_details]") unless input[:instance_type_details].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1195,7 +1197,7 @@ module AWS::SDK::OpenSearch
     class ListPackagesForDomainOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPackagesForDomainOutput, context: context)
-        Validators::DomainPackageDetailsList.validate!(input[:domain_package_details_list], context: "#{context}[:domain_package_details_list]") unless input[:domain_package_details_list].nil?
+        DomainPackageDetailsList.validate!(input[:domain_package_details_list], context: "#{context}[:domain_package_details_list]") unless input[:domain_package_details_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1210,7 +1212,7 @@ module AWS::SDK::OpenSearch
     class ListTagsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsOutput, context: context)
-        Validators::TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
+        TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
       end
     end
 
@@ -1225,7 +1227,7 @@ module AWS::SDK::OpenSearch
     class ListVersionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListVersionsOutput, context: context)
-        Validators::VersionList.validate!(input[:versions], context: "#{context}[:versions]") unless input[:versions].nil?
+        VersionList.validate!(input[:versions], context: "#{context}[:versions]") unless input[:versions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1243,7 +1245,7 @@ module AWS::SDK::OpenSearch
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::LogPublishingOption.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          LogPublishingOption.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -1251,8 +1253,8 @@ module AWS::SDK::OpenSearch
     class LogPublishingOptionsStatus
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LogPublishingOptionsStatus, context: context)
-        Validators::LogPublishingOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
-        Validators::OptionStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        LogPublishingOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
+        OptionStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
       end
     end
 
@@ -1275,8 +1277,8 @@ module AWS::SDK::OpenSearch
     class NodeToNodeEncryptionOptionsStatus
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NodeToNodeEncryptionOptionsStatus, context: context)
-        Validators::NodeToNodeEncryptionOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
-        Validators::OptionStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        NodeToNodeEncryptionOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
+        OptionStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
       end
     end
 
@@ -1294,11 +1296,11 @@ module AWS::SDK::OpenSearch
     class OutboundConnection
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OutboundConnection, context: context)
-        Validators::DomainInformationContainer.validate!(input[:local_domain_info], context: "#{context}[:local_domain_info]") unless input[:local_domain_info].nil?
-        Validators::DomainInformationContainer.validate!(input[:remote_domain_info], context: "#{context}[:remote_domain_info]") unless input[:remote_domain_info].nil?
+        DomainInformationContainer.validate!(input[:local_domain_info], context: "#{context}[:local_domain_info]") unless input[:local_domain_info].nil?
+        DomainInformationContainer.validate!(input[:remote_domain_info], context: "#{context}[:remote_domain_info]") unless input[:remote_domain_info].nil?
         Hearth::Validator.validate!(input[:connection_id], ::String, context: "#{context}[:connection_id]")
         Hearth::Validator.validate!(input[:connection_alias], ::String, context: "#{context}[:connection_alias]")
-        Validators::OutboundConnectionStatus.validate!(input[:connection_status], context: "#{context}[:connection_status]") unless input[:connection_status].nil?
+        OutboundConnectionStatus.validate!(input[:connection_status], context: "#{context}[:connection_status]") unless input[:connection_status].nil?
       end
     end
 
@@ -1314,7 +1316,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OutboundConnection.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OutboundConnection.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1330,7 +1332,7 @@ module AWS::SDK::OpenSearch
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:last_updated_at], ::Time, context: "#{context}[:last_updated_at]")
         Hearth::Validator.validate!(input[:available_package_version], ::String, context: "#{context}[:available_package_version]")
-        Validators::ErrorDetails.validate!(input[:error_details], context: "#{context}[:error_details]") unless input[:error_details].nil?
+        ErrorDetails.validate!(input[:error_details], context: "#{context}[:error_details]") unless input[:error_details].nil?
       end
     end
 
@@ -1338,7 +1340,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PackageDetails.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PackageDetails.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1364,7 +1366,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PackageVersionHistory.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PackageVersionHistory.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1398,7 +1400,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RecurringCharge.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RecurringCharge.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1413,7 +1415,7 @@ module AWS::SDK::OpenSearch
     class RejectInboundConnectionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RejectInboundConnectionOutput, context: context)
-        Validators::InboundConnection.validate!(input[:connection], context: "#{context}[:connection]") unless input[:connection].nil?
+        InboundConnection.validate!(input[:connection], context: "#{context}[:connection]") unless input[:connection].nil?
       end
     end
 
@@ -1421,7 +1423,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RemoveTagsInput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::StringList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        StringList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1447,7 +1449,7 @@ module AWS::SDK::OpenSearch
         Hearth::Validator.validate!(input[:instance_count], ::Integer, context: "#{context}[:instance_count]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:payment_option], ::String, context: "#{context}[:payment_option]")
-        Validators::RecurringChargeList.validate!(input[:recurring_charges], context: "#{context}[:recurring_charges]") unless input[:recurring_charges].nil?
+        RecurringChargeList.validate!(input[:recurring_charges], context: "#{context}[:recurring_charges]") unless input[:recurring_charges].nil?
       end
     end
 
@@ -1455,7 +1457,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReservedInstance.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReservedInstance.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1470,7 +1472,7 @@ module AWS::SDK::OpenSearch
         Hearth::Validator.validate!(input[:usage_price], ::Float, context: "#{context}[:usage_price]")
         Hearth::Validator.validate!(input[:currency_code], ::String, context: "#{context}[:currency_code]")
         Hearth::Validator.validate!(input[:payment_option], ::String, context: "#{context}[:payment_option]")
-        Validators::RecurringChargeList.validate!(input[:recurring_charges], context: "#{context}[:recurring_charges]") unless input[:recurring_charges].nil?
+        RecurringChargeList.validate!(input[:recurring_charges], context: "#{context}[:recurring_charges]") unless input[:recurring_charges].nil?
       end
     end
 
@@ -1478,7 +1480,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReservedInstanceOffering.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReservedInstanceOffering.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1509,7 +1511,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SAMLOptionsInput, context: context)
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
-        Validators::SAMLIdp.validate!(input[:idp], context: "#{context}[:idp]") unless input[:idp].nil?
+        SAMLIdp.validate!(input[:idp], context: "#{context}[:idp]") unless input[:idp].nil?
         Hearth::Validator.validate!(input[:master_user_name], ::String, context: "#{context}[:master_user_name]")
         Hearth::Validator.validate!(input[:master_backend_role], ::String, context: "#{context}[:master_backend_role]")
         Hearth::Validator.validate!(input[:subject_key], ::String, context: "#{context}[:subject_key]")
@@ -1522,7 +1524,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SAMLOptionsOutput, context: context)
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
-        Validators::SAMLIdp.validate!(input[:idp], context: "#{context}[:idp]") unless input[:idp].nil?
+        SAMLIdp.validate!(input[:idp], context: "#{context}[:idp]") unless input[:idp].nil?
         Hearth::Validator.validate!(input[:subject_key], ::String, context: "#{context}[:subject_key]")
         Hearth::Validator.validate!(input[:roles_key], ::String, context: "#{context}[:roles_key]")
         Hearth::Validator.validate!(input[:session_timeout_minutes], ::Integer, context: "#{context}[:session_timeout_minutes]")
@@ -1563,8 +1565,8 @@ module AWS::SDK::OpenSearch
     class SnapshotOptionsStatus
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SnapshotOptionsStatus, context: context)
-        Validators::SnapshotOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
-        Validators::OptionStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        SnapshotOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
+        OptionStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
       end
     end
 
@@ -1578,7 +1580,7 @@ module AWS::SDK::OpenSearch
     class StartServiceSoftwareUpdateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartServiceSoftwareUpdateOutput, context: context)
-        Validators::ServiceSoftwareOptions.validate!(input[:service_software_options], context: "#{context}[:service_software_options]") unless input[:service_software_options].nil?
+        ServiceSoftwareOptions.validate!(input[:service_software_options], context: "#{context}[:service_software_options]") unless input[:service_software_options].nil?
       end
     end
 
@@ -1587,7 +1589,7 @@ module AWS::SDK::OpenSearch
         Hearth::Validator.validate!(input, Types::StorageType, context: context)
         Hearth::Validator.validate!(input[:storage_type_name], ::String, context: "#{context}[:storage_type_name]")
         Hearth::Validator.validate!(input[:storage_sub_type_name], ::String, context: "#{context}[:storage_sub_type_name]")
-        Validators::StorageTypeLimitList.validate!(input[:storage_type_limits], context: "#{context}[:storage_type_limits]") unless input[:storage_type_limits].nil?
+        StorageTypeLimitList.validate!(input[:storage_type_limits], context: "#{context}[:storage_type_limits]") unless input[:storage_type_limits].nil?
       end
     end
 
@@ -1595,7 +1597,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StorageTypeLimit, context: context)
         Hearth::Validator.validate!(input[:limit_name], ::String, context: "#{context}[:limit_name]")
-        Validators::LimitValueList.validate!(input[:limit_values], context: "#{context}[:limit_values]") unless input[:limit_values].nil?
+        LimitValueList.validate!(input[:limit_values], context: "#{context}[:limit_values]") unless input[:limit_values].nil?
       end
     end
 
@@ -1603,7 +1605,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StorageTypeLimit.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StorageTypeLimit.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1612,7 +1614,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StorageType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StorageType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1638,7 +1640,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1647,19 +1649,19 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateDomainConfigInput, context: context)
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
-        Validators::ClusterConfig.validate!(input[:cluster_config], context: "#{context}[:cluster_config]") unless input[:cluster_config].nil?
-        Validators::EBSOptions.validate!(input[:ebs_options], context: "#{context}[:ebs_options]") unless input[:ebs_options].nil?
-        Validators::SnapshotOptions.validate!(input[:snapshot_options], context: "#{context}[:snapshot_options]") unless input[:snapshot_options].nil?
-        Validators::VPCOptions.validate!(input[:vpc_options], context: "#{context}[:vpc_options]") unless input[:vpc_options].nil?
-        Validators::CognitoOptions.validate!(input[:cognito_options], context: "#{context}[:cognito_options]") unless input[:cognito_options].nil?
-        Validators::AdvancedOptions.validate!(input[:advanced_options], context: "#{context}[:advanced_options]") unless input[:advanced_options].nil?
+        ClusterConfig.validate!(input[:cluster_config], context: "#{context}[:cluster_config]") unless input[:cluster_config].nil?
+        EBSOptions.validate!(input[:ebs_options], context: "#{context}[:ebs_options]") unless input[:ebs_options].nil?
+        SnapshotOptions.validate!(input[:snapshot_options], context: "#{context}[:snapshot_options]") unless input[:snapshot_options].nil?
+        VPCOptions.validate!(input[:vpc_options], context: "#{context}[:vpc_options]") unless input[:vpc_options].nil?
+        CognitoOptions.validate!(input[:cognito_options], context: "#{context}[:cognito_options]") unless input[:cognito_options].nil?
+        AdvancedOptions.validate!(input[:advanced_options], context: "#{context}[:advanced_options]") unless input[:advanced_options].nil?
         Hearth::Validator.validate!(input[:access_policies], ::String, context: "#{context}[:access_policies]")
-        Validators::LogPublishingOptions.validate!(input[:log_publishing_options], context: "#{context}[:log_publishing_options]") unless input[:log_publishing_options].nil?
-        Validators::EncryptionAtRestOptions.validate!(input[:encryption_at_rest_options], context: "#{context}[:encryption_at_rest_options]") unless input[:encryption_at_rest_options].nil?
-        Validators::DomainEndpointOptions.validate!(input[:domain_endpoint_options], context: "#{context}[:domain_endpoint_options]") unless input[:domain_endpoint_options].nil?
-        Validators::NodeToNodeEncryptionOptions.validate!(input[:node_to_node_encryption_options], context: "#{context}[:node_to_node_encryption_options]") unless input[:node_to_node_encryption_options].nil?
-        Validators::AdvancedSecurityOptionsInput.validate!(input[:advanced_security_options], context: "#{context}[:advanced_security_options]") unless input[:advanced_security_options].nil?
-        Validators::AutoTuneOptions.validate!(input[:auto_tune_options], context: "#{context}[:auto_tune_options]") unless input[:auto_tune_options].nil?
+        LogPublishingOptions.validate!(input[:log_publishing_options], context: "#{context}[:log_publishing_options]") unless input[:log_publishing_options].nil?
+        EncryptionAtRestOptions.validate!(input[:encryption_at_rest_options], context: "#{context}[:encryption_at_rest_options]") unless input[:encryption_at_rest_options].nil?
+        DomainEndpointOptions.validate!(input[:domain_endpoint_options], context: "#{context}[:domain_endpoint_options]") unless input[:domain_endpoint_options].nil?
+        NodeToNodeEncryptionOptions.validate!(input[:node_to_node_encryption_options], context: "#{context}[:node_to_node_encryption_options]") unless input[:node_to_node_encryption_options].nil?
+        AdvancedSecurityOptionsInput.validate!(input[:advanced_security_options], context: "#{context}[:advanced_security_options]") unless input[:advanced_security_options].nil?
+        AutoTuneOptions.validate!(input[:auto_tune_options], context: "#{context}[:auto_tune_options]") unless input[:auto_tune_options].nil?
         Hearth::Validator.validate!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
       end
     end
@@ -1667,8 +1669,8 @@ module AWS::SDK::OpenSearch
     class UpdateDomainConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateDomainConfigOutput, context: context)
-        Validators::DomainConfig.validate!(input[:domain_config], context: "#{context}[:domain_config]") unless input[:domain_config].nil?
-        Validators::DryRunResults.validate!(input[:dry_run_results], context: "#{context}[:dry_run_results]") unless input[:dry_run_results].nil?
+        DomainConfig.validate!(input[:domain_config], context: "#{context}[:domain_config]") unless input[:domain_config].nil?
+        DryRunResults.validate!(input[:dry_run_results], context: "#{context}[:dry_run_results]") unless input[:dry_run_results].nil?
       end
     end
 
@@ -1676,7 +1678,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdatePackageInput, context: context)
         Hearth::Validator.validate!(input[:package_id], ::String, context: "#{context}[:package_id]")
-        Validators::PackageSource.validate!(input[:package_source], context: "#{context}[:package_source]") unless input[:package_source].nil?
+        PackageSource.validate!(input[:package_source], context: "#{context}[:package_source]") unless input[:package_source].nil?
         Hearth::Validator.validate!(input[:package_description], ::String, context: "#{context}[:package_description]")
         Hearth::Validator.validate!(input[:commit_message], ::String, context: "#{context}[:commit_message]")
       end
@@ -1685,7 +1687,7 @@ module AWS::SDK::OpenSearch
     class UpdatePackageOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdatePackageOutput, context: context)
-        Validators::PackageDetails.validate!(input[:package_details], context: "#{context}[:package_details]") unless input[:package_details].nil?
+        PackageDetails.validate!(input[:package_details], context: "#{context}[:package_details]") unless input[:package_details].nil?
       end
     end
 
@@ -1695,7 +1697,7 @@ module AWS::SDK::OpenSearch
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
         Hearth::Validator.validate!(input[:target_version], ::String, context: "#{context}[:target_version]")
         Hearth::Validator.validate!(input[:perform_check_only], ::TrueClass, ::FalseClass, context: "#{context}[:perform_check_only]")
-        Validators::AdvancedOptions.validate!(input[:advanced_options], context: "#{context}[:advanced_options]") unless input[:advanced_options].nil?
+        AdvancedOptions.validate!(input[:advanced_options], context: "#{context}[:advanced_options]") unless input[:advanced_options].nil?
       end
     end
 
@@ -1706,8 +1708,8 @@ module AWS::SDK::OpenSearch
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
         Hearth::Validator.validate!(input[:target_version], ::String, context: "#{context}[:target_version]")
         Hearth::Validator.validate!(input[:perform_check_only], ::TrueClass, ::FalseClass, context: "#{context}[:perform_check_only]")
-        Validators::AdvancedOptions.validate!(input[:advanced_options], context: "#{context}[:advanced_options]") unless input[:advanced_options].nil?
-        Validators::ChangeProgressDetails.validate!(input[:change_progress_details], context: "#{context}[:change_progress_details]") unless input[:change_progress_details].nil?
+        AdvancedOptions.validate!(input[:advanced_options], context: "#{context}[:advanced_options]") unless input[:advanced_options].nil?
+        ChangeProgressDetails.validate!(input[:change_progress_details], context: "#{context}[:change_progress_details]") unless input[:change_progress_details].nil?
       end
     end
 
@@ -1717,7 +1719,7 @@ module AWS::SDK::OpenSearch
         Hearth::Validator.validate!(input[:upgrade_name], ::String, context: "#{context}[:upgrade_name]")
         Hearth::Validator.validate!(input[:start_timestamp], ::Time, context: "#{context}[:start_timestamp]")
         Hearth::Validator.validate!(input[:upgrade_status], ::String, context: "#{context}[:upgrade_status]")
-        Validators::UpgradeStepsList.validate!(input[:steps_list], context: "#{context}[:steps_list]") unless input[:steps_list].nil?
+        UpgradeStepsList.validate!(input[:steps_list], context: "#{context}[:steps_list]") unless input[:steps_list].nil?
       end
     end
 
@@ -1725,7 +1727,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UpgradeHistory.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UpgradeHistory.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1735,7 +1737,7 @@ module AWS::SDK::OpenSearch
         Hearth::Validator.validate!(input, Types::UpgradeStepItem, context: context)
         Hearth::Validator.validate!(input[:upgrade_step], ::String, context: "#{context}[:upgrade_step]")
         Hearth::Validator.validate!(input[:upgrade_step_status], ::String, context: "#{context}[:upgrade_step_status]")
-        Validators::Issues.validate!(input[:issues], context: "#{context}[:issues]") unless input[:issues].nil?
+        Issues.validate!(input[:issues], context: "#{context}[:issues]") unless input[:issues].nil?
         Hearth::Validator.validate!(input[:progress_percent], ::Float, context: "#{context}[:progress_percent]")
       end
     end
@@ -1744,7 +1746,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UpgradeStepItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UpgradeStepItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1753,25 +1755,25 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VPCDerivedInfo, context: context)
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
-        Validators::StringList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
-        Validators::StringList.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
-        Validators::StringList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        StringList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        StringList.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
+        StringList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
       end
     end
 
     class VPCDerivedInfoStatus
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VPCDerivedInfoStatus, context: context)
-        Validators::VPCDerivedInfo.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
-        Validators::OptionStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        VPCDerivedInfo.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
+        OptionStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
       end
     end
 
     class VPCOptions
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VPCOptions, context: context)
-        Validators::StringList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
-        Validators::StringList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        StringList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        StringList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
       end
     end
 
@@ -1804,7 +1806,7 @@ module AWS::SDK::OpenSearch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VersionStatus, context: context)
         Hearth::Validator.validate!(input[:options], ::String, context: "#{context}[:options]")
-        Validators::OptionStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        OptionStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
       end
     end
 

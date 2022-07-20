@@ -27,7 +27,7 @@ module AWS::SDK::Location
     class BatchDeleteDevicePositionHistory
       def self.default(visited=[])
         {
-          errors: Stubs::BatchDeleteDevicePositionHistoryErrorList.default(visited),
+          errors: BatchDeleteDevicePositionHistoryErrorList.default(visited),
         }
       end
 
@@ -46,7 +46,7 @@ module AWS::SDK::Location
         return nil if visited.include?('BatchDeleteDevicePositionHistoryErrorList')
         visited = visited + ['BatchDeleteDevicePositionHistoryErrorList']
         [
-          Stubs::BatchDeleteDevicePositionHistoryError.default(visited)
+          BatchDeleteDevicePositionHistoryError.default(visited)
         ]
       end
 
@@ -67,7 +67,7 @@ module AWS::SDK::Location
         visited = visited + ['BatchDeleteDevicePositionHistoryError']
         {
           device_id: 'device_id',
-          error: Stubs::BatchItemError.default(visited),
+          error: BatchItemError.default(visited),
         }
       end
 
@@ -104,7 +104,7 @@ module AWS::SDK::Location
     class BatchDeleteGeofence
       def self.default(visited=[])
         {
-          errors: Stubs::BatchDeleteGeofenceErrorList.default(visited),
+          errors: BatchDeleteGeofenceErrorList.default(visited),
         }
       end
 
@@ -123,7 +123,7 @@ module AWS::SDK::Location
         return nil if visited.include?('BatchDeleteGeofenceErrorList')
         visited = visited + ['BatchDeleteGeofenceErrorList']
         [
-          Stubs::BatchDeleteGeofenceError.default(visited)
+          BatchDeleteGeofenceError.default(visited)
         ]
       end
 
@@ -144,7 +144,7 @@ module AWS::SDK::Location
         visited = visited + ['BatchDeleteGeofenceError']
         {
           geofence_id: 'geofence_id',
-          error: Stubs::BatchItemError.default(visited),
+          error: BatchItemError.default(visited),
         }
       end
 
@@ -161,7 +161,7 @@ module AWS::SDK::Location
     class BatchEvaluateGeofences
       def self.default(visited=[])
         {
-          errors: Stubs::BatchEvaluateGeofencesErrorList.default(visited),
+          errors: BatchEvaluateGeofencesErrorList.default(visited),
         }
       end
 
@@ -180,7 +180,7 @@ module AWS::SDK::Location
         return nil if visited.include?('BatchEvaluateGeofencesErrorList')
         visited = visited + ['BatchEvaluateGeofencesErrorList']
         [
-          Stubs::BatchEvaluateGeofencesError.default(visited)
+          BatchEvaluateGeofencesError.default(visited)
         ]
       end
 
@@ -202,7 +202,7 @@ module AWS::SDK::Location
         {
           device_id: 'device_id',
           sample_time: Time.now,
-          error: Stubs::BatchItemError.default(visited),
+          error: BatchItemError.default(visited),
         }
       end
 
@@ -220,8 +220,8 @@ module AWS::SDK::Location
     class BatchGetDevicePosition
       def self.default(visited=[])
         {
-          errors: Stubs::BatchGetDevicePositionErrorList.default(visited),
-          device_positions: Stubs::DevicePositionList.default(visited),
+          errors: BatchGetDevicePositionErrorList.default(visited),
+          device_positions: DevicePositionList.default(visited),
         }
       end
 
@@ -241,7 +241,7 @@ module AWS::SDK::Location
         return nil if visited.include?('DevicePositionList')
         visited = visited + ['DevicePositionList']
         [
-          Stubs::DevicePosition.default(visited)
+          DevicePosition.default(visited)
         ]
       end
 
@@ -264,9 +264,9 @@ module AWS::SDK::Location
           device_id: 'device_id',
           sample_time: Time.now,
           received_time: Time.now,
-          position: Stubs::Position.default(visited),
-          accuracy: Stubs::PositionalAccuracy.default(visited),
-          position_properties: Stubs::PropertyMap.default(visited),
+          position: Position.default(visited),
+          accuracy: PositionalAccuracy.default(visited),
+          position_properties: PropertyMap.default(visited),
         }
       end
 
@@ -347,7 +347,7 @@ module AWS::SDK::Location
         return nil if visited.include?('BatchGetDevicePositionErrorList')
         visited = visited + ['BatchGetDevicePositionErrorList']
         [
-          Stubs::BatchGetDevicePositionError.default(visited)
+          BatchGetDevicePositionError.default(visited)
         ]
       end
 
@@ -368,7 +368,7 @@ module AWS::SDK::Location
         visited = visited + ['BatchGetDevicePositionError']
         {
           device_id: 'device_id',
-          error: Stubs::BatchItemError.default(visited),
+          error: BatchItemError.default(visited),
         }
       end
 
@@ -385,8 +385,8 @@ module AWS::SDK::Location
     class BatchPutGeofence
       def self.default(visited=[])
         {
-          successes: Stubs::BatchPutGeofenceSuccessList.default(visited),
-          errors: Stubs::BatchPutGeofenceErrorList.default(visited),
+          successes: BatchPutGeofenceSuccessList.default(visited),
+          errors: BatchPutGeofenceErrorList.default(visited),
         }
       end
 
@@ -406,7 +406,7 @@ module AWS::SDK::Location
         return nil if visited.include?('BatchPutGeofenceErrorList')
         visited = visited + ['BatchPutGeofenceErrorList']
         [
-          Stubs::BatchPutGeofenceError.default(visited)
+          BatchPutGeofenceError.default(visited)
         ]
       end
 
@@ -427,7 +427,7 @@ module AWS::SDK::Location
         visited = visited + ['BatchPutGeofenceError']
         {
           geofence_id: 'geofence_id',
-          error: Stubs::BatchItemError.default(visited),
+          error: BatchItemError.default(visited),
         }
       end
 
@@ -446,7 +446,7 @@ module AWS::SDK::Location
         return nil if visited.include?('BatchPutGeofenceSuccessList')
         visited = visited + ['BatchPutGeofenceSuccessList']
         [
-          Stubs::BatchPutGeofenceSuccess.default(visited)
+          BatchPutGeofenceSuccess.default(visited)
         ]
       end
 
@@ -486,7 +486,7 @@ module AWS::SDK::Location
     class BatchUpdateDevicePosition
       def self.default(visited=[])
         {
-          errors: Stubs::BatchUpdateDevicePositionErrorList.default(visited),
+          errors: BatchUpdateDevicePositionErrorList.default(visited),
         }
       end
 
@@ -505,7 +505,7 @@ module AWS::SDK::Location
         return nil if visited.include?('BatchUpdateDevicePositionErrorList')
         visited = visited + ['BatchUpdateDevicePositionErrorList']
         [
-          Stubs::BatchUpdateDevicePositionError.default(visited)
+          BatchUpdateDevicePositionError.default(visited)
         ]
       end
 
@@ -527,7 +527,7 @@ module AWS::SDK::Location
         {
           device_id: 'device_id',
           sample_time: Time.now,
-          error: Stubs::BatchItemError.default(visited),
+          error: BatchItemError.default(visited),
         }
       end
 
@@ -545,8 +545,8 @@ module AWS::SDK::Location
     class CalculateRoute
       def self.default(visited=[])
         {
-          legs: Stubs::LegList.default(visited),
-          summary: Stubs::CalculateRouteSummary.default(visited),
+          legs: LegList.default(visited),
+          summary: CalculateRouteSummary.default(visited),
         }
       end
 
@@ -566,7 +566,7 @@ module AWS::SDK::Location
         return nil if visited.include?('CalculateRouteSummary')
         visited = visited + ['CalculateRouteSummary']
         {
-          route_b_box: Stubs::BoundingBox.default(visited),
+          route_b_box: BoundingBox.default(visited),
           data_source: 'data_source',
           distance: 1.0,
           duration_seconds: 1.0,
@@ -612,7 +612,7 @@ module AWS::SDK::Location
         return nil if visited.include?('LegList')
         visited = visited + ['LegList']
         [
-          Stubs::Leg.default(visited)
+          Leg.default(visited)
         ]
       end
 
@@ -632,12 +632,12 @@ module AWS::SDK::Location
         return nil if visited.include?('Leg')
         visited = visited + ['Leg']
         {
-          start_position: Stubs::Position.default(visited),
-          end_position: Stubs::Position.default(visited),
+          start_position: Position.default(visited),
+          end_position: Position.default(visited),
           distance: 1.0,
           duration_seconds: 1.0,
-          geometry: Stubs::LegGeometry.default(visited),
-          steps: Stubs::StepList.default(visited),
+          geometry: LegGeometry.default(visited),
+          steps: StepList.default(visited),
         }
       end
 
@@ -660,7 +660,7 @@ module AWS::SDK::Location
         return nil if visited.include?('StepList')
         visited = visited + ['StepList']
         [
-          Stubs::Step.default(visited)
+          Step.default(visited)
         ]
       end
 
@@ -680,8 +680,8 @@ module AWS::SDK::Location
         return nil if visited.include?('Step')
         visited = visited + ['Step']
         {
-          start_position: Stubs::Position.default(visited),
-          end_position: Stubs::Position.default(visited),
+          start_position: Position.default(visited),
+          end_position: Position.default(visited),
           distance: 1.0,
           duration_seconds: 1.0,
           geometry_offset: 1,
@@ -706,7 +706,7 @@ module AWS::SDK::Location
         return nil if visited.include?('LegGeometry')
         visited = visited + ['LegGeometry']
         {
-          line_string: Stubs::LineString.default(visited),
+          line_string: LineString.default(visited),
         }
       end
 
@@ -724,7 +724,7 @@ module AWS::SDK::Location
         return nil if visited.include?('LineString')
         visited = visited + ['LineString']
         [
-          Stubs::Position.default(visited)
+          Position.default(visited)
         ]
       end
 
@@ -742,10 +742,10 @@ module AWS::SDK::Location
     class CalculateRouteMatrix
       def self.default(visited=[])
         {
-          route_matrix: Stubs::RouteMatrix.default(visited),
-          snapped_departure_positions: Stubs::PositionList.default(visited),
-          snapped_destination_positions: Stubs::PositionList.default(visited),
-          summary: Stubs::CalculateRouteMatrixSummary.default(visited),
+          route_matrix: RouteMatrix.default(visited),
+          snapped_departure_positions: PositionList.default(visited),
+          snapped_destination_positions: PositionList.default(visited),
+          summary: CalculateRouteMatrixSummary.default(visited),
         }
       end
 
@@ -791,7 +791,7 @@ module AWS::SDK::Location
         return nil if visited.include?('PositionList')
         visited = visited + ['PositionList']
         [
-          Stubs::Position.default(visited)
+          Position.default(visited)
         ]
       end
 
@@ -811,7 +811,7 @@ module AWS::SDK::Location
         return nil if visited.include?('RouteMatrix')
         visited = visited + ['RouteMatrix']
         [
-          Stubs::RouteMatrixRow.default(visited)
+          RouteMatrixRow.default(visited)
         ]
       end
 
@@ -831,7 +831,7 @@ module AWS::SDK::Location
         return nil if visited.include?('RouteMatrixRow')
         visited = visited + ['RouteMatrixRow']
         [
-          Stubs::RouteMatrixEntry.default(visited)
+          RouteMatrixEntry.default(visited)
         ]
       end
 
@@ -853,7 +853,7 @@ module AWS::SDK::Location
         {
           distance: 1.0,
           duration_seconds: 1.0,
-          error: Stubs::RouteMatrixEntryError.default(visited),
+          error: RouteMatrixEntryError.default(visited),
         }
       end
 
@@ -1067,7 +1067,7 @@ module AWS::SDK::Location
           pricing_plan: 'pricing_plan',
           pricing_plan_data_source: 'pricing_plan_data_source',
           kms_key_id: 'kms_key_id',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
           create_time: Time.now,
           update_time: Time.now,
         }
@@ -1118,9 +1118,9 @@ module AWS::SDK::Location
           map_arn: 'map_arn',
           pricing_plan: 'pricing_plan',
           data_source: 'data_source',
-          configuration: Stubs::MapConfiguration.default(visited),
+          configuration: MapConfiguration.default(visited),
           description: 'description',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
           create_time: Time.now,
           update_time: Time.now,
         }
@@ -1172,8 +1172,8 @@ module AWS::SDK::Location
           create_time: Time.now,
           update_time: Time.now,
           data_source: 'data_source',
-          data_source_configuration: Stubs::DataSourceConfiguration.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          data_source_configuration: DataSourceConfiguration.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1223,7 +1223,7 @@ module AWS::SDK::Location
           create_time: Time.now,
           update_time: Time.now,
           data_source: 'data_source',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1252,7 +1252,7 @@ module AWS::SDK::Location
           description: 'description',
           pricing_plan: 'pricing_plan',
           pricing_plan_data_source: 'pricing_plan_data_source',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
           create_time: Time.now,
           update_time: Time.now,
           kms_key_id: 'kms_key_id',
@@ -1298,9 +1298,9 @@ module AWS::SDK::Location
           device_id: 'device_id',
           sample_time: Time.now,
           received_time: Time.now,
-          position: Stubs::Position.default(visited),
-          accuracy: Stubs::PositionalAccuracy.default(visited),
-          position_properties: Stubs::PropertyMap.default(visited),
+          position: Position.default(visited),
+          accuracy: PositionalAccuracy.default(visited),
+          position_properties: PropertyMap.default(visited),
         }
       end
 
@@ -1322,7 +1322,7 @@ module AWS::SDK::Location
     class GetDevicePositionHistory
       def self.default(visited=[])
         {
-          device_positions: Stubs::DevicePositionList.default(visited),
+          device_positions: DevicePositionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1342,7 +1342,7 @@ module AWS::SDK::Location
       def self.default(visited=[])
         {
           geofence_id: 'geofence_id',
-          geometry: Stubs::GeofenceGeometry.default(visited),
+          geometry: GeofenceGeometry.default(visited),
           status: 'status',
           create_time: Time.now,
           update_time: Time.now,
@@ -1368,7 +1368,7 @@ module AWS::SDK::Location
         return nil if visited.include?('GeofenceGeometry')
         visited = visited + ['GeofenceGeometry']
         {
-          polygon: Stubs::LinearRings.default(visited),
+          polygon: LinearRings.default(visited),
         }
       end
 
@@ -1386,7 +1386,7 @@ module AWS::SDK::Location
         return nil if visited.include?('LinearRings')
         visited = visited + ['LinearRings']
         [
-          Stubs::LinearRing.default(visited)
+          LinearRing.default(visited)
         ]
       end
 
@@ -1406,7 +1406,7 @@ module AWS::SDK::Location
         return nil if visited.include?('LinearRing')
         visited = visited + ['LinearRing']
         [
-          Stubs::Position.default(visited)
+          Position.default(visited)
         ]
       end
 
@@ -1496,7 +1496,7 @@ module AWS::SDK::Location
     class ListDevicePositions
       def self.default(visited=[])
         {
-          entries: Stubs::ListDevicePositionsResponseEntryList.default(visited),
+          entries: ListDevicePositionsResponseEntryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1517,7 +1517,7 @@ module AWS::SDK::Location
         return nil if visited.include?('ListDevicePositionsResponseEntryList')
         visited = visited + ['ListDevicePositionsResponseEntryList']
         [
-          Stubs::ListDevicePositionsResponseEntry.default(visited)
+          ListDevicePositionsResponseEntry.default(visited)
         ]
       end
 
@@ -1539,9 +1539,9 @@ module AWS::SDK::Location
         {
           device_id: 'device_id',
           sample_time: Time.now,
-          position: Stubs::Position.default(visited),
-          accuracy: Stubs::PositionalAccuracy.default(visited),
-          position_properties: Stubs::PropertyMap.default(visited),
+          position: Position.default(visited),
+          accuracy: PositionalAccuracy.default(visited),
+          position_properties: PropertyMap.default(visited),
         }
       end
 
@@ -1561,7 +1561,7 @@ module AWS::SDK::Location
     class ListGeofenceCollections
       def self.default(visited=[])
         {
-          entries: Stubs::ListGeofenceCollectionsResponseEntryList.default(visited),
+          entries: ListGeofenceCollectionsResponseEntryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1582,7 +1582,7 @@ module AWS::SDK::Location
         return nil if visited.include?('ListGeofenceCollectionsResponseEntryList')
         visited = visited + ['ListGeofenceCollectionsResponseEntryList']
         [
-          Stubs::ListGeofenceCollectionsResponseEntry.default(visited)
+          ListGeofenceCollectionsResponseEntry.default(visited)
         ]
       end
 
@@ -1628,7 +1628,7 @@ module AWS::SDK::Location
     class ListGeofences
       def self.default(visited=[])
         {
-          entries: Stubs::ListGeofenceResponseEntryList.default(visited),
+          entries: ListGeofenceResponseEntryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1649,7 +1649,7 @@ module AWS::SDK::Location
         return nil if visited.include?('ListGeofenceResponseEntryList')
         visited = visited + ['ListGeofenceResponseEntryList']
         [
-          Stubs::ListGeofenceResponseEntry.default(visited)
+          ListGeofenceResponseEntry.default(visited)
         ]
       end
 
@@ -1670,7 +1670,7 @@ module AWS::SDK::Location
         visited = visited + ['ListGeofenceResponseEntry']
         {
           geofence_id: 'geofence_id',
-          geometry: Stubs::GeofenceGeometry.default(visited),
+          geometry: GeofenceGeometry.default(visited),
           status: 'status',
           create_time: Time.now,
           update_time: Time.now,
@@ -1693,7 +1693,7 @@ module AWS::SDK::Location
     class ListMaps
       def self.default(visited=[])
         {
-          entries: Stubs::ListMapsResponseEntryList.default(visited),
+          entries: ListMapsResponseEntryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1714,7 +1714,7 @@ module AWS::SDK::Location
         return nil if visited.include?('ListMapsResponseEntryList')
         visited = visited + ['ListMapsResponseEntryList']
         [
-          Stubs::ListMapsResponseEntry.default(visited)
+          ListMapsResponseEntry.default(visited)
         ]
       end
 
@@ -1760,7 +1760,7 @@ module AWS::SDK::Location
     class ListPlaceIndexes
       def self.default(visited=[])
         {
-          entries: Stubs::ListPlaceIndexesResponseEntryList.default(visited),
+          entries: ListPlaceIndexesResponseEntryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1781,7 +1781,7 @@ module AWS::SDK::Location
         return nil if visited.include?('ListPlaceIndexesResponseEntryList')
         visited = visited + ['ListPlaceIndexesResponseEntryList']
         [
-          Stubs::ListPlaceIndexesResponseEntry.default(visited)
+          ListPlaceIndexesResponseEntry.default(visited)
         ]
       end
 
@@ -1827,7 +1827,7 @@ module AWS::SDK::Location
     class ListRouteCalculators
       def self.default(visited=[])
         {
-          entries: Stubs::ListRouteCalculatorsResponseEntryList.default(visited),
+          entries: ListRouteCalculatorsResponseEntryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1848,7 +1848,7 @@ module AWS::SDK::Location
         return nil if visited.include?('ListRouteCalculatorsResponseEntryList')
         visited = visited + ['ListRouteCalculatorsResponseEntryList']
         [
-          Stubs::ListRouteCalculatorsResponseEntry.default(visited)
+          ListRouteCalculatorsResponseEntry.default(visited)
         ]
       end
 
@@ -1894,7 +1894,7 @@ module AWS::SDK::Location
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1911,7 +1911,7 @@ module AWS::SDK::Location
     class ListTrackerConsumers
       def self.default(visited=[])
         {
-          consumer_arns: Stubs::ArnList.default(visited),
+          consumer_arns: ArnList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1950,7 +1950,7 @@ module AWS::SDK::Location
     class ListTrackers
       def self.default(visited=[])
         {
-          entries: Stubs::ListTrackersResponseEntryList.default(visited),
+          entries: ListTrackersResponseEntryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1971,7 +1971,7 @@ module AWS::SDK::Location
         return nil if visited.include?('ListTrackersResponseEntryList')
         visited = visited + ['ListTrackersResponseEntryList']
         [
-          Stubs::ListTrackersResponseEntry.default(visited)
+          ListTrackersResponseEntry.default(visited)
         ]
       end
 
@@ -2038,8 +2038,8 @@ module AWS::SDK::Location
     class SearchPlaceIndexForPosition
       def self.default(visited=[])
         {
-          summary: Stubs::SearchPlaceIndexForPositionSummary.default(visited),
-          results: Stubs::SearchForPositionResultList.default(visited),
+          summary: SearchPlaceIndexForPositionSummary.default(visited),
+          results: SearchForPositionResultList.default(visited),
         }
       end
 
@@ -2059,7 +2059,7 @@ module AWS::SDK::Location
         return nil if visited.include?('SearchForPositionResultList')
         visited = visited + ['SearchForPositionResultList']
         [
-          Stubs::SearchForPositionResult.default(visited)
+          SearchForPositionResult.default(visited)
         ]
       end
 
@@ -2079,7 +2079,7 @@ module AWS::SDK::Location
         return nil if visited.include?('SearchForPositionResult')
         visited = visited + ['SearchForPositionResult']
         {
-          place: Stubs::Place.default(visited),
+          place: Place.default(visited),
           distance: 1.0,
         }
       end
@@ -2100,7 +2100,7 @@ module AWS::SDK::Location
         visited = visited + ['Place']
         {
           label: 'label',
-          geometry: Stubs::PlaceGeometry.default(visited),
+          geometry: PlaceGeometry.default(visited),
           address_number: 'address_number',
           street: 'street',
           neighborhood: 'neighborhood',
@@ -2110,7 +2110,7 @@ module AWS::SDK::Location
           country: 'country',
           postal_code: 'postal_code',
           interpolated: false,
-          time_zone: Stubs::TimeZone.default(visited),
+          time_zone: TimeZone.default(visited),
         }
       end
 
@@ -2159,7 +2159,7 @@ module AWS::SDK::Location
         return nil if visited.include?('PlaceGeometry')
         visited = visited + ['PlaceGeometry']
         {
-          point: Stubs::Position.default(visited),
+          point: Position.default(visited),
         }
       end
 
@@ -2177,7 +2177,7 @@ module AWS::SDK::Location
         return nil if visited.include?('SearchPlaceIndexForPositionSummary')
         visited = visited + ['SearchPlaceIndexForPositionSummary']
         {
-          position: Stubs::Position.default(visited),
+          position: Position.default(visited),
           max_results: 1,
           data_source: 'data_source',
           language: 'language',
@@ -2199,8 +2199,8 @@ module AWS::SDK::Location
     class SearchPlaceIndexForSuggestions
       def self.default(visited=[])
         {
-          summary: Stubs::SearchPlaceIndexForSuggestionsSummary.default(visited),
-          results: Stubs::SearchForSuggestionsResultList.default(visited),
+          summary: SearchPlaceIndexForSuggestionsSummary.default(visited),
+          results: SearchForSuggestionsResultList.default(visited),
         }
       end
 
@@ -2220,7 +2220,7 @@ module AWS::SDK::Location
         return nil if visited.include?('SearchForSuggestionsResultList')
         visited = visited + ['SearchForSuggestionsResultList']
         [
-          Stubs::SearchForSuggestionsResult.default(visited)
+          SearchForSuggestionsResult.default(visited)
         ]
       end
 
@@ -2259,9 +2259,9 @@ module AWS::SDK::Location
         visited = visited + ['SearchPlaceIndexForSuggestionsSummary']
         {
           text: 'text',
-          bias_position: Stubs::Position.default(visited),
-          filter_b_box: Stubs::BoundingBox.default(visited),
-          filter_countries: Stubs::CountryCodeList.default(visited),
+          bias_position: Position.default(visited),
+          filter_b_box: BoundingBox.default(visited),
+          filter_countries: CountryCodeList.default(visited),
           max_results: 1,
           data_source: 'data_source',
           language: 'language',
@@ -2306,8 +2306,8 @@ module AWS::SDK::Location
     class SearchPlaceIndexForText
       def self.default(visited=[])
         {
-          summary: Stubs::SearchPlaceIndexForTextSummary.default(visited),
-          results: Stubs::SearchForTextResultList.default(visited),
+          summary: SearchPlaceIndexForTextSummary.default(visited),
+          results: SearchForTextResultList.default(visited),
         }
       end
 
@@ -2327,7 +2327,7 @@ module AWS::SDK::Location
         return nil if visited.include?('SearchForTextResultList')
         visited = visited + ['SearchForTextResultList']
         [
-          Stubs::SearchForTextResult.default(visited)
+          SearchForTextResult.default(visited)
         ]
       end
 
@@ -2347,7 +2347,7 @@ module AWS::SDK::Location
         return nil if visited.include?('SearchForTextResult')
         visited = visited + ['SearchForTextResult']
         {
-          place: Stubs::Place.default(visited),
+          place: Place.default(visited),
           distance: 1.0,
           relevance: 1.0,
         }
@@ -2370,11 +2370,11 @@ module AWS::SDK::Location
         visited = visited + ['SearchPlaceIndexForTextSummary']
         {
           text: 'text',
-          bias_position: Stubs::Position.default(visited),
-          filter_b_box: Stubs::BoundingBox.default(visited),
-          filter_countries: Stubs::CountryCodeList.default(visited),
+          bias_position: Position.default(visited),
+          filter_b_box: BoundingBox.default(visited),
+          filter_countries: CountryCodeList.default(visited),
           max_results: 1,
-          result_b_box: Stubs::BoundingBox.default(visited),
+          result_b_box: BoundingBox.default(visited),
           data_source: 'data_source',
           language: 'language',
         }

@@ -22,8 +22,8 @@ module AWS::SDK::APIGateway
           enabled: false,
           created_date: Time.now,
           last_updated_date: Time.now,
-          stage_keys: Stubs::ListOfString.default(visited),
-          tags: Stubs::MapOfStringToString.default(visited),
+          stage_keys: ListOfString.default(visited),
+          tags: MapOfStringToString.default(visited),
         }
       end
 
@@ -92,7 +92,7 @@ module AWS::SDK::APIGateway
           id: 'id',
           name: 'name',
           type: 'type',
-          provider_ar_ns: Stubs::ListOfARNs.default(visited),
+          provider_ar_ns: ListOfARNs.default(visited),
           auth_type: 'auth_type',
           authorizer_uri: 'authorizer_uri',
           authorizer_credentials: 'authorizer_credentials',
@@ -168,7 +168,7 @@ module AWS::SDK::APIGateway
           id: 'id',
           description: 'description',
           created_date: Time.now,
-          api_summary: Stubs::PathToMapOfMethodSnapshot.default(visited),
+          api_summary: PathToMapOfMethodSnapshot.default(visited),
         }
       end
 
@@ -190,7 +190,7 @@ module AWS::SDK::APIGateway
         return nil if visited.include?('PathToMapOfMethodSnapshot')
         visited = visited + ['PathToMapOfMethodSnapshot']
         {
-          test_key: Stubs::MapOfMethodSnapshot.default(visited)
+          test_key: MapOfMethodSnapshot.default(visited)
         }
       end
 
@@ -210,7 +210,7 @@ module AWS::SDK::APIGateway
         return nil if visited.include?('MapOfMethodSnapshot')
         visited = visited + ['MapOfMethodSnapshot']
         {
-          test_key: Stubs::MethodSnapshot.default(visited)
+          test_key: MethodSnapshot.default(visited)
         }
       end
 
@@ -249,7 +249,7 @@ module AWS::SDK::APIGateway
       def self.default(visited=[])
         {
           id: 'id',
-          location: Stubs::DocumentationPartLocation.default(visited),
+          location: DocumentationPartLocation.default(visited),
           properties: 'properties',
         }
       end
@@ -326,12 +326,12 @@ module AWS::SDK::APIGateway
           regional_certificate_arn: 'regional_certificate_arn',
           distribution_domain_name: 'distribution_domain_name',
           distribution_hosted_zone_id: 'distribution_hosted_zone_id',
-          endpoint_configuration: Stubs::EndpointConfiguration.default(visited),
+          endpoint_configuration: EndpointConfiguration.default(visited),
           domain_name_status: 'domain_name_status',
           domain_name_status_message: 'domain_name_status_message',
           security_policy: 'security_policy',
-          tags: Stubs::MapOfStringToString.default(visited),
-          mutual_tls_authentication: Stubs::MutualTlsAuthentication.default(visited),
+          tags: MapOfStringToString.default(visited),
+          mutual_tls_authentication: MutualTlsAuthentication.default(visited),
           ownership_verification_certificate_arn: 'ownership_verification_certificate_arn',
         }
       end
@@ -369,7 +369,7 @@ module AWS::SDK::APIGateway
         {
           truststore_uri: 'truststore_uri',
           truststore_version: 'truststore_version',
-          truststore_warnings: Stubs::ListOfString.default(visited),
+          truststore_warnings: ListOfString.default(visited),
         }
       end
 
@@ -389,8 +389,8 @@ module AWS::SDK::APIGateway
         return nil if visited.include?('EndpointConfiguration')
         visited = visited + ['EndpointConfiguration']
         {
-          types: Stubs::ListOfEndpointType.default(visited),
-          vpc_endpoint_ids: Stubs::ListOfString.default(visited),
+          types: ListOfEndpointType.default(visited),
+          vpc_endpoint_ids: ListOfString.default(visited),
         }
       end
 
@@ -479,7 +479,7 @@ module AWS::SDK::APIGateway
           parent_id: 'parent_id',
           path_part: 'path_part',
           path: 'path',
-          resource_methods: Stubs::MapOfMethod.default(visited),
+          resource_methods: MapOfMethod.default(visited),
         }
       end
 
@@ -502,7 +502,7 @@ module AWS::SDK::APIGateway
         return nil if visited.include?('MapOfMethod')
         visited = visited + ['MapOfMethod']
         {
-          test_key: Stubs::Method.default(visited)
+          test_key: Method.default(visited)
         }
       end
 
@@ -528,11 +528,11 @@ module AWS::SDK::APIGateway
           api_key_required: false,
           request_validator_id: 'request_validator_id',
           operation_name: 'operation_name',
-          request_parameters: Stubs::MapOfStringToBoolean.default(visited),
-          request_models: Stubs::MapOfStringToString.default(visited),
-          method_responses: Stubs::MapOfMethodResponse.default(visited),
-          method_integration: Stubs::Integration.default(visited),
-          authorization_scopes: Stubs::ListOfString.default(visited),
+          request_parameters: MapOfStringToBoolean.default(visited),
+          request_models: MapOfStringToString.default(visited),
+          method_responses: MapOfMethodResponse.default(visited),
+          method_integration: Integration.default(visited),
+          authorization_scopes: ListOfString.default(visited),
         }
       end
 
@@ -566,15 +566,15 @@ module AWS::SDK::APIGateway
           connection_type: 'connection_type',
           connection_id: 'connection_id',
           credentials: 'credentials',
-          request_parameters: Stubs::MapOfStringToString.default(visited),
-          request_templates: Stubs::MapOfStringToString.default(visited),
+          request_parameters: MapOfStringToString.default(visited),
+          request_templates: MapOfStringToString.default(visited),
           passthrough_behavior: 'passthrough_behavior',
           content_handling: 'content_handling',
           timeout_in_millis: 1,
           cache_namespace: 'cache_namespace',
-          cache_key_parameters: Stubs::ListOfString.default(visited),
-          integration_responses: Stubs::MapOfIntegrationResponse.default(visited),
-          tls_config: Stubs::TlsConfig.default(visited),
+          cache_key_parameters: ListOfString.default(visited),
+          integration_responses: MapOfIntegrationResponse.default(visited),
+          tls_config: TlsConfig.default(visited),
         }
       end
 
@@ -624,7 +624,7 @@ module AWS::SDK::APIGateway
         return nil if visited.include?('MapOfIntegrationResponse')
         visited = visited + ['MapOfIntegrationResponse']
         {
-          test_key: Stubs::IntegrationResponse.default(visited)
+          test_key: IntegrationResponse.default(visited)
         }
       end
 
@@ -646,8 +646,8 @@ module AWS::SDK::APIGateway
         {
           status_code: 'status_code',
           selection_pattern: 'selection_pattern',
-          response_parameters: Stubs::MapOfStringToString.default(visited),
-          response_templates: Stubs::MapOfStringToString.default(visited),
+          response_parameters: MapOfStringToString.default(visited),
+          response_templates: MapOfStringToString.default(visited),
           content_handling: 'content_handling',
         }
       end
@@ -670,7 +670,7 @@ module AWS::SDK::APIGateway
         return nil if visited.include?('MapOfMethodResponse')
         visited = visited + ['MapOfMethodResponse']
         {
-          test_key: Stubs::MethodResponse.default(visited)
+          test_key: MethodResponse.default(visited)
         }
       end
 
@@ -691,8 +691,8 @@ module AWS::SDK::APIGateway
         visited = visited + ['MethodResponse']
         {
           status_code: 'status_code',
-          response_parameters: Stubs::MapOfStringToBoolean.default(visited),
-          response_models: Stubs::MapOfStringToString.default(visited),
+          response_parameters: MapOfStringToBoolean.default(visited),
+          response_models: MapOfStringToString.default(visited),
         }
       end
 
@@ -735,13 +735,13 @@ module AWS::SDK::APIGateway
           description: 'description',
           created_date: Time.now,
           version: 'version',
-          warnings: Stubs::ListOfString.default(visited),
-          binary_media_types: Stubs::ListOfString.default(visited),
+          warnings: ListOfString.default(visited),
+          binary_media_types: ListOfString.default(visited),
           minimum_compression_size: 1,
           api_key_source: 'api_key_source',
-          endpoint_configuration: Stubs::EndpointConfiguration.default(visited),
+          endpoint_configuration: EndpointConfiguration.default(visited),
           policy: 'policy',
-          tags: Stubs::MapOfStringToString.default(visited),
+          tags: MapOfStringToString.default(visited),
           disable_execute_api_endpoint: false,
         }
       end
@@ -778,14 +778,14 @@ module AWS::SDK::APIGateway
           cache_cluster_enabled: false,
           cache_cluster_size: 'cache_cluster_size',
           cache_cluster_status: 'cache_cluster_status',
-          method_settings: Stubs::MapOfMethodSettings.default(visited),
-          variables: Stubs::MapOfStringToString.default(visited),
+          method_settings: MapOfMethodSettings.default(visited),
+          variables: MapOfStringToString.default(visited),
           documentation_version: 'documentation_version',
-          access_log_settings: Stubs::AccessLogSettings.default(visited),
-          canary_settings: Stubs::CanarySettings.default(visited),
+          access_log_settings: AccessLogSettings.default(visited),
+          canary_settings: CanarySettings.default(visited),
           tracing_enabled: false,
           web_acl_arn: 'web_acl_arn',
-          tags: Stubs::MapOfStringToString.default(visited),
+          tags: MapOfStringToString.default(visited),
           created_date: Time.now,
           last_updated_date: Time.now,
         }
@@ -824,7 +824,7 @@ module AWS::SDK::APIGateway
         {
           percent_traffic: 1.0,
           deployment_id: 'deployment_id',
-          stage_variable_overrides: Stubs::MapOfStringToString.default(visited),
+          stage_variable_overrides: MapOfStringToString.default(visited),
           use_stage_cache: false,
         }
       end
@@ -866,7 +866,7 @@ module AWS::SDK::APIGateway
         return nil if visited.include?('MapOfMethodSettings')
         visited = visited + ['MapOfMethodSettings']
         {
-          test_key: Stubs::MethodSetting.default(visited)
+          test_key: MethodSetting.default(visited)
         }
       end
 
@@ -923,11 +923,11 @@ module AWS::SDK::APIGateway
           id: 'id',
           name: 'name',
           description: 'description',
-          api_stages: Stubs::ListOfApiStage.default(visited),
-          throttle: Stubs::ThrottleSettings.default(visited),
-          quota: Stubs::QuotaSettings.default(visited),
+          api_stages: ListOfApiStage.default(visited),
+          throttle: ThrottleSettings.default(visited),
+          quota: QuotaSettings.default(visited),
           product_code: 'product_code',
-          tags: Stubs::MapOfStringToString.default(visited),
+          tags: MapOfStringToString.default(visited),
         }
       end
 
@@ -995,7 +995,7 @@ module AWS::SDK::APIGateway
         return nil if visited.include?('ListOfApiStage')
         visited = visited + ['ListOfApiStage']
         [
-          Stubs::ApiStage.default(visited)
+          ApiStage.default(visited)
         ]
       end
 
@@ -1017,7 +1017,7 @@ module AWS::SDK::APIGateway
         {
           api_id: 'api_id',
           stage: 'stage',
-          throttle: Stubs::MapOfApiStageThrottleSettings.default(visited),
+          throttle: MapOfApiStageThrottleSettings.default(visited),
         }
       end
 
@@ -1037,7 +1037,7 @@ module AWS::SDK::APIGateway
         return nil if visited.include?('MapOfApiStageThrottleSettings')
         visited = visited + ['MapOfApiStageThrottleSettings']
         {
-          test_key: Stubs::ThrottleSettings.default(visited)
+          test_key: ThrottleSettings.default(visited)
         }
       end
 
@@ -1081,10 +1081,10 @@ module AWS::SDK::APIGateway
           id: 'id',
           name: 'name',
           description: 'description',
-          target_arns: Stubs::ListOfString.default(visited),
+          target_arns: ListOfString.default(visited),
           status: 'status',
           status_message: 'status_message',
-          tags: Stubs::MapOfStringToString.default(visited),
+          tags: MapOfStringToString.default(visited),
         }
       end
 
@@ -1411,7 +1411,7 @@ module AWS::SDK::APIGateway
           pem_encoded_certificate: 'pem_encoded_certificate',
           created_date: Time.now,
           expiration_date: Time.now,
-          tags: Stubs::MapOfStringToString.default(visited),
+          tags: MapOfStringToString.default(visited),
         }
       end
 
@@ -1434,8 +1434,8 @@ module AWS::SDK::APIGateway
       def self.default(visited=[])
         {
           cloudwatch_role_arn: 'cloudwatch_role_arn',
-          throttle_settings: Stubs::ThrottleSettings.default(visited),
-          features: Stubs::ListOfString.default(visited),
+          throttle_settings: ThrottleSettings.default(visited),
+          features: ListOfString.default(visited),
           api_key_version: 'api_key_version',
         }
       end
@@ -1464,8 +1464,8 @@ module AWS::SDK::APIGateway
           enabled: false,
           created_date: Time.now,
           last_updated_date: Time.now,
-          stage_keys: Stubs::ListOfString.default(visited),
-          tags: Stubs::MapOfStringToString.default(visited),
+          stage_keys: ListOfString.default(visited),
+          tags: MapOfStringToString.default(visited),
         }
       end
 
@@ -1491,8 +1491,8 @@ module AWS::SDK::APIGateway
     class GetApiKeys
       def self.default(visited=[])
         {
-          warnings: Stubs::ListOfString.default(visited),
-          items: Stubs::ListOfApiKey.default(visited),
+          warnings: ListOfString.default(visited),
+          items: ListOfApiKey.default(visited),
           position: 'position',
         }
       end
@@ -1513,7 +1513,7 @@ module AWS::SDK::APIGateway
         return nil if visited.include?('ListOfApiKey')
         visited = visited + ['ListOfApiKey']
         [
-          Stubs::ApiKey.default(visited)
+          ApiKey.default(visited)
         ]
       end
 
@@ -1541,8 +1541,8 @@ module AWS::SDK::APIGateway
           enabled: false,
           created_date: Time.now,
           last_updated_date: Time.now,
-          stage_keys: Stubs::ListOfString.default(visited),
-          tags: Stubs::MapOfStringToString.default(visited),
+          stage_keys: ListOfString.default(visited),
+          tags: MapOfStringToString.default(visited),
         }
       end
 
@@ -1570,7 +1570,7 @@ module AWS::SDK::APIGateway
           id: 'id',
           name: 'name',
           type: 'type',
-          provider_ar_ns: Stubs::ListOfARNs.default(visited),
+          provider_ar_ns: ListOfARNs.default(visited),
           auth_type: 'auth_type',
           authorizer_uri: 'authorizer_uri',
           authorizer_credentials: 'authorizer_credentials',
@@ -1602,7 +1602,7 @@ module AWS::SDK::APIGateway
     class GetAuthorizers
       def self.default(visited=[])
         {
-          items: Stubs::ListOfAuthorizer.default(visited),
+          items: ListOfAuthorizer.default(visited),
           position: 'position',
         }
       end
@@ -1622,7 +1622,7 @@ module AWS::SDK::APIGateway
         return nil if visited.include?('ListOfAuthorizer')
         visited = visited + ['ListOfAuthorizer']
         [
-          Stubs::Authorizer.default(visited)
+          Authorizer.default(visited)
         ]
       end
 
@@ -1645,7 +1645,7 @@ module AWS::SDK::APIGateway
           id: 'id',
           name: 'name',
           type: 'type',
-          provider_ar_ns: Stubs::ListOfARNs.default(visited),
+          provider_ar_ns: ListOfARNs.default(visited),
           auth_type: 'auth_type',
           authorizer_uri: 'authorizer_uri',
           authorizer_credentials: 'authorizer_credentials',
@@ -1697,7 +1697,7 @@ module AWS::SDK::APIGateway
     class GetBasePathMappings
       def self.default(visited=[])
         {
-          items: Stubs::ListOfBasePathMapping.default(visited),
+          items: ListOfBasePathMapping.default(visited),
           position: 'position',
         }
       end
@@ -1717,7 +1717,7 @@ module AWS::SDK::APIGateway
         return nil if visited.include?('ListOfBasePathMapping')
         visited = visited + ['ListOfBasePathMapping']
         [
-          Stubs::BasePathMapping.default(visited)
+          BasePathMapping.default(visited)
         ]
       end
 
@@ -1762,7 +1762,7 @@ module AWS::SDK::APIGateway
           pem_encoded_certificate: 'pem_encoded_certificate',
           created_date: Time.now,
           expiration_date: Time.now,
-          tags: Stubs::MapOfStringToString.default(visited),
+          tags: MapOfStringToString.default(visited),
         }
       end
 
@@ -1784,7 +1784,7 @@ module AWS::SDK::APIGateway
     class GetClientCertificates
       def self.default(visited=[])
         {
-          items: Stubs::ListOfClientCertificate.default(visited),
+          items: ListOfClientCertificate.default(visited),
           position: 'position',
         }
       end
@@ -1804,7 +1804,7 @@ module AWS::SDK::APIGateway
         return nil if visited.include?('ListOfClientCertificate')
         visited = visited + ['ListOfClientCertificate']
         [
-          Stubs::ClientCertificate.default(visited)
+          ClientCertificate.default(visited)
         ]
       end
 
@@ -1829,7 +1829,7 @@ module AWS::SDK::APIGateway
           pem_encoded_certificate: 'pem_encoded_certificate',
           created_date: Time.now,
           expiration_date: Time.now,
-          tags: Stubs::MapOfStringToString.default(visited),
+          tags: MapOfStringToString.default(visited),
         }
       end
 
@@ -1853,7 +1853,7 @@ module AWS::SDK::APIGateway
           id: 'id',
           description: 'description',
           created_date: Time.now,
-          api_summary: Stubs::PathToMapOfMethodSnapshot.default(visited),
+          api_summary: PathToMapOfMethodSnapshot.default(visited),
         }
       end
 
@@ -1873,7 +1873,7 @@ module AWS::SDK::APIGateway
     class GetDeployments
       def self.default(visited=[])
         {
-          items: Stubs::ListOfDeployment.default(visited),
+          items: ListOfDeployment.default(visited),
           position: 'position',
         }
       end
@@ -1893,7 +1893,7 @@ module AWS::SDK::APIGateway
         return nil if visited.include?('ListOfDeployment')
         visited = visited + ['ListOfDeployment']
         [
-          Stubs::Deployment.default(visited)
+          Deployment.default(visited)
         ]
       end
 
@@ -1916,7 +1916,7 @@ module AWS::SDK::APIGateway
           id: 'id',
           description: 'description',
           created_date: Time.now,
-          api_summary: Stubs::PathToMapOfMethodSnapshot.default(visited),
+          api_summary: PathToMapOfMethodSnapshot.default(visited),
         }
       end
 
@@ -1936,7 +1936,7 @@ module AWS::SDK::APIGateway
       def self.default(visited=[])
         {
           id: 'id',
-          location: Stubs::DocumentationPartLocation.default(visited),
+          location: DocumentationPartLocation.default(visited),
           properties: 'properties',
         }
       end
@@ -1956,7 +1956,7 @@ module AWS::SDK::APIGateway
     class GetDocumentationParts
       def self.default(visited=[])
         {
-          items: Stubs::ListOfDocumentationPart.default(visited),
+          items: ListOfDocumentationPart.default(visited),
           position: 'position',
         }
       end
@@ -1976,7 +1976,7 @@ module AWS::SDK::APIGateway
         return nil if visited.include?('ListOfDocumentationPart')
         visited = visited + ['ListOfDocumentationPart']
         [
-          Stubs::DocumentationPart.default(visited)
+          DocumentationPart.default(visited)
         ]
       end
 
@@ -1997,7 +1997,7 @@ module AWS::SDK::APIGateway
         visited = visited + ['DocumentationPart']
         {
           id: 'id',
-          location: Stubs::DocumentationPartLocation.default(visited),
+          location: DocumentationPartLocation.default(visited),
           properties: 'properties',
         }
       end
@@ -2037,7 +2037,7 @@ module AWS::SDK::APIGateway
     class GetDocumentationVersions
       def self.default(visited=[])
         {
-          items: Stubs::ListOfDocumentationVersion.default(visited),
+          items: ListOfDocumentationVersion.default(visited),
           position: 'position',
         }
       end
@@ -2057,7 +2057,7 @@ module AWS::SDK::APIGateway
         return nil if visited.include?('ListOfDocumentationVersion')
         visited = visited + ['ListOfDocumentationVersion']
         [
-          Stubs::DocumentationVersion.default(visited)
+          DocumentationVersion.default(visited)
         ]
       end
 
@@ -2107,12 +2107,12 @@ module AWS::SDK::APIGateway
           regional_certificate_arn: 'regional_certificate_arn',
           distribution_domain_name: 'distribution_domain_name',
           distribution_hosted_zone_id: 'distribution_hosted_zone_id',
-          endpoint_configuration: Stubs::EndpointConfiguration.default(visited),
+          endpoint_configuration: EndpointConfiguration.default(visited),
           domain_name_status: 'domain_name_status',
           domain_name_status_message: 'domain_name_status_message',
           security_policy: 'security_policy',
-          tags: Stubs::MapOfStringToString.default(visited),
-          mutual_tls_authentication: Stubs::MutualTlsAuthentication.default(visited),
+          tags: MapOfStringToString.default(visited),
+          mutual_tls_authentication: MutualTlsAuthentication.default(visited),
           ownership_verification_certificate_arn: 'ownership_verification_certificate_arn',
         }
       end
@@ -2146,7 +2146,7 @@ module AWS::SDK::APIGateway
     class GetDomainNames
       def self.default(visited=[])
         {
-          items: Stubs::ListOfDomainName.default(visited),
+          items: ListOfDomainName.default(visited),
           position: 'position',
         }
       end
@@ -2166,7 +2166,7 @@ module AWS::SDK::APIGateway
         return nil if visited.include?('ListOfDomainName')
         visited = visited + ['ListOfDomainName']
         [
-          Stubs::DomainName.default(visited)
+          DomainName.default(visited)
         ]
       end
 
@@ -2196,12 +2196,12 @@ module AWS::SDK::APIGateway
           regional_certificate_arn: 'regional_certificate_arn',
           distribution_domain_name: 'distribution_domain_name',
           distribution_hosted_zone_id: 'distribution_hosted_zone_id',
-          endpoint_configuration: Stubs::EndpointConfiguration.default(visited),
+          endpoint_configuration: EndpointConfiguration.default(visited),
           domain_name_status: 'domain_name_status',
           domain_name_status_message: 'domain_name_status_message',
           security_policy: 'security_policy',
-          tags: Stubs::MapOfStringToString.default(visited),
-          mutual_tls_authentication: Stubs::MutualTlsAuthentication.default(visited),
+          tags: MapOfStringToString.default(visited),
+          mutual_tls_authentication: MutualTlsAuthentication.default(visited),
           ownership_verification_certificate_arn: 'ownership_verification_certificate_arn',
         }
       end
@@ -2256,8 +2256,8 @@ module AWS::SDK::APIGateway
         {
           response_type: 'response_type',
           status_code: 'status_code',
-          response_parameters: Stubs::MapOfStringToString.default(visited),
-          response_templates: Stubs::MapOfStringToString.default(visited),
+          response_parameters: MapOfStringToString.default(visited),
+          response_templates: MapOfStringToString.default(visited),
           default_response: false,
         }
       end
@@ -2279,7 +2279,7 @@ module AWS::SDK::APIGateway
     class GetGatewayResponses
       def self.default(visited=[])
         {
-          items: Stubs::ListOfGatewayResponse.default(visited),
+          items: ListOfGatewayResponse.default(visited),
           position: 'position',
         }
       end
@@ -2299,7 +2299,7 @@ module AWS::SDK::APIGateway
         return nil if visited.include?('ListOfGatewayResponse')
         visited = visited + ['ListOfGatewayResponse']
         [
-          Stubs::GatewayResponse.default(visited)
+          GatewayResponse.default(visited)
         ]
       end
 
@@ -2321,8 +2321,8 @@ module AWS::SDK::APIGateway
         {
           response_type: 'response_type',
           status_code: 'status_code',
-          response_parameters: Stubs::MapOfStringToString.default(visited),
-          response_templates: Stubs::MapOfStringToString.default(visited),
+          response_parameters: MapOfStringToString.default(visited),
+          response_templates: MapOfStringToString.default(visited),
           default_response: false,
         }
       end
@@ -2349,15 +2349,15 @@ module AWS::SDK::APIGateway
           connection_type: 'connection_type',
           connection_id: 'connection_id',
           credentials: 'credentials',
-          request_parameters: Stubs::MapOfStringToString.default(visited),
-          request_templates: Stubs::MapOfStringToString.default(visited),
+          request_parameters: MapOfStringToString.default(visited),
+          request_templates: MapOfStringToString.default(visited),
           passthrough_behavior: 'passthrough_behavior',
           content_handling: 'content_handling',
           timeout_in_millis: 1,
           cache_namespace: 'cache_namespace',
-          cache_key_parameters: Stubs::ListOfString.default(visited),
-          integration_responses: Stubs::MapOfIntegrationResponse.default(visited),
-          tls_config: Stubs::TlsConfig.default(visited),
+          cache_key_parameters: ListOfString.default(visited),
+          integration_responses: MapOfIntegrationResponse.default(visited),
+          tls_config: TlsConfig.default(visited),
         }
       end
 
@@ -2390,8 +2390,8 @@ module AWS::SDK::APIGateway
         {
           status_code: 'status_code',
           selection_pattern: 'selection_pattern',
-          response_parameters: Stubs::MapOfStringToString.default(visited),
-          response_templates: Stubs::MapOfStringToString.default(visited),
+          response_parameters: MapOfStringToString.default(visited),
+          response_templates: MapOfStringToString.default(visited),
           content_handling: 'content_handling',
         }
       end
@@ -2419,11 +2419,11 @@ module AWS::SDK::APIGateway
           api_key_required: false,
           request_validator_id: 'request_validator_id',
           operation_name: 'operation_name',
-          request_parameters: Stubs::MapOfStringToBoolean.default(visited),
-          request_models: Stubs::MapOfStringToString.default(visited),
-          method_responses: Stubs::MapOfMethodResponse.default(visited),
-          method_integration: Stubs::Integration.default(visited),
-          authorization_scopes: Stubs::ListOfString.default(visited),
+          request_parameters: MapOfStringToBoolean.default(visited),
+          request_models: MapOfStringToString.default(visited),
+          method_responses: MapOfMethodResponse.default(visited),
+          method_integration: Integration.default(visited),
+          authorization_scopes: ListOfString.default(visited),
         }
       end
 
@@ -2451,8 +2451,8 @@ module AWS::SDK::APIGateway
       def self.default(visited=[])
         {
           status_code: 'status_code',
-          response_parameters: Stubs::MapOfStringToBoolean.default(visited),
-          response_models: Stubs::MapOfStringToString.default(visited),
+          response_parameters: MapOfStringToBoolean.default(visited),
+          response_models: MapOfStringToString.default(visited),
         }
       end
 
@@ -2513,7 +2513,7 @@ module AWS::SDK::APIGateway
     class GetModels
       def self.default(visited=[])
         {
-          items: Stubs::ListOfModel.default(visited),
+          items: ListOfModel.default(visited),
           position: 'position',
         }
       end
@@ -2533,7 +2533,7 @@ module AWS::SDK::APIGateway
         return nil if visited.include?('ListOfModel')
         visited = visited + ['ListOfModel']
         [
-          Stubs::Model.default(visited)
+          Model.default(visited)
         ]
       end
 
@@ -2600,7 +2600,7 @@ module AWS::SDK::APIGateway
     class GetRequestValidators
       def self.default(visited=[])
         {
-          items: Stubs::ListOfRequestValidator.default(visited),
+          items: ListOfRequestValidator.default(visited),
           position: 'position',
         }
       end
@@ -2620,7 +2620,7 @@ module AWS::SDK::APIGateway
         return nil if visited.include?('ListOfRequestValidator')
         visited = visited + ['ListOfRequestValidator']
         [
-          Stubs::RequestValidator.default(visited)
+          RequestValidator.default(visited)
         ]
       end
 
@@ -2666,7 +2666,7 @@ module AWS::SDK::APIGateway
           parent_id: 'parent_id',
           path_part: 'path_part',
           path: 'path',
-          resource_methods: Stubs::MapOfMethod.default(visited),
+          resource_methods: MapOfMethod.default(visited),
         }
       end
 
@@ -2687,7 +2687,7 @@ module AWS::SDK::APIGateway
     class GetResources
       def self.default(visited=[])
         {
-          items: Stubs::ListOfResource.default(visited),
+          items: ListOfResource.default(visited),
           position: 'position',
         }
       end
@@ -2707,7 +2707,7 @@ module AWS::SDK::APIGateway
         return nil if visited.include?('ListOfResource')
         visited = visited + ['ListOfResource']
         [
-          Stubs::Resource.default(visited)
+          Resource.default(visited)
         ]
       end
 
@@ -2731,7 +2731,7 @@ module AWS::SDK::APIGateway
           parent_id: 'parent_id',
           path_part: 'path_part',
           path: 'path',
-          resource_methods: Stubs::MapOfMethod.default(visited),
+          resource_methods: MapOfMethod.default(visited),
         }
       end
 
@@ -2756,13 +2756,13 @@ module AWS::SDK::APIGateway
           description: 'description',
           created_date: Time.now,
           version: 'version',
-          warnings: Stubs::ListOfString.default(visited),
-          binary_media_types: Stubs::ListOfString.default(visited),
+          warnings: ListOfString.default(visited),
+          binary_media_types: ListOfString.default(visited),
           minimum_compression_size: 1,
           api_key_source: 'api_key_source',
-          endpoint_configuration: Stubs::EndpointConfiguration.default(visited),
+          endpoint_configuration: EndpointConfiguration.default(visited),
           policy: 'policy',
-          tags: Stubs::MapOfStringToString.default(visited),
+          tags: MapOfStringToString.default(visited),
           disable_execute_api_endpoint: false,
         }
       end
@@ -2792,7 +2792,7 @@ module AWS::SDK::APIGateway
     class GetRestApis
       def self.default(visited=[])
         {
-          items: Stubs::ListOfRestApi.default(visited),
+          items: ListOfRestApi.default(visited),
           position: 'position',
         }
       end
@@ -2812,7 +2812,7 @@ module AWS::SDK::APIGateway
         return nil if visited.include?('ListOfRestApi')
         visited = visited + ['ListOfRestApi']
         [
-          Stubs::RestApi.default(visited)
+          RestApi.default(visited)
         ]
       end
 
@@ -2837,13 +2837,13 @@ module AWS::SDK::APIGateway
           description: 'description',
           created_date: Time.now,
           version: 'version',
-          warnings: Stubs::ListOfString.default(visited),
-          binary_media_types: Stubs::ListOfString.default(visited),
+          warnings: ListOfString.default(visited),
+          binary_media_types: ListOfString.default(visited),
           minimum_compression_size: 1,
           api_key_source: 'api_key_source',
-          endpoint_configuration: Stubs::EndpointConfiguration.default(visited),
+          endpoint_configuration: EndpointConfiguration.default(visited),
           policy: 'policy',
-          tags: Stubs::MapOfStringToString.default(visited),
+          tags: MapOfStringToString.default(visited),
           disable_execute_api_endpoint: false,
         }
       end
@@ -2895,7 +2895,7 @@ module AWS::SDK::APIGateway
           id: 'id',
           friendly_name: 'friendly_name',
           description: 'description',
-          configuration_properties: Stubs::ListOfSdkConfigurationProperty.default(visited),
+          configuration_properties: ListOfSdkConfigurationProperty.default(visited),
         }
       end
 
@@ -2917,7 +2917,7 @@ module AWS::SDK::APIGateway
         return nil if visited.include?('ListOfSdkConfigurationProperty')
         visited = visited + ['ListOfSdkConfigurationProperty']
         [
-          Stubs::SdkConfigurationProperty.default(visited)
+          SdkConfigurationProperty.default(visited)
         ]
       end
 
@@ -2961,7 +2961,7 @@ module AWS::SDK::APIGateway
     class GetSdkTypes
       def self.default(visited=[])
         {
-          items: Stubs::ListOfSdkType.default(visited),
+          items: ListOfSdkType.default(visited),
         }
       end
 
@@ -2980,7 +2980,7 @@ module AWS::SDK::APIGateway
         return nil if visited.include?('ListOfSdkType')
         visited = visited + ['ListOfSdkType']
         [
-          Stubs::SdkType.default(visited)
+          SdkType.default(visited)
         ]
       end
 
@@ -3003,7 +3003,7 @@ module AWS::SDK::APIGateway
           id: 'id',
           friendly_name: 'friendly_name',
           description: 'description',
-          configuration_properties: Stubs::ListOfSdkConfigurationProperty.default(visited),
+          configuration_properties: ListOfSdkConfigurationProperty.default(visited),
         }
       end
 
@@ -3029,14 +3029,14 @@ module AWS::SDK::APIGateway
           cache_cluster_enabled: false,
           cache_cluster_size: 'cache_cluster_size',
           cache_cluster_status: 'cache_cluster_status',
-          method_settings: Stubs::MapOfMethodSettings.default(visited),
-          variables: Stubs::MapOfStringToString.default(visited),
+          method_settings: MapOfMethodSettings.default(visited),
+          variables: MapOfStringToString.default(visited),
           documentation_version: 'documentation_version',
-          access_log_settings: Stubs::AccessLogSettings.default(visited),
-          canary_settings: Stubs::CanarySettings.default(visited),
+          access_log_settings: AccessLogSettings.default(visited),
+          canary_settings: CanarySettings.default(visited),
           tracing_enabled: false,
           web_acl_arn: 'web_acl_arn',
-          tags: Stubs::MapOfStringToString.default(visited),
+          tags: MapOfStringToString.default(visited),
           created_date: Time.now,
           last_updated_date: Time.now,
         }
@@ -3071,7 +3071,7 @@ module AWS::SDK::APIGateway
     class GetStages
       def self.default(visited=[])
         {
-          item: Stubs::ListOfStage.default(visited),
+          item: ListOfStage.default(visited),
         }
       end
 
@@ -3090,7 +3090,7 @@ module AWS::SDK::APIGateway
         return nil if visited.include?('ListOfStage')
         visited = visited + ['ListOfStage']
         [
-          Stubs::Stage.default(visited)
+          Stage.default(visited)
         ]
       end
 
@@ -3117,14 +3117,14 @@ module AWS::SDK::APIGateway
           cache_cluster_enabled: false,
           cache_cluster_size: 'cache_cluster_size',
           cache_cluster_status: 'cache_cluster_status',
-          method_settings: Stubs::MapOfMethodSettings.default(visited),
-          variables: Stubs::MapOfStringToString.default(visited),
+          method_settings: MapOfMethodSettings.default(visited),
+          variables: MapOfStringToString.default(visited),
           documentation_version: 'documentation_version',
-          access_log_settings: Stubs::AccessLogSettings.default(visited),
-          canary_settings: Stubs::CanarySettings.default(visited),
+          access_log_settings: AccessLogSettings.default(visited),
+          canary_settings: CanarySettings.default(visited),
           tracing_enabled: false,
           web_acl_arn: 'web_acl_arn',
-          tags: Stubs::MapOfStringToString.default(visited),
+          tags: MapOfStringToString.default(visited),
           created_date: Time.now,
           last_updated_date: Time.now,
         }
@@ -3158,7 +3158,7 @@ module AWS::SDK::APIGateway
     class GetTags
       def self.default(visited=[])
         {
-          tags: Stubs::MapOfStringToString.default(visited),
+          tags: MapOfStringToString.default(visited),
         }
       end
 
@@ -3178,7 +3178,7 @@ module AWS::SDK::APIGateway
           usage_plan_id: 'usage_plan_id',
           start_date: 'start_date',
           end_date: 'end_date',
-          items: Stubs::MapOfKeyUsages.default(visited),
+          items: MapOfKeyUsages.default(visited),
           position: 'position',
         }
       end
@@ -3201,7 +3201,7 @@ module AWS::SDK::APIGateway
         return nil if visited.include?('MapOfKeyUsages')
         visited = visited + ['MapOfKeyUsages']
         {
-          test_key: Stubs::ListOfUsage.default(visited)
+          test_key: ListOfUsage.default(visited)
         }
       end
 
@@ -3221,7 +3221,7 @@ module AWS::SDK::APIGateway
         return nil if visited.include?('ListOfUsage')
         visited = visited + ['ListOfUsage']
         [
-          Stubs::ListOfLong.default(visited)
+          ListOfLong.default(visited)
         ]
       end
 
@@ -3262,11 +3262,11 @@ module AWS::SDK::APIGateway
           id: 'id',
           name: 'name',
           description: 'description',
-          api_stages: Stubs::ListOfApiStage.default(visited),
-          throttle: Stubs::ThrottleSettings.default(visited),
-          quota: Stubs::QuotaSettings.default(visited),
+          api_stages: ListOfApiStage.default(visited),
+          throttle: ThrottleSettings.default(visited),
+          quota: QuotaSettings.default(visited),
           product_code: 'product_code',
-          tags: Stubs::MapOfStringToString.default(visited),
+          tags: MapOfStringToString.default(visited),
         }
       end
 
@@ -3313,7 +3313,7 @@ module AWS::SDK::APIGateway
     class GetUsagePlanKeys
       def self.default(visited=[])
         {
-          items: Stubs::ListOfUsagePlanKey.default(visited),
+          items: ListOfUsagePlanKey.default(visited),
           position: 'position',
         }
       end
@@ -3333,7 +3333,7 @@ module AWS::SDK::APIGateway
         return nil if visited.include?('ListOfUsagePlanKey')
         visited = visited + ['ListOfUsagePlanKey']
         [
-          Stubs::UsagePlanKey.default(visited)
+          UsagePlanKey.default(visited)
         ]
       end
 
@@ -3375,7 +3375,7 @@ module AWS::SDK::APIGateway
     class GetUsagePlans
       def self.default(visited=[])
         {
-          items: Stubs::ListOfUsagePlan.default(visited),
+          items: ListOfUsagePlan.default(visited),
           position: 'position',
         }
       end
@@ -3395,7 +3395,7 @@ module AWS::SDK::APIGateway
         return nil if visited.include?('ListOfUsagePlan')
         visited = visited + ['ListOfUsagePlan']
         [
-          Stubs::UsagePlan.default(visited)
+          UsagePlan.default(visited)
         ]
       end
 
@@ -3418,11 +3418,11 @@ module AWS::SDK::APIGateway
           id: 'id',
           name: 'name',
           description: 'description',
-          api_stages: Stubs::ListOfApiStage.default(visited),
-          throttle: Stubs::ThrottleSettings.default(visited),
-          quota: Stubs::QuotaSettings.default(visited),
+          api_stages: ListOfApiStage.default(visited),
+          throttle: ThrottleSettings.default(visited),
+          quota: QuotaSettings.default(visited),
           product_code: 'product_code',
-          tags: Stubs::MapOfStringToString.default(visited),
+          tags: MapOfStringToString.default(visited),
         }
       end
 
@@ -3448,10 +3448,10 @@ module AWS::SDK::APIGateway
           id: 'id',
           name: 'name',
           description: 'description',
-          target_arns: Stubs::ListOfString.default(visited),
+          target_arns: ListOfString.default(visited),
           status: 'status',
           status_message: 'status_message',
-          tags: Stubs::MapOfStringToString.default(visited),
+          tags: MapOfStringToString.default(visited),
         }
       end
 
@@ -3474,7 +3474,7 @@ module AWS::SDK::APIGateway
     class GetVpcLinks
       def self.default(visited=[])
         {
-          items: Stubs::ListOfVpcLink.default(visited),
+          items: ListOfVpcLink.default(visited),
           position: 'position',
         }
       end
@@ -3494,7 +3494,7 @@ module AWS::SDK::APIGateway
         return nil if visited.include?('ListOfVpcLink')
         visited = visited + ['ListOfVpcLink']
         [
-          Stubs::VpcLink.default(visited)
+          VpcLink.default(visited)
         ]
       end
 
@@ -3517,10 +3517,10 @@ module AWS::SDK::APIGateway
           id: 'id',
           name: 'name',
           description: 'description',
-          target_arns: Stubs::ListOfString.default(visited),
+          target_arns: ListOfString.default(visited),
           status: 'status',
           status_message: 'status_message',
-          tags: Stubs::MapOfStringToString.default(visited),
+          tags: MapOfStringToString.default(visited),
         }
       end
 
@@ -3542,8 +3542,8 @@ module AWS::SDK::APIGateway
     class ImportApiKeys
       def self.default(visited=[])
         {
-          ids: Stubs::ListOfString.default(visited),
-          warnings: Stubs::ListOfString.default(visited),
+          ids: ListOfString.default(visited),
+          warnings: ListOfString.default(visited),
         }
       end
 
@@ -3561,8 +3561,8 @@ module AWS::SDK::APIGateway
     class ImportDocumentationParts
       def self.default(visited=[])
         {
-          ids: Stubs::ListOfString.default(visited),
-          warnings: Stubs::ListOfString.default(visited),
+          ids: ListOfString.default(visited),
+          warnings: ListOfString.default(visited),
         }
       end
 
@@ -3585,13 +3585,13 @@ module AWS::SDK::APIGateway
           description: 'description',
           created_date: Time.now,
           version: 'version',
-          warnings: Stubs::ListOfString.default(visited),
-          binary_media_types: Stubs::ListOfString.default(visited),
+          warnings: ListOfString.default(visited),
+          binary_media_types: ListOfString.default(visited),
           minimum_compression_size: 1,
           api_key_source: 'api_key_source',
-          endpoint_configuration: Stubs::EndpointConfiguration.default(visited),
+          endpoint_configuration: EndpointConfiguration.default(visited),
           policy: 'policy',
-          tags: Stubs::MapOfStringToString.default(visited),
+          tags: MapOfStringToString.default(visited),
           disable_execute_api_endpoint: false,
         }
       end
@@ -3623,8 +3623,8 @@ module AWS::SDK::APIGateway
         {
           response_type: 'response_type',
           status_code: 'status_code',
-          response_parameters: Stubs::MapOfStringToString.default(visited),
-          response_templates: Stubs::MapOfStringToString.default(visited),
+          response_parameters: MapOfStringToString.default(visited),
+          response_templates: MapOfStringToString.default(visited),
           default_response: false,
         }
       end
@@ -3652,15 +3652,15 @@ module AWS::SDK::APIGateway
           connection_type: 'connection_type',
           connection_id: 'connection_id',
           credentials: 'credentials',
-          request_parameters: Stubs::MapOfStringToString.default(visited),
-          request_templates: Stubs::MapOfStringToString.default(visited),
+          request_parameters: MapOfStringToString.default(visited),
+          request_templates: MapOfStringToString.default(visited),
           passthrough_behavior: 'passthrough_behavior',
           content_handling: 'content_handling',
           timeout_in_millis: 1,
           cache_namespace: 'cache_namespace',
-          cache_key_parameters: Stubs::ListOfString.default(visited),
-          integration_responses: Stubs::MapOfIntegrationResponse.default(visited),
-          tls_config: Stubs::TlsConfig.default(visited),
+          cache_key_parameters: ListOfString.default(visited),
+          integration_responses: MapOfIntegrationResponse.default(visited),
+          tls_config: TlsConfig.default(visited),
         }
       end
 
@@ -3693,8 +3693,8 @@ module AWS::SDK::APIGateway
         {
           status_code: 'status_code',
           selection_pattern: 'selection_pattern',
-          response_parameters: Stubs::MapOfStringToString.default(visited),
-          response_templates: Stubs::MapOfStringToString.default(visited),
+          response_parameters: MapOfStringToString.default(visited),
+          response_templates: MapOfStringToString.default(visited),
           content_handling: 'content_handling',
         }
       end
@@ -3722,11 +3722,11 @@ module AWS::SDK::APIGateway
           api_key_required: false,
           request_validator_id: 'request_validator_id',
           operation_name: 'operation_name',
-          request_parameters: Stubs::MapOfStringToBoolean.default(visited),
-          request_models: Stubs::MapOfStringToString.default(visited),
-          method_responses: Stubs::MapOfMethodResponse.default(visited),
-          method_integration: Stubs::Integration.default(visited),
-          authorization_scopes: Stubs::ListOfString.default(visited),
+          request_parameters: MapOfStringToBoolean.default(visited),
+          request_models: MapOfStringToString.default(visited),
+          method_responses: MapOfMethodResponse.default(visited),
+          method_integration: Integration.default(visited),
+          authorization_scopes: ListOfString.default(visited),
         }
       end
 
@@ -3754,8 +3754,8 @@ module AWS::SDK::APIGateway
       def self.default(visited=[])
         {
           status_code: 'status_code',
-          response_parameters: Stubs::MapOfStringToBoolean.default(visited),
-          response_models: Stubs::MapOfStringToString.default(visited),
+          response_parameters: MapOfStringToBoolean.default(visited),
+          response_models: MapOfStringToString.default(visited),
         }
       end
 
@@ -3779,13 +3779,13 @@ module AWS::SDK::APIGateway
           description: 'description',
           created_date: Time.now,
           version: 'version',
-          warnings: Stubs::ListOfString.default(visited),
-          binary_media_types: Stubs::ListOfString.default(visited),
+          warnings: ListOfString.default(visited),
+          binary_media_types: ListOfString.default(visited),
           minimum_compression_size: 1,
           api_key_source: 'api_key_source',
-          endpoint_configuration: Stubs::EndpointConfiguration.default(visited),
+          endpoint_configuration: EndpointConfiguration.default(visited),
           policy: 'policy',
-          tags: Stubs::MapOfStringToString.default(visited),
+          tags: MapOfStringToString.default(visited),
           disable_execute_api_endpoint: false,
         }
       end
@@ -3833,8 +3833,8 @@ module AWS::SDK::APIGateway
           latency: 1,
           principal_id: 'principal_id',
           policy: 'policy',
-          authorization: Stubs::MapOfStringToList.default(visited),
-          claims: Stubs::MapOfStringToString.default(visited),
+          authorization: MapOfStringToList.default(visited),
+          claims: MapOfStringToString.default(visited),
         }
       end
 
@@ -3859,7 +3859,7 @@ module AWS::SDK::APIGateway
         return nil if visited.include?('MapOfStringToList')
         visited = visited + ['MapOfStringToList']
         {
-          test_key: Stubs::ListOfString.default(visited)
+          test_key: ListOfString.default(visited)
         }
       end
 
@@ -3879,8 +3879,8 @@ module AWS::SDK::APIGateway
         {
           status: 1,
           body: 'body',
-          headers: Stubs::MapOfStringToString.default(visited),
-          multi_value_headers: Stubs::MapOfStringToList.default(visited),
+          headers: MapOfStringToString.default(visited),
+          multi_value_headers: MapOfStringToList.default(visited),
           log: 'log',
           latency: 1,
         }
@@ -3918,8 +3918,8 @@ module AWS::SDK::APIGateway
       def self.default(visited=[])
         {
           cloudwatch_role_arn: 'cloudwatch_role_arn',
-          throttle_settings: Stubs::ThrottleSettings.default(visited),
-          features: Stubs::ListOfString.default(visited),
+          throttle_settings: ThrottleSettings.default(visited),
+          features: ListOfString.default(visited),
           api_key_version: 'api_key_version',
         }
       end
@@ -3948,8 +3948,8 @@ module AWS::SDK::APIGateway
           enabled: false,
           created_date: Time.now,
           last_updated_date: Time.now,
-          stage_keys: Stubs::ListOfString.default(visited),
-          tags: Stubs::MapOfStringToString.default(visited),
+          stage_keys: ListOfString.default(visited),
+          tags: MapOfStringToString.default(visited),
         }
       end
 
@@ -3978,7 +3978,7 @@ module AWS::SDK::APIGateway
           id: 'id',
           name: 'name',
           type: 'type',
-          provider_ar_ns: Stubs::ListOfARNs.default(visited),
+          provider_ar_ns: ListOfARNs.default(visited),
           auth_type: 'auth_type',
           authorizer_uri: 'authorizer_uri',
           authorizer_credentials: 'authorizer_credentials',
@@ -4036,7 +4036,7 @@ module AWS::SDK::APIGateway
           pem_encoded_certificate: 'pem_encoded_certificate',
           created_date: Time.now,
           expiration_date: Time.now,
-          tags: Stubs::MapOfStringToString.default(visited),
+          tags: MapOfStringToString.default(visited),
         }
       end
 
@@ -4061,7 +4061,7 @@ module AWS::SDK::APIGateway
           id: 'id',
           description: 'description',
           created_date: Time.now,
-          api_summary: Stubs::PathToMapOfMethodSnapshot.default(visited),
+          api_summary: PathToMapOfMethodSnapshot.default(visited),
         }
       end
 
@@ -4082,7 +4082,7 @@ module AWS::SDK::APIGateway
       def self.default(visited=[])
         {
           id: 'id',
-          location: Stubs::DocumentationPartLocation.default(visited),
+          location: DocumentationPartLocation.default(visited),
           properties: 'properties',
         }
       end
@@ -4133,12 +4133,12 @@ module AWS::SDK::APIGateway
           regional_certificate_arn: 'regional_certificate_arn',
           distribution_domain_name: 'distribution_domain_name',
           distribution_hosted_zone_id: 'distribution_hosted_zone_id',
-          endpoint_configuration: Stubs::EndpointConfiguration.default(visited),
+          endpoint_configuration: EndpointConfiguration.default(visited),
           domain_name_status: 'domain_name_status',
           domain_name_status_message: 'domain_name_status_message',
           security_policy: 'security_policy',
-          tags: Stubs::MapOfStringToString.default(visited),
-          mutual_tls_authentication: Stubs::MutualTlsAuthentication.default(visited),
+          tags: MapOfStringToString.default(visited),
+          mutual_tls_authentication: MutualTlsAuthentication.default(visited),
           ownership_verification_certificate_arn: 'ownership_verification_certificate_arn',
         }
       end
@@ -4174,8 +4174,8 @@ module AWS::SDK::APIGateway
         {
           response_type: 'response_type',
           status_code: 'status_code',
-          response_parameters: Stubs::MapOfStringToString.default(visited),
-          response_templates: Stubs::MapOfStringToString.default(visited),
+          response_parameters: MapOfStringToString.default(visited),
+          response_templates: MapOfStringToString.default(visited),
           default_response: false,
         }
       end
@@ -4203,15 +4203,15 @@ module AWS::SDK::APIGateway
           connection_type: 'connection_type',
           connection_id: 'connection_id',
           credentials: 'credentials',
-          request_parameters: Stubs::MapOfStringToString.default(visited),
-          request_templates: Stubs::MapOfStringToString.default(visited),
+          request_parameters: MapOfStringToString.default(visited),
+          request_templates: MapOfStringToString.default(visited),
           passthrough_behavior: 'passthrough_behavior',
           content_handling: 'content_handling',
           timeout_in_millis: 1,
           cache_namespace: 'cache_namespace',
-          cache_key_parameters: Stubs::ListOfString.default(visited),
-          integration_responses: Stubs::MapOfIntegrationResponse.default(visited),
-          tls_config: Stubs::TlsConfig.default(visited),
+          cache_key_parameters: ListOfString.default(visited),
+          integration_responses: MapOfIntegrationResponse.default(visited),
+          tls_config: TlsConfig.default(visited),
         }
       end
 
@@ -4244,8 +4244,8 @@ module AWS::SDK::APIGateway
         {
           status_code: 'status_code',
           selection_pattern: 'selection_pattern',
-          response_parameters: Stubs::MapOfStringToString.default(visited),
-          response_templates: Stubs::MapOfStringToString.default(visited),
+          response_parameters: MapOfStringToString.default(visited),
+          response_templates: MapOfStringToString.default(visited),
           content_handling: 'content_handling',
         }
       end
@@ -4273,11 +4273,11 @@ module AWS::SDK::APIGateway
           api_key_required: false,
           request_validator_id: 'request_validator_id',
           operation_name: 'operation_name',
-          request_parameters: Stubs::MapOfStringToBoolean.default(visited),
-          request_models: Stubs::MapOfStringToString.default(visited),
-          method_responses: Stubs::MapOfMethodResponse.default(visited),
-          method_integration: Stubs::Integration.default(visited),
-          authorization_scopes: Stubs::ListOfString.default(visited),
+          request_parameters: MapOfStringToBoolean.default(visited),
+          request_models: MapOfStringToString.default(visited),
+          method_responses: MapOfMethodResponse.default(visited),
+          method_integration: Integration.default(visited),
+          authorization_scopes: ListOfString.default(visited),
         }
       end
 
@@ -4305,8 +4305,8 @@ module AWS::SDK::APIGateway
       def self.default(visited=[])
         {
           status_code: 'status_code',
-          response_parameters: Stubs::MapOfStringToBoolean.default(visited),
-          response_models: Stubs::MapOfStringToString.default(visited),
+          response_parameters: MapOfStringToBoolean.default(visited),
+          response_models: MapOfStringToString.default(visited),
         }
       end
 
@@ -4377,7 +4377,7 @@ module AWS::SDK::APIGateway
           parent_id: 'parent_id',
           path_part: 'path_part',
           path: 'path',
-          resource_methods: Stubs::MapOfMethod.default(visited),
+          resource_methods: MapOfMethod.default(visited),
         }
       end
 
@@ -4403,13 +4403,13 @@ module AWS::SDK::APIGateway
           description: 'description',
           created_date: Time.now,
           version: 'version',
-          warnings: Stubs::ListOfString.default(visited),
-          binary_media_types: Stubs::ListOfString.default(visited),
+          warnings: ListOfString.default(visited),
+          binary_media_types: ListOfString.default(visited),
           minimum_compression_size: 1,
           api_key_source: 'api_key_source',
-          endpoint_configuration: Stubs::EndpointConfiguration.default(visited),
+          endpoint_configuration: EndpointConfiguration.default(visited),
           policy: 'policy',
-          tags: Stubs::MapOfStringToString.default(visited),
+          tags: MapOfStringToString.default(visited),
           disable_execute_api_endpoint: false,
         }
       end
@@ -4446,14 +4446,14 @@ module AWS::SDK::APIGateway
           cache_cluster_enabled: false,
           cache_cluster_size: 'cache_cluster_size',
           cache_cluster_status: 'cache_cluster_status',
-          method_settings: Stubs::MapOfMethodSettings.default(visited),
-          variables: Stubs::MapOfStringToString.default(visited),
+          method_settings: MapOfMethodSettings.default(visited),
+          variables: MapOfStringToString.default(visited),
           documentation_version: 'documentation_version',
-          access_log_settings: Stubs::AccessLogSettings.default(visited),
-          canary_settings: Stubs::CanarySettings.default(visited),
+          access_log_settings: AccessLogSettings.default(visited),
+          canary_settings: CanarySettings.default(visited),
           tracing_enabled: false,
           web_acl_arn: 'web_acl_arn',
-          tags: Stubs::MapOfStringToString.default(visited),
+          tags: MapOfStringToString.default(visited),
           created_date: Time.now,
           last_updated_date: Time.now,
         }
@@ -4491,7 +4491,7 @@ module AWS::SDK::APIGateway
           usage_plan_id: 'usage_plan_id',
           start_date: 'start_date',
           end_date: 'end_date',
-          items: Stubs::MapOfKeyUsages.default(visited),
+          items: MapOfKeyUsages.default(visited),
           position: 'position',
         }
       end
@@ -4515,11 +4515,11 @@ module AWS::SDK::APIGateway
           id: 'id',
           name: 'name',
           description: 'description',
-          api_stages: Stubs::ListOfApiStage.default(visited),
-          throttle: Stubs::ThrottleSettings.default(visited),
-          quota: Stubs::QuotaSettings.default(visited),
+          api_stages: ListOfApiStage.default(visited),
+          throttle: ThrottleSettings.default(visited),
+          quota: QuotaSettings.default(visited),
           product_code: 'product_code',
-          tags: Stubs::MapOfStringToString.default(visited),
+          tags: MapOfStringToString.default(visited),
         }
       end
 
@@ -4546,10 +4546,10 @@ module AWS::SDK::APIGateway
           id: 'id',
           name: 'name',
           description: 'description',
-          target_arns: Stubs::ListOfString.default(visited),
+          target_arns: ListOfString.default(visited),
           status: 'status',
           status_message: 'status_message',
-          tags: Stubs::MapOfStringToString.default(visited),
+          tags: MapOfStringToString.default(visited),
         }
       end
 

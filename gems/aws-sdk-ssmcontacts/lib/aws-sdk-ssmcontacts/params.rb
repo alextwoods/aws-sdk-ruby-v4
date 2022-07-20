@@ -158,7 +158,7 @@ module AWS::SDK::SSMContacts
         type.type = params[:type]
         type.delivery_address = ContactChannelAddress.build(params[:delivery_address], context: "#{context}[:delivery_address]") unless params[:delivery_address].nil?
         type.defer_activation = params[:defer_activation]
-        type.idempotency_token = params[:idempotency_token] || SecureRandom.uuid
+        type.idempotency_token = params[:idempotency_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -181,7 +181,7 @@ module AWS::SDK::SSMContacts
         type.type = params[:type]
         type.plan = Plan.build(params[:plan], context: "#{context}[:plan]") unless params[:plan].nil?
         type.tags = TagsList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.idempotency_token = params[:idempotency_token] || SecureRandom.uuid
+        type.idempotency_token = params[:idempotency_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -706,7 +706,7 @@ module AWS::SDK::SSMContacts
         type.public_subject = params[:public_subject]
         type.public_content = params[:public_content]
         type.incident_id = params[:incident_id]
-        type.idempotency_token = params[:idempotency_token] || SecureRandom.uuid
+        type.idempotency_token = params[:idempotency_token] || ::SecureRandom.uuid
         type
       end
     end

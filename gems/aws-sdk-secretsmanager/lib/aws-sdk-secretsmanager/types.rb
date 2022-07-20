@@ -210,6 +210,7 @@ module AWS::SDK::SecretsManager
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.force_overwrite_replica_secret ||= false
@@ -1371,11 +1372,11 @@ module AWS::SDK::SecretsManager
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.force_overwrite_replica_secret ||= false
       end
-
     end
 
     # @!attribute arn
@@ -2137,11 +2138,11 @@ module AWS::SDK::SecretsManager
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.policy_validation_passed ||= false
       end
-
     end
 
     # <p>Displays errors that occurred during validation of the resource policy.</p>

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::AppStream
@@ -84,7 +86,7 @@ module AWS::SDK::AppStream
     def associate_application_fleet(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateApplicationFleetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateApplicationFleetInput,
         validate_input: @config.validate_input
@@ -160,7 +162,7 @@ module AWS::SDK::AppStream
     def associate_application_to_entitlement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateApplicationToEntitlementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateApplicationToEntitlementInput,
         validate_input: @config.validate_input
@@ -232,7 +234,7 @@ module AWS::SDK::AppStream
     def associate_fleet(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateFleetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateFleetInput,
         validate_input: @config.validate_input
@@ -316,7 +318,7 @@ module AWS::SDK::AppStream
     def batch_associate_user_stack(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchAssociateUserStackInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchAssociateUserStackInput,
         validate_input: @config.validate_input
@@ -400,7 +402,7 @@ module AWS::SDK::AppStream
     def batch_disassociate_user_stack(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchDisassociateUserStackInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchDisassociateUserStackInput,
         validate_input: @config.validate_input
@@ -481,7 +483,7 @@ module AWS::SDK::AppStream
     def copy_image(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CopyImageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CopyImageInput,
         validate_input: @config.validate_input
@@ -598,7 +600,7 @@ module AWS::SDK::AppStream
     def create_app_block(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAppBlockInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAppBlockInput,
         validate_input: @config.validate_input
@@ -742,7 +744,7 @@ module AWS::SDK::AppStream
     def create_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateApplicationInput,
         validate_input: @config.validate_input
@@ -831,7 +833,7 @@ module AWS::SDK::AppStream
     def create_directory_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDirectoryConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDirectoryConfigInput,
         validate_input: @config.validate_input
@@ -936,7 +938,7 @@ module AWS::SDK::AppStream
     def create_entitlement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateEntitlementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEntitlementInput,
         validate_input: @config.validate_input
@@ -1295,7 +1297,7 @@ module AWS::SDK::AppStream
     def create_fleet(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFleetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFleetInput,
         validate_input: @config.validate_input
@@ -1575,7 +1577,7 @@ module AWS::SDK::AppStream
     def create_image_builder(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateImageBuilderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateImageBuilderInput,
         validate_input: @config.validate_input
@@ -1650,7 +1652,7 @@ module AWS::SDK::AppStream
     def create_image_builder_streaming_url(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateImageBuilderStreamingURLInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateImageBuilderStreamingURLInput,
         validate_input: @config.validate_input
@@ -1822,7 +1824,7 @@ module AWS::SDK::AppStream
     def create_stack(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateStackInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateStackInput,
         validate_input: @config.validate_input
@@ -1914,7 +1916,7 @@ module AWS::SDK::AppStream
     def create_streaming_url(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateStreamingURLInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateStreamingURLInput,
         validate_input: @config.validate_input
@@ -2059,7 +2061,7 @@ module AWS::SDK::AppStream
     def create_updated_image(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateUpdatedImageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateUpdatedImageInput,
         validate_input: @config.validate_input
@@ -2124,7 +2126,7 @@ module AWS::SDK::AppStream
     def create_usage_report_subscription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateUsageReportSubscriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateUsageReportSubscriptionInput,
         validate_input: @config.validate_input
@@ -2216,7 +2218,7 @@ module AWS::SDK::AppStream
     def create_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateUserInput,
         validate_input: @config.validate_input
@@ -2284,7 +2286,7 @@ module AWS::SDK::AppStream
     def delete_app_block(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAppBlockInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAppBlockInput,
         validate_input: @config.validate_input
@@ -2352,7 +2354,7 @@ module AWS::SDK::AppStream
     def delete_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteApplicationInput,
         validate_input: @config.validate_input
@@ -2420,7 +2422,7 @@ module AWS::SDK::AppStream
     def delete_directory_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDirectoryConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDirectoryConfigInput,
         validate_input: @config.validate_input
@@ -2492,7 +2494,7 @@ module AWS::SDK::AppStream
     def delete_entitlement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEntitlementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEntitlementInput,
         validate_input: @config.validate_input
@@ -2560,7 +2562,7 @@ module AWS::SDK::AppStream
     def delete_fleet(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFleetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFleetInput,
         validate_input: @config.validate_input
@@ -2676,7 +2678,7 @@ module AWS::SDK::AppStream
     def delete_image(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteImageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteImageInput,
         validate_input: @config.validate_input
@@ -2780,7 +2782,7 @@ module AWS::SDK::AppStream
     def delete_image_builder(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteImageBuilderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteImageBuilderInput,
         validate_input: @config.validate_input
@@ -2852,7 +2854,7 @@ module AWS::SDK::AppStream
     def delete_image_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteImagePermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteImagePermissionsInput,
         validate_input: @config.validate_input
@@ -2920,7 +2922,7 @@ module AWS::SDK::AppStream
     def delete_stack(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteStackInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteStackInput,
         validate_input: @config.validate_input
@@ -2983,7 +2985,7 @@ module AWS::SDK::AppStream
     def delete_usage_report_subscription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteUsageReportSubscriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteUsageReportSubscriptionInput,
         validate_input: @config.validate_input
@@ -3059,7 +3061,7 @@ module AWS::SDK::AppStream
     def delete_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteUserInput,
         validate_input: @config.validate_input
@@ -3154,7 +3156,7 @@ module AWS::SDK::AppStream
     def describe_app_blocks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAppBlocksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAppBlocksInput,
         validate_input: @config.validate_input
@@ -3240,7 +3242,7 @@ module AWS::SDK::AppStream
     def describe_application_fleet_associations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeApplicationFleetAssociationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeApplicationFleetAssociationsInput,
         validate_input: @config.validate_input
@@ -3342,7 +3344,7 @@ module AWS::SDK::AppStream
     def describe_applications(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeApplicationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeApplicationsInput,
         validate_input: @config.validate_input
@@ -3432,7 +3434,7 @@ module AWS::SDK::AppStream
     def describe_directory_configs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDirectoryConfigsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDirectoryConfigsInput,
         validate_input: @config.validate_input
@@ -3525,7 +3527,7 @@ module AWS::SDK::AppStream
     def describe_entitlements(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEntitlementsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEntitlementsInput,
         validate_input: @config.validate_input
@@ -3642,7 +3644,7 @@ module AWS::SDK::AppStream
     def describe_fleets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFleetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFleetsInput,
         validate_input: @config.validate_input
@@ -3758,7 +3760,7 @@ module AWS::SDK::AppStream
     def describe_image_builders(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeImageBuildersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeImageBuildersInput,
         validate_input: @config.validate_input
@@ -3848,7 +3850,7 @@ module AWS::SDK::AppStream
     def describe_image_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeImagePermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeImagePermissionsInput,
         validate_input: @config.validate_input
@@ -3985,7 +3987,7 @@ module AWS::SDK::AppStream
     def describe_images(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeImagesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeImagesInput,
         validate_input: @config.validate_input
@@ -4092,7 +4094,7 @@ module AWS::SDK::AppStream
     def describe_sessions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSessionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSessionsInput,
         validate_input: @config.validate_input
@@ -4200,7 +4202,7 @@ module AWS::SDK::AppStream
     def describe_stacks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeStacksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeStacksInput,
         validate_input: @config.validate_input
@@ -4282,7 +4284,7 @@ module AWS::SDK::AppStream
     def describe_usage_report_subscriptions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeUsageReportSubscriptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeUsageReportSubscriptionsInput,
         validate_input: @config.validate_input
@@ -4385,7 +4387,7 @@ module AWS::SDK::AppStream
     def describe_user_stack_associations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeUserStackAssociationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeUserStackAssociationsInput,
         validate_input: @config.validate_input
@@ -4472,7 +4474,7 @@ module AWS::SDK::AppStream
     def describe_users(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeUsersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeUsersInput,
         validate_input: @config.validate_input
@@ -4548,7 +4550,7 @@ module AWS::SDK::AppStream
     def disable_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableUserInput,
         validate_input: @config.validate_input
@@ -4620,7 +4622,7 @@ module AWS::SDK::AppStream
     def disassociate_application_fleet(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateApplicationFleetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateApplicationFleetInput,
         validate_input: @config.validate_input
@@ -4696,7 +4698,7 @@ module AWS::SDK::AppStream
     def disassociate_application_from_entitlement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateApplicationFromEntitlementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateApplicationFromEntitlementInput,
         validate_input: @config.validate_input
@@ -4768,7 +4770,7 @@ module AWS::SDK::AppStream
     def disassociate_fleet(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateFleetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateFleetInput,
         validate_input: @config.validate_input
@@ -4844,7 +4846,7 @@ module AWS::SDK::AppStream
     def enable_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableUserInput,
         validate_input: @config.validate_input
@@ -4912,7 +4914,7 @@ module AWS::SDK::AppStream
     def expire_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExpireSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExpireSessionInput,
         validate_input: @config.validate_input
@@ -4987,7 +4989,7 @@ module AWS::SDK::AppStream
     def list_associated_fleets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAssociatedFleetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAssociatedFleetsInput,
         validate_input: @config.validate_input
@@ -5062,7 +5064,7 @@ module AWS::SDK::AppStream
     def list_associated_stacks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAssociatedStacksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAssociatedStacksInput,
         validate_input: @config.validate_input
@@ -5146,7 +5148,7 @@ module AWS::SDK::AppStream
     def list_entitled_applications(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEntitledApplicationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEntitledApplicationsInput,
         validate_input: @config.validate_input
@@ -5217,7 +5219,7 @@ module AWS::SDK::AppStream
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -5285,7 +5287,7 @@ module AWS::SDK::AppStream
     def start_fleet(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartFleetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartFleetInput,
         validate_input: @config.validate_input
@@ -5393,7 +5395,7 @@ module AWS::SDK::AppStream
     def start_image_builder(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartImageBuilderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartImageBuilderInput,
         validate_input: @config.validate_input
@@ -5461,7 +5463,7 @@ module AWS::SDK::AppStream
     def stop_fleet(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopFleetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopFleetInput,
         validate_input: @config.validate_input
@@ -5565,7 +5567,7 @@ module AWS::SDK::AppStream
     def stop_image_builder(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopImageBuilderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopImageBuilderInput,
         validate_input: @config.validate_input
@@ -5650,7 +5652,7 @@ module AWS::SDK::AppStream
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -5726,7 +5728,7 @@ module AWS::SDK::AppStream
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -5852,7 +5854,7 @@ module AWS::SDK::AppStream
     def update_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateApplicationInput,
         validate_input: @config.validate_input
@@ -5941,7 +5943,7 @@ module AWS::SDK::AppStream
     def update_directory_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDirectoryConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDirectoryConfigInput,
         validate_input: @config.validate_input
@@ -6041,7 +6043,7 @@ module AWS::SDK::AppStream
     def update_entitlement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateEntitlementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateEntitlementInput,
         validate_input: @config.validate_input
@@ -6400,7 +6402,7 @@ module AWS::SDK::AppStream
     def update_fleet(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFleetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFleetInput,
         validate_input: @config.validate_input
@@ -6479,7 +6481,7 @@ module AWS::SDK::AppStream
     def update_image_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateImagePermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateImagePermissionsInput,
         validate_input: @config.validate_input
@@ -6648,7 +6650,7 @@ module AWS::SDK::AppStream
     def update_stack(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateStackInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateStackInput,
         validate_input: @config.validate_input

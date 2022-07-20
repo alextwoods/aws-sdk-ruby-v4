@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Detective
   module Validators
 
@@ -44,7 +46,7 @@ module AWS::SDK::Detective
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Account.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Account.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -62,7 +64,7 @@ module AWS::SDK::Detective
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Administrator.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Administrator.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -77,7 +79,7 @@ module AWS::SDK::Detective
     class CreateGraphInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateGraphInput, context: context)
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -94,15 +96,15 @@ module AWS::SDK::Detective
         Hearth::Validator.validate!(input[:graph_arn], ::String, context: "#{context}[:graph_arn]")
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:disable_email_notification], ::TrueClass, ::FalseClass, context: "#{context}[:disable_email_notification]")
-        Validators::AccountList.validate!(input[:accounts], context: "#{context}[:accounts]") unless input[:accounts].nil?
+        AccountList.validate!(input[:accounts], context: "#{context}[:accounts]") unless input[:accounts].nil?
       end
     end
 
     class CreateMembersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateMembersOutput, context: context)
-        Validators::MemberDetailList.validate!(input[:members], context: "#{context}[:members]") unless input[:members].nil?
-        Validators::UnprocessedAccountList.validate!(input[:unprocessed_accounts], context: "#{context}[:unprocessed_accounts]") unless input[:unprocessed_accounts].nil?
+        MemberDetailList.validate!(input[:members], context: "#{context}[:members]") unless input[:members].nil?
+        UnprocessedAccountList.validate!(input[:unprocessed_accounts], context: "#{context}[:unprocessed_accounts]") unless input[:unprocessed_accounts].nil?
       end
     end
 
@@ -123,15 +125,15 @@ module AWS::SDK::Detective
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteMembersInput, context: context)
         Hearth::Validator.validate!(input[:graph_arn], ::String, context: "#{context}[:graph_arn]")
-        Validators::AccountIdList.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
+        AccountIdList.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
       end
     end
 
     class DeleteMembersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteMembersOutput, context: context)
-        Validators::AccountIdList.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
-        Validators::UnprocessedAccountList.validate!(input[:unprocessed_accounts], context: "#{context}[:unprocessed_accounts]") unless input[:unprocessed_accounts].nil?
+        AccountIdList.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
+        UnprocessedAccountList.validate!(input[:unprocessed_accounts], context: "#{context}[:unprocessed_accounts]") unless input[:unprocessed_accounts].nil?
       end
     end
 
@@ -191,15 +193,15 @@ module AWS::SDK::Detective
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetMembersInput, context: context)
         Hearth::Validator.validate!(input[:graph_arn], ::String, context: "#{context}[:graph_arn]")
-        Validators::AccountIdList.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
+        AccountIdList.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
       end
     end
 
     class GetMembersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetMembersOutput, context: context)
-        Validators::MemberDetailList.validate!(input[:member_details], context: "#{context}[:member_details]") unless input[:member_details].nil?
-        Validators::UnprocessedAccountList.validate!(input[:unprocessed_accounts], context: "#{context}[:unprocessed_accounts]") unless input[:unprocessed_accounts].nil?
+        MemberDetailList.validate!(input[:member_details], context: "#{context}[:member_details]") unless input[:member_details].nil?
+        UnprocessedAccountList.validate!(input[:unprocessed_accounts], context: "#{context}[:unprocessed_accounts]") unless input[:unprocessed_accounts].nil?
       end
     end
 
@@ -215,7 +217,7 @@ module AWS::SDK::Detective
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Graph.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Graph.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -238,7 +240,7 @@ module AWS::SDK::Detective
     class ListGraphsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListGraphsOutput, context: context)
-        Validators::GraphList.validate!(input[:graph_list], context: "#{context}[:graph_list]") unless input[:graph_list].nil?
+        GraphList.validate!(input[:graph_list], context: "#{context}[:graph_list]") unless input[:graph_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -254,7 +256,7 @@ module AWS::SDK::Detective
     class ListInvitationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListInvitationsOutput, context: context)
-        Validators::MemberDetailList.validate!(input[:invitations], context: "#{context}[:invitations]") unless input[:invitations].nil?
+        MemberDetailList.validate!(input[:invitations], context: "#{context}[:invitations]") unless input[:invitations].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -271,7 +273,7 @@ module AWS::SDK::Detective
     class ListMembersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListMembersOutput, context: context)
-        Validators::MemberDetailList.validate!(input[:member_details], context: "#{context}[:member_details]") unless input[:member_details].nil?
+        MemberDetailList.validate!(input[:member_details], context: "#{context}[:member_details]") unless input[:member_details].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -287,7 +289,7 @@ module AWS::SDK::Detective
     class ListOrganizationAdminAccountsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListOrganizationAdminAccountsOutput, context: context)
-        Validators::AdministratorList.validate!(input[:administrators], context: "#{context}[:administrators]") unless input[:administrators].nil?
+        AdministratorList.validate!(input[:administrators], context: "#{context}[:administrators]") unless input[:administrators].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -302,7 +304,7 @@ module AWS::SDK::Detective
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -330,7 +332,7 @@ module AWS::SDK::Detective
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MemberDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MemberDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -399,7 +401,7 @@ module AWS::SDK::Detective
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -428,7 +430,7 @@ module AWS::SDK::Detective
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UnprocessedAccount.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UnprocessedAccount.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -437,7 +439,7 @@ module AWS::SDK::Detective
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 

@@ -14,8 +14,8 @@ module AWS::SDK::STS
     class AssumeRole
       def self.default(visited=[])
         {
-          credentials: Stubs::Credentials.default(visited),
-          assumed_role_user: Stubs::AssumedRoleUser.default(visited),
+          credentials: Credentials.default(visited),
+          assumed_role_user: AssumedRoleUser.default(visited),
           packed_policy_size: 1,
           source_identity: 'source_identity',
         }
@@ -84,8 +84,8 @@ module AWS::SDK::STS
     class AssumeRoleWithSAML
       def self.default(visited=[])
         {
-          credentials: Stubs::Credentials.default(visited),
-          assumed_role_user: Stubs::AssumedRoleUser.default(visited),
+          credentials: Credentials.default(visited),
+          assumed_role_user: AssumedRoleUser.default(visited),
           packed_policy_size: 1,
           subject: 'subject',
           subject_type: 'subject_type',
@@ -120,9 +120,9 @@ module AWS::SDK::STS
     class AssumeRoleWithWebIdentity
       def self.default(visited=[])
         {
-          credentials: Stubs::Credentials.default(visited),
+          credentials: Credentials.default(visited),
           subject_from_web_identity_token: 'subject_from_web_identity_token',
-          assumed_role_user: Stubs::AssumedRoleUser.default(visited),
+          assumed_role_user: AssumedRoleUser.default(visited),
           packed_policy_size: 1,
           provider: 'provider',
           audience: 'audience',
@@ -216,8 +216,8 @@ module AWS::SDK::STS
     class GetFederationToken
       def self.default(visited=[])
         {
-          credentials: Stubs::Credentials.default(visited),
-          federated_user: Stubs::FederatedUser.default(visited),
+          credentials: Credentials.default(visited),
+          federated_user: FederatedUser.default(visited),
           packed_policy_size: 1,
         }
       end
@@ -260,7 +260,7 @@ module AWS::SDK::STS
     class GetSessionToken
       def self.default(visited=[])
         {
-          credentials: Stubs::Credentials.default(visited),
+          credentials: Credentials.default(visited),
         }
       end
 

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::IotDeviceAdvisor
@@ -87,7 +89,7 @@ module AWS::SDK::IotDeviceAdvisor
     def create_suite_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSuiteDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSuiteDefinitionInput,
         validate_input: @config.validate_input
@@ -156,7 +158,7 @@ module AWS::SDK::IotDeviceAdvisor
     def delete_suite_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSuiteDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSuiteDefinitionInput,
         validate_input: @config.validate_input
@@ -228,7 +230,7 @@ module AWS::SDK::IotDeviceAdvisor
     def get_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEndpointInput,
         validate_input: @config.validate_input
@@ -317,7 +319,7 @@ module AWS::SDK::IotDeviceAdvisor
     def get_suite_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSuiteDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSuiteDefinitionInput,
         validate_input: @config.validate_input
@@ -422,7 +424,7 @@ module AWS::SDK::IotDeviceAdvisor
     def get_suite_run(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSuiteRunInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSuiteRunInput,
         validate_input: @config.validate_input
@@ -495,7 +497,7 @@ module AWS::SDK::IotDeviceAdvisor
     def get_suite_run_report(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSuiteRunReportInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSuiteRunReportInput,
         validate_input: @config.validate_input
@@ -578,7 +580,7 @@ module AWS::SDK::IotDeviceAdvisor
     def list_suite_definitions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSuiteDefinitionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSuiteDefinitionsInput,
         validate_input: @config.validate_input
@@ -674,7 +676,7 @@ module AWS::SDK::IotDeviceAdvisor
     def list_suite_runs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSuiteRunsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSuiteRunsInput,
         validate_input: @config.validate_input
@@ -744,7 +746,7 @@ module AWS::SDK::IotDeviceAdvisor
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -838,7 +840,7 @@ module AWS::SDK::IotDeviceAdvisor
     def start_suite_run(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartSuiteRunInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartSuiteRunInput,
         validate_input: @config.validate_input
@@ -911,7 +913,7 @@ module AWS::SDK::IotDeviceAdvisor
     def stop_suite_run(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopSuiteRunInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopSuiteRunInput,
         validate_input: @config.validate_input
@@ -985,7 +987,7 @@ module AWS::SDK::IotDeviceAdvisor
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -1060,7 +1062,7 @@ module AWS::SDK::IotDeviceAdvisor
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -1149,7 +1151,7 @@ module AWS::SDK::IotDeviceAdvisor
     def update_suite_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSuiteDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSuiteDefinitionInput,
         validate_input: @config.validate_input

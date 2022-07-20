@@ -316,7 +316,7 @@ module AWS::SDK::StorageGateway
     class CreateTapes
       def self.default(visited=[])
         {
-          tape_ar_ns: Stubs::TapeARNs.default(visited),
+          tape_ar_ns: TapeARNs.default(visited),
         }
       end
 
@@ -555,7 +555,7 @@ module AWS::SDK::StorageGateway
       def self.default(visited=[])
         {
           gateway_arn: 'gateway_arn',
-          bandwidth_rate_limit_intervals: Stubs::BandwidthRateLimitIntervals.default(visited),
+          bandwidth_rate_limit_intervals: BandwidthRateLimitIntervals.default(visited),
         }
       end
 
@@ -574,7 +574,7 @@ module AWS::SDK::StorageGateway
         return nil if visited.include?('BandwidthRateLimitIntervals')
         visited = visited + ['BandwidthRateLimitIntervals']
         [
-          Stubs::BandwidthRateLimitInterval.default(visited)
+          BandwidthRateLimitInterval.default(visited)
         ]
       end
 
@@ -598,7 +598,7 @@ module AWS::SDK::StorageGateway
           start_minute_of_hour: 1,
           end_hour_of_day: 1,
           end_minute_of_hour: 1,
-          days_of_week: Stubs::DaysOfWeek.default(visited),
+          days_of_week: DaysOfWeek.default(visited),
           average_upload_rate_limit_in_bits_per_sec: 1,
           average_download_rate_limit_in_bits_per_sec: 1,
         }
@@ -643,7 +643,7 @@ module AWS::SDK::StorageGateway
       def self.default(visited=[])
         {
           gateway_arn: 'gateway_arn',
-          disk_ids: Stubs::DiskIds.default(visited),
+          disk_ids: DiskIds.default(visited),
           cache_allocated_in_bytes: 1,
           cache_used_percentage: 1.0,
           cache_dirty_percentage: 1.0,
@@ -690,7 +690,7 @@ module AWS::SDK::StorageGateway
     class DescribeCachediSCSIVolumes
       def self.default(visited=[])
         {
-          cachedi_scsi_volumes: Stubs::CachediSCSIVolumes.default(visited),
+          cachedi_scsi_volumes: CachediSCSIVolumes.default(visited),
         }
       end
 
@@ -708,7 +708,7 @@ module AWS::SDK::StorageGateway
         return nil if visited.include?('CachediSCSIVolumes')
         visited = visited + ['CachediSCSIVolumes']
         [
-          Stubs::CachediSCSIVolume.default(visited)
+          CachediSCSIVolume.default(visited)
         ]
       end
 
@@ -736,7 +736,7 @@ module AWS::SDK::StorageGateway
           volume_size_in_bytes: 1,
           volume_progress: 1.0,
           source_snapshot_id: 'source_snapshot_id',
-          volumei_scsi_attributes: Stubs::VolumeiSCSIAttributes.default(visited),
+          volumei_scsi_attributes: VolumeiSCSIAttributes.default(visited),
           created_date: Time.now,
           volume_used_in_bytes: 1,
           kms_key: 'kms_key',
@@ -794,7 +794,7 @@ module AWS::SDK::StorageGateway
     class DescribeChapCredentials
       def self.default(visited=[])
         {
-          chap_credentials: Stubs::ChapCredentials.default(visited),
+          chap_credentials: ChapCredentials.default(visited),
         }
       end
 
@@ -812,7 +812,7 @@ module AWS::SDK::StorageGateway
         return nil if visited.include?('ChapCredentials')
         visited = visited + ['ChapCredentials']
         [
-          Stubs::ChapInfo.default(visited)
+          ChapInfo.default(visited)
         ]
       end
 
@@ -854,7 +854,7 @@ module AWS::SDK::StorageGateway
     class DescribeFileSystemAssociations
       def self.default(visited=[])
         {
-          file_system_association_info_list: Stubs::FileSystemAssociationInfoList.default(visited),
+          file_system_association_info_list: FileSystemAssociationInfoList.default(visited),
         }
       end
 
@@ -872,7 +872,7 @@ module AWS::SDK::StorageGateway
         return nil if visited.include?('FileSystemAssociationInfoList')
         visited = visited + ['FileSystemAssociationInfoList']
         [
-          Stubs::FileSystemAssociationInfo.default(visited)
+          FileSystemAssociationInfo.default(visited)
         ]
       end
 
@@ -897,10 +897,10 @@ module AWS::SDK::StorageGateway
           file_system_association_status: 'file_system_association_status',
           audit_destination_arn: 'audit_destination_arn',
           gateway_arn: 'gateway_arn',
-          tags: Stubs::Tags.default(visited),
-          cache_attributes: Stubs::CacheAttributes.default(visited),
-          endpoint_network_configuration: Stubs::EndpointNetworkConfiguration.default(visited),
-          file_system_association_status_details: Stubs::FileSystemAssociationStatusDetails.default(visited),
+          tags: Tags.default(visited),
+          cache_attributes: CacheAttributes.default(visited),
+          endpoint_network_configuration: EndpointNetworkConfiguration.default(visited),
+          file_system_association_status_details: FileSystemAssociationStatusDetails.default(visited),
         }
       end
 
@@ -926,7 +926,7 @@ module AWS::SDK::StorageGateway
         return nil if visited.include?('FileSystemAssociationStatusDetails')
         visited = visited + ['FileSystemAssociationStatusDetails']
         [
-          Stubs::FileSystemAssociationStatusDetail.default(visited)
+          FileSystemAssociationStatusDetail.default(visited)
         ]
       end
 
@@ -964,7 +964,7 @@ module AWS::SDK::StorageGateway
         return nil if visited.include?('EndpointNetworkConfiguration')
         visited = visited + ['EndpointNetworkConfiguration']
         {
-          ip_addresses: Stubs::IpAddressList.default(visited),
+          ip_addresses: IpAddressList.default(visited),
         }
       end
 
@@ -1020,7 +1020,7 @@ module AWS::SDK::StorageGateway
         return nil if visited.include?('Tags')
         visited = visited + ['Tags']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -1063,13 +1063,13 @@ module AWS::SDK::StorageGateway
           gateway_name: 'gateway_name',
           gateway_timezone: 'gateway_timezone',
           gateway_state: 'gateway_state',
-          gateway_network_interfaces: Stubs::GatewayNetworkInterfaces.default(visited),
+          gateway_network_interfaces: GatewayNetworkInterfaces.default(visited),
           gateway_type: 'gateway_type',
           next_update_availability_date: 'next_update_availability_date',
           last_software_update: 'last_software_update',
           ec2_instance_id: 'ec2_instance_id',
           ec2_instance_region: 'ec2_instance_region',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           vpc_endpoint: 'vpc_endpoint',
           cloud_watch_log_group_arn: 'cloud_watch_log_group_arn',
           host_environment: 'host_environment',
@@ -1077,7 +1077,7 @@ module AWS::SDK::StorageGateway
           software_updates_end_date: 'software_updates_end_date',
           deprecation_date: 'deprecation_date',
           gateway_capacity: 'gateway_capacity',
-          supported_gateway_capacities: Stubs::SupportedGatewayCapacities.default(visited),
+          supported_gateway_capacities: SupportedGatewayCapacities.default(visited),
           host_environment_id: 'host_environment_id',
         }
       end
@@ -1136,7 +1136,7 @@ module AWS::SDK::StorageGateway
         return nil if visited.include?('GatewayNetworkInterfaces')
         visited = visited + ['GatewayNetworkInterfaces']
         [
-          Stubs::NetworkInterface.default(visited)
+          NetworkInterface.default(visited)
         ]
       end
 
@@ -1202,7 +1202,7 @@ module AWS::SDK::StorageGateway
     class DescribeNFSFileShares
       def self.default(visited=[])
         {
-          nfs_file_share_info_list: Stubs::NFSFileShareInfoList.default(visited),
+          nfs_file_share_info_list: NFSFileShareInfoList.default(visited),
         }
       end
 
@@ -1220,7 +1220,7 @@ module AWS::SDK::StorageGateway
         return nil if visited.include?('NFSFileShareInfoList')
         visited = visited + ['NFSFileShareInfoList']
         [
-          Stubs::NFSFileShareInfo.default(visited)
+          NFSFileShareInfo.default(visited)
         ]
       end
 
@@ -1240,7 +1240,7 @@ module AWS::SDK::StorageGateway
         return nil if visited.include?('NFSFileShareInfo')
         visited = visited + ['NFSFileShareInfo']
         {
-          nfs_file_share_defaults: Stubs::NFSFileShareDefaults.default(visited),
+          nfs_file_share_defaults: NFSFileShareDefaults.default(visited),
           file_share_arn: 'file_share_arn',
           file_share_id: 'file_share_id',
           file_share_status: 'file_share_status',
@@ -1252,14 +1252,14 @@ module AWS::SDK::StorageGateway
           location_arn: 'location_arn',
           default_storage_class: 'default_storage_class',
           object_acl: 'object_acl',
-          client_list: Stubs::FileShareClientList.default(visited),
+          client_list: FileShareClientList.default(visited),
           squash: 'squash',
           read_only: false,
           guess_mime_type_enabled: false,
           requester_pays: false,
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           file_share_name: 'file_share_name',
-          cache_attributes: Stubs::CacheAttributes.default(visited),
+          cache_attributes: CacheAttributes.default(visited),
           notification_policy: 'notification_policy',
           vpc_endpoint_dns_name: 'vpc_endpoint_dns_name',
           bucket_region: 'bucket_region',
@@ -1346,7 +1346,7 @@ module AWS::SDK::StorageGateway
     class DescribeSMBFileShares
       def self.default(visited=[])
         {
-          smb_file_share_info_list: Stubs::SMBFileShareInfoList.default(visited),
+          smb_file_share_info_list: SMBFileShareInfoList.default(visited),
         }
       end
 
@@ -1364,7 +1364,7 @@ module AWS::SDK::StorageGateway
         return nil if visited.include?('SMBFileShareInfoList')
         visited = visited + ['SMBFileShareInfoList']
         [
-          Stubs::SMBFileShareInfo.default(visited)
+          SMBFileShareInfo.default(visited)
         ]
       end
 
@@ -1400,15 +1400,15 @@ module AWS::SDK::StorageGateway
           requester_pays: false,
           smbacl_enabled: false,
           access_based_enumeration: false,
-          admin_user_list: Stubs::UserList.default(visited),
-          valid_user_list: Stubs::UserList.default(visited),
-          invalid_user_list: Stubs::UserList.default(visited),
+          admin_user_list: UserList.default(visited),
+          valid_user_list: UserList.default(visited),
+          invalid_user_list: UserList.default(visited),
           audit_destination_arn: 'audit_destination_arn',
           authentication: 'authentication',
           case_sensitivity: 'case_sensitivity',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           file_share_name: 'file_share_name',
-          cache_attributes: Stubs::CacheAttributes.default(visited),
+          cache_attributes: CacheAttributes.default(visited),
           notification_policy: 'notification_policy',
           vpc_endpoint_dns_name: 'vpc_endpoint_dns_name',
           bucket_region: 'bucket_region',
@@ -1482,7 +1482,7 @@ module AWS::SDK::StorageGateway
           smb_guest_password_set: false,
           smb_security_strategy: 'smb_security_strategy',
           file_shares_visible: false,
-          smb_local_groups: Stubs::SMBLocalGroups.default(visited),
+          smb_local_groups: SMBLocalGroups.default(visited),
         }
       end
 
@@ -1506,7 +1506,7 @@ module AWS::SDK::StorageGateway
         return nil if visited.include?('SMBLocalGroups')
         visited = visited + ['SMBLocalGroups']
         {
-          gateway_admins: Stubs::UserList.default(visited),
+          gateway_admins: UserList.default(visited),
         }
       end
 
@@ -1527,7 +1527,7 @@ module AWS::SDK::StorageGateway
           recurrence_in_hours: 1,
           description: 'description',
           timezone: 'timezone',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -1548,7 +1548,7 @@ module AWS::SDK::StorageGateway
     class DescribeStorediSCSIVolumes
       def self.default(visited=[])
         {
-          storedi_scsi_volumes: Stubs::StorediSCSIVolumes.default(visited),
+          storedi_scsi_volumes: StorediSCSIVolumes.default(visited),
         }
       end
 
@@ -1566,7 +1566,7 @@ module AWS::SDK::StorageGateway
         return nil if visited.include?('StorediSCSIVolumes')
         visited = visited + ['StorediSCSIVolumes']
         [
-          Stubs::StorediSCSIVolume.default(visited)
+          StorediSCSIVolume.default(visited)
         ]
       end
 
@@ -1596,7 +1596,7 @@ module AWS::SDK::StorageGateway
           volume_disk_id: 'volume_disk_id',
           source_snapshot_id: 'source_snapshot_id',
           preserved_existing_data: false,
-          volumei_scsi_attributes: Stubs::VolumeiSCSIAttributes.default(visited),
+          volumei_scsi_attributes: VolumeiSCSIAttributes.default(visited),
           created_date: Time.now,
           volume_used_in_bytes: 1,
           kms_key: 'kms_key',
@@ -1630,7 +1630,7 @@ module AWS::SDK::StorageGateway
     class DescribeTapeArchives
       def self.default(visited=[])
         {
-          tape_archives: Stubs::TapeArchives.default(visited),
+          tape_archives: TapeArchives.default(visited),
           marker: 'marker',
         }
       end
@@ -1650,7 +1650,7 @@ module AWS::SDK::StorageGateway
         return nil if visited.include?('TapeArchives')
         visited = visited + ['TapeArchives']
         [
-          Stubs::TapeArchive.default(visited)
+          TapeArchive.default(visited)
         ]
       end
 
@@ -1711,7 +1711,7 @@ module AWS::SDK::StorageGateway
       def self.default(visited=[])
         {
           gateway_arn: 'gateway_arn',
-          tape_recovery_point_infos: Stubs::TapeRecoveryPointInfos.default(visited),
+          tape_recovery_point_infos: TapeRecoveryPointInfos.default(visited),
           marker: 'marker',
         }
       end
@@ -1732,7 +1732,7 @@ module AWS::SDK::StorageGateway
         return nil if visited.include?('TapeRecoveryPointInfos')
         visited = visited + ['TapeRecoveryPointInfos']
         [
-          Stubs::TapeRecoveryPointInfo.default(visited)
+          TapeRecoveryPointInfo.default(visited)
         ]
       end
 
@@ -1774,7 +1774,7 @@ module AWS::SDK::StorageGateway
     class DescribeTapes
       def self.default(visited=[])
         {
-          tapes: Stubs::Tapes.default(visited),
+          tapes: Tapes.default(visited),
           marker: 'marker',
         }
       end
@@ -1794,7 +1794,7 @@ module AWS::SDK::StorageGateway
         return nil if visited.include?('Tapes')
         visited = visited + ['Tapes']
         [
-          Stubs::Tape.default(visited)
+          Tape.default(visited)
         ]
       end
 
@@ -1855,7 +1855,7 @@ module AWS::SDK::StorageGateway
       def self.default(visited=[])
         {
           gateway_arn: 'gateway_arn',
-          disk_ids: Stubs::DiskIds.default(visited),
+          disk_ids: DiskIds.default(visited),
           upload_buffer_used_in_bytes: 1,
           upload_buffer_allocated_in_bytes: 1,
         }
@@ -1877,7 +1877,7 @@ module AWS::SDK::StorageGateway
       def self.default(visited=[])
         {
           gateway_arn: 'gateway_arn',
-          vtl_devices: Stubs::VTLDevices.default(visited),
+          vtl_devices: VTLDevices.default(visited),
           marker: 'marker',
         }
       end
@@ -1898,7 +1898,7 @@ module AWS::SDK::StorageGateway
         return nil if visited.include?('VTLDevices')
         visited = visited + ['VTLDevices']
         [
-          Stubs::VTLDevice.default(visited)
+          VTLDevice.default(visited)
         ]
       end
 
@@ -1922,7 +1922,7 @@ module AWS::SDK::StorageGateway
           vtl_device_type: 'vtl_device_type',
           vtl_device_vendor: 'vtl_device_vendor',
           vtl_device_product_identifier: 'vtl_device_product_identifier',
-          devicei_scsi_attributes: Stubs::DeviceiSCSIAttributes.default(visited),
+          devicei_scsi_attributes: DeviceiSCSIAttributes.default(visited),
         }
       end
 
@@ -1967,7 +1967,7 @@ module AWS::SDK::StorageGateway
       def self.default(visited=[])
         {
           gateway_arn: 'gateway_arn',
-          disk_ids: Stubs::DiskIds.default(visited),
+          disk_ids: DiskIds.default(visited),
           working_storage_used_in_bytes: 1,
           working_storage_allocated_in_bytes: 1,
         }
@@ -2054,7 +2054,7 @@ module AWS::SDK::StorageGateway
     class ListAutomaticTapeCreationPolicies
       def self.default(visited=[])
         {
-          automatic_tape_creation_policy_infos: Stubs::AutomaticTapeCreationPolicyInfos.default(visited),
+          automatic_tape_creation_policy_infos: AutomaticTapeCreationPolicyInfos.default(visited),
         }
       end
 
@@ -2072,7 +2072,7 @@ module AWS::SDK::StorageGateway
         return nil if visited.include?('AutomaticTapeCreationPolicyInfos')
         visited = visited + ['AutomaticTapeCreationPolicyInfos']
         [
-          Stubs::AutomaticTapeCreationPolicyInfo.default(visited)
+          AutomaticTapeCreationPolicyInfo.default(visited)
         ]
       end
 
@@ -2092,7 +2092,7 @@ module AWS::SDK::StorageGateway
         return nil if visited.include?('AutomaticTapeCreationPolicyInfo')
         visited = visited + ['AutomaticTapeCreationPolicyInfo']
         {
-          automatic_tape_creation_rules: Stubs::AutomaticTapeCreationRules.default(visited),
+          automatic_tape_creation_rules: AutomaticTapeCreationRules.default(visited),
           gateway_arn: 'gateway_arn',
         }
       end
@@ -2112,7 +2112,7 @@ module AWS::SDK::StorageGateway
         return nil if visited.include?('AutomaticTapeCreationRules')
         visited = visited + ['AutomaticTapeCreationRules']
         [
-          Stubs::AutomaticTapeCreationRule.default(visited)
+          AutomaticTapeCreationRule.default(visited)
         ]
       end
 
@@ -2158,7 +2158,7 @@ module AWS::SDK::StorageGateway
         {
           marker: 'marker',
           next_marker: 'next_marker',
-          file_share_info_list: Stubs::FileShareInfoList.default(visited),
+          file_share_info_list: FileShareInfoList.default(visited),
         }
       end
 
@@ -2178,7 +2178,7 @@ module AWS::SDK::StorageGateway
         return nil if visited.include?('FileShareInfoList')
         visited = visited + ['FileShareInfoList']
         [
-          Stubs::FileShareInfo.default(visited)
+          FileShareInfo.default(visited)
         ]
       end
 
@@ -2224,7 +2224,7 @@ module AWS::SDK::StorageGateway
         {
           marker: 'marker',
           next_marker: 'next_marker',
-          file_system_association_summary_list: Stubs::FileSystemAssociationSummaryList.default(visited),
+          file_system_association_summary_list: FileSystemAssociationSummaryList.default(visited),
         }
       end
 
@@ -2244,7 +2244,7 @@ module AWS::SDK::StorageGateway
         return nil if visited.include?('FileSystemAssociationSummaryList')
         visited = visited + ['FileSystemAssociationSummaryList']
         [
-          Stubs::FileSystemAssociationSummary.default(visited)
+          FileSystemAssociationSummary.default(visited)
         ]
       end
 
@@ -2286,7 +2286,7 @@ module AWS::SDK::StorageGateway
     class ListGateways
       def self.default(visited=[])
         {
-          gateways: Stubs::Gateways.default(visited),
+          gateways: Gateways.default(visited),
           marker: 'marker',
         }
       end
@@ -2306,7 +2306,7 @@ module AWS::SDK::StorageGateway
         return nil if visited.include?('Gateways')
         visited = visited + ['Gateways']
         [
-          Stubs::GatewayInfo.default(visited)
+          GatewayInfo.default(visited)
         ]
       end
 
@@ -2359,7 +2359,7 @@ module AWS::SDK::StorageGateway
       def self.default(visited=[])
         {
           gateway_arn: 'gateway_arn',
-          disks: Stubs::Disks.default(visited),
+          disks: Disks.default(visited),
         }
       end
 
@@ -2378,7 +2378,7 @@ module AWS::SDK::StorageGateway
         return nil if visited.include?('Disks')
         visited = visited + ['Disks']
         [
-          Stubs::Disk.default(visited)
+          Disk.default(visited)
         ]
       end
 
@@ -2405,7 +2405,7 @@ module AWS::SDK::StorageGateway
           disk_size_in_bytes: 1,
           disk_allocation_type: 'disk_allocation_type',
           disk_allocation_resource: 'disk_allocation_resource',
-          disk_attribute_list: Stubs::DiskAttributeList.default(visited),
+          disk_attribute_list: DiskAttributeList.default(visited),
         }
       end
 
@@ -2450,7 +2450,7 @@ module AWS::SDK::StorageGateway
         {
           resource_arn: 'resource_arn',
           marker: 'marker',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -2468,7 +2468,7 @@ module AWS::SDK::StorageGateway
     class ListTapePools
       def self.default(visited=[])
         {
-          pool_infos: Stubs::PoolInfos.default(visited),
+          pool_infos: PoolInfos.default(visited),
           marker: 'marker',
         }
       end
@@ -2488,7 +2488,7 @@ module AWS::SDK::StorageGateway
         return nil if visited.include?('PoolInfos')
         visited = visited + ['PoolInfos']
         [
-          Stubs::PoolInfo.default(visited)
+          PoolInfo.default(visited)
         ]
       end
 
@@ -2534,7 +2534,7 @@ module AWS::SDK::StorageGateway
     class ListTapes
       def self.default(visited=[])
         {
-          tape_infos: Stubs::TapeInfos.default(visited),
+          tape_infos: TapeInfos.default(visited),
           marker: 'marker',
         }
       end
@@ -2554,7 +2554,7 @@ module AWS::SDK::StorageGateway
         return nil if visited.include?('TapeInfos')
         visited = visited + ['TapeInfos']
         [
-          Stubs::TapeInfo.default(visited)
+          TapeInfo.default(visited)
         ]
       end
 
@@ -2604,7 +2604,7 @@ module AWS::SDK::StorageGateway
     class ListVolumeInitiators
       def self.default(visited=[])
         {
-          initiators: Stubs::Initiators.default(visited),
+          initiators: Initiators.default(visited),
         }
       end
 
@@ -2641,7 +2641,7 @@ module AWS::SDK::StorageGateway
       def self.default(visited=[])
         {
           gateway_arn: 'gateway_arn',
-          volume_recovery_point_infos: Stubs::VolumeRecoveryPointInfos.default(visited),
+          volume_recovery_point_infos: VolumeRecoveryPointInfos.default(visited),
         }
       end
 
@@ -2660,7 +2660,7 @@ module AWS::SDK::StorageGateway
         return nil if visited.include?('VolumeRecoveryPointInfos')
         visited = visited + ['VolumeRecoveryPointInfos']
         [
-          Stubs::VolumeRecoveryPointInfo.default(visited)
+          VolumeRecoveryPointInfo.default(visited)
         ]
       end
 
@@ -2704,7 +2704,7 @@ module AWS::SDK::StorageGateway
         {
           gateway_arn: 'gateway_arn',
           marker: 'marker',
-          volume_infos: Stubs::VolumeInfos.default(visited),
+          volume_infos: VolumeInfos.default(visited),
         }
       end
 
@@ -2724,7 +2724,7 @@ module AWS::SDK::StorageGateway
         return nil if visited.include?('VolumeInfos')
         visited = visited + ['VolumeInfos']
         [
-          Stubs::VolumeInfo.default(visited)
+          VolumeInfo.default(visited)
         ]
       end
 

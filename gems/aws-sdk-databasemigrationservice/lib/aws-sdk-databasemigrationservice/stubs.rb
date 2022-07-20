@@ -28,7 +28,7 @@ module AWS::SDK::DatabaseMigrationService
     class ApplyPendingMaintenanceAction
       def self.default(visited=[])
         {
-          resource_pending_maintenance_actions: Stubs::ResourcePendingMaintenanceActions.default(visited),
+          resource_pending_maintenance_actions: ResourcePendingMaintenanceActions.default(visited),
         }
       end
 
@@ -47,7 +47,7 @@ module AWS::SDK::DatabaseMigrationService
         visited = visited + ['ResourcePendingMaintenanceActions']
         {
           resource_identifier: 'resource_identifier',
-          pending_maintenance_action_details: Stubs::PendingMaintenanceActionDetails.default(visited),
+          pending_maintenance_action_details: PendingMaintenanceActionDetails.default(visited),
         }
       end
 
@@ -66,7 +66,7 @@ module AWS::SDK::DatabaseMigrationService
         return nil if visited.include?('PendingMaintenanceActionDetails')
         visited = visited + ['PendingMaintenanceActionDetails']
         [
-          Stubs::PendingMaintenanceAction.default(visited)
+          PendingMaintenanceAction.default(visited)
         ]
       end
 
@@ -112,7 +112,7 @@ module AWS::SDK::DatabaseMigrationService
     class CancelReplicationTaskAssessmentRun
       def self.default(visited=[])
         {
-          replication_task_assessment_run: Stubs::ReplicationTaskAssessmentRun.default(visited),
+          replication_task_assessment_run: ReplicationTaskAssessmentRun.default(visited),
         }
       end
 
@@ -134,7 +134,7 @@ module AWS::SDK::DatabaseMigrationService
           replication_task_arn: 'replication_task_arn',
           status: 'status',
           replication_task_assessment_run_creation_date: Time.now,
-          assessment_progress: Stubs::ReplicationTaskAssessmentRunProgress.default(visited),
+          assessment_progress: ReplicationTaskAssessmentRunProgress.default(visited),
           last_failure_message: 'last_failure_message',
           service_access_role_arn: 'service_access_role_arn',
           result_location_bucket: 'result_location_bucket',
@@ -188,7 +188,7 @@ module AWS::SDK::DatabaseMigrationService
     class CreateEndpoint
       def self.default(visited=[])
         {
-          endpoint: Stubs::Endpoint.default(visited),
+          endpoint: Endpoint.default(visited),
         }
       end
 
@@ -223,24 +223,24 @@ module AWS::SDK::DatabaseMigrationService
           service_access_role_arn: 'service_access_role_arn',
           external_table_definition: 'external_table_definition',
           external_id: 'external_id',
-          dynamo_db_settings: Stubs::DynamoDbSettings.default(visited),
-          s3_settings: Stubs::S3Settings.default(visited),
-          dms_transfer_settings: Stubs::DmsTransferSettings.default(visited),
-          mongo_db_settings: Stubs::MongoDbSettings.default(visited),
-          kinesis_settings: Stubs::KinesisSettings.default(visited),
-          kafka_settings: Stubs::KafkaSettings.default(visited),
-          elasticsearch_settings: Stubs::ElasticsearchSettings.default(visited),
-          neptune_settings: Stubs::NeptuneSettings.default(visited),
-          redshift_settings: Stubs::RedshiftSettings.default(visited),
-          postgre_sql_settings: Stubs::PostgreSQLSettings.default(visited),
-          my_sql_settings: Stubs::MySQLSettings.default(visited),
-          oracle_settings: Stubs::OracleSettings.default(visited),
-          sybase_settings: Stubs::SybaseSettings.default(visited),
-          microsoft_sql_server_settings: Stubs::MicrosoftSQLServerSettings.default(visited),
-          ibm_db2_settings: Stubs::IBMDb2Settings.default(visited),
-          doc_db_settings: Stubs::DocDbSettings.default(visited),
-          redis_settings: Stubs::RedisSettings.default(visited),
-          gcp_my_sql_settings: Stubs::GcpMySQLSettings.default(visited),
+          dynamo_db_settings: DynamoDbSettings.default(visited),
+          s3_settings: S3Settings.default(visited),
+          dms_transfer_settings: DmsTransferSettings.default(visited),
+          mongo_db_settings: MongoDbSettings.default(visited),
+          kinesis_settings: KinesisSettings.default(visited),
+          kafka_settings: KafkaSettings.default(visited),
+          elasticsearch_settings: ElasticsearchSettings.default(visited),
+          neptune_settings: NeptuneSettings.default(visited),
+          redshift_settings: RedshiftSettings.default(visited),
+          postgre_sql_settings: PostgreSQLSettings.default(visited),
+          my_sql_settings: MySQLSettings.default(visited),
+          oracle_settings: OracleSettings.default(visited),
+          sybase_settings: SybaseSettings.default(visited),
+          microsoft_sql_server_settings: MicrosoftSQLServerSettings.default(visited),
+          ibm_db2_settings: IBMDb2Settings.default(visited),
+          doc_db_settings: DocDbSettings.default(visited),
+          redis_settings: RedisSettings.default(visited),
+          gcp_my_sql_settings: GcpMySQLSettings.default(visited),
         }
       end
 
@@ -517,7 +517,7 @@ module AWS::SDK::DatabaseMigrationService
           add_supplemental_logging: false,
           archived_log_dest_id: 1,
           additional_archived_log_dest_id: 1,
-          extra_archived_log_dest_ids: Stubs::IntegerList.default(visited),
+          extra_archived_log_dest_ids: IntegerList.default(visited),
           allow_select_nested_tables: false,
           parallel_asm_read_threads: 1,
           read_ahead_blocks: 1,
@@ -1116,7 +1116,7 @@ module AWS::SDK::DatabaseMigrationService
     class CreateEventSubscription
       def self.default(visited=[])
         {
-          event_subscription: Stubs::EventSubscription.default(visited),
+          event_subscription: EventSubscription.default(visited),
         }
       end
 
@@ -1140,8 +1140,8 @@ module AWS::SDK::DatabaseMigrationService
           status: 'status',
           subscription_creation_time: 'subscription_creation_time',
           source_type: 'source_type',
-          source_ids_list: Stubs::SourceIdsList.default(visited),
-          event_categories_list: Stubs::EventCategoriesList.default(visited),
+          source_ids_list: SourceIdsList.default(visited),
+          event_categories_list: EventCategoriesList.default(visited),
           enabled: false,
         }
       end
@@ -1230,7 +1230,7 @@ module AWS::SDK::DatabaseMigrationService
     class CreateReplicationInstance
       def self.default(visited=[])
         {
-          replication_instance: Stubs::ReplicationInstance.default(visited),
+          replication_instance: ReplicationInstance.default(visited),
         }
       end
 
@@ -1253,11 +1253,11 @@ module AWS::SDK::DatabaseMigrationService
           replication_instance_status: 'replication_instance_status',
           allocated_storage: 1,
           instance_create_time: Time.now,
-          vpc_security_groups: Stubs::VpcSecurityGroupMembershipList.default(visited),
+          vpc_security_groups: VpcSecurityGroupMembershipList.default(visited),
           availability_zone: 'availability_zone',
-          replication_subnet_group: Stubs::ReplicationSubnetGroup.default(visited),
+          replication_subnet_group: ReplicationSubnetGroup.default(visited),
           preferred_maintenance_window: 'preferred_maintenance_window',
-          pending_modified_values: Stubs::ReplicationPendingModifiedValues.default(visited),
+          pending_modified_values: ReplicationPendingModifiedValues.default(visited),
           multi_az: false,
           engine_version: 'engine_version',
           auto_minor_version_upgrade: false,
@@ -1265,8 +1265,8 @@ module AWS::SDK::DatabaseMigrationService
           replication_instance_arn: 'replication_instance_arn',
           replication_instance_public_ip_address: 'replication_instance_public_ip_address',
           replication_instance_private_ip_address: 'replication_instance_private_ip_address',
-          replication_instance_public_ip_addresses: Stubs::ReplicationInstancePublicIpAddressList.default(visited),
-          replication_instance_private_ip_addresses: Stubs::ReplicationInstancePrivateIpAddressList.default(visited),
+          replication_instance_public_ip_addresses: ReplicationInstancePublicIpAddressList.default(visited),
+          replication_instance_private_ip_addresses: ReplicationInstancePrivateIpAddressList.default(visited),
           publicly_accessible: false,
           secondary_availability_zone: 'secondary_availability_zone',
           free_until: Time.now,
@@ -1378,7 +1378,7 @@ module AWS::SDK::DatabaseMigrationService
           replication_subnet_group_description: 'replication_subnet_group_description',
           vpc_id: 'vpc_id',
           subnet_group_status: 'subnet_group_status',
-          subnets: Stubs::SubnetList.default(visited),
+          subnets: SubnetList.default(visited),
         }
       end
 
@@ -1400,7 +1400,7 @@ module AWS::SDK::DatabaseMigrationService
         return nil if visited.include?('SubnetList')
         visited = visited + ['SubnetList']
         [
-          Stubs::Subnet.default(visited)
+          Subnet.default(visited)
         ]
       end
 
@@ -1421,7 +1421,7 @@ module AWS::SDK::DatabaseMigrationService
         visited = visited + ['Subnet']
         {
           subnet_identifier: 'subnet_identifier',
-          subnet_availability_zone: Stubs::AvailabilityZone.default(visited),
+          subnet_availability_zone: AvailabilityZone.default(visited),
           subnet_status: 'subnet_status',
         }
       end
@@ -1460,7 +1460,7 @@ module AWS::SDK::DatabaseMigrationService
         return nil if visited.include?('VpcSecurityGroupMembershipList')
         visited = visited + ['VpcSecurityGroupMembershipList']
         [
-          Stubs::VpcSecurityGroupMembership.default(visited)
+          VpcSecurityGroupMembership.default(visited)
         ]
       end
 
@@ -1498,7 +1498,7 @@ module AWS::SDK::DatabaseMigrationService
     class CreateReplicationSubnetGroup
       def self.default(visited=[])
         {
-          replication_subnet_group: Stubs::ReplicationSubnetGroup.default(visited),
+          replication_subnet_group: ReplicationSubnetGroup.default(visited),
         }
       end
 
@@ -1514,7 +1514,7 @@ module AWS::SDK::DatabaseMigrationService
     class CreateReplicationTask
       def self.default(visited=[])
         {
-          replication_task: Stubs::ReplicationTask.default(visited),
+          replication_task: ReplicationTask.default(visited),
         }
       end
 
@@ -1548,7 +1548,7 @@ module AWS::SDK::DatabaseMigrationService
           cdc_stop_position: 'cdc_stop_position',
           recovery_checkpoint: 'recovery_checkpoint',
           replication_task_arn: 'replication_task_arn',
-          replication_task_stats: Stubs::ReplicationTaskStats.default(visited),
+          replication_task_stats: ReplicationTaskStats.default(visited),
           task_data: 'task_data',
           target_replication_instance_arn: 'target_replication_instance_arn',
         }
@@ -1622,7 +1622,7 @@ module AWS::SDK::DatabaseMigrationService
     class DeleteCertificate
       def self.default(visited=[])
         {
-          certificate: Stubs::Certificate.default(visited),
+          certificate: Certificate.default(visited),
         }
       end
 
@@ -1674,7 +1674,7 @@ module AWS::SDK::DatabaseMigrationService
     class DeleteConnection
       def self.default(visited=[])
         {
-          connection: Stubs::Connection.default(visited),
+          connection: Connection.default(visited),
         }
       end
 
@@ -1718,7 +1718,7 @@ module AWS::SDK::DatabaseMigrationService
     class DeleteEndpoint
       def self.default(visited=[])
         {
-          endpoint: Stubs::Endpoint.default(visited),
+          endpoint: Endpoint.default(visited),
         }
       end
 
@@ -1734,7 +1734,7 @@ module AWS::SDK::DatabaseMigrationService
     class DeleteEventSubscription
       def self.default(visited=[])
         {
-          event_subscription: Stubs::EventSubscription.default(visited),
+          event_subscription: EventSubscription.default(visited),
         }
       end
 
@@ -1764,7 +1764,7 @@ module AWS::SDK::DatabaseMigrationService
     class DeleteFleetAdvisorDatabases
       def self.default(visited=[])
         {
-          database_ids: Stubs::StringList.default(visited),
+          database_ids: StringList.default(visited),
         }
       end
 
@@ -1800,7 +1800,7 @@ module AWS::SDK::DatabaseMigrationService
     class DeleteReplicationInstance
       def self.default(visited=[])
         {
-          replication_instance: Stubs::ReplicationInstance.default(visited),
+          replication_instance: ReplicationInstance.default(visited),
         }
       end
 
@@ -1830,7 +1830,7 @@ module AWS::SDK::DatabaseMigrationService
     class DeleteReplicationTask
       def self.default(visited=[])
         {
-          replication_task: Stubs::ReplicationTask.default(visited),
+          replication_task: ReplicationTask.default(visited),
         }
       end
 
@@ -1846,7 +1846,7 @@ module AWS::SDK::DatabaseMigrationService
     class DeleteReplicationTaskAssessmentRun
       def self.default(visited=[])
         {
-          replication_task_assessment_run: Stubs::ReplicationTaskAssessmentRun.default(visited),
+          replication_task_assessment_run: ReplicationTaskAssessmentRun.default(visited),
         }
       end
 
@@ -1862,7 +1862,7 @@ module AWS::SDK::DatabaseMigrationService
     class DescribeAccountAttributes
       def self.default(visited=[])
         {
-          account_quotas: Stubs::AccountQuotaList.default(visited),
+          account_quotas: AccountQuotaList.default(visited),
           unique_account_identifier: 'unique_account_identifier',
         }
       end
@@ -1882,7 +1882,7 @@ module AWS::SDK::DatabaseMigrationService
         return nil if visited.include?('AccountQuotaList')
         visited = visited + ['AccountQuotaList']
         [
-          Stubs::AccountQuota.default(visited)
+          AccountQuota.default(visited)
         ]
       end
 
@@ -1922,7 +1922,7 @@ module AWS::SDK::DatabaseMigrationService
     class DescribeApplicableIndividualAssessments
       def self.default(visited=[])
         {
-          individual_assessment_names: Stubs::IndividualAssessmentNameList.default(visited),
+          individual_assessment_names: IndividualAssessmentNameList.default(visited),
           marker: 'marker',
         }
       end
@@ -1961,7 +1961,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.default(visited=[])
         {
           marker: 'marker',
-          certificates: Stubs::CertificateList.default(visited),
+          certificates: CertificateList.default(visited),
         }
       end
 
@@ -1980,7 +1980,7 @@ module AWS::SDK::DatabaseMigrationService
         return nil if visited.include?('CertificateList')
         visited = visited + ['CertificateList']
         [
-          Stubs::Certificate.default(visited)
+          Certificate.default(visited)
         ]
       end
 
@@ -1999,7 +1999,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.default(visited=[])
         {
           marker: 'marker',
-          connections: Stubs::ConnectionList.default(visited),
+          connections: ConnectionList.default(visited),
         }
       end
 
@@ -2018,7 +2018,7 @@ module AWS::SDK::DatabaseMigrationService
         return nil if visited.include?('ConnectionList')
         visited = visited + ['ConnectionList']
         [
-          Stubs::Connection.default(visited)
+          Connection.default(visited)
         ]
       end
 
@@ -2037,7 +2037,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.default(visited=[])
         {
           marker: 'marker',
-          endpoint_settings: Stubs::EndpointSettingsList.default(visited),
+          endpoint_settings: EndpointSettingsList.default(visited),
         }
       end
 
@@ -2056,7 +2056,7 @@ module AWS::SDK::DatabaseMigrationService
         return nil if visited.include?('EndpointSettingsList')
         visited = visited + ['EndpointSettingsList']
         [
-          Stubs::EndpointSetting.default(visited)
+          EndpointSetting.default(visited)
         ]
       end
 
@@ -2078,7 +2078,7 @@ module AWS::SDK::DatabaseMigrationService
         {
           name: 'name',
           type: 'type',
-          enum_values: Stubs::EndpointSettingEnumValues.default(visited),
+          enum_values: EndpointSettingEnumValues.default(visited),
           sensitive: false,
           units: 'units',
           applicability: 'applicability',
@@ -2129,7 +2129,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.default(visited=[])
         {
           marker: 'marker',
-          supported_endpoint_types: Stubs::SupportedEndpointTypeList.default(visited),
+          supported_endpoint_types: SupportedEndpointTypeList.default(visited),
         }
       end
 
@@ -2148,7 +2148,7 @@ module AWS::SDK::DatabaseMigrationService
         return nil if visited.include?('SupportedEndpointTypeList')
         visited = visited + ['SupportedEndpointTypeList']
         [
-          Stubs::SupportedEndpointType.default(visited)
+          SupportedEndpointType.default(visited)
         ]
       end
 
@@ -2193,7 +2193,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.default(visited=[])
         {
           marker: 'marker',
-          endpoints: Stubs::EndpointList.default(visited),
+          endpoints: EndpointList.default(visited),
         }
       end
 
@@ -2212,7 +2212,7 @@ module AWS::SDK::DatabaseMigrationService
         return nil if visited.include?('EndpointList')
         visited = visited + ['EndpointList']
         [
-          Stubs::Endpoint.default(visited)
+          Endpoint.default(visited)
         ]
       end
 
@@ -2230,7 +2230,7 @@ module AWS::SDK::DatabaseMigrationService
     class DescribeEventCategories
       def self.default(visited=[])
         {
-          event_category_group_list: Stubs::EventCategoryGroupList.default(visited),
+          event_category_group_list: EventCategoryGroupList.default(visited),
         }
       end
 
@@ -2248,7 +2248,7 @@ module AWS::SDK::DatabaseMigrationService
         return nil if visited.include?('EventCategoryGroupList')
         visited = visited + ['EventCategoryGroupList']
         [
-          Stubs::EventCategoryGroup.default(visited)
+          EventCategoryGroup.default(visited)
         ]
       end
 
@@ -2269,7 +2269,7 @@ module AWS::SDK::DatabaseMigrationService
         visited = visited + ['EventCategoryGroup']
         {
           source_type: 'source_type',
-          event_categories: Stubs::EventCategoriesList.default(visited),
+          event_categories: EventCategoriesList.default(visited),
         }
       end
 
@@ -2287,7 +2287,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.default(visited=[])
         {
           marker: 'marker',
-          event_subscriptions_list: Stubs::EventSubscriptionsList.default(visited),
+          event_subscriptions_list: EventSubscriptionsList.default(visited),
         }
       end
 
@@ -2306,7 +2306,7 @@ module AWS::SDK::DatabaseMigrationService
         return nil if visited.include?('EventSubscriptionsList')
         visited = visited + ['EventSubscriptionsList']
         [
-          Stubs::EventSubscription.default(visited)
+          EventSubscription.default(visited)
         ]
       end
 
@@ -2325,7 +2325,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.default(visited=[])
         {
           marker: 'marker',
-          events: Stubs::EventList.default(visited),
+          events: EventList.default(visited),
         }
       end
 
@@ -2344,7 +2344,7 @@ module AWS::SDK::DatabaseMigrationService
         return nil if visited.include?('EventList')
         visited = visited + ['EventList']
         [
-          Stubs::Event.default(visited)
+          Event.default(visited)
         ]
       end
 
@@ -2367,7 +2367,7 @@ module AWS::SDK::DatabaseMigrationService
           source_identifier: 'source_identifier',
           source_type: 'source_type',
           message: 'message',
-          event_categories: Stubs::EventCategoriesList.default(visited),
+          event_categories: EventCategoriesList.default(visited),
           date: Time.now,
         }
       end
@@ -2388,7 +2388,7 @@ module AWS::SDK::DatabaseMigrationService
     class DescribeFleetAdvisorCollectors
       def self.default(visited=[])
         {
-          collectors: Stubs::CollectorResponses.default(visited),
+          collectors: CollectorResponses.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2408,7 +2408,7 @@ module AWS::SDK::DatabaseMigrationService
         return nil if visited.include?('CollectorResponses')
         visited = visited + ['CollectorResponses']
         [
-          Stubs::CollectorResponse.default(visited)
+          CollectorResponse.default(visited)
         ]
       end
 
@@ -2435,12 +2435,12 @@ module AWS::SDK::DatabaseMigrationService
           description: 'description',
           s3_bucket_name: 's3_bucket_name',
           service_access_role_arn: 'service_access_role_arn',
-          collector_health_check: Stubs::CollectorHealthCheck.default(visited),
+          collector_health_check: CollectorHealthCheck.default(visited),
           last_data_received: 'last_data_received',
           registered_date: 'registered_date',
           created_date: 'created_date',
           modified_date: 'modified_date',
-          inventory_data: Stubs::InventoryData.default(visited),
+          inventory_data: InventoryData.default(visited),
         }
       end
 
@@ -2512,7 +2512,7 @@ module AWS::SDK::DatabaseMigrationService
     class DescribeFleetAdvisorDatabases
       def self.default(visited=[])
         {
-          databases: Stubs::DatabaseList.default(visited),
+          databases: DatabaseList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2532,7 +2532,7 @@ module AWS::SDK::DatabaseMigrationService
         return nil if visited.include?('DatabaseList')
         visited = visited + ['DatabaseList']
         [
-          Stubs::DatabaseResponse.default(visited)
+          DatabaseResponse.default(visited)
         ]
       end
 
@@ -2556,9 +2556,9 @@ module AWS::SDK::DatabaseMigrationService
           database_name: 'database_name',
           ip_address: 'ip_address',
           number_of_schemas: 1,
-          server: Stubs::ServerShortInfoResponse.default(visited),
-          software_details: Stubs::DatabaseInstanceSoftwareDetailsResponse.default(visited),
-          collectors: Stubs::CollectorsList.default(visited),
+          server: ServerShortInfoResponse.default(visited),
+          software_details: DatabaseInstanceSoftwareDetailsResponse.default(visited),
+          collectors: CollectorsList.default(visited),
         }
       end
 
@@ -2582,7 +2582,7 @@ module AWS::SDK::DatabaseMigrationService
         return nil if visited.include?('CollectorsList')
         visited = visited + ['CollectorsList']
         [
-          Stubs::CollectorShortInfoResponse.default(visited)
+          CollectorShortInfoResponse.default(visited)
         ]
       end
 
@@ -2672,7 +2672,7 @@ module AWS::SDK::DatabaseMigrationService
     class DescribeFleetAdvisorLsaAnalysis
       def self.default(visited=[])
         {
-          analysis: Stubs::FleetAdvisorLsaAnalysisResponseList.default(visited),
+          analysis: FleetAdvisorLsaAnalysisResponseList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2692,7 +2692,7 @@ module AWS::SDK::DatabaseMigrationService
         return nil if visited.include?('FleetAdvisorLsaAnalysisResponseList')
         visited = visited + ['FleetAdvisorLsaAnalysisResponseList']
         [
-          Stubs::FleetAdvisorLsaAnalysisResponse.default(visited)
+          FleetAdvisorLsaAnalysisResponse.default(visited)
         ]
       end
 
@@ -2730,7 +2730,7 @@ module AWS::SDK::DatabaseMigrationService
     class DescribeFleetAdvisorSchemaObjectSummary
       def self.default(visited=[])
         {
-          fleet_advisor_schema_objects: Stubs::FleetAdvisorSchemaObjectList.default(visited),
+          fleet_advisor_schema_objects: FleetAdvisorSchemaObjectList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2750,7 +2750,7 @@ module AWS::SDK::DatabaseMigrationService
         return nil if visited.include?('FleetAdvisorSchemaObjectList')
         visited = visited + ['FleetAdvisorSchemaObjectList']
         [
-          Stubs::FleetAdvisorSchemaObjectResponse.default(visited)
+          FleetAdvisorSchemaObjectResponse.default(visited)
         ]
       end
 
@@ -2794,7 +2794,7 @@ module AWS::SDK::DatabaseMigrationService
     class DescribeFleetAdvisorSchemas
       def self.default(visited=[])
         {
-          fleet_advisor_schemas: Stubs::FleetAdvisorSchemaList.default(visited),
+          fleet_advisor_schemas: FleetAdvisorSchemaList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2814,7 +2814,7 @@ module AWS::SDK::DatabaseMigrationService
         return nil if visited.include?('FleetAdvisorSchemaList')
         visited = visited + ['FleetAdvisorSchemaList']
         [
-          Stubs::SchemaResponse.default(visited)
+          SchemaResponse.default(visited)
         ]
       end
 
@@ -2837,11 +2837,11 @@ module AWS::SDK::DatabaseMigrationService
           code_line_count: 1,
           code_size: 1,
           complexity: 'complexity',
-          server: Stubs::ServerShortInfoResponse.default(visited),
-          database_instance: Stubs::DatabaseShortInfoResponse.default(visited),
+          server: ServerShortInfoResponse.default(visited),
+          database_instance: DatabaseShortInfoResponse.default(visited),
           schema_id: 'schema_id',
           schema_name: 'schema_name',
-          original_schema: Stubs::SchemaShortInfoResponse.default(visited),
+          original_schema: SchemaShortInfoResponse.default(visited),
           similarity: 1.0,
         }
       end
@@ -2916,7 +2916,7 @@ module AWS::SDK::DatabaseMigrationService
     class DescribeOrderableReplicationInstances
       def self.default(visited=[])
         {
-          orderable_replication_instances: Stubs::OrderableReplicationInstanceList.default(visited),
+          orderable_replication_instances: OrderableReplicationInstanceList.default(visited),
           marker: 'marker',
         }
       end
@@ -2936,7 +2936,7 @@ module AWS::SDK::DatabaseMigrationService
         return nil if visited.include?('OrderableReplicationInstanceList')
         visited = visited + ['OrderableReplicationInstanceList']
         [
-          Stubs::OrderableReplicationInstance.default(visited)
+          OrderableReplicationInstance.default(visited)
         ]
       end
 
@@ -2963,7 +2963,7 @@ module AWS::SDK::DatabaseMigrationService
           max_allocated_storage: 1,
           default_allocated_storage: 1,
           included_allocated_storage: 1,
-          availability_zones: Stubs::AvailabilityZonesList.default(visited),
+          availability_zones: AvailabilityZonesList.default(visited),
           release_status: 'release_status',
         }
       end
@@ -3008,7 +3008,7 @@ module AWS::SDK::DatabaseMigrationService
     class DescribePendingMaintenanceActions
       def self.default(visited=[])
         {
-          pending_maintenance_actions: Stubs::PendingMaintenanceActions.default(visited),
+          pending_maintenance_actions: PendingMaintenanceActions.default(visited),
           marker: 'marker',
         }
       end
@@ -3028,7 +3028,7 @@ module AWS::SDK::DatabaseMigrationService
         return nil if visited.include?('PendingMaintenanceActions')
         visited = visited + ['PendingMaintenanceActions']
         [
-          Stubs::ResourcePendingMaintenanceActions.default(visited)
+          ResourcePendingMaintenanceActions.default(visited)
         ]
       end
 
@@ -3046,7 +3046,7 @@ module AWS::SDK::DatabaseMigrationService
     class DescribeRefreshSchemasStatus
       def self.default(visited=[])
         {
-          refresh_schemas_status: Stubs::RefreshSchemasStatus.default(visited),
+          refresh_schemas_status: RefreshSchemasStatus.default(visited),
         }
       end
 
@@ -3089,7 +3089,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.default(visited=[])
         {
           replication_instance_arn: 'replication_instance_arn',
-          replication_instance_task_logs: Stubs::ReplicationInstanceTaskLogsList.default(visited),
+          replication_instance_task_logs: ReplicationInstanceTaskLogsList.default(visited),
           marker: 'marker',
         }
       end
@@ -3110,7 +3110,7 @@ module AWS::SDK::DatabaseMigrationService
         return nil if visited.include?('ReplicationInstanceTaskLogsList')
         visited = visited + ['ReplicationInstanceTaskLogsList']
         [
-          Stubs::ReplicationInstanceTaskLog.default(visited)
+          ReplicationInstanceTaskLog.default(visited)
         ]
       end
 
@@ -3151,7 +3151,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.default(visited=[])
         {
           marker: 'marker',
-          replication_instances: Stubs::ReplicationInstanceList.default(visited),
+          replication_instances: ReplicationInstanceList.default(visited),
         }
       end
 
@@ -3170,7 +3170,7 @@ module AWS::SDK::DatabaseMigrationService
         return nil if visited.include?('ReplicationInstanceList')
         visited = visited + ['ReplicationInstanceList']
         [
-          Stubs::ReplicationInstance.default(visited)
+          ReplicationInstance.default(visited)
         ]
       end
 
@@ -3189,7 +3189,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.default(visited=[])
         {
           marker: 'marker',
-          replication_subnet_groups: Stubs::ReplicationSubnetGroups.default(visited),
+          replication_subnet_groups: ReplicationSubnetGroups.default(visited),
         }
       end
 
@@ -3208,7 +3208,7 @@ module AWS::SDK::DatabaseMigrationService
         return nil if visited.include?('ReplicationSubnetGroups')
         visited = visited + ['ReplicationSubnetGroups']
         [
-          Stubs::ReplicationSubnetGroup.default(visited)
+          ReplicationSubnetGroup.default(visited)
         ]
       end
 
@@ -3228,7 +3228,7 @@ module AWS::SDK::DatabaseMigrationService
         {
           marker: 'marker',
           bucket_name: 'bucket_name',
-          replication_task_assessment_results: Stubs::ReplicationTaskAssessmentResultList.default(visited),
+          replication_task_assessment_results: ReplicationTaskAssessmentResultList.default(visited),
         }
       end
 
@@ -3248,7 +3248,7 @@ module AWS::SDK::DatabaseMigrationService
         return nil if visited.include?('ReplicationTaskAssessmentResultList')
         visited = visited + ['ReplicationTaskAssessmentResultList']
         [
-          Stubs::ReplicationTaskAssessmentResult.default(visited)
+          ReplicationTaskAssessmentResult.default(visited)
         ]
       end
 
@@ -3297,7 +3297,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.default(visited=[])
         {
           marker: 'marker',
-          replication_task_assessment_runs: Stubs::ReplicationTaskAssessmentRunList.default(visited),
+          replication_task_assessment_runs: ReplicationTaskAssessmentRunList.default(visited),
         }
       end
 
@@ -3316,7 +3316,7 @@ module AWS::SDK::DatabaseMigrationService
         return nil if visited.include?('ReplicationTaskAssessmentRunList')
         visited = visited + ['ReplicationTaskAssessmentRunList']
         [
-          Stubs::ReplicationTaskAssessmentRun.default(visited)
+          ReplicationTaskAssessmentRun.default(visited)
         ]
       end
 
@@ -3335,7 +3335,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.default(visited=[])
         {
           marker: 'marker',
-          replication_task_individual_assessments: Stubs::ReplicationTaskIndividualAssessmentList.default(visited),
+          replication_task_individual_assessments: ReplicationTaskIndividualAssessmentList.default(visited),
         }
       end
 
@@ -3354,7 +3354,7 @@ module AWS::SDK::DatabaseMigrationService
         return nil if visited.include?('ReplicationTaskIndividualAssessmentList')
         visited = visited + ['ReplicationTaskIndividualAssessmentList']
         [
-          Stubs::ReplicationTaskIndividualAssessment.default(visited)
+          ReplicationTaskIndividualAssessment.default(visited)
         ]
       end
 
@@ -3399,7 +3399,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.default(visited=[])
         {
           marker: 'marker',
-          replication_tasks: Stubs::ReplicationTaskList.default(visited),
+          replication_tasks: ReplicationTaskList.default(visited),
         }
       end
 
@@ -3418,7 +3418,7 @@ module AWS::SDK::DatabaseMigrationService
         return nil if visited.include?('ReplicationTaskList')
         visited = visited + ['ReplicationTaskList']
         [
-          Stubs::ReplicationTask.default(visited)
+          ReplicationTask.default(visited)
         ]
       end
 
@@ -3437,7 +3437,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.default(visited=[])
         {
           marker: 'marker',
-          schemas: Stubs::SchemaList.default(visited),
+          schemas: SchemaList.default(visited),
         }
       end
 
@@ -3475,7 +3475,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.default(visited=[])
         {
           replication_task_arn: 'replication_task_arn',
-          table_statistics: Stubs::TableStatisticsList.default(visited),
+          table_statistics: TableStatisticsList.default(visited),
           marker: 'marker',
         }
       end
@@ -3496,7 +3496,7 @@ module AWS::SDK::DatabaseMigrationService
         return nil if visited.include?('TableStatisticsList')
         visited = visited + ['TableStatisticsList']
         [
-          Stubs::TableStatistics.default(visited)
+          TableStatistics.default(visited)
         ]
       end
 
@@ -3568,7 +3568,7 @@ module AWS::SDK::DatabaseMigrationService
     class ImportCertificate
       def self.default(visited=[])
         {
-          certificate: Stubs::Certificate.default(visited),
+          certificate: Certificate.default(visited),
         }
       end
 
@@ -3584,7 +3584,7 @@ module AWS::SDK::DatabaseMigrationService
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tag_list: Stubs::TagList.default(visited),
+          tag_list: TagList.default(visited),
         }
       end
 
@@ -3602,7 +3602,7 @@ module AWS::SDK::DatabaseMigrationService
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -3642,7 +3642,7 @@ module AWS::SDK::DatabaseMigrationService
     class ModifyEndpoint
       def self.default(visited=[])
         {
-          endpoint: Stubs::Endpoint.default(visited),
+          endpoint: Endpoint.default(visited),
         }
       end
 
@@ -3658,7 +3658,7 @@ module AWS::SDK::DatabaseMigrationService
     class ModifyEventSubscription
       def self.default(visited=[])
         {
-          event_subscription: Stubs::EventSubscription.default(visited),
+          event_subscription: EventSubscription.default(visited),
         }
       end
 
@@ -3674,7 +3674,7 @@ module AWS::SDK::DatabaseMigrationService
     class ModifyReplicationInstance
       def self.default(visited=[])
         {
-          replication_instance: Stubs::ReplicationInstance.default(visited),
+          replication_instance: ReplicationInstance.default(visited),
         }
       end
 
@@ -3690,7 +3690,7 @@ module AWS::SDK::DatabaseMigrationService
     class ModifyReplicationSubnetGroup
       def self.default(visited=[])
         {
-          replication_subnet_group: Stubs::ReplicationSubnetGroup.default(visited),
+          replication_subnet_group: ReplicationSubnetGroup.default(visited),
         }
       end
 
@@ -3706,7 +3706,7 @@ module AWS::SDK::DatabaseMigrationService
     class ModifyReplicationTask
       def self.default(visited=[])
         {
-          replication_task: Stubs::ReplicationTask.default(visited),
+          replication_task: ReplicationTask.default(visited),
         }
       end
 
@@ -3722,7 +3722,7 @@ module AWS::SDK::DatabaseMigrationService
     class MoveReplicationTask
       def self.default(visited=[])
         {
-          replication_task: Stubs::ReplicationTask.default(visited),
+          replication_task: ReplicationTask.default(visited),
         }
       end
 
@@ -3738,7 +3738,7 @@ module AWS::SDK::DatabaseMigrationService
     class RebootReplicationInstance
       def self.default(visited=[])
         {
-          replication_instance: Stubs::ReplicationInstance.default(visited),
+          replication_instance: ReplicationInstance.default(visited),
         }
       end
 
@@ -3754,7 +3754,7 @@ module AWS::SDK::DatabaseMigrationService
     class RefreshSchemas
       def self.default(visited=[])
         {
-          refresh_schemas_status: Stubs::RefreshSchemasStatus.default(visited),
+          refresh_schemas_status: RefreshSchemasStatus.default(visited),
         }
       end
 
@@ -3818,7 +3818,7 @@ module AWS::SDK::DatabaseMigrationService
     class StartReplicationTask
       def self.default(visited=[])
         {
-          replication_task: Stubs::ReplicationTask.default(visited),
+          replication_task: ReplicationTask.default(visited),
         }
       end
 
@@ -3834,7 +3834,7 @@ module AWS::SDK::DatabaseMigrationService
     class StartReplicationTaskAssessment
       def self.default(visited=[])
         {
-          replication_task: Stubs::ReplicationTask.default(visited),
+          replication_task: ReplicationTask.default(visited),
         }
       end
 
@@ -3850,7 +3850,7 @@ module AWS::SDK::DatabaseMigrationService
     class StartReplicationTaskAssessmentRun
       def self.default(visited=[])
         {
-          replication_task_assessment_run: Stubs::ReplicationTaskAssessmentRun.default(visited),
+          replication_task_assessment_run: ReplicationTaskAssessmentRun.default(visited),
         }
       end
 
@@ -3866,7 +3866,7 @@ module AWS::SDK::DatabaseMigrationService
     class StopReplicationTask
       def self.default(visited=[])
         {
-          replication_task: Stubs::ReplicationTask.default(visited),
+          replication_task: ReplicationTask.default(visited),
         }
       end
 
@@ -3882,7 +3882,7 @@ module AWS::SDK::DatabaseMigrationService
     class TestConnection
       def self.default(visited=[])
         {
-          connection: Stubs::Connection.default(visited),
+          connection: Connection.default(visited),
         }
       end
 

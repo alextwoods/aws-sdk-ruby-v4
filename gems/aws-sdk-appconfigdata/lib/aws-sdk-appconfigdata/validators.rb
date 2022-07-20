@@ -14,7 +14,7 @@ module AWS::SDK::AppConfigData
       def self.validate!(input, context:)
         case input
         when Types::BadRequestDetails::InvalidParameters
-          Validators::InvalidParameterMap.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          InvalidParameterMap.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -34,7 +34,7 @@ module AWS::SDK::AppConfigData
         Hearth::Validator.validate!(input, Types::BadRequestException, context: context)
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:reason], ::String, context: "#{context}[:reason]")
-        Validators::BadRequestDetails.validate!(input[:details], context: "#{context}[:details]") unless input[:details].nil?
+        BadRequestDetails.validate!(input[:details], context: "#{context}[:details]") unless input[:details].nil?
       end
     end
 
@@ -74,7 +74,7 @@ module AWS::SDK::AppConfigData
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::InvalidParameterDetail.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          InvalidParameterDetail.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -84,7 +84,7 @@ module AWS::SDK::AppConfigData
         Hearth::Validator.validate!(input, Types::ResourceNotFoundException, context: context)
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::StringMap.validate!(input[:referenced_by], context: "#{context}[:referenced_by]") unless input[:referenced_by].nil?
+        StringMap.validate!(input[:referenced_by], context: "#{context}[:referenced_by]") unless input[:referenced_by].nil?
       end
     end
 

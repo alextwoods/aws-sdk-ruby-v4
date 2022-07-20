@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::KinesisVideoArchivedMedia
   module Validators
 
@@ -21,7 +23,7 @@ module AWS::SDK::KinesisVideoArchivedMedia
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ClipFragmentSelector, context: context)
         Hearth::Validator.validate!(input[:fragment_selector_type], ::String, context: "#{context}[:fragment_selector_type]")
-        Validators::ClipTimestampRange.validate!(input[:timestamp_range], context: "#{context}[:timestamp_range]") unless input[:timestamp_range].nil?
+        ClipTimestampRange.validate!(input[:timestamp_range], context: "#{context}[:timestamp_range]") unless input[:timestamp_range].nil?
       end
     end
 
@@ -37,7 +39,7 @@ module AWS::SDK::KinesisVideoArchivedMedia
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DASHFragmentSelector, context: context)
         Hearth::Validator.validate!(input[:fragment_selector_type], ::String, context: "#{context}[:fragment_selector_type]")
-        Validators::DASHTimestampRange.validate!(input[:timestamp_range], context: "#{context}[:timestamp_range]") unless input[:timestamp_range].nil?
+        DASHTimestampRange.validate!(input[:timestamp_range], context: "#{context}[:timestamp_range]") unless input[:timestamp_range].nil?
       end
     end
 
@@ -74,7 +76,7 @@ module AWS::SDK::KinesisVideoArchivedMedia
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Fragment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Fragment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -92,7 +94,7 @@ module AWS::SDK::KinesisVideoArchivedMedia
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FragmentSelector, context: context)
         Hearth::Validator.validate!(input[:fragment_selector_type], ::String, context: "#{context}[:fragment_selector_type]")
-        Validators::TimestampRange.validate!(input[:timestamp_range], context: "#{context}[:timestamp_range]") unless input[:timestamp_range].nil?
+        TimestampRange.validate!(input[:timestamp_range], context: "#{context}[:timestamp_range]") unless input[:timestamp_range].nil?
       end
     end
 
@@ -101,7 +103,7 @@ module AWS::SDK::KinesisVideoArchivedMedia
         Hearth::Validator.validate!(input, Types::GetClipInput, context: context)
         Hearth::Validator.validate!(input[:stream_name], ::String, context: "#{context}[:stream_name]")
         Hearth::Validator.validate!(input[:stream_arn], ::String, context: "#{context}[:stream_arn]")
-        Validators::ClipFragmentSelector.validate!(input[:clip_fragment_selector], context: "#{context}[:clip_fragment_selector]") unless input[:clip_fragment_selector].nil?
+        ClipFragmentSelector.validate!(input[:clip_fragment_selector], context: "#{context}[:clip_fragment_selector]") unless input[:clip_fragment_selector].nil?
       end
     end
 
@@ -123,7 +125,7 @@ module AWS::SDK::KinesisVideoArchivedMedia
         Hearth::Validator.validate!(input[:playback_mode], ::String, context: "#{context}[:playback_mode]")
         Hearth::Validator.validate!(input[:display_fragment_timestamp], ::String, context: "#{context}[:display_fragment_timestamp]")
         Hearth::Validator.validate!(input[:display_fragment_number], ::String, context: "#{context}[:display_fragment_number]")
-        Validators::DASHFragmentSelector.validate!(input[:dash_fragment_selector], context: "#{context}[:dash_fragment_selector]") unless input[:dash_fragment_selector].nil?
+        DASHFragmentSelector.validate!(input[:dash_fragment_selector], context: "#{context}[:dash_fragment_selector]") unless input[:dash_fragment_selector].nil?
         Hearth::Validator.validate!(input[:expires], ::Integer, context: "#{context}[:expires]")
         Hearth::Validator.validate!(input[:max_manifest_fragment_results], ::Integer, context: "#{context}[:max_manifest_fragment_results]")
       end
@@ -142,7 +144,7 @@ module AWS::SDK::KinesisVideoArchivedMedia
         Hearth::Validator.validate!(input[:stream_name], ::String, context: "#{context}[:stream_name]")
         Hearth::Validator.validate!(input[:stream_arn], ::String, context: "#{context}[:stream_arn]")
         Hearth::Validator.validate!(input[:playback_mode], ::String, context: "#{context}[:playback_mode]")
-        Validators::HLSFragmentSelector.validate!(input[:hls_fragment_selector], context: "#{context}[:hls_fragment_selector]") unless input[:hls_fragment_selector].nil?
+        HLSFragmentSelector.validate!(input[:hls_fragment_selector], context: "#{context}[:hls_fragment_selector]") unless input[:hls_fragment_selector].nil?
         Hearth::Validator.validate!(input[:container_format], ::String, context: "#{context}[:container_format]")
         Hearth::Validator.validate!(input[:discontinuity_mode], ::String, context: "#{context}[:discontinuity_mode]")
         Hearth::Validator.validate!(input[:display_fragment_timestamp], ::String, context: "#{context}[:display_fragment_timestamp]")
@@ -168,7 +170,7 @@ module AWS::SDK::KinesisVideoArchivedMedia
         Hearth::Validator.validate!(input[:end_timestamp], ::Time, context: "#{context}[:end_timestamp]")
         Hearth::Validator.validate!(input[:sampling_interval], ::Integer, context: "#{context}[:sampling_interval]")
         Hearth::Validator.validate!(input[:format], ::String, context: "#{context}[:format]")
-        Validators::FormatConfig.validate!(input[:format_config], context: "#{context}[:format_config]") unless input[:format_config].nil?
+        FormatConfig.validate!(input[:format_config], context: "#{context}[:format_config]") unless input[:format_config].nil?
         Hearth::Validator.validate!(input[:width_pixels], ::Integer, context: "#{context}[:width_pixels]")
         Hearth::Validator.validate!(input[:height_pixels], ::Integer, context: "#{context}[:height_pixels]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
@@ -179,7 +181,7 @@ module AWS::SDK::KinesisVideoArchivedMedia
     class GetImagesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetImagesOutput, context: context)
-        Validators::Images.validate!(input[:images], context: "#{context}[:images]") unless input[:images].nil?
+        Images.validate!(input[:images], context: "#{context}[:images]") unless input[:images].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -189,7 +191,7 @@ module AWS::SDK::KinesisVideoArchivedMedia
         Hearth::Validator.validate!(input, Types::GetMediaForFragmentListInput, context: context)
         Hearth::Validator.validate!(input[:stream_name], ::String, context: "#{context}[:stream_name]")
         Hearth::Validator.validate!(input[:stream_arn], ::String, context: "#{context}[:stream_arn]")
-        Validators::FragmentNumberList.validate!(input[:fragments], context: "#{context}[:fragments]") unless input[:fragments].nil?
+        FragmentNumberList.validate!(input[:fragments], context: "#{context}[:fragments]") unless input[:fragments].nil?
       end
     end
 
@@ -207,7 +209,7 @@ module AWS::SDK::KinesisVideoArchivedMedia
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HLSFragmentSelector, context: context)
         Hearth::Validator.validate!(input[:fragment_selector_type], ::String, context: "#{context}[:fragment_selector_type]")
-        Validators::HLSTimestampRange.validate!(input[:timestamp_range], context: "#{context}[:timestamp_range]") unless input[:timestamp_range].nil?
+        HLSTimestampRange.validate!(input[:timestamp_range], context: "#{context}[:timestamp_range]") unless input[:timestamp_range].nil?
       end
     end
 
@@ -232,7 +234,7 @@ module AWS::SDK::KinesisVideoArchivedMedia
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Image.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Image.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -265,14 +267,14 @@ module AWS::SDK::KinesisVideoArchivedMedia
         Hearth::Validator.validate!(input[:stream_arn], ::String, context: "#{context}[:stream_arn]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::FragmentSelector.validate!(input[:fragment_selector], context: "#{context}[:fragment_selector]") unless input[:fragment_selector].nil?
+        FragmentSelector.validate!(input[:fragment_selector], context: "#{context}[:fragment_selector]") unless input[:fragment_selector].nil?
       end
     end
 
     class ListFragmentsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFragmentsOutput, context: context)
-        Validators::FragmentList.validate!(input[:fragments], context: "#{context}[:fragments]") unless input[:fragments].nil?
+        FragmentList.validate!(input[:fragments], context: "#{context}[:fragments]") unless input[:fragments].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end

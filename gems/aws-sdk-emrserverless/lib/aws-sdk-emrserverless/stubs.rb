@@ -67,7 +67,7 @@ module AWS::SDK::EMRServerless
     class GetApplication
       def self.default(visited=[])
         {
-          application: Stubs::Application.default(visited),
+          application: Application.default(visited),
         }
       end
 
@@ -93,14 +93,14 @@ module AWS::SDK::EMRServerless
           type: 'type',
           state: 'state',
           state_details: 'state_details',
-          initial_capacity: Stubs::InitialCapacityConfigMap.default(visited),
-          maximum_capacity: Stubs::MaximumAllowedResources.default(visited),
+          initial_capacity: InitialCapacityConfigMap.default(visited),
+          maximum_capacity: MaximumAllowedResources.default(visited),
           created_at: Time.now,
           updated_at: Time.now,
-          tags: Stubs::TagMap.default(visited),
-          auto_start_configuration: Stubs::AutoStartConfig.default(visited),
-          auto_stop_configuration: Stubs::AutoStopConfig.default(visited),
-          network_configuration: Stubs::NetworkConfiguration.default(visited),
+          tags: TagMap.default(visited),
+          auto_start_configuration: AutoStartConfig.default(visited),
+          auto_stop_configuration: AutoStopConfig.default(visited),
+          network_configuration: NetworkConfiguration.default(visited),
         }
       end
 
@@ -132,8 +132,8 @@ module AWS::SDK::EMRServerless
         return nil if visited.include?('NetworkConfiguration')
         visited = visited + ['NetworkConfiguration']
         {
-          subnet_ids: Stubs::SubnetIds.default(visited),
-          security_group_ids: Stubs::SecurityGroupIds.default(visited),
+          subnet_ids: SubnetIds.default(visited),
+          security_group_ids: SecurityGroupIds.default(visited),
         }
       end
 
@@ -272,7 +272,7 @@ module AWS::SDK::EMRServerless
         return nil if visited.include?('InitialCapacityConfigMap')
         visited = visited + ['InitialCapacityConfigMap']
         {
-          test_key: Stubs::InitialCapacityConfig.default(visited)
+          test_key: InitialCapacityConfig.default(visited)
         }
       end
 
@@ -293,7 +293,7 @@ module AWS::SDK::EMRServerless
         visited = visited + ['InitialCapacityConfig']
         {
           worker_count: 1,
-          worker_configuration: Stubs::WorkerResourceConfig.default(visited),
+          worker_configuration: WorkerResourceConfig.default(visited),
         }
       end
 
@@ -332,7 +332,7 @@ module AWS::SDK::EMRServerless
     class GetJobRun
       def self.default(visited=[])
         {
-          job_run: Stubs::JobRun.default(visited),
+          job_run: JobRun.default(visited),
         }
       end
 
@@ -362,11 +362,11 @@ module AWS::SDK::EMRServerless
           state: 'state',
           state_details: 'state_details',
           release_label: 'release_label',
-          configuration_overrides: Stubs::ConfigurationOverrides.default(visited),
-          job_driver: Stubs::JobDriver.default(visited),
-          tags: Stubs::TagMap.default(visited),
-          total_resource_utilization: Stubs::TotalResourceUtilization.default(visited),
-          network_configuration: Stubs::NetworkConfiguration.default(visited),
+          configuration_overrides: ConfigurationOverrides.default(visited),
+          job_driver: JobDriver.default(visited),
+          tags: TagMap.default(visited),
+          total_resource_utilization: TotalResourceUtilization.default(visited),
+          network_configuration: NetworkConfiguration.default(visited),
           total_execution_duration_seconds: 1,
         }
       end
@@ -423,7 +423,7 @@ module AWS::SDK::EMRServerless
         return nil if visited.include?('JobDriver')
         visited = visited + ['JobDriver']
         {
-          spark_submit: Stubs::SparkSubmit.default(visited),
+          spark_submit: SparkSubmit.default(visited),
         }
       end
 
@@ -472,7 +472,7 @@ module AWS::SDK::EMRServerless
         visited = visited + ['SparkSubmit']
         {
           entry_point: 'entry_point',
-          entry_point_arguments: Stubs::EntryPointArguments.default(visited),
+          entry_point_arguments: EntryPointArguments.default(visited),
           spark_submit_parameters: 'spark_submit_parameters',
         }
       end
@@ -513,8 +513,8 @@ module AWS::SDK::EMRServerless
         return nil if visited.include?('ConfigurationOverrides')
         visited = visited + ['ConfigurationOverrides']
         {
-          application_configuration: Stubs::ConfigurationList.default(visited),
-          monitoring_configuration: Stubs::MonitoringConfiguration.default(visited),
+          application_configuration: ConfigurationList.default(visited),
+          monitoring_configuration: MonitoringConfiguration.default(visited),
         }
       end
 
@@ -533,8 +533,8 @@ module AWS::SDK::EMRServerless
         return nil if visited.include?('MonitoringConfiguration')
         visited = visited + ['MonitoringConfiguration']
         {
-          s3_monitoring_configuration: Stubs::S3MonitoringConfiguration.default(visited),
-          managed_persistence_monitoring_configuration: Stubs::ManagedPersistenceMonitoringConfiguration.default(visited),
+          s3_monitoring_configuration: S3MonitoringConfiguration.default(visited),
+          managed_persistence_monitoring_configuration: ManagedPersistenceMonitoringConfiguration.default(visited),
         }
       end
 
@@ -593,7 +593,7 @@ module AWS::SDK::EMRServerless
         return nil if visited.include?('ConfigurationList')
         visited = visited + ['ConfigurationList']
         [
-          Stubs::Configuration.default(visited)
+          Configuration.default(visited)
         ]
       end
 
@@ -614,8 +614,8 @@ module AWS::SDK::EMRServerless
         visited = visited + ['Configuration']
         {
           classification: 'classification',
-          properties: Stubs::SensitivePropertiesMap.default(visited),
-          configurations: Stubs::ConfigurationList.default(visited),
+          properties: SensitivePropertiesMap.default(visited),
+          configurations: ConfigurationList.default(visited),
         }
       end
 
@@ -653,7 +653,7 @@ module AWS::SDK::EMRServerless
     class ListApplications
       def self.default(visited=[])
         {
-          applications: Stubs::ApplicationList.default(visited),
+          applications: ApplicationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -674,7 +674,7 @@ module AWS::SDK::EMRServerless
         return nil if visited.include?('ApplicationList')
         visited = visited + ['ApplicationList']
         [
-          Stubs::ApplicationSummary.default(visited)
+          ApplicationSummary.default(visited)
         ]
       end
 
@@ -726,7 +726,7 @@ module AWS::SDK::EMRServerless
     class ListJobRuns
       def self.default(visited=[])
         {
-          job_runs: Stubs::JobRuns.default(visited),
+          job_runs: JobRuns.default(visited),
           next_token: 'next_token',
         }
       end
@@ -747,7 +747,7 @@ module AWS::SDK::EMRServerless
         return nil if visited.include?('JobRuns')
         visited = visited + ['JobRuns']
         [
-          Stubs::JobRunSummary.default(visited)
+          JobRunSummary.default(visited)
         ]
       end
 
@@ -805,7 +805,7 @@ module AWS::SDK::EMRServerless
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -895,7 +895,7 @@ module AWS::SDK::EMRServerless
     class UpdateApplication
       def self.default(visited=[])
         {
-          application: Stubs::Application.default(visited),
+          application: Application.default(visited),
         }
       end
 

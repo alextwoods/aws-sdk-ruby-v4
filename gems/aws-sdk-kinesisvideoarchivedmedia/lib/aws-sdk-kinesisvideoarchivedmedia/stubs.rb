@@ -65,7 +65,7 @@ module AWS::SDK::KinesisVideoArchivedMedia
     class GetImages
       def self.default(visited=[])
         {
-          images: Stubs::Images.default(visited),
+          images: Images.default(visited),
           next_token: 'next_token',
         }
       end
@@ -86,7 +86,7 @@ module AWS::SDK::KinesisVideoArchivedMedia
         return nil if visited.include?('Images')
         visited = visited + ['Images']
         [
-          Stubs::Image.default(visited)
+          Image.default(visited)
         ]
       end
 
@@ -143,7 +143,7 @@ module AWS::SDK::KinesisVideoArchivedMedia
     class ListFragments
       def self.default(visited=[])
         {
-          fragments: Stubs::FragmentList.default(visited),
+          fragments: FragmentList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -164,7 +164,7 @@ module AWS::SDK::KinesisVideoArchivedMedia
         return nil if visited.include?('FragmentList')
         visited = visited + ['FragmentList']
         [
-          Stubs::Fragment.default(visited)
+          Fragment.default(visited)
         ]
       end
 

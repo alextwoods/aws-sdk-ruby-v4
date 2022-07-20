@@ -235,11 +235,11 @@ module AWS::SDK::Budgets
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.action_threshold_value ||= 0
       end
-
     end
 
     # Includes enum constants for ActionType
@@ -1961,11 +1961,11 @@ module AWS::SDK::Budgets
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.threshold ||= 0
       end
-
     end
 
     # Includes enum constants for NotificationState

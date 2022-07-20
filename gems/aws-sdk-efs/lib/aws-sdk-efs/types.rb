@@ -654,11 +654,11 @@ module AWS::SDK::EFS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.number_of_mount_targets ||= 0
       end
-
     end
 
     # <p></p>
@@ -1753,11 +1753,11 @@ module AWS::SDK::EFS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.number_of_mount_targets ||= 0
       end
-
     end
 
     # <p>Returned if a file system has mount targets.</p>
@@ -1876,11 +1876,11 @@ module AWS::SDK::EFS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= 0
       end
-
     end
 
     # <p>Returned if the file system's lifecycle state is not "available".</p>
@@ -2521,11 +2521,11 @@ module AWS::SDK::EFS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bypass_policy_lockout_safety_check ||= false
       end
-
     end
 
     # @!attribute file_system_id
@@ -3253,11 +3253,11 @@ module AWS::SDK::EFS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.number_of_mount_targets ||= 0
       end
-
     end
 
     # <p>Returned if the Backup service is not available in the Amazon Web Services Region in which the request was made.</p>

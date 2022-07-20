@@ -14,7 +14,7 @@ module AWS::SDK::Wisdom
     class CreateAssistant
       def self.default(visited=[])
         {
-          assistant: Stubs::AssistantData.default(visited),
+          assistant: AssistantData.default(visited),
         }
       end
 
@@ -39,8 +39,8 @@ module AWS::SDK::Wisdom
           type: 'type',
           status: 'status',
           description: 'description',
-          tags: Stubs::Tags.default(visited),
-          server_side_encryption_configuration: Stubs::ServerSideEncryptionConfiguration.default(visited),
+          tags: Tags.default(visited),
+          server_side_encryption_configuration: ServerSideEncryptionConfiguration.default(visited),
         }
       end
 
@@ -101,7 +101,7 @@ module AWS::SDK::Wisdom
     class CreateAssistantAssociation
       def self.default(visited=[])
         {
-          assistant_association: Stubs::AssistantAssociationData.default(visited),
+          assistant_association: AssistantAssociationData.default(visited),
         }
       end
 
@@ -125,8 +125,8 @@ module AWS::SDK::Wisdom
           assistant_id: 'assistant_id',
           assistant_arn: 'assistant_arn',
           association_type: 'association_type',
-          association_data: Stubs::AssistantAssociationOutputData.default(visited),
-          tags: Stubs::Tags.default(visited),
+          association_data: AssistantAssociationOutputData.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -150,7 +150,7 @@ module AWS::SDK::Wisdom
         return nil if visited.include?('AssistantAssociationOutputData')
         visited = visited + ['AssistantAssociationOutputData']
         {
-          knowledge_base_association: Stubs::KnowledgeBaseAssociationData.default(visited),
+          knowledge_base_association: KnowledgeBaseAssociationData.default(visited),
         }
       end
 
@@ -192,7 +192,7 @@ module AWS::SDK::Wisdom
     class CreateContent
       def self.default(visited=[])
         {
-          content: Stubs::ContentData.default(visited),
+          content: ContentData.default(visited),
         }
       end
 
@@ -220,8 +220,8 @@ module AWS::SDK::Wisdom
           title: 'title',
           content_type: 'content_type',
           status: 'status',
-          metadata: Stubs::ContentMetadata.default(visited),
-          tags: Stubs::Tags.default(visited),
+          metadata: ContentMetadata.default(visited),
+          tags: Tags.default(visited),
           link_out_uri: 'link_out_uri',
           url: 'url',
           url_expiry: Time.now,
@@ -273,7 +273,7 @@ module AWS::SDK::Wisdom
     class CreateKnowledgeBase
       def self.default(visited=[])
         {
-          knowledge_base: Stubs::KnowledgeBaseData.default(visited),
+          knowledge_base: KnowledgeBaseData.default(visited),
         }
       end
 
@@ -298,11 +298,11 @@ module AWS::SDK::Wisdom
           knowledge_base_type: 'knowledge_base_type',
           status: 'status',
           last_content_modification_time: Time.now,
-          source_configuration: Stubs::SourceConfiguration.default(visited),
-          rendering_configuration: Stubs::RenderingConfiguration.default(visited),
-          server_side_encryption_configuration: Stubs::ServerSideEncryptionConfiguration.default(visited),
+          source_configuration: SourceConfiguration.default(visited),
+          rendering_configuration: RenderingConfiguration.default(visited),
+          server_side_encryption_configuration: ServerSideEncryptionConfiguration.default(visited),
           description: 'description',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -348,7 +348,7 @@ module AWS::SDK::Wisdom
         return nil if visited.include?('SourceConfiguration')
         visited = visited + ['SourceConfiguration']
         {
-          app_integrations: Stubs::AppIntegrationsConfiguration.default(visited),
+          app_integrations: AppIntegrationsConfiguration.default(visited),
         }
       end
 
@@ -373,7 +373,7 @@ module AWS::SDK::Wisdom
         visited = visited + ['AppIntegrationsConfiguration']
         {
           app_integration_arn: 'app_integration_arn',
-          object_fields: Stubs::ObjectFieldsList.default(visited),
+          object_fields: ObjectFieldsList.default(visited),
         }
       end
 
@@ -410,7 +410,7 @@ module AWS::SDK::Wisdom
     class CreateSession
       def self.default(visited=[])
         {
-          session: Stubs::SessionData.default(visited),
+          session: SessionData.default(visited),
         }
       end
 
@@ -433,7 +433,7 @@ module AWS::SDK::Wisdom
           session_id: 'session_id',
           name: 'name',
           description: 'description',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -505,7 +505,7 @@ module AWS::SDK::Wisdom
     class GetAssistant
       def self.default(visited=[])
         {
-          assistant: Stubs::AssistantData.default(visited),
+          assistant: AssistantData.default(visited),
         }
       end
 
@@ -522,7 +522,7 @@ module AWS::SDK::Wisdom
     class GetAssistantAssociation
       def self.default(visited=[])
         {
-          assistant_association: Stubs::AssistantAssociationData.default(visited),
+          assistant_association: AssistantAssociationData.default(visited),
         }
       end
 
@@ -539,7 +539,7 @@ module AWS::SDK::Wisdom
     class GetContent
       def self.default(visited=[])
         {
-          content: Stubs::ContentData.default(visited),
+          content: ContentData.default(visited),
         }
       end
 
@@ -556,7 +556,7 @@ module AWS::SDK::Wisdom
     class GetContentSummary
       def self.default(visited=[])
         {
-          content_summary: Stubs::ContentSummary.default(visited),
+          content_summary: ContentSummary.default(visited),
         }
       end
 
@@ -584,8 +584,8 @@ module AWS::SDK::Wisdom
           title: 'title',
           content_type: 'content_type',
           status: 'status',
-          metadata: Stubs::ContentMetadata.default(visited),
-          tags: Stubs::Tags.default(visited),
+          metadata: ContentMetadata.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -611,7 +611,7 @@ module AWS::SDK::Wisdom
     class GetKnowledgeBase
       def self.default(visited=[])
         {
-          knowledge_base: Stubs::KnowledgeBaseData.default(visited),
+          knowledge_base: KnowledgeBaseData.default(visited),
         }
       end
 
@@ -628,8 +628,8 @@ module AWS::SDK::Wisdom
     class GetRecommendations
       def self.default(visited=[])
         {
-          recommendations: Stubs::RecommendationList.default(visited),
-          triggers: Stubs::RecommendationTriggerList.default(visited),
+          recommendations: RecommendationList.default(visited),
+          triggers: RecommendationTriggerList.default(visited),
         }
       end
 
@@ -649,7 +649,7 @@ module AWS::SDK::Wisdom
         return nil if visited.include?('RecommendationTriggerList')
         visited = visited + ['RecommendationTriggerList']
         [
-          Stubs::RecommendationTrigger.default(visited)
+          RecommendationTrigger.default(visited)
         ]
       end
 
@@ -672,8 +672,8 @@ module AWS::SDK::Wisdom
           id: 'id',
           type: 'type',
           source: 'source',
-          data: Stubs::RecommendationTriggerData.default(visited),
-          recommendation_ids: Stubs::RecommendationIdList.default(visited),
+          data: RecommendationTriggerData.default(visited),
+          recommendation_ids: RecommendationIdList.default(visited),
         }
       end
 
@@ -715,7 +715,7 @@ module AWS::SDK::Wisdom
         return nil if visited.include?('RecommendationTriggerData')
         visited = visited + ['RecommendationTriggerData']
         {
-          query: Stubs::QueryRecommendationTriggerData.default(visited),
+          query: QueryRecommendationTriggerData.default(visited),
         }
       end
 
@@ -757,7 +757,7 @@ module AWS::SDK::Wisdom
         return nil if visited.include?('RecommendationList')
         visited = visited + ['RecommendationList']
         [
-          Stubs::RecommendationData.default(visited)
+          RecommendationData.default(visited)
         ]
       end
 
@@ -778,7 +778,7 @@ module AWS::SDK::Wisdom
         visited = visited + ['RecommendationData']
         {
           recommendation_id: 'recommendation_id',
-          document: Stubs::Document.default(visited),
+          document: Document.default(visited),
           relevance_score: 1.0,
           relevance_level: 'relevance_level',
           type: 'type',
@@ -803,9 +803,9 @@ module AWS::SDK::Wisdom
         return nil if visited.include?('Document')
         visited = visited + ['Document']
         {
-          content_reference: Stubs::ContentReference.default(visited),
-          title: Stubs::DocumentText.default(visited),
-          excerpt: Stubs::DocumentText.default(visited),
+          content_reference: ContentReference.default(visited),
+          title: DocumentText.default(visited),
+          excerpt: DocumentText.default(visited),
         }
       end
 
@@ -826,7 +826,7 @@ module AWS::SDK::Wisdom
         visited = visited + ['DocumentText']
         {
           text: 'text',
-          highlights: Stubs::Highlights.default(visited),
+          highlights: Highlights.default(visited),
         }
       end
 
@@ -845,7 +845,7 @@ module AWS::SDK::Wisdom
         return nil if visited.include?('Highlights')
         visited = visited + ['Highlights']
         [
-          Stubs::Highlight.default(visited)
+          Highlight.default(visited)
         ]
       end
 
@@ -907,7 +907,7 @@ module AWS::SDK::Wisdom
     class GetSession
       def self.default(visited=[])
         {
-          session: Stubs::SessionData.default(visited),
+          session: SessionData.default(visited),
         }
       end
 
@@ -924,7 +924,7 @@ module AWS::SDK::Wisdom
     class ListAssistantAssociations
       def self.default(visited=[])
         {
-          assistant_association_summaries: Stubs::AssistantAssociationSummaryList.default(visited),
+          assistant_association_summaries: AssistantAssociationSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -945,7 +945,7 @@ module AWS::SDK::Wisdom
         return nil if visited.include?('AssistantAssociationSummaryList')
         visited = visited + ['AssistantAssociationSummaryList']
         [
-          Stubs::AssistantAssociationSummary.default(visited)
+          AssistantAssociationSummary.default(visited)
         ]
       end
 
@@ -970,8 +970,8 @@ module AWS::SDK::Wisdom
           assistant_id: 'assistant_id',
           assistant_arn: 'assistant_arn',
           association_type: 'association_type',
-          association_data: Stubs::AssistantAssociationOutputData.default(visited),
-          tags: Stubs::Tags.default(visited),
+          association_data: AssistantAssociationOutputData.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -993,7 +993,7 @@ module AWS::SDK::Wisdom
     class ListAssistants
       def self.default(visited=[])
         {
-          assistant_summaries: Stubs::AssistantList.default(visited),
+          assistant_summaries: AssistantList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1014,7 +1014,7 @@ module AWS::SDK::Wisdom
         return nil if visited.include?('AssistantList')
         visited = visited + ['AssistantList']
         [
-          Stubs::AssistantSummary.default(visited)
+          AssistantSummary.default(visited)
         ]
       end
 
@@ -1040,8 +1040,8 @@ module AWS::SDK::Wisdom
           type: 'type',
           status: 'status',
           description: 'description',
-          tags: Stubs::Tags.default(visited),
-          server_side_encryption_configuration: Stubs::ServerSideEncryptionConfiguration.default(visited),
+          tags: Tags.default(visited),
+          server_side_encryption_configuration: ServerSideEncryptionConfiguration.default(visited),
         }
       end
 
@@ -1064,7 +1064,7 @@ module AWS::SDK::Wisdom
     class ListContents
       def self.default(visited=[])
         {
-          content_summaries: Stubs::ContentSummaryList.default(visited),
+          content_summaries: ContentSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1085,7 +1085,7 @@ module AWS::SDK::Wisdom
         return nil if visited.include?('ContentSummaryList')
         visited = visited + ['ContentSummaryList']
         [
-          Stubs::ContentSummary.default(visited)
+          ContentSummary.default(visited)
         ]
       end
 
@@ -1103,7 +1103,7 @@ module AWS::SDK::Wisdom
     class ListKnowledgeBases
       def self.default(visited=[])
         {
-          knowledge_base_summaries: Stubs::KnowledgeBaseList.default(visited),
+          knowledge_base_summaries: KnowledgeBaseList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1124,7 +1124,7 @@ module AWS::SDK::Wisdom
         return nil if visited.include?('KnowledgeBaseList')
         visited = visited + ['KnowledgeBaseList']
         [
-          Stubs::KnowledgeBaseSummary.default(visited)
+          KnowledgeBaseSummary.default(visited)
         ]
       end
 
@@ -1149,11 +1149,11 @@ module AWS::SDK::Wisdom
           name: 'name',
           knowledge_base_type: 'knowledge_base_type',
           status: 'status',
-          source_configuration: Stubs::SourceConfiguration.default(visited),
-          rendering_configuration: Stubs::RenderingConfiguration.default(visited),
-          server_side_encryption_configuration: Stubs::ServerSideEncryptionConfiguration.default(visited),
+          source_configuration: SourceConfiguration.default(visited),
+          rendering_configuration: RenderingConfiguration.default(visited),
+          server_side_encryption_configuration: ServerSideEncryptionConfiguration.default(visited),
           description: 'description',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -1178,7 +1178,7 @@ module AWS::SDK::Wisdom
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -1195,8 +1195,8 @@ module AWS::SDK::Wisdom
     class NotifyRecommendationsReceived
       def self.default(visited=[])
         {
-          recommendation_ids: Stubs::RecommendationIdList.default(visited),
-          errors: Stubs::NotifyRecommendationsReceivedErrorList.default(visited),
+          recommendation_ids: RecommendationIdList.default(visited),
+          errors: NotifyRecommendationsReceivedErrorList.default(visited),
         }
       end
 
@@ -1216,7 +1216,7 @@ module AWS::SDK::Wisdom
         return nil if visited.include?('NotifyRecommendationsReceivedErrorList')
         visited = visited + ['NotifyRecommendationsReceivedErrorList']
         [
-          Stubs::NotifyRecommendationsReceivedError.default(visited)
+          NotifyRecommendationsReceivedError.default(visited)
         ]
       end
 
@@ -1254,7 +1254,7 @@ module AWS::SDK::Wisdom
     class QueryAssistant
       def self.default(visited=[])
         {
-          results: Stubs::QueryResultsList.default(visited),
+          results: QueryResultsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1275,7 +1275,7 @@ module AWS::SDK::Wisdom
         return nil if visited.include?('QueryResultsList')
         visited = visited + ['QueryResultsList']
         [
-          Stubs::ResultData.default(visited)
+          ResultData.default(visited)
         ]
       end
 
@@ -1296,7 +1296,7 @@ module AWS::SDK::Wisdom
         visited = visited + ['ResultData']
         {
           result_id: 'result_id',
-          document: Stubs::Document.default(visited),
+          document: Document.default(visited),
           relevance_score: 1.0,
         }
       end
@@ -1328,7 +1328,7 @@ module AWS::SDK::Wisdom
     class SearchContent
       def self.default(visited=[])
         {
-          content_summaries: Stubs::ContentSummaryList.default(visited),
+          content_summaries: ContentSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1347,7 +1347,7 @@ module AWS::SDK::Wisdom
     class SearchSessions
       def self.default(visited=[])
         {
-          session_summaries: Stubs::SessionSummaries.default(visited),
+          session_summaries: SessionSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1368,7 +1368,7 @@ module AWS::SDK::Wisdom
         return nil if visited.include?('SessionSummaries')
         visited = visited + ['SessionSummaries']
         [
-          Stubs::SessionSummary.default(visited)
+          SessionSummary.default(visited)
         ]
       end
 
@@ -1413,7 +1413,7 @@ module AWS::SDK::Wisdom
           upload_id: 'upload_id',
           url: 'url',
           url_expiry: Time.now,
-          headers_to_include: Stubs::Headers.default(visited),
+          headers_to_include: Headers.default(visited),
         }
       end
 
@@ -1479,7 +1479,7 @@ module AWS::SDK::Wisdom
     class UpdateContent
       def self.default(visited=[])
         {
-          content: Stubs::ContentData.default(visited),
+          content: ContentData.default(visited),
         }
       end
 
@@ -1496,7 +1496,7 @@ module AWS::SDK::Wisdom
     class UpdateKnowledgeBaseTemplateUri
       def self.default(visited=[])
         {
-          knowledge_base: Stubs::KnowledgeBaseData.default(visited),
+          knowledge_base: KnowledgeBaseData.default(visited),
         }
       end
 

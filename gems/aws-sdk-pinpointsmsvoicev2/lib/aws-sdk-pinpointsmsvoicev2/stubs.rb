@@ -40,7 +40,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         {
           configuration_set_arn: 'configuration_set_arn',
           configuration_set_name: 'configuration_set_name',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           created_timestamp: Time.now,
         }
       end
@@ -62,7 +62,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -102,7 +102,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         {
           configuration_set_arn: 'configuration_set_arn',
           configuration_set_name: 'configuration_set_name',
-          event_destination: Stubs::EventDestination.default(visited),
+          event_destination: EventDestination.default(visited),
         }
       end
 
@@ -124,10 +124,10 @@ module AWS::SDK::PinpointSMSVoiceV2
         {
           event_destination_name: 'event_destination_name',
           enabled: false,
-          matching_event_types: Stubs::EventTypeList.default(visited),
-          cloud_watch_logs_destination: Stubs::CloudWatchLogsDestination.default(visited),
-          kinesis_firehose_destination: Stubs::KinesisFirehoseDestination.default(visited),
-          sns_destination: Stubs::SnsDestination.default(visited),
+          matching_event_types: EventTypeList.default(visited),
+          cloud_watch_logs_destination: CloudWatchLogsDestination.default(visited),
+          kinesis_firehose_destination: KinesisFirehoseDestination.default(visited),
+          sns_destination: SnsDestination.default(visited),
         }
       end
 
@@ -228,7 +228,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         {
           opt_out_list_arn: 'opt_out_list_arn',
           opt_out_list_name: 'opt_out_list_name',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           created_timestamp: Time.now,
         }
       end
@@ -258,7 +258,7 @@ module AWS::SDK::PinpointSMSVoiceV2
           opt_out_list_name: 'opt_out_list_name',
           shared_routes_enabled: false,
           deletion_protection_enabled: false,
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           created_timestamp: Time.now,
         }
       end
@@ -288,7 +288,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         {
           configuration_set_arn: 'configuration_set_arn',
           configuration_set_name: 'configuration_set_name',
-          event_destinations: Stubs::EventDestinationList.default(visited),
+          event_destinations: EventDestinationList.default(visited),
           default_message_type: 'default_message_type',
           default_sender_id: 'default_sender_id',
           created_timestamp: Time.now,
@@ -314,7 +314,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         return nil if visited.include?('EventDestinationList')
         visited = visited + ['EventDestinationList']
         [
-          Stubs::EventDestination.default(visited)
+          EventDestination.default(visited)
         ]
       end
 
@@ -374,7 +374,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         {
           configuration_set_arn: 'configuration_set_arn',
           configuration_set_name: 'configuration_set_name',
-          event_destination: Stubs::EventDestination.default(visited),
+          event_destination: EventDestination.default(visited),
         }
       end
 
@@ -526,7 +526,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     class DescribeAccountAttributes
       def self.default(visited=[])
         {
-          account_attributes: Stubs::AccountAttributeList.default(visited),
+          account_attributes: AccountAttributeList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -546,7 +546,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         return nil if visited.include?('AccountAttributeList')
         visited = visited + ['AccountAttributeList']
         [
-          Stubs::AccountAttribute.default(visited)
+          AccountAttribute.default(visited)
         ]
       end
 
@@ -584,7 +584,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     class DescribeAccountLimits
       def self.default(visited=[])
         {
-          account_limits: Stubs::AccountLimitList.default(visited),
+          account_limits: AccountLimitList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -604,7 +604,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         return nil if visited.include?('AccountLimitList')
         visited = visited + ['AccountLimitList']
         [
-          Stubs::AccountLimit.default(visited)
+          AccountLimit.default(visited)
         ]
       end
 
@@ -644,7 +644,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     class DescribeConfigurationSets
       def self.default(visited=[])
         {
-          configuration_sets: Stubs::ConfigurationSetInformationList.default(visited),
+          configuration_sets: ConfigurationSetInformationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -664,7 +664,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         return nil if visited.include?('ConfigurationSetInformationList')
         visited = visited + ['ConfigurationSetInformationList']
         [
-          Stubs::ConfigurationSetInformation.default(visited)
+          ConfigurationSetInformation.default(visited)
         ]
       end
 
@@ -686,7 +686,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         {
           configuration_set_arn: 'configuration_set_arn',
           configuration_set_name: 'configuration_set_name',
-          event_destinations: Stubs::EventDestinationList.default(visited),
+          event_destinations: EventDestinationList.default(visited),
           default_message_type: 'default_message_type',
           default_sender_id: 'default_sender_id',
           created_timestamp: Time.now,
@@ -712,7 +712,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         {
           origination_identity_arn: 'origination_identity_arn',
           origination_identity: 'origination_identity',
-          keywords: Stubs::KeywordInformationList.default(visited),
+          keywords: KeywordInformationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -734,7 +734,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         return nil if visited.include?('KeywordInformationList')
         visited = visited + ['KeywordInformationList']
         [
-          Stubs::KeywordInformation.default(visited)
+          KeywordInformation.default(visited)
         ]
       end
 
@@ -774,7 +774,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     class DescribeOptOutLists
       def self.default(visited=[])
         {
-          opt_out_lists: Stubs::OptOutListInformationList.default(visited),
+          opt_out_lists: OptOutListInformationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -794,7 +794,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         return nil if visited.include?('OptOutListInformationList')
         visited = visited + ['OptOutListInformationList']
         [
-          Stubs::OptOutListInformation.default(visited)
+          OptOutListInformation.default(visited)
         ]
       end
 
@@ -836,7 +836,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         {
           opt_out_list_arn: 'opt_out_list_arn',
           opt_out_list_name: 'opt_out_list_name',
-          opted_out_numbers: Stubs::OptedOutNumberInformationList.default(visited),
+          opted_out_numbers: OptedOutNumberInformationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -858,7 +858,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         return nil if visited.include?('OptedOutNumberInformationList')
         visited = visited + ['OptedOutNumberInformationList']
         [
-          Stubs::OptedOutNumberInformation.default(visited)
+          OptedOutNumberInformation.default(visited)
         ]
       end
 
@@ -898,7 +898,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     class DescribePhoneNumbers
       def self.default(visited=[])
         {
-          phone_numbers: Stubs::PhoneNumberInformationList.default(visited),
+          phone_numbers: PhoneNumberInformationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -918,7 +918,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         return nil if visited.include?('PhoneNumberInformationList')
         visited = visited + ['PhoneNumberInformationList']
         [
-          Stubs::PhoneNumberInformation.default(visited)
+          PhoneNumberInformation.default(visited)
         ]
       end
 
@@ -944,7 +944,7 @@ module AWS::SDK::PinpointSMSVoiceV2
           status: 'status',
           iso_country_code: 'iso_country_code',
           message_type: 'message_type',
-          number_capabilities: Stubs::NumberCapabilityList.default(visited),
+          number_capabilities: NumberCapabilityList.default(visited),
           number_type: 'number_type',
           monthly_leasing_price: 'monthly_leasing_price',
           two_way_enabled: false,
@@ -1004,7 +1004,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     class DescribePools
       def self.default(visited=[])
         {
-          pools: Stubs::PoolInformationList.default(visited),
+          pools: PoolInformationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1024,7 +1024,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         return nil if visited.include?('PoolInformationList')
         visited = visited + ['PoolInformationList']
         [
-          Stubs::PoolInformation.default(visited)
+          PoolInformation.default(visited)
         ]
       end
 
@@ -1080,7 +1080,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     class DescribeSenderIds
       def self.default(visited=[])
         {
-          sender_ids: Stubs::SenderIdInformationList.default(visited),
+          sender_ids: SenderIdInformationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1100,7 +1100,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         return nil if visited.include?('SenderIdInformationList')
         visited = visited + ['SenderIdInformationList']
         [
-          Stubs::SenderIdInformation.default(visited)
+          SenderIdInformation.default(visited)
         ]
       end
 
@@ -1123,7 +1123,7 @@ module AWS::SDK::PinpointSMSVoiceV2
           sender_id_arn: 'sender_id_arn',
           sender_id: 'sender_id',
           iso_country_code: 'iso_country_code',
-          message_types: Stubs::MessageTypeList.default(visited),
+          message_types: MessageTypeList.default(visited),
           monthly_leasing_price: 'monthly_leasing_price',
         }
       end
@@ -1164,7 +1164,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     class DescribeSpendLimits
       def self.default(visited=[])
         {
-          spend_limits: Stubs::SpendLimitList.default(visited),
+          spend_limits: SpendLimitList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1184,7 +1184,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         return nil if visited.include?('SpendLimitList')
         visited = visited + ['SpendLimitList']
         [
-          Stubs::SpendLimit.default(visited)
+          SpendLimit.default(visited)
         ]
       end
 
@@ -1252,7 +1252,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         {
           pool_arn: 'pool_arn',
           pool_id: 'pool_id',
-          origination_identities: Stubs::OriginationIdentityMetadataList.default(visited),
+          origination_identities: OriginationIdentityMetadataList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1274,7 +1274,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         return nil if visited.include?('OriginationIdentityMetadataList')
         visited = visited + ['OriginationIdentityMetadataList']
         [
-          Stubs::OriginationIdentityMetadata.default(visited)
+          OriginationIdentityMetadata.default(visited)
         ]
       end
 
@@ -1297,7 +1297,7 @@ module AWS::SDK::PinpointSMSVoiceV2
           origination_identity_arn: 'origination_identity_arn',
           origination_identity: 'origination_identity',
           iso_country_code: 'iso_country_code',
-          number_capabilities: Stubs::NumberCapabilityList.default(visited),
+          number_capabilities: NumberCapabilityList.default(visited),
         }
       end
 
@@ -1317,7 +1317,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.default(visited=[])
         {
           resource_arn: 'resource_arn',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -1388,7 +1388,7 @@ module AWS::SDK::PinpointSMSVoiceV2
           status: 'status',
           iso_country_code: 'iso_country_code',
           message_type: 'message_type',
-          number_capabilities: Stubs::NumberCapabilityList.default(visited),
+          number_capabilities: NumberCapabilityList.default(visited),
           number_type: 'number_type',
           monthly_leasing_price: 'monthly_leasing_price',
           two_way_enabled: false,
@@ -1430,7 +1430,7 @@ module AWS::SDK::PinpointSMSVoiceV2
           status: 'status',
           iso_country_code: 'iso_country_code',
           message_type: 'message_type',
-          number_capabilities: Stubs::NumberCapabilityList.default(visited),
+          number_capabilities: NumberCapabilityList.default(visited),
           number_type: 'number_type',
           monthly_leasing_price: 'monthly_leasing_price',
           two_way_enabled: false,
@@ -1439,7 +1439,7 @@ module AWS::SDK::PinpointSMSVoiceV2
           opt_out_list_name: 'opt_out_list_name',
           deletion_protection_enabled: false,
           pool_id: 'pool_id',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           created_timestamp: Time.now,
         }
       end
@@ -1606,7 +1606,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         {
           configuration_set_arn: 'configuration_set_arn',
           configuration_set_name: 'configuration_set_name',
-          event_destination: Stubs::EventDestination.default(visited),
+          event_destination: EventDestination.default(visited),
         }
       end
 
@@ -1630,7 +1630,7 @@ module AWS::SDK::PinpointSMSVoiceV2
           status: 'status',
           iso_country_code: 'iso_country_code',
           message_type: 'message_type',
-          number_capabilities: Stubs::NumberCapabilityList.default(visited),
+          number_capabilities: NumberCapabilityList.default(visited),
           number_type: 'number_type',
           monthly_leasing_price: 'monthly_leasing_price',
           two_way_enabled: false,

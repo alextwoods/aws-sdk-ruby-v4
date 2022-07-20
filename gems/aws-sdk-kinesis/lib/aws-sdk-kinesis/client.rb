@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Kinesis
@@ -71,7 +73,7 @@ module AWS::SDK::Kinesis
     def add_tags_to_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddTagsToStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddTagsToStreamInput,
         validate_input: @config.validate_input
@@ -197,7 +199,7 @@ module AWS::SDK::Kinesis
     def create_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateStreamInput,
         validate_input: @config.validate_input
@@ -275,7 +277,7 @@ module AWS::SDK::Kinesis
     def decrease_stream_retention_period(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DecreaseStreamRetentionPeriodInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DecreaseStreamRetentionPeriodInput,
         validate_input: @config.validate_input
@@ -368,7 +370,7 @@ module AWS::SDK::Kinesis
     def delete_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteStreamInput,
         validate_input: @config.validate_input
@@ -457,7 +459,7 @@ module AWS::SDK::Kinesis
     def deregister_stream_consumer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterStreamConsumerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterStreamConsumerInput,
         validate_input: @config.validate_input
@@ -527,7 +529,7 @@ module AWS::SDK::Kinesis
     def describe_limits(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLimitsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLimitsInput,
         validate_input: @config.validate_input
@@ -655,7 +657,7 @@ module AWS::SDK::Kinesis
     def describe_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeStreamInput,
         validate_input: @config.validate_input
@@ -746,7 +748,7 @@ module AWS::SDK::Kinesis
     def describe_stream_consumer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeStreamConsumerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeStreamConsumerInput,
         validate_input: @config.validate_input
@@ -837,7 +839,7 @@ module AWS::SDK::Kinesis
     def describe_stream_summary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeStreamSummaryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeStreamSummaryInput,
         validate_input: @config.validate_input
@@ -962,7 +964,7 @@ module AWS::SDK::Kinesis
     def disable_enhanced_monitoring(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableEnhancedMonitoringInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableEnhancedMonitoringInput,
         validate_input: @config.validate_input
@@ -1087,7 +1089,7 @@ module AWS::SDK::Kinesis
     def enable_enhanced_monitoring(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableEnhancedMonitoringInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableEnhancedMonitoringInput,
         validate_input: @config.validate_input
@@ -1236,7 +1238,7 @@ module AWS::SDK::Kinesis
     def get_records(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRecordsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRecordsInput,
         validate_input: @config.validate_input
@@ -1392,7 +1394,7 @@ module AWS::SDK::Kinesis
     def get_shard_iterator(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetShardIteratorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetShardIteratorInput,
         validate_input: @config.validate_input
@@ -1473,7 +1475,7 @@ module AWS::SDK::Kinesis
     def increase_stream_retention_period(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::IncreaseStreamRetentionPeriodInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::IncreaseStreamRetentionPeriodInput,
         validate_input: @config.validate_input
@@ -1642,7 +1644,7 @@ module AWS::SDK::Kinesis
     def list_shards(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListShardsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListShardsInput,
         validate_input: @config.validate_input
@@ -1761,7 +1763,7 @@ module AWS::SDK::Kinesis
     def list_stream_consumers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListStreamConsumersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListStreamConsumersInput,
         validate_input: @config.validate_input
@@ -1852,7 +1854,7 @@ module AWS::SDK::Kinesis
     def list_streams(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListStreamsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListStreamsInput,
         validate_input: @config.validate_input
@@ -1939,7 +1941,7 @@ module AWS::SDK::Kinesis
     def list_tags_for_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForStreamInput,
         validate_input: @config.validate_input
@@ -2050,7 +2052,7 @@ module AWS::SDK::Kinesis
     def merge_shards(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::MergeShardsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::MergeShardsInput,
         validate_input: @config.validate_input
@@ -2186,7 +2188,7 @@ module AWS::SDK::Kinesis
     def put_record(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutRecordInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutRecordInput,
         validate_input: @config.validate_input
@@ -2327,7 +2329,7 @@ module AWS::SDK::Kinesis
     def put_records(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutRecordsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutRecordsInput,
         validate_input: @config.validate_input
@@ -2420,7 +2422,7 @@ module AWS::SDK::Kinesis
     def register_stream_consumer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterStreamConsumerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterStreamConsumerInput,
         validate_input: @config.validate_input
@@ -2499,7 +2501,7 @@ module AWS::SDK::Kinesis
     def remove_tags_from_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveTagsFromStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveTagsFromStreamInput,
         validate_input: @config.validate_input
@@ -2620,7 +2622,7 @@ module AWS::SDK::Kinesis
     def split_shard(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SplitShardInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SplitShardInput,
         validate_input: @config.validate_input
@@ -2741,7 +2743,7 @@ module AWS::SDK::Kinesis
     def start_stream_encryption(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartStreamEncryptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartStreamEncryptionInput,
         validate_input: @config.validate_input
@@ -2861,7 +2863,7 @@ module AWS::SDK::Kinesis
     def stop_stream_encryption(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopStreamEncryptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopStreamEncryptionInput,
         validate_input: @config.validate_input
@@ -3001,7 +3003,7 @@ module AWS::SDK::Kinesis
     def update_shard_count(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateShardCountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateShardCountInput,
         validate_input: @config.validate_input
@@ -3079,7 +3081,7 @@ module AWS::SDK::Kinesis
     def update_stream_mode(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateStreamModeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateStreamModeInput,
         validate_input: @config.validate_input

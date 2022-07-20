@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::CodeGuruProfiler
   module Validators
 
@@ -14,14 +16,14 @@ module AWS::SDK::CodeGuruProfiler
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddNotificationChannelsInput, context: context)
         Hearth::Validator.validate!(input[:profiling_group_name], ::String, context: "#{context}[:profiling_group_name]")
-        Validators::Channels.validate!(input[:channels], context: "#{context}[:channels]") unless input[:channels].nil?
+        Channels.validate!(input[:channels], context: "#{context}[:channels]") unless input[:channels].nil?
       end
     end
 
     class AddNotificationChannelsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddNotificationChannelsOutput, context: context)
-        Validators::NotificationConfiguration.validate!(input[:notification_configuration], context: "#{context}[:notification_configuration]") unless input[:notification_configuration].nil?
+        NotificationConfiguration.validate!(input[:notification_configuration], context: "#{context}[:notification_configuration]") unless input[:notification_configuration].nil?
       end
     end
 
@@ -30,7 +32,7 @@ module AWS::SDK::CodeGuruProfiler
         Hearth::Validator.validate!(input, Types::AgentConfiguration, context: context)
         Hearth::Validator.validate!(input[:should_profile], ::TrueClass, ::FalseClass, context: "#{context}[:should_profile]")
         Hearth::Validator.validate!(input[:period_in_seconds], ::Integer, context: "#{context}[:period_in_seconds]")
-        Validators::AgentParameters.validate!(input[:agent_parameters], context: "#{context}[:agent_parameters]") unless input[:agent_parameters].nil?
+        AgentParameters.validate!(input[:agent_parameters], context: "#{context}[:agent_parameters]") unless input[:agent_parameters].nil?
       end
     end
 
@@ -63,7 +65,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Anomaly.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Anomaly.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -71,9 +73,9 @@ module AWS::SDK::CodeGuruProfiler
     class Anomaly
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Anomaly, context: context)
-        Validators::Metric.validate!(input[:metric], context: "#{context}[:metric]") unless input[:metric].nil?
+        Metric.validate!(input[:metric], context: "#{context}[:metric]") unless input[:metric].nil?
         Hearth::Validator.validate!(input[:reason], ::String, context: "#{context}[:reason]")
-        Validators::AnomalyInstances.validate!(input[:instances], context: "#{context}[:instances]") unless input[:instances].nil?
+        AnomalyInstances.validate!(input[:instances], context: "#{context}[:instances]") unless input[:instances].nil?
       end
     end
 
@@ -83,7 +85,7 @@ module AWS::SDK::CodeGuruProfiler
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
-        Validators::UserFeedback.validate!(input[:user_feedback], context: "#{context}[:user_feedback]") unless input[:user_feedback].nil?
+        UserFeedback.validate!(input[:user_feedback], context: "#{context}[:user_feedback]") unless input[:user_feedback].nil?
       end
     end
 
@@ -91,7 +93,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AnomalyInstance.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AnomalyInstance.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -104,7 +106,7 @@ module AWS::SDK::CodeGuruProfiler
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
         Hearth::Validator.validate!(input[:period], ::String, context: "#{context}[:period]")
         Hearth::Validator.validate!(input[:target_resolution], ::String, context: "#{context}[:target_resolution]")
-        Validators::FrameMetrics.validate!(input[:frame_metrics], context: "#{context}[:frame_metrics]") unless input[:frame_metrics].nil?
+        FrameMetrics.validate!(input[:frame_metrics], context: "#{context}[:frame_metrics]") unless input[:frame_metrics].nil?
       end
     end
 
@@ -114,9 +116,9 @@ module AWS::SDK::CodeGuruProfiler
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
         Hearth::Validator.validate!(input[:resolution], ::String, context: "#{context}[:resolution]")
-        Validators::ListOfTimestamps.validate!(input[:end_times], context: "#{context}[:end_times]") unless input[:end_times].nil?
-        Validators::UnprocessedEndTimeMap.validate!(input[:unprocessed_end_times], context: "#{context}[:unprocessed_end_times]") unless input[:unprocessed_end_times].nil?
-        Validators::FrameMetricData.validate!(input[:frame_metric_data], context: "#{context}[:frame_metric_data]") unless input[:frame_metric_data].nil?
+        ListOfTimestamps.validate!(input[:end_times], context: "#{context}[:end_times]") unless input[:end_times].nil?
+        UnprocessedEndTimeMap.validate!(input[:unprocessed_end_times], context: "#{context}[:unprocessed_end_times]") unless input[:unprocessed_end_times].nil?
+        FrameMetricData.validate!(input[:frame_metric_data], context: "#{context}[:frame_metric_data]") unless input[:frame_metric_data].nil?
       end
     end
 
@@ -125,15 +127,15 @@ module AWS::SDK::CodeGuruProfiler
         Hearth::Validator.validate!(input, Types::Channel, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:uri], ::String, context: "#{context}[:uri]")
-        Validators::EventPublishers.validate!(input[:event_publishers], context: "#{context}[:event_publishers]") unless input[:event_publishers].nil?
+        EventPublishers.validate!(input[:event_publishers], context: "#{context}[:event_publishers]") unless input[:event_publishers].nil?
       end
     end
 
     class Channels
       def self.validate!(input, context:)
-        Hearth::Validator.validate!(input, ::Set, context: context)
+        Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Channel.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Channel.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -143,14 +145,14 @@ module AWS::SDK::CodeGuruProfiler
         Hearth::Validator.validate!(input, Types::ConfigureAgentInput, context: context)
         Hearth::Validator.validate!(input[:profiling_group_name], ::String, context: "#{context}[:profiling_group_name]")
         Hearth::Validator.validate!(input[:fleet_instance_id], ::String, context: "#{context}[:fleet_instance_id]")
-        Validators::Metadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
+        Metadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
       end
     end
 
     class ConfigureAgentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ConfigureAgentOutput, context: context)
-        Validators::AgentConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        AgentConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
       end
     end
 
@@ -167,15 +169,15 @@ module AWS::SDK::CodeGuruProfiler
         Hearth::Validator.validate!(input[:profiling_group_name], ::String, context: "#{context}[:profiling_group_name]")
         Hearth::Validator.validate!(input[:compute_platform], ::String, context: "#{context}[:compute_platform]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
-        Validators::AgentOrchestrationConfig.validate!(input[:agent_orchestration_config], context: "#{context}[:agent_orchestration_config]") unless input[:agent_orchestration_config].nil?
-        Validators::TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        AgentOrchestrationConfig.validate!(input[:agent_orchestration_config], context: "#{context}[:agent_orchestration_config]") unless input[:agent_orchestration_config].nil?
+        TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateProfilingGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateProfilingGroupOutput, context: context)
-        Validators::ProfilingGroupDescription.validate!(input[:profiling_group], context: "#{context}[:profiling_group]") unless input[:profiling_group].nil?
+        ProfilingGroupDescription.validate!(input[:profiling_group], context: "#{context}[:profiling_group]") unless input[:profiling_group].nil?
       end
     end
 
@@ -202,13 +204,13 @@ module AWS::SDK::CodeGuruProfiler
     class DescribeProfilingGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeProfilingGroupOutput, context: context)
-        Validators::ProfilingGroupDescription.validate!(input[:profiling_group], context: "#{context}[:profiling_group]") unless input[:profiling_group].nil?
+        ProfilingGroupDescription.validate!(input[:profiling_group], context: "#{context}[:profiling_group]") unless input[:profiling_group].nil?
       end
     end
 
     class EventPublishers
       def self.validate!(input, context:)
-        Hearth::Validator.validate!(input, ::Set, context: context)
+        Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
           Hearth::Validator.validate!(element, ::String, context: "#{context}[#{index}]")
         end
@@ -219,7 +221,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FindingsReportSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FindingsReportSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -240,7 +242,7 @@ module AWS::SDK::CodeGuruProfiler
         Hearth::Validator.validate!(input, Types::FrameMetric, context: context)
         Hearth::Validator.validate!(input[:frame_name], ::String, context: "#{context}[:frame_name]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::ThreadStates.validate!(input[:thread_states], context: "#{context}[:thread_states]") unless input[:thread_states].nil?
+        ThreadStates.validate!(input[:thread_states], context: "#{context}[:thread_states]") unless input[:thread_states].nil?
       end
     end
 
@@ -248,7 +250,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FrameMetricDatum.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FrameMetricDatum.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -256,8 +258,8 @@ module AWS::SDK::CodeGuruProfiler
     class FrameMetricDatum
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FrameMetricDatum, context: context)
-        Validators::FrameMetric.validate!(input[:frame_metric], context: "#{context}[:frame_metric]") unless input[:frame_metric].nil?
-        Validators::FrameMetricValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        FrameMetric.validate!(input[:frame_metric], context: "#{context}[:frame_metric]") unless input[:frame_metric].nil?
+        FrameMetricValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -274,7 +276,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FrameMetric.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FrameMetric.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -291,7 +293,7 @@ module AWS::SDK::CodeGuruProfiler
     class GetFindingsReportAccountSummaryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetFindingsReportAccountSummaryOutput, context: context)
-        Validators::FindingsReportSummaries.validate!(input[:report_summaries], context: "#{context}[:report_summaries]") unless input[:report_summaries].nil?
+        FindingsReportSummaries.validate!(input[:report_summaries], context: "#{context}[:report_summaries]") unless input[:report_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -306,7 +308,7 @@ module AWS::SDK::CodeGuruProfiler
     class GetNotificationConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetNotificationConfigurationOutput, context: context)
-        Validators::NotificationConfiguration.validate!(input[:notification_configuration], context: "#{context}[:notification_configuration]") unless input[:notification_configuration].nil?
+        NotificationConfiguration.validate!(input[:notification_configuration], context: "#{context}[:notification_configuration]") unless input[:notification_configuration].nil?
       end
     end
 
@@ -362,8 +364,8 @@ module AWS::SDK::CodeGuruProfiler
         Hearth::Validator.validate!(input[:profiling_group_name], ::String, context: "#{context}[:profiling_group_name]")
         Hearth::Validator.validate!(input[:profile_start_time], ::Time, context: "#{context}[:profile_start_time]")
         Hearth::Validator.validate!(input[:profile_end_time], ::Time, context: "#{context}[:profile_end_time]")
-        Validators::Recommendations.validate!(input[:recommendations], context: "#{context}[:recommendations]") unless input[:recommendations].nil?
-        Validators::Anomalies.validate!(input[:anomalies], context: "#{context}[:anomalies]") unless input[:anomalies].nil?
+        Recommendations.validate!(input[:recommendations], context: "#{context}[:recommendations]") unless input[:recommendations].nil?
+        Anomalies.validate!(input[:anomalies], context: "#{context}[:anomalies]") unless input[:anomalies].nil?
       end
     end
 
@@ -389,7 +391,7 @@ module AWS::SDK::CodeGuruProfiler
     class ListFindingsReportsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFindingsReportsOutput, context: context)
-        Validators::FindingsReportSummaries.validate!(input[:findings_report_summaries], context: "#{context}[:findings_report_summaries]") unless input[:findings_report_summaries].nil?
+        FindingsReportSummaries.validate!(input[:findings_report_summaries], context: "#{context}[:findings_report_summaries]") unless input[:findings_report_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -398,7 +400,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TimestampStructure.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TimestampStructure.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -419,7 +421,7 @@ module AWS::SDK::CodeGuruProfiler
     class ListProfileTimesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListProfileTimesOutput, context: context)
-        Validators::ProfileTimes.validate!(input[:profile_times], context: "#{context}[:profile_times]") unless input[:profile_times].nil?
+        ProfileTimes.validate!(input[:profile_times], context: "#{context}[:profile_times]") unless input[:profile_times].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -436,8 +438,8 @@ module AWS::SDK::CodeGuruProfiler
     class ListProfilingGroupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListProfilingGroupsOutput, context: context)
-        Validators::ProfilingGroupNames.validate!(input[:profiling_group_names], context: "#{context}[:profiling_group_names]") unless input[:profiling_group_names].nil?
-        Validators::ProfilingGroupDescriptions.validate!(input[:profiling_groups], context: "#{context}[:profiling_groups]") unless input[:profiling_groups].nil?
+        ProfilingGroupNames.validate!(input[:profiling_group_names], context: "#{context}[:profiling_group_names]") unless input[:profiling_group_names].nil?
+        ProfilingGroupDescriptions.validate!(input[:profiling_groups], context: "#{context}[:profiling_groups]") unless input[:profiling_groups].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -452,7 +454,7 @@ module AWS::SDK::CodeGuruProfiler
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -469,7 +471,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Match.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Match.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -489,14 +491,14 @@ module AWS::SDK::CodeGuruProfiler
         Hearth::Validator.validate!(input, Types::Metric, context: context)
         Hearth::Validator.validate!(input[:frame_name], ::String, context: "#{context}[:frame_name]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::Strings.validate!(input[:thread_states], context: "#{context}[:thread_states]") unless input[:thread_states].nil?
+        Strings.validate!(input[:thread_states], context: "#{context}[:thread_states]") unless input[:thread_states].nil?
       end
     end
 
     class NotificationConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NotificationConfiguration, context: context)
-        Validators::Channels.validate!(input[:channels], context: "#{context}[:channels]") unless input[:channels].nil?
+        Channels.validate!(input[:channels], context: "#{context}[:channels]") unless input[:channels].nil?
       end
     end
 
@@ -507,9 +509,9 @@ module AWS::SDK::CodeGuruProfiler
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:resolution_steps], ::String, context: "#{context}[:resolution_steps]")
-        Validators::TargetFrames.validate!(input[:target_frames], context: "#{context}[:target_frames]") unless input[:target_frames].nil?
+        TargetFrames.validate!(input[:target_frames], context: "#{context}[:target_frames]") unless input[:target_frames].nil?
         Hearth::Validator.validate!(input[:threshold_percent], ::Float, context: "#{context}[:threshold_percent]")
-        Validators::Strings.validate!(input[:counters_to_aggregate], context: "#{context}[:counters_to_aggregate]") unless input[:counters_to_aggregate].nil?
+        Strings.validate!(input[:counters_to_aggregate], context: "#{context}[:counters_to_aggregate]") unless input[:counters_to_aggregate].nil?
       end
     end
 
@@ -549,7 +551,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProfileTime.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProfileTime.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -558,13 +560,13 @@ module AWS::SDK::CodeGuruProfiler
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ProfilingGroupDescription, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::AgentOrchestrationConfig.validate!(input[:agent_orchestration_config], context: "#{context}[:agent_orchestration_config]") unless input[:agent_orchestration_config].nil?
+        AgentOrchestrationConfig.validate!(input[:agent_orchestration_config], context: "#{context}[:agent_orchestration_config]") unless input[:agent_orchestration_config].nil?
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
-        Validators::ProfilingStatus.validate!(input[:profiling_status], context: "#{context}[:profiling_status]") unless input[:profiling_status].nil?
+        ProfilingStatus.validate!(input[:profiling_status], context: "#{context}[:profiling_status]") unless input[:profiling_status].nil?
         Hearth::Validator.validate!(input[:compute_platform], ::String, context: "#{context}[:compute_platform]")
-        Validators::TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -572,7 +574,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProfilingGroupDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProfilingGroupDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -590,7 +592,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ProfilingStatus, context: context)
         Hearth::Validator.validate!(input[:latest_agent_profile_reported_at], ::Time, context: "#{context}[:latest_agent_profile_reported_at]")
-        Validators::AggregatedProfileTime.validate!(input[:latest_aggregated_profile], context: "#{context}[:latest_aggregated_profile]") unless input[:latest_aggregated_profile].nil?
+        AggregatedProfileTime.validate!(input[:latest_aggregated_profile], context: "#{context}[:latest_aggregated_profile]") unless input[:latest_aggregated_profile].nil?
         Hearth::Validator.validate!(input[:latest_agent_orchestrated_at], ::Time, context: "#{context}[:latest_agent_orchestrated_at]")
       end
     end
@@ -600,7 +602,7 @@ module AWS::SDK::CodeGuruProfiler
         Hearth::Validator.validate!(input, Types::PutPermissionInput, context: context)
         Hearth::Validator.validate!(input[:profiling_group_name], ::String, context: "#{context}[:profiling_group_name]")
         Hearth::Validator.validate!(input[:action_group], ::String, context: "#{context}[:action_group]")
-        Validators::Principals.validate!(input[:principals], context: "#{context}[:principals]") unless input[:principals].nil?
+        Principals.validate!(input[:principals], context: "#{context}[:principals]") unless input[:principals].nil?
         Hearth::Validator.validate!(input[:revision_id], ::String, context: "#{context}[:revision_id]")
       end
     end
@@ -618,8 +620,8 @@ module AWS::SDK::CodeGuruProfiler
         Hearth::Validator.validate!(input, Types::Recommendation, context: context)
         Hearth::Validator.validate!(input[:all_matches_count], ::Integer, context: "#{context}[:all_matches_count]")
         Hearth::Validator.validate!(input[:all_matches_sum], ::Float, context: "#{context}[:all_matches_sum]")
-        Validators::Pattern.validate!(input[:pattern], context: "#{context}[:pattern]") unless input[:pattern].nil?
-        Validators::Matches.validate!(input[:top_matches], context: "#{context}[:top_matches]") unless input[:top_matches].nil?
+        Pattern.validate!(input[:pattern], context: "#{context}[:pattern]") unless input[:pattern].nil?
+        Matches.validate!(input[:top_matches], context: "#{context}[:top_matches]") unless input[:top_matches].nil?
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
       end
@@ -629,7 +631,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Recommendation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Recommendation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -645,7 +647,7 @@ module AWS::SDK::CodeGuruProfiler
     class RemoveNotificationChannelOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RemoveNotificationChannelOutput, context: context)
-        Validators::NotificationConfiguration.validate!(input[:notification_configuration], context: "#{context}[:notification_configuration]") unless input[:notification_configuration].nil?
+        NotificationConfiguration.validate!(input[:notification_configuration], context: "#{context}[:notification_configuration]") unless input[:notification_configuration].nil?
       end
     end
 
@@ -718,7 +720,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -751,7 +753,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TargetFrame.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TargetFrame.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -784,7 +786,7 @@ module AWS::SDK::CodeGuruProfiler
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::ListOfTimestamps.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          ListOfTimestamps.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -793,7 +795,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -807,14 +809,14 @@ module AWS::SDK::CodeGuruProfiler
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateProfilingGroupInput, context: context)
         Hearth::Validator.validate!(input[:profiling_group_name], ::String, context: "#{context}[:profiling_group_name]")
-        Validators::AgentOrchestrationConfig.validate!(input[:agent_orchestration_config], context: "#{context}[:agent_orchestration_config]") unless input[:agent_orchestration_config].nil?
+        AgentOrchestrationConfig.validate!(input[:agent_orchestration_config], context: "#{context}[:agent_orchestration_config]") unless input[:agent_orchestration_config].nil?
       end
     end
 
     class UpdateProfilingGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateProfilingGroupOutput, context: context)
-        Validators::ProfilingGroupDescription.validate!(input[:profiling_group], context: "#{context}[:profiling_group]") unless input[:profiling_group].nil?
+        ProfilingGroupDescription.validate!(input[:profiling_group], context: "#{context}[:profiling_group]") unless input[:profiling_group].nil?
       end
     end
 

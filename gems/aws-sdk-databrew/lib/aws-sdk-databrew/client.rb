@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::DataBrew
@@ -114,7 +116,7 @@ module AWS::SDK::DataBrew
     def batch_delete_recipe_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchDeleteRecipeVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchDeleteRecipeVersionInput,
         validate_input: @config.validate_input
@@ -268,7 +270,7 @@ module AWS::SDK::DataBrew
     def create_dataset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDatasetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDatasetInput,
         validate_input: @config.validate_input
@@ -458,7 +460,7 @@ module AWS::SDK::DataBrew
     def create_profile_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateProfileJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateProfileJobInput,
         validate_input: @config.validate_input
@@ -555,7 +557,7 @@ module AWS::SDK::DataBrew
     def create_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateProjectInput,
         validate_input: @config.validate_input
@@ -656,7 +658,7 @@ module AWS::SDK::DataBrew
     def create_recipe(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRecipeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRecipeInput,
         validate_input: @config.validate_input
@@ -841,7 +843,7 @@ module AWS::SDK::DataBrew
     def create_recipe_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRecipeJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRecipeJobInput,
         validate_input: @config.validate_input
@@ -952,7 +954,7 @@ module AWS::SDK::DataBrew
     def create_ruleset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRulesetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRulesetInput,
         validate_input: @config.validate_input
@@ -1042,7 +1044,7 @@ module AWS::SDK::DataBrew
     def create_schedule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateScheduleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateScheduleInput,
         validate_input: @config.validate_input
@@ -1111,7 +1113,7 @@ module AWS::SDK::DataBrew
     def delete_dataset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDatasetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDatasetInput,
         validate_input: @config.validate_input
@@ -1179,7 +1181,7 @@ module AWS::SDK::DataBrew
     def delete_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteJobInput,
         validate_input: @config.validate_input
@@ -1247,7 +1249,7 @@ module AWS::SDK::DataBrew
     def delete_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteProjectInput,
         validate_input: @config.validate_input
@@ -1322,7 +1324,7 @@ module AWS::SDK::DataBrew
     def delete_recipe_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRecipeVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRecipeVersionInput,
         validate_input: @config.validate_input
@@ -1390,7 +1392,7 @@ module AWS::SDK::DataBrew
     def delete_ruleset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRulesetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRulesetInput,
         validate_input: @config.validate_input
@@ -1458,7 +1460,7 @@ module AWS::SDK::DataBrew
     def delete_schedule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteScheduleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteScheduleInput,
         validate_input: @config.validate_input
@@ -1583,7 +1585,7 @@ module AWS::SDK::DataBrew
     def describe_dataset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDatasetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDatasetInput,
         validate_input: @config.validate_input
@@ -1732,7 +1734,7 @@ module AWS::SDK::DataBrew
     def describe_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeJobInput,
         validate_input: @config.validate_input
@@ -1879,7 +1881,7 @@ module AWS::SDK::DataBrew
     def describe_job_run(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeJobRunInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeJobRunInput,
         validate_input: @config.validate_input
@@ -1963,7 +1965,7 @@ module AWS::SDK::DataBrew
     def describe_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeProjectInput,
         validate_input: @config.validate_input
@@ -2060,7 +2062,7 @@ module AWS::SDK::DataBrew
     def describe_recipe(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRecipeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRecipeInput,
         validate_input: @config.validate_input
@@ -2152,7 +2154,7 @@ module AWS::SDK::DataBrew
     def describe_ruleset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRulesetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRulesetInput,
         validate_input: @config.validate_input
@@ -2230,7 +2232,7 @@ module AWS::SDK::DataBrew
     def describe_schedule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeScheduleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeScheduleInput,
         validate_input: @config.validate_input
@@ -2363,7 +2365,7 @@ module AWS::SDK::DataBrew
     def list_datasets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDatasetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDatasetsInput,
         validate_input: @config.validate_input
@@ -2494,7 +2496,7 @@ module AWS::SDK::DataBrew
     def list_job_runs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListJobRunsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListJobRunsInput,
         validate_input: @config.validate_input
@@ -2640,7 +2642,7 @@ module AWS::SDK::DataBrew
     def list_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListJobsInput,
         validate_input: @config.validate_input
@@ -2731,7 +2733,7 @@ module AWS::SDK::DataBrew
     def list_projects(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListProjectsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListProjectsInput,
         validate_input: @config.validate_input
@@ -2834,7 +2836,7 @@ module AWS::SDK::DataBrew
     def list_recipe_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRecipeVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRecipeVersionsInput,
         validate_input: @config.validate_input
@@ -2941,7 +2943,7 @@ module AWS::SDK::DataBrew
     def list_recipes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRecipesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRecipesInput,
         validate_input: @config.validate_input
@@ -3035,7 +3037,7 @@ module AWS::SDK::DataBrew
     def list_rulesets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRulesetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRulesetsInput,
         validate_input: @config.validate_input
@@ -3125,7 +3127,7 @@ module AWS::SDK::DataBrew
     def list_schedules(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSchedulesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSchedulesInput,
         validate_input: @config.validate_input
@@ -3195,7 +3197,7 @@ module AWS::SDK::DataBrew
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -3267,7 +3269,7 @@ module AWS::SDK::DataBrew
     def publish_recipe(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PublishRecipeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PublishRecipeInput,
         validate_input: @config.validate_input
@@ -3385,7 +3387,7 @@ module AWS::SDK::DataBrew
     def send_project_session_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendProjectSessionActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendProjectSessionActionInput,
         validate_input: @config.validate_input
@@ -3454,7 +3456,7 @@ module AWS::SDK::DataBrew
     def start_job_run(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartJobRunInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartJobRunInput,
         validate_input: @config.validate_input
@@ -3529,7 +3531,7 @@ module AWS::SDK::DataBrew
     def start_project_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartProjectSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartProjectSessionInput,
         validate_input: @config.validate_input
@@ -3602,7 +3604,7 @@ module AWS::SDK::DataBrew
     def stop_job_run(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopJobRunInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopJobRunInput,
         validate_input: @config.validate_input
@@ -3678,7 +3680,7 @@ module AWS::SDK::DataBrew
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -3753,7 +3755,7 @@ module AWS::SDK::DataBrew
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -3899,7 +3901,7 @@ module AWS::SDK::DataBrew
     def update_dataset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDatasetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDatasetInput,
         validate_input: @config.validate_input
@@ -4079,7 +4081,7 @@ module AWS::SDK::DataBrew
     def update_profile_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateProfileJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateProfileJobInput,
         validate_input: @config.validate_input
@@ -4161,7 +4163,7 @@ module AWS::SDK::DataBrew
     def update_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateProjectInput,
         validate_input: @config.validate_input
@@ -4256,7 +4258,7 @@ module AWS::SDK::DataBrew
     def update_recipe(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRecipeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRecipeInput,
         validate_input: @config.validate_input
@@ -4418,7 +4420,7 @@ module AWS::SDK::DataBrew
     def update_recipe_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRecipeJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRecipeJobInput,
         validate_input: @config.validate_input
@@ -4516,7 +4518,7 @@ module AWS::SDK::DataBrew
     def update_ruleset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRulesetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRulesetInput,
         validate_input: @config.validate_input
@@ -4598,7 +4600,7 @@ module AWS::SDK::DataBrew
     def update_schedule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateScheduleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateScheduleInput,
         validate_input: @config.validate_input

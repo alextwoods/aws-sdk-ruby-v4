@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::EKS
@@ -101,7 +103,7 @@ module AWS::SDK::EKS
     def associate_encryption_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateEncryptionConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateEncryptionConfigInput,
         validate_input: @config.validate_input
@@ -221,7 +223,7 @@ module AWS::SDK::EKS
     def associate_identity_provider_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateIdentityProviderConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateIdentityProviderConfigInput,
         validate_input: @config.validate_input
@@ -353,7 +355,7 @@ module AWS::SDK::EKS
     def create_addon(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAddonInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAddonInput,
         validate_input: @config.validate_input
@@ -567,7 +569,7 @@ module AWS::SDK::EKS
     def create_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateClusterInput,
         validate_input: @config.validate_input
@@ -726,7 +728,7 @@ module AWS::SDK::EKS
     def create_fargate_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFargateProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFargateProfileInput,
         validate_input: @config.validate_input
@@ -997,7 +999,7 @@ module AWS::SDK::EKS
     def create_nodegroup(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateNodegroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateNodegroupInput,
         validate_input: @config.validate_input
@@ -1096,7 +1098,7 @@ module AWS::SDK::EKS
     def delete_addon(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAddonInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAddonInput,
         validate_input: @config.validate_input
@@ -1217,7 +1219,7 @@ module AWS::SDK::EKS
     def delete_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteClusterInput,
         validate_input: @config.validate_input
@@ -1313,7 +1315,7 @@ module AWS::SDK::EKS
     def delete_fargate_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFargateProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFargateProfileInput,
         validate_input: @config.validate_input
@@ -1435,7 +1437,7 @@ module AWS::SDK::EKS
     def delete_nodegroup(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteNodegroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteNodegroupInput,
         validate_input: @config.validate_input
@@ -1550,7 +1552,7 @@ module AWS::SDK::EKS
     def deregister_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterClusterInput,
         validate_input: @config.validate_input
@@ -1641,7 +1643,7 @@ module AWS::SDK::EKS
     def describe_addon(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAddonInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAddonInput,
         validate_input: @config.validate_input
@@ -1744,7 +1746,7 @@ module AWS::SDK::EKS
     def describe_addon_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAddonVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAddonVersionsInput,
         validate_input: @config.validate_input
@@ -1866,7 +1868,7 @@ module AWS::SDK::EKS
     def describe_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeClusterInput,
         validate_input: @config.validate_input
@@ -1954,7 +1956,7 @@ module AWS::SDK::EKS
     def describe_fargate_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFargateProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFargateProfileInput,
         validate_input: @config.validate_input
@@ -2044,7 +2046,7 @@ module AWS::SDK::EKS
     def describe_identity_provider_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeIdentityProviderConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeIdentityProviderConfigInput,
         validate_input: @config.validate_input
@@ -2166,7 +2168,7 @@ module AWS::SDK::EKS
     def describe_nodegroup(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeNodegroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeNodegroupInput,
         validate_input: @config.validate_input
@@ -2267,7 +2269,7 @@ module AWS::SDK::EKS
     def describe_update(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeUpdateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeUpdateInput,
         validate_input: @config.validate_input
@@ -2364,7 +2366,7 @@ module AWS::SDK::EKS
     def disassociate_identity_provider_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateIdentityProviderConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateIdentityProviderConfigInput,
         validate_input: @config.validate_input
@@ -2458,7 +2460,7 @@ module AWS::SDK::EKS
     def list_addons(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAddonsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAddonsInput,
         validate_input: @config.validate_input
@@ -2553,7 +2555,7 @@ module AWS::SDK::EKS
     def list_clusters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListClustersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListClustersInput,
         validate_input: @config.validate_input
@@ -2643,7 +2645,7 @@ module AWS::SDK::EKS
     def list_fargate_profiles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFargateProfilesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFargateProfilesInput,
         validate_input: @config.validate_input
@@ -2735,7 +2737,7 @@ module AWS::SDK::EKS
     def list_identity_provider_configs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListIdentityProviderConfigsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListIdentityProviderConfigsInput,
         validate_input: @config.validate_input
@@ -2826,7 +2828,7 @@ module AWS::SDK::EKS
     def list_nodegroups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListNodegroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListNodegroupsInput,
         validate_input: @config.validate_input
@@ -2896,7 +2898,7 @@ module AWS::SDK::EKS
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2993,7 +2995,7 @@ module AWS::SDK::EKS
     def list_updates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListUpdatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListUpdatesInput,
         validate_input: @config.validate_input
@@ -3141,7 +3143,7 @@ module AWS::SDK::EKS
     def register_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterClusterInput,
         validate_input: @config.validate_input
@@ -3221,7 +3223,7 @@ module AWS::SDK::EKS
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -3296,7 +3298,7 @@ module AWS::SDK::EKS
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -3411,7 +3413,7 @@ module AWS::SDK::EKS
     def update_addon(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAddonInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAddonInput,
         validate_input: @config.validate_input
@@ -3560,7 +3562,7 @@ module AWS::SDK::EKS
     def update_cluster_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateClusterConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateClusterConfigInput,
         validate_input: @config.validate_input
@@ -3661,7 +3663,7 @@ module AWS::SDK::EKS
     def update_cluster_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateClusterVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateClusterVersionInput,
         validate_input: @config.validate_input
@@ -3797,7 +3799,7 @@ module AWS::SDK::EKS
     def update_nodegroup_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateNodegroupConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateNodegroupConfigInput,
         validate_input: @config.validate_input
@@ -3942,7 +3944,7 @@ module AWS::SDK::EKS
     def update_nodegroup_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateNodegroupVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateNodegroupVersionInput,
         validate_input: @config.validate_input

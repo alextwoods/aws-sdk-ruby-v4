@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::ApiGatewayManagementApi
   module Validators
 
@@ -40,7 +42,7 @@ module AWS::SDK::ApiGatewayManagementApi
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetConnectionOutput, context: context)
         Hearth::Validator.validate!(input[:connected_at], ::Time, context: "#{context}[:connected_at]")
-        Validators::Identity.validate!(input[:identity], context: "#{context}[:identity]") unless input[:identity].nil?
+        Identity.validate!(input[:identity], context: "#{context}[:identity]") unless input[:identity].nil?
         Hearth::Validator.validate!(input[:last_active_at], ::Time, context: "#{context}[:last_active_at]")
       end
     end

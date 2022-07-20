@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::IoTThingsGraph
   module Validators
 
@@ -28,7 +30,7 @@ module AWS::SDK::IoTThingsGraph
     class CreateFlowTemplateInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateFlowTemplateInput, context: context)
-        Validators::DefinitionDocument.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
+        DefinitionDocument.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
         Hearth::Validator.validate!(input[:compatible_namespace_version], ::Integer, context: "#{context}[:compatible_namespace_version]")
       end
     end
@@ -36,19 +38,19 @@ module AWS::SDK::IoTThingsGraph
     class CreateFlowTemplateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateFlowTemplateOutput, context: context)
-        Validators::FlowTemplateSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
+        FlowTemplateSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
       end
     end
 
     class CreateSystemInstanceInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateSystemInstanceInput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::DefinitionDocument.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        DefinitionDocument.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
         Hearth::Validator.validate!(input[:target], ::String, context: "#{context}[:target]")
         Hearth::Validator.validate!(input[:greengrass_group_name], ::String, context: "#{context}[:greengrass_group_name]")
         Hearth::Validator.validate!(input[:s3_bucket_name], ::String, context: "#{context}[:s3_bucket_name]")
-        Validators::MetricsConfiguration.validate!(input[:metrics_configuration], context: "#{context}[:metrics_configuration]") unless input[:metrics_configuration].nil?
+        MetricsConfiguration.validate!(input[:metrics_configuration], context: "#{context}[:metrics_configuration]") unless input[:metrics_configuration].nil?
         Hearth::Validator.validate!(input[:flow_actions_role_arn], ::String, context: "#{context}[:flow_actions_role_arn]")
       end
     end
@@ -56,14 +58,14 @@ module AWS::SDK::IoTThingsGraph
     class CreateSystemInstanceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateSystemInstanceOutput, context: context)
-        Validators::SystemInstanceSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
+        SystemInstanceSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
       end
     end
 
     class CreateSystemTemplateInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateSystemTemplateInput, context: context)
-        Validators::DefinitionDocument.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
+        DefinitionDocument.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
         Hearth::Validator.validate!(input[:compatible_namespace_version], ::Integer, context: "#{context}[:compatible_namespace_version]")
       end
     end
@@ -71,7 +73,7 @@ module AWS::SDK::IoTThingsGraph
     class CreateSystemTemplateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateSystemTemplateOutput, context: context)
-        Validators::SystemTemplateSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
+        SystemTemplateSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
       end
     end
 
@@ -148,7 +150,7 @@ module AWS::SDK::IoTThingsGraph
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DependencyRevision.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DependencyRevision.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -163,7 +165,7 @@ module AWS::SDK::IoTThingsGraph
     class DeploySystemInstanceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeploySystemInstanceOutput, context: context)
-        Validators::SystemInstanceSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
+        SystemInstanceSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
         Hearth::Validator.validate!(input[:greengrass_deployment_id], ::String, context: "#{context}[:greengrass_deployment_id]")
       end
     end
@@ -233,7 +235,7 @@ module AWS::SDK::IoTThingsGraph
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
-        Validators::DefinitionDocument.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
+        DefinitionDocument.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
       end
     end
 
@@ -241,7 +243,7 @@ module AWS::SDK::IoTThingsGraph
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EntityDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EntityDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -250,7 +252,7 @@ module AWS::SDK::IoTThingsGraph
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EntityFilter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::EntityFilterValues.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
+        EntityFilterValues.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
       end
     end
 
@@ -267,7 +269,7 @@ module AWS::SDK::IoTThingsGraph
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EntityFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EntityFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -295,7 +297,7 @@ module AWS::SDK::IoTThingsGraph
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FlowExecutionMessage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FlowExecutionMessage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -304,7 +306,7 @@ module AWS::SDK::IoTThingsGraph
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FlowExecutionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FlowExecutionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -324,8 +326,8 @@ module AWS::SDK::IoTThingsGraph
     class FlowTemplateDescription
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FlowTemplateDescription, context: context)
-        Validators::FlowTemplateSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
-        Validators::DefinitionDocument.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
+        FlowTemplateSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
+        DefinitionDocument.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
         Hearth::Validator.validate!(input[:validated_namespace_version], ::Integer, context: "#{context}[:validated_namespace_version]")
       end
     end
@@ -334,7 +336,7 @@ module AWS::SDK::IoTThingsGraph
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FlowTemplateFilter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::FlowTemplateFilterValues.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
+        FlowTemplateFilterValues.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
       end
     end
 
@@ -351,7 +353,7 @@ module AWS::SDK::IoTThingsGraph
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FlowTemplateFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FlowTemplateFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -360,7 +362,7 @@ module AWS::SDK::IoTThingsGraph
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FlowTemplateSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FlowTemplateSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -378,7 +380,7 @@ module AWS::SDK::IoTThingsGraph
     class GetEntitiesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetEntitiesInput, context: context)
-        Validators::Urns.validate!(input[:ids], context: "#{context}[:ids]") unless input[:ids].nil?
+        Urns.validate!(input[:ids], context: "#{context}[:ids]") unless input[:ids].nil?
         Hearth::Validator.validate!(input[:namespace_version], ::Integer, context: "#{context}[:namespace_version]")
       end
     end
@@ -386,7 +388,7 @@ module AWS::SDK::IoTThingsGraph
     class GetEntitiesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetEntitiesOutput, context: context)
-        Validators::EntityDescriptions.validate!(input[:descriptions], context: "#{context}[:descriptions]") unless input[:descriptions].nil?
+        EntityDescriptions.validate!(input[:descriptions], context: "#{context}[:descriptions]") unless input[:descriptions].nil?
       end
     end
 
@@ -401,7 +403,7 @@ module AWS::SDK::IoTThingsGraph
     class GetFlowTemplateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetFlowTemplateOutput, context: context)
-        Validators::FlowTemplateDescription.validate!(input[:description], context: "#{context}[:description]") unless input[:description].nil?
+        FlowTemplateDescription.validate!(input[:description], context: "#{context}[:description]") unless input[:description].nil?
       end
     end
 
@@ -417,7 +419,7 @@ module AWS::SDK::IoTThingsGraph
     class GetFlowTemplateRevisionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetFlowTemplateRevisionsOutput, context: context)
-        Validators::FlowTemplateSummaries.validate!(input[:summaries], context: "#{context}[:summaries]") unless input[:summaries].nil?
+        FlowTemplateSummaries.validate!(input[:summaries], context: "#{context}[:summaries]") unless input[:summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -449,7 +451,7 @@ module AWS::SDK::IoTThingsGraph
     class GetSystemInstanceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSystemInstanceOutput, context: context)
-        Validators::SystemInstanceDescription.validate!(input[:description], context: "#{context}[:description]") unless input[:description].nil?
+        SystemInstanceDescription.validate!(input[:description], context: "#{context}[:description]") unless input[:description].nil?
       end
     end
 
@@ -464,7 +466,7 @@ module AWS::SDK::IoTThingsGraph
     class GetSystemTemplateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSystemTemplateOutput, context: context)
-        Validators::SystemTemplateDescription.validate!(input[:description], context: "#{context}[:description]") unless input[:description].nil?
+        SystemTemplateDescription.validate!(input[:description], context: "#{context}[:description]") unless input[:description].nil?
       end
     end
 
@@ -480,7 +482,7 @@ module AWS::SDK::IoTThingsGraph
     class GetSystemTemplateRevisionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSystemTemplateRevisionsOutput, context: context)
-        Validators::SystemTemplateSummaries.validate!(input[:summaries], context: "#{context}[:summaries]") unless input[:summaries].nil?
+        SystemTemplateSummaries.validate!(input[:summaries], context: "#{context}[:summaries]") unless input[:summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -500,7 +502,7 @@ module AWS::SDK::IoTThingsGraph
         Hearth::Validator.validate!(input[:namespace_arn], ::String, context: "#{context}[:namespace_arn]")
         Hearth::Validator.validate!(input[:namespace_name], ::String, context: "#{context}[:namespace_name]")
         Hearth::Validator.validate!(input[:namespace_version], ::Integer, context: "#{context}[:namespace_version]")
-        Validators::StringList.validate!(input[:failure_reason], context: "#{context}[:failure_reason]") unless input[:failure_reason].nil?
+        StringList.validate!(input[:failure_reason], context: "#{context}[:failure_reason]") unless input[:failure_reason].nil?
         Hearth::Validator.validate!(input[:created_date], ::Time, context: "#{context}[:created_date]")
       end
     end
@@ -538,7 +540,7 @@ module AWS::SDK::IoTThingsGraph
     class ListFlowExecutionMessagesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFlowExecutionMessagesOutput, context: context)
-        Validators::FlowExecutionMessages.validate!(input[:messages], context: "#{context}[:messages]") unless input[:messages].nil?
+        FlowExecutionMessages.validate!(input[:messages], context: "#{context}[:messages]") unless input[:messages].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -555,7 +557,7 @@ module AWS::SDK::IoTThingsGraph
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -592,8 +594,8 @@ module AWS::SDK::IoTThingsGraph
     class SearchEntitiesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchEntitiesInput, context: context)
-        Validators::EntityTypes.validate!(input[:entity_types], context: "#{context}[:entity_types]") unless input[:entity_types].nil?
-        Validators::EntityFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        EntityTypes.validate!(input[:entity_types], context: "#{context}[:entity_types]") unless input[:entity_types].nil?
+        EntityFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:namespace_version], ::Integer, context: "#{context}[:namespace_version]")
@@ -603,7 +605,7 @@ module AWS::SDK::IoTThingsGraph
     class SearchEntitiesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchEntitiesOutput, context: context)
-        Validators::EntityDescriptions.validate!(input[:descriptions], context: "#{context}[:descriptions]") unless input[:descriptions].nil?
+        EntityDescriptions.validate!(input[:descriptions], context: "#{context}[:descriptions]") unless input[:descriptions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -623,7 +625,7 @@ module AWS::SDK::IoTThingsGraph
     class SearchFlowExecutionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchFlowExecutionsOutput, context: context)
-        Validators::FlowExecutionSummaries.validate!(input[:summaries], context: "#{context}[:summaries]") unless input[:summaries].nil?
+        FlowExecutionSummaries.validate!(input[:summaries], context: "#{context}[:summaries]") unless input[:summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -631,7 +633,7 @@ module AWS::SDK::IoTThingsGraph
     class SearchFlowTemplatesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchFlowTemplatesInput, context: context)
-        Validators::FlowTemplateFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        FlowTemplateFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -640,7 +642,7 @@ module AWS::SDK::IoTThingsGraph
     class SearchFlowTemplatesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchFlowTemplatesOutput, context: context)
-        Validators::FlowTemplateSummaries.validate!(input[:summaries], context: "#{context}[:summaries]") unless input[:summaries].nil?
+        FlowTemplateSummaries.validate!(input[:summaries], context: "#{context}[:summaries]") unless input[:summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -648,7 +650,7 @@ module AWS::SDK::IoTThingsGraph
     class SearchSystemInstancesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchSystemInstancesInput, context: context)
-        Validators::SystemInstanceFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        SystemInstanceFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -657,7 +659,7 @@ module AWS::SDK::IoTThingsGraph
     class SearchSystemInstancesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchSystemInstancesOutput, context: context)
-        Validators::SystemInstanceSummaries.validate!(input[:summaries], context: "#{context}[:summaries]") unless input[:summaries].nil?
+        SystemInstanceSummaries.validate!(input[:summaries], context: "#{context}[:summaries]") unless input[:summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -665,7 +667,7 @@ module AWS::SDK::IoTThingsGraph
     class SearchSystemTemplatesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchSystemTemplatesInput, context: context)
-        Validators::SystemTemplateFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        SystemTemplateFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -674,7 +676,7 @@ module AWS::SDK::IoTThingsGraph
     class SearchSystemTemplatesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchSystemTemplatesOutput, context: context)
-        Validators::SystemTemplateSummaries.validate!(input[:summaries], context: "#{context}[:summaries]") unless input[:summaries].nil?
+        SystemTemplateSummaries.validate!(input[:summaries], context: "#{context}[:summaries]") unless input[:summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -692,7 +694,7 @@ module AWS::SDK::IoTThingsGraph
     class SearchThingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchThingsOutput, context: context)
-        Validators::Things.validate!(input[:things], context: "#{context}[:things]") unless input[:things].nil?
+        Things.validate!(input[:things], context: "#{context}[:things]") unless input[:things].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -709,12 +711,12 @@ module AWS::SDK::IoTThingsGraph
     class SystemInstanceDescription
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SystemInstanceDescription, context: context)
-        Validators::SystemInstanceSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
-        Validators::DefinitionDocument.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
+        SystemInstanceSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
+        DefinitionDocument.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
         Hearth::Validator.validate!(input[:s3_bucket_name], ::String, context: "#{context}[:s3_bucket_name]")
-        Validators::MetricsConfiguration.validate!(input[:metrics_configuration], context: "#{context}[:metrics_configuration]") unless input[:metrics_configuration].nil?
+        MetricsConfiguration.validate!(input[:metrics_configuration], context: "#{context}[:metrics_configuration]") unless input[:metrics_configuration].nil?
         Hearth::Validator.validate!(input[:validated_namespace_version], ::Integer, context: "#{context}[:validated_namespace_version]")
-        Validators::DependencyRevisions.validate!(input[:validated_dependency_revisions], context: "#{context}[:validated_dependency_revisions]") unless input[:validated_dependency_revisions].nil?
+        DependencyRevisions.validate!(input[:validated_dependency_revisions], context: "#{context}[:validated_dependency_revisions]") unless input[:validated_dependency_revisions].nil?
         Hearth::Validator.validate!(input[:flow_actions_role_arn], ::String, context: "#{context}[:flow_actions_role_arn]")
       end
     end
@@ -723,7 +725,7 @@ module AWS::SDK::IoTThingsGraph
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SystemInstanceFilter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::SystemInstanceFilterValues.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
+        SystemInstanceFilterValues.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
       end
     end
 
@@ -740,7 +742,7 @@ module AWS::SDK::IoTThingsGraph
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SystemInstanceFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SystemInstanceFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -749,7 +751,7 @@ module AWS::SDK::IoTThingsGraph
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SystemInstanceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SystemInstanceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -772,8 +774,8 @@ module AWS::SDK::IoTThingsGraph
     class SystemTemplateDescription
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SystemTemplateDescription, context: context)
-        Validators::SystemTemplateSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
-        Validators::DefinitionDocument.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
+        SystemTemplateSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
+        DefinitionDocument.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
         Hearth::Validator.validate!(input[:validated_namespace_version], ::Integer, context: "#{context}[:validated_namespace_version]")
       end
     end
@@ -782,7 +784,7 @@ module AWS::SDK::IoTThingsGraph
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SystemTemplateFilter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::SystemTemplateFilterValues.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
+        SystemTemplateFilterValues.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
       end
     end
 
@@ -799,7 +801,7 @@ module AWS::SDK::IoTThingsGraph
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SystemTemplateFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SystemTemplateFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -808,7 +810,7 @@ module AWS::SDK::IoTThingsGraph
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SystemTemplateSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SystemTemplateSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -844,7 +846,7 @@ module AWS::SDK::IoTThingsGraph
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -853,7 +855,7 @@ module AWS::SDK::IoTThingsGraph
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -875,7 +877,7 @@ module AWS::SDK::IoTThingsGraph
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Thing.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Thing.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -897,7 +899,7 @@ module AWS::SDK::IoTThingsGraph
     class UndeploySystemInstanceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UndeploySystemInstanceOutput, context: context)
-        Validators::SystemInstanceSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
+        SystemInstanceSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
       end
     end
 
@@ -905,7 +907,7 @@ module AWS::SDK::IoTThingsGraph
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -919,7 +921,7 @@ module AWS::SDK::IoTThingsGraph
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateFlowTemplateInput, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::DefinitionDocument.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
+        DefinitionDocument.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
         Hearth::Validator.validate!(input[:compatible_namespace_version], ::Integer, context: "#{context}[:compatible_namespace_version]")
       end
     end
@@ -927,7 +929,7 @@ module AWS::SDK::IoTThingsGraph
     class UpdateFlowTemplateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateFlowTemplateOutput, context: context)
-        Validators::FlowTemplateSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
+        FlowTemplateSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
       end
     end
 
@@ -935,7 +937,7 @@ module AWS::SDK::IoTThingsGraph
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateSystemTemplateInput, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::DefinitionDocument.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
+        DefinitionDocument.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
         Hearth::Validator.validate!(input[:compatible_namespace_version], ::Integer, context: "#{context}[:compatible_namespace_version]")
       end
     end
@@ -943,14 +945,14 @@ module AWS::SDK::IoTThingsGraph
     class UpdateSystemTemplateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateSystemTemplateOutput, context: context)
-        Validators::SystemTemplateSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
+        SystemTemplateSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
       end
     end
 
     class UploadEntityDefinitionsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UploadEntityDefinitionsInput, context: context)
-        Validators::DefinitionDocument.validate!(input[:document], context: "#{context}[:document]") unless input[:document].nil?
+        DefinitionDocument.validate!(input[:document], context: "#{context}[:document]") unless input[:document].nil?
         Hearth::Validator.validate!(input[:sync_with_public_namespace], ::TrueClass, ::FalseClass, context: "#{context}[:sync_with_public_namespace]")
         Hearth::Validator.validate!(input[:deprecate_existing_entities], ::TrueClass, ::FalseClass, context: "#{context}[:deprecate_existing_entities]")
       end

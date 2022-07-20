@@ -78,7 +78,7 @@ module AWS::SDK::TimestreamQuery
         type.schedule_configuration = ScheduleConfiguration.build(params[:schedule_configuration], context: "#{context}[:schedule_configuration]") unless params[:schedule_configuration].nil?
         type.notification_configuration = NotificationConfiguration.build(params[:notification_configuration], context: "#{context}[:notification_configuration]") unless params[:notification_configuration].nil?
         type.target_configuration = TargetConfiguration.build(params[:target_configuration], context: "#{context}[:target_configuration]") unless params[:target_configuration].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.scheduled_query_execution_role_arn = params[:scheduled_query_execution_role_arn]
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type.kms_key_id = params[:kms_key_id]
@@ -238,7 +238,7 @@ module AWS::SDK::TimestreamQuery
         type = Types::ExecuteScheduledQueryInput.new
         type.scheduled_query_arn = params[:scheduled_query_arn]
         type.invocation_time = params[:invocation_time]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -444,7 +444,7 @@ module AWS::SDK::TimestreamQuery
         Hearth::Validator.validate!(params, ::Hash, Types::QueryInput, context: context)
         type = Types::QueryInput.new
         type.query_string = params[:query_string]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.next_token = params[:next_token]
         type.max_rows = params[:max_rows]
         type

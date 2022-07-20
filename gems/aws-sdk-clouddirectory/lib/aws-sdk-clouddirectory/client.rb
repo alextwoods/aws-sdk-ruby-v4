@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::CloudDirectory
@@ -96,7 +98,7 @@ module AWS::SDK::CloudDirectory
     def add_facet_to_object(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddFacetToObjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddFacetToObjectInput,
         validate_input: @config.validate_input
@@ -173,7 +175,7 @@ module AWS::SDK::CloudDirectory
     def apply_schema(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ApplySchemaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ApplySchemaInput,
         validate_input: @config.validate_input
@@ -266,7 +268,7 @@ module AWS::SDK::CloudDirectory
     def attach_object(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AttachObjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AttachObjectInput,
         validate_input: @config.validate_input
@@ -346,7 +348,7 @@ module AWS::SDK::CloudDirectory
     def attach_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AttachPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AttachPolicyInput,
         validate_input: @config.validate_input
@@ -425,7 +427,7 @@ module AWS::SDK::CloudDirectory
     def attach_to_index(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AttachToIndexInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AttachToIndexInput,
         validate_input: @config.validate_input
@@ -532,12 +534,17 @@ module AWS::SDK::CloudDirectory
     #   resp.data.typed_link_specifier.identity_attribute_values #=> Array<AttributeNameAndValue>
     #   resp.data.typed_link_specifier.identity_attribute_values[0] #=> Types::AttributeNameAndValue
     #   resp.data.typed_link_specifier.identity_attribute_values[0].attribute_name #=> String
-    #   resp.data.typed_link_specifier.identity_attribute_values[0].value #=> TypedAttributeValue
+    #   resp.data.typed_link_specifier.identity_attribute_values[0].value #=> Types::TypedAttributeValue, one of [StringValue, BinaryValue, BooleanValue, NumberValue, DatetimeValue]
+    #   resp.data.typed_link_specifier.identity_attribute_values[0].value.string_value #=> String
+    #   resp.data.typed_link_specifier.identity_attribute_values[0].value.binary_value #=> String
+    #   resp.data.typed_link_specifier.identity_attribute_values[0].value.boolean_value #=> Boolean
+    #   resp.data.typed_link_specifier.identity_attribute_values[0].value.number_value #=> String
+    #   resp.data.typed_link_specifier.identity_attribute_values[0].value.datetime_value #=> Time
     #
     def attach_typed_link(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AttachTypedLinkInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AttachTypedLinkInput,
         validate_input: @config.validate_input
@@ -721,7 +728,12 @@ module AWS::SDK::CloudDirectory
     #   resp.data.responses[0].successful_response.list_object_attributes.attributes[0].key.schema_arn #=> String
     #   resp.data.responses[0].successful_response.list_object_attributes.attributes[0].key.facet_name #=> String
     #   resp.data.responses[0].successful_response.list_object_attributes.attributes[0].key.name #=> String
-    #   resp.data.responses[0].successful_response.list_object_attributes.attributes[0].value #=> TypedAttributeValue
+    #   resp.data.responses[0].successful_response.list_object_attributes.attributes[0].value #=> Types::TypedAttributeValue, one of [StringValue, BinaryValue, BooleanValue, NumberValue, DatetimeValue]
+    #   resp.data.responses[0].successful_response.list_object_attributes.attributes[0].value.string_value #=> String
+    #   resp.data.responses[0].successful_response.list_object_attributes.attributes[0].value.binary_value #=> String
+    #   resp.data.responses[0].successful_response.list_object_attributes.attributes[0].value.boolean_value #=> Boolean
+    #   resp.data.responses[0].successful_response.list_object_attributes.attributes[0].value.number_value #=> String
+    #   resp.data.responses[0].successful_response.list_object_attributes.attributes[0].value.datetime_value #=> Time
     #   resp.data.responses[0].successful_response.list_object_attributes.next_token #=> String
     #   resp.data.responses[0].successful_response.list_object_children #=> Types::BatchListObjectChildrenResponse
     #   resp.data.responses[0].successful_response.list_object_children.children #=> Hash<String, String>
@@ -779,7 +791,7 @@ module AWS::SDK::CloudDirectory
     #   resp.data.responses[0].successful_response.list_outgoing_typed_links.typed_link_specifiers[0].identity_attribute_values #=> Array<AttributeNameAndValue>
     #   resp.data.responses[0].successful_response.list_outgoing_typed_links.typed_link_specifiers[0].identity_attribute_values[0] #=> Types::AttributeNameAndValue
     #   resp.data.responses[0].successful_response.list_outgoing_typed_links.typed_link_specifiers[0].identity_attribute_values[0].attribute_name #=> String
-    #   resp.data.responses[0].successful_response.list_outgoing_typed_links.typed_link_specifiers[0].identity_attribute_values[0].value #=> TypedAttributeValue
+    #   resp.data.responses[0].successful_response.list_outgoing_typed_links.typed_link_specifiers[0].identity_attribute_values[0].value #=> Types::TypedAttributeValue, one of [StringValue, BinaryValue, BooleanValue, NumberValue, DatetimeValue]
     #   resp.data.responses[0].successful_response.list_outgoing_typed_links.next_token #=> String
     #   resp.data.responses[0].successful_response.list_incoming_typed_links #=> Types::BatchListIncomingTypedLinksResponse
     #   resp.data.responses[0].successful_response.list_incoming_typed_links.link_specifiers #=> Array<TypedLinkSpecifier>
@@ -799,7 +811,7 @@ module AWS::SDK::CloudDirectory
     def batch_read(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchReadInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchReadInput,
         validate_input: @config.validate_input
@@ -993,14 +1005,19 @@ module AWS::SDK::CloudDirectory
     #   resp.data.responses[0].attach_typed_link.typed_link_specifier.identity_attribute_values #=> Array<AttributeNameAndValue>
     #   resp.data.responses[0].attach_typed_link.typed_link_specifier.identity_attribute_values[0] #=> Types::AttributeNameAndValue
     #   resp.data.responses[0].attach_typed_link.typed_link_specifier.identity_attribute_values[0].attribute_name #=> String
-    #   resp.data.responses[0].attach_typed_link.typed_link_specifier.identity_attribute_values[0].value #=> TypedAttributeValue
+    #   resp.data.responses[0].attach_typed_link.typed_link_specifier.identity_attribute_values[0].value #=> Types::TypedAttributeValue, one of [StringValue, BinaryValue, BooleanValue, NumberValue, DatetimeValue]
+    #   resp.data.responses[0].attach_typed_link.typed_link_specifier.identity_attribute_values[0].value.string_value #=> String
+    #   resp.data.responses[0].attach_typed_link.typed_link_specifier.identity_attribute_values[0].value.binary_value #=> String
+    #   resp.data.responses[0].attach_typed_link.typed_link_specifier.identity_attribute_values[0].value.boolean_value #=> Boolean
+    #   resp.data.responses[0].attach_typed_link.typed_link_specifier.identity_attribute_values[0].value.number_value #=> String
+    #   resp.data.responses[0].attach_typed_link.typed_link_specifier.identity_attribute_values[0].value.datetime_value #=> Time
     #   resp.data.responses[0].detach_typed_link #=> Types::BatchDetachTypedLinkResponse
     #   resp.data.responses[0].update_link_attributes #=> Types::BatchUpdateLinkAttributesResponse
     #
     def batch_write(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchWriteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchWriteInput,
         validate_input: @config.validate_input
@@ -1081,7 +1098,7 @@ module AWS::SDK::CloudDirectory
     def create_directory(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDirectoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDirectoryInput,
         validate_input: @config.validate_input
@@ -1218,7 +1235,7 @@ module AWS::SDK::CloudDirectory
     def create_facet(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFacetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFacetInput,
         validate_input: @config.validate_input
@@ -1313,7 +1330,7 @@ module AWS::SDK::CloudDirectory
     def create_index(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateIndexInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateIndexInput,
         validate_input: @config.validate_input
@@ -1426,7 +1443,7 @@ module AWS::SDK::CloudDirectory
     def create_object(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateObjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateObjectInput,
         validate_input: @config.validate_input
@@ -1516,7 +1533,7 @@ module AWS::SDK::CloudDirectory
     def create_schema(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSchemaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSchemaInput,
         validate_input: @config.validate_input
@@ -1620,7 +1637,7 @@ module AWS::SDK::CloudDirectory
     def create_typed_link_facet(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTypedLinkFacetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTypedLinkFacetInput,
         validate_input: @config.validate_input
@@ -1691,7 +1708,7 @@ module AWS::SDK::CloudDirectory
     def delete_directory(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDirectoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDirectoryInput,
         validate_input: @config.validate_input
@@ -1765,7 +1782,7 @@ module AWS::SDK::CloudDirectory
     def delete_facet(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFacetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFacetInput,
         validate_input: @config.validate_input
@@ -1841,7 +1858,7 @@ module AWS::SDK::CloudDirectory
     def delete_object(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteObjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteObjectInput,
         validate_input: @config.validate_input
@@ -1911,7 +1928,7 @@ module AWS::SDK::CloudDirectory
     def delete_schema(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSchemaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSchemaInput,
         validate_input: @config.validate_input
@@ -1983,7 +2000,7 @@ module AWS::SDK::CloudDirectory
     def delete_typed_link_facet(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTypedLinkFacetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTypedLinkFacetInput,
         validate_input: @config.validate_input
@@ -2062,7 +2079,7 @@ module AWS::SDK::CloudDirectory
     def detach_from_index(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetachFromIndexInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetachFromIndexInput,
         validate_input: @config.validate_input
@@ -2144,7 +2161,7 @@ module AWS::SDK::CloudDirectory
     def detach_object(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetachObjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetachObjectInput,
         validate_input: @config.validate_input
@@ -2222,7 +2239,7 @@ module AWS::SDK::CloudDirectory
     def detach_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetachPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetachPolicyInput,
         validate_input: @config.validate_input
@@ -2316,7 +2333,7 @@ module AWS::SDK::CloudDirectory
     def detach_typed_link(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetachTypedLinkInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetachTypedLinkInput,
         validate_input: @config.validate_input
@@ -2386,7 +2403,7 @@ module AWS::SDK::CloudDirectory
     def disable_directory(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableDirectoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableDirectoryInput,
         validate_input: @config.validate_input
@@ -2455,7 +2472,7 @@ module AWS::SDK::CloudDirectory
     def enable_directory(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableDirectoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableDirectoryInput,
         validate_input: @config.validate_input
@@ -2523,7 +2540,7 @@ module AWS::SDK::CloudDirectory
     def get_applied_schema_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAppliedSchemaVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAppliedSchemaVersionInput,
         validate_input: @config.validate_input
@@ -2596,7 +2613,7 @@ module AWS::SDK::CloudDirectory
     def get_directory(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDirectoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDirectoryInput,
         validate_input: @config.validate_input
@@ -2673,7 +2690,7 @@ module AWS::SDK::CloudDirectory
     def get_facet(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFacetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFacetInput,
         validate_input: @config.validate_input
@@ -2778,12 +2795,17 @@ module AWS::SDK::CloudDirectory
     #   resp.data.attributes[0].key.schema_arn #=> String
     #   resp.data.attributes[0].key.facet_name #=> String
     #   resp.data.attributes[0].key.name #=> String
-    #   resp.data.attributes[0].value #=> TypedAttributeValue
+    #   resp.data.attributes[0].value #=> Types::TypedAttributeValue, one of [StringValue, BinaryValue, BooleanValue, NumberValue, DatetimeValue]
+    #   resp.data.attributes[0].value.string_value #=> String
+    #   resp.data.attributes[0].value.binary_value #=> String
+    #   resp.data.attributes[0].value.boolean_value #=> Boolean
+    #   resp.data.attributes[0].value.number_value #=> String
+    #   resp.data.attributes[0].value.datetime_value #=> Time
     #
     def get_link_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLinkAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLinkAttributesInput,
         validate_input: @config.validate_input
@@ -2876,12 +2898,17 @@ module AWS::SDK::CloudDirectory
     #   resp.data.attributes[0].key.schema_arn #=> String
     #   resp.data.attributes[0].key.facet_name #=> String
     #   resp.data.attributes[0].key.name #=> String
-    #   resp.data.attributes[0].value #=> TypedAttributeValue
+    #   resp.data.attributes[0].value #=> Types::TypedAttributeValue, one of [StringValue, BinaryValue, BooleanValue, NumberValue, DatetimeValue]
+    #   resp.data.attributes[0].value.string_value #=> String
+    #   resp.data.attributes[0].value.binary_value #=> String
+    #   resp.data.attributes[0].value.boolean_value #=> Boolean
+    #   resp.data.attributes[0].value.number_value #=> String
+    #   resp.data.attributes[0].value.datetime_value #=> Time
     #
     def get_object_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetObjectAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetObjectAttributesInput,
         validate_input: @config.validate_input
@@ -2964,7 +2991,7 @@ module AWS::SDK::CloudDirectory
     def get_object_information(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetObjectInformationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetObjectInformationInput,
         validate_input: @config.validate_input
@@ -3034,7 +3061,7 @@ module AWS::SDK::CloudDirectory
     def get_schema_as_json(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSchemaAsJsonInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSchemaAsJsonInput,
         validate_input: @config.validate_input
@@ -3108,7 +3135,7 @@ module AWS::SDK::CloudDirectory
     def get_typed_link_facet_information(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTypedLinkFacetInformationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTypedLinkFacetInformationInput,
         validate_input: @config.validate_input
@@ -3191,7 +3218,7 @@ module AWS::SDK::CloudDirectory
     def list_applied_schema_arns(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAppliedSchemaArnsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAppliedSchemaArnsInput,
         validate_input: @config.validate_input
@@ -3281,14 +3308,19 @@ module AWS::SDK::CloudDirectory
     #   resp.data.index_attachments[0].indexed_attributes[0].key.schema_arn #=> String
     #   resp.data.index_attachments[0].indexed_attributes[0].key.facet_name #=> String
     #   resp.data.index_attachments[0].indexed_attributes[0].key.name #=> String
-    #   resp.data.index_attachments[0].indexed_attributes[0].value #=> TypedAttributeValue
+    #   resp.data.index_attachments[0].indexed_attributes[0].value #=> Types::TypedAttributeValue, one of [StringValue, BinaryValue, BooleanValue, NumberValue, DatetimeValue]
+    #   resp.data.index_attachments[0].indexed_attributes[0].value.string_value #=> String
+    #   resp.data.index_attachments[0].indexed_attributes[0].value.binary_value #=> String
+    #   resp.data.index_attachments[0].indexed_attributes[0].value.boolean_value #=> Boolean
+    #   resp.data.index_attachments[0].indexed_attributes[0].value.number_value #=> String
+    #   resp.data.index_attachments[0].indexed_attributes[0].value.datetime_value #=> Time
     #   resp.data.index_attachments[0].object_identifier #=> String
     #   resp.data.next_token #=> String
     #
     def list_attached_indices(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAttachedIndicesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAttachedIndicesInput,
         validate_input: @config.validate_input
@@ -3364,7 +3396,7 @@ module AWS::SDK::CloudDirectory
     def list_development_schema_arns(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDevelopmentSchemaArnsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDevelopmentSchemaArnsInput,
         validate_input: @config.validate_input
@@ -3448,7 +3480,7 @@ module AWS::SDK::CloudDirectory
     def list_directories(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDirectoriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDirectoriesInput,
         validate_input: @config.validate_input
@@ -3529,7 +3561,12 @@ module AWS::SDK::CloudDirectory
     #   resp.data.attributes[0].name #=> String
     #   resp.data.attributes[0].attribute_definition #=> Types::FacetAttributeDefinition
     #   resp.data.attributes[0].attribute_definition.type #=> String, one of ["STRING", "BINARY", "BOOLEAN", "NUMBER", "DATETIME", "VARIANT"]
-    #   resp.data.attributes[0].attribute_definition.default_value #=> TypedAttributeValue
+    #   resp.data.attributes[0].attribute_definition.default_value #=> Types::TypedAttributeValue, one of [StringValue, BinaryValue, BooleanValue, NumberValue, DatetimeValue]
+    #   resp.data.attributes[0].attribute_definition.default_value.string_value #=> String
+    #   resp.data.attributes[0].attribute_definition.default_value.binary_value #=> String
+    #   resp.data.attributes[0].attribute_definition.default_value.boolean_value #=> Boolean
+    #   resp.data.attributes[0].attribute_definition.default_value.number_value #=> String
+    #   resp.data.attributes[0].attribute_definition.default_value.datetime_value #=> Time
     #   resp.data.attributes[0].attribute_definition.is_immutable #=> Boolean
     #   resp.data.attributes[0].attribute_definition.rules #=> Hash<String, Rule>
     #   resp.data.attributes[0].attribute_definition.rules['key'] #=> Types::Rule
@@ -3545,7 +3582,7 @@ module AWS::SDK::CloudDirectory
     def list_facet_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFacetAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFacetAttributesInput,
         validate_input: @config.validate_input
@@ -3624,7 +3661,7 @@ module AWS::SDK::CloudDirectory
     def list_facet_names(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFacetNamesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFacetNamesInput,
         validate_input: @config.validate_input
@@ -3750,13 +3787,18 @@ module AWS::SDK::CloudDirectory
     #   resp.data.link_specifiers[0].identity_attribute_values #=> Array<AttributeNameAndValue>
     #   resp.data.link_specifiers[0].identity_attribute_values[0] #=> Types::AttributeNameAndValue
     #   resp.data.link_specifiers[0].identity_attribute_values[0].attribute_name #=> String
-    #   resp.data.link_specifiers[0].identity_attribute_values[0].value #=> TypedAttributeValue
+    #   resp.data.link_specifiers[0].identity_attribute_values[0].value #=> Types::TypedAttributeValue, one of [StringValue, BinaryValue, BooleanValue, NumberValue, DatetimeValue]
+    #   resp.data.link_specifiers[0].identity_attribute_values[0].value.string_value #=> String
+    #   resp.data.link_specifiers[0].identity_attribute_values[0].value.binary_value #=> String
+    #   resp.data.link_specifiers[0].identity_attribute_values[0].value.boolean_value #=> Boolean
+    #   resp.data.link_specifiers[0].identity_attribute_values[0].value.number_value #=> String
+    #   resp.data.link_specifiers[0].identity_attribute_values[0].value.datetime_value #=> Time
     #   resp.data.next_token #=> String
     #
     def list_incoming_typed_links(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListIncomingTypedLinksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListIncomingTypedLinksInput,
         validate_input: @config.validate_input
@@ -3870,14 +3912,19 @@ module AWS::SDK::CloudDirectory
     #   resp.data.index_attachments[0].indexed_attributes[0].key.schema_arn #=> String
     #   resp.data.index_attachments[0].indexed_attributes[0].key.facet_name #=> String
     #   resp.data.index_attachments[0].indexed_attributes[0].key.name #=> String
-    #   resp.data.index_attachments[0].indexed_attributes[0].value #=> TypedAttributeValue
+    #   resp.data.index_attachments[0].indexed_attributes[0].value #=> Types::TypedAttributeValue, one of [StringValue, BinaryValue, BooleanValue, NumberValue, DatetimeValue]
+    #   resp.data.index_attachments[0].indexed_attributes[0].value.string_value #=> String
+    #   resp.data.index_attachments[0].indexed_attributes[0].value.binary_value #=> String
+    #   resp.data.index_attachments[0].indexed_attributes[0].value.boolean_value #=> Boolean
+    #   resp.data.index_attachments[0].indexed_attributes[0].value.number_value #=> String
+    #   resp.data.index_attachments[0].indexed_attributes[0].value.datetime_value #=> Time
     #   resp.data.index_attachments[0].object_identifier #=> String
     #   resp.data.next_token #=> String
     #
     def list_index(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListIndexInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListIndexInput,
         validate_input: @config.validate_input
@@ -3956,7 +4003,7 @@ module AWS::SDK::CloudDirectory
     def list_managed_schema_arns(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListManagedSchemaArnsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListManagedSchemaArnsInput,
         validate_input: @config.validate_input
@@ -4056,13 +4103,18 @@ module AWS::SDK::CloudDirectory
     #   resp.data.attributes[0].key.schema_arn #=> String
     #   resp.data.attributes[0].key.facet_name #=> String
     #   resp.data.attributes[0].key.name #=> String
-    #   resp.data.attributes[0].value #=> TypedAttributeValue
+    #   resp.data.attributes[0].value #=> Types::TypedAttributeValue, one of [StringValue, BinaryValue, BooleanValue, NumberValue, DatetimeValue]
+    #   resp.data.attributes[0].value.string_value #=> String
+    #   resp.data.attributes[0].value.binary_value #=> String
+    #   resp.data.attributes[0].value.boolean_value #=> Boolean
+    #   resp.data.attributes[0].value.number_value #=> String
+    #   resp.data.attributes[0].value.datetime_value #=> Time
     #   resp.data.next_token #=> String
     #
     def list_object_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListObjectAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListObjectAttributesInput,
         validate_input: @config.validate_input
@@ -4156,7 +4208,7 @@ module AWS::SDK::CloudDirectory
     def list_object_children(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListObjectChildrenInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListObjectChildrenInput,
         validate_input: @config.validate_input
@@ -4252,7 +4304,7 @@ module AWS::SDK::CloudDirectory
     def list_object_parent_paths(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListObjectParentPathsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListObjectParentPathsInput,
         validate_input: @config.validate_input
@@ -4354,7 +4406,7 @@ module AWS::SDK::CloudDirectory
     def list_object_parents(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListObjectParentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListObjectParentsInput,
         validate_input: @config.validate_input
@@ -4446,7 +4498,7 @@ module AWS::SDK::CloudDirectory
     def list_object_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListObjectPoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListObjectPoliciesInput,
         validate_input: @config.validate_input
@@ -4572,13 +4624,18 @@ module AWS::SDK::CloudDirectory
     #   resp.data.typed_link_specifiers[0].identity_attribute_values #=> Array<AttributeNameAndValue>
     #   resp.data.typed_link_specifiers[0].identity_attribute_values[0] #=> Types::AttributeNameAndValue
     #   resp.data.typed_link_specifiers[0].identity_attribute_values[0].attribute_name #=> String
-    #   resp.data.typed_link_specifiers[0].identity_attribute_values[0].value #=> TypedAttributeValue
+    #   resp.data.typed_link_specifiers[0].identity_attribute_values[0].value #=> Types::TypedAttributeValue, one of [StringValue, BinaryValue, BooleanValue, NumberValue, DatetimeValue]
+    #   resp.data.typed_link_specifiers[0].identity_attribute_values[0].value.string_value #=> String
+    #   resp.data.typed_link_specifiers[0].identity_attribute_values[0].value.binary_value #=> String
+    #   resp.data.typed_link_specifiers[0].identity_attribute_values[0].value.boolean_value #=> Boolean
+    #   resp.data.typed_link_specifiers[0].identity_attribute_values[0].value.number_value #=> String
+    #   resp.data.typed_link_specifiers[0].identity_attribute_values[0].value.datetime_value #=> Time
     #   resp.data.next_token #=> String
     #
     def list_outgoing_typed_links(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListOutgoingTypedLinksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListOutgoingTypedLinksInput,
         validate_input: @config.validate_input
@@ -4670,7 +4727,7 @@ module AWS::SDK::CloudDirectory
     def list_policy_attachments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPolicyAttachmentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPolicyAttachmentsInput,
         validate_input: @config.validate_input
@@ -4749,7 +4806,7 @@ module AWS::SDK::CloudDirectory
     def list_published_schema_arns(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPublishedSchemaArnsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPublishedSchemaArnsInput,
         validate_input: @config.validate_input
@@ -4835,7 +4892,7 @@ module AWS::SDK::CloudDirectory
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -4916,7 +4973,12 @@ module AWS::SDK::CloudDirectory
     #   resp.data.attributes[0] #=> Types::TypedLinkAttributeDefinition
     #   resp.data.attributes[0].name #=> String
     #   resp.data.attributes[0].type #=> String, one of ["STRING", "BINARY", "BOOLEAN", "NUMBER", "DATETIME", "VARIANT"]
-    #   resp.data.attributes[0].default_value #=> TypedAttributeValue
+    #   resp.data.attributes[0].default_value #=> Types::TypedAttributeValue, one of [StringValue, BinaryValue, BooleanValue, NumberValue, DatetimeValue]
+    #   resp.data.attributes[0].default_value.string_value #=> String
+    #   resp.data.attributes[0].default_value.binary_value #=> String
+    #   resp.data.attributes[0].default_value.boolean_value #=> Boolean
+    #   resp.data.attributes[0].default_value.number_value #=> String
+    #   resp.data.attributes[0].default_value.datetime_value #=> Time
     #   resp.data.attributes[0].is_immutable #=> Boolean
     #   resp.data.attributes[0].rules #=> Hash<String, Rule>
     #   resp.data.attributes[0].rules['key'] #=> Types::Rule
@@ -4929,7 +4991,7 @@ module AWS::SDK::CloudDirectory
     def list_typed_link_facet_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTypedLinkFacetAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTypedLinkFacetAttributesInput,
         validate_input: @config.validate_input
@@ -5010,7 +5072,7 @@ module AWS::SDK::CloudDirectory
     def list_typed_link_facet_names(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTypedLinkFacetNamesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTypedLinkFacetNamesInput,
         validate_input: @config.validate_input
@@ -5108,7 +5170,7 @@ module AWS::SDK::CloudDirectory
     def lookup_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::LookupPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::LookupPolicyInput,
         validate_input: @config.validate_input
@@ -5191,7 +5253,7 @@ module AWS::SDK::CloudDirectory
     def publish_schema(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PublishSchemaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PublishSchemaInput,
         validate_input: @config.validate_input
@@ -5264,7 +5326,7 @@ module AWS::SDK::CloudDirectory
     def put_schema_from_json(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutSchemaFromJsonInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutSchemaFromJsonInput,
         validate_input: @config.validate_input
@@ -5345,7 +5407,7 @@ module AWS::SDK::CloudDirectory
     def remove_facet_from_object(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveFacetFromObjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveFacetFromObjectInput,
         validate_input: @config.validate_input
@@ -5423,7 +5485,7 @@ module AWS::SDK::CloudDirectory
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -5498,7 +5560,7 @@ module AWS::SDK::CloudDirectory
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -5624,7 +5686,7 @@ module AWS::SDK::CloudDirectory
     def update_facet(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFacetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFacetInput,
         validate_input: @config.validate_input
@@ -5732,7 +5794,7 @@ module AWS::SDK::CloudDirectory
     def update_link_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateLinkAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateLinkAttributesInput,
         validate_input: @config.validate_input
@@ -5831,7 +5893,7 @@ module AWS::SDK::CloudDirectory
     def update_object_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateObjectAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateObjectAttributesInput,
         validate_input: @config.validate_input
@@ -5906,7 +5968,7 @@ module AWS::SDK::CloudDirectory
     def update_schema(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSchemaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSchemaInput,
         validate_input: @config.validate_input
@@ -6020,7 +6082,7 @@ module AWS::SDK::CloudDirectory
     def update_typed_link_facet(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTypedLinkFacetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTypedLinkFacetInput,
         validate_input: @config.validate_input
@@ -6098,7 +6160,7 @@ module AWS::SDK::CloudDirectory
     def upgrade_applied_schema(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpgradeAppliedSchemaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpgradeAppliedSchemaInput,
         validate_input: @config.validate_input
@@ -6179,7 +6241,7 @@ module AWS::SDK::CloudDirectory
     def upgrade_published_schema(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpgradePublishedSchemaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpgradePublishedSchemaInput,
         validate_input: @config.validate_input

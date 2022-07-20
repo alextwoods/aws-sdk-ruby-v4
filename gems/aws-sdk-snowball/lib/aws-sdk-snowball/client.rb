@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Snowball
@@ -65,7 +67,7 @@ module AWS::SDK::Snowball
     def cancel_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelClusterInput,
         validate_input: @config.validate_input
@@ -137,7 +139,7 @@ module AWS::SDK::Snowball
     def cancel_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelJobInput,
         validate_input: @config.validate_input
@@ -224,7 +226,7 @@ module AWS::SDK::Snowball
     def create_address(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAddressInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAddressInput,
         validate_input: @config.validate_input
@@ -462,7 +464,7 @@ module AWS::SDK::Snowball
     def create_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateClusterInput,
         validate_input: @config.validate_input
@@ -858,7 +860,7 @@ module AWS::SDK::Snowball
     def create_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateJobInput,
         validate_input: @config.validate_input
@@ -939,7 +941,7 @@ module AWS::SDK::Snowball
     def create_long_term_pricing(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLongTermPricingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLongTermPricingInput,
         validate_input: @config.validate_input
@@ -1015,7 +1017,7 @@ module AWS::SDK::Snowball
     def create_return_shipping_label(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateReturnShippingLabelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateReturnShippingLabelInput,
         validate_input: @config.validate_input
@@ -1099,7 +1101,7 @@ module AWS::SDK::Snowball
     def describe_address(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAddressInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAddressInput,
         validate_input: @config.validate_input
@@ -1192,7 +1194,7 @@ module AWS::SDK::Snowball
     def describe_addresses(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAddressesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAddressesInput,
         validate_input: @config.validate_input
@@ -1309,7 +1311,7 @@ module AWS::SDK::Snowball
     def describe_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeClusterInput,
         validate_input: @config.validate_input
@@ -1450,7 +1452,7 @@ module AWS::SDK::Snowball
     def describe_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeJobInput,
         validate_input: @config.validate_input
@@ -1522,7 +1524,7 @@ module AWS::SDK::Snowball
     def describe_return_shipping_label(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeReturnShippingLabelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeReturnShippingLabelInput,
         validate_input: @config.validate_input
@@ -1610,7 +1612,7 @@ module AWS::SDK::Snowball
     def get_job_manifest(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetJobManifestInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetJobManifestInput,
         validate_input: @config.validate_input
@@ -1692,7 +1694,7 @@ module AWS::SDK::Snowball
     def get_job_unlock_code(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetJobUnlockCodeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetJobUnlockCodeInput,
         validate_input: @config.validate_input
@@ -1761,7 +1763,7 @@ module AWS::SDK::Snowball
     def get_snowball_usage(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSnowballUsageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSnowballUsageInput,
         validate_input: @config.validate_input
@@ -1832,7 +1834,7 @@ module AWS::SDK::Snowball
     def get_software_updates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSoftwareUpdatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSoftwareUpdatesInput,
         validate_input: @config.validate_input
@@ -1923,7 +1925,7 @@ module AWS::SDK::Snowball
     def list_cluster_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListClusterJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListClusterJobsInput,
         validate_input: @config.validate_input
@@ -2006,7 +2008,7 @@ module AWS::SDK::Snowball
     def list_clusters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListClustersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListClustersInput,
         validate_input: @config.validate_input
@@ -2090,7 +2092,7 @@ module AWS::SDK::Snowball
     def list_compatible_images(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCompatibleImagesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCompatibleImagesInput,
         validate_input: @config.validate_input
@@ -2178,7 +2180,7 @@ module AWS::SDK::Snowball
     def list_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListJobsInput,
         validate_input: @config.validate_input
@@ -2265,7 +2267,7 @@ module AWS::SDK::Snowball
     def list_long_term_pricing(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListLongTermPricingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLongTermPricingInput,
         validate_input: @config.validate_input
@@ -2422,7 +2424,7 @@ module AWS::SDK::Snowball
     def update_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateClusterInput,
         validate_input: @config.validate_input
@@ -2589,7 +2591,7 @@ module AWS::SDK::Snowball
     def update_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateJobInput,
         validate_input: @config.validate_input
@@ -2664,7 +2666,7 @@ module AWS::SDK::Snowball
     def update_job_shipment_state(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateJobShipmentStateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateJobShipmentStateInput,
         validate_input: @config.validate_input
@@ -2742,7 +2744,7 @@ module AWS::SDK::Snowball
     def update_long_term_pricing(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateLongTermPricingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateLongTermPricingInput,
         validate_input: @config.validate_input

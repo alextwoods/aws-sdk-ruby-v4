@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::SMS
   module Validators
 
@@ -35,7 +37,7 @@ module AWS::SDK::SMS
         Hearth::Validator.validate!(input[:launch_configuration_status], ::String, context: "#{context}[:launch_configuration_status]")
         Hearth::Validator.validate!(input[:launch_status], ::String, context: "#{context}[:launch_status]")
         Hearth::Validator.validate!(input[:launch_status_message], ::String, context: "#{context}[:launch_status_message]")
-        Validators::LaunchDetails.validate!(input[:launch_details], context: "#{context}[:launch_details]") unless input[:launch_details].nil?
+        LaunchDetails.validate!(input[:launch_details], context: "#{context}[:launch_details]") unless input[:launch_details].nil?
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:last_modified], ::Time, context: "#{context}[:last_modified]")
         Hearth::Validator.validate!(input[:role_name], ::String, context: "#{context}[:role_name]")
@@ -50,7 +52,7 @@ module AWS::SDK::SMS
         Hearth::Validator.validate!(input[:validation_id], ::String, context: "#{context}[:validation_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:app_validation_strategy], ::String, context: "#{context}[:app_validation_strategy]")
-        Validators::SSMValidationParameters.validate!(input[:ssm_validation_parameters], context: "#{context}[:ssm_validation_parameters]") unless input[:ssm_validation_parameters].nil?
+        SSMValidationParameters.validate!(input[:ssm_validation_parameters], context: "#{context}[:ssm_validation_parameters]") unless input[:ssm_validation_parameters].nil?
       end
     end
 
@@ -58,7 +60,7 @@ module AWS::SDK::SMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AppValidationConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AppValidationConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -66,7 +68,7 @@ module AWS::SDK::SMS
     class AppValidationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AppValidationOutput, context: context)
-        Validators::SSMOutput.validate!(input[:ssm_output], context: "#{context}[:ssm_output]") unless input[:ssm_output].nil?
+        SSMOutput.validate!(input[:ssm_output], context: "#{context}[:ssm_output]") unless input[:ssm_output].nil?
       end
     end
 
@@ -74,7 +76,7 @@ module AWS::SDK::SMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AppSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AppSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -85,7 +87,7 @@ module AWS::SDK::SMS
         Hearth::Validator.validate!(input[:connector_id], ::String, context: "#{context}[:connector_id]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::ConnectorCapabilityList.validate!(input[:capability_list], context: "#{context}[:capability_list]") unless input[:capability_list].nil?
+        ConnectorCapabilityList.validate!(input[:capability_list], context: "#{context}[:capability_list]") unless input[:capability_list].nil?
         Hearth::Validator.validate!(input[:vm_manager_name], ::String, context: "#{context}[:vm_manager_name]")
         Hearth::Validator.validate!(input[:vm_manager_type], ::String, context: "#{context}[:vm_manager_type]")
         Hearth::Validator.validate!(input[:vm_manager_id], ::String, context: "#{context}[:vm_manager_id]")
@@ -108,7 +110,7 @@ module AWS::SDK::SMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Connector.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Connector.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -120,17 +122,17 @@ module AWS::SDK::SMS
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:role_name], ::String, context: "#{context}[:role_name]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
-        Validators::ServerGroups.validate!(input[:server_groups], context: "#{context}[:server_groups]") unless input[:server_groups].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ServerGroups.validate!(input[:server_groups], context: "#{context}[:server_groups]") unless input[:server_groups].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateAppOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateAppOutput, context: context)
-        Validators::AppSummary.validate!(input[:app_summary], context: "#{context}[:app_summary]") unless input[:app_summary].nil?
-        Validators::ServerGroups.validate!(input[:server_groups], context: "#{context}[:server_groups]") unless input[:server_groups].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        AppSummary.validate!(input[:app_summary], context: "#{context}[:app_summary]") unless input[:app_summary].nil?
+        ServerGroups.validate!(input[:server_groups], context: "#{context}[:server_groups]") unless input[:server_groups].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -267,7 +269,7 @@ module AWS::SDK::SMS
     class GenerateChangeSetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GenerateChangeSetOutput, context: context)
-        Validators::S3Location.validate!(input[:s3_location], context: "#{context}[:s3_location]") unless input[:s3_location].nil?
+        S3Location.validate!(input[:s3_location], context: "#{context}[:s3_location]") unless input[:s3_location].nil?
       end
     end
 
@@ -282,7 +284,7 @@ module AWS::SDK::SMS
     class GenerateTemplateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GenerateTemplateOutput, context: context)
-        Validators::S3Location.validate!(input[:s3_location], context: "#{context}[:s3_location]") unless input[:s3_location].nil?
+        S3Location.validate!(input[:s3_location], context: "#{context}[:s3_location]") unless input[:s3_location].nil?
       end
     end
 
@@ -306,16 +308,16 @@ module AWS::SDK::SMS
         Hearth::Validator.validate!(input[:app_id], ::String, context: "#{context}[:app_id]")
         Hearth::Validator.validate!(input[:role_name], ::String, context: "#{context}[:role_name]")
         Hearth::Validator.validate!(input[:auto_launch], ::TrueClass, ::FalseClass, context: "#{context}[:auto_launch]")
-        Validators::ServerGroupLaunchConfigurations.validate!(input[:server_group_launch_configurations], context: "#{context}[:server_group_launch_configurations]") unless input[:server_group_launch_configurations].nil?
+        ServerGroupLaunchConfigurations.validate!(input[:server_group_launch_configurations], context: "#{context}[:server_group_launch_configurations]") unless input[:server_group_launch_configurations].nil?
       end
     end
 
     class GetAppOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAppOutput, context: context)
-        Validators::AppSummary.validate!(input[:app_summary], context: "#{context}[:app_summary]") unless input[:app_summary].nil?
-        Validators::ServerGroups.validate!(input[:server_groups], context: "#{context}[:server_groups]") unless input[:server_groups].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        AppSummary.validate!(input[:app_summary], context: "#{context}[:app_summary]") unless input[:app_summary].nil?
+        ServerGroups.validate!(input[:server_groups], context: "#{context}[:server_groups]") unless input[:server_groups].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -329,7 +331,7 @@ module AWS::SDK::SMS
     class GetAppReplicationConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAppReplicationConfigurationOutput, context: context)
-        Validators::ServerGroupReplicationConfigurations.validate!(input[:server_group_replication_configurations], context: "#{context}[:server_group_replication_configurations]") unless input[:server_group_replication_configurations].nil?
+        ServerGroupReplicationConfigurations.validate!(input[:server_group_replication_configurations], context: "#{context}[:server_group_replication_configurations]") unless input[:server_group_replication_configurations].nil?
       end
     end
 
@@ -343,8 +345,8 @@ module AWS::SDK::SMS
     class GetAppValidationConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAppValidationConfigurationOutput, context: context)
-        Validators::AppValidationConfigurations.validate!(input[:app_validation_configurations], context: "#{context}[:app_validation_configurations]") unless input[:app_validation_configurations].nil?
-        Validators::ServerGroupValidationConfigurations.validate!(input[:server_group_validation_configurations], context: "#{context}[:server_group_validation_configurations]") unless input[:server_group_validation_configurations].nil?
+        AppValidationConfigurations.validate!(input[:app_validation_configurations], context: "#{context}[:app_validation_configurations]") unless input[:app_validation_configurations].nil?
+        ServerGroupValidationConfigurations.validate!(input[:server_group_validation_configurations], context: "#{context}[:server_group_validation_configurations]") unless input[:server_group_validation_configurations].nil?
       end
     end
 
@@ -358,7 +360,7 @@ module AWS::SDK::SMS
     class GetAppValidationOutputOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAppValidationOutputOutput, context: context)
-        Validators::ValidationOutputList.validate!(input[:validation_output_list], context: "#{context}[:validation_output_list]") unless input[:validation_output_list].nil?
+        ValidationOutputList.validate!(input[:validation_output_list], context: "#{context}[:validation_output_list]") unless input[:validation_output_list].nil?
       end
     end
 
@@ -373,7 +375,7 @@ module AWS::SDK::SMS
     class GetConnectorsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetConnectorsOutput, context: context)
-        Validators::ConnectorList.validate!(input[:connector_list], context: "#{context}[:connector_list]") unless input[:connector_list].nil?
+        ConnectorList.validate!(input[:connector_list], context: "#{context}[:connector_list]") unless input[:connector_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -390,7 +392,7 @@ module AWS::SDK::SMS
     class GetReplicationJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetReplicationJobsOutput, context: context)
-        Validators::ReplicationJobList.validate!(input[:replication_job_list], context: "#{context}[:replication_job_list]") unless input[:replication_job_list].nil?
+        ReplicationJobList.validate!(input[:replication_job_list], context: "#{context}[:replication_job_list]") unless input[:replication_job_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -407,8 +409,8 @@ module AWS::SDK::SMS
     class GetReplicationRunsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetReplicationRunsOutput, context: context)
-        Validators::ReplicationJob.validate!(input[:replication_job], context: "#{context}[:replication_job]") unless input[:replication_job].nil?
-        Validators::ReplicationRunList.validate!(input[:replication_run_list], context: "#{context}[:replication_run_list]") unless input[:replication_run_list].nil?
+        ReplicationJob.validate!(input[:replication_job], context: "#{context}[:replication_job]") unless input[:replication_job].nil?
+        ReplicationRunList.validate!(input[:replication_run_list], context: "#{context}[:replication_run_list]") unless input[:replication_run_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -418,7 +420,7 @@ module AWS::SDK::SMS
         Hearth::Validator.validate!(input, Types::GetServersInput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::VmServerAddressList.validate!(input[:vm_server_address_list], context: "#{context}[:vm_server_address_list]") unless input[:vm_server_address_list].nil?
+        VmServerAddressList.validate!(input[:vm_server_address_list], context: "#{context}[:vm_server_address_list]") unless input[:vm_server_address_list].nil?
       end
     end
 
@@ -427,7 +429,7 @@ module AWS::SDK::SMS
         Hearth::Validator.validate!(input, Types::GetServersOutput, context: context)
         Hearth::Validator.validate!(input[:last_modified_on], ::Time, context: "#{context}[:last_modified_on]")
         Hearth::Validator.validate!(input[:server_catalog_status], ::String, context: "#{context}[:server_catalog_status]")
-        Validators::ServerList.validate!(input[:server_list], context: "#{context}[:server_list]") unless input[:server_list].nil?
+        ServerList.validate!(input[:server_list], context: "#{context}[:server_list]") unless input[:server_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -496,7 +498,7 @@ module AWS::SDK::SMS
     class ListAppsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAppsInput, context: context)
-        Validators::AppIds.validate!(input[:app_ids], context: "#{context}[:app_ids]") unless input[:app_ids].nil?
+        AppIds.validate!(input[:app_ids], context: "#{context}[:app_ids]") unless input[:app_ids].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -505,7 +507,7 @@ module AWS::SDK::SMS
     class ListAppsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAppsOutput, context: context)
-        Validators::Apps.validate!(input[:apps], context: "#{context}[:apps]") unless input[:apps].nil?
+        Apps.validate!(input[:apps], context: "#{context}[:apps]") unless input[:apps].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -537,7 +539,7 @@ module AWS::SDK::SMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NotifyAppValidationOutputInput, context: context)
         Hearth::Validator.validate!(input[:app_id], ::String, context: "#{context}[:app_id]")
-        Validators::NotificationContext.validate!(input[:notification_context], context: "#{context}[:notification_context]") unless input[:notification_context].nil?
+        NotificationContext.validate!(input[:notification_context], context: "#{context}[:notification_context]") unless input[:notification_context].nil?
       end
     end
 
@@ -560,7 +562,7 @@ module AWS::SDK::SMS
         Hearth::Validator.validate!(input[:app_id], ::String, context: "#{context}[:app_id]")
         Hearth::Validator.validate!(input[:role_name], ::String, context: "#{context}[:role_name]")
         Hearth::Validator.validate!(input[:auto_launch], ::TrueClass, ::FalseClass, context: "#{context}[:auto_launch]")
-        Validators::ServerGroupLaunchConfigurations.validate!(input[:server_group_launch_configurations], context: "#{context}[:server_group_launch_configurations]") unless input[:server_group_launch_configurations].nil?
+        ServerGroupLaunchConfigurations.validate!(input[:server_group_launch_configurations], context: "#{context}[:server_group_launch_configurations]") unless input[:server_group_launch_configurations].nil?
       end
     end
 
@@ -574,7 +576,7 @@ module AWS::SDK::SMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutAppReplicationConfigurationInput, context: context)
         Hearth::Validator.validate!(input[:app_id], ::String, context: "#{context}[:app_id]")
-        Validators::ServerGroupReplicationConfigurations.validate!(input[:server_group_replication_configurations], context: "#{context}[:server_group_replication_configurations]") unless input[:server_group_replication_configurations].nil?
+        ServerGroupReplicationConfigurations.validate!(input[:server_group_replication_configurations], context: "#{context}[:server_group_replication_configurations]") unless input[:server_group_replication_configurations].nil?
       end
     end
 
@@ -588,8 +590,8 @@ module AWS::SDK::SMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutAppValidationConfigurationInput, context: context)
         Hearth::Validator.validate!(input[:app_id], ::String, context: "#{context}[:app_id]")
-        Validators::AppValidationConfigurations.validate!(input[:app_validation_configurations], context: "#{context}[:app_validation_configurations]") unless input[:app_validation_configurations].nil?
-        Validators::ServerGroupValidationConfigurations.validate!(input[:server_group_validation_configurations], context: "#{context}[:server_group_validation_configurations]") unless input[:server_group_validation_configurations].nil?
+        AppValidationConfigurations.validate!(input[:app_validation_configurations], context: "#{context}[:app_validation_configurations]") unless input[:app_validation_configurations].nil?
+        ServerGroupValidationConfigurations.validate!(input[:server_group_validation_configurations], context: "#{context}[:server_group_validation_configurations]") unless input[:server_group_validation_configurations].nil?
       end
     end
 
@@ -605,7 +607,7 @@ module AWS::SDK::SMS
         Hearth::Validator.validate!(input[:replication_job_id], ::String, context: "#{context}[:replication_job_id]")
         Hearth::Validator.validate!(input[:server_id], ::String, context: "#{context}[:server_id]")
         Hearth::Validator.validate!(input[:server_type], ::String, context: "#{context}[:server_type]")
-        Validators::VmServer.validate!(input[:vm_server], context: "#{context}[:vm_server]") unless input[:vm_server].nil?
+        VmServer.validate!(input[:vm_server], context: "#{context}[:vm_server]") unless input[:vm_server].nil?
         Hearth::Validator.validate!(input[:seed_replication_time], ::Time, context: "#{context}[:seed_replication_time]")
         Hearth::Validator.validate!(input[:frequency], ::Integer, context: "#{context}[:frequency]")
         Hearth::Validator.validate!(input[:run_once], ::TrueClass, ::FalseClass, context: "#{context}[:run_once]")
@@ -619,7 +621,7 @@ module AWS::SDK::SMS
         Hearth::Validator.validate!(input[:number_of_recent_amis_to_keep], ::Integer, context: "#{context}[:number_of_recent_amis_to_keep]")
         Hearth::Validator.validate!(input[:encrypted], ::TrueClass, ::FalseClass, context: "#{context}[:encrypted]")
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
-        Validators::ReplicationRunList.validate!(input[:replication_run_list], context: "#{context}[:replication_run_list]") unless input[:replication_run_list].nil?
+        ReplicationRunList.validate!(input[:replication_run_list], context: "#{context}[:replication_run_list]") unless input[:replication_run_list].nil?
       end
     end
 
@@ -634,7 +636,7 @@ module AWS::SDK::SMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReplicationJob.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReplicationJob.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -652,7 +654,7 @@ module AWS::SDK::SMS
         Hearth::Validator.validate!(input[:replication_run_id], ::String, context: "#{context}[:replication_run_id]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::ReplicationRunStageDetails.validate!(input[:stage_details], context: "#{context}[:stage_details]") unless input[:stage_details].nil?
+        ReplicationRunStageDetails.validate!(input[:stage_details], context: "#{context}[:stage_details]") unless input[:stage_details].nil?
         Hearth::Validator.validate!(input[:status_message], ::String, context: "#{context}[:status_message]")
         Hearth::Validator.validate!(input[:ami_id], ::String, context: "#{context}[:ami_id]")
         Hearth::Validator.validate!(input[:scheduled_start_time], ::Time, context: "#{context}[:scheduled_start_time]")
@@ -674,7 +676,7 @@ module AWS::SDK::SMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReplicationRun.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReplicationRun.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -698,14 +700,14 @@ module AWS::SDK::SMS
     class SSMOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SSMOutput, context: context)
-        Validators::S3Location.validate!(input[:s3_location], context: "#{context}[:s3_location]") unless input[:s3_location].nil?
+        S3Location.validate!(input[:s3_location], context: "#{context}[:s3_location]") unless input[:s3_location].nil?
       end
     end
 
     class SSMValidationParameters
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SSMValidationParameters, context: context)
-        Validators::Source.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
+        Source.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
         Hearth::Validator.validate!(input[:instance_id], ::String, context: "#{context}[:instance_id]")
         Hearth::Validator.validate!(input[:script_type], ::String, context: "#{context}[:script_type]")
         Hearth::Validator.validate!(input[:command], ::String, context: "#{context}[:command]")
@@ -719,7 +721,7 @@ module AWS::SDK::SMS
         Hearth::Validator.validate!(input, Types::Server, context: context)
         Hearth::Validator.validate!(input[:server_id], ::String, context: "#{context}[:server_id]")
         Hearth::Validator.validate!(input[:server_type], ::String, context: "#{context}[:server_type]")
-        Validators::VmServer.validate!(input[:vm_server], context: "#{context}[:vm_server]") unless input[:vm_server].nil?
+        VmServer.validate!(input[:vm_server], context: "#{context}[:vm_server]") unless input[:vm_server].nil?
         Hearth::Validator.validate!(input[:replication_job_id], ::String, context: "#{context}[:replication_job_id]")
         Hearth::Validator.validate!(input[:replication_job_terminated], ::TrueClass, ::FalseClass, context: "#{context}[:replication_job_terminated]")
       end
@@ -737,7 +739,7 @@ module AWS::SDK::SMS
         Hearth::Validator.validate!(input, Types::ServerGroup, context: context)
         Hearth::Validator.validate!(input[:server_group_id], ::String, context: "#{context}[:server_group_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ServerList.validate!(input[:server_list], context: "#{context}[:server_list]") unless input[:server_list].nil?
+        ServerList.validate!(input[:server_list], context: "#{context}[:server_list]") unless input[:server_list].nil?
       end
     end
 
@@ -746,7 +748,7 @@ module AWS::SDK::SMS
         Hearth::Validator.validate!(input, Types::ServerGroupLaunchConfiguration, context: context)
         Hearth::Validator.validate!(input[:server_group_id], ::String, context: "#{context}[:server_group_id]")
         Hearth::Validator.validate!(input[:launch_order], ::Integer, context: "#{context}[:launch_order]")
-        Validators::ServerLaunchConfigurations.validate!(input[:server_launch_configurations], context: "#{context}[:server_launch_configurations]") unless input[:server_launch_configurations].nil?
+        ServerLaunchConfigurations.validate!(input[:server_launch_configurations], context: "#{context}[:server_launch_configurations]") unless input[:server_launch_configurations].nil?
       end
     end
 
@@ -754,7 +756,7 @@ module AWS::SDK::SMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ServerGroupLaunchConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ServerGroupLaunchConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -763,7 +765,7 @@ module AWS::SDK::SMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ServerGroupReplicationConfiguration, context: context)
         Hearth::Validator.validate!(input[:server_group_id], ::String, context: "#{context}[:server_group_id]")
-        Validators::ServerReplicationConfigurations.validate!(input[:server_replication_configurations], context: "#{context}[:server_replication_configurations]") unless input[:server_replication_configurations].nil?
+        ServerReplicationConfigurations.validate!(input[:server_replication_configurations], context: "#{context}[:server_replication_configurations]") unless input[:server_replication_configurations].nil?
       end
     end
 
@@ -771,7 +773,7 @@ module AWS::SDK::SMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ServerGroupReplicationConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ServerGroupReplicationConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -780,7 +782,7 @@ module AWS::SDK::SMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ServerGroupValidationConfiguration, context: context)
         Hearth::Validator.validate!(input[:server_group_id], ::String, context: "#{context}[:server_group_id]")
-        Validators::ServerValidationConfigurations.validate!(input[:server_validation_configurations], context: "#{context}[:server_validation_configurations]") unless input[:server_validation_configurations].nil?
+        ServerValidationConfigurations.validate!(input[:server_validation_configurations], context: "#{context}[:server_validation_configurations]") unless input[:server_validation_configurations].nil?
       end
     end
 
@@ -788,7 +790,7 @@ module AWS::SDK::SMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ServerGroupValidationConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ServerGroupValidationConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -797,7 +799,7 @@ module AWS::SDK::SMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ServerGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ServerGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -805,17 +807,17 @@ module AWS::SDK::SMS
     class ServerLaunchConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ServerLaunchConfiguration, context: context)
-        Validators::Server.validate!(input[:server], context: "#{context}[:server]") unless input[:server].nil?
+        Server.validate!(input[:server], context: "#{context}[:server]") unless input[:server].nil?
         Hearth::Validator.validate!(input[:logical_id], ::String, context: "#{context}[:logical_id]")
         Hearth::Validator.validate!(input[:vpc], ::String, context: "#{context}[:vpc]")
         Hearth::Validator.validate!(input[:subnet], ::String, context: "#{context}[:subnet]")
         Hearth::Validator.validate!(input[:security_group], ::String, context: "#{context}[:security_group]")
         Hearth::Validator.validate!(input[:ec2_key_name], ::String, context: "#{context}[:ec2_key_name]")
-        Validators::UserData.validate!(input[:user_data], context: "#{context}[:user_data]") unless input[:user_data].nil?
+        UserData.validate!(input[:user_data], context: "#{context}[:user_data]") unless input[:user_data].nil?
         Hearth::Validator.validate!(input[:instance_type], ::String, context: "#{context}[:instance_type]")
         Hearth::Validator.validate!(input[:associate_public_ip_address], ::TrueClass, ::FalseClass, context: "#{context}[:associate_public_ip_address]")
         Hearth::Validator.validate!(input[:iam_instance_profile_name], ::String, context: "#{context}[:iam_instance_profile_name]")
-        Validators::S3Location.validate!(input[:configure_script], context: "#{context}[:configure_script]") unless input[:configure_script].nil?
+        S3Location.validate!(input[:configure_script], context: "#{context}[:configure_script]") unless input[:configure_script].nil?
         Hearth::Validator.validate!(input[:configure_script_type], ::String, context: "#{context}[:configure_script_type]")
       end
     end
@@ -824,7 +826,7 @@ module AWS::SDK::SMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ServerLaunchConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ServerLaunchConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -833,7 +835,7 @@ module AWS::SDK::SMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Server.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Server.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -841,8 +843,8 @@ module AWS::SDK::SMS
     class ServerReplicationConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ServerReplicationConfiguration, context: context)
-        Validators::Server.validate!(input[:server], context: "#{context}[:server]") unless input[:server].nil?
-        Validators::ServerReplicationParameters.validate!(input[:server_replication_parameters], context: "#{context}[:server_replication_parameters]") unless input[:server_replication_parameters].nil?
+        Server.validate!(input[:server], context: "#{context}[:server]") unless input[:server].nil?
+        ServerReplicationParameters.validate!(input[:server_replication_parameters], context: "#{context}[:server_replication_parameters]") unless input[:server_replication_parameters].nil?
       end
     end
 
@@ -850,7 +852,7 @@ module AWS::SDK::SMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ServerReplicationConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ServerReplicationConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -871,11 +873,11 @@ module AWS::SDK::SMS
     class ServerValidationConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ServerValidationConfiguration, context: context)
-        Validators::Server.validate!(input[:server], context: "#{context}[:server]") unless input[:server].nil?
+        Server.validate!(input[:server], context: "#{context}[:server]") unless input[:server].nil?
         Hearth::Validator.validate!(input[:validation_id], ::String, context: "#{context}[:validation_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:server_validation_strategy], ::String, context: "#{context}[:server_validation_strategy]")
-        Validators::UserDataValidationParameters.validate!(input[:user_data_validation_parameters], context: "#{context}[:user_data_validation_parameters]") unless input[:user_data_validation_parameters].nil?
+        UserDataValidationParameters.validate!(input[:user_data_validation_parameters], context: "#{context}[:user_data_validation_parameters]") unless input[:user_data_validation_parameters].nil?
       end
     end
 
@@ -883,7 +885,7 @@ module AWS::SDK::SMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ServerValidationConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ServerValidationConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -891,14 +893,14 @@ module AWS::SDK::SMS
     class ServerValidationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ServerValidationOutput, context: context)
-        Validators::Server.validate!(input[:server], context: "#{context}[:server]") unless input[:server].nil?
+        Server.validate!(input[:server], context: "#{context}[:server]") unless input[:server].nil?
       end
     end
 
     class Source
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Source, context: context)
-        Validators::S3Location.validate!(input[:s3_location], context: "#{context}[:s3_location]") unless input[:s3_location].nil?
+        S3Location.validate!(input[:s3_location], context: "#{context}[:s3_location]") unless input[:s3_location].nil?
       end
     end
 
@@ -969,7 +971,7 @@ module AWS::SDK::SMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1007,17 +1009,17 @@ module AWS::SDK::SMS
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:role_name], ::String, context: "#{context}[:role_name]")
-        Validators::ServerGroups.validate!(input[:server_groups], context: "#{context}[:server_groups]") unless input[:server_groups].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ServerGroups.validate!(input[:server_groups], context: "#{context}[:server_groups]") unless input[:server_groups].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class UpdateAppOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateAppOutput, context: context)
-        Validators::AppSummary.validate!(input[:app_summary], context: "#{context}[:app_summary]") unless input[:app_summary].nil?
-        Validators::ServerGroups.validate!(input[:server_groups], context: "#{context}[:server_groups]") unless input[:server_groups].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        AppSummary.validate!(input[:app_summary], context: "#{context}[:app_summary]") unless input[:app_summary].nil?
+        ServerGroups.validate!(input[:server_groups], context: "#{context}[:server_groups]") unless input[:server_groups].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1045,14 +1047,14 @@ module AWS::SDK::SMS
     class UserData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UserData, context: context)
-        Validators::S3Location.validate!(input[:s3_location], context: "#{context}[:s3_location]") unless input[:s3_location].nil?
+        S3Location.validate!(input[:s3_location], context: "#{context}[:s3_location]") unless input[:s3_location].nil?
       end
     end
 
     class UserDataValidationParameters
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UserDataValidationParameters, context: context)
-        Validators::Source.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
+        Source.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
         Hearth::Validator.validate!(input[:script_type], ::String, context: "#{context}[:script_type]")
       end
     end
@@ -1065,8 +1067,8 @@ module AWS::SDK::SMS
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:status_message], ::String, context: "#{context}[:status_message]")
         Hearth::Validator.validate!(input[:latest_validation_time], ::Time, context: "#{context}[:latest_validation_time]")
-        Validators::AppValidationOutput.validate!(input[:app_validation_output], context: "#{context}[:app_validation_output]") unless input[:app_validation_output].nil?
-        Validators::ServerValidationOutput.validate!(input[:server_validation_output], context: "#{context}[:server_validation_output]") unless input[:server_validation_output].nil?
+        AppValidationOutput.validate!(input[:app_validation_output], context: "#{context}[:app_validation_output]") unless input[:app_validation_output].nil?
+        ServerValidationOutput.validate!(input[:server_validation_output], context: "#{context}[:server_validation_output]") unless input[:server_validation_output].nil?
       end
     end
 
@@ -1074,7 +1076,7 @@ module AWS::SDK::SMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ValidationOutput.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ValidationOutput.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1082,7 +1084,7 @@ module AWS::SDK::SMS
     class VmServer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VmServer, context: context)
-        Validators::VmServerAddress.validate!(input[:vm_server_address], context: "#{context}[:vm_server_address]") unless input[:vm_server_address].nil?
+        VmServerAddress.validate!(input[:vm_server_address], context: "#{context}[:vm_server_address]") unless input[:vm_server_address].nil?
         Hearth::Validator.validate!(input[:vm_name], ::String, context: "#{context}[:vm_name]")
         Hearth::Validator.validate!(input[:vm_manager_name], ::String, context: "#{context}[:vm_manager_name]")
         Hearth::Validator.validate!(input[:vm_manager_type], ::String, context: "#{context}[:vm_manager_type]")
@@ -1102,7 +1104,7 @@ module AWS::SDK::SMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::VmServerAddress.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          VmServerAddress.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

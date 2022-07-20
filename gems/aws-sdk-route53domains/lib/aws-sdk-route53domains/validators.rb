@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Route53Domains
   module Validators
 
@@ -40,7 +42,7 @@ module AWS::SDK::Route53Domains
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BillingRecord.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BillingRecord.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -85,7 +87,7 @@ module AWS::SDK::Route53Domains
     class CheckDomainTransferabilityOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CheckDomainTransferabilityOutput, context: context)
-        Validators::DomainTransferability.validate!(input[:transferability], context: "#{context}[:transferability]") unless input[:transferability].nil?
+        DomainTransferability.validate!(input[:transferability], context: "#{context}[:transferability]") unless input[:transferability].nil?
       end
     end
 
@@ -105,7 +107,7 @@ module AWS::SDK::Route53Domains
         Hearth::Validator.validate!(input[:phone_number], ::String, context: "#{context}[:phone_number]")
         Hearth::Validator.validate!(input[:email], ::String, context: "#{context}[:email]")
         Hearth::Validator.validate!(input[:fax], ::String, context: "#{context}[:fax]")
-        Validators::ExtraParamList.validate!(input[:extra_params], context: "#{context}[:extra_params]") unless input[:extra_params].nil?
+        ExtraParamList.validate!(input[:extra_params], context: "#{context}[:extra_params]") unless input[:extra_params].nil?
       end
     end
 
@@ -127,7 +129,7 @@ module AWS::SDK::Route53Domains
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteTagsForDomainInput, context: context)
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
-        Validators::TagKeyList.validate!(input[:tags_to_delete], context: "#{context}[:tags_to_delete]") unless input[:tags_to_delete].nil?
+        TagKeyList.validate!(input[:tags_to_delete], context: "#{context}[:tags_to_delete]") unless input[:tags_to_delete].nil?
       end
     end
 
@@ -175,11 +177,11 @@ module AWS::SDK::Route53Domains
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DomainPrice, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::PriceWithCurrency.validate!(input[:registration_price], context: "#{context}[:registration_price]") unless input[:registration_price].nil?
-        Validators::PriceWithCurrency.validate!(input[:transfer_price], context: "#{context}[:transfer_price]") unless input[:transfer_price].nil?
-        Validators::PriceWithCurrency.validate!(input[:renewal_price], context: "#{context}[:renewal_price]") unless input[:renewal_price].nil?
-        Validators::PriceWithCurrency.validate!(input[:change_ownership_price], context: "#{context}[:change_ownership_price]") unless input[:change_ownership_price].nil?
-        Validators::PriceWithCurrency.validate!(input[:restoration_price], context: "#{context}[:restoration_price]") unless input[:restoration_price].nil?
+        PriceWithCurrency.validate!(input[:registration_price], context: "#{context}[:registration_price]") unless input[:registration_price].nil?
+        PriceWithCurrency.validate!(input[:transfer_price], context: "#{context}[:transfer_price]") unless input[:transfer_price].nil?
+        PriceWithCurrency.validate!(input[:renewal_price], context: "#{context}[:renewal_price]") unless input[:renewal_price].nil?
+        PriceWithCurrency.validate!(input[:change_ownership_price], context: "#{context}[:change_ownership_price]") unless input[:change_ownership_price].nil?
+        PriceWithCurrency.validate!(input[:restoration_price], context: "#{context}[:restoration_price]") unless input[:restoration_price].nil?
       end
     end
 
@@ -187,7 +189,7 @@ module AWS::SDK::Route53Domains
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DomainPrice.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DomainPrice.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -213,7 +215,7 @@ module AWS::SDK::Route53Domains
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DomainSuggestion.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DomainSuggestion.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -232,7 +234,7 @@ module AWS::SDK::Route53Domains
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DomainSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DomainSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -290,7 +292,7 @@ module AWS::SDK::Route53Domains
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ExtraParam.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ExtraParam.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -300,7 +302,7 @@ module AWS::SDK::Route53Domains
         Hearth::Validator.validate!(input, Types::FilterCondition, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:operator], ::String, context: "#{context}[:operator]")
-        Validators::Values.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        Values.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -308,7 +310,7 @@ module AWS::SDK::Route53Domains
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FilterCondition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FilterCondition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -339,11 +341,11 @@ module AWS::SDK::Route53Domains
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDomainDetailOutput, context: context)
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
-        Validators::NameserverList.validate!(input[:nameservers], context: "#{context}[:nameservers]") unless input[:nameservers].nil?
+        NameserverList.validate!(input[:nameservers], context: "#{context}[:nameservers]") unless input[:nameservers].nil?
         Hearth::Validator.validate!(input[:auto_renew], ::TrueClass, ::FalseClass, context: "#{context}[:auto_renew]")
-        Validators::ContactDetail.validate!(input[:admin_contact], context: "#{context}[:admin_contact]") unless input[:admin_contact].nil?
-        Validators::ContactDetail.validate!(input[:registrant_contact], context: "#{context}[:registrant_contact]") unless input[:registrant_contact].nil?
-        Validators::ContactDetail.validate!(input[:tech_contact], context: "#{context}[:tech_contact]") unless input[:tech_contact].nil?
+        ContactDetail.validate!(input[:admin_contact], context: "#{context}[:admin_contact]") unless input[:admin_contact].nil?
+        ContactDetail.validate!(input[:registrant_contact], context: "#{context}[:registrant_contact]") unless input[:registrant_contact].nil?
+        ContactDetail.validate!(input[:tech_contact], context: "#{context}[:tech_contact]") unless input[:tech_contact].nil?
         Hearth::Validator.validate!(input[:admin_privacy], ::TrueClass, ::FalseClass, context: "#{context}[:admin_privacy]")
         Hearth::Validator.validate!(input[:registrant_privacy], ::TrueClass, ::FalseClass, context: "#{context}[:registrant_privacy]")
         Hearth::Validator.validate!(input[:tech_privacy], ::TrueClass, ::FalseClass, context: "#{context}[:tech_privacy]")
@@ -358,7 +360,7 @@ module AWS::SDK::Route53Domains
         Hearth::Validator.validate!(input[:expiration_date], ::Time, context: "#{context}[:expiration_date]")
         Hearth::Validator.validate!(input[:reseller], ::String, context: "#{context}[:reseller]")
         Hearth::Validator.validate!(input[:dns_sec], ::String, context: "#{context}[:dns_sec]")
-        Validators::DomainStatusList.validate!(input[:status_list], context: "#{context}[:status_list]") unless input[:status_list].nil?
+        DomainStatusList.validate!(input[:status_list], context: "#{context}[:status_list]") unless input[:status_list].nil?
       end
     end
 
@@ -374,7 +376,7 @@ module AWS::SDK::Route53Domains
     class GetDomainSuggestionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDomainSuggestionsOutput, context: context)
-        Validators::DomainSuggestionsList.validate!(input[:suggestions_list], context: "#{context}[:suggestions_list]") unless input[:suggestions_list].nil?
+        DomainSuggestionsList.validate!(input[:suggestions_list], context: "#{context}[:suggestions_list]") unless input[:suggestions_list].nil?
       end
     end
 
@@ -416,8 +418,8 @@ module AWS::SDK::Route53Domains
     class ListDomainsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDomainsInput, context: context)
-        Validators::FilterConditions.validate!(input[:filter_conditions], context: "#{context}[:filter_conditions]") unless input[:filter_conditions].nil?
-        Validators::SortCondition.validate!(input[:sort_condition], context: "#{context}[:sort_condition]") unless input[:sort_condition].nil?
+        FilterConditions.validate!(input[:filter_conditions], context: "#{context}[:filter_conditions]") unless input[:filter_conditions].nil?
+        SortCondition.validate!(input[:sort_condition], context: "#{context}[:sort_condition]") unless input[:sort_condition].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
         Hearth::Validator.validate!(input[:max_items], ::Integer, context: "#{context}[:max_items]")
       end
@@ -426,7 +428,7 @@ module AWS::SDK::Route53Domains
     class ListDomainsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDomainsOutput, context: context)
-        Validators::DomainSummaryList.validate!(input[:domains], context: "#{context}[:domains]") unless input[:domains].nil?
+        DomainSummaryList.validate!(input[:domains], context: "#{context}[:domains]") unless input[:domains].nil?
         Hearth::Validator.validate!(input[:next_page_marker], ::String, context: "#{context}[:next_page_marker]")
       end
     end
@@ -443,7 +445,7 @@ module AWS::SDK::Route53Domains
     class ListOperationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListOperationsOutput, context: context)
-        Validators::OperationSummaryList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationSummaryList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
         Hearth::Validator.validate!(input[:next_page_marker], ::String, context: "#{context}[:next_page_marker]")
       end
     end
@@ -460,7 +462,7 @@ module AWS::SDK::Route53Domains
     class ListPricesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPricesOutput, context: context)
-        Validators::DomainPriceList.validate!(input[:prices], context: "#{context}[:prices]") unless input[:prices].nil?
+        DomainPriceList.validate!(input[:prices], context: "#{context}[:prices]") unless input[:prices].nil?
         Hearth::Validator.validate!(input[:next_page_marker], ::String, context: "#{context}[:next_page_marker]")
       end
     end
@@ -475,7 +477,7 @@ module AWS::SDK::Route53Domains
     class ListTagsForDomainOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForDomainOutput, context: context)
-        Validators::TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
+        TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
       end
     end
 
@@ -483,7 +485,7 @@ module AWS::SDK::Route53Domains
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Nameserver, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::GlueIpList.validate!(input[:glue_ips], context: "#{context}[:glue_ips]") unless input[:glue_ips].nil?
+        GlueIpList.validate!(input[:glue_ips], context: "#{context}[:glue_ips]") unless input[:glue_ips].nil?
       end
     end
 
@@ -491,7 +493,7 @@ module AWS::SDK::Route53Domains
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Nameserver.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Nameserver.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -517,7 +519,7 @@ module AWS::SDK::Route53Domains
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OperationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OperationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -537,9 +539,9 @@ module AWS::SDK::Route53Domains
         Hearth::Validator.validate!(input[:idn_lang_code], ::String, context: "#{context}[:idn_lang_code]")
         Hearth::Validator.validate!(input[:duration_in_years], ::Integer, context: "#{context}[:duration_in_years]")
         Hearth::Validator.validate!(input[:auto_renew], ::TrueClass, ::FalseClass, context: "#{context}[:auto_renew]")
-        Validators::ContactDetail.validate!(input[:admin_contact], context: "#{context}[:admin_contact]") unless input[:admin_contact].nil?
-        Validators::ContactDetail.validate!(input[:registrant_contact], context: "#{context}[:registrant_contact]") unless input[:registrant_contact].nil?
-        Validators::ContactDetail.validate!(input[:tech_contact], context: "#{context}[:tech_contact]") unless input[:tech_contact].nil?
+        ContactDetail.validate!(input[:admin_contact], context: "#{context}[:admin_contact]") unless input[:admin_contact].nil?
+        ContactDetail.validate!(input[:registrant_contact], context: "#{context}[:registrant_contact]") unless input[:registrant_contact].nil?
+        ContactDetail.validate!(input[:tech_contact], context: "#{context}[:tech_contact]") unless input[:tech_contact].nil?
         Hearth::Validator.validate!(input[:privacy_protect_admin_contact], ::TrueClass, ::FalseClass, context: "#{context}[:privacy_protect_admin_contact]")
         Hearth::Validator.validate!(input[:privacy_protect_registrant_contact], ::TrueClass, ::FalseClass, context: "#{context}[:privacy_protect_registrant_contact]")
         Hearth::Validator.validate!(input[:privacy_protect_tech_contact], ::TrueClass, ::FalseClass, context: "#{context}[:privacy_protect_tech_contact]")
@@ -649,7 +651,7 @@ module AWS::SDK::Route53Domains
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -660,12 +662,12 @@ module AWS::SDK::Route53Domains
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
         Hearth::Validator.validate!(input[:idn_lang_code], ::String, context: "#{context}[:idn_lang_code]")
         Hearth::Validator.validate!(input[:duration_in_years], ::Integer, context: "#{context}[:duration_in_years]")
-        Validators::NameserverList.validate!(input[:nameservers], context: "#{context}[:nameservers]") unless input[:nameservers].nil?
+        NameserverList.validate!(input[:nameservers], context: "#{context}[:nameservers]") unless input[:nameservers].nil?
         Hearth::Validator.validate!(input[:auth_code], ::String, context: "#{context}[:auth_code]")
         Hearth::Validator.validate!(input[:auto_renew], ::TrueClass, ::FalseClass, context: "#{context}[:auto_renew]")
-        Validators::ContactDetail.validate!(input[:admin_contact], context: "#{context}[:admin_contact]") unless input[:admin_contact].nil?
-        Validators::ContactDetail.validate!(input[:registrant_contact], context: "#{context}[:registrant_contact]") unless input[:registrant_contact].nil?
-        Validators::ContactDetail.validate!(input[:tech_contact], context: "#{context}[:tech_contact]") unless input[:tech_contact].nil?
+        ContactDetail.validate!(input[:admin_contact], context: "#{context}[:admin_contact]") unless input[:admin_contact].nil?
+        ContactDetail.validate!(input[:registrant_contact], context: "#{context}[:registrant_contact]") unless input[:registrant_contact].nil?
+        ContactDetail.validate!(input[:tech_contact], context: "#{context}[:tech_contact]") unless input[:tech_contact].nil?
         Hearth::Validator.validate!(input[:privacy_protect_admin_contact], ::TrueClass, ::FalseClass, context: "#{context}[:privacy_protect_admin_contact]")
         Hearth::Validator.validate!(input[:privacy_protect_registrant_contact], ::TrueClass, ::FalseClass, context: "#{context}[:privacy_protect_registrant_contact]")
         Hearth::Validator.validate!(input[:privacy_protect_tech_contact], ::TrueClass, ::FalseClass, context: "#{context}[:privacy_protect_tech_contact]")
@@ -706,9 +708,9 @@ module AWS::SDK::Route53Domains
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateDomainContactInput, context: context)
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
-        Validators::ContactDetail.validate!(input[:admin_contact], context: "#{context}[:admin_contact]") unless input[:admin_contact].nil?
-        Validators::ContactDetail.validate!(input[:registrant_contact], context: "#{context}[:registrant_contact]") unless input[:registrant_contact].nil?
-        Validators::ContactDetail.validate!(input[:tech_contact], context: "#{context}[:tech_contact]") unless input[:tech_contact].nil?
+        ContactDetail.validate!(input[:admin_contact], context: "#{context}[:admin_contact]") unless input[:admin_contact].nil?
+        ContactDetail.validate!(input[:registrant_contact], context: "#{context}[:registrant_contact]") unless input[:registrant_contact].nil?
+        ContactDetail.validate!(input[:tech_contact], context: "#{context}[:tech_contact]") unless input[:tech_contact].nil?
       end
     end
 
@@ -741,7 +743,7 @@ module AWS::SDK::Route53Domains
         Hearth::Validator.validate!(input, Types::UpdateDomainNameserversInput, context: context)
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
         Hearth::Validator.validate!(input[:fi_auth_key], ::String, context: "#{context}[:fi_auth_key]")
-        Validators::NameserverList.validate!(input[:nameservers], context: "#{context}[:nameservers]") unless input[:nameservers].nil?
+        NameserverList.validate!(input[:nameservers], context: "#{context}[:nameservers]") unless input[:nameservers].nil?
       end
     end
 
@@ -756,7 +758,7 @@ module AWS::SDK::Route53Domains
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateTagsForDomainInput, context: context)
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
-        Validators::TagList.validate!(input[:tags_to_update], context: "#{context}[:tags_to_update]") unless input[:tags_to_update].nil?
+        TagList.validate!(input[:tags_to_update], context: "#{context}[:tags_to_update]") unless input[:tags_to_update].nil?
       end
     end
 
@@ -789,7 +791,7 @@ module AWS::SDK::Route53Domains
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ViewBillingOutput, context: context)
         Hearth::Validator.validate!(input[:next_page_marker], ::String, context: "#{context}[:next_page_marker]")
-        Validators::BillingRecords.validate!(input[:billing_records], context: "#{context}[:billing_records]") unless input[:billing_records].nil?
+        BillingRecords.validate!(input[:billing_records], context: "#{context}[:billing_records]") unless input[:billing_records].nil?
       end
     end
 

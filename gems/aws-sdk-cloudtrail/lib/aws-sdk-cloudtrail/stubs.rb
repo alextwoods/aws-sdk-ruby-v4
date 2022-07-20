@@ -49,12 +49,12 @@ module AWS::SDK::CloudTrail
           event_data_store_arn: 'event_data_store_arn',
           name: 'name',
           status: 'status',
-          advanced_event_selectors: Stubs::AdvancedEventSelectors.default(visited),
+          advanced_event_selectors: AdvancedEventSelectors.default(visited),
           multi_region_enabled: false,
           organization_enabled: false,
           retention_period: 1,
           termination_protection_enabled: false,
-          tags_list: Stubs::TagsList.default(visited),
+          tags_list: TagsList.default(visited),
           created_timestamp: Time.now,
           updated_timestamp: Time.now,
         }
@@ -84,7 +84,7 @@ module AWS::SDK::CloudTrail
         return nil if visited.include?('TagsList')
         visited = visited + ['TagsList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -124,7 +124,7 @@ module AWS::SDK::CloudTrail
         return nil if visited.include?('AdvancedEventSelectors')
         visited = visited + ['AdvancedEventSelectors']
         [
-          Stubs::AdvancedEventSelector.default(visited)
+          AdvancedEventSelector.default(visited)
         ]
       end
 
@@ -145,7 +145,7 @@ module AWS::SDK::CloudTrail
         visited = visited + ['AdvancedEventSelector']
         {
           name: 'name',
-          field_selectors: Stubs::AdvancedFieldSelectors.default(visited),
+          field_selectors: AdvancedFieldSelectors.default(visited),
         }
       end
 
@@ -164,7 +164,7 @@ module AWS::SDK::CloudTrail
         return nil if visited.include?('AdvancedFieldSelectors')
         visited = visited + ['AdvancedFieldSelectors']
         [
-          Stubs::AdvancedFieldSelector.default(visited)
+          AdvancedFieldSelector.default(visited)
         ]
       end
 
@@ -185,12 +185,12 @@ module AWS::SDK::CloudTrail
         visited = visited + ['AdvancedFieldSelector']
         {
           field: 'field',
-          equals: Stubs::Operator.default(visited),
-          starts_with: Stubs::Operator.default(visited),
-          ends_with: Stubs::Operator.default(visited),
-          not_equals: Stubs::Operator.default(visited),
-          not_starts_with: Stubs::Operator.default(visited),
-          not_ends_with: Stubs::Operator.default(visited),
+          equals: Operator.default(visited),
+          starts_with: Operator.default(visited),
+          ends_with: Operator.default(visited),
+          not_equals: Operator.default(visited),
+          not_starts_with: Operator.default(visited),
+          not_ends_with: Operator.default(visited),
         }
       end
 
@@ -303,7 +303,7 @@ module AWS::SDK::CloudTrail
           query_id: 'query_id',
           query_string: 'query_string',
           query_status: 'query_status',
-          query_statistics: Stubs::QueryStatisticsForDescribeQuery.default(visited),
+          query_statistics: QueryStatisticsForDescribeQuery.default(visited),
           error_message: 'error_message',
         }
       end
@@ -350,7 +350,7 @@ module AWS::SDK::CloudTrail
     class DescribeTrails
       def self.default(visited=[])
         {
-          trail_list: Stubs::TrailList.default(visited),
+          trail_list: TrailList.default(visited),
         }
       end
 
@@ -368,7 +368,7 @@ module AWS::SDK::CloudTrail
         return nil if visited.include?('TrailList')
         visited = visited + ['TrailList']
         [
-          Stubs::Trail.default(visited)
+          Trail.default(visited)
         ]
       end
 
@@ -437,7 +437,7 @@ module AWS::SDK::CloudTrail
           event_data_store_arn: 'event_data_store_arn',
           name: 'name',
           status: 'status',
-          advanced_event_selectors: Stubs::AdvancedEventSelectors.default(visited),
+          advanced_event_selectors: AdvancedEventSelectors.default(visited),
           multi_region_enabled: false,
           organization_enabled: false,
           retention_period: 1,
@@ -469,8 +469,8 @@ module AWS::SDK::CloudTrail
       def self.default(visited=[])
         {
           trail_arn: 'trail_arn',
-          event_selectors: Stubs::EventSelectors.default(visited),
-          advanced_event_selectors: Stubs::AdvancedEventSelectors.default(visited),
+          event_selectors: EventSelectors.default(visited),
+          advanced_event_selectors: AdvancedEventSelectors.default(visited),
         }
       end
 
@@ -490,7 +490,7 @@ module AWS::SDK::CloudTrail
         return nil if visited.include?('EventSelectors')
         visited = visited + ['EventSelectors']
         [
-          Stubs::EventSelector.default(visited)
+          EventSelector.default(visited)
         ]
       end
 
@@ -512,8 +512,8 @@ module AWS::SDK::CloudTrail
         {
           read_write_type: 'read_write_type',
           include_management_events: false,
-          data_resources: Stubs::DataResources.default(visited),
-          exclude_management_event_sources: Stubs::ExcludeManagementEventSources.default(visited),
+          data_resources: DataResources.default(visited),
+          exclude_management_event_sources: ExcludeManagementEventSources.default(visited),
         }
       end
 
@@ -554,7 +554,7 @@ module AWS::SDK::CloudTrail
         return nil if visited.include?('DataResources')
         visited = visited + ['DataResources']
         [
-          Stubs::DataResource.default(visited)
+          DataResource.default(visited)
         ]
       end
 
@@ -575,7 +575,7 @@ module AWS::SDK::CloudTrail
         visited = visited + ['DataResource']
         {
           type: 'type',
-          values: Stubs::DataResourceValues.default(visited),
+          values: DataResourceValues.default(visited),
         }
       end
 
@@ -613,7 +613,7 @@ module AWS::SDK::CloudTrail
       def self.default(visited=[])
         {
           trail_arn: 'trail_arn',
-          insight_selectors: Stubs::InsightSelectors.default(visited),
+          insight_selectors: InsightSelectors.default(visited),
         }
       end
 
@@ -632,7 +632,7 @@ module AWS::SDK::CloudTrail
         return nil if visited.include?('InsightSelectors')
         visited = visited + ['InsightSelectors']
         [
-          Stubs::InsightSelector.default(visited)
+          InsightSelector.default(visited)
         ]
       end
 
@@ -669,8 +669,8 @@ module AWS::SDK::CloudTrail
       def self.default(visited=[])
         {
           query_status: 'query_status',
-          query_statistics: Stubs::QueryStatistics.default(visited),
-          query_result_rows: Stubs::QueryResultRows.default(visited),
+          query_statistics: QueryStatistics.default(visited),
+          query_result_rows: QueryResultRows.default(visited),
           next_token: 'next_token',
           error_message: 'error_message',
         }
@@ -694,7 +694,7 @@ module AWS::SDK::CloudTrail
         return nil if visited.include?('QueryResultRows')
         visited = visited + ['QueryResultRows']
         [
-          Stubs::QueryResultRow.default(visited)
+          QueryResultRow.default(visited)
         ]
       end
 
@@ -714,7 +714,7 @@ module AWS::SDK::CloudTrail
         return nil if visited.include?('QueryResultRow')
         visited = visited + ['QueryResultRow']
         [
-          Stubs::QueryResultColumn.default(visited)
+          QueryResultColumn.default(visited)
         ]
       end
 
@@ -774,7 +774,7 @@ module AWS::SDK::CloudTrail
     class GetTrail
       def self.default(visited=[])
         {
-          trail: Stubs::Trail.default(visited),
+          trail: Trail.default(visited),
         }
       end
 
@@ -838,7 +838,7 @@ module AWS::SDK::CloudTrail
     class ListEventDataStores
       def self.default(visited=[])
         {
-          event_data_stores: Stubs::EventDataStores.default(visited),
+          event_data_stores: EventDataStores.default(visited),
           next_token: 'next_token',
         }
       end
@@ -858,7 +858,7 @@ module AWS::SDK::CloudTrail
         return nil if visited.include?('EventDataStores')
         visited = visited + ['EventDataStores']
         [
-          Stubs::EventDataStore.default(visited)
+          EventDataStore.default(visited)
         ]
       end
 
@@ -882,7 +882,7 @@ module AWS::SDK::CloudTrail
           name: 'name',
           termination_protection_enabled: false,
           status: 'status',
-          advanced_event_selectors: Stubs::AdvancedEventSelectors.default(visited),
+          advanced_event_selectors: AdvancedEventSelectors.default(visited),
           multi_region_enabled: false,
           organization_enabled: false,
           retention_period: 1,
@@ -912,7 +912,7 @@ module AWS::SDK::CloudTrail
     class ListPublicKeys
       def self.default(visited=[])
         {
-          public_key_list: Stubs::PublicKeyList.default(visited),
+          public_key_list: PublicKeyList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -932,7 +932,7 @@ module AWS::SDK::CloudTrail
         return nil if visited.include?('PublicKeyList')
         visited = visited + ['PublicKeyList']
         [
-          Stubs::PublicKey.default(visited)
+          PublicKey.default(visited)
         ]
       end
 
@@ -974,7 +974,7 @@ module AWS::SDK::CloudTrail
     class ListQueries
       def self.default(visited=[])
         {
-          queries: Stubs::Queries.default(visited),
+          queries: Queries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -994,7 +994,7 @@ module AWS::SDK::CloudTrail
         return nil if visited.include?('Queries')
         visited = visited + ['Queries']
         [
-          Stubs::Query.default(visited)
+          Query.default(visited)
         ]
       end
 
@@ -1034,7 +1034,7 @@ module AWS::SDK::CloudTrail
     class ListTags
       def self.default(visited=[])
         {
-          resource_tag_list: Stubs::ResourceTagList.default(visited),
+          resource_tag_list: ResourceTagList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1054,7 +1054,7 @@ module AWS::SDK::CloudTrail
         return nil if visited.include?('ResourceTagList')
         visited = visited + ['ResourceTagList']
         [
-          Stubs::ResourceTag.default(visited)
+          ResourceTag.default(visited)
         ]
       end
 
@@ -1075,7 +1075,7 @@ module AWS::SDK::CloudTrail
         visited = visited + ['ResourceTag']
         {
           resource_id: 'resource_id',
-          tags_list: Stubs::TagsList.default(visited),
+          tags_list: TagsList.default(visited),
         }
       end
 
@@ -1092,7 +1092,7 @@ module AWS::SDK::CloudTrail
     class ListTrails
       def self.default(visited=[])
         {
-          trails: Stubs::Trails.default(visited),
+          trails: Trails.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1112,7 +1112,7 @@ module AWS::SDK::CloudTrail
         return nil if visited.include?('Trails')
         visited = visited + ['Trails']
         [
-          Stubs::TrailInfo.default(visited)
+          TrailInfo.default(visited)
         ]
       end
 
@@ -1152,7 +1152,7 @@ module AWS::SDK::CloudTrail
     class LookupEvents
       def self.default(visited=[])
         {
-          events: Stubs::EventsList.default(visited),
+          events: EventsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1172,7 +1172,7 @@ module AWS::SDK::CloudTrail
         return nil if visited.include?('EventsList')
         visited = visited + ['EventsList']
         [
-          Stubs::Event.default(visited)
+          Event.default(visited)
         ]
       end
 
@@ -1199,7 +1199,7 @@ module AWS::SDK::CloudTrail
           event_time: Time.now,
           event_source: 'event_source',
           username: 'username',
-          resources: Stubs::ResourceList.default(visited),
+          resources: ResourceList.default(visited),
           cloud_trail_event: 'cloud_trail_event',
         }
       end
@@ -1226,7 +1226,7 @@ module AWS::SDK::CloudTrail
         return nil if visited.include?('ResourceList')
         visited = visited + ['ResourceList']
         [
-          Stubs::Resource.default(visited)
+          Resource.default(visited)
         ]
       end
 
@@ -1265,8 +1265,8 @@ module AWS::SDK::CloudTrail
       def self.default(visited=[])
         {
           trail_arn: 'trail_arn',
-          event_selectors: Stubs::EventSelectors.default(visited),
-          advanced_event_selectors: Stubs::AdvancedEventSelectors.default(visited),
+          event_selectors: EventSelectors.default(visited),
+          advanced_event_selectors: AdvancedEventSelectors.default(visited),
         }
       end
 
@@ -1285,7 +1285,7 @@ module AWS::SDK::CloudTrail
       def self.default(visited=[])
         {
           trail_arn: 'trail_arn',
-          insight_selectors: Stubs::InsightSelectors.default(visited),
+          insight_selectors: InsightSelectors.default(visited),
         }
       end
 
@@ -1319,7 +1319,7 @@ module AWS::SDK::CloudTrail
           event_data_store_arn: 'event_data_store_arn',
           name: 'name',
           status: 'status',
-          advanced_event_selectors: Stubs::AdvancedEventSelectors.default(visited),
+          advanced_event_selectors: AdvancedEventSelectors.default(visited),
           multi_region_enabled: false,
           organization_enabled: false,
           retention_period: 1,
@@ -1397,7 +1397,7 @@ module AWS::SDK::CloudTrail
           event_data_store_arn: 'event_data_store_arn',
           name: 'name',
           status: 'status',
-          advanced_event_selectors: Stubs::AdvancedEventSelectors.default(visited),
+          advanced_event_selectors: AdvancedEventSelectors.default(visited),
           multi_region_enabled: false,
           organization_enabled: false,
           retention_period: 1,

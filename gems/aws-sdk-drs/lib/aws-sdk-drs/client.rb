@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Drs
@@ -131,7 +133,7 @@ module AWS::SDK::Drs
     def create_extended_source_server(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateExtendedSourceServerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateExtendedSourceServerInput,
         validate_input: @config.validate_input
@@ -286,7 +288,7 @@ module AWS::SDK::Drs
     def create_replication_configuration_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateReplicationConfigurationTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateReplicationConfigurationTemplateInput,
         validate_input: @config.validate_input
@@ -354,7 +356,7 @@ module AWS::SDK::Drs
     def delete_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteJobInput,
         validate_input: @config.validate_input
@@ -422,7 +424,7 @@ module AWS::SDK::Drs
     def delete_recovery_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRecoveryInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRecoveryInstanceInput,
         validate_input: @config.validate_input
@@ -490,7 +492,7 @@ module AWS::SDK::Drs
     def delete_replication_configuration_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteReplicationConfigurationTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteReplicationConfigurationTemplateInput,
         validate_input: @config.validate_input
@@ -558,7 +560,7 @@ module AWS::SDK::Drs
     def delete_source_server(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSourceServerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSourceServerInput,
         validate_input: @config.validate_input
@@ -653,7 +655,7 @@ module AWS::SDK::Drs
     def describe_job_log_items(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeJobLogItemsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeJobLogItemsInput,
         validate_input: @config.validate_input
@@ -752,7 +754,7 @@ module AWS::SDK::Drs
     def describe_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeJobsInput,
         validate_input: @config.validate_input
@@ -903,7 +905,7 @@ module AWS::SDK::Drs
     def describe_recovery_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRecoveryInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRecoveryInstancesInput,
         validate_input: @config.validate_input
@@ -999,7 +1001,7 @@ module AWS::SDK::Drs
     def describe_recovery_snapshots(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRecoverySnapshotsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRecoverySnapshotsInput,
         validate_input: @config.validate_input
@@ -1104,7 +1106,7 @@ module AWS::SDK::Drs
     def describe_replication_configuration_templates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeReplicationConfigurationTemplatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeReplicationConfigurationTemplatesInput,
         validate_input: @config.validate_input
@@ -1258,7 +1260,7 @@ module AWS::SDK::Drs
     def describe_source_servers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSourceServersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSourceServersInput,
         validate_input: @config.validate_input
@@ -1326,7 +1328,7 @@ module AWS::SDK::Drs
     def disconnect_recovery_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisconnectRecoveryInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisconnectRecoveryInstanceInput,
         validate_input: @config.validate_input
@@ -1461,7 +1463,7 @@ module AWS::SDK::Drs
     def disconnect_source_server(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisconnectSourceServerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisconnectSourceServerInput,
         validate_input: @config.validate_input
@@ -1533,7 +1535,7 @@ module AWS::SDK::Drs
     def get_failback_replication_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFailbackReplicationConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFailbackReplicationConfigurationInput,
         validate_input: @config.validate_input
@@ -1610,7 +1612,7 @@ module AWS::SDK::Drs
     def get_launch_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLaunchConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLaunchConfigurationInput,
         validate_input: @config.validate_input
@@ -1708,7 +1710,7 @@ module AWS::SDK::Drs
     def get_replication_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetReplicationConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetReplicationConfigurationInput,
         validate_input: @config.validate_input
@@ -1771,7 +1773,7 @@ module AWS::SDK::Drs
     def initialize_service(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::InitializeServiceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::InitializeServiceInput,
         validate_input: @config.validate_input
@@ -1856,7 +1858,7 @@ module AWS::SDK::Drs
     def list_extensible_source_servers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListExtensibleSourceServersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListExtensibleSourceServersInput,
         validate_input: @config.validate_input
@@ -1932,7 +1934,7 @@ module AWS::SDK::Drs
     def list_staging_accounts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListStagingAccountsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListStagingAccountsInput,
         validate_input: @config.validate_input
@@ -2001,7 +2003,7 @@ module AWS::SDK::Drs
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2135,7 +2137,7 @@ module AWS::SDK::Drs
     def retry_data_replication(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RetryDataReplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RetryDataReplicationInput,
         validate_input: @config.validate_input
@@ -2226,7 +2228,7 @@ module AWS::SDK::Drs
     def start_failback_launch(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartFailbackLaunchInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartFailbackLaunchInput,
         validate_input: @config.validate_input
@@ -2324,7 +2326,7 @@ module AWS::SDK::Drs
     def start_recovery(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartRecoveryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartRecoveryInput,
         validate_input: @config.validate_input
@@ -2392,7 +2394,7 @@ module AWS::SDK::Drs
     def stop_failback(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopFailbackInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopFailbackInput,
         validate_input: @config.validate_input
@@ -2466,7 +2468,7 @@ module AWS::SDK::Drs
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2551,7 +2553,7 @@ module AWS::SDK::Drs
     def terminate_recovery_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TerminateRecoveryInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TerminateRecoveryInstancesInput,
         validate_input: @config.validate_input
@@ -2625,7 +2627,7 @@ module AWS::SDK::Drs
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2704,7 +2706,7 @@ module AWS::SDK::Drs
     def update_failback_replication_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFailbackReplicationConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFailbackReplicationConfigurationInput,
         validate_input: @config.validate_input
@@ -2807,7 +2809,7 @@ module AWS::SDK::Drs
     def update_launch_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateLaunchConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateLaunchConfigurationInput,
         validate_input: @config.validate_input
@@ -2985,7 +2987,7 @@ module AWS::SDK::Drs
     def update_replication_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateReplicationConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateReplicationConfigurationInput,
         validate_input: @config.validate_input
@@ -3145,7 +3147,7 @@ module AWS::SDK::Drs
     def update_replication_configuration_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateReplicationConfigurationTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateReplicationConfigurationTemplateInput,
         validate_input: @config.validate_input

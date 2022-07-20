@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Signer
@@ -95,7 +97,7 @@ module AWS::SDK::Signer
     def add_profile_permission(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddProfilePermissionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddProfilePermissionInput,
         validate_input: @config.validate_input
@@ -166,7 +168,7 @@ module AWS::SDK::Signer
     def cancel_signing_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelSigningProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelSigningProfileInput,
         validate_input: @config.validate_input
@@ -270,7 +272,7 @@ module AWS::SDK::Signer
     def describe_signing_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSigningJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSigningJobInput,
         validate_input: @config.validate_input
@@ -357,7 +359,7 @@ module AWS::SDK::Signer
     def get_signing_platform(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSigningPlatformInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSigningPlatformInput,
         validate_input: @config.validate_input
@@ -454,7 +456,7 @@ module AWS::SDK::Signer
     def get_signing_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSigningProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSigningProfileInput,
         validate_input: @config.validate_input
@@ -534,7 +536,7 @@ module AWS::SDK::Signer
     def list_profile_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListProfilePermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListProfilePermissionsInput,
         validate_input: @config.validate_input
@@ -674,7 +676,7 @@ module AWS::SDK::Signer
     def list_signing_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSigningJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSigningJobsInput,
         validate_input: @config.validate_input
@@ -788,7 +790,7 @@ module AWS::SDK::Signer
     def list_signing_platforms(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSigningPlatformsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSigningPlatformsInput,
         validate_input: @config.validate_input
@@ -904,7 +906,7 @@ module AWS::SDK::Signer
     def list_signing_profiles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSigningProfilesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSigningProfilesInput,
         validate_input: @config.validate_input
@@ -973,7 +975,7 @@ module AWS::SDK::Signer
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -1089,7 +1091,7 @@ module AWS::SDK::Signer
     def put_signing_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutSigningProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutSigningProfileInput,
         validate_input: @config.validate_input
@@ -1166,7 +1168,7 @@ module AWS::SDK::Signer
     def remove_profile_permission(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveProfilePermissionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveProfilePermissionInput,
         validate_input: @config.validate_input
@@ -1242,7 +1244,7 @@ module AWS::SDK::Signer
     def revoke_signature(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RevokeSignatureInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RevokeSignatureInput,
         validate_input: @config.validate_input
@@ -1326,7 +1328,7 @@ module AWS::SDK::Signer
     def revoke_signing_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RevokeSigningProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RevokeSigningProfileInput,
         validate_input: @config.validate_input
@@ -1453,7 +1455,7 @@ module AWS::SDK::Signer
     def start_signing_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartSigningJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartSigningJobInput,
         validate_input: @config.validate_input
@@ -1530,7 +1532,7 @@ module AWS::SDK::Signer
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -1605,7 +1607,7 @@ module AWS::SDK::Signer
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input

@@ -14,10 +14,10 @@ module AWS::SDK::MigrationHubStrategy
     class GetApplicationComponentDetails
       def self.default(visited=[])
         {
-          application_component_detail: Stubs::ApplicationComponentDetail.default(visited),
-          associated_applications: Stubs::AssociatedApplications.default(visited),
+          application_component_detail: ApplicationComponentDetail.default(visited),
+          associated_applications: AssociatedApplications.default(visited),
           more_application_resource: false,
-          associated_server_ids: Stubs::AssociatedServerIDs.default(visited),
+          associated_server_ids: AssociatedServerIDs.default(visited),
         }
       end
 
@@ -59,7 +59,7 @@ module AWS::SDK::MigrationHubStrategy
         return nil if visited.include?('AssociatedApplications')
         visited = visited + ['AssociatedApplications']
         [
-          Stubs::AssociatedApplication.default(visited)
+          AssociatedApplication.default(visited)
         ]
       end
 
@@ -101,16 +101,16 @@ module AWS::SDK::MigrationHubStrategy
         {
           id: 'id',
           name: 'name',
-          recommendation_set: Stubs::RecommendationSet.default(visited),
+          recommendation_set: RecommendationSet.default(visited),
           analysis_status: 'analysis_status',
           status_message: 'status_message',
-          list_antipattern_severity_summary: Stubs::ListAntipatternSeveritySummary.default(visited),
-          database_config_detail: Stubs::DatabaseConfigDetail.default(visited),
-          source_code_repositories: Stubs::SourceCodeRepositories.default(visited),
+          list_antipattern_severity_summary: ListAntipatternSeveritySummary.default(visited),
+          database_config_detail: DatabaseConfigDetail.default(visited),
+          source_code_repositories: SourceCodeRepositories.default(visited),
           app_type: 'app_type',
           resource_sub_type: 'resource_sub_type',
           inclusion_status: 'inclusion_status',
-          antipattern_report_s3_object: Stubs::S3Object.default(visited),
+          antipattern_report_s3_object: S3Object.default(visited),
           antipattern_report_status: 'antipattern_report_status',
           antipattern_report_status_message: 'antipattern_report_status_message',
           os_version: 'os_version',
@@ -173,7 +173,7 @@ module AWS::SDK::MigrationHubStrategy
         return nil if visited.include?('SourceCodeRepositories')
         visited = visited + ['SourceCodeRepositories']
         [
-          Stubs::SourceCodeRepository.default(visited)
+          SourceCodeRepository.default(visited)
         ]
       end
 
@@ -233,7 +233,7 @@ module AWS::SDK::MigrationHubStrategy
         return nil if visited.include?('ListAntipatternSeveritySummary')
         visited = visited + ['ListAntipatternSeveritySummary']
         [
-          Stubs::AntipatternSeveritySummary.default(visited)
+          AntipatternSeveritySummary.default(visited)
         ]
       end
 
@@ -273,7 +273,7 @@ module AWS::SDK::MigrationHubStrategy
         return nil if visited.include?('RecommendationSet')
         visited = visited + ['RecommendationSet']
         {
-          transformation_tool: Stubs::TransformationTool.default(visited),
+          transformation_tool: TransformationTool.default(visited),
           target_destination: 'target_destination',
           strategy: 'strategy',
         }
@@ -315,7 +315,7 @@ module AWS::SDK::MigrationHubStrategy
     class GetApplicationComponentStrategies
       def self.default(visited=[])
         {
-          application_component_strategies: Stubs::ApplicationComponentStrategies.default(visited),
+          application_component_strategies: ApplicationComponentStrategies.default(visited),
         }
       end
 
@@ -334,7 +334,7 @@ module AWS::SDK::MigrationHubStrategy
         return nil if visited.include?('ApplicationComponentStrategies')
         visited = visited + ['ApplicationComponentStrategies']
         [
-          Stubs::ApplicationComponentStrategy.default(visited)
+          ApplicationComponentStrategy.default(visited)
         ]
       end
 
@@ -354,7 +354,7 @@ module AWS::SDK::MigrationHubStrategy
         return nil if visited.include?('ApplicationComponentStrategy')
         visited = visited + ['ApplicationComponentStrategy']
         {
-          recommendation: Stubs::RecommendationSet.default(visited),
+          recommendation: RecommendationSet.default(visited),
           status: 'status',
           is_preferred: false,
         }
@@ -375,7 +375,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.default(visited=[])
         {
           id: 'id',
-          data_collection_details: Stubs::DataCollectionDetails.default(visited),
+          data_collection_details: DataCollectionDetails.default(visited),
         }
       end
 
@@ -460,9 +460,9 @@ module AWS::SDK::MigrationHubStrategy
     class GetPortfolioPreferences
       def self.default(visited=[])
         {
-          prioritize_business_goals: Stubs::PrioritizeBusinessGoals.default(visited),
-          application_preferences: Stubs::ApplicationPreferences.default(visited),
-          database_preferences: Stubs::DatabasePreferences.default(visited),
+          prioritize_business_goals: PrioritizeBusinessGoals.default(visited),
+          application_preferences: ApplicationPreferences.default(visited),
+          database_preferences: DatabasePreferences.default(visited),
         }
       end
 
@@ -484,7 +484,7 @@ module AWS::SDK::MigrationHubStrategy
         visited = visited + ['DatabasePreferences']
         {
           database_management_preference: 'database_management_preference',
-          database_migration_preference: Stubs::DatabaseMigrationPreference.default(visited),
+          database_migration_preference: DatabaseMigrationPreference.default(visited),
         }
       end
 
@@ -503,7 +503,7 @@ module AWS::SDK::MigrationHubStrategy
         return nil if visited.include?('DatabaseMigrationPreference')
         visited = visited + ['DatabaseMigrationPreference']
         {
-          heterogeneous: Stubs::Heterogeneous.default(visited),
+          heterogeneous: Heterogeneous.default(visited),
         }
       end
 
@@ -531,7 +531,7 @@ module AWS::SDK::MigrationHubStrategy
         return nil if visited.include?('NoDatabaseMigrationPreference')
         visited = visited + ['NoDatabaseMigrationPreference']
         {
-          target_database_engine: Stubs::TargetDatabaseEngines.default(visited),
+          target_database_engine: TargetDatabaseEngines.default(visited),
         }
       end
 
@@ -569,7 +569,7 @@ module AWS::SDK::MigrationHubStrategy
         return nil if visited.include?('Homogeneous')
         visited = visited + ['Homogeneous']
         {
-          target_database_engine: Stubs::HomogeneousTargetDatabaseEngines.default(visited),
+          target_database_engine: HomogeneousTargetDatabaseEngines.default(visited),
         }
       end
 
@@ -607,7 +607,7 @@ module AWS::SDK::MigrationHubStrategy
         return nil if visited.include?('Heterogeneous')
         visited = visited + ['Heterogeneous']
         {
-          target_database_engine: Stubs::HeterogeneousTargetDatabaseEngines.default(visited),
+          target_database_engine: HeterogeneousTargetDatabaseEngines.default(visited),
         }
       end
 
@@ -645,7 +645,7 @@ module AWS::SDK::MigrationHubStrategy
         return nil if visited.include?('ApplicationPreferences')
         visited = visited + ['ApplicationPreferences']
         {
-          management_preference: Stubs::ManagementPreference.default(visited),
+          management_preference: ManagementPreference.default(visited),
         }
       end
 
@@ -663,7 +663,7 @@ module AWS::SDK::MigrationHubStrategy
         return nil if visited.include?('ManagementPreference')
         visited = visited + ['ManagementPreference']
         {
-          aws_managed_resources: Stubs::AwsManagedResources.default(visited),
+          aws_managed_resources: AwsManagedResources.default(visited),
         }
       end
 
@@ -691,7 +691,7 @@ module AWS::SDK::MigrationHubStrategy
         return nil if visited.include?('NoManagementPreference')
         visited = visited + ['NoManagementPreference']
         {
-          target_destination: Stubs::NoPreferenceTargetDestinations.default(visited),
+          target_destination: NoPreferenceTargetDestinations.default(visited),
         }
       end
 
@@ -729,7 +729,7 @@ module AWS::SDK::MigrationHubStrategy
         return nil if visited.include?('SelfManageResources')
         visited = visited + ['SelfManageResources']
         {
-          target_destination: Stubs::SelfManageTargetDestinations.default(visited),
+          target_destination: SelfManageTargetDestinations.default(visited),
         }
       end
 
@@ -767,7 +767,7 @@ module AWS::SDK::MigrationHubStrategy
         return nil if visited.include?('AwsManagedResources')
         visited = visited + ['AwsManagedResources']
         {
-          target_destination: Stubs::AwsManagedTargetDestinations.default(visited),
+          target_destination: AwsManagedTargetDestinations.default(visited),
         }
       end
 
@@ -805,7 +805,7 @@ module AWS::SDK::MigrationHubStrategy
         return nil if visited.include?('PrioritizeBusinessGoals')
         visited = visited + ['PrioritizeBusinessGoals']
         {
-          business_goals: Stubs::BusinessGoals.default(visited),
+          business_goals: BusinessGoals.default(visited),
         }
       end
 
@@ -845,7 +845,7 @@ module AWS::SDK::MigrationHubStrategy
     class GetPortfolioSummary
       def self.default(visited=[])
         {
-          assessment_summary: Stubs::AssessmentSummary.default(visited),
+          assessment_summary: AssessmentSummary.default(visited),
         }
       end
 
@@ -864,12 +864,12 @@ module AWS::SDK::MigrationHubStrategy
         return nil if visited.include?('AssessmentSummary')
         visited = visited + ['AssessmentSummary']
         {
-          list_server_strategy_summary: Stubs::ListStrategySummary.default(visited),
-          list_application_component_strategy_summary: Stubs::ListStrategySummary.default(visited),
-          list_antipattern_severity_summary: Stubs::ListAntipatternSeveritySummary.default(visited),
-          list_application_component_summary: Stubs::ListApplicationComponentSummary.default(visited),
-          list_server_summary: Stubs::ListServerSummary.default(visited),
-          antipattern_report_s3_object: Stubs::S3Object.default(visited),
+          list_server_strategy_summary: ListStrategySummary.default(visited),
+          list_application_component_strategy_summary: ListStrategySummary.default(visited),
+          list_antipattern_severity_summary: ListAntipatternSeveritySummary.default(visited),
+          list_application_component_summary: ListApplicationComponentSummary.default(visited),
+          list_server_summary: ListServerSummary.default(visited),
+          antipattern_report_s3_object: S3Object.default(visited),
           antipattern_report_status: 'antipattern_report_status',
           antipattern_report_status_message: 'antipattern_report_status_message',
           last_analyzed_timestamp: Time.now,
@@ -898,7 +898,7 @@ module AWS::SDK::MigrationHubStrategy
         return nil if visited.include?('ListServerSummary')
         visited = visited + ['ListServerSummary']
         [
-          Stubs::ServerSummary.default(visited)
+          ServerSummary.default(visited)
         ]
       end
 
@@ -938,7 +938,7 @@ module AWS::SDK::MigrationHubStrategy
         return nil if visited.include?('ListApplicationComponentSummary')
         visited = visited + ['ListApplicationComponentSummary']
         [
-          Stubs::ApplicationComponentSummary.default(visited)
+          ApplicationComponentSummary.default(visited)
         ]
       end
 
@@ -978,7 +978,7 @@ module AWS::SDK::MigrationHubStrategy
         return nil if visited.include?('ListStrategySummary')
         visited = visited + ['ListStrategySummary']
         [
-          Stubs::StrategySummary.default(visited)
+          StrategySummary.default(visited)
         ]
       end
 
@@ -1017,7 +1017,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.default(visited=[])
         {
           id: 'id',
-          recommendation_report_details: Stubs::RecommendationReportDetails.default(visited),
+          recommendation_report_details: RecommendationReportDetails.default(visited),
         }
       end
 
@@ -1042,7 +1042,7 @@ module AWS::SDK::MigrationHubStrategy
           start_time: Time.now,
           completion_time: Time.now,
           s3_bucket: 's3_bucket',
-          s3_keys: Stubs::S3Keys.default(visited),
+          s3_keys: S3Keys.default(visited),
         }
       end
 
@@ -1084,8 +1084,8 @@ module AWS::SDK::MigrationHubStrategy
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          server_detail: Stubs::ServerDetail.default(visited),
-          associated_applications: Stubs::AssociatedApplications.default(visited),
+          server_detail: ServerDetail.default(visited),
+          associated_applications: AssociatedApplications.default(visited),
         }
       end
 
@@ -1108,13 +1108,13 @@ module AWS::SDK::MigrationHubStrategy
         {
           id: 'id',
           name: 'name',
-          recommendation_set: Stubs::RecommendationSet.default(visited),
+          recommendation_set: RecommendationSet.default(visited),
           data_collection_status: 'data_collection_status',
           status_message: 'status_message',
-          list_antipattern_severity_summary: Stubs::ListAntipatternSeveritySummary.default(visited),
-          system_info: Stubs::SystemInfo.default(visited),
-          application_component_strategy_summary: Stubs::ListStrategySummary.default(visited),
-          antipattern_report_s3_object: Stubs::S3Object.default(visited),
+          list_antipattern_severity_summary: ListAntipatternSeveritySummary.default(visited),
+          system_info: SystemInfo.default(visited),
+          application_component_strategy_summary: ListStrategySummary.default(visited),
+          antipattern_report_s3_object: S3Object.default(visited),
           antipattern_report_status: 'antipattern_report_status',
           antipattern_report_status_message: 'antipattern_report_status_message',
           server_type: 'server_type',
@@ -1148,9 +1148,9 @@ module AWS::SDK::MigrationHubStrategy
         return nil if visited.include?('SystemInfo')
         visited = visited + ['SystemInfo']
         {
-          os_info: Stubs::OSInfo.default(visited),
+          os_info: OSInfo.default(visited),
           file_system_type: 'file_system_type',
-          network_info_list: Stubs::NetworkInfoList.default(visited),
+          network_info_list: NetworkInfoList.default(visited),
           cpu_architecture: 'cpu_architecture',
         }
       end
@@ -1172,7 +1172,7 @@ module AWS::SDK::MigrationHubStrategy
         return nil if visited.include?('NetworkInfoList')
         visited = visited + ['NetworkInfoList']
         [
-          Stubs::NetworkInfo.default(visited)
+          NetworkInfo.default(visited)
         ]
       end
 
@@ -1234,7 +1234,7 @@ module AWS::SDK::MigrationHubStrategy
     class GetServerStrategies
       def self.default(visited=[])
         {
-          server_strategies: Stubs::ServerStrategies.default(visited),
+          server_strategies: ServerStrategies.default(visited),
         }
       end
 
@@ -1253,7 +1253,7 @@ module AWS::SDK::MigrationHubStrategy
         return nil if visited.include?('ServerStrategies')
         visited = visited + ['ServerStrategies']
         [
-          Stubs::ServerStrategy.default(visited)
+          ServerStrategy.default(visited)
         ]
       end
 
@@ -1273,7 +1273,7 @@ module AWS::SDK::MigrationHubStrategy
         return nil if visited.include?('ServerStrategy')
         visited = visited + ['ServerStrategy']
         {
-          recommendation: Stubs::RecommendationSet.default(visited),
+          recommendation: RecommendationSet.default(visited),
           status: 'status',
           number_of_application_components: 1,
           is_preferred: false,
@@ -1295,7 +1295,7 @@ module AWS::SDK::MigrationHubStrategy
     class ListApplicationComponents
       def self.default(visited=[])
         {
-          application_component_infos: Stubs::ApplicationComponentDetails.default(visited),
+          application_component_infos: ApplicationComponentDetails.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1316,7 +1316,7 @@ module AWS::SDK::MigrationHubStrategy
         return nil if visited.include?('ApplicationComponentDetails')
         visited = visited + ['ApplicationComponentDetails']
         [
-          Stubs::ApplicationComponentDetail.default(visited)
+          ApplicationComponentDetail.default(visited)
         ]
       end
 
@@ -1334,7 +1334,7 @@ module AWS::SDK::MigrationHubStrategy
     class ListCollectors
       def self.default(visited=[])
         {
-          collectors: Stubs::Collectors.default(visited),
+          collectors: Collectors.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1355,7 +1355,7 @@ module AWS::SDK::MigrationHubStrategy
         return nil if visited.include?('Collectors')
         visited = visited + ['Collectors']
         [
-          Stubs::Collector.default(visited)
+          Collector.default(visited)
         ]
       end
 
@@ -1403,7 +1403,7 @@ module AWS::SDK::MigrationHubStrategy
     class ListImportFileTask
       def self.default(visited=[])
         {
-          task_infos: Stubs::ListImportFileTaskInformation.default(visited),
+          task_infos: ListImportFileTaskInformation.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1424,7 +1424,7 @@ module AWS::SDK::MigrationHubStrategy
         return nil if visited.include?('ListImportFileTaskInformation')
         visited = visited + ['ListImportFileTaskInformation']
         [
-          Stubs::ImportFileTaskInformation.default(visited)
+          ImportFileTaskInformation.default(visited)
         ]
       end
 
@@ -1480,7 +1480,7 @@ module AWS::SDK::MigrationHubStrategy
     class ListServers
       def self.default(visited=[])
         {
-          server_infos: Stubs::ServerDetails.default(visited),
+          server_infos: ServerDetails.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1501,7 +1501,7 @@ module AWS::SDK::MigrationHubStrategy
         return nil if visited.include?('ServerDetails')
         visited = visited + ['ServerDetails']
         [
-          Stubs::ServerDetail.default(visited)
+          ServerDetail.default(visited)
         ]
       end
 

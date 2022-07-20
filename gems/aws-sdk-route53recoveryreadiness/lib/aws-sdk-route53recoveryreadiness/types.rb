@@ -487,11 +487,11 @@ module AWS::SDK::Route53RecoveryReadiness
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute last_audit_timestamp
@@ -588,11 +588,11 @@ module AWS::SDK::Route53RecoveryReadiness
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -691,11 +691,11 @@ module AWS::SDK::Route53RecoveryReadiness
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -746,11 +746,11 @@ module AWS::SDK::Route53RecoveryReadiness
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute messages
@@ -849,11 +849,11 @@ module AWS::SDK::Route53RecoveryReadiness
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -959,11 +959,11 @@ module AWS::SDK::Route53RecoveryReadiness
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute cells
@@ -1000,11 +1000,11 @@ module AWS::SDK::Route53RecoveryReadiness
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute cross_account_authorizations
@@ -1041,11 +1041,11 @@ module AWS::SDK::Route53RecoveryReadiness
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -1082,11 +1082,11 @@ module AWS::SDK::Route53RecoveryReadiness
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -1123,11 +1123,11 @@ module AWS::SDK::Route53RecoveryReadiness
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -1170,11 +1170,11 @@ module AWS::SDK::Route53RecoveryReadiness
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token

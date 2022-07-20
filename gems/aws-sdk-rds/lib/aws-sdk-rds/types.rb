@@ -143,12 +143,12 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.used ||= 0
         self.max ||= 0
       end
-
     end
 
     # Includes enum constants for ActivityStreamMode
@@ -863,12 +863,12 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.percent_progress ||= 0
         self.total_extracted_data_in_gb ||= 0
       end
-
     end
 
     # <p>A CA certificate for an Amazon Web Services account.</p>
@@ -1133,13 +1133,13 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_connections_percent ||= 0
         self.max_idle_connections_percent ||= 0
         self.connection_borrow_timeout ||= 0
       end
-
     end
 
     # @!attribute source_db_cluster_parameter_group_identifier
@@ -1945,6 +1945,7 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.supports_log_exports_to_cloudwatch_logs ||= false
@@ -1953,7 +1954,6 @@ module AWS::SDK::RDS
         self.supports_global_databases ||= false
         self.supports_babelfish ||= false
       end
-
     end
 
     # @!attribute db_cluster_identifier
@@ -4924,12 +4924,12 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.require_tls ||= false
         self.debug_logging ||= false
       end
-
     end
 
     # @!attribute db_proxy
@@ -5989,12 +5989,12 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.storage_encrypted ||= false
         self.auto_minor_version_upgrade ||= false
       end
-
     end
 
     # <p>The user already has a DB cluster with the given identifier.</p>
@@ -6257,11 +6257,11 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_cluster_writer ||= false
       end
-
     end
 
     # <p>
@@ -6604,6 +6604,7 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allocated_storage ||= 0
@@ -6612,7 +6613,6 @@ module AWS::SDK::RDS
         self.storage_encrypted ||= false
         self.iam_database_authentication_enabled ||= false
       end
-
     end
 
     # <p>The user already has a DB cluster snapshot with the given identifier.</p>
@@ -6878,6 +6878,7 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.supports_log_exports_to_cloudwatch_logs ||= false
@@ -6886,7 +6887,6 @@ module AWS::SDK::RDS
         self.supports_global_databases ||= false
         self.supports_babelfish ||= false
       end
-
     end
 
     # <p>Contains the details of an Amazon RDS DB instance.</p>
@@ -7491,6 +7491,7 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allocated_storage ||= 0
@@ -7504,7 +7505,6 @@ module AWS::SDK::RDS
         self.iam_database_authentication_enabled ||= false
         self.deletion_protection ||= false
       end
-
     end
 
     # <p>The user already has a DB instance with the given identifier.</p>
@@ -7714,6 +7714,7 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allocated_storage ||= 0
@@ -7721,7 +7722,6 @@ module AWS::SDK::RDS
         self.encrypted ||= false
         self.iam_database_authentication_enabled ||= false
       end
-
     end
 
     # <p>No automated backup for this DB instance was found.</p>
@@ -7897,11 +7897,11 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.normal ||= false
       end
-
     end
 
     # <p>
@@ -8158,13 +8158,13 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.require_tls ||= false
         self.idle_client_timeout ||= 0
         self.debug_logging ||= false
       end
-
     end
 
     # <p>The specified proxy name must be unique for all proxies owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
@@ -8267,11 +8267,11 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_default ||= false
       end
-
     end
 
     # <p>The specified DB proxy endpoint name must be unique for all DB proxy endpoints owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
@@ -8480,11 +8480,11 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
       end
-
     end
 
     # <p>The proxy is already associated with the specified RDS DB instance or Aurora DB cluster.</p>
@@ -8560,11 +8560,11 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_default ||= false
       end
-
     end
 
     # <p>The specified target group isn't available for a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
@@ -8947,6 +8947,7 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allocated_storage ||= 0
@@ -8955,7 +8956,6 @@ module AWS::SDK::RDS
         self.encrypted ||= false
         self.iam_database_authentication_enabled ||= false
       end
-
     end
 
     # <p>
@@ -9410,6 +9410,7 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.supports_log_exports_to_cloudwatch_logs ||= false
@@ -9418,7 +9419,6 @@ module AWS::SDK::RDS
         self.supports_global_databases ||= false
         self.supports_babelfish ||= false
       end
-
     end
 
     # @!attribute db_cluster_endpoint_identifier
@@ -9584,11 +9584,11 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.skip_final_snapshot ||= false
       end
-
     end
 
     # @!attribute db_cluster
@@ -9785,11 +9785,11 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.skip_final_snapshot ||= false
       end
-
     end
 
     # @!attribute db_instance
@@ -10707,12 +10707,12 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_shared ||= false
         self.include_public ||= false
       end
-
     end
 
     # <p>Provides a list of DB cluster snapshots for the user as the result of a call to the <code>DescribeDBClusterSnapshots</code> action.</p>
@@ -10817,11 +10817,11 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_shared ||= false
       end
-
     end
 
     # <p>Contains the result of a successful invocation of the <code>DescribeDBClusters</code> action.</p>
@@ -11077,11 +11077,11 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.default_only ||= false
       end
-
     end
 
     # <p>Contains the result of a successful invocation of the <code>DescribeDBEngineVersions</code> action.</p>
@@ -11339,12 +11339,12 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.last_written ||= 0
         self.size ||= 0
       end
-
     end
 
     # <p></p>
@@ -11401,12 +11401,12 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.file_last_written ||= 0
         self.file_size ||= 0
       end
-
     end
 
     # <p>The response from a call to <code>DescribeDBLogFiles</code>.</p>
@@ -12077,12 +12077,12 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_shared ||= false
         self.include_public ||= false
       end
-
     end
 
     # <p>Contains the result of a successful invocation of the <code>DescribeDBSnapshots</code> action.</p>
@@ -13774,12 +13774,12 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.from ||= 0
         self.to ||= 0
       end
-
     end
 
     # <p></p>
@@ -13842,11 +13842,11 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.number_of_lines ||= 0
       end
-
     end
 
     # <p>This data type is used as a response element to <code>DownloadDBLogFilePortion</code>.</p>
@@ -13873,11 +13873,11 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.additional_data_pending ||= false
       end
-
     end
 
     # <p>This data type is used as a response element in the following actions:</p>
@@ -13974,11 +13974,11 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
       end
-
     end
 
     # <p>Contains the result of a successful invocation of the <code>DescribeEngineDefaultParameters</code> action.</p>
@@ -14158,11 +14158,11 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>You have reached the maximum number of event subscriptions.</p>
@@ -14302,12 +14302,12 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.percent_progress ||= 0
         self.total_extracted_data_in_gb ||= 0
       end
-
     end
 
     # <p>You can't start an export task that's already running.</p>
@@ -14681,11 +14681,11 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_writer ||= false
       end
-
     end
 
     # <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster.</p>
@@ -15603,6 +15603,7 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.supports_log_exports_to_cloudwatch_logs ||= false
@@ -15611,7 +15612,6 @@ module AWS::SDK::RDS
         self.supports_global_databases ||= false
         self.supports_babelfish ||= false
       end
-
     end
 
     # @!attribute db_cluster_endpoint_identifier
@@ -16187,12 +16187,12 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.apply_immediately ||= false
         self.allow_major_version_upgrade ||= false
       end
-
     end
 
     # @!attribute db_cluster
@@ -17117,12 +17117,12 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.apply_immediately ||= false
         self.allow_major_version_upgrade ||= false
       end
-
     end
 
     # @!attribute db_instance
@@ -17714,11 +17714,11 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.apply_immediately ||= false
       end
-
     end
 
     # @!attribute option_group
@@ -17806,12 +17806,12 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.persistent ||= false
         self.permanent ||= false
       end
-
     end
 
     # <p>A list of all available options</p>
@@ -17918,11 +17918,11 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allows_vpc_and_non_vpc_instance_memberships ||= false
       end
-
     end
 
     # <p>The option group you are trying to create already exists.</p>
@@ -18085,6 +18085,7 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port_required ||= false
@@ -18093,7 +18094,6 @@ module AWS::SDK::RDS
         self.requires_auto_minor_engine_version_upgrade ||= false
         self.vpc_only ||= false
       end
-
     end
 
     # <p>Option group option settings are used to display settings available for each option with their default values and other information. These values are used with the DescribeOptionGroupOptions action.</p>
@@ -18150,12 +18150,12 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_modifiable ||= false
         self.is_required ||= false
       end
-
     end
 
     # <p>The quota of 20 option groups was exceeded for this Amazon Web Services account.</p>
@@ -18231,12 +18231,12 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_modifiable ||= false
         self.is_collection ||= false
       end
-
     end
 
     # <p>The version for an option. Option group option versions are returned by
@@ -18258,11 +18258,11 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_default ||= false
       end
-
     end
 
     # <p>Contains a list of available options for a DB instance.</p>
@@ -18467,6 +18467,7 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.multi_az_capable ||= false
@@ -18481,7 +18482,6 @@ module AWS::SDK::RDS
         self.supports_global_databases ||= false
         self.supports_clusters ||= false
       end
-
     end
 
     # <p>A data type that represents an Outpost.</p>
@@ -18580,11 +18580,11 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_modifiable ||= false
       end
-
     end
 
     # <p>A list of the log types whose configuration is still pending. In other words, these log types are in the process of being activated or deactivated.</p>
@@ -19127,12 +19127,12 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.from ||= 0
         self.to ||= 0
       end
-
     end
 
     # @!attribute db_cluster_identifier
@@ -19245,11 +19245,11 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.recurring_charge_amount ||= 0
       end
-
     end
 
     # @!attribute db_proxy_name
@@ -19573,6 +19573,7 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.duration ||= 0
@@ -19581,7 +19582,6 @@ module AWS::SDK::RDS
         self.db_instance_count ||= 0
         self.multi_az ||= false
       end
-
     end
 
     # <p>User already has a reservation with the given identifier.</p>
@@ -19689,6 +19689,7 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.duration ||= 0
@@ -19696,7 +19697,6 @@ module AWS::SDK::RDS
         self.usage_price ||= 0
         self.multi_az ||= false
       end
-
     end
 
     # <p>Specified offering does not exist.</p>
@@ -19739,11 +19739,11 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.reset_all_parameters ||= false
       end
-
     end
 
     # <p></p>
@@ -19831,11 +19831,11 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.reset_all_parameters ||= false
       end
-
     end
 
     # <p>Contains the result of a successful invocation of the
@@ -21045,11 +21045,11 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.use_latest_restorable_time ||= false
       end
-
     end
 
     # @!attribute db_cluster
@@ -22502,11 +22502,11 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.use_latest_restorable_time ||= false
       end
-
     end
 
     # @!attribute db_instance
@@ -22898,11 +22898,11 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.supports_db_instance_automated_backups_replication ||= false
       end
-
     end
 
     # Includes enum constants for SourceType
@@ -23030,11 +23030,11 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.apply_immediately ||= false
       end
-
     end
 
     # @!attribute db_cluster_identifier
@@ -23389,12 +23389,12 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.percent_progress ||= 0
         self.total_extracted_data_in_gb ||= 0
       end
-
     end
 
     # @!attribute resource_arn
@@ -23872,12 +23872,12 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_upgrade ||= false
         self.is_major_version_upgrade ||= false
       end
-
     end
 
     # <p>Specifies the details of authentication used by a proxy to log in as a specific database user.</p>
@@ -24033,11 +24033,11 @@ module AWS::SDK::RDS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.supports_storage_autoscaling ||= false
       end
-
     end
 
     # <p>This data type is used as a response element for queries on VPC security group membership.</p>

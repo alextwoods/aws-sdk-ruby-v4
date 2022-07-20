@@ -78,7 +78,7 @@ module AWS::SDK::Route53RecoveryCluster
     class ListRoutingControlsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRoutingControlsOutput, context: context)
-        Validators::RoutingControls.validate!(input[:routing_controls], context: "#{context}[:routing_controls]") unless input[:routing_controls].nil?
+        RoutingControls.validate!(input[:routing_controls], context: "#{context}[:routing_controls]") unless input[:routing_controls].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -107,7 +107,7 @@ module AWS::SDK::Route53RecoveryCluster
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RoutingControl.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RoutingControl.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -135,7 +135,7 @@ module AWS::SDK::Route53RecoveryCluster
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UpdateRoutingControlStateEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UpdateRoutingControlStateEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -153,7 +153,7 @@ module AWS::SDK::Route53RecoveryCluster
         Hearth::Validator.validate!(input, Types::UpdateRoutingControlStateInput, context: context)
         Hearth::Validator.validate!(input[:routing_control_arn], ::String, context: "#{context}[:routing_control_arn]")
         Hearth::Validator.validate!(input[:routing_control_state], ::String, context: "#{context}[:routing_control_state]")
-        Validators::Arns.validate!(input[:safety_rules_to_override], context: "#{context}[:safety_rules_to_override]") unless input[:safety_rules_to_override].nil?
+        Arns.validate!(input[:safety_rules_to_override], context: "#{context}[:safety_rules_to_override]") unless input[:safety_rules_to_override].nil?
       end
     end
 
@@ -166,8 +166,8 @@ module AWS::SDK::Route53RecoveryCluster
     class UpdateRoutingControlStatesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateRoutingControlStatesInput, context: context)
-        Validators::UpdateRoutingControlStateEntries.validate!(input[:update_routing_control_state_entries], context: "#{context}[:update_routing_control_state_entries]") unless input[:update_routing_control_state_entries].nil?
-        Validators::Arns.validate!(input[:safety_rules_to_override], context: "#{context}[:safety_rules_to_override]") unless input[:safety_rules_to_override].nil?
+        UpdateRoutingControlStateEntries.validate!(input[:update_routing_control_state_entries], context: "#{context}[:update_routing_control_state_entries]") unless input[:update_routing_control_state_entries].nil?
+        Arns.validate!(input[:safety_rules_to_override], context: "#{context}[:safety_rules_to_override]") unless input[:safety_rules_to_override].nil?
       end
     end
 
@@ -182,7 +182,7 @@ module AWS::SDK::Route53RecoveryCluster
         Hearth::Validator.validate!(input, Types::ValidationException, context: context)
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:reason], ::String, context: "#{context}[:reason]")
-        Validators::ValidationExceptionFieldList.validate!(input[:fields], context: "#{context}[:fields]") unless input[:fields].nil?
+        ValidationExceptionFieldList.validate!(input[:fields], context: "#{context}[:fields]") unless input[:fields].nil?
       end
     end
 
@@ -198,7 +198,7 @@ module AWS::SDK::Route53RecoveryCluster
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ValidationExceptionField.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ValidationExceptionField.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

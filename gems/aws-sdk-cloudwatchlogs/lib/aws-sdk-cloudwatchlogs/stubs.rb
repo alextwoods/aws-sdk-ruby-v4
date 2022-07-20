@@ -200,7 +200,7 @@ module AWS::SDK::CloudWatchLogs
     class DescribeDestinations
       def self.default(visited=[])
         {
-          destinations: Stubs::Destinations.default(visited),
+          destinations: Destinations.default(visited),
           next_token: 'next_token',
         }
       end
@@ -220,7 +220,7 @@ module AWS::SDK::CloudWatchLogs
         return nil if visited.include?('Destinations')
         visited = visited + ['Destinations']
         [
-          Stubs::Destination.default(visited)
+          Destination.default(visited)
         ]
       end
 
@@ -266,7 +266,7 @@ module AWS::SDK::CloudWatchLogs
     class DescribeExportTasks
       def self.default(visited=[])
         {
-          export_tasks: Stubs::ExportTasks.default(visited),
+          export_tasks: ExportTasks.default(visited),
           next_token: 'next_token',
         }
       end
@@ -286,7 +286,7 @@ module AWS::SDK::CloudWatchLogs
         return nil if visited.include?('ExportTasks')
         visited = visited + ['ExportTasks']
         [
-          Stubs::ExportTask.default(visited)
+          ExportTask.default(visited)
         ]
       end
 
@@ -313,8 +313,8 @@ module AWS::SDK::CloudWatchLogs
           to: 1,
           destination: 'destination',
           destination_prefix: 'destination_prefix',
-          status: Stubs::ExportTaskStatus.default(visited),
-          execution_info: Stubs::ExportTaskExecutionInfo.default(visited),
+          status: ExportTaskStatus.default(visited),
+          execution_info: ExportTaskExecutionInfo.default(visited),
         }
       end
 
@@ -378,7 +378,7 @@ module AWS::SDK::CloudWatchLogs
     class DescribeLogGroups
       def self.default(visited=[])
         {
-          log_groups: Stubs::LogGroups.default(visited),
+          log_groups: LogGroups.default(visited),
           next_token: 'next_token',
         }
       end
@@ -398,7 +398,7 @@ module AWS::SDK::CloudWatchLogs
         return nil if visited.include?('LogGroups')
         visited = visited + ['LogGroups']
         [
-          Stubs::LogGroup.default(visited)
+          LogGroup.default(visited)
         ]
       end
 
@@ -446,7 +446,7 @@ module AWS::SDK::CloudWatchLogs
     class DescribeLogStreams
       def self.default(visited=[])
         {
-          log_streams: Stubs::LogStreams.default(visited),
+          log_streams: LogStreams.default(visited),
           next_token: 'next_token',
         }
       end
@@ -466,7 +466,7 @@ module AWS::SDK::CloudWatchLogs
         return nil if visited.include?('LogStreams')
         visited = visited + ['LogStreams']
         [
-          Stubs::LogStream.default(visited)
+          LogStream.default(visited)
         ]
       end
 
@@ -516,7 +516,7 @@ module AWS::SDK::CloudWatchLogs
     class DescribeMetricFilters
       def self.default(visited=[])
         {
-          metric_filters: Stubs::MetricFilters.default(visited),
+          metric_filters: MetricFilters.default(visited),
           next_token: 'next_token',
         }
       end
@@ -536,7 +536,7 @@ module AWS::SDK::CloudWatchLogs
         return nil if visited.include?('MetricFilters')
         visited = visited + ['MetricFilters']
         [
-          Stubs::MetricFilter.default(visited)
+          MetricFilter.default(visited)
         ]
       end
 
@@ -558,7 +558,7 @@ module AWS::SDK::CloudWatchLogs
         {
           filter_name: 'filter_name',
           filter_pattern: 'filter_pattern',
-          metric_transformations: Stubs::MetricTransformations.default(visited),
+          metric_transformations: MetricTransformations.default(visited),
           creation_time: 1,
           log_group_name: 'log_group_name',
         }
@@ -582,7 +582,7 @@ module AWS::SDK::CloudWatchLogs
         return nil if visited.include?('MetricTransformations')
         visited = visited + ['MetricTransformations']
         [
-          Stubs::MetricTransformation.default(visited)
+          MetricTransformation.default(visited)
         ]
       end
 
@@ -606,7 +606,7 @@ module AWS::SDK::CloudWatchLogs
           metric_namespace: 'metric_namespace',
           metric_value: 'metric_value',
           default_value: 1.0,
-          dimensions: Stubs::Dimensions.default(visited),
+          dimensions: Dimensions.default(visited),
           unit: 'unit',
         }
       end
@@ -648,7 +648,7 @@ module AWS::SDK::CloudWatchLogs
     class DescribeQueries
       def self.default(visited=[])
         {
-          queries: Stubs::QueryInfoList.default(visited),
+          queries: QueryInfoList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -668,7 +668,7 @@ module AWS::SDK::CloudWatchLogs
         return nil if visited.include?('QueryInfoList')
         visited = visited + ['QueryInfoList']
         [
-          Stubs::QueryInfo.default(visited)
+          QueryInfo.default(visited)
         ]
       end
 
@@ -712,7 +712,7 @@ module AWS::SDK::CloudWatchLogs
     class DescribeQueryDefinitions
       def self.default(visited=[])
         {
-          query_definitions: Stubs::QueryDefinitionList.default(visited),
+          query_definitions: QueryDefinitionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -732,7 +732,7 @@ module AWS::SDK::CloudWatchLogs
         return nil if visited.include?('QueryDefinitionList')
         visited = visited + ['QueryDefinitionList']
         [
-          Stubs::QueryDefinition.default(visited)
+          QueryDefinition.default(visited)
         ]
       end
 
@@ -756,7 +756,7 @@ module AWS::SDK::CloudWatchLogs
           name: 'name',
           query_string: 'query_string',
           last_modified: 1,
-          log_group_names: Stubs::LogGroupNames.default(visited),
+          log_group_names: LogGroupNames.default(visited),
         }
       end
 
@@ -796,7 +796,7 @@ module AWS::SDK::CloudWatchLogs
     class DescribeResourcePolicies
       def self.default(visited=[])
         {
-          resource_policies: Stubs::ResourcePolicies.default(visited),
+          resource_policies: ResourcePolicies.default(visited),
           next_token: 'next_token',
         }
       end
@@ -816,7 +816,7 @@ module AWS::SDK::CloudWatchLogs
         return nil if visited.include?('ResourcePolicies')
         visited = visited + ['ResourcePolicies']
         [
-          Stubs::ResourcePolicy.default(visited)
+          ResourcePolicy.default(visited)
         ]
       end
 
@@ -856,7 +856,7 @@ module AWS::SDK::CloudWatchLogs
     class DescribeSubscriptionFilters
       def self.default(visited=[])
         {
-          subscription_filters: Stubs::SubscriptionFilters.default(visited),
+          subscription_filters: SubscriptionFilters.default(visited),
           next_token: 'next_token',
         }
       end
@@ -876,7 +876,7 @@ module AWS::SDK::CloudWatchLogs
         return nil if visited.include?('SubscriptionFilters')
         visited = visited + ['SubscriptionFilters']
         [
-          Stubs::SubscriptionFilter.default(visited)
+          SubscriptionFilter.default(visited)
         ]
       end
 
@@ -938,8 +938,8 @@ module AWS::SDK::CloudWatchLogs
     class FilterLogEvents
       def self.default(visited=[])
         {
-          events: Stubs::FilteredLogEvents.default(visited),
-          searched_log_streams: Stubs::SearchedLogStreams.default(visited),
+          events: FilteredLogEvents.default(visited),
+          searched_log_streams: SearchedLogStreams.default(visited),
           next_token: 'next_token',
         }
       end
@@ -960,7 +960,7 @@ module AWS::SDK::CloudWatchLogs
         return nil if visited.include?('SearchedLogStreams')
         visited = visited + ['SearchedLogStreams']
         [
-          Stubs::SearchedLogStream.default(visited)
+          SearchedLogStream.default(visited)
         ]
       end
 
@@ -1000,7 +1000,7 @@ module AWS::SDK::CloudWatchLogs
         return nil if visited.include?('FilteredLogEvents')
         visited = visited + ['FilteredLogEvents']
         [
-          Stubs::FilteredLogEvent.default(visited)
+          FilteredLogEvent.default(visited)
         ]
       end
 
@@ -1044,7 +1044,7 @@ module AWS::SDK::CloudWatchLogs
     class GetLogEvents
       def self.default(visited=[])
         {
-          events: Stubs::OutputLogEvents.default(visited),
+          events: OutputLogEvents.default(visited),
           next_forward_token: 'next_forward_token',
           next_backward_token: 'next_backward_token',
         }
@@ -1066,7 +1066,7 @@ module AWS::SDK::CloudWatchLogs
         return nil if visited.include?('OutputLogEvents')
         visited = visited + ['OutputLogEvents']
         [
-          Stubs::OutputLogEvent.default(visited)
+          OutputLogEvent.default(visited)
         ]
       end
 
@@ -1106,7 +1106,7 @@ module AWS::SDK::CloudWatchLogs
     class GetLogGroupFields
       def self.default(visited=[])
         {
-          log_group_fields: Stubs::LogGroupFieldList.default(visited),
+          log_group_fields: LogGroupFieldList.default(visited),
         }
       end
 
@@ -1124,7 +1124,7 @@ module AWS::SDK::CloudWatchLogs
         return nil if visited.include?('LogGroupFieldList')
         visited = visited + ['LogGroupFieldList']
         [
-          Stubs::LogGroupField.default(visited)
+          LogGroupField.default(visited)
         ]
       end
 
@@ -1162,7 +1162,7 @@ module AWS::SDK::CloudWatchLogs
     class GetLogRecord
       def self.default(visited=[])
         {
-          log_record: Stubs::LogRecord.default(visited),
+          log_record: LogRecord.default(visited),
         }
       end
 
@@ -1198,8 +1198,8 @@ module AWS::SDK::CloudWatchLogs
     class GetQueryResults
       def self.default(visited=[])
         {
-          results: Stubs::QueryResults.default(visited),
-          statistics: Stubs::QueryStatistics.default(visited),
+          results: QueryResults.default(visited),
+          statistics: QueryStatistics.default(visited),
           status: 'status',
         }
       end
@@ -1242,7 +1242,7 @@ module AWS::SDK::CloudWatchLogs
         return nil if visited.include?('QueryResults')
         visited = visited + ['QueryResults']
         [
-          Stubs::ResultRows.default(visited)
+          ResultRows.default(visited)
         ]
       end
 
@@ -1262,7 +1262,7 @@ module AWS::SDK::CloudWatchLogs
         return nil if visited.include?('ResultRows')
         visited = visited + ['ResultRows']
         [
-          Stubs::ResultField.default(visited)
+          ResultField.default(visited)
         ]
       end
 
@@ -1300,7 +1300,7 @@ module AWS::SDK::CloudWatchLogs
     class ListTagsLogGroup
       def self.default(visited=[])
         {
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -1336,7 +1336,7 @@ module AWS::SDK::CloudWatchLogs
     class PutDestination
       def self.default(visited=[])
         {
-          destination: Stubs::Destination.default(visited),
+          destination: Destination.default(visited),
         }
       end
 
@@ -1367,7 +1367,7 @@ module AWS::SDK::CloudWatchLogs
       def self.default(visited=[])
         {
           next_sequence_token: 'next_sequence_token',
-          rejected_log_events_info: Stubs::RejectedLogEventsInfo.default(visited),
+          rejected_log_events_info: RejectedLogEventsInfo.default(visited),
         }
       end
 
@@ -1436,7 +1436,7 @@ module AWS::SDK::CloudWatchLogs
     class PutResourcePolicy
       def self.default(visited=[])
         {
-          resource_policy: Stubs::ResourcePolicy.default(visited),
+          resource_policy: ResourcePolicy.default(visited),
         }
       end
 
@@ -1526,7 +1526,7 @@ module AWS::SDK::CloudWatchLogs
     class TestMetricFilter
       def self.default(visited=[])
         {
-          matches: Stubs::MetricFilterMatches.default(visited),
+          matches: MetricFilterMatches.default(visited),
         }
       end
 
@@ -1544,7 +1544,7 @@ module AWS::SDK::CloudWatchLogs
         return nil if visited.include?('MetricFilterMatches')
         visited = visited + ['MetricFilterMatches']
         [
-          Stubs::MetricFilterMatchRecord.default(visited)
+          MetricFilterMatchRecord.default(visited)
         ]
       end
 
@@ -1566,7 +1566,7 @@ module AWS::SDK::CloudWatchLogs
         {
           event_number: 1,
           event_message: 'event_message',
-          extracted_values: Stubs::ExtractedValues.default(visited),
+          extracted_values: ExtractedValues.default(visited),
         }
       end
 

@@ -30,7 +30,7 @@ module AWS::SDK::CodeDeploy
         {
           application_name: 'application_name',
           error_message: 'error_message',
-          revisions: Stubs::RevisionInfoList.default(visited),
+          revisions: RevisionInfoList.default(visited),
         }
       end
 
@@ -50,7 +50,7 @@ module AWS::SDK::CodeDeploy
         return nil if visited.include?('RevisionInfoList')
         visited = visited + ['RevisionInfoList']
         [
-          Stubs::RevisionInfo.default(visited)
+          RevisionInfo.default(visited)
         ]
       end
 
@@ -70,8 +70,8 @@ module AWS::SDK::CodeDeploy
         return nil if visited.include?('RevisionInfo')
         visited = visited + ['RevisionInfo']
         {
-          revision_location: Stubs::RevisionLocation.default(visited),
-          generic_revision_info: Stubs::GenericRevisionInfo.default(visited),
+          revision_location: RevisionLocation.default(visited),
+          generic_revision_info: GenericRevisionInfo.default(visited),
         }
       end
 
@@ -91,7 +91,7 @@ module AWS::SDK::CodeDeploy
         visited = visited + ['GenericRevisionInfo']
         {
           description: 'description',
-          deployment_groups: Stubs::DeploymentGroupsList.default(visited),
+          deployment_groups: DeploymentGroupsList.default(visited),
           first_used_time: Time.now,
           last_used_time: Time.now,
           register_time: Time.now,
@@ -137,10 +137,10 @@ module AWS::SDK::CodeDeploy
         visited = visited + ['RevisionLocation']
         {
           revision_type: 'revision_type',
-          s3_location: Stubs::S3Location.default(visited),
-          git_hub_location: Stubs::GitHubLocation.default(visited),
-          string: Stubs::RawString.default(visited),
-          app_spec_content: Stubs::AppSpecContent.default(visited),
+          s3_location: S3Location.default(visited),
+          git_hub_location: GitHubLocation.default(visited),
+          string: RawString.default(visited),
+          app_spec_content: AppSpecContent.default(visited),
         }
       end
 
@@ -246,7 +246,7 @@ module AWS::SDK::CodeDeploy
     class BatchGetApplications
       def self.default(visited=[])
         {
-          applications_info: Stubs::ApplicationsInfoList.default(visited),
+          applications_info: ApplicationsInfoList.default(visited),
         }
       end
 
@@ -264,7 +264,7 @@ module AWS::SDK::CodeDeploy
         return nil if visited.include?('ApplicationsInfoList')
         visited = visited + ['ApplicationsInfoList']
         [
-          Stubs::ApplicationInfo.default(visited)
+          ApplicationInfo.default(visited)
         ]
       end
 
@@ -310,7 +310,7 @@ module AWS::SDK::CodeDeploy
     class BatchGetDeploymentGroups
       def self.default(visited=[])
         {
-          deployment_groups_info: Stubs::DeploymentGroupInfoList.default(visited),
+          deployment_groups_info: DeploymentGroupInfoList.default(visited),
           error_message: 'error_message',
         }
       end
@@ -330,7 +330,7 @@ module AWS::SDK::CodeDeploy
         return nil if visited.include?('DeploymentGroupInfoList')
         visited = visited + ['DeploymentGroupInfoList']
         [
-          Stubs::DeploymentGroupInfo.default(visited)
+          DeploymentGroupInfo.default(visited)
         ]
       end
 
@@ -354,24 +354,24 @@ module AWS::SDK::CodeDeploy
           deployment_group_id: 'deployment_group_id',
           deployment_group_name: 'deployment_group_name',
           deployment_config_name: 'deployment_config_name',
-          ec2_tag_filters: Stubs::EC2TagFilterList.default(visited),
-          on_premises_instance_tag_filters: Stubs::TagFilterList.default(visited),
-          auto_scaling_groups: Stubs::AutoScalingGroupList.default(visited),
+          ec2_tag_filters: EC2TagFilterList.default(visited),
+          on_premises_instance_tag_filters: TagFilterList.default(visited),
+          auto_scaling_groups: AutoScalingGroupList.default(visited),
           service_role_arn: 'service_role_arn',
-          target_revision: Stubs::RevisionLocation.default(visited),
-          trigger_configurations: Stubs::TriggerConfigList.default(visited),
-          alarm_configuration: Stubs::AlarmConfiguration.default(visited),
-          auto_rollback_configuration: Stubs::AutoRollbackConfiguration.default(visited),
-          deployment_style: Stubs::DeploymentStyle.default(visited),
+          target_revision: RevisionLocation.default(visited),
+          trigger_configurations: TriggerConfigList.default(visited),
+          alarm_configuration: AlarmConfiguration.default(visited),
+          auto_rollback_configuration: AutoRollbackConfiguration.default(visited),
+          deployment_style: DeploymentStyle.default(visited),
           outdated_instances_strategy: 'outdated_instances_strategy',
-          blue_green_deployment_configuration: Stubs::BlueGreenDeploymentConfiguration.default(visited),
-          load_balancer_info: Stubs::LoadBalancerInfo.default(visited),
-          last_successful_deployment: Stubs::LastDeploymentInfo.default(visited),
-          last_attempted_deployment: Stubs::LastDeploymentInfo.default(visited),
-          ec2_tag_set: Stubs::EC2TagSet.default(visited),
-          on_premises_tag_set: Stubs::OnPremisesTagSet.default(visited),
+          blue_green_deployment_configuration: BlueGreenDeploymentConfiguration.default(visited),
+          load_balancer_info: LoadBalancerInfo.default(visited),
+          last_successful_deployment: LastDeploymentInfo.default(visited),
+          last_attempted_deployment: LastDeploymentInfo.default(visited),
+          ec2_tag_set: EC2TagSet.default(visited),
+          on_premises_tag_set: OnPremisesTagSet.default(visited),
           compute_platform: 'compute_platform',
-          ecs_services: Stubs::ECSServiceList.default(visited),
+          ecs_services: ECSServiceList.default(visited),
         }
       end
 
@@ -410,7 +410,7 @@ module AWS::SDK::CodeDeploy
         return nil if visited.include?('ECSServiceList')
         visited = visited + ['ECSServiceList']
         [
-          Stubs::ECSService.default(visited)
+          ECSService.default(visited)
         ]
       end
 
@@ -450,7 +450,7 @@ module AWS::SDK::CodeDeploy
         return nil if visited.include?('OnPremisesTagSet')
         visited = visited + ['OnPremisesTagSet']
         {
-          on_premises_tag_set_list: Stubs::OnPremisesTagSetList.default(visited),
+          on_premises_tag_set_list: OnPremisesTagSetList.default(visited),
         }
       end
 
@@ -468,7 +468,7 @@ module AWS::SDK::CodeDeploy
         return nil if visited.include?('OnPremisesTagSetList')
         visited = visited + ['OnPremisesTagSetList']
         [
-          Stubs::TagFilterList.default(visited)
+          TagFilterList.default(visited)
         ]
       end
 
@@ -488,7 +488,7 @@ module AWS::SDK::CodeDeploy
         return nil if visited.include?('TagFilterList')
         visited = visited + ['TagFilterList']
         [
-          Stubs::TagFilter.default(visited)
+          TagFilter.default(visited)
         ]
       end
 
@@ -530,7 +530,7 @@ module AWS::SDK::CodeDeploy
         return nil if visited.include?('EC2TagSet')
         visited = visited + ['EC2TagSet']
         {
-          ec2_tag_set_list: Stubs::EC2TagSetList.default(visited),
+          ec2_tag_set_list: EC2TagSetList.default(visited),
         }
       end
 
@@ -548,7 +548,7 @@ module AWS::SDK::CodeDeploy
         return nil if visited.include?('EC2TagSetList')
         visited = visited + ['EC2TagSetList']
         [
-          Stubs::EC2TagFilterList.default(visited)
+          EC2TagFilterList.default(visited)
         ]
       end
 
@@ -568,7 +568,7 @@ module AWS::SDK::CodeDeploy
         return nil if visited.include?('EC2TagFilterList')
         visited = visited + ['EC2TagFilterList']
         [
-          Stubs::EC2TagFilter.default(visited)
+          EC2TagFilter.default(visited)
         ]
       end
 
@@ -634,9 +634,9 @@ module AWS::SDK::CodeDeploy
         return nil if visited.include?('LoadBalancerInfo')
         visited = visited + ['LoadBalancerInfo']
         {
-          elb_info_list: Stubs::ELBInfoList.default(visited),
-          target_group_info_list: Stubs::TargetGroupInfoList.default(visited),
-          target_group_pair_info_list: Stubs::TargetGroupPairInfoList.default(visited),
+          elb_info_list: ELBInfoList.default(visited),
+          target_group_info_list: TargetGroupInfoList.default(visited),
+          target_group_pair_info_list: TargetGroupPairInfoList.default(visited),
         }
       end
 
@@ -656,7 +656,7 @@ module AWS::SDK::CodeDeploy
         return nil if visited.include?('TargetGroupPairInfoList')
         visited = visited + ['TargetGroupPairInfoList']
         [
-          Stubs::TargetGroupPairInfo.default(visited)
+          TargetGroupPairInfo.default(visited)
         ]
       end
 
@@ -676,9 +676,9 @@ module AWS::SDK::CodeDeploy
         return nil if visited.include?('TargetGroupPairInfo')
         visited = visited + ['TargetGroupPairInfo']
         {
-          target_groups: Stubs::TargetGroupInfoList.default(visited),
-          prod_traffic_route: Stubs::TrafficRoute.default(visited),
-          test_traffic_route: Stubs::TrafficRoute.default(visited),
+          target_groups: TargetGroupInfoList.default(visited),
+          prod_traffic_route: TrafficRoute.default(visited),
+          test_traffic_route: TrafficRoute.default(visited),
         }
       end
 
@@ -698,7 +698,7 @@ module AWS::SDK::CodeDeploy
         return nil if visited.include?('TrafficRoute')
         visited = visited + ['TrafficRoute']
         {
-          listener_arns: Stubs::ListenerArnList.default(visited),
+          listener_arns: ListenerArnList.default(visited),
         }
       end
 
@@ -736,7 +736,7 @@ module AWS::SDK::CodeDeploy
         return nil if visited.include?('TargetGroupInfoList')
         visited = visited + ['TargetGroupInfoList']
         [
-          Stubs::TargetGroupInfo.default(visited)
+          TargetGroupInfo.default(visited)
         ]
       end
 
@@ -774,7 +774,7 @@ module AWS::SDK::CodeDeploy
         return nil if visited.include?('ELBInfoList')
         visited = visited + ['ELBInfoList']
         [
-          Stubs::ELBInfo.default(visited)
+          ELBInfo.default(visited)
         ]
       end
 
@@ -812,9 +812,9 @@ module AWS::SDK::CodeDeploy
         return nil if visited.include?('BlueGreenDeploymentConfiguration')
         visited = visited + ['BlueGreenDeploymentConfiguration']
         {
-          terminate_blue_instances_on_deployment_success: Stubs::BlueInstanceTerminationOption.default(visited),
-          deployment_ready_option: Stubs::DeploymentReadyOption.default(visited),
-          green_fleet_provisioning_option: Stubs::GreenFleetProvisioningOption.default(visited),
+          terminate_blue_instances_on_deployment_success: BlueInstanceTerminationOption.default(visited),
+          deployment_ready_option: DeploymentReadyOption.default(visited),
+          green_fleet_provisioning_option: GreenFleetProvisioningOption.default(visited),
         }
       end
 
@@ -913,7 +913,7 @@ module AWS::SDK::CodeDeploy
         visited = visited + ['AutoRollbackConfiguration']
         {
           enabled: false,
-          events: Stubs::AutoRollbackEventsList.default(visited),
+          events: AutoRollbackEventsList.default(visited),
         }
       end
 
@@ -954,7 +954,7 @@ module AWS::SDK::CodeDeploy
         {
           enabled: false,
           ignore_poll_alarm_failure: false,
-          alarms: Stubs::AlarmList.default(visited),
+          alarms: AlarmList.default(visited),
         }
       end
 
@@ -974,7 +974,7 @@ module AWS::SDK::CodeDeploy
         return nil if visited.include?('AlarmList')
         visited = visited + ['AlarmList']
         [
-          Stubs::Alarm.default(visited)
+          Alarm.default(visited)
         ]
       end
 
@@ -1012,7 +1012,7 @@ module AWS::SDK::CodeDeploy
         return nil if visited.include?('TriggerConfigList')
         visited = visited + ['TriggerConfigList']
         [
-          Stubs::TriggerConfig.default(visited)
+          TriggerConfig.default(visited)
         ]
       end
 
@@ -1034,7 +1034,7 @@ module AWS::SDK::CodeDeploy
         {
           trigger_name: 'trigger_name',
           trigger_target_arn: 'trigger_target_arn',
-          trigger_events: Stubs::TriggerEventTypeList.default(visited),
+          trigger_events: TriggerEventTypeList.default(visited),
         }
       end
 
@@ -1074,7 +1074,7 @@ module AWS::SDK::CodeDeploy
         return nil if visited.include?('AutoScalingGroupList')
         visited = visited + ['AutoScalingGroupList']
         [
-          Stubs::AutoScalingGroup.default(visited)
+          AutoScalingGroup.default(visited)
         ]
       end
 
@@ -1112,7 +1112,7 @@ module AWS::SDK::CodeDeploy
     class BatchGetDeploymentInstances
       def self.default(visited=[])
         {
-          instances_summary: Stubs::InstanceSummaryList.default(visited),
+          instances_summary: InstanceSummaryList.default(visited),
           error_message: 'error_message',
         }
       end
@@ -1132,7 +1132,7 @@ module AWS::SDK::CodeDeploy
         return nil if visited.include?('InstanceSummaryList')
         visited = visited + ['InstanceSummaryList']
         [
-          Stubs::InstanceSummary.default(visited)
+          InstanceSummary.default(visited)
         ]
       end
 
@@ -1156,7 +1156,7 @@ module AWS::SDK::CodeDeploy
           instance_id: 'instance_id',
           status: 'status',
           last_updated_at: Time.now,
-          lifecycle_events: Stubs::LifecycleEventList.default(visited),
+          lifecycle_events: LifecycleEventList.default(visited),
           instance_type: 'instance_type',
         }
       end
@@ -1180,7 +1180,7 @@ module AWS::SDK::CodeDeploy
         return nil if visited.include?('LifecycleEventList')
         visited = visited + ['LifecycleEventList']
         [
-          Stubs::LifecycleEvent.default(visited)
+          LifecycleEvent.default(visited)
         ]
       end
 
@@ -1201,7 +1201,7 @@ module AWS::SDK::CodeDeploy
         visited = visited + ['LifecycleEvent']
         {
           lifecycle_event_name: 'lifecycle_event_name',
-          diagnostics: Stubs::Diagnostics.default(visited),
+          diagnostics: Diagnostics.default(visited),
           start_time: Time.now,
           end_time: Time.now,
           status: 'status',
@@ -1248,7 +1248,7 @@ module AWS::SDK::CodeDeploy
     class BatchGetDeploymentTargets
       def self.default(visited=[])
         {
-          deployment_targets: Stubs::DeploymentTargetList.default(visited),
+          deployment_targets: DeploymentTargetList.default(visited),
         }
       end
 
@@ -1266,7 +1266,7 @@ module AWS::SDK::CodeDeploy
         return nil if visited.include?('DeploymentTargetList')
         visited = visited + ['DeploymentTargetList']
         [
-          Stubs::DeploymentTarget.default(visited)
+          DeploymentTarget.default(visited)
         ]
       end
 
@@ -1287,10 +1287,10 @@ module AWS::SDK::CodeDeploy
         visited = visited + ['DeploymentTarget']
         {
           deployment_target_type: 'deployment_target_type',
-          instance_target: Stubs::InstanceTarget.default(visited),
-          lambda_target: Stubs::LambdaTarget.default(visited),
-          ecs_target: Stubs::ECSTarget.default(visited),
-          cloud_formation_target: Stubs::CloudFormationTarget.default(visited),
+          instance_target: InstanceTarget.default(visited),
+          lambda_target: LambdaTarget.default(visited),
+          ecs_target: ECSTarget.default(visited),
+          cloud_formation_target: CloudFormationTarget.default(visited),
         }
       end
 
@@ -1315,7 +1315,7 @@ module AWS::SDK::CodeDeploy
           deployment_id: 'deployment_id',
           target_id: 'target_id',
           last_updated_at: Time.now,
-          lifecycle_events: Stubs::LifecycleEventList.default(visited),
+          lifecycle_events: LifecycleEventList.default(visited),
           status: 'status',
           resource_type: 'resource_type',
           target_version_weight: 1.0,
@@ -1346,9 +1346,9 @@ module AWS::SDK::CodeDeploy
           target_id: 'target_id',
           target_arn: 'target_arn',
           last_updated_at: Time.now,
-          lifecycle_events: Stubs::LifecycleEventList.default(visited),
+          lifecycle_events: LifecycleEventList.default(visited),
           status: 'status',
-          task_sets_info: Stubs::ECSTaskSetList.default(visited),
+          task_sets_info: ECSTaskSetList.default(visited),
         }
       end
 
@@ -1372,7 +1372,7 @@ module AWS::SDK::CodeDeploy
         return nil if visited.include?('ECSTaskSetList')
         visited = visited + ['ECSTaskSetList']
         [
-          Stubs::ECSTaskSet.default(visited)
+          ECSTaskSet.default(visited)
         ]
       end
 
@@ -1398,7 +1398,7 @@ module AWS::SDK::CodeDeploy
           running_count: 1,
           status: 'status',
           traffic_weight: 1.0,
-          target_group: Stubs::TargetGroupInfo.default(visited),
+          target_group: TargetGroupInfo.default(visited),
           task_set_label: 'task_set_label',
         }
       end
@@ -1429,8 +1429,8 @@ module AWS::SDK::CodeDeploy
           target_arn: 'target_arn',
           status: 'status',
           last_updated_at: Time.now,
-          lifecycle_events: Stubs::LifecycleEventList.default(visited),
-          lambda_function_info: Stubs::LambdaFunctionInfo.default(visited),
+          lifecycle_events: LifecycleEventList.default(visited),
+          lambda_function_info: LambdaFunctionInfo.default(visited),
         }
       end
 
@@ -1485,7 +1485,7 @@ module AWS::SDK::CodeDeploy
           target_arn: 'target_arn',
           status: 'status',
           last_updated_at: Time.now,
-          lifecycle_events: Stubs::LifecycleEventList.default(visited),
+          lifecycle_events: LifecycleEventList.default(visited),
           instance_label: 'instance_label',
         }
       end
@@ -1508,7 +1508,7 @@ module AWS::SDK::CodeDeploy
     class BatchGetDeployments
       def self.default(visited=[])
         {
-          deployments_info: Stubs::DeploymentsInfoList.default(visited),
+          deployments_info: DeploymentsInfoList.default(visited),
         }
       end
 
@@ -1526,7 +1526,7 @@ module AWS::SDK::CodeDeploy
         return nil if visited.include?('DeploymentsInfoList')
         visited = visited + ['DeploymentsInfoList']
         [
-          Stubs::DeploymentInfo.default(visited)
+          DeploymentInfo.default(visited)
         ]
       end
 
@@ -1550,31 +1550,31 @@ module AWS::SDK::CodeDeploy
           deployment_group_name: 'deployment_group_name',
           deployment_config_name: 'deployment_config_name',
           deployment_id: 'deployment_id',
-          previous_revision: Stubs::RevisionLocation.default(visited),
-          revision: Stubs::RevisionLocation.default(visited),
+          previous_revision: RevisionLocation.default(visited),
+          revision: RevisionLocation.default(visited),
           status: 'status',
-          error_information: Stubs::ErrorInformation.default(visited),
+          error_information: ErrorInformation.default(visited),
           create_time: Time.now,
           start_time: Time.now,
           complete_time: Time.now,
-          deployment_overview: Stubs::DeploymentOverview.default(visited),
+          deployment_overview: DeploymentOverview.default(visited),
           description: 'description',
           creator: 'creator',
           ignore_application_stop_failures: false,
-          auto_rollback_configuration: Stubs::AutoRollbackConfiguration.default(visited),
+          auto_rollback_configuration: AutoRollbackConfiguration.default(visited),
           update_outdated_instances_only: false,
-          rollback_info: Stubs::RollbackInfo.default(visited),
-          deployment_style: Stubs::DeploymentStyle.default(visited),
-          target_instances: Stubs::TargetInstances.default(visited),
+          rollback_info: RollbackInfo.default(visited),
+          deployment_style: DeploymentStyle.default(visited),
+          target_instances: TargetInstances.default(visited),
           instance_termination_wait_time_started: false,
-          blue_green_deployment_configuration: Stubs::BlueGreenDeploymentConfiguration.default(visited),
-          load_balancer_info: Stubs::LoadBalancerInfo.default(visited),
+          blue_green_deployment_configuration: BlueGreenDeploymentConfiguration.default(visited),
+          load_balancer_info: LoadBalancerInfo.default(visited),
           additional_deployment_status_info: 'additional_deployment_status_info',
           file_exists_behavior: 'file_exists_behavior',
-          deployment_status_messages: Stubs::DeploymentStatusMessageList.default(visited),
+          deployment_status_messages: DeploymentStatusMessageList.default(visited),
           compute_platform: 'compute_platform',
           external_id: 'external_id',
-          related_deployments: Stubs::RelatedDeployments.default(visited),
+          related_deployments: RelatedDeployments.default(visited),
         }
       end
 
@@ -1621,7 +1621,7 @@ module AWS::SDK::CodeDeploy
         visited = visited + ['RelatedDeployments']
         {
           auto_update_outdated_instances_root_deployment_id: 'auto_update_outdated_instances_root_deployment_id',
-          auto_update_outdated_instances_deployment_ids: Stubs::DeploymentsList.default(visited),
+          auto_update_outdated_instances_deployment_ids: DeploymentsList.default(visited),
         }
       end
 
@@ -1680,9 +1680,9 @@ module AWS::SDK::CodeDeploy
         return nil if visited.include?('TargetInstances')
         visited = visited + ['TargetInstances']
         {
-          tag_filters: Stubs::EC2TagFilterList.default(visited),
-          auto_scaling_groups: Stubs::AutoScalingGroupNameList.default(visited),
-          ec2_tag_set: Stubs::EC2TagSet.default(visited),
+          tag_filters: EC2TagFilterList.default(visited),
+          auto_scaling_groups: AutoScalingGroupNameList.default(visited),
+          ec2_tag_set: EC2TagSet.default(visited),
         }
       end
 
@@ -1790,7 +1790,7 @@ module AWS::SDK::CodeDeploy
     class BatchGetOnPremisesInstances
       def self.default(visited=[])
         {
-          instance_infos: Stubs::InstanceInfoList.default(visited),
+          instance_infos: InstanceInfoList.default(visited),
         }
       end
 
@@ -1808,7 +1808,7 @@ module AWS::SDK::CodeDeploy
         return nil if visited.include?('InstanceInfoList')
         visited = visited + ['InstanceInfoList']
         [
-          Stubs::InstanceInfo.default(visited)
+          InstanceInfo.default(visited)
         ]
       end
 
@@ -1834,7 +1834,7 @@ module AWS::SDK::CodeDeploy
           instance_arn: 'instance_arn',
           register_time: Time.now,
           deregister_time: Time.now,
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -1858,7 +1858,7 @@ module AWS::SDK::CodeDeploy
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -2002,7 +2002,7 @@ module AWS::SDK::CodeDeploy
     class DeleteDeploymentGroup
       def self.default(visited=[])
         {
-          hooks_not_cleaned_up: Stubs::AutoScalingGroupList.default(visited),
+          hooks_not_cleaned_up: AutoScalingGroupList.default(visited),
         }
       end
 
@@ -2062,7 +2062,7 @@ module AWS::SDK::CodeDeploy
     class GetApplication
       def self.default(visited=[])
         {
-          application: Stubs::ApplicationInfo.default(visited),
+          application: ApplicationInfo.default(visited),
         }
       end
 
@@ -2079,8 +2079,8 @@ module AWS::SDK::CodeDeploy
       def self.default(visited=[])
         {
           application_name: 'application_name',
-          revision: Stubs::RevisionLocation.default(visited),
-          revision_info: Stubs::GenericRevisionInfo.default(visited),
+          revision: RevisionLocation.default(visited),
+          revision_info: GenericRevisionInfo.default(visited),
         }
       end
 
@@ -2098,7 +2098,7 @@ module AWS::SDK::CodeDeploy
     class GetDeployment
       def self.default(visited=[])
         {
-          deployment_info: Stubs::DeploymentInfo.default(visited),
+          deployment_info: DeploymentInfo.default(visited),
         }
       end
 
@@ -2114,7 +2114,7 @@ module AWS::SDK::CodeDeploy
     class GetDeploymentConfig
       def self.default(visited=[])
         {
-          deployment_config_info: Stubs::DeploymentConfigInfo.default(visited),
+          deployment_config_info: DeploymentConfigInfo.default(visited),
         }
       end
 
@@ -2134,10 +2134,10 @@ module AWS::SDK::CodeDeploy
         {
           deployment_config_id: 'deployment_config_id',
           deployment_config_name: 'deployment_config_name',
-          minimum_healthy_hosts: Stubs::MinimumHealthyHosts.default(visited),
+          minimum_healthy_hosts: MinimumHealthyHosts.default(visited),
           create_time: Time.now,
           compute_platform: 'compute_platform',
-          traffic_routing_config: Stubs::TrafficRoutingConfig.default(visited),
+          traffic_routing_config: TrafficRoutingConfig.default(visited),
         }
       end
 
@@ -2161,8 +2161,8 @@ module AWS::SDK::CodeDeploy
         visited = visited + ['TrafficRoutingConfig']
         {
           type: 'type',
-          time_based_canary: Stubs::TimeBasedCanary.default(visited),
-          time_based_linear: Stubs::TimeBasedLinear.default(visited),
+          time_based_canary: TimeBasedCanary.default(visited),
+          time_based_linear: TimeBasedLinear.default(visited),
         }
       end
 
@@ -2240,7 +2240,7 @@ module AWS::SDK::CodeDeploy
     class GetDeploymentGroup
       def self.default(visited=[])
         {
-          deployment_group_info: Stubs::DeploymentGroupInfo.default(visited),
+          deployment_group_info: DeploymentGroupInfo.default(visited),
         }
       end
 
@@ -2256,7 +2256,7 @@ module AWS::SDK::CodeDeploy
     class GetDeploymentInstance
       def self.default(visited=[])
         {
-          instance_summary: Stubs::InstanceSummary.default(visited),
+          instance_summary: InstanceSummary.default(visited),
         }
       end
 
@@ -2272,7 +2272,7 @@ module AWS::SDK::CodeDeploy
     class GetDeploymentTarget
       def self.default(visited=[])
         {
-          deployment_target: Stubs::DeploymentTarget.default(visited),
+          deployment_target: DeploymentTarget.default(visited),
         }
       end
 
@@ -2288,7 +2288,7 @@ module AWS::SDK::CodeDeploy
     class GetOnPremisesInstance
       def self.default(visited=[])
         {
-          instance_info: Stubs::InstanceInfo.default(visited),
+          instance_info: InstanceInfo.default(visited),
         }
       end
 
@@ -2304,7 +2304,7 @@ module AWS::SDK::CodeDeploy
     class ListApplicationRevisions
       def self.default(visited=[])
         {
-          revisions: Stubs::RevisionLocationList.default(visited),
+          revisions: RevisionLocationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2324,7 +2324,7 @@ module AWS::SDK::CodeDeploy
         return nil if visited.include?('RevisionLocationList')
         visited = visited + ['RevisionLocationList']
         [
-          Stubs::RevisionLocation.default(visited)
+          RevisionLocation.default(visited)
         ]
       end
 
@@ -2342,7 +2342,7 @@ module AWS::SDK::CodeDeploy
     class ListApplications
       def self.default(visited=[])
         {
-          applications: Stubs::ApplicationsList.default(visited),
+          applications: ApplicationsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2380,7 +2380,7 @@ module AWS::SDK::CodeDeploy
     class ListDeploymentConfigs
       def self.default(visited=[])
         {
-          deployment_configs_list: Stubs::DeploymentConfigsList.default(visited),
+          deployment_configs_list: DeploymentConfigsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2419,7 +2419,7 @@ module AWS::SDK::CodeDeploy
       def self.default(visited=[])
         {
           application_name: 'application_name',
-          deployment_groups: Stubs::DeploymentGroupsList.default(visited),
+          deployment_groups: DeploymentGroupsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2438,7 +2438,7 @@ module AWS::SDK::CodeDeploy
     class ListDeploymentInstances
       def self.default(visited=[])
         {
-          instances_list: Stubs::InstancesList.default(visited),
+          instances_list: InstancesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2476,7 +2476,7 @@ module AWS::SDK::CodeDeploy
     class ListDeploymentTargets
       def self.default(visited=[])
         {
-          target_ids: Stubs::TargetIdList.default(visited),
+          target_ids: TargetIdList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2514,7 +2514,7 @@ module AWS::SDK::CodeDeploy
     class ListDeployments
       def self.default(visited=[])
         {
-          deployments: Stubs::DeploymentsList.default(visited),
+          deployments: DeploymentsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2532,7 +2532,7 @@ module AWS::SDK::CodeDeploy
     class ListGitHubAccountTokenNames
       def self.default(visited=[])
         {
-          token_name_list: Stubs::GitHubAccountTokenNameList.default(visited),
+          token_name_list: GitHubAccountTokenNameList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2570,7 +2570,7 @@ module AWS::SDK::CodeDeploy
     class ListOnPremisesInstances
       def self.default(visited=[])
         {
-          instance_names: Stubs::InstanceNameList.default(visited),
+          instance_names: InstanceNameList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2608,7 +2608,7 @@ module AWS::SDK::CodeDeploy
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2758,7 +2758,7 @@ module AWS::SDK::CodeDeploy
     class UpdateDeploymentGroup
       def self.default(visited=[])
         {
-          hooks_not_cleaned_up: Stubs::AutoScalingGroupList.default(visited),
+          hooks_not_cleaned_up: AutoScalingGroupList.default(visited),
         }
       end
 

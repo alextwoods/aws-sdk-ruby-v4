@@ -30,7 +30,7 @@ module AWS::SDK::Cloud9
     class CreateEnvironmentMembership
       def self.default(visited=[])
         {
-          membership: Stubs::EnvironmentMember.default(visited),
+          membership: EnvironmentMember.default(visited),
         }
       end
 
@@ -100,7 +100,7 @@ module AWS::SDK::Cloud9
     class DescribeEnvironmentMemberships
       def self.default(visited=[])
         {
-          memberships: Stubs::EnvironmentMembersList.default(visited),
+          memberships: EnvironmentMembersList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -120,7 +120,7 @@ module AWS::SDK::Cloud9
         return nil if visited.include?('EnvironmentMembersList')
         visited = visited + ['EnvironmentMembersList']
         [
-          Stubs::EnvironmentMember.default(visited)
+          EnvironmentMember.default(visited)
         ]
       end
 
@@ -156,7 +156,7 @@ module AWS::SDK::Cloud9
     class DescribeEnvironments
       def self.default(visited=[])
         {
-          environments: Stubs::EnvironmentList.default(visited),
+          environments: EnvironmentList.default(visited),
         }
       end
 
@@ -174,7 +174,7 @@ module AWS::SDK::Cloud9
         return nil if visited.include?('EnvironmentList')
         visited = visited + ['EnvironmentList']
         [
-          Stubs::Environment.default(visited)
+          Environment.default(visited)
         ]
       end
 
@@ -201,7 +201,7 @@ module AWS::SDK::Cloud9
           connection_type: 'connection_type',
           arn: 'arn',
           owner_arn: 'owner_arn',
-          lifecycle: Stubs::EnvironmentLifecycle.default(visited),
+          lifecycle: EnvironmentLifecycle.default(visited),
           managed_credentials_status: 'managed_credentials_status',
         }
       end
@@ -249,7 +249,7 @@ module AWS::SDK::Cloud9
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          environment_ids: Stubs::EnvironmentIdList.default(visited),
+          environment_ids: EnvironmentIdList.default(visited),
         }
       end
 
@@ -286,7 +286,7 @@ module AWS::SDK::Cloud9
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -304,7 +304,7 @@ module AWS::SDK::Cloud9
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -384,7 +384,7 @@ module AWS::SDK::Cloud9
     class UpdateEnvironmentMembership
       def self.default(visited=[])
         {
-          membership: Stubs::EnvironmentMember.default(visited),
+          membership: EnvironmentMember.default(visited),
         }
       end
 

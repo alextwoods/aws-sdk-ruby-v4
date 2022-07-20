@@ -73,7 +73,7 @@ module AWS::SDK::CloudControl
         type.type_name = params[:type_name]
         type.type_version_id = params[:type_version_id]
         type.role_arn = params[:role_arn]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.desired_state = params[:desired_state]
         type
       end
@@ -95,7 +95,7 @@ module AWS::SDK::CloudControl
         type.type_name = params[:type_name]
         type.type_version_id = params[:type_version_id]
         type.role_arn = params[:role_arn]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.identifier = params[:identifier]
         type
       end
@@ -438,7 +438,7 @@ module AWS::SDK::CloudControl
         type.type_name = params[:type_name]
         type.type_version_id = params[:type_version_id]
         type.role_arn = params[:role_arn]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.identifier = params[:identifier]
         type.patch_document = params[:patch_document]
         type

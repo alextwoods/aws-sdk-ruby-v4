@@ -68,7 +68,7 @@ module AWS::SDK::AutoScaling
     class BatchDeleteScheduledAction
       def self.default(visited=[])
         {
-          failed_scheduled_actions: Stubs::FailedScheduledUpdateGroupActionRequests.default(visited),
+          failed_scheduled_actions: FailedScheduledUpdateGroupActionRequests.default(visited),
         }
       end
 
@@ -90,7 +90,7 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('FailedScheduledUpdateGroupActionRequests')
         visited = visited + ['FailedScheduledUpdateGroupActionRequests']
         [
-          Stubs::FailedScheduledUpdateGroupActionRequest.default(visited)
+          FailedScheduledUpdateGroupActionRequest.default(visited)
         ]
       end
 
@@ -129,7 +129,7 @@ module AWS::SDK::AutoScaling
     class BatchPutScheduledUpdateGroupAction
       def self.default(visited=[])
         {
-          failed_scheduled_update_group_actions: Stubs::FailedScheduledUpdateGroupActionRequests.default(visited),
+          failed_scheduled_update_group_actions: FailedScheduledUpdateGroupActionRequests.default(visited),
         }
       end
 
@@ -411,7 +411,7 @@ module AWS::SDK::AutoScaling
     class DescribeAdjustmentTypes
       def self.default(visited=[])
         {
-          adjustment_types: Stubs::AdjustmentTypes.default(visited),
+          adjustment_types: AdjustmentTypes.default(visited),
         }
       end
 
@@ -433,7 +433,7 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('AdjustmentTypes')
         visited = visited + ['AdjustmentTypes']
         [
-          Stubs::AdjustmentType.default(visited)
+          AdjustmentType.default(visited)
         ]
       end
 
@@ -468,7 +468,7 @@ module AWS::SDK::AutoScaling
     class DescribeAutoScalingGroups
       def self.default(visited=[])
         {
-          auto_scaling_groups: Stubs::AutoScalingGroups.default(visited),
+          auto_scaling_groups: AutoScalingGroups.default(visited),
           next_token: 'next_token',
         }
       end
@@ -492,7 +492,7 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('AutoScalingGroups')
         visited = visited + ['AutoScalingGroups']
         [
-          Stubs::AutoScalingGroup.default(visited)
+          AutoScalingGroup.default(visited)
         ]
       end
 
@@ -514,32 +514,32 @@ module AWS::SDK::AutoScaling
           auto_scaling_group_name: 'auto_scaling_group_name',
           auto_scaling_group_arn: 'auto_scaling_group_arn',
           launch_configuration_name: 'launch_configuration_name',
-          launch_template: Stubs::LaunchTemplateSpecification.default(visited),
-          mixed_instances_policy: Stubs::MixedInstancesPolicy.default(visited),
+          launch_template: LaunchTemplateSpecification.default(visited),
+          mixed_instances_policy: MixedInstancesPolicy.default(visited),
           min_size: 1,
           max_size: 1,
           desired_capacity: 1,
           predicted_capacity: 1,
           default_cooldown: 1,
-          availability_zones: Stubs::AvailabilityZones.default(visited),
-          load_balancer_names: Stubs::LoadBalancerNames.default(visited),
-          target_group_ar_ns: Stubs::TargetGroupARNs.default(visited),
+          availability_zones: AvailabilityZones.default(visited),
+          load_balancer_names: LoadBalancerNames.default(visited),
+          target_group_ar_ns: TargetGroupARNs.default(visited),
           health_check_type: 'health_check_type',
           health_check_grace_period: 1,
-          instances: Stubs::Instances.default(visited),
+          instances: Instances.default(visited),
           created_time: Time.now,
-          suspended_processes: Stubs::SuspendedProcesses.default(visited),
+          suspended_processes: SuspendedProcesses.default(visited),
           placement_group: 'placement_group',
           vpc_zone_identifier: 'vpc_zone_identifier',
-          enabled_metrics: Stubs::EnabledMetrics.default(visited),
+          enabled_metrics: EnabledMetrics.default(visited),
           status: 'status',
-          tags: Stubs::TagDescriptionList.default(visited),
-          termination_policies: Stubs::TerminationPolicies.default(visited),
+          tags: TagDescriptionList.default(visited),
+          termination_policies: TerminationPolicies.default(visited),
           new_instances_protected_from_scale_in: false,
           service_linked_role_arn: 'service_linked_role_arn',
           max_instance_lifetime: 1,
           capacity_rebalance: false,
-          warm_pool_configuration: Stubs::WarmPoolConfiguration.default(visited),
+          warm_pool_configuration: WarmPoolConfiguration.default(visited),
           warm_pool_size: 1,
           context: 'context',
           desired_capacity_type: 'desired_capacity_type',
@@ -597,7 +597,7 @@ module AWS::SDK::AutoScaling
           min_size: 1,
           pool_state: 'pool_state',
           status: 'status',
-          instance_reuse_policy: Stubs::InstanceReusePolicy.default(visited),
+          instance_reuse_policy: InstanceReusePolicy.default(visited),
         }
       end
 
@@ -656,7 +656,7 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('TagDescriptionList')
         visited = visited + ['TagDescriptionList']
         [
-          Stubs::TagDescription.default(visited)
+          TagDescription.default(visited)
         ]
       end
 
@@ -701,7 +701,7 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('EnabledMetrics')
         visited = visited + ['EnabledMetrics']
         [
-          Stubs::EnabledMetric.default(visited)
+          EnabledMetric.default(visited)
         ]
       end
 
@@ -740,7 +740,7 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('SuspendedProcesses')
         visited = visited + ['SuspendedProcesses']
         [
-          Stubs::SuspendedProcess.default(visited)
+          SuspendedProcess.default(visited)
         ]
       end
 
@@ -779,7 +779,7 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('Instances')
         visited = visited + ['Instances']
         [
-          Stubs::Instance.default(visited)
+          Instance.default(visited)
         ]
       end
 
@@ -804,7 +804,7 @@ module AWS::SDK::AutoScaling
           lifecycle_state: 'lifecycle_state',
           health_status: 'health_status',
           launch_configuration_name: 'launch_configuration_name',
-          launch_template: Stubs::LaunchTemplateSpecification.default(visited),
+          launch_template: LaunchTemplateSpecification.default(visited),
           protected_from_scale_in: false,
           weighted_capacity: 'weighted_capacity',
         }
@@ -911,8 +911,8 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('MixedInstancesPolicy')
         visited = visited + ['MixedInstancesPolicy']
         {
-          launch_template: Stubs::LaunchTemplate.default(visited),
-          instances_distribution: Stubs::InstancesDistribution.default(visited),
+          launch_template: LaunchTemplate.default(visited),
+          instances_distribution: InstancesDistribution.default(visited),
         }
       end
 
@@ -959,8 +959,8 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('LaunchTemplate')
         visited = visited + ['LaunchTemplate']
         {
-          launch_template_specification: Stubs::LaunchTemplateSpecification.default(visited),
-          overrides: Stubs::Overrides.default(visited),
+          launch_template_specification: LaunchTemplateSpecification.default(visited),
+          overrides: Overrides.default(visited),
         }
       end
 
@@ -979,7 +979,7 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('Overrides')
         visited = visited + ['Overrides']
         [
-          Stubs::LaunchTemplateOverrides.default(visited)
+          LaunchTemplateOverrides.default(visited)
         ]
       end
 
@@ -1000,8 +1000,8 @@ module AWS::SDK::AutoScaling
         {
           instance_type: 'instance_type',
           weighted_capacity: 'weighted_capacity',
-          launch_template_specification: Stubs::LaunchTemplateSpecification.default(visited),
-          instance_requirements: Stubs::InstanceRequirements.default(visited),
+          launch_template_specification: LaunchTemplateSpecification.default(visited),
+          instance_requirements: InstanceRequirements.default(visited),
         }
       end
 
@@ -1022,27 +1022,27 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('InstanceRequirements')
         visited = visited + ['InstanceRequirements']
         {
-          v_cpu_count: Stubs::VCpuCountRequest.default(visited),
-          memory_mi_b: Stubs::MemoryMiBRequest.default(visited),
-          cpu_manufacturers: Stubs::CpuManufacturers.default(visited),
-          memory_gi_b_per_v_cpu: Stubs::MemoryGiBPerVCpuRequest.default(visited),
-          excluded_instance_types: Stubs::ExcludedInstanceTypes.default(visited),
-          instance_generations: Stubs::InstanceGenerations.default(visited),
+          v_cpu_count: VCpuCountRequest.default(visited),
+          memory_mi_b: MemoryMiBRequest.default(visited),
+          cpu_manufacturers: CpuManufacturers.default(visited),
+          memory_gi_b_per_v_cpu: MemoryGiBPerVCpuRequest.default(visited),
+          excluded_instance_types: ExcludedInstanceTypes.default(visited),
+          instance_generations: InstanceGenerations.default(visited),
           spot_max_price_percentage_over_lowest_price: 1,
           on_demand_max_price_percentage_over_lowest_price: 1,
           bare_metal: 'bare_metal',
           burstable_performance: 'burstable_performance',
           require_hibernate_support: false,
-          network_interface_count: Stubs::NetworkInterfaceCountRequest.default(visited),
+          network_interface_count: NetworkInterfaceCountRequest.default(visited),
           local_storage: 'local_storage',
-          local_storage_types: Stubs::LocalStorageTypes.default(visited),
-          total_local_storage_gb: Stubs::TotalLocalStorageGBRequest.default(visited),
-          baseline_ebs_bandwidth_mbps: Stubs::BaselineEbsBandwidthMbpsRequest.default(visited),
-          accelerator_types: Stubs::AcceleratorTypes.default(visited),
-          accelerator_count: Stubs::AcceleratorCountRequest.default(visited),
-          accelerator_manufacturers: Stubs::AcceleratorManufacturers.default(visited),
-          accelerator_names: Stubs::AcceleratorNames.default(visited),
-          accelerator_total_memory_mi_b: Stubs::AcceleratorTotalMemoryMiBRequest.default(visited),
+          local_storage_types: LocalStorageTypes.default(visited),
+          total_local_storage_gb: TotalLocalStorageGBRequest.default(visited),
+          baseline_ebs_bandwidth_mbps: BaselineEbsBandwidthMbpsRequest.default(visited),
+          accelerator_types: AcceleratorTypes.default(visited),
+          accelerator_count: AcceleratorCountRequest.default(visited),
+          accelerator_manufacturers: AcceleratorManufacturers.default(visited),
+          accelerator_names: AcceleratorNames.default(visited),
+          accelerator_total_memory_mi_b: AcceleratorTotalMemoryMiBRequest.default(visited),
         }
       end
 
@@ -1371,7 +1371,7 @@ module AWS::SDK::AutoScaling
     class DescribeAutoScalingInstances
       def self.default(visited=[])
         {
-          auto_scaling_instances: Stubs::AutoScalingInstances.default(visited),
+          auto_scaling_instances: AutoScalingInstances.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1395,7 +1395,7 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('AutoScalingInstances')
         visited = visited + ['AutoScalingInstances']
         [
-          Stubs::AutoScalingInstanceDetails.default(visited)
+          AutoScalingInstanceDetails.default(visited)
         ]
       end
 
@@ -1421,7 +1421,7 @@ module AWS::SDK::AutoScaling
           lifecycle_state: 'lifecycle_state',
           health_status: 'health_status',
           launch_configuration_name: 'launch_configuration_name',
-          launch_template: Stubs::LaunchTemplateSpecification.default(visited),
+          launch_template: LaunchTemplateSpecification.default(visited),
           protected_from_scale_in: false,
           weighted_capacity: 'weighted_capacity',
         }
@@ -1448,7 +1448,7 @@ module AWS::SDK::AutoScaling
     class DescribeAutoScalingNotificationTypes
       def self.default(visited=[])
         {
-          auto_scaling_notification_types: Stubs::AutoScalingNotificationTypes.default(visited),
+          auto_scaling_notification_types: AutoScalingNotificationTypes.default(visited),
         }
       end
 
@@ -1487,7 +1487,7 @@ module AWS::SDK::AutoScaling
     class DescribeInstanceRefreshes
       def self.default(visited=[])
         {
-          instance_refreshes: Stubs::InstanceRefreshes.default(visited),
+          instance_refreshes: InstanceRefreshes.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1511,7 +1511,7 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('InstanceRefreshes')
         visited = visited + ['InstanceRefreshes']
         [
-          Stubs::InstanceRefresh.default(visited)
+          InstanceRefresh.default(visited)
         ]
       end
 
@@ -1538,9 +1538,9 @@ module AWS::SDK::AutoScaling
           end_time: Time.now,
           percentage_complete: 1,
           instances_to_update: 1,
-          progress_details: Stubs::InstanceRefreshProgressDetails.default(visited),
-          preferences: Stubs::RefreshPreferences.default(visited),
-          desired_configuration: Stubs::DesiredConfiguration.default(visited),
+          progress_details: InstanceRefreshProgressDetails.default(visited),
+          preferences: RefreshPreferences.default(visited),
+          desired_configuration: DesiredConfiguration.default(visited),
         }
       end
 
@@ -1568,8 +1568,8 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('DesiredConfiguration')
         visited = visited + ['DesiredConfiguration']
         {
-          launch_template: Stubs::LaunchTemplateSpecification.default(visited),
-          mixed_instances_policy: Stubs::MixedInstancesPolicy.default(visited),
+          launch_template: LaunchTemplateSpecification.default(visited),
+          mixed_instances_policy: MixedInstancesPolicy.default(visited),
         }
       end
 
@@ -1590,7 +1590,7 @@ module AWS::SDK::AutoScaling
         {
           min_healthy_percentage: 1,
           instance_warmup: 1,
-          checkpoint_percentages: Stubs::CheckpointPercentages.default(visited),
+          checkpoint_percentages: CheckpointPercentages.default(visited),
           checkpoint_delay: 1,
           skip_matching: false,
         }
@@ -1633,8 +1633,8 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('InstanceRefreshProgressDetails')
         visited = visited + ['InstanceRefreshProgressDetails']
         {
-          live_pool_progress: Stubs::InstanceRefreshLivePoolProgress.default(visited),
-          warm_pool_progress: Stubs::InstanceRefreshWarmPoolProgress.default(visited),
+          live_pool_progress: InstanceRefreshLivePoolProgress.default(visited),
+          warm_pool_progress: InstanceRefreshWarmPoolProgress.default(visited),
         }
       end
 
@@ -1691,7 +1691,7 @@ module AWS::SDK::AutoScaling
     class DescribeLaunchConfigurations
       def self.default(visited=[])
         {
-          launch_configurations: Stubs::LaunchConfigurations.default(visited),
+          launch_configurations: LaunchConfigurations.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1715,7 +1715,7 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('LaunchConfigurations')
         visited = visited + ['LaunchConfigurations']
         [
-          Stubs::LaunchConfiguration.default(visited)
+          LaunchConfiguration.default(visited)
         ]
       end
 
@@ -1738,22 +1738,22 @@ module AWS::SDK::AutoScaling
           launch_configuration_arn: 'launch_configuration_arn',
           image_id: 'image_id',
           key_name: 'key_name',
-          security_groups: Stubs::SecurityGroups.default(visited),
+          security_groups: SecurityGroups.default(visited),
           classic_link_vpc_id: 'classic_link_vpc_id',
-          classic_link_vpc_security_groups: Stubs::ClassicLinkVPCSecurityGroups.default(visited),
+          classic_link_vpc_security_groups: ClassicLinkVPCSecurityGroups.default(visited),
           user_data: 'user_data',
           instance_type: 'instance_type',
           kernel_id: 'kernel_id',
           ramdisk_id: 'ramdisk_id',
-          block_device_mappings: Stubs::BlockDeviceMappings.default(visited),
-          instance_monitoring: Stubs::InstanceMonitoring.default(visited),
+          block_device_mappings: BlockDeviceMappings.default(visited),
+          instance_monitoring: InstanceMonitoring.default(visited),
           spot_price: 'spot_price',
           iam_instance_profile: 'iam_instance_profile',
           created_time: Time.now,
           ebs_optimized: false,
           associate_public_ip_address: false,
           placement_tenancy: 'placement_tenancy',
-          metadata_options: Stubs::InstanceMetadataOptions.default(visited),
+          metadata_options: InstanceMetadataOptions.default(visited),
         }
       end
 
@@ -1830,7 +1830,7 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('BlockDeviceMappings')
         visited = visited + ['BlockDeviceMappings']
         [
-          Stubs::BlockDeviceMapping.default(visited)
+          BlockDeviceMapping.default(visited)
         ]
       end
 
@@ -1851,7 +1851,7 @@ module AWS::SDK::AutoScaling
         {
           virtual_name: 'virtual_name',
           device_name: 'device_name',
-          ebs: Stubs::Ebs.default(visited),
+          ebs: Ebs.default(visited),
           no_device: false,
         }
       end
@@ -1939,7 +1939,7 @@ module AWS::SDK::AutoScaling
     class DescribeLifecycleHookTypes
       def self.default(visited=[])
         {
-          lifecycle_hook_types: Stubs::AutoScalingNotificationTypes.default(visited),
+          lifecycle_hook_types: AutoScalingNotificationTypes.default(visited),
         }
       end
 
@@ -1959,7 +1959,7 @@ module AWS::SDK::AutoScaling
     class DescribeLifecycleHooks
       def self.default(visited=[])
         {
-          lifecycle_hooks: Stubs::LifecycleHooks.default(visited),
+          lifecycle_hooks: LifecycleHooks.default(visited),
         }
       end
 
@@ -1981,7 +1981,7 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('LifecycleHooks')
         visited = visited + ['LifecycleHooks']
         [
-          Stubs::LifecycleHook.default(visited)
+          LifecycleHook.default(visited)
         ]
       end
 
@@ -2032,7 +2032,7 @@ module AWS::SDK::AutoScaling
     class DescribeLoadBalancerTargetGroups
       def self.default(visited=[])
         {
-          load_balancer_target_groups: Stubs::LoadBalancerTargetGroupStates.default(visited),
+          load_balancer_target_groups: LoadBalancerTargetGroupStates.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2056,7 +2056,7 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('LoadBalancerTargetGroupStates')
         visited = visited + ['LoadBalancerTargetGroupStates']
         [
-          Stubs::LoadBalancerTargetGroupState.default(visited)
+          LoadBalancerTargetGroupState.default(visited)
         ]
       end
 
@@ -2093,7 +2093,7 @@ module AWS::SDK::AutoScaling
     class DescribeLoadBalancers
       def self.default(visited=[])
         {
-          load_balancers: Stubs::LoadBalancerStates.default(visited),
+          load_balancers: LoadBalancerStates.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2117,7 +2117,7 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('LoadBalancerStates')
         visited = visited + ['LoadBalancerStates']
         [
-          Stubs::LoadBalancerState.default(visited)
+          LoadBalancerState.default(visited)
         ]
       end
 
@@ -2154,8 +2154,8 @@ module AWS::SDK::AutoScaling
     class DescribeMetricCollectionTypes
       def self.default(visited=[])
         {
-          metrics: Stubs::MetricCollectionTypes.default(visited),
-          granularities: Stubs::MetricGranularityTypes.default(visited),
+          metrics: MetricCollectionTypes.default(visited),
+          granularities: MetricGranularityTypes.default(visited),
         }
       end
 
@@ -2178,7 +2178,7 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('MetricGranularityTypes')
         visited = visited + ['MetricGranularityTypes']
         [
-          Stubs::MetricGranularityType.default(visited)
+          MetricGranularityType.default(visited)
         ]
       end
 
@@ -2215,7 +2215,7 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('MetricCollectionTypes')
         visited = visited + ['MetricCollectionTypes']
         [
-          Stubs::MetricCollectionType.default(visited)
+          MetricCollectionType.default(visited)
         ]
       end
 
@@ -2250,7 +2250,7 @@ module AWS::SDK::AutoScaling
     class DescribeNotificationConfigurations
       def self.default(visited=[])
         {
-          notification_configurations: Stubs::NotificationConfigurations.default(visited),
+          notification_configurations: NotificationConfigurations.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2274,7 +2274,7 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('NotificationConfigurations')
         visited = visited + ['NotificationConfigurations']
         [
-          Stubs::NotificationConfiguration.default(visited)
+          NotificationConfiguration.default(visited)
         ]
       end
 
@@ -2313,7 +2313,7 @@ module AWS::SDK::AutoScaling
     class DescribePolicies
       def self.default(visited=[])
         {
-          scaling_policies: Stubs::ScalingPolicies.default(visited),
+          scaling_policies: ScalingPolicies.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2337,7 +2337,7 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('ScalingPolicies')
         visited = visited + ['ScalingPolicies']
         [
-          Stubs::ScalingPolicy.default(visited)
+          ScalingPolicy.default(visited)
         ]
       end
 
@@ -2365,13 +2365,13 @@ module AWS::SDK::AutoScaling
           min_adjustment_magnitude: 1,
           scaling_adjustment: 1,
           cooldown: 1,
-          step_adjustments: Stubs::StepAdjustments.default(visited),
+          step_adjustments: StepAdjustments.default(visited),
           metric_aggregation_type: 'metric_aggregation_type',
           estimated_instance_warmup: 1,
-          alarms: Stubs::Alarms.default(visited),
-          target_tracking_configuration: Stubs::TargetTrackingConfiguration.default(visited),
+          alarms: Alarms.default(visited),
+          target_tracking_configuration: TargetTrackingConfiguration.default(visited),
           enabled: false,
-          predictive_scaling_configuration: Stubs::PredictiveScalingConfiguration.default(visited),
+          predictive_scaling_configuration: PredictiveScalingConfiguration.default(visited),
         }
       end
 
@@ -2404,7 +2404,7 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('PredictiveScalingConfiguration')
         visited = visited + ['PredictiveScalingConfiguration']
         {
-          metric_specifications: Stubs::PredictiveScalingMetricSpecifications.default(visited),
+          metric_specifications: PredictiveScalingMetricSpecifications.default(visited),
           mode: 'mode',
           scheduling_buffer_time: 1,
           max_capacity_breach_behavior: 'max_capacity_breach_behavior',
@@ -2430,7 +2430,7 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('PredictiveScalingMetricSpecifications')
         visited = visited + ['PredictiveScalingMetricSpecifications']
         [
-          Stubs::PredictiveScalingMetricSpecification.default(visited)
+          PredictiveScalingMetricSpecification.default(visited)
         ]
       end
 
@@ -2450,12 +2450,12 @@ module AWS::SDK::AutoScaling
         visited = visited + ['PredictiveScalingMetricSpecification']
         {
           target_value: 1.0,
-          predefined_metric_pair_specification: Stubs::PredictiveScalingPredefinedMetricPair.default(visited),
-          predefined_scaling_metric_specification: Stubs::PredictiveScalingPredefinedScalingMetric.default(visited),
-          predefined_load_metric_specification: Stubs::PredictiveScalingPredefinedLoadMetric.default(visited),
-          customized_scaling_metric_specification: Stubs::PredictiveScalingCustomizedScalingMetric.default(visited),
-          customized_load_metric_specification: Stubs::PredictiveScalingCustomizedLoadMetric.default(visited),
-          customized_capacity_metric_specification: Stubs::PredictiveScalingCustomizedCapacityMetric.default(visited),
+          predefined_metric_pair_specification: PredictiveScalingPredefinedMetricPair.default(visited),
+          predefined_scaling_metric_specification: PredictiveScalingPredefinedScalingMetric.default(visited),
+          predefined_load_metric_specification: PredictiveScalingPredefinedLoadMetric.default(visited),
+          customized_scaling_metric_specification: PredictiveScalingCustomizedScalingMetric.default(visited),
+          customized_load_metric_specification: PredictiveScalingCustomizedLoadMetric.default(visited),
+          customized_capacity_metric_specification: PredictiveScalingCustomizedCapacityMetric.default(visited),
         }
       end
 
@@ -2479,7 +2479,7 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('PredictiveScalingCustomizedCapacityMetric')
         visited = visited + ['PredictiveScalingCustomizedCapacityMetric']
         {
-          metric_data_queries: Stubs::MetricDataQueries.default(visited),
+          metric_data_queries: MetricDataQueries.default(visited),
         }
       end
 
@@ -2497,7 +2497,7 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('MetricDataQueries')
         visited = visited + ['MetricDataQueries']
         [
-          Stubs::MetricDataQuery.default(visited)
+          MetricDataQuery.default(visited)
         ]
       end
 
@@ -2518,7 +2518,7 @@ module AWS::SDK::AutoScaling
         {
           id: 'id',
           expression: 'expression',
-          metric_stat: Stubs::MetricStat.default(visited),
+          metric_stat: MetricStat.default(visited),
           label: 'label',
           return_data: false,
         }
@@ -2542,7 +2542,7 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('MetricStat')
         visited = visited + ['MetricStat']
         {
-          metric: Stubs::Metric.default(visited),
+          metric: Metric.default(visited),
           stat: 'stat',
           unit: 'unit',
         }
@@ -2566,7 +2566,7 @@ module AWS::SDK::AutoScaling
         {
           namespace: 'namespace',
           metric_name: 'metric_name',
-          dimensions: Stubs::MetricDimensions.default(visited),
+          dimensions: MetricDimensions.default(visited),
         }
       end
 
@@ -2586,7 +2586,7 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('MetricDimensions')
         visited = visited + ['MetricDimensions']
         [
-          Stubs::MetricDimension.default(visited)
+          MetricDimension.default(visited)
         ]
       end
 
@@ -2625,7 +2625,7 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('PredictiveScalingCustomizedLoadMetric')
         visited = visited + ['PredictiveScalingCustomizedLoadMetric']
         {
-          metric_data_queries: Stubs::MetricDataQueries.default(visited),
+          metric_data_queries: MetricDataQueries.default(visited),
         }
       end
 
@@ -2643,7 +2643,7 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('PredictiveScalingCustomizedScalingMetric')
         visited = visited + ['PredictiveScalingCustomizedScalingMetric']
         {
-          metric_data_queries: Stubs::MetricDataQueries.default(visited),
+          metric_data_queries: MetricDataQueries.default(visited),
         }
       end
 
@@ -2721,8 +2721,8 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('TargetTrackingConfiguration')
         visited = visited + ['TargetTrackingConfiguration']
         {
-          predefined_metric_specification: Stubs::PredefinedMetricSpecification.default(visited),
-          customized_metric_specification: Stubs::CustomizedMetricSpecification.default(visited),
+          predefined_metric_specification: PredefinedMetricSpecification.default(visited),
+          customized_metric_specification: CustomizedMetricSpecification.default(visited),
           target_value: 1.0,
           disable_scale_in: false,
         }
@@ -2747,7 +2747,7 @@ module AWS::SDK::AutoScaling
         {
           metric_name: 'metric_name',
           namespace: 'namespace',
-          dimensions: Stubs::MetricDimensions.default(visited),
+          dimensions: MetricDimensions.default(visited),
           statistic: 'statistic',
           unit: 'unit',
         }
@@ -2791,7 +2791,7 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('Alarms')
         visited = visited + ['Alarms']
         [
-          Stubs::Alarm.default(visited)
+          Alarm.default(visited)
         ]
       end
 
@@ -2830,7 +2830,7 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('StepAdjustments')
         visited = visited + ['StepAdjustments']
         [
-          Stubs::StepAdjustment.default(visited)
+          StepAdjustment.default(visited)
         ]
       end
 
@@ -2869,7 +2869,7 @@ module AWS::SDK::AutoScaling
     class DescribeScalingActivities
       def self.default(visited=[])
         {
-          activities: Stubs::Activities.default(visited),
+          activities: Activities.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2893,7 +2893,7 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('Activities')
         visited = visited + ['Activities']
         [
-          Stubs::Activity.default(visited)
+          Activity.default(visited)
         ]
       end
 
@@ -2950,7 +2950,7 @@ module AWS::SDK::AutoScaling
     class DescribeScalingProcessTypes
       def self.default(visited=[])
         {
-          processes: Stubs::Processes.default(visited),
+          processes: Processes.default(visited),
         }
       end
 
@@ -2972,7 +2972,7 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('Processes')
         visited = visited + ['Processes']
         [
-          Stubs::ProcessType.default(visited)
+          ProcessType.default(visited)
         ]
       end
 
@@ -3007,7 +3007,7 @@ module AWS::SDK::AutoScaling
     class DescribeScheduledActions
       def self.default(visited=[])
         {
-          scheduled_update_group_actions: Stubs::ScheduledUpdateGroupActions.default(visited),
+          scheduled_update_group_actions: ScheduledUpdateGroupActions.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3031,7 +3031,7 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('ScheduledUpdateGroupActions')
         visited = visited + ['ScheduledUpdateGroupActions']
         [
-          Stubs::ScheduledUpdateGroupAction.default(visited)
+          ScheduledUpdateGroupAction.default(visited)
         ]
       end
 
@@ -3086,7 +3086,7 @@ module AWS::SDK::AutoScaling
     class DescribeTags
       def self.default(visited=[])
         {
-          tags: Stubs::TagDescriptionList.default(visited),
+          tags: TagDescriptionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3108,7 +3108,7 @@ module AWS::SDK::AutoScaling
     class DescribeTerminationPolicyTypes
       def self.default(visited=[])
         {
-          termination_policy_types: Stubs::TerminationPolicies.default(visited),
+          termination_policy_types: TerminationPolicies.default(visited),
         }
       end
 
@@ -3128,8 +3128,8 @@ module AWS::SDK::AutoScaling
     class DescribeWarmPool
       def self.default(visited=[])
         {
-          warm_pool_configuration: Stubs::WarmPoolConfiguration.default(visited),
-          instances: Stubs::Instances.default(visited),
+          warm_pool_configuration: WarmPoolConfiguration.default(visited),
+          instances: Instances.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3152,7 +3152,7 @@ module AWS::SDK::AutoScaling
     class DetachInstances
       def self.default(visited=[])
         {
-          activities: Stubs::Activities.default(visited),
+          activities: Activities.default(visited),
         }
       end
 
@@ -3244,7 +3244,7 @@ module AWS::SDK::AutoScaling
     class EnterStandby
       def self.default(visited=[])
         {
-          activities: Stubs::Activities.default(visited),
+          activities: Activities.default(visited),
         }
       end
 
@@ -3282,7 +3282,7 @@ module AWS::SDK::AutoScaling
     class ExitStandby
       def self.default(visited=[])
         {
-          activities: Stubs::Activities.default(visited),
+          activities: Activities.default(visited),
         }
       end
 
@@ -3302,8 +3302,8 @@ module AWS::SDK::AutoScaling
     class GetPredictiveScalingForecast
       def self.default(visited=[])
         {
-          load_forecast: Stubs::LoadForecasts.default(visited),
-          capacity_forecast: Stubs::CapacityForecast.default(visited),
+          load_forecast: LoadForecasts.default(visited),
+          capacity_forecast: CapacityForecast.default(visited),
           update_time: Time.now,
         }
       end
@@ -3328,8 +3328,8 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('CapacityForecast')
         visited = visited + ['CapacityForecast']
         {
-          timestamps: Stubs::PredictiveScalingForecastTimestamps.default(visited),
-          values: Stubs::PredictiveScalingForecastValues.default(visited),
+          timestamps: PredictiveScalingForecastTimestamps.default(visited),
+          values: PredictiveScalingForecastValues.default(visited),
         }
       end
 
@@ -3386,7 +3386,7 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('LoadForecasts')
         visited = visited + ['LoadForecasts']
         [
-          Stubs::LoadForecast.default(visited)
+          LoadForecast.default(visited)
         ]
       end
 
@@ -3405,9 +3405,9 @@ module AWS::SDK::AutoScaling
         return nil if visited.include?('LoadForecast')
         visited = visited + ['LoadForecast']
         {
-          timestamps: Stubs::PredictiveScalingForecastTimestamps.default(visited),
-          values: Stubs::PredictiveScalingForecastValues.default(visited),
-          metric_specification: Stubs::PredictiveScalingMetricSpecification.default(visited),
+          timestamps: PredictiveScalingForecastTimestamps.default(visited),
+          values: PredictiveScalingForecastValues.default(visited),
+          metric_specification: PredictiveScalingMetricSpecification.default(visited),
         }
       end
 
@@ -3462,7 +3462,7 @@ module AWS::SDK::AutoScaling
       def self.default(visited=[])
         {
           policy_arn: 'policy_arn',
-          alarms: Stubs::Alarms.default(visited),
+          alarms: Alarms.default(visited),
         }
       end
 
@@ -3647,7 +3647,7 @@ module AWS::SDK::AutoScaling
     class TerminateInstanceInAutoScalingGroup
       def self.default(visited=[])
         {
-          activity: Stubs::Activity.default(visited),
+          activity: Activity.default(visited),
         }
       end
 

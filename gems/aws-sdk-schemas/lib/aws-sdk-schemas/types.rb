@@ -90,11 +90,11 @@ module AWS::SDK::Schemas
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cross_account ||= false
       end
-
     end
 
     # @!attribute description
@@ -145,11 +145,11 @@ module AWS::SDK::Schemas
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cross_account ||= false
       end
-
     end
 
     # @!attribute description
@@ -539,11 +539,11 @@ module AWS::SDK::Schemas
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cross_account ||= false
       end
-
     end
 
     # @!attribute registry_name
@@ -726,11 +726,11 @@ module AWS::SDK::Schemas
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cross_account ||= false
       end
-
     end
 
     # @!attribute registry_name
@@ -977,11 +977,11 @@ module AWS::SDK::Schemas
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute discoverers
@@ -1029,11 +1029,11 @@ module AWS::SDK::Schemas
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -1081,11 +1081,11 @@ module AWS::SDK::Schemas
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -1133,11 +1133,11 @@ module AWS::SDK::Schemas
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -1384,11 +1384,11 @@ module AWS::SDK::Schemas
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version_count ||= 0
       end
-
     end
 
     # @!attribute schema_arn
@@ -1506,11 +1506,11 @@ module AWS::SDK::Schemas
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -1735,11 +1735,11 @@ module AWS::SDK::Schemas
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cross_account ||= false
       end
-
     end
 
     # @!attribute description
@@ -1790,11 +1790,11 @@ module AWS::SDK::Schemas
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cross_account ||= false
       end
-
     end
 
     # <p>Updates the registry.</p>

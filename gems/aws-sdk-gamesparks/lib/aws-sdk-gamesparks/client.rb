@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::GameSparks
@@ -87,7 +89,7 @@ module AWS::SDK::GameSparks
     def create_game(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateGameInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateGameInput,
         validate_input: @config.validate_input
@@ -169,7 +171,7 @@ module AWS::SDK::GameSparks
     def create_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSnapshotInput,
         validate_input: @config.validate_input
@@ -277,7 +279,7 @@ module AWS::SDK::GameSparks
     def create_stage(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateStageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateStageInput,
         validate_input: @config.validate_input
@@ -345,7 +347,7 @@ module AWS::SDK::GameSparks
     def delete_game(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteGameInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteGameInput,
         validate_input: @config.validate_input
@@ -416,7 +418,7 @@ module AWS::SDK::GameSparks
     def delete_stage(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteStageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteStageInput,
         validate_input: @config.validate_input
@@ -497,7 +499,7 @@ module AWS::SDK::GameSparks
     def disconnect_player(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisconnectPlayerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisconnectPlayerInput,
         validate_input: @config.validate_input
@@ -569,7 +571,7 @@ module AWS::SDK::GameSparks
     def export_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExportSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExportSnapshotInput,
         validate_input: @config.validate_input
@@ -644,7 +646,7 @@ module AWS::SDK::GameSparks
     def get_extension(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetExtensionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetExtensionInput,
         validate_input: @config.validate_input
@@ -724,7 +726,7 @@ module AWS::SDK::GameSparks
     def get_extension_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetExtensionVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetExtensionVersionInput,
         validate_input: @config.validate_input
@@ -801,7 +803,7 @@ module AWS::SDK::GameSparks
     def get_game(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetGameInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetGameInput,
         validate_input: @config.validate_input
@@ -882,7 +884,7 @@ module AWS::SDK::GameSparks
     def get_game_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetGameConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetGameConfigurationInput,
         validate_input: @config.validate_input
@@ -963,7 +965,7 @@ module AWS::SDK::GameSparks
     def get_generated_code_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetGeneratedCodeJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetGeneratedCodeJobInput,
         validate_input: @config.validate_input
@@ -1046,7 +1048,7 @@ module AWS::SDK::GameSparks
     def get_player_connection_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPlayerConnectionStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPlayerConnectionStatusInput,
         validate_input: @config.validate_input
@@ -1133,7 +1135,7 @@ module AWS::SDK::GameSparks
     def get_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSnapshotInput,
         validate_input: @config.validate_input
@@ -1216,7 +1218,7 @@ module AWS::SDK::GameSparks
     def get_stage(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetStageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetStageInput,
         validate_input: @config.validate_input
@@ -1304,7 +1306,7 @@ module AWS::SDK::GameSparks
     def get_stage_deployment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetStageDeploymentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetStageDeploymentInput,
         validate_input: @config.validate_input
@@ -1390,7 +1392,7 @@ module AWS::SDK::GameSparks
     def import_game_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ImportGameConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ImportGameConfigurationInput,
         validate_input: @config.validate_input
@@ -1488,7 +1490,7 @@ module AWS::SDK::GameSparks
     def list_extension_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListExtensionVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListExtensionVersionsInput,
         validate_input: @config.validate_input
@@ -1575,7 +1577,7 @@ module AWS::SDK::GameSparks
     def list_extensions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListExtensionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListExtensionsInput,
         validate_input: @config.validate_input
@@ -1661,7 +1663,7 @@ module AWS::SDK::GameSparks
     def list_games(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListGamesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListGamesInput,
         validate_input: @config.validate_input
@@ -1755,7 +1757,7 @@ module AWS::SDK::GameSparks
     def list_generated_code_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListGeneratedCodeJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListGeneratedCodeJobsInput,
         validate_input: @config.validate_input
@@ -1844,7 +1846,7 @@ module AWS::SDK::GameSparks
     def list_snapshots(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSnapshotsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSnapshotsInput,
         validate_input: @config.validate_input
@@ -1941,7 +1943,7 @@ module AWS::SDK::GameSparks
     def list_stage_deployments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListStageDeploymentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListStageDeploymentsInput,
         validate_input: @config.validate_input
@@ -2032,7 +2034,7 @@ module AWS::SDK::GameSparks
     def list_stages(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListStagesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListStagesInput,
         validate_input: @config.validate_input
@@ -2101,7 +2103,7 @@ module AWS::SDK::GameSparks
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2184,7 +2186,7 @@ module AWS::SDK::GameSparks
     def start_generated_code_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartGeneratedCodeJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartGeneratedCodeJobInput,
         validate_input: @config.validate_input
@@ -2286,7 +2288,7 @@ module AWS::SDK::GameSparks
     def start_stage_deployment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartStageDeploymentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartStageDeploymentInput,
         validate_input: @config.validate_input
@@ -2360,7 +2362,7 @@ module AWS::SDK::GameSparks
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2434,7 +2436,7 @@ module AWS::SDK::GameSparks
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2515,7 +2517,7 @@ module AWS::SDK::GameSparks
     def update_game(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGameInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGameInput,
         validate_input: @config.validate_input
@@ -2609,7 +2611,7 @@ module AWS::SDK::GameSparks
     def update_game_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGameConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGameConfigurationInput,
         validate_input: @config.validate_input
@@ -2695,7 +2697,7 @@ module AWS::SDK::GameSparks
     def update_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSnapshotInput,
         validate_input: @config.validate_input
@@ -2787,7 +2789,7 @@ module AWS::SDK::GameSparks
     def update_stage(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateStageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateStageInput,
         validate_input: @config.validate_input

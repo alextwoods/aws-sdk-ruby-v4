@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::RUM
@@ -126,7 +128,7 @@ module AWS::SDK::RUM
     def create_app_monitor(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAppMonitorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAppMonitorInput,
         validate_input: @config.validate_input
@@ -194,7 +196,7 @@ module AWS::SDK::RUM
     def delete_app_monitor(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAppMonitorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAppMonitorInput,
         validate_input: @config.validate_input
@@ -287,7 +289,7 @@ module AWS::SDK::RUM
     def get_app_monitor(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAppMonitorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAppMonitorInput,
         validate_input: @config.validate_input
@@ -385,7 +387,7 @@ module AWS::SDK::RUM
     def get_app_monitor_data(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAppMonitorDataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAppMonitorDataInput,
         validate_input: @config.validate_input
@@ -465,7 +467,7 @@ module AWS::SDK::RUM
     def list_app_monitors(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAppMonitorsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAppMonitorsInput,
         validate_input: @config.validate_input
@@ -535,7 +537,7 @@ module AWS::SDK::RUM
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -636,7 +638,7 @@ module AWS::SDK::RUM
     def put_rum_events(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutRumEventsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutRumEventsInput,
         validate_input: @config.validate_input
@@ -727,7 +729,7 @@ module AWS::SDK::RUM
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -801,7 +803,7 @@ module AWS::SDK::RUM
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -913,7 +915,7 @@ module AWS::SDK::RUM
     def update_app_monitor(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAppMonitorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAppMonitorInput,
         validate_input: @config.validate_input

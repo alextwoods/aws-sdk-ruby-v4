@@ -41,7 +41,7 @@ module AWS::SDK::MarketplaceCatalog
           status: 'status',
           failure_code: 'failure_code',
           failure_description: 'failure_description',
-          change_set: Stubs::ChangeSetDescription.default(visited),
+          change_set: ChangeSetDescription.default(visited),
         }
       end
 
@@ -68,7 +68,7 @@ module AWS::SDK::MarketplaceCatalog
         return nil if visited.include?('ChangeSetDescription')
         visited = visited + ['ChangeSetDescription']
         [
-          Stubs::ChangeSummary.default(visited)
+          ChangeSummary.default(visited)
         ]
       end
 
@@ -89,9 +89,9 @@ module AWS::SDK::MarketplaceCatalog
         visited = visited + ['ChangeSummary']
         {
           change_type: 'change_type',
-          entity: Stubs::Entity.default(visited),
+          entity: Entity.default(visited),
           details: 'details',
-          error_detail_list: Stubs::ErrorDetailList.default(visited),
+          error_detail_list: ErrorDetailList.default(visited),
           change_name: 'change_name',
         }
       end
@@ -114,7 +114,7 @@ module AWS::SDK::MarketplaceCatalog
         return nil if visited.include?('ErrorDetailList')
         visited = visited + ['ErrorDetailList']
         [
-          Stubs::ErrorDetail.default(visited)
+          ErrorDetail.default(visited)
         ]
       end
 
@@ -197,7 +197,7 @@ module AWS::SDK::MarketplaceCatalog
     class ListChangeSets
       def self.default(visited=[])
         {
-          change_set_summary_list: Stubs::ChangeSetSummaryList.default(visited),
+          change_set_summary_list: ChangeSetSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -218,7 +218,7 @@ module AWS::SDK::MarketplaceCatalog
         return nil if visited.include?('ChangeSetSummaryList')
         visited = visited + ['ChangeSetSummaryList']
         [
-          Stubs::ChangeSetSummaryListItem.default(visited)
+          ChangeSetSummaryListItem.default(visited)
         ]
       end
 
@@ -244,7 +244,7 @@ module AWS::SDK::MarketplaceCatalog
           start_time: 'start_time',
           end_time: 'end_time',
           status: 'status',
-          entity_id_list: Stubs::ResourceIdList.default(visited),
+          entity_id_list: ResourceIdList.default(visited),
           failure_code: 'failure_code',
         }
       end
@@ -288,7 +288,7 @@ module AWS::SDK::MarketplaceCatalog
     class ListEntities
       def self.default(visited=[])
         {
-          entity_summary_list: Stubs::EntitySummaryList.default(visited),
+          entity_summary_list: EntitySummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -309,7 +309,7 @@ module AWS::SDK::MarketplaceCatalog
         return nil if visited.include?('EntitySummaryList')
         visited = visited + ['EntitySummaryList']
         [
-          Stubs::EntitySummary.default(visited)
+          EntitySummary.default(visited)
         ]
       end
 

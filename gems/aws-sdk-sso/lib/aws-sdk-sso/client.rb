@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::SSO
@@ -87,7 +89,7 @@ module AWS::SDK::SSO
     def get_role_credentials(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRoleCredentialsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRoleCredentialsInput,
         validate_input: @config.validate_input
@@ -172,7 +174,7 @@ module AWS::SDK::SSO
     def list_account_roles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAccountRolesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAccountRolesInput,
         validate_input: @config.validate_input
@@ -256,7 +258,7 @@ module AWS::SDK::SSO
     def list_accounts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAccountsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAccountsInput,
         validate_input: @config.validate_input
@@ -324,7 +326,7 @@ module AWS::SDK::SSO
     def logout(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::LogoutInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::LogoutInput,
         validate_input: @config.validate_input

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::KinesisVideoSignaling
@@ -93,7 +95,7 @@ module AWS::SDK::KinesisVideoSignaling
     def get_ice_server_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetIceServerConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetIceServerConfigInput,
         validate_input: @config.validate_input
@@ -176,7 +178,7 @@ module AWS::SDK::KinesisVideoSignaling
     def send_alexa_offer_to_master(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendAlexaOfferToMasterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendAlexaOfferToMasterInput,
         validate_input: @config.validate_input

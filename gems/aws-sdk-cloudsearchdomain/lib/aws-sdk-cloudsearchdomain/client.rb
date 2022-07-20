@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::CloudSearchDomain
@@ -364,7 +366,7 @@ module AWS::SDK::CloudSearchDomain
     def search(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchInput,
         validate_input: @config.validate_input
@@ -453,7 +455,7 @@ module AWS::SDK::CloudSearchDomain
     def suggest(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SuggestInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SuggestInput,
         validate_input: @config.validate_input
@@ -537,7 +539,7 @@ module AWS::SDK::CloudSearchDomain
     def upload_documents(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UploadDocumentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UploadDocumentsInput,
         validate_input: @config.validate_input

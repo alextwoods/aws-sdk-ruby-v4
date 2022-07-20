@@ -60,7 +60,7 @@ module AWS::SDK::TimestreamQuery
     class DescribeEndpoints
       def self.default(visited=[])
         {
-          endpoints: Stubs::Endpoints.default(visited),
+          endpoints: Endpoints.default(visited),
         }
       end
 
@@ -78,7 +78,7 @@ module AWS::SDK::TimestreamQuery
         return nil if visited.include?('Endpoints')
         visited = visited + ['Endpoints']
         [
-          Stubs::Endpoint.default(visited)
+          Endpoint.default(visited)
         ]
       end
 
@@ -116,7 +116,7 @@ module AWS::SDK::TimestreamQuery
     class DescribeScheduledQuery
       def self.default(visited=[])
         {
-          scheduled_query: Stubs::ScheduledQueryDescription.default(visited),
+          scheduled_query: ScheduledQueryDescription.default(visited),
         }
       end
 
@@ -141,14 +141,14 @@ module AWS::SDK::TimestreamQuery
           state: 'state',
           previous_invocation_time: Time.now,
           next_invocation_time: Time.now,
-          schedule_configuration: Stubs::ScheduleConfiguration.default(visited),
-          notification_configuration: Stubs::NotificationConfiguration.default(visited),
-          target_configuration: Stubs::TargetConfiguration.default(visited),
+          schedule_configuration: ScheduleConfiguration.default(visited),
+          notification_configuration: NotificationConfiguration.default(visited),
+          target_configuration: TargetConfiguration.default(visited),
           scheduled_query_execution_role_arn: 'scheduled_query_execution_role_arn',
           kms_key_id: 'kms_key_id',
-          error_report_configuration: Stubs::ErrorReportConfiguration.default(visited),
-          last_run_summary: Stubs::ScheduledQueryRunSummary.default(visited),
-          recently_failed_runs: Stubs::ScheduledQueryRunSummaryList.default(visited),
+          error_report_configuration: ErrorReportConfiguration.default(visited),
+          last_run_summary: ScheduledQueryRunSummary.default(visited),
+          recently_failed_runs: ScheduledQueryRunSummaryList.default(visited),
         }
       end
 
@@ -180,7 +180,7 @@ module AWS::SDK::TimestreamQuery
         return nil if visited.include?('ScheduledQueryRunSummaryList')
         visited = visited + ['ScheduledQueryRunSummaryList']
         [
-          Stubs::ScheduledQueryRunSummary.default(visited)
+          ScheduledQueryRunSummary.default(visited)
         ]
       end
 
@@ -203,8 +203,8 @@ module AWS::SDK::TimestreamQuery
           invocation_time: Time.now,
           trigger_time: Time.now,
           run_status: 'run_status',
-          execution_stats: Stubs::ExecutionStats.default(visited),
-          error_report_location: Stubs::ErrorReportLocation.default(visited),
+          execution_stats: ExecutionStats.default(visited),
+          error_report_location: ErrorReportLocation.default(visited),
           failure_reason: 'failure_reason',
         }
       end
@@ -228,7 +228,7 @@ module AWS::SDK::TimestreamQuery
         return nil if visited.include?('ErrorReportLocation')
         visited = visited + ['ErrorReportLocation']
         {
-          s3_report_location: Stubs::S3ReportLocation.default(visited),
+          s3_report_location: S3ReportLocation.default(visited),
         }
       end
 
@@ -292,7 +292,7 @@ module AWS::SDK::TimestreamQuery
         return nil if visited.include?('ErrorReportConfiguration')
         visited = visited + ['ErrorReportConfiguration']
         {
-          s3_configuration: Stubs::S3Configuration.default(visited),
+          s3_configuration: S3Configuration.default(visited),
         }
       end
 
@@ -332,7 +332,7 @@ module AWS::SDK::TimestreamQuery
         return nil if visited.include?('TargetConfiguration')
         visited = visited + ['TargetConfiguration']
         {
-          timestream_configuration: Stubs::TimestreamConfiguration.default(visited),
+          timestream_configuration: TimestreamConfiguration.default(visited),
         }
       end
 
@@ -353,9 +353,9 @@ module AWS::SDK::TimestreamQuery
           database_name: 'database_name',
           table_name: 'table_name',
           time_column: 'time_column',
-          dimension_mappings: Stubs::DimensionMappingList.default(visited),
-          multi_measure_mappings: Stubs::MultiMeasureMappings.default(visited),
-          mixed_measure_mappings: Stubs::MixedMeasureMappingList.default(visited),
+          dimension_mappings: DimensionMappingList.default(visited),
+          multi_measure_mappings: MultiMeasureMappings.default(visited),
+          mixed_measure_mappings: MixedMeasureMappingList.default(visited),
           measure_name_column: 'measure_name_column',
         }
       end
@@ -380,7 +380,7 @@ module AWS::SDK::TimestreamQuery
         return nil if visited.include?('MixedMeasureMappingList')
         visited = visited + ['MixedMeasureMappingList']
         [
-          Stubs::MixedMeasureMapping.default(visited)
+          MixedMeasureMapping.default(visited)
         ]
       end
 
@@ -404,7 +404,7 @@ module AWS::SDK::TimestreamQuery
           source_column: 'source_column',
           target_measure_name: 'target_measure_name',
           measure_value_type: 'measure_value_type',
-          multi_measure_attribute_mappings: Stubs::MultiMeasureAttributeMappingList.default(visited),
+          multi_measure_attribute_mappings: MultiMeasureAttributeMappingList.default(visited),
         }
       end
 
@@ -426,7 +426,7 @@ module AWS::SDK::TimestreamQuery
         return nil if visited.include?('MultiMeasureAttributeMappingList')
         visited = visited + ['MultiMeasureAttributeMappingList']
         [
-          Stubs::MultiMeasureAttributeMapping.default(visited)
+          MultiMeasureAttributeMapping.default(visited)
         ]
       end
 
@@ -469,7 +469,7 @@ module AWS::SDK::TimestreamQuery
         visited = visited + ['MultiMeasureMappings']
         {
           target_multi_measure_name: 'target_multi_measure_name',
-          multi_measure_attribute_mappings: Stubs::MultiMeasureAttributeMappingList.default(visited),
+          multi_measure_attribute_mappings: MultiMeasureAttributeMappingList.default(visited),
         }
       end
 
@@ -488,7 +488,7 @@ module AWS::SDK::TimestreamQuery
         return nil if visited.include?('DimensionMappingList')
         visited = visited + ['DimensionMappingList']
         [
-          Stubs::DimensionMapping.default(visited)
+          DimensionMapping.default(visited)
         ]
       end
 
@@ -528,7 +528,7 @@ module AWS::SDK::TimestreamQuery
         return nil if visited.include?('NotificationConfiguration')
         visited = visited + ['NotificationConfiguration']
         {
-          sns_configuration: Stubs::SnsConfiguration.default(visited),
+          sns_configuration: SnsConfiguration.default(visited),
         }
       end
 
@@ -594,7 +594,7 @@ module AWS::SDK::TimestreamQuery
     class ListScheduledQueries
       def self.default(visited=[])
         {
-          scheduled_queries: Stubs::ScheduledQueryList.default(visited),
+          scheduled_queries: ScheduledQueryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -614,7 +614,7 @@ module AWS::SDK::TimestreamQuery
         return nil if visited.include?('ScheduledQueryList')
         visited = visited + ['ScheduledQueryList']
         [
-          Stubs::ScheduledQuery.default(visited)
+          ScheduledQuery.default(visited)
         ]
       end
 
@@ -640,8 +640,8 @@ module AWS::SDK::TimestreamQuery
           state: 'state',
           previous_invocation_time: Time.now,
           next_invocation_time: Time.now,
-          error_report_configuration: Stubs::ErrorReportConfiguration.default(visited),
-          target_destination: Stubs::TargetDestination.default(visited),
+          error_report_configuration: ErrorReportConfiguration.default(visited),
+          target_destination: TargetDestination.default(visited),
           last_run_status: 'last_run_status',
         }
       end
@@ -668,7 +668,7 @@ module AWS::SDK::TimestreamQuery
         return nil if visited.include?('TargetDestination')
         visited = visited + ['TargetDestination']
         {
-          timestream_destination: Stubs::TimestreamDestination.default(visited),
+          timestream_destination: TimestreamDestination.default(visited),
         }
       end
 
@@ -704,7 +704,7 @@ module AWS::SDK::TimestreamQuery
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -724,7 +724,7 @@ module AWS::SDK::TimestreamQuery
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -763,8 +763,8 @@ module AWS::SDK::TimestreamQuery
       def self.default(visited=[])
         {
           query_string: 'query_string',
-          columns: Stubs::SelectColumnList.default(visited),
-          parameters: Stubs::ParameterMappingList.default(visited),
+          columns: SelectColumnList.default(visited),
+          parameters: ParameterMappingList.default(visited),
         }
       end
 
@@ -784,7 +784,7 @@ module AWS::SDK::TimestreamQuery
         return nil if visited.include?('ParameterMappingList')
         visited = visited + ['ParameterMappingList']
         [
-          Stubs::ParameterMapping.default(visited)
+          ParameterMapping.default(visited)
         ]
       end
 
@@ -805,7 +805,7 @@ module AWS::SDK::TimestreamQuery
         visited = visited + ['ParameterMapping']
         {
           name: 'name',
-          type: Stubs::Type.default(visited),
+          type: Type.default(visited),
         }
       end
 
@@ -825,9 +825,9 @@ module AWS::SDK::TimestreamQuery
         visited = visited + ['Type']
         {
           scalar_type: 'scalar_type',
-          array_column_info: Stubs::ColumnInfo.default(visited),
-          time_series_measure_value_column_info: Stubs::ColumnInfo.default(visited),
-          row_column_info: Stubs::ColumnInfoList.default(visited),
+          array_column_info: ColumnInfo.default(visited),
+          time_series_measure_value_column_info: ColumnInfo.default(visited),
+          row_column_info: ColumnInfoList.default(visited),
         }
       end
 
@@ -848,7 +848,7 @@ module AWS::SDK::TimestreamQuery
         return nil if visited.include?('ColumnInfoList')
         visited = visited + ['ColumnInfoList']
         [
-          Stubs::ColumnInfo.default(visited)
+          ColumnInfo.default(visited)
         ]
       end
 
@@ -869,7 +869,7 @@ module AWS::SDK::TimestreamQuery
         visited = visited + ['ColumnInfo']
         {
           name: 'name',
-          type: Stubs::Type.default(visited),
+          type: Type.default(visited),
         }
       end
 
@@ -888,7 +888,7 @@ module AWS::SDK::TimestreamQuery
         return nil if visited.include?('SelectColumnList')
         visited = visited + ['SelectColumnList']
         [
-          Stubs::SelectColumn.default(visited)
+          SelectColumn.default(visited)
         ]
       end
 
@@ -909,7 +909,7 @@ module AWS::SDK::TimestreamQuery
         visited = visited + ['SelectColumn']
         {
           name: 'name',
-          type: Stubs::Type.default(visited),
+          type: Type.default(visited),
           database_name: 'database_name',
           table_name: 'table_name',
           aliased: false,
@@ -934,9 +934,9 @@ module AWS::SDK::TimestreamQuery
         {
           query_id: 'query_id',
           next_token: 'next_token',
-          rows: Stubs::RowList.default(visited),
-          column_info: Stubs::ColumnInfoList.default(visited),
-          query_status: Stubs::QueryStatus.default(visited),
+          rows: RowList.default(visited),
+          column_info: ColumnInfoList.default(visited),
+          query_status: QueryStatus.default(visited),
         }
       end
 
@@ -980,7 +980,7 @@ module AWS::SDK::TimestreamQuery
         return nil if visited.include?('RowList')
         visited = visited + ['RowList']
         [
-          Stubs::Row.default(visited)
+          Row.default(visited)
         ]
       end
 
@@ -1000,7 +1000,7 @@ module AWS::SDK::TimestreamQuery
         return nil if visited.include?('Row')
         visited = visited + ['Row']
         {
-          data: Stubs::DatumList.default(visited),
+          data: DatumList.default(visited),
         }
       end
 
@@ -1018,7 +1018,7 @@ module AWS::SDK::TimestreamQuery
         return nil if visited.include?('DatumList')
         visited = visited + ['DatumList']
         [
-          Stubs::Datum.default(visited)
+          Datum.default(visited)
         ]
       end
 
@@ -1039,9 +1039,9 @@ module AWS::SDK::TimestreamQuery
         visited = visited + ['Datum']
         {
           scalar_value: 'scalar_value',
-          time_series_value: Stubs::TimeSeriesDataPointList.default(visited),
-          array_value: Stubs::DatumList.default(visited),
-          row_value: Stubs::Row.default(visited),
+          time_series_value: TimeSeriesDataPointList.default(visited),
+          array_value: DatumList.default(visited),
+          row_value: Row.default(visited),
           null_value: false,
         }
       end
@@ -1064,7 +1064,7 @@ module AWS::SDK::TimestreamQuery
         return nil if visited.include?('TimeSeriesDataPointList')
         visited = visited + ['TimeSeriesDataPointList']
         [
-          Stubs::TimeSeriesDataPoint.default(visited)
+          TimeSeriesDataPoint.default(visited)
         ]
       end
 
@@ -1085,7 +1085,7 @@ module AWS::SDK::TimestreamQuery
         visited = visited + ['TimeSeriesDataPoint']
         {
           time: 'time',
-          value: Stubs::Datum.default(visited),
+          value: Datum.default(visited),
         }
       end
 

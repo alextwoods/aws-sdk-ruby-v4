@@ -206,7 +206,7 @@ module AWS::SDK::WellArchitected
           milestone_number: 1,
           lens_alias: 'lens_alias',
           lens_arn: 'lens_arn',
-          answer: Stubs::Answer.default(visited),
+          answer: Answer.default(visited),
         }
       end
 
@@ -236,9 +236,9 @@ module AWS::SDK::WellArchitected
           improvement_plan_url: 'improvement_plan_url',
           helpful_resource_url: 'helpful_resource_url',
           helpful_resource_display_text: 'helpful_resource_display_text',
-          choices: Stubs::Choices.default(visited),
-          selected_choices: Stubs::SelectedChoices.default(visited),
-          choice_answers: Stubs::ChoiceAnswers.default(visited),
+          choices: Choices.default(visited),
+          selected_choices: SelectedChoices.default(visited),
+          choice_answers: ChoiceAnswers.default(visited),
           is_applicable: false,
           risk: 'risk',
           notes: 'notes',
@@ -273,7 +273,7 @@ module AWS::SDK::WellArchitected
         return nil if visited.include?('ChoiceAnswers')
         visited = visited + ['ChoiceAnswers']
         [
-          Stubs::ChoiceAnswer.default(visited)
+          ChoiceAnswer.default(visited)
         ]
       end
 
@@ -337,7 +337,7 @@ module AWS::SDK::WellArchitected
         return nil if visited.include?('Choices')
         visited = visited + ['Choices']
         [
-          Stubs::Choice.default(visited)
+          Choice.default(visited)
         ]
       end
 
@@ -360,8 +360,8 @@ module AWS::SDK::WellArchitected
           choice_id: 'choice_id',
           title: 'title',
           description: 'description',
-          helpful_resource: Stubs::ChoiceContent.default(visited),
-          improvement_plan: Stubs::ChoiceContent.default(visited),
+          helpful_resource: ChoiceContent.default(visited),
+          improvement_plan: ChoiceContent.default(visited),
         }
       end
 
@@ -401,7 +401,7 @@ module AWS::SDK::WellArchitected
     class GetLens
       def self.default(visited=[])
         {
-          lens: Stubs::Lens.default(visited),
+          lens: Lens.default(visited),
         }
       end
 
@@ -448,7 +448,7 @@ module AWS::SDK::WellArchitected
         {
           workload_id: 'workload_id',
           milestone_number: 1,
-          lens_review: Stubs::LensReview.default(visited),
+          lens_review: LensReview.default(visited),
         }
       end
 
@@ -474,10 +474,10 @@ module AWS::SDK::WellArchitected
           lens_version: 'lens_version',
           lens_name: 'lens_name',
           lens_status: 'lens_status',
-          pillar_review_summaries: Stubs::PillarReviewSummaries.default(visited),
+          pillar_review_summaries: PillarReviewSummaries.default(visited),
           updated_at: Time.now,
           notes: 'notes',
-          risk_counts: Stubs::RiskCounts.default(visited),
+          risk_counts: RiskCounts.default(visited),
           next_token: 'next_token',
         }
       end
@@ -525,7 +525,7 @@ module AWS::SDK::WellArchitected
         return nil if visited.include?('PillarReviewSummaries')
         visited = visited + ['PillarReviewSummaries']
         [
-          Stubs::PillarReviewSummary.default(visited)
+          PillarReviewSummary.default(visited)
         ]
       end
 
@@ -548,7 +548,7 @@ module AWS::SDK::WellArchitected
           pillar_id: 'pillar_id',
           pillar_name: 'pillar_name',
           notes: 'notes',
-          risk_counts: Stubs::RiskCounts.default(visited),
+          risk_counts: RiskCounts.default(visited),
         }
       end
 
@@ -569,7 +569,7 @@ module AWS::SDK::WellArchitected
         {
           workload_id: 'workload_id',
           milestone_number: 1,
-          lens_review_report: Stubs::LensReviewReport.default(visited),
+          lens_review_report: LensReviewReport.default(visited),
         }
       end
 
@@ -615,7 +615,7 @@ module AWS::SDK::WellArchitected
           base_lens_version: 'base_lens_version',
           target_lens_version: 'target_lens_version',
           latest_lens_version: 'latest_lens_version',
-          version_differences: Stubs::VersionDifferences.default(visited),
+          version_differences: VersionDifferences.default(visited),
         }
       end
 
@@ -639,7 +639,7 @@ module AWS::SDK::WellArchitected
         return nil if visited.include?('VersionDifferences')
         visited = visited + ['VersionDifferences']
         {
-          pillar_differences: Stubs::PillarDifferences.default(visited),
+          pillar_differences: PillarDifferences.default(visited),
         }
       end
 
@@ -657,7 +657,7 @@ module AWS::SDK::WellArchitected
         return nil if visited.include?('PillarDifferences')
         visited = visited + ['PillarDifferences']
         [
-          Stubs::PillarDifference.default(visited)
+          PillarDifference.default(visited)
         ]
       end
 
@@ -680,7 +680,7 @@ module AWS::SDK::WellArchitected
           pillar_id: 'pillar_id',
           pillar_name: 'pillar_name',
           difference_status: 'difference_status',
-          question_differences: Stubs::QuestionDifferences.default(visited),
+          question_differences: QuestionDifferences.default(visited),
         }
       end
 
@@ -701,7 +701,7 @@ module AWS::SDK::WellArchitected
         return nil if visited.include?('QuestionDifferences')
         visited = visited + ['QuestionDifferences']
         [
-          Stubs::QuestionDifference.default(visited)
+          QuestionDifference.default(visited)
         ]
       end
 
@@ -742,7 +742,7 @@ module AWS::SDK::WellArchitected
       def self.default(visited=[])
         {
           workload_id: 'workload_id',
-          milestone: Stubs::Milestone.default(visited),
+          milestone: Milestone.default(visited),
         }
       end
 
@@ -765,7 +765,7 @@ module AWS::SDK::WellArchitected
           milestone_number: 1,
           milestone_name: 'milestone_name',
           recorded_at: Time.now,
-          workload: Stubs::Workload.default(visited),
+          workload: Workload.default(visited),
         }
       end
 
@@ -792,9 +792,9 @@ module AWS::SDK::WellArchitected
           description: 'description',
           environment: 'environment',
           updated_at: Time.now,
-          account_ids: Stubs::WorkloadAccountIds.default(visited),
-          aws_regions: Stubs::WorkloadAwsRegions.default(visited),
-          non_aws_regions: Stubs::WorkloadNonAwsRegions.default(visited),
+          account_ids: WorkloadAccountIds.default(visited),
+          aws_regions: WorkloadAwsRegions.default(visited),
+          non_aws_regions: WorkloadNonAwsRegions.default(visited),
           architectural_design: 'architectural_design',
           review_owner: 'review_owner',
           review_restriction_date: Time.now,
@@ -803,12 +803,12 @@ module AWS::SDK::WellArchitected
           industry: 'industry',
           notes: 'notes',
           improvement_status: 'improvement_status',
-          risk_counts: Stubs::RiskCounts.default(visited),
-          pillar_priorities: Stubs::WorkloadPillarPriorities.default(visited),
-          lenses: Stubs::WorkloadLenses.default(visited),
+          risk_counts: RiskCounts.default(visited),
+          pillar_priorities: WorkloadPillarPriorities.default(visited),
+          lenses: WorkloadLenses.default(visited),
           owner: 'owner',
           share_invitation_id: 'share_invitation_id',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -966,7 +966,7 @@ module AWS::SDK::WellArchitected
     class GetWorkload
       def self.default(visited=[])
         {
-          workload: Stubs::Workload.default(visited),
+          workload: Workload.default(visited),
         }
       end
 
@@ -1006,7 +1006,7 @@ module AWS::SDK::WellArchitected
           milestone_number: 1,
           lens_alias: 'lens_alias',
           lens_arn: 'lens_arn',
-          answer_summaries: Stubs::AnswerSummaries.default(visited),
+          answer_summaries: AnswerSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1031,7 +1031,7 @@ module AWS::SDK::WellArchitected
         return nil if visited.include?('AnswerSummaries')
         visited = visited + ['AnswerSummaries']
         [
-          Stubs::AnswerSummary.default(visited)
+          AnswerSummary.default(visited)
         ]
       end
 
@@ -1054,9 +1054,9 @@ module AWS::SDK::WellArchitected
           question_id: 'question_id',
           pillar_id: 'pillar_id',
           question_title: 'question_title',
-          choices: Stubs::Choices.default(visited),
-          selected_choices: Stubs::SelectedChoices.default(visited),
-          choice_answer_summaries: Stubs::ChoiceAnswerSummaries.default(visited),
+          choices: Choices.default(visited),
+          selected_choices: SelectedChoices.default(visited),
+          choice_answer_summaries: ChoiceAnswerSummaries.default(visited),
           is_applicable: false,
           risk: 'risk',
           reason: 'reason',
@@ -1085,7 +1085,7 @@ module AWS::SDK::WellArchitected
         return nil if visited.include?('ChoiceAnswerSummaries')
         visited = visited + ['ChoiceAnswerSummaries']
         [
-          Stubs::ChoiceAnswerSummary.default(visited)
+          ChoiceAnswerSummary.default(visited)
         ]
       end
 
@@ -1129,7 +1129,7 @@ module AWS::SDK::WellArchitected
           milestone_number: 1,
           lens_alias: 'lens_alias',
           lens_arn: 'lens_arn',
-          improvement_summaries: Stubs::ImprovementSummaries.default(visited),
+          improvement_summaries: ImprovementSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1154,7 +1154,7 @@ module AWS::SDK::WellArchitected
         return nil if visited.include?('ImprovementSummaries')
         visited = visited + ['ImprovementSummaries']
         [
-          Stubs::ImprovementSummary.default(visited)
+          ImprovementSummary.default(visited)
         ]
       end
 
@@ -1179,7 +1179,7 @@ module AWS::SDK::WellArchitected
           question_title: 'question_title',
           risk: 'risk',
           improvement_plan_url: 'improvement_plan_url',
-          improvement_plans: Stubs::ChoiceImprovementPlans.default(visited),
+          improvement_plans: ChoiceImprovementPlans.default(visited),
         }
       end
 
@@ -1202,7 +1202,7 @@ module AWS::SDK::WellArchitected
         return nil if visited.include?('ChoiceImprovementPlans')
         visited = visited + ['ChoiceImprovementPlans']
         [
-          Stubs::ChoiceImprovementPlan.default(visited)
+          ChoiceImprovementPlan.default(visited)
         ]
       end
 
@@ -1244,7 +1244,7 @@ module AWS::SDK::WellArchitected
         {
           workload_id: 'workload_id',
           milestone_number: 1,
-          lens_review_summaries: Stubs::LensReviewSummaries.default(visited),
+          lens_review_summaries: LensReviewSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1267,7 +1267,7 @@ module AWS::SDK::WellArchitected
         return nil if visited.include?('LensReviewSummaries')
         visited = visited + ['LensReviewSummaries']
         [
-          Stubs::LensReviewSummary.default(visited)
+          LensReviewSummary.default(visited)
         ]
       end
 
@@ -1293,7 +1293,7 @@ module AWS::SDK::WellArchitected
           lens_name: 'lens_name',
           lens_status: 'lens_status',
           updated_at: Time.now,
-          risk_counts: Stubs::RiskCounts.default(visited),
+          risk_counts: RiskCounts.default(visited),
         }
       end
 
@@ -1315,7 +1315,7 @@ module AWS::SDK::WellArchitected
     class ListLensShares
       def self.default(visited=[])
         {
-          lens_share_summaries: Stubs::LensShareSummaries.default(visited),
+          lens_share_summaries: LensShareSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1336,7 +1336,7 @@ module AWS::SDK::WellArchitected
         return nil if visited.include?('LensShareSummaries')
         visited = visited + ['LensShareSummaries']
         [
-          Stubs::LensShareSummary.default(visited)
+          LensShareSummary.default(visited)
         ]
       end
 
@@ -1376,7 +1376,7 @@ module AWS::SDK::WellArchitected
     class ListLenses
       def self.default(visited=[])
         {
-          lens_summaries: Stubs::LensSummaries.default(visited),
+          lens_summaries: LensSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1397,7 +1397,7 @@ module AWS::SDK::WellArchitected
         return nil if visited.include?('LensSummaries')
         visited = visited + ['LensSummaries']
         [
-          Stubs::LensSummary.default(visited)
+          LensSummary.default(visited)
         ]
       end
 
@@ -1452,7 +1452,7 @@ module AWS::SDK::WellArchitected
       def self.default(visited=[])
         {
           workload_id: 'workload_id',
-          milestone_summaries: Stubs::MilestoneSummaries.default(visited),
+          milestone_summaries: MilestoneSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1474,7 +1474,7 @@ module AWS::SDK::WellArchitected
         return nil if visited.include?('MilestoneSummaries')
         visited = visited + ['MilestoneSummaries']
         [
-          Stubs::MilestoneSummary.default(visited)
+          MilestoneSummary.default(visited)
         ]
       end
 
@@ -1497,7 +1497,7 @@ module AWS::SDK::WellArchitected
           milestone_number: 1,
           milestone_name: 'milestone_name',
           recorded_at: Time.now,
-          workload_summary: Stubs::WorkloadSummary.default(visited),
+          workload_summary: WorkloadSummary.default(visited),
         }
       end
 
@@ -1523,8 +1523,8 @@ module AWS::SDK::WellArchitected
           workload_name: 'workload_name',
           owner: 'owner',
           updated_at: Time.now,
-          lenses: Stubs::WorkloadLenses.default(visited),
-          risk_counts: Stubs::RiskCounts.default(visited),
+          lenses: WorkloadLenses.default(visited),
+          risk_counts: RiskCounts.default(visited),
           improvement_status: 'improvement_status',
         }
       end
@@ -1548,7 +1548,7 @@ module AWS::SDK::WellArchitected
     class ListNotifications
       def self.default(visited=[])
         {
-          notification_summaries: Stubs::NotificationSummaries.default(visited),
+          notification_summaries: NotificationSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1569,7 +1569,7 @@ module AWS::SDK::WellArchitected
         return nil if visited.include?('NotificationSummaries')
         visited = visited + ['NotificationSummaries']
         [
-          Stubs::NotificationSummary.default(visited)
+          NotificationSummary.default(visited)
         ]
       end
 
@@ -1590,7 +1590,7 @@ module AWS::SDK::WellArchitected
         visited = visited + ['NotificationSummary']
         {
           type: 'type',
-          lens_upgrade_summary: Stubs::LensUpgradeSummary.default(visited),
+          lens_upgrade_summary: LensUpgradeSummary.default(visited),
         }
       end
 
@@ -1635,7 +1635,7 @@ module AWS::SDK::WellArchitected
     class ListShareInvitations
       def self.default(visited=[])
         {
-          share_invitation_summaries: Stubs::ShareInvitationSummaries.default(visited),
+          share_invitation_summaries: ShareInvitationSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1656,7 +1656,7 @@ module AWS::SDK::WellArchitected
         return nil if visited.include?('ShareInvitationSummaries')
         visited = visited + ['ShareInvitationSummaries']
         [
-          Stubs::ShareInvitationSummary.default(visited)
+          ShareInvitationSummary.default(visited)
         ]
       end
 
@@ -1708,7 +1708,7 @@ module AWS::SDK::WellArchitected
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1726,7 +1726,7 @@ module AWS::SDK::WellArchitected
       def self.default(visited=[])
         {
           workload_id: 'workload_id',
-          workload_share_summaries: Stubs::WorkloadShareSummaries.default(visited),
+          workload_share_summaries: WorkloadShareSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1748,7 +1748,7 @@ module AWS::SDK::WellArchitected
         return nil if visited.include?('WorkloadShareSummaries')
         visited = visited + ['WorkloadShareSummaries']
         [
-          Stubs::WorkloadShareSummary.default(visited)
+          WorkloadShareSummary.default(visited)
         ]
       end
 
@@ -1790,7 +1790,7 @@ module AWS::SDK::WellArchitected
     class ListWorkloads
       def self.default(visited=[])
         {
-          workload_summaries: Stubs::WorkloadSummaries.default(visited),
+          workload_summaries: WorkloadSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1811,7 +1811,7 @@ module AWS::SDK::WellArchitected
         return nil if visited.include?('WorkloadSummaries')
         visited = visited + ['WorkloadSummaries']
         [
-          Stubs::WorkloadSummary.default(visited)
+          WorkloadSummary.default(visited)
         ]
       end
 
@@ -1858,7 +1858,7 @@ module AWS::SDK::WellArchitected
           workload_id: 'workload_id',
           lens_alias: 'lens_alias',
           lens_arn: 'lens_arn',
-          answer: Stubs::Answer.default(visited),
+          answer: Answer.default(visited),
         }
       end
 
@@ -1879,7 +1879,7 @@ module AWS::SDK::WellArchitected
       def self.default(visited=[])
         {
           workload_id: 'workload_id',
-          lens_review: Stubs::LensReview.default(visited),
+          lens_review: LensReview.default(visited),
         }
       end
 
@@ -1897,7 +1897,7 @@ module AWS::SDK::WellArchitected
     class UpdateShareInvitation
       def self.default(visited=[])
         {
-          share_invitation: Stubs::ShareInvitation.default(visited),
+          share_invitation: ShareInvitation.default(visited),
         }
       end
 
@@ -1940,7 +1940,7 @@ module AWS::SDK::WellArchitected
     class UpdateWorkload
       def self.default(visited=[])
         {
-          workload: Stubs::Workload.default(visited),
+          workload: Workload.default(visited),
         }
       end
 
@@ -1958,7 +1958,7 @@ module AWS::SDK::WellArchitected
       def self.default(visited=[])
         {
           workload_id: 'workload_id',
-          workload_share: Stubs::WorkloadShare.default(visited),
+          workload_share: WorkloadShare.default(visited),
         }
       end
 

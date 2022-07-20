@@ -864,11 +864,11 @@ module AWS::SDK::KMS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bypass_policy_lockout_safety_check ||= false
       end
-
     end
 
     # @!attribute key_metadata
@@ -1462,11 +1462,11 @@ module AWS::SDK::KMS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.truncated ||= false
       end
-
     end
 
     # @!attribute key_id
@@ -2443,11 +2443,11 @@ module AWS::SDK::KMS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.key_rotation_enabled ||= false
       end
-
     end
 
     # @!attribute key_id
@@ -3399,11 +3399,11 @@ module AWS::SDK::KMS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # Includes enum constants for KeySpec
@@ -3610,11 +3610,11 @@ module AWS::SDK::KMS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.truncated ||= false
       end
-
     end
 
     # @!attribute limit
@@ -3702,11 +3702,11 @@ module AWS::SDK::KMS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.truncated ||= false
       end
-
     end
 
     # @!attribute key_id
@@ -3779,11 +3779,11 @@ module AWS::SDK::KMS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.truncated ||= false
       end
-
     end
 
     # @!attribute limit
@@ -3836,11 +3836,11 @@ module AWS::SDK::KMS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.truncated ||= false
       end
-
     end
 
     # @!attribute key_id
@@ -3918,11 +3918,11 @@ module AWS::SDK::KMS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.truncated ||= false
       end
-
     end
 
     # @!attribute limit
@@ -3987,11 +3987,11 @@ module AWS::SDK::KMS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.truncated ||= false
       end
-
     end
 
     # Includes enum constants for MacAlgorithmSpec
@@ -4220,11 +4220,11 @@ module AWS::SDK::KMS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bypass_policy_lockout_safety_check ||= false
       end
-
     end
 
     PutKeyPolicyOutput = ::Struct.new(
@@ -4554,11 +4554,11 @@ module AWS::SDK::KMS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bypass_policy_lockout_safety_check ||= false
       end
-
     end
 
     # @!attribute replica_key_metadata
@@ -5411,11 +5411,11 @@ module AWS::SDK::KMS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.mac_valid ||= false
       end
-
     end
 
     # @!attribute key_id
@@ -5446,11 +5446,11 @@ module AWS::SDK::KMS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.signature_valid ||= false
       end
-
     end
 
     # Includes enum constants for WrappingKeySpec

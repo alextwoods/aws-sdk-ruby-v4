@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::AuditManager
   module Validators
 
@@ -23,7 +25,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AWSAccount.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AWSAccount.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -39,7 +41,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AWSService.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AWSService.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -55,10 +57,10 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Assessment, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::AWSAccount.validate!(input[:aws_account], context: "#{context}[:aws_account]") unless input[:aws_account].nil?
-        Validators::AssessmentMetadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
-        Validators::AssessmentFramework.validate!(input[:framework], context: "#{context}[:framework]") unless input[:framework].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        AWSAccount.validate!(input[:aws_account], context: "#{context}[:aws_account]") unless input[:aws_account].nil?
+        AssessmentMetadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
+        AssessmentFramework.validate!(input[:framework], context: "#{context}[:framework]") unless input[:framework].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -70,8 +72,8 @@ module AWS::SDK::AuditManager
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:response], ::String, context: "#{context}[:response]")
-        Validators::ControlComments.validate!(input[:comments], context: "#{context}[:comments]") unless input[:comments].nil?
-        Validators::EvidenceSources.validate!(input[:evidence_sources], context: "#{context}[:evidence_sources]") unless input[:evidence_sources].nil?
+        ControlComments.validate!(input[:comments], context: "#{context}[:comments]") unless input[:comments].nil?
+        EvidenceSources.validate!(input[:evidence_sources], context: "#{context}[:evidence_sources]") unless input[:evidence_sources].nil?
         Hearth::Validator.validate!(input[:evidence_count], ::Integer, context: "#{context}[:evidence_count]")
         Hearth::Validator.validate!(input[:assessment_report_evidence_count], ::Integer, context: "#{context}[:assessment_report_evidence_count]")
       end
@@ -83,9 +85,9 @@ module AWS::SDK::AuditManager
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::Roles.validate!(input[:roles], context: "#{context}[:roles]") unless input[:roles].nil?
-        Validators::AssessmentControls.validate!(input[:controls], context: "#{context}[:controls]") unless input[:controls].nil?
-        Validators::Delegations.validate!(input[:delegations], context: "#{context}[:delegations]") unless input[:delegations].nil?
+        Roles.validate!(input[:roles], context: "#{context}[:roles]") unless input[:roles].nil?
+        AssessmentControls.validate!(input[:controls], context: "#{context}[:controls]") unless input[:controls].nil?
+        Delegations.validate!(input[:delegations], context: "#{context}[:delegations]") unless input[:delegations].nil?
         Hearth::Validator.validate!(input[:system_evidence_count], ::Integer, context: "#{context}[:system_evidence_count]")
         Hearth::Validator.validate!(input[:manual_evidence_count], ::Integer, context: "#{context}[:manual_evidence_count]")
       end
@@ -95,7 +97,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AssessmentControlSet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AssessmentControlSet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -104,7 +106,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AssessmentControl.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AssessmentControl.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -137,7 +139,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AssessmentEvidenceFolder.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AssessmentEvidenceFolder.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -147,8 +149,8 @@ module AWS::SDK::AuditManager
         Hearth::Validator.validate!(input, Types::AssessmentFramework, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::FrameworkMetadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
-        Validators::AssessmentControlSets.validate!(input[:control_sets], context: "#{context}[:control_sets]") unless input[:control_sets].nil?
+        FrameworkMetadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
+        AssessmentControlSets.validate!(input[:control_sets], context: "#{context}[:control_sets]") unless input[:control_sets].nil?
       end
     end
 
@@ -194,7 +196,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AssessmentFrameworkShareRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AssessmentFrameworkShareRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -207,10 +209,10 @@ module AWS::SDK::AuditManager
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:compliance_type], ::String, context: "#{context}[:compliance_type]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::AssessmentReportsDestination.validate!(input[:assessment_reports_destination], context: "#{context}[:assessment_reports_destination]") unless input[:assessment_reports_destination].nil?
-        Validators::Scope.validate!(input[:scope], context: "#{context}[:scope]") unless input[:scope].nil?
-        Validators::Roles.validate!(input[:roles], context: "#{context}[:roles]") unless input[:roles].nil?
-        Validators::Delegations.validate!(input[:delegations], context: "#{context}[:delegations]") unless input[:delegations].nil?
+        AssessmentReportsDestination.validate!(input[:assessment_reports_destination], context: "#{context}[:assessment_reports_destination]") unless input[:assessment_reports_destination].nil?
+        Scope.validate!(input[:scope], context: "#{context}[:scope]") unless input[:scope].nil?
+        Roles.validate!(input[:roles], context: "#{context}[:roles]") unless input[:roles].nil?
+        Delegations.validate!(input[:delegations], context: "#{context}[:delegations]") unless input[:delegations].nil?
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:last_updated], ::Time, context: "#{context}[:last_updated]")
       end
@@ -223,8 +225,8 @@ module AWS::SDK::AuditManager
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:compliance_type], ::String, context: "#{context}[:compliance_type]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::Roles.validate!(input[:roles], context: "#{context}[:roles]") unless input[:roles].nil?
-        Validators::Delegations.validate!(input[:delegations], context: "#{context}[:delegations]") unless input[:delegations].nil?
+        Roles.validate!(input[:roles], context: "#{context}[:roles]") unless input[:roles].nil?
+        Delegations.validate!(input[:delegations], context: "#{context}[:delegations]") unless input[:delegations].nil?
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:last_updated], ::Time, context: "#{context}[:last_updated]")
       end
@@ -258,7 +260,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AssessmentReportEvidenceError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AssessmentReportEvidenceError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -289,7 +291,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AssessmentReportMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AssessmentReportMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -313,22 +315,22 @@ module AWS::SDK::AuditManager
         Hearth::Validator.validate!(input, Types::BatchAssociateAssessmentReportEvidenceInput, context: context)
         Hearth::Validator.validate!(input[:assessment_id], ::String, context: "#{context}[:assessment_id]")
         Hearth::Validator.validate!(input[:evidence_folder_id], ::String, context: "#{context}[:evidence_folder_id]")
-        Validators::EvidenceIds.validate!(input[:evidence_ids], context: "#{context}[:evidence_ids]") unless input[:evidence_ids].nil?
+        EvidenceIds.validate!(input[:evidence_ids], context: "#{context}[:evidence_ids]") unless input[:evidence_ids].nil?
       end
     end
 
     class BatchAssociateAssessmentReportEvidenceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchAssociateAssessmentReportEvidenceOutput, context: context)
-        Validators::EvidenceIds.validate!(input[:evidence_ids], context: "#{context}[:evidence_ids]") unless input[:evidence_ids].nil?
-        Validators::AssessmentReportEvidenceErrors.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        EvidenceIds.validate!(input[:evidence_ids], context: "#{context}[:evidence_ids]") unless input[:evidence_ids].nil?
+        AssessmentReportEvidenceErrors.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
       end
     end
 
     class BatchCreateDelegationByAssessmentError
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchCreateDelegationByAssessmentError, context: context)
-        Validators::CreateDelegationRequest.validate!(input[:create_delegation_request], context: "#{context}[:create_delegation_request]") unless input[:create_delegation_request].nil?
+        CreateDelegationRequest.validate!(input[:create_delegation_request], context: "#{context}[:create_delegation_request]") unless input[:create_delegation_request].nil?
         Hearth::Validator.validate!(input[:error_code], ::String, context: "#{context}[:error_code]")
         Hearth::Validator.validate!(input[:error_message], ::String, context: "#{context}[:error_message]")
       end
@@ -338,7 +340,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchCreateDelegationByAssessmentError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchCreateDelegationByAssessmentError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -346,7 +348,7 @@ module AWS::SDK::AuditManager
     class BatchCreateDelegationByAssessmentInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchCreateDelegationByAssessmentInput, context: context)
-        Validators::CreateDelegationRequests.validate!(input[:create_delegation_requests], context: "#{context}[:create_delegation_requests]") unless input[:create_delegation_requests].nil?
+        CreateDelegationRequests.validate!(input[:create_delegation_requests], context: "#{context}[:create_delegation_requests]") unless input[:create_delegation_requests].nil?
         Hearth::Validator.validate!(input[:assessment_id], ::String, context: "#{context}[:assessment_id]")
       end
     end
@@ -354,8 +356,8 @@ module AWS::SDK::AuditManager
     class BatchCreateDelegationByAssessmentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchCreateDelegationByAssessmentOutput, context: context)
-        Validators::Delegations.validate!(input[:delegations], context: "#{context}[:delegations]") unless input[:delegations].nil?
-        Validators::BatchCreateDelegationByAssessmentErrors.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        Delegations.validate!(input[:delegations], context: "#{context}[:delegations]") unless input[:delegations].nil?
+        BatchCreateDelegationByAssessmentErrors.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
       end
     end
 
@@ -372,7 +374,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchDeleteDelegationByAssessmentError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchDeleteDelegationByAssessmentError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -380,7 +382,7 @@ module AWS::SDK::AuditManager
     class BatchDeleteDelegationByAssessmentInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDeleteDelegationByAssessmentInput, context: context)
-        Validators::DelegationIds.validate!(input[:delegation_ids], context: "#{context}[:delegation_ids]") unless input[:delegation_ids].nil?
+        DelegationIds.validate!(input[:delegation_ids], context: "#{context}[:delegation_ids]") unless input[:delegation_ids].nil?
         Hearth::Validator.validate!(input[:assessment_id], ::String, context: "#{context}[:assessment_id]")
       end
     end
@@ -388,7 +390,7 @@ module AWS::SDK::AuditManager
     class BatchDeleteDelegationByAssessmentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDeleteDelegationByAssessmentOutput, context: context)
-        Validators::BatchDeleteDelegationByAssessmentErrors.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        BatchDeleteDelegationByAssessmentErrors.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
       end
     end
 
@@ -397,22 +399,22 @@ module AWS::SDK::AuditManager
         Hearth::Validator.validate!(input, Types::BatchDisassociateAssessmentReportEvidenceInput, context: context)
         Hearth::Validator.validate!(input[:assessment_id], ::String, context: "#{context}[:assessment_id]")
         Hearth::Validator.validate!(input[:evidence_folder_id], ::String, context: "#{context}[:evidence_folder_id]")
-        Validators::EvidenceIds.validate!(input[:evidence_ids], context: "#{context}[:evidence_ids]") unless input[:evidence_ids].nil?
+        EvidenceIds.validate!(input[:evidence_ids], context: "#{context}[:evidence_ids]") unless input[:evidence_ids].nil?
       end
     end
 
     class BatchDisassociateAssessmentReportEvidenceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDisassociateAssessmentReportEvidenceOutput, context: context)
-        Validators::EvidenceIds.validate!(input[:evidence_ids], context: "#{context}[:evidence_ids]") unless input[:evidence_ids].nil?
-        Validators::AssessmentReportEvidenceErrors.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        EvidenceIds.validate!(input[:evidence_ids], context: "#{context}[:evidence_ids]") unless input[:evidence_ids].nil?
+        AssessmentReportEvidenceErrors.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
       end
     end
 
     class BatchImportEvidenceToAssessmentControlError
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchImportEvidenceToAssessmentControlError, context: context)
-        Validators::ManualEvidence.validate!(input[:manual_evidence], context: "#{context}[:manual_evidence]") unless input[:manual_evidence].nil?
+        ManualEvidence.validate!(input[:manual_evidence], context: "#{context}[:manual_evidence]") unless input[:manual_evidence].nil?
         Hearth::Validator.validate!(input[:error_code], ::String, context: "#{context}[:error_code]")
         Hearth::Validator.validate!(input[:error_message], ::String, context: "#{context}[:error_message]")
       end
@@ -422,7 +424,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchImportEvidenceToAssessmentControlError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchImportEvidenceToAssessmentControlError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -433,14 +435,14 @@ module AWS::SDK::AuditManager
         Hearth::Validator.validate!(input[:assessment_id], ::String, context: "#{context}[:assessment_id]")
         Hearth::Validator.validate!(input[:control_set_id], ::String, context: "#{context}[:control_set_id]")
         Hearth::Validator.validate!(input[:control_id], ::String, context: "#{context}[:control_id]")
-        Validators::ManualEvidenceList.validate!(input[:manual_evidence], context: "#{context}[:manual_evidence]") unless input[:manual_evidence].nil?
+        ManualEvidenceList.validate!(input[:manual_evidence], context: "#{context}[:manual_evidence]") unless input[:manual_evidence].nil?
       end
     end
 
     class BatchImportEvidenceToAssessmentControlOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchImportEvidenceToAssessmentControlOutput, context: context)
-        Validators::BatchImportEvidenceToAssessmentControlErrors.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        BatchImportEvidenceToAssessmentControlErrors.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
       end
     end
 
@@ -459,7 +461,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ChangeLog.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ChangeLog.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -476,12 +478,12 @@ module AWS::SDK::AuditManager
         Hearth::Validator.validate!(input[:action_plan_title], ::String, context: "#{context}[:action_plan_title]")
         Hearth::Validator.validate!(input[:action_plan_instructions], ::String, context: "#{context}[:action_plan_instructions]")
         Hearth::Validator.validate!(input[:control_sources], ::String, context: "#{context}[:control_sources]")
-        Validators::ControlMappingSources.validate!(input[:control_mapping_sources], context: "#{context}[:control_mapping_sources]") unless input[:control_mapping_sources].nil?
+        ControlMappingSources.validate!(input[:control_mapping_sources], context: "#{context}[:control_mapping_sources]") unless input[:control_mapping_sources].nil?
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:last_updated_at], ::Time, context: "#{context}[:last_updated_at]")
         Hearth::Validator.validate!(input[:created_by], ::String, context: "#{context}[:created_by]")
         Hearth::Validator.validate!(input[:last_updated_by], ::String, context: "#{context}[:last_updated_by]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -498,7 +500,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ControlComment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ControlComment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -510,7 +512,7 @@ module AWS::SDK::AuditManager
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:controls_count_by_noncompliant_evidence], ::Integer, context: "#{context}[:controls_count_by_noncompliant_evidence]")
         Hearth::Validator.validate!(input[:total_controls_count], ::Integer, context: "#{context}[:total_controls_count]")
-        Validators::EvidenceInsights.validate!(input[:evidence_insights], context: "#{context}[:evidence_insights]") unless input[:evidence_insights].nil?
+        EvidenceInsights.validate!(input[:evidence_insights], context: "#{context}[:evidence_insights]") unless input[:evidence_insights].nil?
         Hearth::Validator.validate!(input[:last_updated], ::Time, context: "#{context}[:last_updated]")
       end
     end
@@ -519,7 +521,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ControlDomainInsights.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ControlDomainInsights.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -528,7 +530,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ControlInsightsMetadataItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ControlInsightsMetadataItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -537,7 +539,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ControlInsightsMetadataByAssessmentItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ControlInsightsMetadataByAssessmentItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -547,7 +549,7 @@ module AWS::SDK::AuditManager
         Hearth::Validator.validate!(input, Types::ControlInsightsMetadataByAssessmentItem, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::EvidenceInsights.validate!(input[:evidence_insights], context: "#{context}[:evidence_insights]") unless input[:evidence_insights].nil?
+        EvidenceInsights.validate!(input[:evidence_insights], context: "#{context}[:evidence_insights]") unless input[:evidence_insights].nil?
         Hearth::Validator.validate!(input[:control_set_name], ::String, context: "#{context}[:control_set_name]")
         Hearth::Validator.validate!(input[:last_updated], ::Time, context: "#{context}[:last_updated]")
       end
@@ -558,7 +560,7 @@ module AWS::SDK::AuditManager
         Hearth::Validator.validate!(input, Types::ControlInsightsMetadataItem, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::EvidenceInsights.validate!(input[:evidence_insights], context: "#{context}[:evidence_insights]") unless input[:evidence_insights].nil?
+        EvidenceInsights.validate!(input[:evidence_insights], context: "#{context}[:evidence_insights]") unless input[:evidence_insights].nil?
         Hearth::Validator.validate!(input[:last_updated], ::Time, context: "#{context}[:last_updated]")
       end
     end
@@ -571,7 +573,7 @@ module AWS::SDK::AuditManager
         Hearth::Validator.validate!(input[:source_description], ::String, context: "#{context}[:source_description]")
         Hearth::Validator.validate!(input[:source_set_up_option], ::String, context: "#{context}[:source_set_up_option]")
         Hearth::Validator.validate!(input[:source_type], ::String, context: "#{context}[:source_type]")
-        Validators::SourceKeyword.validate!(input[:source_keyword], context: "#{context}[:source_keyword]") unless input[:source_keyword].nil?
+        SourceKeyword.validate!(input[:source_keyword], context: "#{context}[:source_keyword]") unless input[:source_keyword].nil?
         Hearth::Validator.validate!(input[:source_frequency], ::String, context: "#{context}[:source_frequency]")
         Hearth::Validator.validate!(input[:troubleshooting_text], ::String, context: "#{context}[:troubleshooting_text]")
       end
@@ -581,7 +583,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ControlMappingSource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ControlMappingSource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -602,7 +604,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ControlMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ControlMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -612,7 +614,7 @@ module AWS::SDK::AuditManager
         Hearth::Validator.validate!(input, Types::ControlSet, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::Controls.validate!(input[:controls], context: "#{context}[:controls]") unless input[:controls].nil?
+        Controls.validate!(input[:controls], context: "#{context}[:controls]") unless input[:controls].nil?
       end
     end
 
@@ -620,7 +622,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ControlSet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ControlSet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -629,7 +631,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Control.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Control.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -645,7 +647,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateAssessmentFrameworkControlSet, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::CreateAssessmentFrameworkControls.validate!(input[:controls], context: "#{context}[:controls]") unless input[:controls].nil?
+        CreateAssessmentFrameworkControls.validate!(input[:controls], context: "#{context}[:controls]") unless input[:controls].nil?
       end
     end
 
@@ -653,7 +655,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CreateAssessmentFrameworkControlSet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CreateAssessmentFrameworkControlSet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -662,7 +664,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CreateAssessmentFrameworkControl.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CreateAssessmentFrameworkControl.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -673,15 +675,15 @@ module AWS::SDK::AuditManager
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:compliance_type], ::String, context: "#{context}[:compliance_type]")
-        Validators::CreateAssessmentFrameworkControlSets.validate!(input[:control_sets], context: "#{context}[:control_sets]") unless input[:control_sets].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        CreateAssessmentFrameworkControlSets.validate!(input[:control_sets], context: "#{context}[:control_sets]") unless input[:control_sets].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateAssessmentFrameworkOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateAssessmentFrameworkOutput, context: context)
-        Validators::Framework.validate!(input[:framework], context: "#{context}[:framework]") unless input[:framework].nil?
+        Framework.validate!(input[:framework], context: "#{context}[:framework]") unless input[:framework].nil?
       end
     end
 
@@ -690,18 +692,18 @@ module AWS::SDK::AuditManager
         Hearth::Validator.validate!(input, Types::CreateAssessmentInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::AssessmentReportsDestination.validate!(input[:assessment_reports_destination], context: "#{context}[:assessment_reports_destination]") unless input[:assessment_reports_destination].nil?
-        Validators::Scope.validate!(input[:scope], context: "#{context}[:scope]") unless input[:scope].nil?
-        Validators::Roles.validate!(input[:roles], context: "#{context}[:roles]") unless input[:roles].nil?
+        AssessmentReportsDestination.validate!(input[:assessment_reports_destination], context: "#{context}[:assessment_reports_destination]") unless input[:assessment_reports_destination].nil?
+        Scope.validate!(input[:scope], context: "#{context}[:scope]") unless input[:scope].nil?
+        Roles.validate!(input[:roles], context: "#{context}[:roles]") unless input[:roles].nil?
         Hearth::Validator.validate!(input[:framework_id], ::String, context: "#{context}[:framework_id]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateAssessmentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateAssessmentOutput, context: context)
-        Validators::Assessment.validate!(input[:assessment], context: "#{context}[:assessment]") unless input[:assessment].nil?
+        Assessment.validate!(input[:assessment], context: "#{context}[:assessment]") unless input[:assessment].nil?
       end
     end
 
@@ -717,7 +719,7 @@ module AWS::SDK::AuditManager
     class CreateAssessmentReportOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateAssessmentReportOutput, context: context)
-        Validators::AssessmentReport.validate!(input[:assessment_report], context: "#{context}[:assessment_report]") unless input[:assessment_report].nil?
+        AssessmentReport.validate!(input[:assessment_report], context: "#{context}[:assessment_report]") unless input[:assessment_report].nil?
       end
     end
 
@@ -729,8 +731,8 @@ module AWS::SDK::AuditManager
         Hearth::Validator.validate!(input[:testing_information], ::String, context: "#{context}[:testing_information]")
         Hearth::Validator.validate!(input[:action_plan_title], ::String, context: "#{context}[:action_plan_title]")
         Hearth::Validator.validate!(input[:action_plan_instructions], ::String, context: "#{context}[:action_plan_instructions]")
-        Validators::CreateControlMappingSources.validate!(input[:control_mapping_sources], context: "#{context}[:control_mapping_sources]") unless input[:control_mapping_sources].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        CreateControlMappingSources.validate!(input[:control_mapping_sources], context: "#{context}[:control_mapping_sources]") unless input[:control_mapping_sources].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -741,7 +743,7 @@ module AWS::SDK::AuditManager
         Hearth::Validator.validate!(input[:source_description], ::String, context: "#{context}[:source_description]")
         Hearth::Validator.validate!(input[:source_set_up_option], ::String, context: "#{context}[:source_set_up_option]")
         Hearth::Validator.validate!(input[:source_type], ::String, context: "#{context}[:source_type]")
-        Validators::SourceKeyword.validate!(input[:source_keyword], context: "#{context}[:source_keyword]") unless input[:source_keyword].nil?
+        SourceKeyword.validate!(input[:source_keyword], context: "#{context}[:source_keyword]") unless input[:source_keyword].nil?
         Hearth::Validator.validate!(input[:source_frequency], ::String, context: "#{context}[:source_frequency]")
         Hearth::Validator.validate!(input[:troubleshooting_text], ::String, context: "#{context}[:troubleshooting_text]")
       end
@@ -751,7 +753,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CreateControlMappingSource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CreateControlMappingSource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -759,7 +761,7 @@ module AWS::SDK::AuditManager
     class CreateControlOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateControlOutput, context: context)
-        Validators::Control.validate!(input[:control], context: "#{context}[:control]") unless input[:control].nil?
+        Control.validate!(input[:control], context: "#{context}[:control]") unless input[:control].nil?
       end
     end
 
@@ -777,7 +779,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CreateDelegationRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CreateDelegationRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -825,7 +827,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DelegationMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DelegationMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -834,7 +836,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Delegation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Delegation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -955,8 +957,8 @@ module AWS::SDK::AuditManager
         Hearth::Validator.validate!(input[:event_source], ::String, context: "#{context}[:event_source]")
         Hearth::Validator.validate!(input[:event_name], ::String, context: "#{context}[:event_name]")
         Hearth::Validator.validate!(input[:evidence_by_type], ::String, context: "#{context}[:evidence_by_type]")
-        Validators::Resources.validate!(input[:resources_included], context: "#{context}[:resources_included]") unless input[:resources_included].nil?
-        Validators::EvidenceAttributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        Resources.validate!(input[:resources_included], context: "#{context}[:resources_included]") unless input[:resources_included].nil?
+        EvidenceAttributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
         Hearth::Validator.validate!(input[:iam_id], ::String, context: "#{context}[:iam_id]")
         Hearth::Validator.validate!(input[:compliance_check], ::String, context: "#{context}[:compliance_check]")
         Hearth::Validator.validate!(input[:aws_organization], ::String, context: "#{context}[:aws_organization]")
@@ -999,7 +1001,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Evidence.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Evidence.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1024,12 +1026,12 @@ module AWS::SDK::AuditManager
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:logo], ::String, context: "#{context}[:logo]")
         Hearth::Validator.validate!(input[:control_sources], ::String, context: "#{context}[:control_sources]")
-        Validators::ControlSets.validate!(input[:control_sets], context: "#{context}[:control_sets]") unless input[:control_sets].nil?
+        ControlSets.validate!(input[:control_sets], context: "#{context}[:control_sets]") unless input[:control_sets].nil?
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:last_updated_at], ::Time, context: "#{context}[:last_updated_at]")
         Hearth::Validator.validate!(input[:created_by], ::String, context: "#{context}[:created_by]")
         Hearth::Validator.validate!(input[:last_updated_by], ::String, context: "#{context}[:last_updated_by]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1047,7 +1049,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AssessmentFrameworkMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AssessmentFrameworkMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1075,7 +1077,7 @@ module AWS::SDK::AuditManager
     class GetAssessmentFrameworkOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAssessmentFrameworkOutput, context: context)
-        Validators::Framework.validate!(input[:framework], context: "#{context}[:framework]") unless input[:framework].nil?
+        Framework.validate!(input[:framework], context: "#{context}[:framework]") unless input[:framework].nil?
       end
     end
 
@@ -1089,8 +1091,8 @@ module AWS::SDK::AuditManager
     class GetAssessmentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAssessmentOutput, context: context)
-        Validators::Assessment.validate!(input[:assessment], context: "#{context}[:assessment]") unless input[:assessment].nil?
-        Validators::Role.validate!(input[:user_role], context: "#{context}[:user_role]") unless input[:user_role].nil?
+        Assessment.validate!(input[:assessment], context: "#{context}[:assessment]") unless input[:assessment].nil?
+        Role.validate!(input[:user_role], context: "#{context}[:user_role]") unless input[:user_role].nil?
       end
     end
 
@@ -1105,7 +1107,7 @@ module AWS::SDK::AuditManager
     class GetAssessmentReportUrlOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAssessmentReportUrlOutput, context: context)
-        Validators::URL.validate!(input[:pre_signed_url], context: "#{context}[:pre_signed_url]") unless input[:pre_signed_url].nil?
+        URL.validate!(input[:pre_signed_url], context: "#{context}[:pre_signed_url]") unless input[:pre_signed_url].nil?
       end
     end
 
@@ -1123,7 +1125,7 @@ module AWS::SDK::AuditManager
     class GetChangeLogsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetChangeLogsOutput, context: context)
-        Validators::ChangeLogs.validate!(input[:change_logs], context: "#{context}[:change_logs]") unless input[:change_logs].nil?
+        ChangeLogs.validate!(input[:change_logs], context: "#{context}[:change_logs]") unless input[:change_logs].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1138,7 +1140,7 @@ module AWS::SDK::AuditManager
     class GetControlOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetControlOutput, context: context)
-        Validators::Control.validate!(input[:control], context: "#{context}[:control]") unless input[:control].nil?
+        Control.validate!(input[:control], context: "#{context}[:control]") unless input[:control].nil?
       end
     end
 
@@ -1153,7 +1155,7 @@ module AWS::SDK::AuditManager
     class GetDelegationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDelegationsOutput, context: context)
-        Validators::DelegationMetadataList.validate!(input[:delegations], context: "#{context}[:delegations]") unless input[:delegations].nil?
+        DelegationMetadataList.validate!(input[:delegations], context: "#{context}[:delegations]") unless input[:delegations].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1172,7 +1174,7 @@ module AWS::SDK::AuditManager
     class GetEvidenceByEvidenceFolderOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetEvidenceByEvidenceFolderOutput, context: context)
-        Validators::EvidenceList.validate!(input[:evidence], context: "#{context}[:evidence]") unless input[:evidence].nil?
+        EvidenceList.validate!(input[:evidence], context: "#{context}[:evidence]") unless input[:evidence].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1189,7 +1191,7 @@ module AWS::SDK::AuditManager
     class GetEvidenceFolderOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetEvidenceFolderOutput, context: context)
-        Validators::AssessmentEvidenceFolder.validate!(input[:evidence_folder], context: "#{context}[:evidence_folder]") unless input[:evidence_folder].nil?
+        AssessmentEvidenceFolder.validate!(input[:evidence_folder], context: "#{context}[:evidence_folder]") unless input[:evidence_folder].nil?
       end
     end
 
@@ -1207,7 +1209,7 @@ module AWS::SDK::AuditManager
     class GetEvidenceFoldersByAssessmentControlOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetEvidenceFoldersByAssessmentControlOutput, context: context)
-        Validators::AssessmentEvidenceFolders.validate!(input[:evidence_folders], context: "#{context}[:evidence_folders]") unless input[:evidence_folders].nil?
+        AssessmentEvidenceFolders.validate!(input[:evidence_folders], context: "#{context}[:evidence_folders]") unless input[:evidence_folders].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1224,7 +1226,7 @@ module AWS::SDK::AuditManager
     class GetEvidenceFoldersByAssessmentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetEvidenceFoldersByAssessmentOutput, context: context)
-        Validators::AssessmentEvidenceFolders.validate!(input[:evidence_folders], context: "#{context}[:evidence_folders]") unless input[:evidence_folders].nil?
+        AssessmentEvidenceFolders.validate!(input[:evidence_folders], context: "#{context}[:evidence_folders]") unless input[:evidence_folders].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1242,7 +1244,7 @@ module AWS::SDK::AuditManager
     class GetEvidenceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetEvidenceOutput, context: context)
-        Validators::Evidence.validate!(input[:evidence], context: "#{context}[:evidence]") unless input[:evidence].nil?
+        Evidence.validate!(input[:evidence], context: "#{context}[:evidence]") unless input[:evidence].nil?
       end
     end
 
@@ -1256,7 +1258,7 @@ module AWS::SDK::AuditManager
     class GetInsightsByAssessmentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetInsightsByAssessmentOutput, context: context)
-        Validators::InsightsByAssessment.validate!(input[:insights], context: "#{context}[:insights]") unless input[:insights].nil?
+        InsightsByAssessment.validate!(input[:insights], context: "#{context}[:insights]") unless input[:insights].nil?
       end
     end
 
@@ -1269,7 +1271,7 @@ module AWS::SDK::AuditManager
     class GetInsightsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetInsightsOutput, context: context)
-        Validators::Insights.validate!(input[:insights], context: "#{context}[:insights]") unless input[:insights].nil?
+        Insights.validate!(input[:insights], context: "#{context}[:insights]") unless input[:insights].nil?
       end
     end
 
@@ -1296,7 +1298,7 @@ module AWS::SDK::AuditManager
     class GetServicesInScopeOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetServicesInScopeOutput, context: context)
-        Validators::ServiceMetadataList.validate!(input[:service_metadata], context: "#{context}[:service_metadata]") unless input[:service_metadata].nil?
+        ServiceMetadataList.validate!(input[:service_metadata], context: "#{context}[:service_metadata]") unless input[:service_metadata].nil?
       end
     end
 
@@ -1310,7 +1312,7 @@ module AWS::SDK::AuditManager
     class GetSettingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSettingsOutput, context: context)
-        Validators::Settings.validate!(input[:settings], context: "#{context}[:settings]") unless input[:settings].nil?
+        Settings.validate!(input[:settings], context: "#{context}[:settings]") unless input[:settings].nil?
       end
     end
 
@@ -1368,7 +1370,7 @@ module AWS::SDK::AuditManager
     class ListAssessmentControlInsightsByControlDomainOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAssessmentControlInsightsByControlDomainOutput, context: context)
-        Validators::ControlInsightsMetadataByAssessment.validate!(input[:control_insights_by_assessment], context: "#{context}[:control_insights_by_assessment]") unless input[:control_insights_by_assessment].nil?
+        ControlInsightsMetadataByAssessment.validate!(input[:control_insights_by_assessment], context: "#{context}[:control_insights_by_assessment]") unless input[:control_insights_by_assessment].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1385,7 +1387,7 @@ module AWS::SDK::AuditManager
     class ListAssessmentFrameworkShareRequestsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAssessmentFrameworkShareRequestsOutput, context: context)
-        Validators::AssessmentFrameworkShareRequestList.validate!(input[:assessment_framework_share_requests], context: "#{context}[:assessment_framework_share_requests]") unless input[:assessment_framework_share_requests].nil?
+        AssessmentFrameworkShareRequestList.validate!(input[:assessment_framework_share_requests], context: "#{context}[:assessment_framework_share_requests]") unless input[:assessment_framework_share_requests].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1402,7 +1404,7 @@ module AWS::SDK::AuditManager
     class ListAssessmentFrameworksOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAssessmentFrameworksOutput, context: context)
-        Validators::FrameworkMetadataList.validate!(input[:framework_metadata_list], context: "#{context}[:framework_metadata_list]") unless input[:framework_metadata_list].nil?
+        FrameworkMetadataList.validate!(input[:framework_metadata_list], context: "#{context}[:framework_metadata_list]") unless input[:framework_metadata_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1411,7 +1413,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AssessmentMetadataItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AssessmentMetadataItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1427,7 +1429,7 @@ module AWS::SDK::AuditManager
     class ListAssessmentReportsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAssessmentReportsOutput, context: context)
-        Validators::AssessmentReportsMetadata.validate!(input[:assessment_reports], context: "#{context}[:assessment_reports]") unless input[:assessment_reports].nil?
+        AssessmentReportsMetadata.validate!(input[:assessment_reports], context: "#{context}[:assessment_reports]") unless input[:assessment_reports].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1444,7 +1446,7 @@ module AWS::SDK::AuditManager
     class ListAssessmentsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAssessmentsOutput, context: context)
-        Validators::ListAssessmentMetadata.validate!(input[:assessment_metadata], context: "#{context}[:assessment_metadata]") unless input[:assessment_metadata].nil?
+        ListAssessmentMetadata.validate!(input[:assessment_metadata], context: "#{context}[:assessment_metadata]") unless input[:assessment_metadata].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1461,7 +1463,7 @@ module AWS::SDK::AuditManager
     class ListControlDomainInsightsByAssessmentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListControlDomainInsightsByAssessmentOutput, context: context)
-        Validators::ControlDomainInsightsList.validate!(input[:control_domain_insights], context: "#{context}[:control_domain_insights]") unless input[:control_domain_insights].nil?
+        ControlDomainInsightsList.validate!(input[:control_domain_insights], context: "#{context}[:control_domain_insights]") unless input[:control_domain_insights].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1477,7 +1479,7 @@ module AWS::SDK::AuditManager
     class ListControlDomainInsightsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListControlDomainInsightsOutput, context: context)
-        Validators::ControlDomainInsightsList.validate!(input[:control_domain_insights], context: "#{context}[:control_domain_insights]") unless input[:control_domain_insights].nil?
+        ControlDomainInsightsList.validate!(input[:control_domain_insights], context: "#{context}[:control_domain_insights]") unless input[:control_domain_insights].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1494,7 +1496,7 @@ module AWS::SDK::AuditManager
     class ListControlInsightsByControlDomainOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListControlInsightsByControlDomainOutput, context: context)
-        Validators::ControlInsightsMetadata.validate!(input[:control_insights_metadata], context: "#{context}[:control_insights_metadata]") unless input[:control_insights_metadata].nil?
+        ControlInsightsMetadata.validate!(input[:control_insights_metadata], context: "#{context}[:control_insights_metadata]") unless input[:control_insights_metadata].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1511,7 +1513,7 @@ module AWS::SDK::AuditManager
     class ListControlsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListControlsOutput, context: context)
-        Validators::ControlMetadataList.validate!(input[:control_metadata_list], context: "#{context}[:control_metadata_list]") unless input[:control_metadata_list].nil?
+        ControlMetadataList.validate!(input[:control_metadata_list], context: "#{context}[:control_metadata_list]") unless input[:control_metadata_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1528,7 +1530,7 @@ module AWS::SDK::AuditManager
     class ListKeywordsForDataSourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListKeywordsForDataSourceOutput, context: context)
-        Validators::Keywords.validate!(input[:keywords], context: "#{context}[:keywords]") unless input[:keywords].nil?
+        Keywords.validate!(input[:keywords], context: "#{context}[:keywords]") unless input[:keywords].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1544,7 +1546,7 @@ module AWS::SDK::AuditManager
     class ListNotificationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListNotificationsOutput, context: context)
-        Validators::Notifications.validate!(input[:notifications], context: "#{context}[:notifications]") unless input[:notifications].nil?
+        Notifications.validate!(input[:notifications], context: "#{context}[:notifications]") unless input[:notifications].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1559,7 +1561,7 @@ module AWS::SDK::AuditManager
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1574,7 +1576,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ManualEvidence.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ManualEvidence.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1597,7 +1599,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Notification.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Notification.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1653,7 +1655,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Resource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Resource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1670,7 +1672,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Role.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Role.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1678,8 +1680,8 @@ module AWS::SDK::AuditManager
     class Scope
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Scope, context: context)
-        Validators::AWSAccounts.validate!(input[:aws_accounts], context: "#{context}[:aws_accounts]") unless input[:aws_accounts].nil?
-        Validators::AWSServices.validate!(input[:aws_services], context: "#{context}[:aws_services]") unless input[:aws_services].nil?
+        AWSAccounts.validate!(input[:aws_accounts], context: "#{context}[:aws_accounts]") unless input[:aws_accounts].nil?
+        AWSServices.validate!(input[:aws_services], context: "#{context}[:aws_services]") unless input[:aws_services].nil?
       end
     end
 
@@ -1697,7 +1699,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ServiceMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ServiceMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1707,8 +1709,8 @@ module AWS::SDK::AuditManager
         Hearth::Validator.validate!(input, Types::Settings, context: context)
         Hearth::Validator.validate!(input[:is_aws_org_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:is_aws_org_enabled]")
         Hearth::Validator.validate!(input[:sns_topic], ::String, context: "#{context}[:sns_topic]")
-        Validators::AssessmentReportsDestination.validate!(input[:default_assessment_reports_destination], context: "#{context}[:default_assessment_reports_destination]") unless input[:default_assessment_reports_destination].nil?
-        Validators::Roles.validate!(input[:default_process_owners], context: "#{context}[:default_process_owners]") unless input[:default_process_owners].nil?
+        AssessmentReportsDestination.validate!(input[:default_assessment_reports_destination], context: "#{context}[:default_assessment_reports_destination]") unless input[:default_assessment_reports_destination].nil?
+        Roles.validate!(input[:default_process_owners], context: "#{context}[:default_process_owners]") unless input[:default_process_owners].nil?
         Hearth::Validator.validate!(input[:kms_key], ::String, context: "#{context}[:kms_key]")
       end
     end
@@ -1734,7 +1736,7 @@ module AWS::SDK::AuditManager
     class StartAssessmentFrameworkShareOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartAssessmentFrameworkShareOutput, context: context)
-        Validators::AssessmentFrameworkShareRequest.validate!(input[:assessment_framework_share_request], context: "#{context}[:assessment_framework_share_request]") unless input[:assessment_framework_share_request].nil?
+        AssessmentFrameworkShareRequest.validate!(input[:assessment_framework_share_request], context: "#{context}[:assessment_framework_share_request]") unless input[:assessment_framework_share_request].nil?
       end
     end
 
@@ -1761,7 +1763,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1790,7 +1792,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1814,7 +1816,7 @@ module AWS::SDK::AuditManager
     class UpdateAssessmentControlOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateAssessmentControlOutput, context: context)
-        Validators::AssessmentControl.validate!(input[:control], context: "#{context}[:control]") unless input[:control].nil?
+        AssessmentControl.validate!(input[:control], context: "#{context}[:control]") unless input[:control].nil?
       end
     end
 
@@ -1831,7 +1833,7 @@ module AWS::SDK::AuditManager
     class UpdateAssessmentControlSetStatusOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateAssessmentControlSetStatusOutput, context: context)
-        Validators::AssessmentControlSet.validate!(input[:control_set], context: "#{context}[:control_set]") unless input[:control_set].nil?
+        AssessmentControlSet.validate!(input[:control_set], context: "#{context}[:control_set]") unless input[:control_set].nil?
       end
     end
 
@@ -1840,7 +1842,7 @@ module AWS::SDK::AuditManager
         Hearth::Validator.validate!(input, Types::UpdateAssessmentFrameworkControlSet, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::CreateAssessmentFrameworkControls.validate!(input[:controls], context: "#{context}[:controls]") unless input[:controls].nil?
+        CreateAssessmentFrameworkControls.validate!(input[:controls], context: "#{context}[:controls]") unless input[:controls].nil?
       end
     end
 
@@ -1848,7 +1850,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UpdateAssessmentFrameworkControlSet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UpdateAssessmentFrameworkControlSet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1860,14 +1862,14 @@ module AWS::SDK::AuditManager
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:compliance_type], ::String, context: "#{context}[:compliance_type]")
-        Validators::UpdateAssessmentFrameworkControlSets.validate!(input[:control_sets], context: "#{context}[:control_sets]") unless input[:control_sets].nil?
+        UpdateAssessmentFrameworkControlSets.validate!(input[:control_sets], context: "#{context}[:control_sets]") unless input[:control_sets].nil?
       end
     end
 
     class UpdateAssessmentFrameworkOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateAssessmentFrameworkOutput, context: context)
-        Validators::Framework.validate!(input[:framework], context: "#{context}[:framework]") unless input[:framework].nil?
+        Framework.validate!(input[:framework], context: "#{context}[:framework]") unless input[:framework].nil?
       end
     end
 
@@ -1883,7 +1885,7 @@ module AWS::SDK::AuditManager
     class UpdateAssessmentFrameworkShareOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateAssessmentFrameworkShareOutput, context: context)
-        Validators::AssessmentFrameworkShareRequest.validate!(input[:assessment_framework_share_request], context: "#{context}[:assessment_framework_share_request]") unless input[:assessment_framework_share_request].nil?
+        AssessmentFrameworkShareRequest.validate!(input[:assessment_framework_share_request], context: "#{context}[:assessment_framework_share_request]") unless input[:assessment_framework_share_request].nil?
       end
     end
 
@@ -1893,16 +1895,16 @@ module AWS::SDK::AuditManager
         Hearth::Validator.validate!(input[:assessment_id], ::String, context: "#{context}[:assessment_id]")
         Hearth::Validator.validate!(input[:assessment_name], ::String, context: "#{context}[:assessment_name]")
         Hearth::Validator.validate!(input[:assessment_description], ::String, context: "#{context}[:assessment_description]")
-        Validators::Scope.validate!(input[:scope], context: "#{context}[:scope]") unless input[:scope].nil?
-        Validators::AssessmentReportsDestination.validate!(input[:assessment_reports_destination], context: "#{context}[:assessment_reports_destination]") unless input[:assessment_reports_destination].nil?
-        Validators::Roles.validate!(input[:roles], context: "#{context}[:roles]") unless input[:roles].nil?
+        Scope.validate!(input[:scope], context: "#{context}[:scope]") unless input[:scope].nil?
+        AssessmentReportsDestination.validate!(input[:assessment_reports_destination], context: "#{context}[:assessment_reports_destination]") unless input[:assessment_reports_destination].nil?
+        Roles.validate!(input[:roles], context: "#{context}[:roles]") unless input[:roles].nil?
       end
     end
 
     class UpdateAssessmentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateAssessmentOutput, context: context)
-        Validators::Assessment.validate!(input[:assessment], context: "#{context}[:assessment]") unless input[:assessment].nil?
+        Assessment.validate!(input[:assessment], context: "#{context}[:assessment]") unless input[:assessment].nil?
       end
     end
 
@@ -1917,7 +1919,7 @@ module AWS::SDK::AuditManager
     class UpdateAssessmentStatusOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateAssessmentStatusOutput, context: context)
-        Validators::Assessment.validate!(input[:assessment], context: "#{context}[:assessment]") unless input[:assessment].nil?
+        Assessment.validate!(input[:assessment], context: "#{context}[:assessment]") unless input[:assessment].nil?
       end
     end
 
@@ -1930,14 +1932,14 @@ module AWS::SDK::AuditManager
         Hearth::Validator.validate!(input[:testing_information], ::String, context: "#{context}[:testing_information]")
         Hearth::Validator.validate!(input[:action_plan_title], ::String, context: "#{context}[:action_plan_title]")
         Hearth::Validator.validate!(input[:action_plan_instructions], ::String, context: "#{context}[:action_plan_instructions]")
-        Validators::ControlMappingSources.validate!(input[:control_mapping_sources], context: "#{context}[:control_mapping_sources]") unless input[:control_mapping_sources].nil?
+        ControlMappingSources.validate!(input[:control_mapping_sources], context: "#{context}[:control_mapping_sources]") unless input[:control_mapping_sources].nil?
       end
     end
 
     class UpdateControlOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateControlOutput, context: context)
-        Validators::Control.validate!(input[:control], context: "#{context}[:control]") unless input[:control].nil?
+        Control.validate!(input[:control], context: "#{context}[:control]") unless input[:control].nil?
       end
     end
 
@@ -1945,8 +1947,8 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateSettingsInput, context: context)
         Hearth::Validator.validate!(input[:sns_topic], ::String, context: "#{context}[:sns_topic]")
-        Validators::AssessmentReportsDestination.validate!(input[:default_assessment_reports_destination], context: "#{context}[:default_assessment_reports_destination]") unless input[:default_assessment_reports_destination].nil?
-        Validators::Roles.validate!(input[:default_process_owners], context: "#{context}[:default_process_owners]") unless input[:default_process_owners].nil?
+        AssessmentReportsDestination.validate!(input[:default_assessment_reports_destination], context: "#{context}[:default_assessment_reports_destination]") unless input[:default_assessment_reports_destination].nil?
+        Roles.validate!(input[:default_process_owners], context: "#{context}[:default_process_owners]") unless input[:default_process_owners].nil?
         Hearth::Validator.validate!(input[:kms_key], ::String, context: "#{context}[:kms_key]")
       end
     end
@@ -1954,7 +1956,7 @@ module AWS::SDK::AuditManager
     class UpdateSettingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateSettingsOutput, context: context)
-        Validators::Settings.validate!(input[:settings], context: "#{context}[:settings]") unless input[:settings].nil?
+        Settings.validate!(input[:settings], context: "#{context}[:settings]") unless input[:settings].nil?
       end
     end
 
@@ -1972,7 +1974,7 @@ module AWS::SDK::AuditManager
         Hearth::Validator.validate!(input[:signature_algorithm], ::String, context: "#{context}[:signature_algorithm]")
         Hearth::Validator.validate!(input[:signature_date_time], ::String, context: "#{context}[:signature_date_time]")
         Hearth::Validator.validate!(input[:signature_key_id], ::String, context: "#{context}[:signature_key_id]")
-        Validators::ValidationErrors.validate!(input[:validation_errors], context: "#{context}[:validation_errors]") unless input[:validation_errors].nil?
+        ValidationErrors.validate!(input[:validation_errors], context: "#{context}[:validation_errors]") unless input[:validation_errors].nil?
       end
     end
 
@@ -1990,7 +1992,7 @@ module AWS::SDK::AuditManager
         Hearth::Validator.validate!(input, Types::ValidationException, context: context)
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:reason], ::String, context: "#{context}[:reason]")
-        Validators::ValidationExceptionFieldList.validate!(input[:fields], context: "#{context}[:fields]") unless input[:fields].nil?
+        ValidationExceptionFieldList.validate!(input[:fields], context: "#{context}[:fields]") unless input[:fields].nil?
       end
     end
 
@@ -2006,7 +2008,7 @@ module AWS::SDK::AuditManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ValidationExceptionField.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ValidationExceptionField.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

@@ -31,7 +31,7 @@ module AWS::SDK::CognitoSync
     class DeleteDataset
       def self.default(visited=[])
         {
-          dataset: Stubs::Dataset.default(visited),
+          dataset: Dataset.default(visited),
         }
       end
 
@@ -78,7 +78,7 @@ module AWS::SDK::CognitoSync
     class DescribeDataset
       def self.default(visited=[])
         {
-          dataset: Stubs::Dataset.default(visited),
+          dataset: Dataset.default(visited),
         }
       end
 
@@ -95,7 +95,7 @@ module AWS::SDK::CognitoSync
     class DescribeIdentityPoolUsage
       def self.default(visited=[])
         {
-          identity_pool_usage: Stubs::IdentityPoolUsage.default(visited),
+          identity_pool_usage: IdentityPoolUsage.default(visited),
         }
       end
 
@@ -136,7 +136,7 @@ module AWS::SDK::CognitoSync
     class DescribeIdentityUsage
       def self.default(visited=[])
         {
-          identity_usage: Stubs::IdentityUsage.default(visited),
+          identity_usage: IdentityUsage.default(visited),
         }
       end
 
@@ -204,7 +204,7 @@ module AWS::SDK::CognitoSync
     class GetCognitoEvents
       def self.default(visited=[])
         {
-          events: Stubs::Events.default(visited),
+          events: Events.default(visited),
         }
       end
 
@@ -242,8 +242,8 @@ module AWS::SDK::CognitoSync
       def self.default(visited=[])
         {
           identity_pool_id: 'identity_pool_id',
-          push_sync: Stubs::PushSync.default(visited),
-          cognito_streams: Stubs::CognitoStreams.default(visited),
+          push_sync: PushSync.default(visited),
+          cognito_streams: CognitoStreams.default(visited),
         }
       end
 
@@ -286,7 +286,7 @@ module AWS::SDK::CognitoSync
         return nil if visited.include?('PushSync')
         visited = visited + ['PushSync']
         {
-          application_arns: Stubs::ApplicationArnList.default(visited),
+          application_arns: ApplicationArnList.default(visited),
           role_arn: 'role_arn',
         }
       end
@@ -324,7 +324,7 @@ module AWS::SDK::CognitoSync
     class ListDatasets
       def self.default(visited=[])
         {
-          datasets: Stubs::DatasetList.default(visited),
+          datasets: DatasetList.default(visited),
           count: 1,
           next_token: 'next_token',
         }
@@ -347,7 +347,7 @@ module AWS::SDK::CognitoSync
         return nil if visited.include?('DatasetList')
         visited = visited + ['DatasetList']
         [
-          Stubs::Dataset.default(visited)
+          Dataset.default(visited)
         ]
       end
 
@@ -365,7 +365,7 @@ module AWS::SDK::CognitoSync
     class ListIdentityPoolUsage
       def self.default(visited=[])
         {
-          identity_pool_usages: Stubs::IdentityPoolUsageList.default(visited),
+          identity_pool_usages: IdentityPoolUsageList.default(visited),
           max_results: 1,
           count: 1,
           next_token: 'next_token',
@@ -390,7 +390,7 @@ module AWS::SDK::CognitoSync
         return nil if visited.include?('IdentityPoolUsageList')
         visited = visited + ['IdentityPoolUsageList']
         [
-          Stubs::IdentityPoolUsage.default(visited)
+          IdentityPoolUsage.default(visited)
         ]
       end
 
@@ -408,12 +408,12 @@ module AWS::SDK::CognitoSync
     class ListRecords
       def self.default(visited=[])
         {
-          records: Stubs::RecordList.default(visited),
+          records: RecordList.default(visited),
           next_token: 'next_token',
           count: 1,
           dataset_sync_count: 1,
           last_modified_by: 'last_modified_by',
-          merged_dataset_names: Stubs::MergedDatasetNameList.default(visited),
+          merged_dataset_names: MergedDatasetNameList.default(visited),
           dataset_exists: false,
           dataset_deleted_after_requested_sync_count: false,
           sync_session_token: 'sync_session_token',
@@ -463,7 +463,7 @@ module AWS::SDK::CognitoSync
         return nil if visited.include?('RecordList')
         visited = visited + ['RecordList']
         [
-          Stubs::Record.default(visited)
+          Record.default(visited)
         ]
       end
 
@@ -540,8 +540,8 @@ module AWS::SDK::CognitoSync
       def self.default(visited=[])
         {
           identity_pool_id: 'identity_pool_id',
-          push_sync: Stubs::PushSync.default(visited),
-          cognito_streams: Stubs::CognitoStreams.default(visited),
+          push_sync: PushSync.default(visited),
+          cognito_streams: CognitoStreams.default(visited),
         }
       end
 
@@ -586,7 +586,7 @@ module AWS::SDK::CognitoSync
     class UpdateRecords
       def self.default(visited=[])
         {
-          records: Stubs::RecordList.default(visited),
+          records: RecordList.default(visited),
         }
       end
 

@@ -34,9 +34,9 @@ module AWS::SDK::DataExchange
           id: 'id',
           name: 'name',
           origin: 'origin',
-          origin_details: Stubs::OriginDetails.default(visited),
+          origin_details: OriginDetails.default(visited),
           source_id: 'source_id',
-          tags: Stubs::MapOf__string.default(visited),
+          tags: MapOf__string.default(visited),
           updated_at: Time.now,
         }
       end
@@ -102,10 +102,10 @@ module AWS::SDK::DataExchange
     class CreateEventAction
       def self.default(visited=[])
         {
-          action: Stubs::Action.default(visited),
+          action: Action.default(visited),
           arn: 'arn',
           created_at: Time.now,
-          event: Stubs::Event.default(visited),
+          event: Event.default(visited),
           id: 'id',
           updated_at: Time.now,
         }
@@ -131,7 +131,7 @@ module AWS::SDK::DataExchange
         return nil if visited.include?('Event')
         visited = visited + ['Event']
         {
-          revision_published: Stubs::RevisionPublished.default(visited),
+          revision_published: RevisionPublished.default(visited),
         }
       end
 
@@ -167,7 +167,7 @@ module AWS::SDK::DataExchange
         return nil if visited.include?('Action')
         visited = visited + ['Action']
         {
-          export_revision_to_s3: Stubs::AutoExportRevisionToS3RequestDetails.default(visited),
+          export_revision_to_s3: AutoExportRevisionToS3RequestDetails.default(visited),
         }
       end
 
@@ -185,8 +185,8 @@ module AWS::SDK::DataExchange
         return nil if visited.include?('AutoExportRevisionToS3RequestDetails')
         visited = visited + ['AutoExportRevisionToS3RequestDetails']
         {
-          encryption: Stubs::ExportServerSideEncryption.default(visited),
-          revision_destination: Stubs::AutoExportRevisionDestinationEntry.default(visited),
+          encryption: ExportServerSideEncryption.default(visited),
+          revision_destination: AutoExportRevisionDestinationEntry.default(visited),
         }
       end
 
@@ -245,8 +245,8 @@ module AWS::SDK::DataExchange
         {
           arn: 'arn',
           created_at: Time.now,
-          details: Stubs::ResponseDetails.default(visited),
-          errors: Stubs::ListOfJobError.default(visited),
+          details: ResponseDetails.default(visited),
+          errors: ListOfJobError.default(visited),
           id: 'id',
           state: 'state',
           type: 'type',
@@ -276,7 +276,7 @@ module AWS::SDK::DataExchange
         return nil if visited.include?('ListOfJobError')
         visited = visited + ['ListOfJobError']
         [
-          Stubs::JobError.default(visited)
+          JobError.default(visited)
         ]
       end
 
@@ -297,7 +297,7 @@ module AWS::SDK::DataExchange
         visited = visited + ['JobError']
         {
           code: 'code',
-          details: Stubs::Details.default(visited),
+          details: Details.default(visited),
           limit_name: 'limit_name',
           limit_value: 1.0,
           message: 'message',
@@ -326,8 +326,8 @@ module AWS::SDK::DataExchange
         return nil if visited.include?('Details')
         visited = visited + ['Details']
         {
-          import_asset_from_signed_url_job_error_details: Stubs::ImportAssetFromSignedUrlJobErrorDetails.default(visited),
-          import_assets_from_s3_job_error_details: Stubs::ListOfAssetSourceEntry.default(visited),
+          import_asset_from_signed_url_job_error_details: ImportAssetFromSignedUrlJobErrorDetails.default(visited),
+          import_assets_from_s3_job_error_details: ListOfAssetSourceEntry.default(visited),
         }
       end
 
@@ -346,7 +346,7 @@ module AWS::SDK::DataExchange
         return nil if visited.include?('ListOfAssetSourceEntry')
         visited = visited + ['ListOfAssetSourceEntry']
         [
-          Stubs::AssetSourceEntry.default(visited)
+          AssetSourceEntry.default(visited)
         ]
       end
 
@@ -404,13 +404,13 @@ module AWS::SDK::DataExchange
         return nil if visited.include?('ResponseDetails')
         visited = visited + ['ResponseDetails']
         {
-          export_asset_to_signed_url: Stubs::ExportAssetToSignedUrlResponseDetails.default(visited),
-          export_assets_to_s3: Stubs::ExportAssetsToS3ResponseDetails.default(visited),
-          export_revisions_to_s3: Stubs::ExportRevisionsToS3ResponseDetails.default(visited),
-          import_asset_from_signed_url: Stubs::ImportAssetFromSignedUrlResponseDetails.default(visited),
-          import_assets_from_s3: Stubs::ImportAssetsFromS3ResponseDetails.default(visited),
-          import_assets_from_redshift_data_shares: Stubs::ImportAssetsFromRedshiftDataSharesResponseDetails.default(visited),
-          import_asset_from_api_gateway_api: Stubs::ImportAssetFromApiGatewayApiResponseDetails.default(visited),
+          export_asset_to_signed_url: ExportAssetToSignedUrlResponseDetails.default(visited),
+          export_assets_to_s3: ExportAssetsToS3ResponseDetails.default(visited),
+          export_revisions_to_s3: ExportRevisionsToS3ResponseDetails.default(visited),
+          import_asset_from_signed_url: ImportAssetFromSignedUrlResponseDetails.default(visited),
+          import_assets_from_s3: ImportAssetsFromS3ResponseDetails.default(visited),
+          import_assets_from_redshift_data_shares: ImportAssetsFromRedshiftDataSharesResponseDetails.default(visited),
+          import_asset_from_api_gateway_api: ImportAssetFromApiGatewayApiResponseDetails.default(visited),
         }
       end
 
@@ -472,7 +472,7 @@ module AWS::SDK::DataExchange
         return nil if visited.include?('ImportAssetsFromRedshiftDataSharesResponseDetails')
         visited = visited + ['ImportAssetsFromRedshiftDataSharesResponseDetails']
         {
-          asset_sources: Stubs::ListOfRedshiftDataShareAssetSourceEntry.default(visited),
+          asset_sources: ListOfRedshiftDataShareAssetSourceEntry.default(visited),
           data_set_id: 'data_set_id',
           revision_id: 'revision_id',
         }
@@ -494,7 +494,7 @@ module AWS::SDK::DataExchange
         return nil if visited.include?('ListOfRedshiftDataShareAssetSourceEntry')
         visited = visited + ['ListOfRedshiftDataShareAssetSourceEntry']
         [
-          Stubs::RedshiftDataShareAssetSourceEntry.default(visited)
+          RedshiftDataShareAssetSourceEntry.default(visited)
         ]
       end
 
@@ -532,7 +532,7 @@ module AWS::SDK::DataExchange
         return nil if visited.include?('ImportAssetsFromS3ResponseDetails')
         visited = visited + ['ImportAssetsFromS3ResponseDetails']
         {
-          asset_sources: Stubs::ListOfAssetSourceEntry.default(visited),
+          asset_sources: ListOfAssetSourceEntry.default(visited),
           data_set_id: 'data_set_id',
           revision_id: 'revision_id',
         }
@@ -583,8 +583,8 @@ module AWS::SDK::DataExchange
         visited = visited + ['ExportRevisionsToS3ResponseDetails']
         {
           data_set_id: 'data_set_id',
-          encryption: Stubs::ExportServerSideEncryption.default(visited),
-          revision_destinations: Stubs::ListOfRevisionDestinationEntry.default(visited),
+          encryption: ExportServerSideEncryption.default(visited),
+          revision_destinations: ListOfRevisionDestinationEntry.default(visited),
           event_action_arn: 'event_action_arn',
         }
       end
@@ -606,7 +606,7 @@ module AWS::SDK::DataExchange
         return nil if visited.include?('ListOfRevisionDestinationEntry')
         visited = visited + ['ListOfRevisionDestinationEntry']
         [
-          Stubs::RevisionDestinationEntry.default(visited)
+          RevisionDestinationEntry.default(visited)
         ]
       end
 
@@ -648,9 +648,9 @@ module AWS::SDK::DataExchange
         return nil if visited.include?('ExportAssetsToS3ResponseDetails')
         visited = visited + ['ExportAssetsToS3ResponseDetails']
         {
-          asset_destinations: Stubs::ListOfAssetDestinationEntry.default(visited),
+          asset_destinations: ListOfAssetDestinationEntry.default(visited),
           data_set_id: 'data_set_id',
-          encryption: Stubs::ExportServerSideEncryption.default(visited),
+          encryption: ExportServerSideEncryption.default(visited),
           revision_id: 'revision_id',
         }
       end
@@ -672,7 +672,7 @@ module AWS::SDK::DataExchange
         return nil if visited.include?('ListOfAssetDestinationEntry')
         visited = visited + ['ListOfAssetDestinationEntry']
         [
-          Stubs::AssetDestinationEntry.default(visited)
+          AssetDestinationEntry.default(visited)
         ]
       end
 
@@ -745,7 +745,7 @@ module AWS::SDK::DataExchange
           finalized: false,
           id: 'id',
           source_id: 'source_id',
-          tags: Stubs::MapOf__string.default(visited),
+          tags: MapOf__string.default(visited),
           updated_at: Time.now,
           revocation_comment: 'revocation_comment',
           revoked: false,
@@ -830,7 +830,7 @@ module AWS::SDK::DataExchange
       def self.default(visited=[])
         {
           arn: 'arn',
-          asset_details: Stubs::AssetDetails.default(visited),
+          asset_details: AssetDetails.default(visited),
           asset_type: 'asset_type',
           created_at: Time.now,
           data_set_id: 'data_set_id',
@@ -866,9 +866,9 @@ module AWS::SDK::DataExchange
         return nil if visited.include?('AssetDetails')
         visited = visited + ['AssetDetails']
         {
-          s3_snapshot_asset: Stubs::S3SnapshotAsset.default(visited),
-          redshift_data_share_asset: Stubs::RedshiftDataShareAsset.default(visited),
-          api_gateway_api_asset: Stubs::ApiGatewayApiAsset.default(visited),
+          s3_snapshot_asset: S3SnapshotAsset.default(visited),
+          redshift_data_share_asset: RedshiftDataShareAsset.default(visited),
+          api_gateway_api_asset: ApiGatewayApiAsset.default(visited),
         }
       end
 
@@ -963,9 +963,9 @@ module AWS::SDK::DataExchange
           id: 'id',
           name: 'name',
           origin: 'origin',
-          origin_details: Stubs::OriginDetails.default(visited),
+          origin_details: OriginDetails.default(visited),
           source_id: 'source_id',
-          tags: Stubs::MapOf__string.default(visited),
+          tags: MapOf__string.default(visited),
           updated_at: Time.now,
         }
       end
@@ -993,10 +993,10 @@ module AWS::SDK::DataExchange
     class GetEventAction
       def self.default(visited=[])
         {
-          action: Stubs::Action.default(visited),
+          action: Action.default(visited),
           arn: 'arn',
           created_at: Time.now,
-          event: Stubs::Event.default(visited),
+          event: Event.default(visited),
           id: 'id',
           updated_at: Time.now,
         }
@@ -1022,8 +1022,8 @@ module AWS::SDK::DataExchange
         {
           arn: 'arn',
           created_at: Time.now,
-          details: Stubs::ResponseDetails.default(visited),
-          errors: Stubs::ListOfJobError.default(visited),
+          details: ResponseDetails.default(visited),
+          errors: ListOfJobError.default(visited),
           id: 'id',
           state: 'state',
           type: 'type',
@@ -1058,7 +1058,7 @@ module AWS::SDK::DataExchange
           finalized: false,
           id: 'id',
           source_id: 'source_id',
-          tags: Stubs::MapOf__string.default(visited),
+          tags: MapOf__string.default(visited),
           updated_at: Time.now,
           revocation_comment: 'revocation_comment',
           revoked: false,
@@ -1091,7 +1091,7 @@ module AWS::SDK::DataExchange
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          revisions: Stubs::ListOfRevisionEntry.default(visited),
+          revisions: ListOfRevisionEntry.default(visited),
         }
       end
 
@@ -1111,7 +1111,7 @@ module AWS::SDK::DataExchange
         return nil if visited.include?('ListOfRevisionEntry')
         visited = visited + ['ListOfRevisionEntry']
         [
-          Stubs::RevisionEntry.default(visited)
+          RevisionEntry.default(visited)
         ]
       end
 
@@ -1167,7 +1167,7 @@ module AWS::SDK::DataExchange
     class ListDataSets
       def self.default(visited=[])
         {
-          data_sets: Stubs::ListOfDataSetEntry.default(visited),
+          data_sets: ListOfDataSetEntry.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1188,7 +1188,7 @@ module AWS::SDK::DataExchange
         return nil if visited.include?('ListOfDataSetEntry')
         visited = visited + ['ListOfDataSetEntry']
         [
-          Stubs::DataSetEntry.default(visited)
+          DataSetEntry.default(visited)
         ]
       end
 
@@ -1215,7 +1215,7 @@ module AWS::SDK::DataExchange
           id: 'id',
           name: 'name',
           origin: 'origin',
-          origin_details: Stubs::OriginDetails.default(visited),
+          origin_details: OriginDetails.default(visited),
           source_id: 'source_id',
           updated_at: Time.now,
         }
@@ -1242,7 +1242,7 @@ module AWS::SDK::DataExchange
     class ListEventActions
       def self.default(visited=[])
         {
-          event_actions: Stubs::ListOfEventActionEntry.default(visited),
+          event_actions: ListOfEventActionEntry.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1263,7 +1263,7 @@ module AWS::SDK::DataExchange
         return nil if visited.include?('ListOfEventActionEntry')
         visited = visited + ['ListOfEventActionEntry']
         [
-          Stubs::EventActionEntry.default(visited)
+          EventActionEntry.default(visited)
         ]
       end
 
@@ -1283,10 +1283,10 @@ module AWS::SDK::DataExchange
         return nil if visited.include?('EventActionEntry')
         visited = visited + ['EventActionEntry']
         {
-          action: Stubs::Action.default(visited),
+          action: Action.default(visited),
           arn: 'arn',
           created_at: Time.now,
-          event: Stubs::Event.default(visited),
+          event: Event.default(visited),
           id: 'id',
           updated_at: Time.now,
         }
@@ -1309,7 +1309,7 @@ module AWS::SDK::DataExchange
     class ListJobs
       def self.default(visited=[])
         {
-          jobs: Stubs::ListOfJobEntry.default(visited),
+          jobs: ListOfJobEntry.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1330,7 +1330,7 @@ module AWS::SDK::DataExchange
         return nil if visited.include?('ListOfJobEntry')
         visited = visited + ['ListOfJobEntry']
         [
-          Stubs::JobEntry.default(visited)
+          JobEntry.default(visited)
         ]
       end
 
@@ -1352,8 +1352,8 @@ module AWS::SDK::DataExchange
         {
           arn: 'arn',
           created_at: Time.now,
-          details: Stubs::ResponseDetails.default(visited),
-          errors: Stubs::ListOfJobError.default(visited),
+          details: ResponseDetails.default(visited),
+          errors: ListOfJobError.default(visited),
           id: 'id',
           state: 'state',
           type: 'type',
@@ -1380,7 +1380,7 @@ module AWS::SDK::DataExchange
     class ListRevisionAssets
       def self.default(visited=[])
         {
-          assets: Stubs::ListOfAssetEntry.default(visited),
+          assets: ListOfAssetEntry.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1401,7 +1401,7 @@ module AWS::SDK::DataExchange
         return nil if visited.include?('ListOfAssetEntry')
         visited = visited + ['ListOfAssetEntry']
         [
-          Stubs::AssetEntry.default(visited)
+          AssetEntry.default(visited)
         ]
       end
 
@@ -1422,7 +1422,7 @@ module AWS::SDK::DataExchange
         visited = visited + ['AssetEntry']
         {
           arn: 'arn',
-          asset_details: Stubs::AssetDetails.default(visited),
+          asset_details: AssetDetails.default(visited),
           asset_type: 'asset_type',
           created_at: Time.now,
           data_set_id: 'data_set_id',
@@ -1455,7 +1455,7 @@ module AWS::SDK::DataExchange
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::MapOf__string.default(visited),
+          tags: MapOf__string.default(visited),
         }
       end
 
@@ -1510,7 +1510,7 @@ module AWS::SDK::DataExchange
       def self.default(visited=[])
         {
           body: 'body',
-          response_headers: Stubs::MapOf__string.default(visited),
+          response_headers: MapOf__string.default(visited),
         }
       end
 
@@ -1569,7 +1569,7 @@ module AWS::SDK::DataExchange
       def self.default(visited=[])
         {
           arn: 'arn',
-          asset_details: Stubs::AssetDetails.default(visited),
+          asset_details: AssetDetails.default(visited),
           asset_type: 'asset_type',
           created_at: Time.now,
           data_set_id: 'data_set_id',
@@ -1610,7 +1610,7 @@ module AWS::SDK::DataExchange
           id: 'id',
           name: 'name',
           origin: 'origin',
-          origin_details: Stubs::OriginDetails.default(visited),
+          origin_details: OriginDetails.default(visited),
           source_id: 'source_id',
           updated_at: Time.now,
         }
@@ -1638,10 +1638,10 @@ module AWS::SDK::DataExchange
     class UpdateEventAction
       def self.default(visited=[])
         {
-          action: Stubs::Action.default(visited),
+          action: Action.default(visited),
           arn: 'arn',
           created_at: Time.now,
-          event: Stubs::Event.default(visited),
+          event: Event.default(visited),
           id: 'id',
           updated_at: Time.now,
         }

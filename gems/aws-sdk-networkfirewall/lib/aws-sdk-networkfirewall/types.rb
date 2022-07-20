@@ -330,13 +330,13 @@ module AWS::SDK::NetworkFirewall
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delete_protection ||= false
         self.subnet_change_protection ||= false
         self.firewall_policy_change_protection ||= false
       end
-
     end
 
     # @!attribute firewall
@@ -402,11 +402,11 @@ module AWS::SDK::NetworkFirewall
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute update_token
@@ -549,11 +549,11 @@ module AWS::SDK::NetworkFirewall
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute update_token
@@ -1272,13 +1272,13 @@ module AWS::SDK::NetworkFirewall
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delete_protection ||= false
         self.subnet_change_protection ||= false
         self.firewall_policy_change_protection ||= false
       end
-
     end
 
     # <p>High-level information about a firewall, returned by operations like create and
@@ -2242,12 +2242,12 @@ module AWS::SDK::NetworkFirewall
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.from_port ||= 0
         self.to_port ||= 0
       end
-
     end
 
     # <p>A set of port ranges for use in the rules in a rule group. </p>
@@ -3070,11 +3070,11 @@ module AWS::SDK::NetworkFirewall
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.priority ||= 0
       end
-
     end
 
     # <p>Identifier for a single stateless rule group, used in a firewall policy to refer to the
@@ -3099,11 +3099,11 @@ module AWS::SDK::NetworkFirewall
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.priority ||= 0
       end
-
     end
 
     # <p>Stateless inspection criteria. Each stateless rule group uses exactly one of these data
@@ -3401,11 +3401,11 @@ module AWS::SDK::NetworkFirewall
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delete_protection ||= false
       end
-
     end
 
     # @!attribute firewall_arn
@@ -3440,11 +3440,11 @@ module AWS::SDK::NetworkFirewall
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delete_protection ||= false
       end
-
     end
 
     # @!attribute update_token
@@ -3612,11 +3612,11 @@ module AWS::SDK::NetworkFirewall
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.firewall_policy_change_protection ||= false
       end
-
     end
 
     # @!attribute update_token
@@ -3651,11 +3651,11 @@ module AWS::SDK::NetworkFirewall
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.firewall_policy_change_protection ||= false
       end
-
     end
 
     # @!attribute update_token
@@ -3712,11 +3712,11 @@ module AWS::SDK::NetworkFirewall
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute update_token
@@ -3876,11 +3876,11 @@ module AWS::SDK::NetworkFirewall
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute update_token
@@ -3936,11 +3936,11 @@ module AWS::SDK::NetworkFirewall
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.subnet_change_protection ||= false
       end
-
     end
 
     # @!attribute update_token
@@ -3975,11 +3975,11 @@ module AWS::SDK::NetworkFirewall
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.subnet_change_protection ||= false
       end
-
     end
 
   end

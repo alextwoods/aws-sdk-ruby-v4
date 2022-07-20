@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::DirectConnect
@@ -96,7 +98,7 @@ module AWS::SDK::DirectConnect
     def accept_direct_connect_gateway_association_proposal(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AcceptDirectConnectGatewayAssociationProposalInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AcceptDirectConnectGatewayAssociationProposalInput,
         validate_input: @config.validate_input
@@ -220,7 +222,7 @@ module AWS::SDK::DirectConnect
     def allocate_connection_on_interconnect(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AllocateConnectionOnInterconnectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AllocateConnectionOnInterconnectInput,
         validate_input: @config.validate_input
@@ -348,7 +350,7 @@ module AWS::SDK::DirectConnect
     def allocate_hosted_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AllocateHostedConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AllocateHostedConnectionInput,
         validate_input: @config.validate_input
@@ -483,7 +485,7 @@ module AWS::SDK::DirectConnect
     def allocate_private_virtual_interface(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AllocatePrivateVirtualInterfaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AllocatePrivateVirtualInterfaceInput,
         validate_input: @config.validate_input
@@ -625,7 +627,7 @@ module AWS::SDK::DirectConnect
     def allocate_public_virtual_interface(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AllocatePublicVirtualInterfaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AllocatePublicVirtualInterfaceInput,
         validate_input: @config.validate_input
@@ -761,7 +763,7 @@ module AWS::SDK::DirectConnect
     def allocate_transit_virtual_interface(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AllocateTransitVirtualInterfaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AllocateTransitVirtualInterfaceInput,
         validate_input: @config.validate_input
@@ -876,7 +878,7 @@ module AWS::SDK::DirectConnect
     def associate_connection_with_lag(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateConnectionWithLagInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateConnectionWithLagInput,
         validate_input: @config.validate_input
@@ -985,7 +987,7 @@ module AWS::SDK::DirectConnect
     def associate_hosted_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateHostedConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateHostedConnectionInput,
         validate_input: @config.validate_input
@@ -1083,7 +1085,7 @@ module AWS::SDK::DirectConnect
     def associate_mac_sec_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateMacSecKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateMacSecKeyInput,
         validate_input: @config.validate_input
@@ -1206,7 +1208,7 @@ module AWS::SDK::DirectConnect
     def associate_virtual_interface(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateVirtualInterfaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateVirtualInterfaceInput,
         validate_input: @config.validate_input
@@ -1277,7 +1279,7 @@ module AWS::SDK::DirectConnect
     def confirm_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ConfirmConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ConfirmConnectionInput,
         validate_input: @config.validate_input
@@ -1352,7 +1354,7 @@ module AWS::SDK::DirectConnect
     def confirm_customer_agreement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ConfirmCustomerAgreementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ConfirmCustomerAgreementInput,
         validate_input: @config.validate_input
@@ -1432,7 +1434,7 @@ module AWS::SDK::DirectConnect
     def confirm_private_virtual_interface(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ConfirmPrivateVirtualInterfaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ConfirmPrivateVirtualInterfaceInput,
         validate_input: @config.validate_input
@@ -1503,7 +1505,7 @@ module AWS::SDK::DirectConnect
     def confirm_public_virtual_interface(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ConfirmPublicVirtualInterfaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ConfirmPublicVirtualInterfaceInput,
         validate_input: @config.validate_input
@@ -1578,7 +1580,7 @@ module AWS::SDK::DirectConnect
     def confirm_transit_virtual_interface(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ConfirmTransitVirtualInterfaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ConfirmTransitVirtualInterfaceInput,
         validate_input: @config.validate_input
@@ -1705,7 +1707,7 @@ module AWS::SDK::DirectConnect
     def create_bgp_peer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBGPPeerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBGPPeerInput,
         validate_input: @config.validate_input
@@ -1841,7 +1843,7 @@ module AWS::SDK::DirectConnect
     def create_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateConnectionInput,
         validate_input: @config.validate_input
@@ -1927,7 +1929,7 @@ module AWS::SDK::DirectConnect
     def create_direct_connect_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDirectConnectGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDirectConnectGatewayInput,
         validate_input: @config.validate_input
@@ -2031,7 +2033,7 @@ module AWS::SDK::DirectConnect
     def create_direct_connect_gateway_association(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDirectConnectGatewayAssociationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDirectConnectGatewayAssociationInput,
         validate_input: @config.validate_input
@@ -2133,7 +2135,7 @@ module AWS::SDK::DirectConnect
     def create_direct_connect_gateway_association_proposal(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDirectConnectGatewayAssociationProposalInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDirectConnectGatewayAssociationProposalInput,
         validate_input: @config.validate_input
@@ -2259,7 +2261,7 @@ module AWS::SDK::DirectConnect
     def create_interconnect(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateInterconnectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateInterconnectInput,
         validate_input: @config.validate_input
@@ -2437,7 +2439,7 @@ module AWS::SDK::DirectConnect
     def create_lag(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLagInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLagInput,
         validate_input: @config.validate_input
@@ -2579,7 +2581,7 @@ module AWS::SDK::DirectConnect
     def create_private_virtual_interface(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePrivateVirtualInterfaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePrivateVirtualInterfaceInput,
         validate_input: @config.validate_input
@@ -2715,7 +2717,7 @@ module AWS::SDK::DirectConnect
     def create_public_virtual_interface(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePublicVirtualInterfaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePublicVirtualInterfaceInput,
         validate_input: @config.validate_input
@@ -2856,7 +2858,7 @@ module AWS::SDK::DirectConnect
     def create_transit_virtual_interface(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTransitVirtualInterfaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTransitVirtualInterfaceInput,
         validate_input: @config.validate_input
@@ -2980,7 +2982,7 @@ module AWS::SDK::DirectConnect
     def delete_bgp_peer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBGPPeerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBGPPeerInput,
         validate_input: @config.validate_input
@@ -3081,7 +3083,7 @@ module AWS::SDK::DirectConnect
     def delete_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteConnectionInput,
         validate_input: @config.validate_input
@@ -3158,7 +3160,7 @@ module AWS::SDK::DirectConnect
     def delete_direct_connect_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDirectConnectGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDirectConnectGatewayInput,
         validate_input: @config.validate_input
@@ -3252,7 +3254,7 @@ module AWS::SDK::DirectConnect
     def delete_direct_connect_gateway_association(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDirectConnectGatewayAssociationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDirectConnectGatewayAssociationInput,
         validate_input: @config.validate_input
@@ -3334,7 +3336,7 @@ module AWS::SDK::DirectConnect
     def delete_direct_connect_gateway_association_proposal(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDirectConnectGatewayAssociationProposalInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDirectConnectGatewayAssociationProposalInput,
         validate_input: @config.validate_input
@@ -3407,7 +3409,7 @@ module AWS::SDK::DirectConnect
     def delete_interconnect(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteInterconnectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteInterconnectInput,
         validate_input: @config.validate_input
@@ -3528,7 +3530,7 @@ module AWS::SDK::DirectConnect
     def delete_lag(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLagInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLagInput,
         validate_input: @config.validate_input
@@ -3597,7 +3599,7 @@ module AWS::SDK::DirectConnect
     def delete_virtual_interface(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVirtualInterfaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVirtualInterfaceInput,
         validate_input: @config.validate_input
@@ -3684,7 +3686,7 @@ module AWS::SDK::DirectConnect
     def describe_connection_loa(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeConnectionLoaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeConnectionLoaInput,
         validate_input: @config.validate_input
@@ -3784,7 +3786,7 @@ module AWS::SDK::DirectConnect
     def describe_connections(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeConnectionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeConnectionsInput,
         validate_input: @config.validate_input
@@ -3890,7 +3892,7 @@ module AWS::SDK::DirectConnect
     def describe_connections_on_interconnect(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeConnectionsOnInterconnectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeConnectionsOnInterconnectInput,
         validate_input: @config.validate_input
@@ -3958,7 +3960,7 @@ module AWS::SDK::DirectConnect
     def describe_customer_metadata(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCustomerMetadataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCustomerMetadataInput,
         validate_input: @config.validate_input
@@ -4061,7 +4063,7 @@ module AWS::SDK::DirectConnect
     def describe_direct_connect_gateway_association_proposals(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDirectConnectGatewayAssociationProposalsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDirectConnectGatewayAssociationProposalsInput,
         validate_input: @config.validate_input
@@ -4193,7 +4195,7 @@ module AWS::SDK::DirectConnect
     def describe_direct_connect_gateway_associations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDirectConnectGatewayAssociationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDirectConnectGatewayAssociationsInput,
         validate_input: @config.validate_input
@@ -4290,7 +4292,7 @@ module AWS::SDK::DirectConnect
     def describe_direct_connect_gateway_attachments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDirectConnectGatewayAttachmentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDirectConnectGatewayAttachmentsInput,
         validate_input: @config.validate_input
@@ -4378,7 +4380,7 @@ module AWS::SDK::DirectConnect
     def describe_direct_connect_gateways(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDirectConnectGatewaysInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDirectConnectGatewaysInput,
         validate_input: @config.validate_input
@@ -4482,7 +4484,7 @@ module AWS::SDK::DirectConnect
     def describe_hosted_connections(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeHostedConnectionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeHostedConnectionsInput,
         validate_input: @config.validate_input
@@ -4567,7 +4569,7 @@ module AWS::SDK::DirectConnect
     def describe_interconnect_loa(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeInterconnectLoaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeInterconnectLoaInput,
         validate_input: @config.validate_input
@@ -4655,7 +4657,7 @@ module AWS::SDK::DirectConnect
     def describe_interconnects(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeInterconnectsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeInterconnectsInput,
         validate_input: @config.validate_input
@@ -4777,7 +4779,7 @@ module AWS::SDK::DirectConnect
     def describe_lags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLagsInput,
         validate_input: @config.validate_input
@@ -4859,7 +4861,7 @@ module AWS::SDK::DirectConnect
     def describe_loa(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLoaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLoaInput,
         validate_input: @config.validate_input
@@ -4934,7 +4936,7 @@ module AWS::SDK::DirectConnect
     def describe_locations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLocationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLocationsInput,
         validate_input: @config.validate_input
@@ -5018,7 +5020,7 @@ module AWS::SDK::DirectConnect
     def describe_router_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRouterConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRouterConfigurationInput,
         validate_input: @config.validate_input
@@ -5095,7 +5097,7 @@ module AWS::SDK::DirectConnect
     def describe_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTagsInput,
         validate_input: @config.validate_input
@@ -5163,7 +5165,7 @@ module AWS::SDK::DirectConnect
     def describe_virtual_gateways(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeVirtualGatewaysInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeVirtualGatewaysInput,
         validate_input: @config.validate_input
@@ -5283,7 +5285,7 @@ module AWS::SDK::DirectConnect
     def describe_virtual_interfaces(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeVirtualInterfacesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeVirtualInterfacesInput,
         validate_input: @config.validate_input
@@ -5394,7 +5396,7 @@ module AWS::SDK::DirectConnect
     def disassociate_connection_from_lag(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateConnectionFromLagInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateConnectionFromLagInput,
         validate_input: @config.validate_input
@@ -5475,7 +5477,7 @@ module AWS::SDK::DirectConnect
     def disassociate_mac_sec_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateMacSecKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateMacSecKeyInput,
         validate_input: @config.validate_input
@@ -5580,7 +5582,7 @@ module AWS::SDK::DirectConnect
     def list_virtual_interface_test_history(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListVirtualInterfaceTestHistoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListVirtualInterfaceTestHistoryInput,
         validate_input: @config.validate_input
@@ -5673,7 +5675,7 @@ module AWS::SDK::DirectConnect
     def start_bgp_failover_test(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartBgpFailoverTestInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartBgpFailoverTestInput,
         validate_input: @config.validate_input
@@ -5751,7 +5753,7 @@ module AWS::SDK::DirectConnect
     def stop_bgp_failover_test(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopBgpFailoverTestInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopBgpFailoverTestInput,
         validate_input: @config.validate_input
@@ -5829,7 +5831,7 @@ module AWS::SDK::DirectConnect
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -5903,7 +5905,7 @@ module AWS::SDK::DirectConnect
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -6020,7 +6022,7 @@ module AWS::SDK::DirectConnect
     def update_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateConnectionInput,
         validate_input: @config.validate_input
@@ -6099,7 +6101,7 @@ module AWS::SDK::DirectConnect
     def update_direct_connect_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDirectConnectGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDirectConnectGatewayInput,
         validate_input: @config.validate_input
@@ -6196,7 +6198,7 @@ module AWS::SDK::DirectConnect
     def update_direct_connect_gateway_association(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDirectConnectGatewayAssociationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDirectConnectGatewayAssociationInput,
         validate_input: @config.validate_input
@@ -6351,7 +6353,7 @@ module AWS::SDK::DirectConnect
     def update_lag(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateLagInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateLagInput,
         validate_input: @config.validate_input
@@ -6479,7 +6481,7 @@ module AWS::SDK::DirectConnect
     def update_virtual_interface_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateVirtualInterfaceAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateVirtualInterfaceAttributesInput,
         validate_input: @config.validate_input

@@ -14,7 +14,7 @@ module AWS::SDK::ApplicationInsights
     class CreateApplication
       def self.default(visited=[])
         {
-          application_info: Stubs::ApplicationInfo.default(visited),
+          application_info: ApplicationInfo.default(visited),
         }
       end
 
@@ -76,7 +76,7 @@ module AWS::SDK::ApplicationInsights
     class CreateLogPattern
       def self.default(visited=[])
         {
-          log_pattern: Stubs::LogPattern.default(visited),
+          log_pattern: LogPattern.default(visited),
           resource_group_name: 'resource_group_name',
         }
       end
@@ -160,7 +160,7 @@ module AWS::SDK::ApplicationInsights
     class DescribeApplication
       def self.default(visited=[])
         {
-          application_info: Stubs::ApplicationInfo.default(visited),
+          application_info: ApplicationInfo.default(visited),
         }
       end
 
@@ -176,8 +176,8 @@ module AWS::SDK::ApplicationInsights
     class DescribeComponent
       def self.default(visited=[])
         {
-          application_component: Stubs::ApplicationComponent.default(visited),
-          resource_list: Stubs::ResourceList.default(visited),
+          application_component: ApplicationComponent.default(visited),
+          resource_list: ResourceList.default(visited),
         }
       end
 
@@ -222,7 +222,7 @@ module AWS::SDK::ApplicationInsights
           os_type: 'os_type',
           tier: 'tier',
           monitor: false,
-          detected_workload: Stubs::DetectedWorkload.default(visited),
+          detected_workload: DetectedWorkload.default(visited),
         }
       end
 
@@ -246,7 +246,7 @@ module AWS::SDK::ApplicationInsights
         return nil if visited.include?('DetectedWorkload')
         visited = visited + ['DetectedWorkload']
         {
-          test_key: Stubs::WorkloadMetaData.default(visited)
+          test_key: WorkloadMetaData.default(visited)
         }
       end
 
@@ -321,7 +321,7 @@ module AWS::SDK::ApplicationInsights
       def self.default(visited=[])
         {
           resource_group_name: 'resource_group_name',
-          log_pattern: Stubs::LogPattern.default(visited),
+          log_pattern: LogPattern.default(visited),
         }
       end
 
@@ -338,7 +338,7 @@ module AWS::SDK::ApplicationInsights
     class DescribeObservation
       def self.default(visited=[])
         {
-          observation: Stubs::Observation.default(visited),
+          observation: Observation.default(visited),
         }
       end
 
@@ -460,7 +460,7 @@ module AWS::SDK::ApplicationInsights
     class DescribeProblem
       def self.default(visited=[])
         {
-          problem: Stubs::Problem.default(visited),
+          problem: Problem.default(visited),
         }
       end
 
@@ -487,7 +487,7 @@ module AWS::SDK::ApplicationInsights
           end_time: Time.now,
           severity_level: 'severity_level',
           resource_group_name: 'resource_group_name',
-          feedback: Stubs::Feedback.default(visited),
+          feedback: Feedback.default(visited),
           recurring_count: 1,
           last_recurrence_time: Time.now,
         }
@@ -536,7 +536,7 @@ module AWS::SDK::ApplicationInsights
     class DescribeProblemObservations
       def self.default(visited=[])
         {
-          related_observations: Stubs::RelatedObservations.default(visited),
+          related_observations: RelatedObservations.default(visited),
         }
       end
 
@@ -554,7 +554,7 @@ module AWS::SDK::ApplicationInsights
         return nil if visited.include?('RelatedObservations')
         visited = visited + ['RelatedObservations']
         {
-          observation_list: Stubs::ObservationList.default(visited),
+          observation_list: ObservationList.default(visited),
         }
       end
 
@@ -572,7 +572,7 @@ module AWS::SDK::ApplicationInsights
         return nil if visited.include?('ObservationList')
         visited = visited + ['ObservationList']
         [
-          Stubs::Observation.default(visited)
+          Observation.default(visited)
         ]
       end
 
@@ -590,7 +590,7 @@ module AWS::SDK::ApplicationInsights
     class ListApplications
       def self.default(visited=[])
         {
-          application_info_list: Stubs::ApplicationInfoList.default(visited),
+          application_info_list: ApplicationInfoList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -610,7 +610,7 @@ module AWS::SDK::ApplicationInsights
         return nil if visited.include?('ApplicationInfoList')
         visited = visited + ['ApplicationInfoList']
         [
-          Stubs::ApplicationInfo.default(visited)
+          ApplicationInfo.default(visited)
         ]
       end
 
@@ -628,7 +628,7 @@ module AWS::SDK::ApplicationInsights
     class ListComponents
       def self.default(visited=[])
         {
-          application_component_list: Stubs::ApplicationComponentList.default(visited),
+          application_component_list: ApplicationComponentList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -648,7 +648,7 @@ module AWS::SDK::ApplicationInsights
         return nil if visited.include?('ApplicationComponentList')
         visited = visited + ['ApplicationComponentList']
         [
-          Stubs::ApplicationComponent.default(visited)
+          ApplicationComponent.default(visited)
         ]
       end
 
@@ -666,7 +666,7 @@ module AWS::SDK::ApplicationInsights
     class ListConfigurationHistory
       def self.default(visited=[])
         {
-          event_list: Stubs::ConfigurationEventList.default(visited),
+          event_list: ConfigurationEventList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -686,7 +686,7 @@ module AWS::SDK::ApplicationInsights
         return nil if visited.include?('ConfigurationEventList')
         visited = visited + ['ConfigurationEventList']
         [
-          Stubs::ConfigurationEvent.default(visited)
+          ConfigurationEvent.default(visited)
         ]
       end
 
@@ -733,7 +733,7 @@ module AWS::SDK::ApplicationInsights
       def self.default(visited=[])
         {
           resource_group_name: 'resource_group_name',
-          log_pattern_sets: Stubs::LogPatternSetList.default(visited),
+          log_pattern_sets: LogPatternSetList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -773,7 +773,7 @@ module AWS::SDK::ApplicationInsights
       def self.default(visited=[])
         {
           resource_group_name: 'resource_group_name',
-          log_patterns: Stubs::LogPatternList.default(visited),
+          log_patterns: LogPatternList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -794,7 +794,7 @@ module AWS::SDK::ApplicationInsights
         return nil if visited.include?('LogPatternList')
         visited = visited + ['LogPatternList']
         [
-          Stubs::LogPattern.default(visited)
+          LogPattern.default(visited)
         ]
       end
 
@@ -812,7 +812,7 @@ module AWS::SDK::ApplicationInsights
     class ListProblems
       def self.default(visited=[])
         {
-          problem_list: Stubs::ProblemList.default(visited),
+          problem_list: ProblemList.default(visited),
           next_token: 'next_token',
           resource_group_name: 'resource_group_name',
         }
@@ -834,7 +834,7 @@ module AWS::SDK::ApplicationInsights
         return nil if visited.include?('ProblemList')
         visited = visited + ['ProblemList']
         [
-          Stubs::Problem.default(visited)
+          Problem.default(visited)
         ]
       end
 
@@ -852,7 +852,7 @@ module AWS::SDK::ApplicationInsights
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -870,7 +870,7 @@ module AWS::SDK::ApplicationInsights
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -936,7 +936,7 @@ module AWS::SDK::ApplicationInsights
     class UpdateApplication
       def self.default(visited=[])
         {
-          application_info: Stubs::ApplicationInfo.default(visited),
+          application_info: ApplicationInfo.default(visited),
         }
       end
 
@@ -981,7 +981,7 @@ module AWS::SDK::ApplicationInsights
       def self.default(visited=[])
         {
           resource_group_name: 'resource_group_name',
-          log_pattern: Stubs::LogPattern.default(visited),
+          log_pattern: LogPattern.default(visited),
         }
       end
 

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::DataSync
   module Validators
 
@@ -23,7 +25,7 @@ module AWS::SDK::DataSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AgentListEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AgentListEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -55,10 +57,10 @@ module AWS::SDK::DataSync
         Hearth::Validator.validate!(input, Types::CreateAgentInput, context: context)
         Hearth::Validator.validate!(input[:activation_key], ::String, context: "#{context}[:activation_key]")
         Hearth::Validator.validate!(input[:agent_name], ::String, context: "#{context}[:agent_name]")
-        Validators::InputTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        InputTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:vpc_endpoint_id], ::String, context: "#{context}[:vpc_endpoint_id]")
-        Validators::PLSubnetArnList.validate!(input[:subnet_arns], context: "#{context}[:subnet_arns]") unless input[:subnet_arns].nil?
-        Validators::PLSecurityGroupArnList.validate!(input[:security_group_arns], context: "#{context}[:security_group_arns]") unless input[:security_group_arns].nil?
+        PLSubnetArnList.validate!(input[:subnet_arns], context: "#{context}[:subnet_arns]") unless input[:subnet_arns].nil?
+        PLSecurityGroupArnList.validate!(input[:security_group_arns], context: "#{context}[:security_group_arns]") unless input[:security_group_arns].nil?
       end
     end
 
@@ -74,8 +76,8 @@ module AWS::SDK::DataSync
         Hearth::Validator.validate!(input, Types::CreateLocationEfsInput, context: context)
         Hearth::Validator.validate!(input[:subdirectory], ::String, context: "#{context}[:subdirectory]")
         Hearth::Validator.validate!(input[:efs_filesystem_arn], ::String, context: "#{context}[:efs_filesystem_arn]")
-        Validators::Ec2Config.validate!(input[:ec2_config], context: "#{context}[:ec2_config]") unless input[:ec2_config].nil?
-        Validators::InputTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Ec2Config.validate!(input[:ec2_config], context: "#{context}[:ec2_config]") unless input[:ec2_config].nil?
+        InputTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:access_point_arn], ::String, context: "#{context}[:access_point_arn]")
         Hearth::Validator.validate!(input[:file_system_access_role_arn], ::String, context: "#{context}[:file_system_access_role_arn]")
         Hearth::Validator.validate!(input[:in_transit_encryption], ::String, context: "#{context}[:in_transit_encryption]")
@@ -93,9 +95,9 @@ module AWS::SDK::DataSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateLocationFsxLustreInput, context: context)
         Hearth::Validator.validate!(input[:fsx_filesystem_arn], ::String, context: "#{context}[:fsx_filesystem_arn]")
-        Validators::Ec2SecurityGroupArnList.validate!(input[:security_group_arns], context: "#{context}[:security_group_arns]") unless input[:security_group_arns].nil?
+        Ec2SecurityGroupArnList.validate!(input[:security_group_arns], context: "#{context}[:security_group_arns]") unless input[:security_group_arns].nil?
         Hearth::Validator.validate!(input[:subdirectory], ::String, context: "#{context}[:subdirectory]")
-        Validators::InputTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        InputTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -110,10 +112,10 @@ module AWS::SDK::DataSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateLocationFsxOpenZfsInput, context: context)
         Hearth::Validator.validate!(input[:fsx_filesystem_arn], ::String, context: "#{context}[:fsx_filesystem_arn]")
-        Validators::FsxProtocol.validate!(input[:protocol], context: "#{context}[:protocol]") unless input[:protocol].nil?
-        Validators::Ec2SecurityGroupArnList.validate!(input[:security_group_arns], context: "#{context}[:security_group_arns]") unless input[:security_group_arns].nil?
+        FsxProtocol.validate!(input[:protocol], context: "#{context}[:protocol]") unless input[:protocol].nil?
+        Ec2SecurityGroupArnList.validate!(input[:security_group_arns], context: "#{context}[:security_group_arns]") unless input[:security_group_arns].nil?
         Hearth::Validator.validate!(input[:subdirectory], ::String, context: "#{context}[:subdirectory]")
-        Validators::InputTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        InputTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -129,8 +131,8 @@ module AWS::SDK::DataSync
         Hearth::Validator.validate!(input, Types::CreateLocationFsxWindowsInput, context: context)
         Hearth::Validator.validate!(input[:subdirectory], ::String, context: "#{context}[:subdirectory]")
         Hearth::Validator.validate!(input[:fsx_filesystem_arn], ::String, context: "#{context}[:fsx_filesystem_arn]")
-        Validators::Ec2SecurityGroupArnList.validate!(input[:security_group_arns], context: "#{context}[:security_group_arns]") unless input[:security_group_arns].nil?
-        Validators::InputTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Ec2SecurityGroupArnList.validate!(input[:security_group_arns], context: "#{context}[:security_group_arns]") unless input[:security_group_arns].nil?
+        InputTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:user], ::String, context: "#{context}[:user]")
         Hearth::Validator.validate!(input[:domain], ::String, context: "#{context}[:domain]")
         Hearth::Validator.validate!(input[:password], ::String, context: "#{context}[:password]")
@@ -148,18 +150,18 @@ module AWS::SDK::DataSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateLocationHdfsInput, context: context)
         Hearth::Validator.validate!(input[:subdirectory], ::String, context: "#{context}[:subdirectory]")
-        Validators::HdfsNameNodeList.validate!(input[:name_nodes], context: "#{context}[:name_nodes]") unless input[:name_nodes].nil?
+        HdfsNameNodeList.validate!(input[:name_nodes], context: "#{context}[:name_nodes]") unless input[:name_nodes].nil?
         Hearth::Validator.validate!(input[:block_size], ::Integer, context: "#{context}[:block_size]")
         Hearth::Validator.validate!(input[:replication_factor], ::Integer, context: "#{context}[:replication_factor]")
         Hearth::Validator.validate!(input[:kms_key_provider_uri], ::String, context: "#{context}[:kms_key_provider_uri]")
-        Validators::QopConfiguration.validate!(input[:qop_configuration], context: "#{context}[:qop_configuration]") unless input[:qop_configuration].nil?
+        QopConfiguration.validate!(input[:qop_configuration], context: "#{context}[:qop_configuration]") unless input[:qop_configuration].nil?
         Hearth::Validator.validate!(input[:authentication_type], ::String, context: "#{context}[:authentication_type]")
         Hearth::Validator.validate!(input[:simple_user], ::String, context: "#{context}[:simple_user]")
         Hearth::Validator.validate!(input[:kerberos_principal], ::String, context: "#{context}[:kerberos_principal]")
         Hearth::Validator.validate!(input[:kerberos_keytab], ::String, context: "#{context}[:kerberos_keytab]")
         Hearth::Validator.validate!(input[:kerberos_krb5_conf], ::String, context: "#{context}[:kerberos_krb5_conf]")
-        Validators::AgentArnList.validate!(input[:agent_arns], context: "#{context}[:agent_arns]") unless input[:agent_arns].nil?
-        Validators::InputTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        AgentArnList.validate!(input[:agent_arns], context: "#{context}[:agent_arns]") unless input[:agent_arns].nil?
+        InputTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -175,9 +177,9 @@ module AWS::SDK::DataSync
         Hearth::Validator.validate!(input, Types::CreateLocationNfsInput, context: context)
         Hearth::Validator.validate!(input[:subdirectory], ::String, context: "#{context}[:subdirectory]")
         Hearth::Validator.validate!(input[:server_hostname], ::String, context: "#{context}[:server_hostname]")
-        Validators::OnPremConfig.validate!(input[:on_prem_config], context: "#{context}[:on_prem_config]") unless input[:on_prem_config].nil?
-        Validators::NfsMountOptions.validate!(input[:mount_options], context: "#{context}[:mount_options]") unless input[:mount_options].nil?
-        Validators::InputTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        OnPremConfig.validate!(input[:on_prem_config], context: "#{context}[:on_prem_config]") unless input[:on_prem_config].nil?
+        NfsMountOptions.validate!(input[:mount_options], context: "#{context}[:mount_options]") unless input[:mount_options].nil?
+        InputTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -198,8 +200,8 @@ module AWS::SDK::DataSync
         Hearth::Validator.validate!(input[:bucket_name], ::String, context: "#{context}[:bucket_name]")
         Hearth::Validator.validate!(input[:access_key], ::String, context: "#{context}[:access_key]")
         Hearth::Validator.validate!(input[:secret_key], ::String, context: "#{context}[:secret_key]")
-        Validators::AgentArnList.validate!(input[:agent_arns], context: "#{context}[:agent_arns]") unless input[:agent_arns].nil?
-        Validators::InputTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        AgentArnList.validate!(input[:agent_arns], context: "#{context}[:agent_arns]") unless input[:agent_arns].nil?
+        InputTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -216,9 +218,9 @@ module AWS::SDK::DataSync
         Hearth::Validator.validate!(input[:subdirectory], ::String, context: "#{context}[:subdirectory]")
         Hearth::Validator.validate!(input[:s3_bucket_arn], ::String, context: "#{context}[:s3_bucket_arn]")
         Hearth::Validator.validate!(input[:s3_storage_class], ::String, context: "#{context}[:s3_storage_class]")
-        Validators::S3Config.validate!(input[:s3_config], context: "#{context}[:s3_config]") unless input[:s3_config].nil?
-        Validators::AgentArnList.validate!(input[:agent_arns], context: "#{context}[:agent_arns]") unless input[:agent_arns].nil?
-        Validators::InputTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        S3Config.validate!(input[:s3_config], context: "#{context}[:s3_config]") unless input[:s3_config].nil?
+        AgentArnList.validate!(input[:agent_arns], context: "#{context}[:agent_arns]") unless input[:agent_arns].nil?
+        InputTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -237,9 +239,9 @@ module AWS::SDK::DataSync
         Hearth::Validator.validate!(input[:user], ::String, context: "#{context}[:user]")
         Hearth::Validator.validate!(input[:domain], ::String, context: "#{context}[:domain]")
         Hearth::Validator.validate!(input[:password], ::String, context: "#{context}[:password]")
-        Validators::AgentArnList.validate!(input[:agent_arns], context: "#{context}[:agent_arns]") unless input[:agent_arns].nil?
-        Validators::SmbMountOptions.validate!(input[:mount_options], context: "#{context}[:mount_options]") unless input[:mount_options].nil?
-        Validators::InputTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        AgentArnList.validate!(input[:agent_arns], context: "#{context}[:agent_arns]") unless input[:agent_arns].nil?
+        SmbMountOptions.validate!(input[:mount_options], context: "#{context}[:mount_options]") unless input[:mount_options].nil?
+        InputTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -257,11 +259,11 @@ module AWS::SDK::DataSync
         Hearth::Validator.validate!(input[:destination_location_arn], ::String, context: "#{context}[:destination_location_arn]")
         Hearth::Validator.validate!(input[:cloud_watch_log_group_arn], ::String, context: "#{context}[:cloud_watch_log_group_arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::Options.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
-        Validators::FilterList.validate!(input[:excludes], context: "#{context}[:excludes]") unless input[:excludes].nil?
-        Validators::TaskSchedule.validate!(input[:schedule], context: "#{context}[:schedule]") unless input[:schedule].nil?
-        Validators::InputTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::FilterList.validate!(input[:includes], context: "#{context}[:includes]") unless input[:includes].nil?
+        Options.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
+        FilterList.validate!(input[:excludes], context: "#{context}[:excludes]") unless input[:excludes].nil?
+        TaskSchedule.validate!(input[:schedule], context: "#{context}[:schedule]") unless input[:schedule].nil?
+        InputTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        FilterList.validate!(input[:includes], context: "#{context}[:includes]") unless input[:includes].nil?
       end
     end
 
@@ -327,7 +329,7 @@ module AWS::SDK::DataSync
         Hearth::Validator.validate!(input[:last_connection_time], ::Time, context: "#{context}[:last_connection_time]")
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:endpoint_type], ::String, context: "#{context}[:endpoint_type]")
-        Validators::PrivateLinkConfig.validate!(input[:private_link_config], context: "#{context}[:private_link_config]") unless input[:private_link_config].nil?
+        PrivateLinkConfig.validate!(input[:private_link_config], context: "#{context}[:private_link_config]") unless input[:private_link_config].nil?
       end
     end
 
@@ -343,7 +345,7 @@ module AWS::SDK::DataSync
         Hearth::Validator.validate!(input, Types::DescribeLocationEfsOutput, context: context)
         Hearth::Validator.validate!(input[:location_arn], ::String, context: "#{context}[:location_arn]")
         Hearth::Validator.validate!(input[:location_uri], ::String, context: "#{context}[:location_uri]")
-        Validators::Ec2Config.validate!(input[:ec2_config], context: "#{context}[:ec2_config]") unless input[:ec2_config].nil?
+        Ec2Config.validate!(input[:ec2_config], context: "#{context}[:ec2_config]") unless input[:ec2_config].nil?
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:access_point_arn], ::String, context: "#{context}[:access_point_arn]")
         Hearth::Validator.validate!(input[:file_system_access_role_arn], ::String, context: "#{context}[:file_system_access_role_arn]")
@@ -363,7 +365,7 @@ module AWS::SDK::DataSync
         Hearth::Validator.validate!(input, Types::DescribeLocationFsxLustreOutput, context: context)
         Hearth::Validator.validate!(input[:location_arn], ::String, context: "#{context}[:location_arn]")
         Hearth::Validator.validate!(input[:location_uri], ::String, context: "#{context}[:location_uri]")
-        Validators::Ec2SecurityGroupArnList.validate!(input[:security_group_arns], context: "#{context}[:security_group_arns]") unless input[:security_group_arns].nil?
+        Ec2SecurityGroupArnList.validate!(input[:security_group_arns], context: "#{context}[:security_group_arns]") unless input[:security_group_arns].nil?
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
       end
     end
@@ -380,8 +382,8 @@ module AWS::SDK::DataSync
         Hearth::Validator.validate!(input, Types::DescribeLocationFsxOpenZfsOutput, context: context)
         Hearth::Validator.validate!(input[:location_arn], ::String, context: "#{context}[:location_arn]")
         Hearth::Validator.validate!(input[:location_uri], ::String, context: "#{context}[:location_uri]")
-        Validators::Ec2SecurityGroupArnList.validate!(input[:security_group_arns], context: "#{context}[:security_group_arns]") unless input[:security_group_arns].nil?
-        Validators::FsxProtocol.validate!(input[:protocol], context: "#{context}[:protocol]") unless input[:protocol].nil?
+        Ec2SecurityGroupArnList.validate!(input[:security_group_arns], context: "#{context}[:security_group_arns]") unless input[:security_group_arns].nil?
+        FsxProtocol.validate!(input[:protocol], context: "#{context}[:protocol]") unless input[:protocol].nil?
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
       end
     end
@@ -398,7 +400,7 @@ module AWS::SDK::DataSync
         Hearth::Validator.validate!(input, Types::DescribeLocationFsxWindowsOutput, context: context)
         Hearth::Validator.validate!(input[:location_arn], ::String, context: "#{context}[:location_arn]")
         Hearth::Validator.validate!(input[:location_uri], ::String, context: "#{context}[:location_uri]")
-        Validators::Ec2SecurityGroupArnList.validate!(input[:security_group_arns], context: "#{context}[:security_group_arns]") unless input[:security_group_arns].nil?
+        Ec2SecurityGroupArnList.validate!(input[:security_group_arns], context: "#{context}[:security_group_arns]") unless input[:security_group_arns].nil?
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:user], ::String, context: "#{context}[:user]")
         Hearth::Validator.validate!(input[:domain], ::String, context: "#{context}[:domain]")
@@ -417,15 +419,15 @@ module AWS::SDK::DataSync
         Hearth::Validator.validate!(input, Types::DescribeLocationHdfsOutput, context: context)
         Hearth::Validator.validate!(input[:location_arn], ::String, context: "#{context}[:location_arn]")
         Hearth::Validator.validate!(input[:location_uri], ::String, context: "#{context}[:location_uri]")
-        Validators::HdfsNameNodeList.validate!(input[:name_nodes], context: "#{context}[:name_nodes]") unless input[:name_nodes].nil?
+        HdfsNameNodeList.validate!(input[:name_nodes], context: "#{context}[:name_nodes]") unless input[:name_nodes].nil?
         Hearth::Validator.validate!(input[:block_size], ::Integer, context: "#{context}[:block_size]")
         Hearth::Validator.validate!(input[:replication_factor], ::Integer, context: "#{context}[:replication_factor]")
         Hearth::Validator.validate!(input[:kms_key_provider_uri], ::String, context: "#{context}[:kms_key_provider_uri]")
-        Validators::QopConfiguration.validate!(input[:qop_configuration], context: "#{context}[:qop_configuration]") unless input[:qop_configuration].nil?
+        QopConfiguration.validate!(input[:qop_configuration], context: "#{context}[:qop_configuration]") unless input[:qop_configuration].nil?
         Hearth::Validator.validate!(input[:authentication_type], ::String, context: "#{context}[:authentication_type]")
         Hearth::Validator.validate!(input[:simple_user], ::String, context: "#{context}[:simple_user]")
         Hearth::Validator.validate!(input[:kerberos_principal], ::String, context: "#{context}[:kerberos_principal]")
-        Validators::AgentArnList.validate!(input[:agent_arns], context: "#{context}[:agent_arns]") unless input[:agent_arns].nil?
+        AgentArnList.validate!(input[:agent_arns], context: "#{context}[:agent_arns]") unless input[:agent_arns].nil?
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
       end
     end
@@ -442,8 +444,8 @@ module AWS::SDK::DataSync
         Hearth::Validator.validate!(input, Types::DescribeLocationNfsOutput, context: context)
         Hearth::Validator.validate!(input[:location_arn], ::String, context: "#{context}[:location_arn]")
         Hearth::Validator.validate!(input[:location_uri], ::String, context: "#{context}[:location_uri]")
-        Validators::OnPremConfig.validate!(input[:on_prem_config], context: "#{context}[:on_prem_config]") unless input[:on_prem_config].nil?
-        Validators::NfsMountOptions.validate!(input[:mount_options], context: "#{context}[:mount_options]") unless input[:mount_options].nil?
+        OnPremConfig.validate!(input[:on_prem_config], context: "#{context}[:on_prem_config]") unless input[:on_prem_config].nil?
+        NfsMountOptions.validate!(input[:mount_options], context: "#{context}[:mount_options]") unless input[:mount_options].nil?
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
       end
     end
@@ -463,7 +465,7 @@ module AWS::SDK::DataSync
         Hearth::Validator.validate!(input[:access_key], ::String, context: "#{context}[:access_key]")
         Hearth::Validator.validate!(input[:server_port], ::Integer, context: "#{context}[:server_port]")
         Hearth::Validator.validate!(input[:server_protocol], ::String, context: "#{context}[:server_protocol]")
-        Validators::AgentArnList.validate!(input[:agent_arns], context: "#{context}[:agent_arns]") unless input[:agent_arns].nil?
+        AgentArnList.validate!(input[:agent_arns], context: "#{context}[:agent_arns]") unless input[:agent_arns].nil?
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
       end
     end
@@ -481,8 +483,8 @@ module AWS::SDK::DataSync
         Hearth::Validator.validate!(input[:location_arn], ::String, context: "#{context}[:location_arn]")
         Hearth::Validator.validate!(input[:location_uri], ::String, context: "#{context}[:location_uri]")
         Hearth::Validator.validate!(input[:s3_storage_class], ::String, context: "#{context}[:s3_storage_class]")
-        Validators::S3Config.validate!(input[:s3_config], context: "#{context}[:s3_config]") unless input[:s3_config].nil?
-        Validators::AgentArnList.validate!(input[:agent_arns], context: "#{context}[:agent_arns]") unless input[:agent_arns].nil?
+        S3Config.validate!(input[:s3_config], context: "#{context}[:s3_config]") unless input[:s3_config].nil?
+        AgentArnList.validate!(input[:agent_arns], context: "#{context}[:agent_arns]") unless input[:agent_arns].nil?
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
       end
     end
@@ -499,10 +501,10 @@ module AWS::SDK::DataSync
         Hearth::Validator.validate!(input, Types::DescribeLocationSmbOutput, context: context)
         Hearth::Validator.validate!(input[:location_arn], ::String, context: "#{context}[:location_arn]")
         Hearth::Validator.validate!(input[:location_uri], ::String, context: "#{context}[:location_uri]")
-        Validators::AgentArnList.validate!(input[:agent_arns], context: "#{context}[:agent_arns]") unless input[:agent_arns].nil?
+        AgentArnList.validate!(input[:agent_arns], context: "#{context}[:agent_arns]") unless input[:agent_arns].nil?
         Hearth::Validator.validate!(input[:user], ::String, context: "#{context}[:user]")
         Hearth::Validator.validate!(input[:domain], ::String, context: "#{context}[:domain]")
-        Validators::SmbMountOptions.validate!(input[:mount_options], context: "#{context}[:mount_options]") unless input[:mount_options].nil?
+        SmbMountOptions.validate!(input[:mount_options], context: "#{context}[:mount_options]") unless input[:mount_options].nil?
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
       end
     end
@@ -519,16 +521,16 @@ module AWS::SDK::DataSync
         Hearth::Validator.validate!(input, Types::DescribeTaskExecutionOutput, context: context)
         Hearth::Validator.validate!(input[:task_execution_arn], ::String, context: "#{context}[:task_execution_arn]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::Options.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
-        Validators::FilterList.validate!(input[:excludes], context: "#{context}[:excludes]") unless input[:excludes].nil?
-        Validators::FilterList.validate!(input[:includes], context: "#{context}[:includes]") unless input[:includes].nil?
+        Options.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
+        FilterList.validate!(input[:excludes], context: "#{context}[:excludes]") unless input[:excludes].nil?
+        FilterList.validate!(input[:includes], context: "#{context}[:includes]") unless input[:includes].nil?
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:estimated_files_to_transfer], ::Integer, context: "#{context}[:estimated_files_to_transfer]")
         Hearth::Validator.validate!(input[:estimated_bytes_to_transfer], ::Integer, context: "#{context}[:estimated_bytes_to_transfer]")
         Hearth::Validator.validate!(input[:files_transferred], ::Integer, context: "#{context}[:files_transferred]")
         Hearth::Validator.validate!(input[:bytes_written], ::Integer, context: "#{context}[:bytes_written]")
         Hearth::Validator.validate!(input[:bytes_transferred], ::Integer, context: "#{context}[:bytes_transferred]")
-        Validators::TaskExecutionResultDetail.validate!(input[:result], context: "#{context}[:result]") unless input[:result].nil?
+        TaskExecutionResultDetail.validate!(input[:result], context: "#{context}[:result]") unless input[:result].nil?
       end
     end
 
@@ -549,15 +551,15 @@ module AWS::SDK::DataSync
         Hearth::Validator.validate!(input[:source_location_arn], ::String, context: "#{context}[:source_location_arn]")
         Hearth::Validator.validate!(input[:destination_location_arn], ::String, context: "#{context}[:destination_location_arn]")
         Hearth::Validator.validate!(input[:cloud_watch_log_group_arn], ::String, context: "#{context}[:cloud_watch_log_group_arn]")
-        Validators::SourceNetworkInterfaceArns.validate!(input[:source_network_interface_arns], context: "#{context}[:source_network_interface_arns]") unless input[:source_network_interface_arns].nil?
-        Validators::DestinationNetworkInterfaceArns.validate!(input[:destination_network_interface_arns], context: "#{context}[:destination_network_interface_arns]") unless input[:destination_network_interface_arns].nil?
-        Validators::Options.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
-        Validators::FilterList.validate!(input[:excludes], context: "#{context}[:excludes]") unless input[:excludes].nil?
-        Validators::TaskSchedule.validate!(input[:schedule], context: "#{context}[:schedule]") unless input[:schedule].nil?
+        SourceNetworkInterfaceArns.validate!(input[:source_network_interface_arns], context: "#{context}[:source_network_interface_arns]") unless input[:source_network_interface_arns].nil?
+        DestinationNetworkInterfaceArns.validate!(input[:destination_network_interface_arns], context: "#{context}[:destination_network_interface_arns]") unless input[:destination_network_interface_arns].nil?
+        Options.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
+        FilterList.validate!(input[:excludes], context: "#{context}[:excludes]") unless input[:excludes].nil?
+        TaskSchedule.validate!(input[:schedule], context: "#{context}[:schedule]") unless input[:schedule].nil?
         Hearth::Validator.validate!(input[:error_code], ::String, context: "#{context}[:error_code]")
         Hearth::Validator.validate!(input[:error_detail], ::String, context: "#{context}[:error_detail]")
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
-        Validators::FilterList.validate!(input[:includes], context: "#{context}[:includes]") unless input[:includes].nil?
+        FilterList.validate!(input[:includes], context: "#{context}[:includes]") unless input[:includes].nil?
       end
     end
 
@@ -574,7 +576,7 @@ module AWS::SDK::DataSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Ec2Config, context: context)
         Hearth::Validator.validate!(input[:subnet_arn], ::String, context: "#{context}[:subnet_arn]")
-        Validators::Ec2SecurityGroupArnList.validate!(input[:security_group_arns], context: "#{context}[:security_group_arns]") unless input[:security_group_arns].nil?
+        Ec2SecurityGroupArnList.validate!(input[:security_group_arns], context: "#{context}[:security_group_arns]") unless input[:security_group_arns].nil?
       end
     end
 
@@ -591,7 +593,7 @@ module AWS::SDK::DataSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FilterRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FilterRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -616,14 +618,14 @@ module AWS::SDK::DataSync
     class FsxProtocol
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FsxProtocol, context: context)
-        Validators::FsxProtocolNfs.validate!(input[:nfs], context: "#{context}[:nfs]") unless input[:nfs].nil?
+        FsxProtocolNfs.validate!(input[:nfs], context: "#{context}[:nfs]") unless input[:nfs].nil?
       end
     end
 
     class FsxProtocolNfs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FsxProtocolNfs, context: context)
-        Validators::NfsMountOptions.validate!(input[:mount_options], context: "#{context}[:mount_options]") unless input[:mount_options].nil?
+        NfsMountOptions.validate!(input[:mount_options], context: "#{context}[:mount_options]") unless input[:mount_options].nil?
       end
     end
 
@@ -639,7 +641,7 @@ module AWS::SDK::DataSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::HdfsNameNode.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          HdfsNameNode.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -648,7 +650,7 @@ module AWS::SDK::DataSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TagListEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TagListEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -681,7 +683,7 @@ module AWS::SDK::DataSync
     class ListAgentsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAgentsOutput, context: context)
-        Validators::AgentList.validate!(input[:agents], context: "#{context}[:agents]") unless input[:agents].nil?
+        AgentList.validate!(input[:agents], context: "#{context}[:agents]") unless input[:agents].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -691,14 +693,14 @@ module AWS::SDK::DataSync
         Hearth::Validator.validate!(input, Types::ListLocationsInput, context: context)
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::LocationFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        LocationFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
     class ListLocationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListLocationsOutput, context: context)
-        Validators::LocationList.validate!(input[:locations], context: "#{context}[:locations]") unless input[:locations].nil?
+        LocationList.validate!(input[:locations], context: "#{context}[:locations]") unless input[:locations].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -715,7 +717,7 @@ module AWS::SDK::DataSync
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::OutputTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        OutputTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -732,7 +734,7 @@ module AWS::SDK::DataSync
     class ListTaskExecutionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTaskExecutionsOutput, context: context)
-        Validators::TaskExecutionList.validate!(input[:task_executions], context: "#{context}[:task_executions]") unless input[:task_executions].nil?
+        TaskExecutionList.validate!(input[:task_executions], context: "#{context}[:task_executions]") unless input[:task_executions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -742,14 +744,14 @@ module AWS::SDK::DataSync
         Hearth::Validator.validate!(input, Types::ListTasksInput, context: context)
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::TaskFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        TaskFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
     class ListTasksOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTasksOutput, context: context)
-        Validators::TaskList.validate!(input[:tasks], context: "#{context}[:tasks]") unless input[:tasks].nil?
+        TaskList.validate!(input[:tasks], context: "#{context}[:tasks]") unless input[:tasks].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -758,7 +760,7 @@ module AWS::SDK::DataSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LocationFilter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::FilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        FilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
         Hearth::Validator.validate!(input[:operator], ::String, context: "#{context}[:operator]")
       end
     end
@@ -767,7 +769,7 @@ module AWS::SDK::DataSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LocationFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LocationFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -776,7 +778,7 @@ module AWS::SDK::DataSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LocationListEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LocationListEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -799,7 +801,7 @@ module AWS::SDK::DataSync
     class OnPremConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OnPremConfig, context: context)
-        Validators::AgentArnList.validate!(input[:agent_arns], context: "#{context}[:agent_arns]") unless input[:agent_arns].nil?
+        AgentArnList.validate!(input[:agent_arns], context: "#{context}[:agent_arns]") unless input[:agent_arns].nil?
       end
     end
 
@@ -828,7 +830,7 @@ module AWS::SDK::DataSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TagListEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TagListEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -856,8 +858,8 @@ module AWS::SDK::DataSync
         Hearth::Validator.validate!(input, Types::PrivateLinkConfig, context: context)
         Hearth::Validator.validate!(input[:vpc_endpoint_id], ::String, context: "#{context}[:vpc_endpoint_id]")
         Hearth::Validator.validate!(input[:private_link_endpoint], ::String, context: "#{context}[:private_link_endpoint]")
-        Validators::PLSubnetArnList.validate!(input[:subnet_arns], context: "#{context}[:subnet_arns]") unless input[:subnet_arns].nil?
-        Validators::PLSecurityGroupArnList.validate!(input[:security_group_arns], context: "#{context}[:security_group_arns]") unless input[:security_group_arns].nil?
+        PLSubnetArnList.validate!(input[:subnet_arns], context: "#{context}[:subnet_arns]") unless input[:subnet_arns].nil?
+        PLSecurityGroupArnList.validate!(input[:security_group_arns], context: "#{context}[:security_group_arns]") unless input[:security_group_arns].nil?
       end
     end
 
@@ -896,9 +898,9 @@ module AWS::SDK::DataSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartTaskExecutionInput, context: context)
         Hearth::Validator.validate!(input[:task_arn], ::String, context: "#{context}[:task_arn]")
-        Validators::Options.validate!(input[:override_options], context: "#{context}[:override_options]") unless input[:override_options].nil?
-        Validators::FilterList.validate!(input[:includes], context: "#{context}[:includes]") unless input[:includes].nil?
-        Validators::FilterList.validate!(input[:excludes], context: "#{context}[:excludes]") unless input[:excludes].nil?
+        Options.validate!(input[:override_options], context: "#{context}[:override_options]") unless input[:override_options].nil?
+        FilterList.validate!(input[:includes], context: "#{context}[:includes]") unless input[:includes].nil?
+        FilterList.validate!(input[:excludes], context: "#{context}[:excludes]") unless input[:excludes].nil?
       end
     end
 
@@ -930,7 +932,7 @@ module AWS::SDK::DataSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::InputTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        InputTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -944,7 +946,7 @@ module AWS::SDK::DataSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TaskExecutionListEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TaskExecutionListEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -976,7 +978,7 @@ module AWS::SDK::DataSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TaskFilter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::FilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        FilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
         Hearth::Validator.validate!(input[:operator], ::String, context: "#{context}[:operator]")
       end
     end
@@ -985,7 +987,7 @@ module AWS::SDK::DataSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TaskFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TaskFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -994,7 +996,7 @@ module AWS::SDK::DataSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TaskListEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TaskListEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1019,7 +1021,7 @@ module AWS::SDK::DataSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:keys], context: "#{context}[:keys]") unless input[:keys].nil?
+        TagKeyList.validate!(input[:keys], context: "#{context}[:keys]") unless input[:keys].nil?
       end
     end
 
@@ -1048,17 +1050,17 @@ module AWS::SDK::DataSync
         Hearth::Validator.validate!(input, Types::UpdateLocationHdfsInput, context: context)
         Hearth::Validator.validate!(input[:location_arn], ::String, context: "#{context}[:location_arn]")
         Hearth::Validator.validate!(input[:subdirectory], ::String, context: "#{context}[:subdirectory]")
-        Validators::HdfsNameNodeList.validate!(input[:name_nodes], context: "#{context}[:name_nodes]") unless input[:name_nodes].nil?
+        HdfsNameNodeList.validate!(input[:name_nodes], context: "#{context}[:name_nodes]") unless input[:name_nodes].nil?
         Hearth::Validator.validate!(input[:block_size], ::Integer, context: "#{context}[:block_size]")
         Hearth::Validator.validate!(input[:replication_factor], ::Integer, context: "#{context}[:replication_factor]")
         Hearth::Validator.validate!(input[:kms_key_provider_uri], ::String, context: "#{context}[:kms_key_provider_uri]")
-        Validators::QopConfiguration.validate!(input[:qop_configuration], context: "#{context}[:qop_configuration]") unless input[:qop_configuration].nil?
+        QopConfiguration.validate!(input[:qop_configuration], context: "#{context}[:qop_configuration]") unless input[:qop_configuration].nil?
         Hearth::Validator.validate!(input[:authentication_type], ::String, context: "#{context}[:authentication_type]")
         Hearth::Validator.validate!(input[:simple_user], ::String, context: "#{context}[:simple_user]")
         Hearth::Validator.validate!(input[:kerberos_principal], ::String, context: "#{context}[:kerberos_principal]")
         Hearth::Validator.validate!(input[:kerberos_keytab], ::String, context: "#{context}[:kerberos_keytab]")
         Hearth::Validator.validate!(input[:kerberos_krb5_conf], ::String, context: "#{context}[:kerberos_krb5_conf]")
-        Validators::AgentArnList.validate!(input[:agent_arns], context: "#{context}[:agent_arns]") unless input[:agent_arns].nil?
+        AgentArnList.validate!(input[:agent_arns], context: "#{context}[:agent_arns]") unless input[:agent_arns].nil?
       end
     end
 
@@ -1073,8 +1075,8 @@ module AWS::SDK::DataSync
         Hearth::Validator.validate!(input, Types::UpdateLocationNfsInput, context: context)
         Hearth::Validator.validate!(input[:location_arn], ::String, context: "#{context}[:location_arn]")
         Hearth::Validator.validate!(input[:subdirectory], ::String, context: "#{context}[:subdirectory]")
-        Validators::OnPremConfig.validate!(input[:on_prem_config], context: "#{context}[:on_prem_config]") unless input[:on_prem_config].nil?
-        Validators::NfsMountOptions.validate!(input[:mount_options], context: "#{context}[:mount_options]") unless input[:mount_options].nil?
+        OnPremConfig.validate!(input[:on_prem_config], context: "#{context}[:on_prem_config]") unless input[:on_prem_config].nil?
+        NfsMountOptions.validate!(input[:mount_options], context: "#{context}[:mount_options]") unless input[:mount_options].nil?
       end
     end
 
@@ -1093,7 +1095,7 @@ module AWS::SDK::DataSync
         Hearth::Validator.validate!(input[:subdirectory], ::String, context: "#{context}[:subdirectory]")
         Hearth::Validator.validate!(input[:access_key], ::String, context: "#{context}[:access_key]")
         Hearth::Validator.validate!(input[:secret_key], ::String, context: "#{context}[:secret_key]")
-        Validators::AgentArnList.validate!(input[:agent_arns], context: "#{context}[:agent_arns]") unless input[:agent_arns].nil?
+        AgentArnList.validate!(input[:agent_arns], context: "#{context}[:agent_arns]") unless input[:agent_arns].nil?
       end
     end
 
@@ -1111,8 +1113,8 @@ module AWS::SDK::DataSync
         Hearth::Validator.validate!(input[:user], ::String, context: "#{context}[:user]")
         Hearth::Validator.validate!(input[:domain], ::String, context: "#{context}[:domain]")
         Hearth::Validator.validate!(input[:password], ::String, context: "#{context}[:password]")
-        Validators::AgentArnList.validate!(input[:agent_arns], context: "#{context}[:agent_arns]") unless input[:agent_arns].nil?
-        Validators::SmbMountOptions.validate!(input[:mount_options], context: "#{context}[:mount_options]") unless input[:mount_options].nil?
+        AgentArnList.validate!(input[:agent_arns], context: "#{context}[:agent_arns]") unless input[:agent_arns].nil?
+        SmbMountOptions.validate!(input[:mount_options], context: "#{context}[:mount_options]") unless input[:mount_options].nil?
       end
     end
 
@@ -1126,7 +1128,7 @@ module AWS::SDK::DataSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateTaskExecutionInput, context: context)
         Hearth::Validator.validate!(input[:task_execution_arn], ::String, context: "#{context}[:task_execution_arn]")
-        Validators::Options.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
+        Options.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
       end
     end
 
@@ -1140,12 +1142,12 @@ module AWS::SDK::DataSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateTaskInput, context: context)
         Hearth::Validator.validate!(input[:task_arn], ::String, context: "#{context}[:task_arn]")
-        Validators::Options.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
-        Validators::FilterList.validate!(input[:excludes], context: "#{context}[:excludes]") unless input[:excludes].nil?
-        Validators::TaskSchedule.validate!(input[:schedule], context: "#{context}[:schedule]") unless input[:schedule].nil?
+        Options.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
+        FilterList.validate!(input[:excludes], context: "#{context}[:excludes]") unless input[:excludes].nil?
+        TaskSchedule.validate!(input[:schedule], context: "#{context}[:schedule]") unless input[:schedule].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:cloud_watch_log_group_arn], ::String, context: "#{context}[:cloud_watch_log_group_arn]")
-        Validators::FilterList.validate!(input[:includes], context: "#{context}[:includes]") unless input[:includes].nil?
+        FilterList.validate!(input[:includes], context: "#{context}[:includes]") unless input[:includes].nil?
       end
     end
 

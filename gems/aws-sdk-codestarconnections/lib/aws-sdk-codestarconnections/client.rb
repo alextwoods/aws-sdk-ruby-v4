@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::CodeStarConnections
@@ -162,7 +164,7 @@ module AWS::SDK::CodeStarConnections
     def create_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateConnectionInput,
         validate_input: @config.validate_input
@@ -274,7 +276,7 @@ module AWS::SDK::CodeStarConnections
     def create_host(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateHostInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateHostInput,
         validate_input: @config.validate_input
@@ -345,7 +347,7 @@ module AWS::SDK::CodeStarConnections
     def delete_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteConnectionInput,
         validate_input: @config.validate_input
@@ -416,7 +418,7 @@ module AWS::SDK::CodeStarConnections
     def delete_host(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteHostInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteHostInput,
         validate_input: @config.validate_input
@@ -491,7 +493,7 @@ module AWS::SDK::CodeStarConnections
     def get_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetConnectionInput,
         validate_input: @config.validate_input
@@ -571,7 +573,7 @@ module AWS::SDK::CodeStarConnections
     def get_host(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetHostInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetHostInput,
         validate_input: @config.validate_input
@@ -663,7 +665,7 @@ module AWS::SDK::CodeStarConnections
     def list_connections(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListConnectionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListConnectionsInput,
         validate_input: @config.validate_input
@@ -753,7 +755,7 @@ module AWS::SDK::CodeStarConnections
     def list_hosts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListHostsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListHostsInput,
         validate_input: @config.validate_input
@@ -825,7 +827,7 @@ module AWS::SDK::CodeStarConnections
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -903,7 +905,7 @@ module AWS::SDK::CodeStarConnections
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -977,7 +979,7 @@ module AWS::SDK::CodeStarConnections
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -1063,7 +1065,7 @@ module AWS::SDK::CodeStarConnections
     def update_host(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateHostInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateHostInput,
         validate_input: @config.validate_input

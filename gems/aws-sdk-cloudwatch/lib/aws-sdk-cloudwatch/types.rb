@@ -366,11 +366,11 @@ module AWS::SDK::CloudWatch
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.size ||= 0
       end
-
     end
 
     # <p>Some part of the dashboard data is invalid.</p>

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Backup
   module Validators
 
@@ -14,7 +16,7 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AdvancedBackupSetting, context: context)
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::BackupOptions.validate!(input[:backup_options], context: "#{context}[:backup_options]") unless input[:backup_options].nil?
+        BackupOptions.validate!(input[:backup_options], context: "#{context}[:backup_options]") unless input[:backup_options].nil?
       end
     end
 
@@ -22,7 +24,7 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AdvancedBackupSetting.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AdvancedBackupSetting.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -55,12 +57,12 @@ module AWS::SDK::Backup
         Hearth::Validator.validate!(input[:percent_done], ::String, context: "#{context}[:percent_done]")
         Hearth::Validator.validate!(input[:backup_size_in_bytes], ::Integer, context: "#{context}[:backup_size_in_bytes]")
         Hearth::Validator.validate!(input[:iam_role_arn], ::String, context: "#{context}[:iam_role_arn]")
-        Validators::RecoveryPointCreator.validate!(input[:created_by], context: "#{context}[:created_by]") unless input[:created_by].nil?
+        RecoveryPointCreator.validate!(input[:created_by], context: "#{context}[:created_by]") unless input[:created_by].nil?
         Hearth::Validator.validate!(input[:expected_completion_date], ::Time, context: "#{context}[:expected_completion_date]")
         Hearth::Validator.validate!(input[:start_by], ::Time, context: "#{context}[:start_by]")
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
         Hearth::Validator.validate!(input[:bytes_transferred], ::Integer, context: "#{context}[:bytes_transferred]")
-        Validators::BackupOptions.validate!(input[:backup_options], context: "#{context}[:backup_options]") unless input[:backup_options].nil?
+        BackupOptions.validate!(input[:backup_options], context: "#{context}[:backup_options]") unless input[:backup_options].nil?
         Hearth::Validator.validate!(input[:backup_type], ::String, context: "#{context}[:backup_type]")
       end
     end
@@ -69,7 +71,7 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BackupJob.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BackupJob.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -88,8 +90,8 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BackupPlan, context: context)
         Hearth::Validator.validate!(input[:backup_plan_name], ::String, context: "#{context}[:backup_plan_name]")
-        Validators::BackupRules.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
-        Validators::AdvancedBackupSettings.validate!(input[:advanced_backup_settings], context: "#{context}[:advanced_backup_settings]") unless input[:advanced_backup_settings].nil?
+        BackupRules.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        AdvancedBackupSettings.validate!(input[:advanced_backup_settings], context: "#{context}[:advanced_backup_settings]") unless input[:advanced_backup_settings].nil?
       end
     end
 
@@ -97,8 +99,8 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BackupPlanInput, context: context)
         Hearth::Validator.validate!(input[:backup_plan_name], ::String, context: "#{context}[:backup_plan_name]")
-        Validators::BackupRulesInput.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
-        Validators::AdvancedBackupSettings.validate!(input[:advanced_backup_settings], context: "#{context}[:advanced_backup_settings]") unless input[:advanced_backup_settings].nil?
+        BackupRulesInput.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        AdvancedBackupSettings.validate!(input[:advanced_backup_settings], context: "#{context}[:advanced_backup_settings]") unless input[:advanced_backup_settings].nil?
       end
     end
 
@@ -106,7 +108,7 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BackupPlanTemplatesListMember.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BackupPlanTemplatesListMember.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -123,7 +125,7 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BackupPlansListMember.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BackupPlansListMember.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -132,7 +134,7 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BackupPlansListMember.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BackupPlansListMember.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -148,7 +150,7 @@ module AWS::SDK::Backup
         Hearth::Validator.validate!(input[:backup_plan_name], ::String, context: "#{context}[:backup_plan_name]")
         Hearth::Validator.validate!(input[:creator_request_id], ::String, context: "#{context}[:creator_request_id]")
         Hearth::Validator.validate!(input[:last_execution_date], ::Time, context: "#{context}[:last_execution_date]")
-        Validators::AdvancedBackupSettings.validate!(input[:advanced_backup_settings], context: "#{context}[:advanced_backup_settings]") unless input[:advanced_backup_settings].nil?
+        AdvancedBackupSettings.validate!(input[:advanced_backup_settings], context: "#{context}[:advanced_backup_settings]") unless input[:advanced_backup_settings].nil?
       end
     end
 
@@ -160,10 +162,10 @@ module AWS::SDK::Backup
         Hearth::Validator.validate!(input[:schedule_expression], ::String, context: "#{context}[:schedule_expression]")
         Hearth::Validator.validate!(input[:start_window_minutes], ::Integer, context: "#{context}[:start_window_minutes]")
         Hearth::Validator.validate!(input[:completion_window_minutes], ::Integer, context: "#{context}[:completion_window_minutes]")
-        Validators::Lifecycle.validate!(input[:lifecycle], context: "#{context}[:lifecycle]") unless input[:lifecycle].nil?
-        Validators::Tags.validate!(input[:recovery_point_tags], context: "#{context}[:recovery_point_tags]") unless input[:recovery_point_tags].nil?
+        Lifecycle.validate!(input[:lifecycle], context: "#{context}[:lifecycle]") unless input[:lifecycle].nil?
+        Tags.validate!(input[:recovery_point_tags], context: "#{context}[:recovery_point_tags]") unless input[:recovery_point_tags].nil?
         Hearth::Validator.validate!(input[:rule_id], ::String, context: "#{context}[:rule_id]")
-        Validators::CopyActions.validate!(input[:copy_actions], context: "#{context}[:copy_actions]") unless input[:copy_actions].nil?
+        CopyActions.validate!(input[:copy_actions], context: "#{context}[:copy_actions]") unless input[:copy_actions].nil?
         Hearth::Validator.validate!(input[:enable_continuous_backup], ::TrueClass, ::FalseClass, context: "#{context}[:enable_continuous_backup]")
       end
     end
@@ -176,9 +178,9 @@ module AWS::SDK::Backup
         Hearth::Validator.validate!(input[:schedule_expression], ::String, context: "#{context}[:schedule_expression]")
         Hearth::Validator.validate!(input[:start_window_minutes], ::Integer, context: "#{context}[:start_window_minutes]")
         Hearth::Validator.validate!(input[:completion_window_minutes], ::Integer, context: "#{context}[:completion_window_minutes]")
-        Validators::Lifecycle.validate!(input[:lifecycle], context: "#{context}[:lifecycle]") unless input[:lifecycle].nil?
-        Validators::Tags.validate!(input[:recovery_point_tags], context: "#{context}[:recovery_point_tags]") unless input[:recovery_point_tags].nil?
-        Validators::CopyActions.validate!(input[:copy_actions], context: "#{context}[:copy_actions]") unless input[:copy_actions].nil?
+        Lifecycle.validate!(input[:lifecycle], context: "#{context}[:lifecycle]") unless input[:lifecycle].nil?
+        Tags.validate!(input[:recovery_point_tags], context: "#{context}[:recovery_point_tags]") unless input[:recovery_point_tags].nil?
+        CopyActions.validate!(input[:copy_actions], context: "#{context}[:copy_actions]") unless input[:copy_actions].nil?
         Hearth::Validator.validate!(input[:enable_continuous_backup], ::TrueClass, ::FalseClass, context: "#{context}[:enable_continuous_backup]")
       end
     end
@@ -187,7 +189,7 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BackupRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BackupRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -196,7 +198,7 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BackupRuleInput.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BackupRuleInput.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -206,10 +208,10 @@ module AWS::SDK::Backup
         Hearth::Validator.validate!(input, Types::BackupSelection, context: context)
         Hearth::Validator.validate!(input[:selection_name], ::String, context: "#{context}[:selection_name]")
         Hearth::Validator.validate!(input[:iam_role_arn], ::String, context: "#{context}[:iam_role_arn]")
-        Validators::ResourceArns.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
-        Validators::ListOfTags.validate!(input[:list_of_tags], context: "#{context}[:list_of_tags]") unless input[:list_of_tags].nil?
-        Validators::ResourceArns.validate!(input[:not_resources], context: "#{context}[:not_resources]") unless input[:not_resources].nil?
-        Validators::Conditions.validate!(input[:conditions], context: "#{context}[:conditions]") unless input[:conditions].nil?
+        ResourceArns.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
+        ListOfTags.validate!(input[:list_of_tags], context: "#{context}[:list_of_tags]") unless input[:list_of_tags].nil?
+        ResourceArns.validate!(input[:not_resources], context: "#{context}[:not_resources]") unless input[:not_resources].nil?
+        Conditions.validate!(input[:conditions], context: "#{context}[:conditions]") unless input[:conditions].nil?
       end
     end
 
@@ -217,7 +219,7 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BackupSelectionsListMember.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BackupSelectionsListMember.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -247,7 +249,7 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BackupVaultListMember.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BackupVaultListMember.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -306,7 +308,7 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ConditionParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ConditionParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -314,10 +316,10 @@ module AWS::SDK::Backup
     class Conditions
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Conditions, context: context)
-        Validators::ConditionParameters.validate!(input[:string_equals], context: "#{context}[:string_equals]") unless input[:string_equals].nil?
-        Validators::ConditionParameters.validate!(input[:string_not_equals], context: "#{context}[:string_not_equals]") unless input[:string_not_equals].nil?
-        Validators::ConditionParameters.validate!(input[:string_like], context: "#{context}[:string_like]") unless input[:string_like].nil?
-        Validators::ConditionParameters.validate!(input[:string_not_like], context: "#{context}[:string_not_like]") unless input[:string_not_like].nil?
+        ConditionParameters.validate!(input[:string_equals], context: "#{context}[:string_equals]") unless input[:string_equals].nil?
+        ConditionParameters.validate!(input[:string_not_equals], context: "#{context}[:string_not_equals]") unless input[:string_not_equals].nil?
+        ConditionParameters.validate!(input[:string_like], context: "#{context}[:string_like]") unless input[:string_like].nil?
+        ConditionParameters.validate!(input[:string_not_like], context: "#{context}[:string_not_like]") unless input[:string_not_like].nil?
       end
     end
 
@@ -343,7 +345,7 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ControlInputParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ControlInputParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -351,16 +353,16 @@ module AWS::SDK::Backup
     class ControlScope
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ControlScope, context: context)
-        Validators::ComplianceResourceIdList.validate!(input[:compliance_resource_ids], context: "#{context}[:compliance_resource_ids]") unless input[:compliance_resource_ids].nil?
-        Validators::ResourceTypeList.validate!(input[:compliance_resource_types], context: "#{context}[:compliance_resource_types]") unless input[:compliance_resource_types].nil?
-        Validators::StringMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ComplianceResourceIdList.validate!(input[:compliance_resource_ids], context: "#{context}[:compliance_resource_ids]") unless input[:compliance_resource_ids].nil?
+        ResourceTypeList.validate!(input[:compliance_resource_types], context: "#{context}[:compliance_resource_types]") unless input[:compliance_resource_types].nil?
+        StringMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CopyAction
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CopyAction, context: context)
-        Validators::Lifecycle.validate!(input[:lifecycle], context: "#{context}[:lifecycle]") unless input[:lifecycle].nil?
+        Lifecycle.validate!(input[:lifecycle], context: "#{context}[:lifecycle]") unless input[:lifecycle].nil?
         Hearth::Validator.validate!(input[:destination_backup_vault_arn], ::String, context: "#{context}[:destination_backup_vault_arn]")
       end
     end
@@ -369,7 +371,7 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CopyAction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CopyAction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -390,7 +392,7 @@ module AWS::SDK::Backup
         Hearth::Validator.validate!(input[:status_message], ::String, context: "#{context}[:status_message]")
         Hearth::Validator.validate!(input[:backup_size_in_bytes], ::Integer, context: "#{context}[:backup_size_in_bytes]")
         Hearth::Validator.validate!(input[:iam_role_arn], ::String, context: "#{context}[:iam_role_arn]")
-        Validators::RecoveryPointCreator.validate!(input[:created_by], context: "#{context}[:created_by]") unless input[:created_by].nil?
+        RecoveryPointCreator.validate!(input[:created_by], context: "#{context}[:created_by]") unless input[:created_by].nil?
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
       end
     end
@@ -399,7 +401,7 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CopyJob.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CopyJob.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -407,8 +409,8 @@ module AWS::SDK::Backup
     class CreateBackupPlanInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateBackupPlanInput, context: context)
-        Validators::BackupPlanInput.validate!(input[:backup_plan], context: "#{context}[:backup_plan]") unless input[:backup_plan].nil?
-        Validators::Tags.validate!(input[:backup_plan_tags], context: "#{context}[:backup_plan_tags]") unless input[:backup_plan_tags].nil?
+        BackupPlanInput.validate!(input[:backup_plan], context: "#{context}[:backup_plan]") unless input[:backup_plan].nil?
+        Tags.validate!(input[:backup_plan_tags], context: "#{context}[:backup_plan_tags]") unless input[:backup_plan_tags].nil?
         Hearth::Validator.validate!(input[:creator_request_id], ::String, context: "#{context}[:creator_request_id]")
       end
     end
@@ -420,7 +422,7 @@ module AWS::SDK::Backup
         Hearth::Validator.validate!(input[:backup_plan_arn], ::String, context: "#{context}[:backup_plan_arn]")
         Hearth::Validator.validate!(input[:creation_date], ::Time, context: "#{context}[:creation_date]")
         Hearth::Validator.validate!(input[:version_id], ::String, context: "#{context}[:version_id]")
-        Validators::AdvancedBackupSettings.validate!(input[:advanced_backup_settings], context: "#{context}[:advanced_backup_settings]") unless input[:advanced_backup_settings].nil?
+        AdvancedBackupSettings.validate!(input[:advanced_backup_settings], context: "#{context}[:advanced_backup_settings]") unless input[:advanced_backup_settings].nil?
       end
     end
 
@@ -428,7 +430,7 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateBackupSelectionInput, context: context)
         Hearth::Validator.validate!(input[:backup_plan_id], ::String, context: "#{context}[:backup_plan_id]")
-        Validators::BackupSelection.validate!(input[:backup_selection], context: "#{context}[:backup_selection]") unless input[:backup_selection].nil?
+        BackupSelection.validate!(input[:backup_selection], context: "#{context}[:backup_selection]") unless input[:backup_selection].nil?
         Hearth::Validator.validate!(input[:creator_request_id], ::String, context: "#{context}[:creator_request_id]")
       end
     end
@@ -446,7 +448,7 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateBackupVaultInput, context: context)
         Hearth::Validator.validate!(input[:backup_vault_name], ::String, context: "#{context}[:backup_vault_name]")
-        Validators::Tags.validate!(input[:backup_vault_tags], context: "#{context}[:backup_vault_tags]") unless input[:backup_vault_tags].nil?
+        Tags.validate!(input[:backup_vault_tags], context: "#{context}[:backup_vault_tags]") unless input[:backup_vault_tags].nil?
         Hearth::Validator.validate!(input[:encryption_key_arn], ::String, context: "#{context}[:encryption_key_arn]")
         Hearth::Validator.validate!(input[:creator_request_id], ::String, context: "#{context}[:creator_request_id]")
       end
@@ -466,9 +468,9 @@ module AWS::SDK::Backup
         Hearth::Validator.validate!(input, Types::CreateFrameworkInput, context: context)
         Hearth::Validator.validate!(input[:framework_name], ::String, context: "#{context}[:framework_name]")
         Hearth::Validator.validate!(input[:framework_description], ::String, context: "#{context}[:framework_description]")
-        Validators::FrameworkControls.validate!(input[:framework_controls], context: "#{context}[:framework_controls]") unless input[:framework_controls].nil?
+        FrameworkControls.validate!(input[:framework_controls], context: "#{context}[:framework_controls]") unless input[:framework_controls].nil?
         Hearth::Validator.validate!(input[:idempotency_token], ::String, context: "#{context}[:idempotency_token]")
-        Validators::StringMap.validate!(input[:framework_tags], context: "#{context}[:framework_tags]") unless input[:framework_tags].nil?
+        StringMap.validate!(input[:framework_tags], context: "#{context}[:framework_tags]") unless input[:framework_tags].nil?
       end
     end
 
@@ -485,9 +487,9 @@ module AWS::SDK::Backup
         Hearth::Validator.validate!(input, Types::CreateReportPlanInput, context: context)
         Hearth::Validator.validate!(input[:report_plan_name], ::String, context: "#{context}[:report_plan_name]")
         Hearth::Validator.validate!(input[:report_plan_description], ::String, context: "#{context}[:report_plan_description]")
-        Validators::ReportDeliveryChannel.validate!(input[:report_delivery_channel], context: "#{context}[:report_delivery_channel]") unless input[:report_delivery_channel].nil?
-        Validators::ReportSetting.validate!(input[:report_setting], context: "#{context}[:report_setting]") unless input[:report_setting].nil?
-        Validators::StringMap.validate!(input[:report_plan_tags], context: "#{context}[:report_plan_tags]") unless input[:report_plan_tags].nil?
+        ReportDeliveryChannel.validate!(input[:report_delivery_channel], context: "#{context}[:report_delivery_channel]") unless input[:report_delivery_channel].nil?
+        ReportSetting.validate!(input[:report_setting], context: "#{context}[:report_setting]") unless input[:report_setting].nil?
+        StringMap.validate!(input[:report_plan_tags], context: "#{context}[:report_plan_tags]") unless input[:report_plan_tags].nil?
         Hearth::Validator.validate!(input[:idempotency_token], ::String, context: "#{context}[:idempotency_token]")
       end
     end
@@ -657,12 +659,12 @@ module AWS::SDK::Backup
         Hearth::Validator.validate!(input[:percent_done], ::String, context: "#{context}[:percent_done]")
         Hearth::Validator.validate!(input[:backup_size_in_bytes], ::Integer, context: "#{context}[:backup_size_in_bytes]")
         Hearth::Validator.validate!(input[:iam_role_arn], ::String, context: "#{context}[:iam_role_arn]")
-        Validators::RecoveryPointCreator.validate!(input[:created_by], context: "#{context}[:created_by]") unless input[:created_by].nil?
+        RecoveryPointCreator.validate!(input[:created_by], context: "#{context}[:created_by]") unless input[:created_by].nil?
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
         Hearth::Validator.validate!(input[:bytes_transferred], ::Integer, context: "#{context}[:bytes_transferred]")
         Hearth::Validator.validate!(input[:expected_completion_date], ::Time, context: "#{context}[:expected_completion_date]")
         Hearth::Validator.validate!(input[:start_by], ::Time, context: "#{context}[:start_by]")
-        Validators::BackupOptions.validate!(input[:backup_options], context: "#{context}[:backup_options]") unless input[:backup_options].nil?
+        BackupOptions.validate!(input[:backup_options], context: "#{context}[:backup_options]") unless input[:backup_options].nil?
         Hearth::Validator.validate!(input[:backup_type], ::String, context: "#{context}[:backup_type]")
       end
     end
@@ -700,7 +702,7 @@ module AWS::SDK::Backup
     class DescribeCopyJobOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeCopyJobOutput, context: context)
-        Validators::CopyJob.validate!(input[:copy_job], context: "#{context}[:copy_job]") unless input[:copy_job].nil?
+        CopyJob.validate!(input[:copy_job], context: "#{context}[:copy_job]") unless input[:copy_job].nil?
       end
     end
 
@@ -717,7 +719,7 @@ module AWS::SDK::Backup
         Hearth::Validator.validate!(input[:framework_name], ::String, context: "#{context}[:framework_name]")
         Hearth::Validator.validate!(input[:framework_arn], ::String, context: "#{context}[:framework_arn]")
         Hearth::Validator.validate!(input[:framework_description], ::String, context: "#{context}[:framework_description]")
-        Validators::FrameworkControls.validate!(input[:framework_controls], context: "#{context}[:framework_controls]") unless input[:framework_controls].nil?
+        FrameworkControls.validate!(input[:framework_controls], context: "#{context}[:framework_controls]") unless input[:framework_controls].nil?
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:deployment_status], ::String, context: "#{context}[:deployment_status]")
         Hearth::Validator.validate!(input[:framework_status], ::String, context: "#{context}[:framework_status]")
@@ -734,7 +736,7 @@ module AWS::SDK::Backup
     class DescribeGlobalSettingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeGlobalSettingsOutput, context: context)
-        Validators::GlobalSettings.validate!(input[:global_settings], context: "#{context}[:global_settings]") unless input[:global_settings].nil?
+        GlobalSettings.validate!(input[:global_settings], context: "#{context}[:global_settings]") unless input[:global_settings].nil?
         Hearth::Validator.validate!(input[:last_update_time], ::Time, context: "#{context}[:last_update_time]")
       end
     end
@@ -772,15 +774,15 @@ module AWS::SDK::Backup
         Hearth::Validator.validate!(input[:source_backup_vault_arn], ::String, context: "#{context}[:source_backup_vault_arn]")
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::RecoveryPointCreator.validate!(input[:created_by], context: "#{context}[:created_by]") unless input[:created_by].nil?
+        RecoveryPointCreator.validate!(input[:created_by], context: "#{context}[:created_by]") unless input[:created_by].nil?
         Hearth::Validator.validate!(input[:iam_role_arn], ::String, context: "#{context}[:iam_role_arn]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:status_message], ::String, context: "#{context}[:status_message]")
         Hearth::Validator.validate!(input[:creation_date], ::Time, context: "#{context}[:creation_date]")
         Hearth::Validator.validate!(input[:completion_date], ::Time, context: "#{context}[:completion_date]")
         Hearth::Validator.validate!(input[:backup_size_in_bytes], ::Integer, context: "#{context}[:backup_size_in_bytes]")
-        Validators::CalculatedLifecycle.validate!(input[:calculated_lifecycle], context: "#{context}[:calculated_lifecycle]") unless input[:calculated_lifecycle].nil?
-        Validators::Lifecycle.validate!(input[:lifecycle], context: "#{context}[:lifecycle]") unless input[:lifecycle].nil?
+        CalculatedLifecycle.validate!(input[:calculated_lifecycle], context: "#{context}[:calculated_lifecycle]") unless input[:calculated_lifecycle].nil?
+        Lifecycle.validate!(input[:lifecycle], context: "#{context}[:lifecycle]") unless input[:lifecycle].nil?
         Hearth::Validator.validate!(input[:encryption_key_arn], ::String, context: "#{context}[:encryption_key_arn]")
         Hearth::Validator.validate!(input[:is_encrypted], ::TrueClass, ::FalseClass, context: "#{context}[:is_encrypted]")
         Hearth::Validator.validate!(input[:storage_class], ::String, context: "#{context}[:storage_class]")
@@ -797,8 +799,8 @@ module AWS::SDK::Backup
     class DescribeRegionSettingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeRegionSettingsOutput, context: context)
-        Validators::ResourceTypeOptInPreference.validate!(input[:resource_type_opt_in_preference], context: "#{context}[:resource_type_opt_in_preference]") unless input[:resource_type_opt_in_preference].nil?
-        Validators::ResourceTypeManagementPreference.validate!(input[:resource_type_management_preference], context: "#{context}[:resource_type_management_preference]") unless input[:resource_type_management_preference].nil?
+        ResourceTypeOptInPreference.validate!(input[:resource_type_opt_in_preference], context: "#{context}[:resource_type_opt_in_preference]") unless input[:resource_type_opt_in_preference].nil?
+        ResourceTypeManagementPreference.validate!(input[:resource_type_management_preference], context: "#{context}[:resource_type_management_preference]") unless input[:resource_type_management_preference].nil?
       end
     end
 
@@ -812,7 +814,7 @@ module AWS::SDK::Backup
     class DescribeReportJobOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeReportJobOutput, context: context)
-        Validators::ReportJob.validate!(input[:report_job], context: "#{context}[:report_job]") unless input[:report_job].nil?
+        ReportJob.validate!(input[:report_job], context: "#{context}[:report_job]") unless input[:report_job].nil?
       end
     end
 
@@ -826,7 +828,7 @@ module AWS::SDK::Backup
     class DescribeReportPlanOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeReportPlanOutput, context: context)
-        Validators::ReportPlan.validate!(input[:report_plan], context: "#{context}[:report_plan]") unless input[:report_plan].nil?
+        ReportPlan.validate!(input[:report_plan], context: "#{context}[:report_plan]") unless input[:report_plan].nil?
       end
     end
 
@@ -909,8 +911,8 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FrameworkControl, context: context)
         Hearth::Validator.validate!(input[:control_name], ::String, context: "#{context}[:control_name]")
-        Validators::ControlInputParameters.validate!(input[:control_input_parameters], context: "#{context}[:control_input_parameters]") unless input[:control_input_parameters].nil?
-        Validators::ControlScope.validate!(input[:control_scope], context: "#{context}[:control_scope]") unless input[:control_scope].nil?
+        ControlInputParameters.validate!(input[:control_input_parameters], context: "#{context}[:control_input_parameters]") unless input[:control_input_parameters].nil?
+        ControlScope.validate!(input[:control_scope], context: "#{context}[:control_scope]") unless input[:control_scope].nil?
       end
     end
 
@@ -918,7 +920,7 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FrameworkControl.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FrameworkControl.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -927,7 +929,7 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Framework.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Framework.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -942,7 +944,7 @@ module AWS::SDK::Backup
     class GetBackupPlanFromJSONOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetBackupPlanFromJSONOutput, context: context)
-        Validators::BackupPlan.validate!(input[:backup_plan], context: "#{context}[:backup_plan]") unless input[:backup_plan].nil?
+        BackupPlan.validate!(input[:backup_plan], context: "#{context}[:backup_plan]") unless input[:backup_plan].nil?
       end
     end
 
@@ -956,7 +958,7 @@ module AWS::SDK::Backup
     class GetBackupPlanFromTemplateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetBackupPlanFromTemplateOutput, context: context)
-        Validators::BackupPlan.validate!(input[:backup_plan_document], context: "#{context}[:backup_plan_document]") unless input[:backup_plan_document].nil?
+        BackupPlan.validate!(input[:backup_plan_document], context: "#{context}[:backup_plan_document]") unless input[:backup_plan_document].nil?
       end
     end
 
@@ -971,7 +973,7 @@ module AWS::SDK::Backup
     class GetBackupPlanOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetBackupPlanOutput, context: context)
-        Validators::BackupPlan.validate!(input[:backup_plan], context: "#{context}[:backup_plan]") unless input[:backup_plan].nil?
+        BackupPlan.validate!(input[:backup_plan], context: "#{context}[:backup_plan]") unless input[:backup_plan].nil?
         Hearth::Validator.validate!(input[:backup_plan_id], ::String, context: "#{context}[:backup_plan_id]")
         Hearth::Validator.validate!(input[:backup_plan_arn], ::String, context: "#{context}[:backup_plan_arn]")
         Hearth::Validator.validate!(input[:version_id], ::String, context: "#{context}[:version_id]")
@@ -979,7 +981,7 @@ module AWS::SDK::Backup
         Hearth::Validator.validate!(input[:creation_date], ::Time, context: "#{context}[:creation_date]")
         Hearth::Validator.validate!(input[:deletion_date], ::Time, context: "#{context}[:deletion_date]")
         Hearth::Validator.validate!(input[:last_execution_date], ::Time, context: "#{context}[:last_execution_date]")
-        Validators::AdvancedBackupSettings.validate!(input[:advanced_backup_settings], context: "#{context}[:advanced_backup_settings]") unless input[:advanced_backup_settings].nil?
+        AdvancedBackupSettings.validate!(input[:advanced_backup_settings], context: "#{context}[:advanced_backup_settings]") unless input[:advanced_backup_settings].nil?
       end
     end
 
@@ -994,7 +996,7 @@ module AWS::SDK::Backup
     class GetBackupSelectionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetBackupSelectionOutput, context: context)
-        Validators::BackupSelection.validate!(input[:backup_selection], context: "#{context}[:backup_selection]") unless input[:backup_selection].nil?
+        BackupSelection.validate!(input[:backup_selection], context: "#{context}[:backup_selection]") unless input[:backup_selection].nil?
         Hearth::Validator.validate!(input[:selection_id], ::String, context: "#{context}[:selection_id]")
         Hearth::Validator.validate!(input[:backup_plan_id], ::String, context: "#{context}[:backup_plan_id]")
         Hearth::Validator.validate!(input[:creation_date], ::Time, context: "#{context}[:creation_date]")
@@ -1031,7 +1033,7 @@ module AWS::SDK::Backup
         Hearth::Validator.validate!(input[:backup_vault_name], ::String, context: "#{context}[:backup_vault_name]")
         Hearth::Validator.validate!(input[:backup_vault_arn], ::String, context: "#{context}[:backup_vault_arn]")
         Hearth::Validator.validate!(input[:sns_topic_arn], ::String, context: "#{context}[:sns_topic_arn]")
-        Validators::BackupVaultEvents.validate!(input[:backup_vault_events], context: "#{context}[:backup_vault_events]") unless input[:backup_vault_events].nil?
+        BackupVaultEvents.validate!(input[:backup_vault_events], context: "#{context}[:backup_vault_events]") unless input[:backup_vault_events].nil?
       end
     end
 
@@ -1048,7 +1050,7 @@ module AWS::SDK::Backup
         Hearth::Validator.validate!(input, Types::GetRecoveryPointRestoreMetadataOutput, context: context)
         Hearth::Validator.validate!(input[:backup_vault_arn], ::String, context: "#{context}[:backup_vault_arn]")
         Hearth::Validator.validate!(input[:recovery_point_arn], ::String, context: "#{context}[:recovery_point_arn]")
-        Validators::Metadata.validate!(input[:restore_metadata], context: "#{context}[:restore_metadata]") unless input[:restore_metadata].nil?
+        Metadata.validate!(input[:restore_metadata], context: "#{context}[:restore_metadata]") unless input[:restore_metadata].nil?
       end
     end
 
@@ -1061,7 +1063,7 @@ module AWS::SDK::Backup
     class GetSupportedResourceTypesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSupportedResourceTypesOutput, context: context)
-        Validators::ResourceTypes.validate!(input[:resource_types], context: "#{context}[:resource_types]") unless input[:resource_types].nil?
+        ResourceTypes.validate!(input[:resource_types], context: "#{context}[:resource_types]") unless input[:resource_types].nil?
       end
     end
 
@@ -1143,7 +1145,7 @@ module AWS::SDK::Backup
     class ListBackupJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListBackupJobsOutput, context: context)
-        Validators::BackupJobsList.validate!(input[:backup_jobs], context: "#{context}[:backup_jobs]") unless input[:backup_jobs].nil?
+        BackupJobsList.validate!(input[:backup_jobs], context: "#{context}[:backup_jobs]") unless input[:backup_jobs].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1160,7 +1162,7 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListBackupPlanTemplatesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::BackupPlanTemplatesList.validate!(input[:backup_plan_templates_list], context: "#{context}[:backup_plan_templates_list]") unless input[:backup_plan_templates_list].nil?
+        BackupPlanTemplatesList.validate!(input[:backup_plan_templates_list], context: "#{context}[:backup_plan_templates_list]") unless input[:backup_plan_templates_list].nil?
       end
     end
 
@@ -1177,7 +1179,7 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListBackupPlanVersionsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::BackupPlanVersionsList.validate!(input[:backup_plan_versions_list], context: "#{context}[:backup_plan_versions_list]") unless input[:backup_plan_versions_list].nil?
+        BackupPlanVersionsList.validate!(input[:backup_plan_versions_list], context: "#{context}[:backup_plan_versions_list]") unless input[:backup_plan_versions_list].nil?
       end
     end
 
@@ -1194,7 +1196,7 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListBackupPlansOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::BackupPlansList.validate!(input[:backup_plans_list], context: "#{context}[:backup_plans_list]") unless input[:backup_plans_list].nil?
+        BackupPlansList.validate!(input[:backup_plans_list], context: "#{context}[:backup_plans_list]") unless input[:backup_plans_list].nil?
       end
     end
 
@@ -1211,7 +1213,7 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListBackupSelectionsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::BackupSelectionsList.validate!(input[:backup_selections_list], context: "#{context}[:backup_selections_list]") unless input[:backup_selections_list].nil?
+        BackupSelectionsList.validate!(input[:backup_selections_list], context: "#{context}[:backup_selections_list]") unless input[:backup_selections_list].nil?
       end
     end
 
@@ -1226,7 +1228,7 @@ module AWS::SDK::Backup
     class ListBackupVaultsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListBackupVaultsOutput, context: context)
-        Validators::BackupVaultList.validate!(input[:backup_vault_list], context: "#{context}[:backup_vault_list]") unless input[:backup_vault_list].nil?
+        BackupVaultList.validate!(input[:backup_vault_list], context: "#{context}[:backup_vault_list]") unless input[:backup_vault_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1251,7 +1253,7 @@ module AWS::SDK::Backup
     class ListCopyJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListCopyJobsOutput, context: context)
-        Validators::CopyJobsList.validate!(input[:copy_jobs], context: "#{context}[:copy_jobs]") unless input[:copy_jobs].nil?
+        CopyJobsList.validate!(input[:copy_jobs], context: "#{context}[:copy_jobs]") unless input[:copy_jobs].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1267,7 +1269,7 @@ module AWS::SDK::Backup
     class ListFrameworksOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFrameworksOutput, context: context)
-        Validators::FrameworkList.validate!(input[:frameworks], context: "#{context}[:frameworks]") unless input[:frameworks].nil?
+        FrameworkList.validate!(input[:frameworks], context: "#{context}[:frameworks]") unless input[:frameworks].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1276,7 +1278,7 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Condition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Condition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1292,7 +1294,7 @@ module AWS::SDK::Backup
     class ListProtectedResourcesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListProtectedResourcesOutput, context: context)
-        Validators::ProtectedResourcesList.validate!(input[:results], context: "#{context}[:results]") unless input[:results].nil?
+        ProtectedResourcesList.validate!(input[:results], context: "#{context}[:results]") unless input[:results].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1315,7 +1317,7 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRecoveryPointsByBackupVaultOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::RecoveryPointByBackupVaultList.validate!(input[:recovery_points], context: "#{context}[:recovery_points]") unless input[:recovery_points].nil?
+        RecoveryPointByBackupVaultList.validate!(input[:recovery_points], context: "#{context}[:recovery_points]") unless input[:recovery_points].nil?
       end
     end
 
@@ -1332,7 +1334,7 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRecoveryPointsByResourceOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::RecoveryPointByResourceList.validate!(input[:recovery_points], context: "#{context}[:recovery_points]") unless input[:recovery_points].nil?
+        RecoveryPointByResourceList.validate!(input[:recovery_points], context: "#{context}[:recovery_points]") unless input[:recovery_points].nil?
       end
     end
 
@@ -1351,7 +1353,7 @@ module AWS::SDK::Backup
     class ListReportJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListReportJobsOutput, context: context)
-        Validators::ReportJobList.validate!(input[:report_jobs], context: "#{context}[:report_jobs]") unless input[:report_jobs].nil?
+        ReportJobList.validate!(input[:report_jobs], context: "#{context}[:report_jobs]") unless input[:report_jobs].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1367,7 +1369,7 @@ module AWS::SDK::Backup
     class ListReportPlansOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListReportPlansOutput, context: context)
-        Validators::ReportPlanList.validate!(input[:report_plans], context: "#{context}[:report_plans]") unless input[:report_plans].nil?
+        ReportPlanList.validate!(input[:report_plans], context: "#{context}[:report_plans]") unless input[:report_plans].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1389,7 +1391,7 @@ module AWS::SDK::Backup
     class ListRestoreJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRestoreJobsOutput, context: context)
-        Validators::RestoreJobsList.validate!(input[:restore_jobs], context: "#{context}[:restore_jobs]") unless input[:restore_jobs].nil?
+        RestoreJobsList.validate!(input[:restore_jobs], context: "#{context}[:restore_jobs]") unless input[:restore_jobs].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1407,7 +1409,7 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1444,7 +1446,7 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProtectedResource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProtectedResource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1484,7 +1486,7 @@ module AWS::SDK::Backup
         Hearth::Validator.validate!(input, Types::PutBackupVaultNotificationsInput, context: context)
         Hearth::Validator.validate!(input[:backup_vault_name], ::String, context: "#{context}[:backup_vault_name]")
         Hearth::Validator.validate!(input[:sns_topic_arn], ::String, context: "#{context}[:sns_topic_arn]")
-        Validators::BackupVaultEvents.validate!(input[:backup_vault_events], context: "#{context}[:backup_vault_events]") unless input[:backup_vault_events].nil?
+        BackupVaultEvents.validate!(input[:backup_vault_events], context: "#{context}[:backup_vault_events]") unless input[:backup_vault_events].nil?
       end
     end
 
@@ -1503,15 +1505,15 @@ module AWS::SDK::Backup
         Hearth::Validator.validate!(input[:source_backup_vault_arn], ::String, context: "#{context}[:source_backup_vault_arn]")
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::RecoveryPointCreator.validate!(input[:created_by], context: "#{context}[:created_by]") unless input[:created_by].nil?
+        RecoveryPointCreator.validate!(input[:created_by], context: "#{context}[:created_by]") unless input[:created_by].nil?
         Hearth::Validator.validate!(input[:iam_role_arn], ::String, context: "#{context}[:iam_role_arn]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:status_message], ::String, context: "#{context}[:status_message]")
         Hearth::Validator.validate!(input[:creation_date], ::Time, context: "#{context}[:creation_date]")
         Hearth::Validator.validate!(input[:completion_date], ::Time, context: "#{context}[:completion_date]")
         Hearth::Validator.validate!(input[:backup_size_in_bytes], ::Integer, context: "#{context}[:backup_size_in_bytes]")
-        Validators::CalculatedLifecycle.validate!(input[:calculated_lifecycle], context: "#{context}[:calculated_lifecycle]") unless input[:calculated_lifecycle].nil?
-        Validators::Lifecycle.validate!(input[:lifecycle], context: "#{context}[:lifecycle]") unless input[:lifecycle].nil?
+        CalculatedLifecycle.validate!(input[:calculated_lifecycle], context: "#{context}[:calculated_lifecycle]") unless input[:calculated_lifecycle].nil?
+        Lifecycle.validate!(input[:lifecycle], context: "#{context}[:lifecycle]") unless input[:lifecycle].nil?
         Hearth::Validator.validate!(input[:encryption_key_arn], ::String, context: "#{context}[:encryption_key_arn]")
         Hearth::Validator.validate!(input[:is_encrypted], ::TrueClass, ::FalseClass, context: "#{context}[:is_encrypted]")
         Hearth::Validator.validate!(input[:last_restore_time], ::Time, context: "#{context}[:last_restore_time]")
@@ -1522,7 +1524,7 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RecoveryPointByBackupVault.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RecoveryPointByBackupVault.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1544,7 +1546,7 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RecoveryPointByResource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RecoveryPointByResource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1564,7 +1566,7 @@ module AWS::SDK::Backup
         Hearth::Validator.validate!(input, Types::ReportDeliveryChannel, context: context)
         Hearth::Validator.validate!(input[:s3_bucket_name], ::String, context: "#{context}[:s3_bucket_name]")
         Hearth::Validator.validate!(input[:s3_key_prefix], ::String, context: "#{context}[:s3_key_prefix]")
-        Validators::FormatList.validate!(input[:formats], context: "#{context}[:formats]") unless input[:formats].nil?
+        FormatList.validate!(input[:formats], context: "#{context}[:formats]") unless input[:formats].nil?
       end
     end
 
@@ -1572,7 +1574,7 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ReportDestination, context: context)
         Hearth::Validator.validate!(input[:s3_bucket_name], ::String, context: "#{context}[:s3_bucket_name]")
-        Validators::StringList.validate!(input[:s3_keys], context: "#{context}[:s3_keys]") unless input[:s3_keys].nil?
+        StringList.validate!(input[:s3_keys], context: "#{context}[:s3_keys]") unless input[:s3_keys].nil?
       end
     end
 
@@ -1586,7 +1588,7 @@ module AWS::SDK::Backup
         Hearth::Validator.validate!(input[:completion_time], ::Time, context: "#{context}[:completion_time]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:status_message], ::String, context: "#{context}[:status_message]")
-        Validators::ReportDestination.validate!(input[:report_destination], context: "#{context}[:report_destination]") unless input[:report_destination].nil?
+        ReportDestination.validate!(input[:report_destination], context: "#{context}[:report_destination]") unless input[:report_destination].nil?
       end
     end
 
@@ -1594,7 +1596,7 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReportJob.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReportJob.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1605,8 +1607,8 @@ module AWS::SDK::Backup
         Hearth::Validator.validate!(input[:report_plan_arn], ::String, context: "#{context}[:report_plan_arn]")
         Hearth::Validator.validate!(input[:report_plan_name], ::String, context: "#{context}[:report_plan_name]")
         Hearth::Validator.validate!(input[:report_plan_description], ::String, context: "#{context}[:report_plan_description]")
-        Validators::ReportSetting.validate!(input[:report_setting], context: "#{context}[:report_setting]") unless input[:report_setting].nil?
-        Validators::ReportDeliveryChannel.validate!(input[:report_delivery_channel], context: "#{context}[:report_delivery_channel]") unless input[:report_delivery_channel].nil?
+        ReportSetting.validate!(input[:report_setting], context: "#{context}[:report_setting]") unless input[:report_setting].nil?
+        ReportDeliveryChannel.validate!(input[:report_delivery_channel], context: "#{context}[:report_delivery_channel]") unless input[:report_delivery_channel].nil?
         Hearth::Validator.validate!(input[:deployment_status], ::String, context: "#{context}[:deployment_status]")
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:last_attempted_execution_time], ::Time, context: "#{context}[:last_attempted_execution_time]")
@@ -1618,7 +1620,7 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReportPlan.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReportPlan.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1627,7 +1629,7 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ReportSetting, context: context)
         Hearth::Validator.validate!(input[:report_template], ::String, context: "#{context}[:report_template]")
-        Validators::StringList.validate!(input[:framework_arns], context: "#{context}[:framework_arns]") unless input[:framework_arns].nil?
+        StringList.validate!(input[:framework_arns], context: "#{context}[:framework_arns]") unless input[:framework_arns].nil?
         Hearth::Validator.validate!(input[:number_of_frameworks], ::Integer, context: "#{context}[:number_of_frameworks]")
       end
     end
@@ -1693,7 +1695,7 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RestoreJobsListMember.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RestoreJobsListMember.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1736,9 +1738,9 @@ module AWS::SDK::Backup
         Hearth::Validator.validate!(input[:idempotency_token], ::String, context: "#{context}[:idempotency_token]")
         Hearth::Validator.validate!(input[:start_window_minutes], ::Integer, context: "#{context}[:start_window_minutes]")
         Hearth::Validator.validate!(input[:complete_window_minutes], ::Integer, context: "#{context}[:complete_window_minutes]")
-        Validators::Lifecycle.validate!(input[:lifecycle], context: "#{context}[:lifecycle]") unless input[:lifecycle].nil?
-        Validators::Tags.validate!(input[:recovery_point_tags], context: "#{context}[:recovery_point_tags]") unless input[:recovery_point_tags].nil?
-        Validators::BackupOptions.validate!(input[:backup_options], context: "#{context}[:backup_options]") unless input[:backup_options].nil?
+        Lifecycle.validate!(input[:lifecycle], context: "#{context}[:lifecycle]") unless input[:lifecycle].nil?
+        Tags.validate!(input[:recovery_point_tags], context: "#{context}[:recovery_point_tags]") unless input[:recovery_point_tags].nil?
+        BackupOptions.validate!(input[:backup_options], context: "#{context}[:backup_options]") unless input[:backup_options].nil?
       end
     end
 
@@ -1759,7 +1761,7 @@ module AWS::SDK::Backup
         Hearth::Validator.validate!(input[:destination_backup_vault_arn], ::String, context: "#{context}[:destination_backup_vault_arn]")
         Hearth::Validator.validate!(input[:iam_role_arn], ::String, context: "#{context}[:iam_role_arn]")
         Hearth::Validator.validate!(input[:idempotency_token], ::String, context: "#{context}[:idempotency_token]")
-        Validators::Lifecycle.validate!(input[:lifecycle], context: "#{context}[:lifecycle]") unless input[:lifecycle].nil?
+        Lifecycle.validate!(input[:lifecycle], context: "#{context}[:lifecycle]") unless input[:lifecycle].nil?
       end
     end
 
@@ -1790,7 +1792,7 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartRestoreJobInput, context: context)
         Hearth::Validator.validate!(input[:recovery_point_arn], ::String, context: "#{context}[:recovery_point_arn]")
-        Validators::Metadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
+        Metadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
         Hearth::Validator.validate!(input[:iam_role_arn], ::String, context: "#{context}[:iam_role_arn]")
         Hearth::Validator.validate!(input[:idempotency_token], ::String, context: "#{context}[:idempotency_token]")
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
@@ -1830,7 +1832,7 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1854,7 +1856,7 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_key_list], context: "#{context}[:tag_key_list]") unless input[:tag_key_list].nil?
+        TagKeyList.validate!(input[:tag_key_list], context: "#{context}[:tag_key_list]") unless input[:tag_key_list].nil?
       end
     end
 
@@ -1868,7 +1870,7 @@ module AWS::SDK::Backup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateBackupPlanInput, context: context)
         Hearth::Validator.validate!(input[:backup_plan_id], ::String, context: "#{context}[:backup_plan_id]")
-        Validators::BackupPlanInput.validate!(input[:backup_plan], context: "#{context}[:backup_plan]") unless input[:backup_plan].nil?
+        BackupPlanInput.validate!(input[:backup_plan], context: "#{context}[:backup_plan]") unless input[:backup_plan].nil?
       end
     end
 
@@ -1879,7 +1881,7 @@ module AWS::SDK::Backup
         Hearth::Validator.validate!(input[:backup_plan_arn], ::String, context: "#{context}[:backup_plan_arn]")
         Hearth::Validator.validate!(input[:creation_date], ::Time, context: "#{context}[:creation_date]")
         Hearth::Validator.validate!(input[:version_id], ::String, context: "#{context}[:version_id]")
-        Validators::AdvancedBackupSettings.validate!(input[:advanced_backup_settings], context: "#{context}[:advanced_backup_settings]") unless input[:advanced_backup_settings].nil?
+        AdvancedBackupSettings.validate!(input[:advanced_backup_settings], context: "#{context}[:advanced_backup_settings]") unless input[:advanced_backup_settings].nil?
       end
     end
 
@@ -1888,7 +1890,7 @@ module AWS::SDK::Backup
         Hearth::Validator.validate!(input, Types::UpdateFrameworkInput, context: context)
         Hearth::Validator.validate!(input[:framework_name], ::String, context: "#{context}[:framework_name]")
         Hearth::Validator.validate!(input[:framework_description], ::String, context: "#{context}[:framework_description]")
-        Validators::FrameworkControls.validate!(input[:framework_controls], context: "#{context}[:framework_controls]") unless input[:framework_controls].nil?
+        FrameworkControls.validate!(input[:framework_controls], context: "#{context}[:framework_controls]") unless input[:framework_controls].nil?
         Hearth::Validator.validate!(input[:idempotency_token], ::String, context: "#{context}[:idempotency_token]")
       end
     end
@@ -1905,7 +1907,7 @@ module AWS::SDK::Backup
     class UpdateGlobalSettingsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateGlobalSettingsInput, context: context)
-        Validators::GlobalSettings.validate!(input[:global_settings], context: "#{context}[:global_settings]") unless input[:global_settings].nil?
+        GlobalSettings.validate!(input[:global_settings], context: "#{context}[:global_settings]") unless input[:global_settings].nil?
       end
     end
 
@@ -1920,7 +1922,7 @@ module AWS::SDK::Backup
         Hearth::Validator.validate!(input, Types::UpdateRecoveryPointLifecycleInput, context: context)
         Hearth::Validator.validate!(input[:backup_vault_name], ::String, context: "#{context}[:backup_vault_name]")
         Hearth::Validator.validate!(input[:recovery_point_arn], ::String, context: "#{context}[:recovery_point_arn]")
-        Validators::Lifecycle.validate!(input[:lifecycle], context: "#{context}[:lifecycle]") unless input[:lifecycle].nil?
+        Lifecycle.validate!(input[:lifecycle], context: "#{context}[:lifecycle]") unless input[:lifecycle].nil?
       end
     end
 
@@ -1929,16 +1931,16 @@ module AWS::SDK::Backup
         Hearth::Validator.validate!(input, Types::UpdateRecoveryPointLifecycleOutput, context: context)
         Hearth::Validator.validate!(input[:backup_vault_arn], ::String, context: "#{context}[:backup_vault_arn]")
         Hearth::Validator.validate!(input[:recovery_point_arn], ::String, context: "#{context}[:recovery_point_arn]")
-        Validators::Lifecycle.validate!(input[:lifecycle], context: "#{context}[:lifecycle]") unless input[:lifecycle].nil?
-        Validators::CalculatedLifecycle.validate!(input[:calculated_lifecycle], context: "#{context}[:calculated_lifecycle]") unless input[:calculated_lifecycle].nil?
+        Lifecycle.validate!(input[:lifecycle], context: "#{context}[:lifecycle]") unless input[:lifecycle].nil?
+        CalculatedLifecycle.validate!(input[:calculated_lifecycle], context: "#{context}[:calculated_lifecycle]") unless input[:calculated_lifecycle].nil?
       end
     end
 
     class UpdateRegionSettingsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateRegionSettingsInput, context: context)
-        Validators::ResourceTypeOptInPreference.validate!(input[:resource_type_opt_in_preference], context: "#{context}[:resource_type_opt_in_preference]") unless input[:resource_type_opt_in_preference].nil?
-        Validators::ResourceTypeManagementPreference.validate!(input[:resource_type_management_preference], context: "#{context}[:resource_type_management_preference]") unless input[:resource_type_management_preference].nil?
+        ResourceTypeOptInPreference.validate!(input[:resource_type_opt_in_preference], context: "#{context}[:resource_type_opt_in_preference]") unless input[:resource_type_opt_in_preference].nil?
+        ResourceTypeManagementPreference.validate!(input[:resource_type_management_preference], context: "#{context}[:resource_type_management_preference]") unless input[:resource_type_management_preference].nil?
       end
     end
 
@@ -1953,8 +1955,8 @@ module AWS::SDK::Backup
         Hearth::Validator.validate!(input, Types::UpdateReportPlanInput, context: context)
         Hearth::Validator.validate!(input[:report_plan_name], ::String, context: "#{context}[:report_plan_name]")
         Hearth::Validator.validate!(input[:report_plan_description], ::String, context: "#{context}[:report_plan_description]")
-        Validators::ReportDeliveryChannel.validate!(input[:report_delivery_channel], context: "#{context}[:report_delivery_channel]") unless input[:report_delivery_channel].nil?
-        Validators::ReportSetting.validate!(input[:report_setting], context: "#{context}[:report_setting]") unless input[:report_setting].nil?
+        ReportDeliveryChannel.validate!(input[:report_delivery_channel], context: "#{context}[:report_delivery_channel]") unless input[:report_delivery_channel].nil?
+        ReportSetting.validate!(input[:report_setting], context: "#{context}[:report_setting]") unless input[:report_setting].nil?
         Hearth::Validator.validate!(input[:idempotency_token], ::String, context: "#{context}[:idempotency_token]")
       end
     end

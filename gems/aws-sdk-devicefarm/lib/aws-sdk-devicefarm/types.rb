@@ -649,12 +649,12 @@ module AWS::SDK::DeviceFarm
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.uplink_loss_percent ||= 0
         self.downlink_loss_percent ||= 0
       end
-
     end
 
     # @!attribute network_profile
@@ -4768,12 +4768,12 @@ module AWS::SDK::DeviceFarm
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.uplink_loss_percent ||= 0
         self.downlink_loss_percent ||= 0
       end
-
     end
 
     # Includes enum constants for NetworkProfileType
@@ -7790,12 +7790,12 @@ module AWS::SDK::DeviceFarm
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.uplink_loss_percent ||= 0
         self.downlink_loss_percent ||= 0
       end
-
     end
 
     # @!attribute network_profile

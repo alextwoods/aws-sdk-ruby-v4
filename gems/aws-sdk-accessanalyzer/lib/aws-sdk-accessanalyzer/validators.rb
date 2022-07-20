@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::AccessAnalyzer
   module Validators
 
@@ -22,10 +24,10 @@ module AWS::SDK::AccessAnalyzer
         Hearth::Validator.validate!(input, Types::AccessPreview, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:analyzer_arn], ::String, context: "#{context}[:analyzer_arn]")
-        Validators::ConfigurationsMap.validate!(input[:configurations], context: "#{context}[:configurations]") unless input[:configurations].nil?
+        ConfigurationsMap.validate!(input[:configurations], context: "#{context}[:configurations]") unless input[:configurations].nil?
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::AccessPreviewStatusReason.validate!(input[:status_reason], context: "#{context}[:status_reason]") unless input[:status_reason].nil?
+        AccessPreviewStatusReason.validate!(input[:status_reason], context: "#{context}[:status_reason]") unless input[:status_reason].nil?
       end
     end
 
@@ -35,9 +37,9 @@ module AWS::SDK::AccessAnalyzer
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:existing_finding_id], ::String, context: "#{context}[:existing_finding_id]")
         Hearth::Validator.validate!(input[:existing_finding_status], ::String, context: "#{context}[:existing_finding_status]")
-        Validators::PrincipalMap.validate!(input[:principal], context: "#{context}[:principal]") unless input[:principal].nil?
-        Validators::ActionList.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
-        Validators::ConditionKeyMap.validate!(input[:condition], context: "#{context}[:condition]") unless input[:condition].nil?
+        PrincipalMap.validate!(input[:principal], context: "#{context}[:principal]") unless input[:principal].nil?
+        ActionList.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
+        ConditionKeyMap.validate!(input[:condition], context: "#{context}[:condition]") unless input[:condition].nil?
         Hearth::Validator.validate!(input[:resource], ::String, context: "#{context}[:resource]")
         Hearth::Validator.validate!(input[:is_public], ::TrueClass, ::FalseClass, context: "#{context}[:is_public]")
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
@@ -46,7 +48,7 @@ module AWS::SDK::AccessAnalyzer
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:resource_owner_account], ::String, context: "#{context}[:resource_owner_account]")
         Hearth::Validator.validate!(input[:error], ::String, context: "#{context}[:error]")
-        Validators::FindingSourceList.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
+        FindingSourceList.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
       end
     end
 
@@ -54,7 +56,7 @@ module AWS::SDK::AccessAnalyzer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AccessPreviewFinding.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AccessPreviewFinding.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -73,7 +75,7 @@ module AWS::SDK::AccessAnalyzer
         Hearth::Validator.validate!(input[:analyzer_arn], ::String, context: "#{context}[:analyzer_arn]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::AccessPreviewStatusReason.validate!(input[:status_reason], context: "#{context}[:status_reason]") unless input[:status_reason].nil?
+        AccessPreviewStatusReason.validate!(input[:status_reason], context: "#{context}[:status_reason]") unless input[:status_reason].nil?
       end
     end
 
@@ -81,7 +83,7 @@ module AWS::SDK::AccessAnalyzer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AccessPreviewSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AccessPreviewSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -131,8 +133,8 @@ module AWS::SDK::AccessAnalyzer
         Hearth::Validator.validate!(input[:analyzed_at], ::Time, context: "#{context}[:analyzed_at]")
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
         Hearth::Validator.validate!(input[:is_public], ::TrueClass, ::FalseClass, context: "#{context}[:is_public]")
-        Validators::ActionList.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
-        Validators::SharedViaList.validate!(input[:shared_via], context: "#{context}[:shared_via]") unless input[:shared_via].nil?
+        ActionList.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
+        SharedViaList.validate!(input[:shared_via], context: "#{context}[:shared_via]") unless input[:shared_via].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:resource_owner_account], ::String, context: "#{context}[:resource_owner_account]")
         Hearth::Validator.validate!(input[:error], ::String, context: "#{context}[:error]")
@@ -152,7 +154,7 @@ module AWS::SDK::AccessAnalyzer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AnalyzedResourceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AnalyzedResourceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -166,9 +168,9 @@ module AWS::SDK::AccessAnalyzer
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:last_resource_analyzed], ::String, context: "#{context}[:last_resource_analyzed]")
         Hearth::Validator.validate!(input[:last_resource_analyzed_at], ::Time, context: "#{context}[:last_resource_analyzed_at]")
-        Validators::TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::StatusReason.validate!(input[:status_reason], context: "#{context}[:status_reason]") unless input[:status_reason].nil?
+        StatusReason.validate!(input[:status_reason], context: "#{context}[:status_reason]") unless input[:status_reason].nil?
       end
     end
 
@@ -176,7 +178,7 @@ module AWS::SDK::AccessAnalyzer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AnalyzerSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AnalyzerSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -200,7 +202,7 @@ module AWS::SDK::AccessAnalyzer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ArchiveRuleSummary, context: context)
         Hearth::Validator.validate!(input[:rule_name], ::String, context: "#{context}[:rule_name]")
-        Validators::FilterCriteriaMap.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        FilterCriteriaMap.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
       end
@@ -210,7 +212,7 @@ module AWS::SDK::AccessAnalyzer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ArchiveRuleSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ArchiveRuleSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -231,7 +233,7 @@ module AWS::SDK::AccessAnalyzer
     class CloudTrailDetails
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CloudTrailDetails, context: context)
-        Validators::TrailList.validate!(input[:trails], context: "#{context}[:trails]") unless input[:trails].nil?
+        TrailList.validate!(input[:trails], context: "#{context}[:trails]") unless input[:trails].nil?
         Hearth::Validator.validate!(input[:access_role], ::String, context: "#{context}[:access_role]")
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
@@ -241,7 +243,7 @@ module AWS::SDK::AccessAnalyzer
     class CloudTrailProperties
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CloudTrailProperties, context: context)
-        Validators::TrailPropertiesList.validate!(input[:trail_properties], context: "#{context}[:trail_properties]") unless input[:trail_properties].nil?
+        TrailPropertiesList.validate!(input[:trail_properties], context: "#{context}[:trail_properties]") unless input[:trail_properties].nil?
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
       end
@@ -261,15 +263,15 @@ module AWS::SDK::AccessAnalyzer
       def self.validate!(input, context:)
         case input
         when Types::Configuration::IamRole
-          Validators::IamRoleConfiguration.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          IamRoleConfiguration.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::Configuration::KmsKey
-          Validators::KmsKeyConfiguration.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          KmsKeyConfiguration.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::Configuration::SecretsManagerSecret
-          Validators::SecretsManagerSecretConfiguration.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          SecretsManagerSecretConfiguration.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::Configuration::S3Bucket
-          Validators::S3BucketConfiguration.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          S3BucketConfiguration.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::Configuration::SqsQueue
-          Validators::SqsQueueConfiguration.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          SqsQueueConfiguration.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -313,7 +315,7 @@ module AWS::SDK::AccessAnalyzer
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::Configuration.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          Configuration.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -331,7 +333,7 @@ module AWS::SDK::AccessAnalyzer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateAccessPreviewInput, context: context)
         Hearth::Validator.validate!(input[:analyzer_arn], ::String, context: "#{context}[:analyzer_arn]")
-        Validators::ConfigurationsMap.validate!(input[:configurations], context: "#{context}[:configurations]") unless input[:configurations].nil?
+        ConfigurationsMap.validate!(input[:configurations], context: "#{context}[:configurations]") unless input[:configurations].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -348,8 +350,8 @@ module AWS::SDK::AccessAnalyzer
         Hearth::Validator.validate!(input, Types::CreateAnalyzerInput, context: context)
         Hearth::Validator.validate!(input[:analyzer_name], ::String, context: "#{context}[:analyzer_name]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::InlineArchiveRulesList.validate!(input[:archive_rules], context: "#{context}[:archive_rules]") unless input[:archive_rules].nil?
-        Validators::TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        InlineArchiveRulesList.validate!(input[:archive_rules], context: "#{context}[:archive_rules]") unless input[:archive_rules].nil?
+        TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -366,7 +368,7 @@ module AWS::SDK::AccessAnalyzer
         Hearth::Validator.validate!(input, Types::CreateArchiveRuleInput, context: context)
         Hearth::Validator.validate!(input[:analyzer_name], ::String, context: "#{context}[:analyzer_name]")
         Hearth::Validator.validate!(input[:rule_name], ::String, context: "#{context}[:rule_name]")
-        Validators::FilterCriteriaMap.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        FilterCriteriaMap.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -380,9 +382,9 @@ module AWS::SDK::AccessAnalyzer
     class Criterion
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Criterion, context: context)
-        Validators::ValueList.validate!(input[:eq], context: "#{context}[:eq]") unless input[:eq].nil?
-        Validators::ValueList.validate!(input[:neq], context: "#{context}[:neq]") unless input[:neq].nil?
-        Validators::ValueList.validate!(input[:contains], context: "#{context}[:contains]") unless input[:contains].nil?
+        ValueList.validate!(input[:eq], context: "#{context}[:eq]") unless input[:eq].nil?
+        ValueList.validate!(input[:neq], context: "#{context}[:neq]") unless input[:neq].nil?
+        ValueList.validate!(input[:contains], context: "#{context}[:contains]") unless input[:contains].nil?
         Hearth::Validator.validate!(input[:exists], ::TrueClass, ::FalseClass, context: "#{context}[:exists]")
       end
     end
@@ -421,7 +423,7 @@ module AWS::SDK::AccessAnalyzer
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::Criterion.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          Criterion.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -430,19 +432,19 @@ module AWS::SDK::AccessAnalyzer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Finding, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::PrincipalMap.validate!(input[:principal], context: "#{context}[:principal]") unless input[:principal].nil?
-        Validators::ActionList.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
+        PrincipalMap.validate!(input[:principal], context: "#{context}[:principal]") unless input[:principal].nil?
+        ActionList.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
         Hearth::Validator.validate!(input[:resource], ::String, context: "#{context}[:resource]")
         Hearth::Validator.validate!(input[:is_public], ::TrueClass, ::FalseClass, context: "#{context}[:is_public]")
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::ConditionKeyMap.validate!(input[:condition], context: "#{context}[:condition]") unless input[:condition].nil?
+        ConditionKeyMap.validate!(input[:condition], context: "#{context}[:condition]") unless input[:condition].nil?
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:analyzed_at], ::Time, context: "#{context}[:analyzed_at]")
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:resource_owner_account], ::String, context: "#{context}[:resource_owner_account]")
         Hearth::Validator.validate!(input[:error], ::String, context: "#{context}[:error]")
-        Validators::FindingSourceList.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
+        FindingSourceList.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
       end
     end
 
@@ -459,7 +461,7 @@ module AWS::SDK::AccessAnalyzer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FindingSource, context: context)
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::FindingSourceDetail.validate!(input[:detail], context: "#{context}[:detail]") unless input[:detail].nil?
+        FindingSourceDetail.validate!(input[:detail], context: "#{context}[:detail]") unless input[:detail].nil?
       end
     end
 
@@ -474,7 +476,7 @@ module AWS::SDK::AccessAnalyzer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FindingSource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FindingSource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -483,19 +485,19 @@ module AWS::SDK::AccessAnalyzer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FindingSummary, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::PrincipalMap.validate!(input[:principal], context: "#{context}[:principal]") unless input[:principal].nil?
-        Validators::ActionList.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
+        PrincipalMap.validate!(input[:principal], context: "#{context}[:principal]") unless input[:principal].nil?
+        ActionList.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
         Hearth::Validator.validate!(input[:resource], ::String, context: "#{context}[:resource]")
         Hearth::Validator.validate!(input[:is_public], ::TrueClass, ::FalseClass, context: "#{context}[:is_public]")
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::ConditionKeyMap.validate!(input[:condition], context: "#{context}[:condition]") unless input[:condition].nil?
+        ConditionKeyMap.validate!(input[:condition], context: "#{context}[:condition]") unless input[:condition].nil?
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:analyzed_at], ::Time, context: "#{context}[:analyzed_at]")
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:resource_owner_account], ::String, context: "#{context}[:resource_owner_account]")
         Hearth::Validator.validate!(input[:error], ::String, context: "#{context}[:error]")
-        Validators::FindingSourceList.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
+        FindingSourceList.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
       end
     end
 
@@ -503,7 +505,7 @@ module AWS::SDK::AccessAnalyzer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FindingSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FindingSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -519,7 +521,7 @@ module AWS::SDK::AccessAnalyzer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GeneratedPolicy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GeneratedPolicy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -529,15 +531,15 @@ module AWS::SDK::AccessAnalyzer
         Hearth::Validator.validate!(input, Types::GeneratedPolicyProperties, context: context)
         Hearth::Validator.validate!(input[:is_complete], ::TrueClass, ::FalseClass, context: "#{context}[:is_complete]")
         Hearth::Validator.validate!(input[:principal_arn], ::String, context: "#{context}[:principal_arn]")
-        Validators::CloudTrailProperties.validate!(input[:cloud_trail_properties], context: "#{context}[:cloud_trail_properties]") unless input[:cloud_trail_properties].nil?
+        CloudTrailProperties.validate!(input[:cloud_trail_properties], context: "#{context}[:cloud_trail_properties]") unless input[:cloud_trail_properties].nil?
       end
     end
 
     class GeneratedPolicyResult
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GeneratedPolicyResult, context: context)
-        Validators::GeneratedPolicyProperties.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
-        Validators::GeneratedPolicyList.validate!(input[:generated_policies], context: "#{context}[:generated_policies]") unless input[:generated_policies].nil?
+        GeneratedPolicyProperties.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
+        GeneratedPolicyList.validate!(input[:generated_policies], context: "#{context}[:generated_policies]") unless input[:generated_policies].nil?
       end
     end
 
@@ -552,7 +554,7 @@ module AWS::SDK::AccessAnalyzer
     class GetAccessPreviewOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAccessPreviewOutput, context: context)
-        Validators::AccessPreview.validate!(input[:access_preview], context: "#{context}[:access_preview]") unless input[:access_preview].nil?
+        AccessPreview.validate!(input[:access_preview], context: "#{context}[:access_preview]") unless input[:access_preview].nil?
       end
     end
 
@@ -567,7 +569,7 @@ module AWS::SDK::AccessAnalyzer
     class GetAnalyzedResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAnalyzedResourceOutput, context: context)
-        Validators::AnalyzedResource.validate!(input[:resource], context: "#{context}[:resource]") unless input[:resource].nil?
+        AnalyzedResource.validate!(input[:resource], context: "#{context}[:resource]") unless input[:resource].nil?
       end
     end
 
@@ -581,7 +583,7 @@ module AWS::SDK::AccessAnalyzer
     class GetAnalyzerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAnalyzerOutput, context: context)
-        Validators::AnalyzerSummary.validate!(input[:analyzer], context: "#{context}[:analyzer]") unless input[:analyzer].nil?
+        AnalyzerSummary.validate!(input[:analyzer], context: "#{context}[:analyzer]") unless input[:analyzer].nil?
       end
     end
 
@@ -596,7 +598,7 @@ module AWS::SDK::AccessAnalyzer
     class GetArchiveRuleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetArchiveRuleOutput, context: context)
-        Validators::ArchiveRuleSummary.validate!(input[:archive_rule], context: "#{context}[:archive_rule]") unless input[:archive_rule].nil?
+        ArchiveRuleSummary.validate!(input[:archive_rule], context: "#{context}[:archive_rule]") unless input[:archive_rule].nil?
       end
     end
 
@@ -611,7 +613,7 @@ module AWS::SDK::AccessAnalyzer
     class GetFindingOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetFindingOutput, context: context)
-        Validators::Finding.validate!(input[:finding], context: "#{context}[:finding]") unless input[:finding].nil?
+        Finding.validate!(input[:finding], context: "#{context}[:finding]") unless input[:finding].nil?
       end
     end
 
@@ -627,8 +629,8 @@ module AWS::SDK::AccessAnalyzer
     class GetGeneratedPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetGeneratedPolicyOutput, context: context)
-        Validators::JobDetails.validate!(input[:job_details], context: "#{context}[:job_details]") unless input[:job_details].nil?
-        Validators::GeneratedPolicyResult.validate!(input[:generated_policy_result], context: "#{context}[:generated_policy_result]") unless input[:generated_policy_result].nil?
+        JobDetails.validate!(input[:job_details], context: "#{context}[:job_details]") unless input[:job_details].nil?
+        GeneratedPolicyResult.validate!(input[:generated_policy_result], context: "#{context}[:generated_policy_result]") unless input[:generated_policy_result].nil?
       end
     end
 
@@ -643,7 +645,7 @@ module AWS::SDK::AccessAnalyzer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InlineArchiveRule, context: context)
         Hearth::Validator.validate!(input[:rule_name], ::String, context: "#{context}[:rule_name]")
-        Validators::FilterCriteriaMap.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        FilterCriteriaMap.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
       end
     end
 
@@ -651,7 +653,7 @@ module AWS::SDK::AccessAnalyzer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InlineArchiveRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InlineArchiveRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -677,7 +679,7 @@ module AWS::SDK::AccessAnalyzer
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:started_on], ::Time, context: "#{context}[:started_on]")
         Hearth::Validator.validate!(input[:completed_on], ::Time, context: "#{context}[:completed_on]")
-        Validators::JobError.validate!(input[:job_error], context: "#{context}[:job_error]") unless input[:job_error].nil?
+        JobError.validate!(input[:job_error], context: "#{context}[:job_error]") unless input[:job_error].nil?
       end
     end
 
@@ -702,10 +704,10 @@ module AWS::SDK::AccessAnalyzer
     class KmsGrantConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::KmsGrantConfiguration, context: context)
-        Validators::KmsGrantOperationsList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        KmsGrantOperationsList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
         Hearth::Validator.validate!(input[:grantee_principal], ::String, context: "#{context}[:grantee_principal]")
         Hearth::Validator.validate!(input[:retiring_principal], ::String, context: "#{context}[:retiring_principal]")
-        Validators::KmsGrantConstraints.validate!(input[:constraints], context: "#{context}[:constraints]") unless input[:constraints].nil?
+        KmsGrantConstraints.validate!(input[:constraints], context: "#{context}[:constraints]") unless input[:constraints].nil?
         Hearth::Validator.validate!(input[:issuing_account], ::String, context: "#{context}[:issuing_account]")
       end
     end
@@ -714,7 +716,7 @@ module AWS::SDK::AccessAnalyzer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::KmsGrantConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          KmsGrantConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -722,8 +724,8 @@ module AWS::SDK::AccessAnalyzer
     class KmsGrantConstraints
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::KmsGrantConstraints, context: context)
-        Validators::KmsConstraintsMap.validate!(input[:encryption_context_equals], context: "#{context}[:encryption_context_equals]") unless input[:encryption_context_equals].nil?
-        Validators::KmsConstraintsMap.validate!(input[:encryption_context_subset], context: "#{context}[:encryption_context_subset]") unless input[:encryption_context_subset].nil?
+        KmsConstraintsMap.validate!(input[:encryption_context_equals], context: "#{context}[:encryption_context_equals]") unless input[:encryption_context_equals].nil?
+        KmsConstraintsMap.validate!(input[:encryption_context_subset], context: "#{context}[:encryption_context_subset]") unless input[:encryption_context_subset].nil?
       end
     end
 
@@ -739,8 +741,8 @@ module AWS::SDK::AccessAnalyzer
     class KmsKeyConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::KmsKeyConfiguration, context: context)
-        Validators::KmsKeyPoliciesMap.validate!(input[:key_policies], context: "#{context}[:key_policies]") unless input[:key_policies].nil?
-        Validators::KmsGrantConfigurationsList.validate!(input[:grants], context: "#{context}[:grants]") unless input[:grants].nil?
+        KmsKeyPoliciesMap.validate!(input[:key_policies], context: "#{context}[:key_policies]") unless input[:key_policies].nil?
+        KmsGrantConfigurationsList.validate!(input[:grants], context: "#{context}[:grants]") unless input[:grants].nil?
       end
     end
 
@@ -759,7 +761,7 @@ module AWS::SDK::AccessAnalyzer
         Hearth::Validator.validate!(input, Types::ListAccessPreviewFindingsInput, context: context)
         Hearth::Validator.validate!(input[:access_preview_id], ::String, context: "#{context}[:access_preview_id]")
         Hearth::Validator.validate!(input[:analyzer_arn], ::String, context: "#{context}[:analyzer_arn]")
-        Validators::FilterCriteriaMap.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        FilterCriteriaMap.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -768,7 +770,7 @@ module AWS::SDK::AccessAnalyzer
     class ListAccessPreviewFindingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAccessPreviewFindingsOutput, context: context)
-        Validators::AccessPreviewFindingsList.validate!(input[:findings], context: "#{context}[:findings]") unless input[:findings].nil?
+        AccessPreviewFindingsList.validate!(input[:findings], context: "#{context}[:findings]") unless input[:findings].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -785,7 +787,7 @@ module AWS::SDK::AccessAnalyzer
     class ListAccessPreviewsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAccessPreviewsOutput, context: context)
-        Validators::AccessPreviewsList.validate!(input[:access_previews], context: "#{context}[:access_previews]") unless input[:access_previews].nil?
+        AccessPreviewsList.validate!(input[:access_previews], context: "#{context}[:access_previews]") unless input[:access_previews].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -803,7 +805,7 @@ module AWS::SDK::AccessAnalyzer
     class ListAnalyzedResourcesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAnalyzedResourcesOutput, context: context)
-        Validators::AnalyzedResourcesList.validate!(input[:analyzed_resources], context: "#{context}[:analyzed_resources]") unless input[:analyzed_resources].nil?
+        AnalyzedResourcesList.validate!(input[:analyzed_resources], context: "#{context}[:analyzed_resources]") unless input[:analyzed_resources].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -820,7 +822,7 @@ module AWS::SDK::AccessAnalyzer
     class ListAnalyzersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAnalyzersOutput, context: context)
-        Validators::AnalyzersList.validate!(input[:analyzers], context: "#{context}[:analyzers]") unless input[:analyzers].nil?
+        AnalyzersList.validate!(input[:analyzers], context: "#{context}[:analyzers]") unless input[:analyzers].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -837,7 +839,7 @@ module AWS::SDK::AccessAnalyzer
     class ListArchiveRulesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListArchiveRulesOutput, context: context)
-        Validators::ArchiveRulesList.validate!(input[:archive_rules], context: "#{context}[:archive_rules]") unless input[:archive_rules].nil?
+        ArchiveRulesList.validate!(input[:archive_rules], context: "#{context}[:archive_rules]") unless input[:archive_rules].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -846,8 +848,8 @@ module AWS::SDK::AccessAnalyzer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFindingsInput, context: context)
         Hearth::Validator.validate!(input[:analyzer_arn], ::String, context: "#{context}[:analyzer_arn]")
-        Validators::FilterCriteriaMap.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
-        Validators::SortCriteria.validate!(input[:sort], context: "#{context}[:sort]") unless input[:sort].nil?
+        FilterCriteriaMap.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        SortCriteria.validate!(input[:sort], context: "#{context}[:sort]") unless input[:sort].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -856,7 +858,7 @@ module AWS::SDK::AccessAnalyzer
     class ListFindingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFindingsOutput, context: context)
-        Validators::FindingsList.validate!(input[:findings], context: "#{context}[:findings]") unless input[:findings].nil?
+        FindingsList.validate!(input[:findings], context: "#{context}[:findings]") unless input[:findings].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -873,7 +875,7 @@ module AWS::SDK::AccessAnalyzer
     class ListPolicyGenerationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPolicyGenerationsOutput, context: context)
-        Validators::PolicyGenerationList.validate!(input[:policy_generations], context: "#{context}[:policy_generations]") unless input[:policy_generations].nil?
+        PolicyGenerationList.validate!(input[:policy_generations], context: "#{context}[:policy_generations]") unless input[:policy_generations].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -888,15 +890,15 @@ module AWS::SDK::AccessAnalyzer
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Location, context: context)
-        Validators::PathElementList.validate!(input[:path], context: "#{context}[:path]") unless input[:path].nil?
-        Validators::Span.validate!(input[:span], context: "#{context}[:span]") unless input[:span].nil?
+        PathElementList.validate!(input[:path], context: "#{context}[:path]") unless input[:path].nil?
+        Span.validate!(input[:span], context: "#{context}[:span]") unless input[:span].nil?
       end
     end
 
@@ -904,7 +906,7 @@ module AWS::SDK::AccessAnalyzer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Location.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Location.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -913,9 +915,9 @@ module AWS::SDK::AccessAnalyzer
       def self.validate!(input, context:)
         case input
         when Types::NetworkOriginConfiguration::VpcConfiguration
-          Validators::VpcConfiguration.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          VpcConfiguration.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::NetworkOriginConfiguration::InternetConfiguration
-          Validators::InternetConfiguration.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          InternetConfiguration.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -944,7 +946,7 @@ module AWS::SDK::AccessAnalyzer
         when Types::PathElement::Key
           Hearth::Validator.validate!(input.__getobj__, ::String, context: context)
         when Types::PathElement::Substring
-          Validators::Substring.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          Substring.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::PathElement::Value
           Hearth::Validator.validate!(input.__getobj__, ::String, context: context)
         else
@@ -983,7 +985,7 @@ module AWS::SDK::AccessAnalyzer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PathElement.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PathElement.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1010,7 +1012,7 @@ module AWS::SDK::AccessAnalyzer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PolicyGeneration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PolicyGeneration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1056,8 +1058,8 @@ module AWS::SDK::AccessAnalyzer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::S3AccessPointConfiguration, context: context)
         Hearth::Validator.validate!(input[:access_point_policy], ::String, context: "#{context}[:access_point_policy]")
-        Validators::S3PublicAccessBlockConfiguration.validate!(input[:public_access_block], context: "#{context}[:public_access_block]") unless input[:public_access_block].nil?
-        Validators::NetworkOriginConfiguration.validate!(input[:network_origin], context: "#{context}[:network_origin]") unless input[:network_origin].nil?
+        S3PublicAccessBlockConfiguration.validate!(input[:public_access_block], context: "#{context}[:public_access_block]") unless input[:public_access_block].nil?
+        NetworkOriginConfiguration.validate!(input[:network_origin], context: "#{context}[:network_origin]") unless input[:network_origin].nil?
       end
     end
 
@@ -1066,7 +1068,7 @@ module AWS::SDK::AccessAnalyzer
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::S3AccessPointConfiguration.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          S3AccessPointConfiguration.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -1075,7 +1077,7 @@ module AWS::SDK::AccessAnalyzer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::S3BucketAclGrantConfiguration, context: context)
         Hearth::Validator.validate!(input[:permission], ::String, context: "#{context}[:permission]")
-        Validators::AclGrantee.validate!(input[:grantee], context: "#{context}[:grantee]") unless input[:grantee].nil?
+        AclGrantee.validate!(input[:grantee], context: "#{context}[:grantee]") unless input[:grantee].nil?
       end
     end
 
@@ -1083,7 +1085,7 @@ module AWS::SDK::AccessAnalyzer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::S3BucketAclGrantConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          S3BucketAclGrantConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1092,9 +1094,9 @@ module AWS::SDK::AccessAnalyzer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::S3BucketConfiguration, context: context)
         Hearth::Validator.validate!(input[:bucket_policy], ::String, context: "#{context}[:bucket_policy]")
-        Validators::S3BucketAclGrantConfigurationsList.validate!(input[:bucket_acl_grants], context: "#{context}[:bucket_acl_grants]") unless input[:bucket_acl_grants].nil?
-        Validators::S3PublicAccessBlockConfiguration.validate!(input[:bucket_public_access_block], context: "#{context}[:bucket_public_access_block]") unless input[:bucket_public_access_block].nil?
-        Validators::S3AccessPointConfigurationsMap.validate!(input[:access_points], context: "#{context}[:access_points]") unless input[:access_points].nil?
+        S3BucketAclGrantConfigurationsList.validate!(input[:bucket_acl_grants], context: "#{context}[:bucket_acl_grants]") unless input[:bucket_acl_grants].nil?
+        S3PublicAccessBlockConfiguration.validate!(input[:bucket_public_access_block], context: "#{context}[:bucket_public_access_block]") unless input[:bucket_public_access_block].nil?
+        S3AccessPointConfigurationsMap.validate!(input[:access_points], context: "#{context}[:access_points]") unless input[:access_points].nil?
       end
     end
 
@@ -1143,8 +1145,8 @@ module AWS::SDK::AccessAnalyzer
     class Span
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Span, context: context)
-        Validators::Position.validate!(input[:start], context: "#{context}[:start]") unless input[:start].nil?
-        Validators::Position.validate!(input[:end], context: "#{context}[:end]") unless input[:end].nil?
+        Position.validate!(input[:start], context: "#{context}[:start]") unless input[:start].nil?
+        Position.validate!(input[:end], context: "#{context}[:end]") unless input[:end].nil?
       end
     end
 
@@ -1158,8 +1160,8 @@ module AWS::SDK::AccessAnalyzer
     class StartPolicyGenerationInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartPolicyGenerationInput, context: context)
-        Validators::PolicyGenerationDetails.validate!(input[:policy_generation_details], context: "#{context}[:policy_generation_details]") unless input[:policy_generation_details].nil?
-        Validators::CloudTrailDetails.validate!(input[:cloud_trail_details], context: "#{context}[:cloud_trail_details]") unless input[:cloud_trail_details].nil?
+        PolicyGenerationDetails.validate!(input[:policy_generation_details], context: "#{context}[:policy_generation_details]") unless input[:policy_generation_details].nil?
+        CloudTrailDetails.validate!(input[:cloud_trail_details], context: "#{context}[:cloud_trail_details]") unless input[:cloud_trail_details].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -1213,7 +1215,7 @@ module AWS::SDK::AccessAnalyzer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1245,7 +1247,7 @@ module AWS::SDK::AccessAnalyzer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Trail, context: context)
         Hearth::Validator.validate!(input[:cloud_trail_arn], ::String, context: "#{context}[:cloud_trail_arn]")
-        Validators::RegionList.validate!(input[:regions], context: "#{context}[:regions]") unless input[:regions].nil?
+        RegionList.validate!(input[:regions], context: "#{context}[:regions]") unless input[:regions].nil?
         Hearth::Validator.validate!(input[:all_regions], ::TrueClass, ::FalseClass, context: "#{context}[:all_regions]")
       end
     end
@@ -1254,7 +1256,7 @@ module AWS::SDK::AccessAnalyzer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Trail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Trail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1263,7 +1265,7 @@ module AWS::SDK::AccessAnalyzer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TrailProperties, context: context)
         Hearth::Validator.validate!(input[:cloud_trail_arn], ::String, context: "#{context}[:cloud_trail_arn]")
-        Validators::RegionList.validate!(input[:regions], context: "#{context}[:regions]") unless input[:regions].nil?
+        RegionList.validate!(input[:regions], context: "#{context}[:regions]") unless input[:regions].nil?
         Hearth::Validator.validate!(input[:all_regions], ::TrueClass, ::FalseClass, context: "#{context}[:all_regions]")
       end
     end
@@ -1272,7 +1274,7 @@ module AWS::SDK::AccessAnalyzer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TrailProperties.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TrailProperties.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1281,7 +1283,7 @@ module AWS::SDK::AccessAnalyzer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1296,7 +1298,7 @@ module AWS::SDK::AccessAnalyzer
         Hearth::Validator.validate!(input, Types::UpdateArchiveRuleInput, context: context)
         Hearth::Validator.validate!(input[:analyzer_name], ::String, context: "#{context}[:analyzer_name]")
         Hearth::Validator.validate!(input[:rule_name], ::String, context: "#{context}[:rule_name]")
-        Validators::FilterCriteriaMap.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        FilterCriteriaMap.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -1312,7 +1314,7 @@ module AWS::SDK::AccessAnalyzer
         Hearth::Validator.validate!(input, Types::UpdateFindingsInput, context: context)
         Hearth::Validator.validate!(input[:analyzer_arn], ::String, context: "#{context}[:analyzer_arn]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::FindingIdList.validate!(input[:ids], context: "#{context}[:ids]") unless input[:ids].nil?
+        FindingIdList.validate!(input[:ids], context: "#{context}[:ids]") unless input[:ids].nil?
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
@@ -1331,7 +1333,7 @@ module AWS::SDK::AccessAnalyzer
         Hearth::Validator.validate!(input[:finding_type], ::String, context: "#{context}[:finding_type]")
         Hearth::Validator.validate!(input[:issue_code], ::String, context: "#{context}[:issue_code]")
         Hearth::Validator.validate!(input[:learn_more_link], ::String, context: "#{context}[:learn_more_link]")
-        Validators::LocationList.validate!(input[:locations], context: "#{context}[:locations]") unless input[:locations].nil?
+        LocationList.validate!(input[:locations], context: "#{context}[:locations]") unless input[:locations].nil?
       end
     end
 
@@ -1339,7 +1341,7 @@ module AWS::SDK::AccessAnalyzer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ValidatePolicyFinding.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ValidatePolicyFinding.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1359,7 +1361,7 @@ module AWS::SDK::AccessAnalyzer
     class ValidatePolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ValidatePolicyOutput, context: context)
-        Validators::ValidatePolicyFindingList.validate!(input[:findings], context: "#{context}[:findings]") unless input[:findings].nil?
+        ValidatePolicyFindingList.validate!(input[:findings], context: "#{context}[:findings]") unless input[:findings].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1369,7 +1371,7 @@ module AWS::SDK::AccessAnalyzer
         Hearth::Validator.validate!(input, Types::ValidationException, context: context)
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:reason], ::String, context: "#{context}[:reason]")
-        Validators::ValidationExceptionFieldList.validate!(input[:field_list], context: "#{context}[:field_list]") unless input[:field_list].nil?
+        ValidationExceptionFieldList.validate!(input[:field_list], context: "#{context}[:field_list]") unless input[:field_list].nil?
       end
     end
 
@@ -1385,7 +1387,7 @@ module AWS::SDK::AccessAnalyzer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ValidationExceptionField.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ValidationExceptionField.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

@@ -14,7 +14,7 @@ module AWS::SDK::DeviceFarm
     class CreateDevicePool
       def self.default(visited=[])
         {
-          device_pool: Stubs::DevicePool.default(visited),
+          device_pool: DevicePool.default(visited),
         }
       end
 
@@ -36,7 +36,7 @@ module AWS::SDK::DeviceFarm
           name: 'name',
           description: 'description',
           type: 'type',
-          rules: Stubs::Rules.default(visited),
+          rules: Rules.default(visited),
           max_devices: 1,
         }
       end
@@ -60,7 +60,7 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('Rules')
         visited = visited + ['Rules']
         [
-          Stubs::Rule.default(visited)
+          Rule.default(visited)
         ]
       end
 
@@ -100,7 +100,7 @@ module AWS::SDK::DeviceFarm
     class CreateInstanceProfile
       def self.default(visited=[])
         {
-          instance_profile: Stubs::InstanceProfile.default(visited),
+          instance_profile: InstanceProfile.default(visited),
         }
       end
 
@@ -120,7 +120,7 @@ module AWS::SDK::DeviceFarm
         {
           arn: 'arn',
           package_cleanup: false,
-          exclude_app_packages_from_cleanup: Stubs::PackageIds.default(visited),
+          exclude_app_packages_from_cleanup: PackageIds.default(visited),
           reboot_after_use: false,
           name: 'name',
           description: 'description',
@@ -164,7 +164,7 @@ module AWS::SDK::DeviceFarm
     class CreateNetworkProfile
       def self.default(visited=[])
         {
-          network_profile: Stubs::NetworkProfile.default(visited),
+          network_profile: NetworkProfile.default(visited),
         }
       end
 
@@ -220,7 +220,7 @@ module AWS::SDK::DeviceFarm
     class CreateProject
       def self.default(visited=[])
         {
-          project: Stubs::Project.default(visited),
+          project: Project.default(visited),
         }
       end
 
@@ -260,7 +260,7 @@ module AWS::SDK::DeviceFarm
     class CreateRemoteAccessSession
       def self.default(visited=[])
         {
-          remote_access_session: Stubs::RemoteAccessSession.default(visited),
+          remote_access_session: RemoteAccessSession.default(visited),
         }
       end
 
@@ -286,7 +286,7 @@ module AWS::SDK::DeviceFarm
           message: 'message',
           started: Time.now,
           stopped: Time.now,
-          device: Stubs::Device.default(visited),
+          device: Device.default(visited),
           instance_arn: 'instance_arn',
           remote_debug_enabled: false,
           remote_record_enabled: false,
@@ -294,7 +294,7 @@ module AWS::SDK::DeviceFarm
           host_address: 'host_address',
           client_id: 'client_id',
           billing_method: 'billing_method',
-          device_minutes: Stubs::DeviceMinutes.default(visited),
+          device_minutes: DeviceMinutes.default(visited),
           endpoint: 'endpoint',
           device_udid: 'device_udid',
           interaction_mode: 'interaction_mode',
@@ -366,8 +366,8 @@ module AWS::SDK::DeviceFarm
           form_factor: 'form_factor',
           platform: 'platform',
           os: 'os',
-          cpu: Stubs::CPU.default(visited),
-          resolution: Stubs::Resolution.default(visited),
+          cpu: CPU.default(visited),
+          resolution: Resolution.default(visited),
           heap_size: 1,
           memory: 1,
           image: 'image',
@@ -377,7 +377,7 @@ module AWS::SDK::DeviceFarm
           remote_debug_enabled: false,
           fleet_type: 'fleet_type',
           fleet_name: 'fleet_name',
-          instances: Stubs::DeviceInstances.default(visited),
+          instances: DeviceInstances.default(visited),
           availability: 'availability',
         }
       end
@@ -416,7 +416,7 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('DeviceInstances')
         visited = visited + ['DeviceInstances']
         [
-          Stubs::DeviceInstance.default(visited)
+          DeviceInstance.default(visited)
         ]
       end
 
@@ -438,10 +438,10 @@ module AWS::SDK::DeviceFarm
         {
           arn: 'arn',
           device_arn: 'device_arn',
-          labels: Stubs::InstanceLabels.default(visited),
+          labels: InstanceLabels.default(visited),
           status: 'status',
           udid: 'udid',
-          instance_profile: Stubs::InstanceProfile.default(visited),
+          instance_profile: InstanceProfile.default(visited),
         }
       end
 
@@ -524,7 +524,7 @@ module AWS::SDK::DeviceFarm
     class CreateTestGridProject
       def self.default(visited=[])
         {
-          test_grid_project: Stubs::TestGridProject.default(visited),
+          test_grid_project: TestGridProject.default(visited),
         }
       end
 
@@ -545,7 +545,7 @@ module AWS::SDK::DeviceFarm
           arn: 'arn',
           name: 'name',
           description: 'description',
-          vpc_config: Stubs::TestGridVpcConfig.default(visited),
+          vpc_config: TestGridVpcConfig.default(visited),
           created: Time.now,
         }
       end
@@ -568,8 +568,8 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('TestGridVpcConfig')
         visited = visited + ['TestGridVpcConfig']
         {
-          security_group_ids: Stubs::SecurityGroupIds.default(visited),
-          subnet_ids: Stubs::SubnetIds.default(visited),
+          security_group_ids: SecurityGroupIds.default(visited),
+          subnet_ids: SubnetIds.default(visited),
           vpc_id: 'vpc_id',
         }
       end
@@ -646,7 +646,7 @@ module AWS::SDK::DeviceFarm
     class CreateUpload
       def self.default(visited=[])
         {
-          upload: Stubs::Upload.default(visited),
+          upload: Upload.default(visited),
         }
       end
 
@@ -698,7 +698,7 @@ module AWS::SDK::DeviceFarm
     class CreateVPCEConfiguration
       def self.default(visited=[])
         {
-          vpce_configuration: Stubs::VPCEConfiguration.default(visited),
+          vpce_configuration: VPCEConfiguration.default(visited),
         }
       end
 
@@ -866,7 +866,7 @@ module AWS::SDK::DeviceFarm
     class GetAccountSettings
       def self.default(visited=[])
         {
-          account_settings: Stubs::AccountSettings.default(visited),
+          account_settings: AccountSettings.default(visited),
         }
       end
 
@@ -885,11 +885,11 @@ module AWS::SDK::DeviceFarm
         visited = visited + ['AccountSettings']
         {
           aws_account_number: 'aws_account_number',
-          unmetered_devices: Stubs::PurchasedDevicesMap.default(visited),
-          unmetered_remote_access_devices: Stubs::PurchasedDevicesMap.default(visited),
+          unmetered_devices: PurchasedDevicesMap.default(visited),
+          unmetered_remote_access_devices: PurchasedDevicesMap.default(visited),
           max_job_timeout_minutes: 1,
-          trial_minutes: Stubs::TrialMinutes.default(visited),
-          max_slots: Stubs::MaxSlotMap.default(visited),
+          trial_minutes: TrialMinutes.default(visited),
+          max_slots: MaxSlotMap.default(visited),
           default_job_timeout_minutes: 1,
           skip_app_resign: false,
         }
@@ -974,7 +974,7 @@ module AWS::SDK::DeviceFarm
     class GetDevice
       def self.default(visited=[])
         {
-          device: Stubs::Device.default(visited),
+          device: Device.default(visited),
         }
       end
 
@@ -990,7 +990,7 @@ module AWS::SDK::DeviceFarm
     class GetDeviceInstance
       def self.default(visited=[])
         {
-          device_instance: Stubs::DeviceInstance.default(visited),
+          device_instance: DeviceInstance.default(visited),
         }
       end
 
@@ -1006,7 +1006,7 @@ module AWS::SDK::DeviceFarm
     class GetDevicePool
       def self.default(visited=[])
         {
-          device_pool: Stubs::DevicePool.default(visited),
+          device_pool: DevicePool.default(visited),
         }
       end
 
@@ -1022,8 +1022,8 @@ module AWS::SDK::DeviceFarm
     class GetDevicePoolCompatibility
       def self.default(visited=[])
         {
-          compatible_devices: Stubs::DevicePoolCompatibilityResults.default(visited),
-          incompatible_devices: Stubs::DevicePoolCompatibilityResults.default(visited),
+          compatible_devices: DevicePoolCompatibilityResults.default(visited),
+          incompatible_devices: DevicePoolCompatibilityResults.default(visited),
         }
       end
 
@@ -1042,7 +1042,7 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('DevicePoolCompatibilityResults')
         visited = visited + ['DevicePoolCompatibilityResults']
         [
-          Stubs::DevicePoolCompatibilityResult.default(visited)
+          DevicePoolCompatibilityResult.default(visited)
         ]
       end
 
@@ -1062,9 +1062,9 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('DevicePoolCompatibilityResult')
         visited = visited + ['DevicePoolCompatibilityResult']
         {
-          device: Stubs::Device.default(visited),
+          device: Device.default(visited),
           compatible: false,
-          incompatibility_messages: Stubs::IncompatibilityMessages.default(visited),
+          incompatibility_messages: IncompatibilityMessages.default(visited),
         }
       end
 
@@ -1084,7 +1084,7 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('IncompatibilityMessages')
         visited = visited + ['IncompatibilityMessages']
         [
-          Stubs::IncompatibilityMessage.default(visited)
+          IncompatibilityMessage.default(visited)
         ]
       end
 
@@ -1122,7 +1122,7 @@ module AWS::SDK::DeviceFarm
     class GetInstanceProfile
       def self.default(visited=[])
         {
-          instance_profile: Stubs::InstanceProfile.default(visited),
+          instance_profile: InstanceProfile.default(visited),
         }
       end
 
@@ -1138,7 +1138,7 @@ module AWS::SDK::DeviceFarm
     class GetJob
       def self.default(visited=[])
         {
-          job: Stubs::Job.default(visited),
+          job: Job.default(visited),
         }
       end
 
@@ -1164,11 +1164,11 @@ module AWS::SDK::DeviceFarm
           result: 'result',
           started: Time.now,
           stopped: Time.now,
-          counters: Stubs::Counters.default(visited),
+          counters: Counters.default(visited),
           message: 'message',
-          device: Stubs::Device.default(visited),
+          device: Device.default(visited),
           instance_arn: 'instance_arn',
-          device_minutes: Stubs::DeviceMinutes.default(visited),
+          device_minutes: DeviceMinutes.default(visited),
           video_endpoint: 'video_endpoint',
           video_capture: false,
         }
@@ -1230,7 +1230,7 @@ module AWS::SDK::DeviceFarm
     class GetNetworkProfile
       def self.default(visited=[])
         {
-          network_profile: Stubs::NetworkProfile.default(visited),
+          network_profile: NetworkProfile.default(visited),
         }
       end
 
@@ -1246,8 +1246,8 @@ module AWS::SDK::DeviceFarm
     class GetOfferingStatus
       def self.default(visited=[])
         {
-          current: Stubs::OfferingStatusMap.default(visited),
-          next_period: Stubs::OfferingStatusMap.default(visited),
+          current: OfferingStatusMap.default(visited),
+          next_period: OfferingStatusMap.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1268,7 +1268,7 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('OfferingStatusMap')
         visited = visited + ['OfferingStatusMap']
         {
-          test_key: Stubs::OfferingStatus.default(visited)
+          test_key: OfferingStatus.default(visited)
         }
       end
 
@@ -1289,7 +1289,7 @@ module AWS::SDK::DeviceFarm
         visited = visited + ['OfferingStatus']
         {
           type: 'type',
-          offering: Stubs::Offering.default(visited),
+          offering: Offering.default(visited),
           quantity: 1,
           effective_on: Time.now,
         }
@@ -1316,7 +1316,7 @@ module AWS::SDK::DeviceFarm
           description: 'description',
           type: 'type',
           platform: 'platform',
-          recurring_charges: Stubs::RecurringCharges.default(visited),
+          recurring_charges: RecurringCharges.default(visited),
         }
       end
 
@@ -1338,7 +1338,7 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('RecurringCharges')
         visited = visited + ['RecurringCharges']
         [
-          Stubs::RecurringCharge.default(visited)
+          RecurringCharge.default(visited)
         ]
       end
 
@@ -1358,7 +1358,7 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('RecurringCharge')
         visited = visited + ['RecurringCharge']
         {
-          cost: Stubs::MonetaryAmount.default(visited),
+          cost: MonetaryAmount.default(visited),
           frequency: 'frequency',
         }
       end
@@ -1396,7 +1396,7 @@ module AWS::SDK::DeviceFarm
     class GetProject
       def self.default(visited=[])
         {
-          project: Stubs::Project.default(visited),
+          project: Project.default(visited),
         }
       end
 
@@ -1412,7 +1412,7 @@ module AWS::SDK::DeviceFarm
     class GetRemoteAccessSession
       def self.default(visited=[])
         {
-          remote_access_session: Stubs::RemoteAccessSession.default(visited),
+          remote_access_session: RemoteAccessSession.default(visited),
         }
       end
 
@@ -1428,7 +1428,7 @@ module AWS::SDK::DeviceFarm
     class GetRun
       def self.default(visited=[])
         {
-          run: Stubs::Run.default(visited),
+          run: Run.default(visited),
         }
       end
 
@@ -1455,13 +1455,13 @@ module AWS::SDK::DeviceFarm
           result: 'result',
           started: Time.now,
           stopped: Time.now,
-          counters: Stubs::Counters.default(visited),
+          counters: Counters.default(visited),
           message: 'message',
           total_jobs: 1,
           completed_jobs: 1,
           billing_method: 'billing_method',
-          device_minutes: Stubs::DeviceMinutes.default(visited),
-          network_profile: Stubs::NetworkProfile.default(visited),
+          device_minutes: DeviceMinutes.default(visited),
+          network_profile: NetworkProfile.default(visited),
           parsing_result_url: 'parsing_result_url',
           result_code: 'result_code',
           seed: 1,
@@ -1470,13 +1470,13 @@ module AWS::SDK::DeviceFarm
           job_timeout_minutes: 1,
           device_pool_arn: 'device_pool_arn',
           locale: 'locale',
-          radios: Stubs::Radios.default(visited),
-          location: Stubs::Location.default(visited),
-          customer_artifact_paths: Stubs::CustomerArtifactPaths.default(visited),
+          radios: Radios.default(visited),
+          location: Location.default(visited),
+          customer_artifact_paths: CustomerArtifactPaths.default(visited),
           web_url: 'web_url',
           skip_app_resign: false,
           test_spec_arn: 'test_spec_arn',
-          device_selection_result: Stubs::DeviceSelectionResult.default(visited),
+          device_selection_result: DeviceSelectionResult.default(visited),
         }
       end
 
@@ -1524,7 +1524,7 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('DeviceSelectionResult')
         visited = visited + ['DeviceSelectionResult']
         {
-          filters: Stubs::DeviceFilters.default(visited),
+          filters: DeviceFilters.default(visited),
           matched_devices_count: 1,
           max_devices: 1,
         }
@@ -1546,7 +1546,7 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('DeviceFilters')
         visited = visited + ['DeviceFilters']
         [
-          Stubs::DeviceFilter.default(visited)
+          DeviceFilter.default(visited)
         ]
       end
 
@@ -1568,7 +1568,7 @@ module AWS::SDK::DeviceFarm
         {
           attribute: 'attribute',
           operator: 'operator',
-          values: Stubs::DeviceFilterValues.default(visited),
+          values: DeviceFilterValues.default(visited),
         }
       end
 
@@ -1608,9 +1608,9 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('CustomerArtifactPaths')
         visited = visited + ['CustomerArtifactPaths']
         {
-          ios_paths: Stubs::IosPaths.default(visited),
-          android_paths: Stubs::AndroidPaths.default(visited),
-          device_host_paths: Stubs::DeviceHostPaths.default(visited),
+          ios_paths: IosPaths.default(visited),
+          android_paths: AndroidPaths.default(visited),
+          device_host_paths: DeviceHostPaths.default(visited),
         }
       end
 
@@ -1732,7 +1732,7 @@ module AWS::SDK::DeviceFarm
     class GetSuite
       def self.default(visited=[])
         {
-          suite: Stubs::Suite.default(visited),
+          suite: Suite.default(visited),
         }
       end
 
@@ -1758,9 +1758,9 @@ module AWS::SDK::DeviceFarm
           result: 'result',
           started: Time.now,
           stopped: Time.now,
-          counters: Stubs::Counters.default(visited),
+          counters: Counters.default(visited),
           message: 'message',
-          device_minutes: Stubs::DeviceMinutes.default(visited),
+          device_minutes: DeviceMinutes.default(visited),
         }
       end
 
@@ -1786,7 +1786,7 @@ module AWS::SDK::DeviceFarm
     class GetTest
       def self.default(visited=[])
         {
-          test: Stubs::Test.default(visited),
+          test: Test.default(visited),
         }
       end
 
@@ -1812,9 +1812,9 @@ module AWS::SDK::DeviceFarm
           result: 'result',
           started: Time.now,
           stopped: Time.now,
-          counters: Stubs::Counters.default(visited),
+          counters: Counters.default(visited),
           message: 'message',
-          device_minutes: Stubs::DeviceMinutes.default(visited),
+          device_minutes: DeviceMinutes.default(visited),
         }
       end
 
@@ -1840,7 +1840,7 @@ module AWS::SDK::DeviceFarm
     class GetTestGridProject
       def self.default(visited=[])
         {
-          test_grid_project: Stubs::TestGridProject.default(visited),
+          test_grid_project: TestGridProject.default(visited),
         }
       end
 
@@ -1856,7 +1856,7 @@ module AWS::SDK::DeviceFarm
     class GetTestGridSession
       def self.default(visited=[])
         {
-          test_grid_session: Stubs::TestGridSession.default(visited),
+          test_grid_session: TestGridSession.default(visited),
         }
       end
 
@@ -1900,7 +1900,7 @@ module AWS::SDK::DeviceFarm
     class GetUpload
       def self.default(visited=[])
         {
-          upload: Stubs::Upload.default(visited),
+          upload: Upload.default(visited),
         }
       end
 
@@ -1916,7 +1916,7 @@ module AWS::SDK::DeviceFarm
     class GetVPCEConfiguration
       def self.default(visited=[])
         {
-          vpce_configuration: Stubs::VPCEConfiguration.default(visited),
+          vpce_configuration: VPCEConfiguration.default(visited),
         }
       end
 
@@ -1932,7 +1932,7 @@ module AWS::SDK::DeviceFarm
     class InstallToRemoteAccessSession
       def self.default(visited=[])
         {
-          app_upload: Stubs::Upload.default(visited),
+          app_upload: Upload.default(visited),
         }
       end
 
@@ -1948,7 +1948,7 @@ module AWS::SDK::DeviceFarm
     class ListArtifacts
       def self.default(visited=[])
         {
-          artifacts: Stubs::Artifacts.default(visited),
+          artifacts: Artifacts.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1968,7 +1968,7 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('Artifacts')
         visited = visited + ['Artifacts']
         [
-          Stubs::Artifact.default(visited)
+          Artifact.default(visited)
         ]
       end
 
@@ -2012,7 +2012,7 @@ module AWS::SDK::DeviceFarm
     class ListDeviceInstances
       def self.default(visited=[])
         {
-          device_instances: Stubs::DeviceInstances.default(visited),
+          device_instances: DeviceInstances.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2030,7 +2030,7 @@ module AWS::SDK::DeviceFarm
     class ListDevicePools
       def self.default(visited=[])
         {
-          device_pools: Stubs::DevicePools.default(visited),
+          device_pools: DevicePools.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2050,7 +2050,7 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('DevicePools')
         visited = visited + ['DevicePools']
         [
-          Stubs::DevicePool.default(visited)
+          DevicePool.default(visited)
         ]
       end
 
@@ -2068,7 +2068,7 @@ module AWS::SDK::DeviceFarm
     class ListDevices
       def self.default(visited=[])
         {
-          devices: Stubs::Devices.default(visited),
+          devices: Devices.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2088,7 +2088,7 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('Devices')
         visited = visited + ['Devices']
         [
-          Stubs::Device.default(visited)
+          Device.default(visited)
         ]
       end
 
@@ -2106,7 +2106,7 @@ module AWS::SDK::DeviceFarm
     class ListInstanceProfiles
       def self.default(visited=[])
         {
-          instance_profiles: Stubs::InstanceProfiles.default(visited),
+          instance_profiles: InstanceProfiles.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2126,7 +2126,7 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('InstanceProfiles')
         visited = visited + ['InstanceProfiles']
         [
-          Stubs::InstanceProfile.default(visited)
+          InstanceProfile.default(visited)
         ]
       end
 
@@ -2144,7 +2144,7 @@ module AWS::SDK::DeviceFarm
     class ListJobs
       def self.default(visited=[])
         {
-          jobs: Stubs::Jobs.default(visited),
+          jobs: Jobs.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2164,7 +2164,7 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('Jobs')
         visited = visited + ['Jobs']
         [
-          Stubs::Job.default(visited)
+          Job.default(visited)
         ]
       end
 
@@ -2182,7 +2182,7 @@ module AWS::SDK::DeviceFarm
     class ListNetworkProfiles
       def self.default(visited=[])
         {
-          network_profiles: Stubs::NetworkProfiles.default(visited),
+          network_profiles: NetworkProfiles.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2202,7 +2202,7 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('NetworkProfiles')
         visited = visited + ['NetworkProfiles']
         [
-          Stubs::NetworkProfile.default(visited)
+          NetworkProfile.default(visited)
         ]
       end
 
@@ -2220,7 +2220,7 @@ module AWS::SDK::DeviceFarm
     class ListOfferingPromotions
       def self.default(visited=[])
         {
-          offering_promotions: Stubs::OfferingPromotions.default(visited),
+          offering_promotions: OfferingPromotions.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2240,7 +2240,7 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('OfferingPromotions')
         visited = visited + ['OfferingPromotions']
         [
-          Stubs::OfferingPromotion.default(visited)
+          OfferingPromotion.default(visited)
         ]
       end
 
@@ -2278,7 +2278,7 @@ module AWS::SDK::DeviceFarm
     class ListOfferingTransactions
       def self.default(visited=[])
         {
-          offering_transactions: Stubs::OfferingTransactions.default(visited),
+          offering_transactions: OfferingTransactions.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2298,7 +2298,7 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('OfferingTransactions')
         visited = visited + ['OfferingTransactions']
         [
-          Stubs::OfferingTransaction.default(visited)
+          OfferingTransaction.default(visited)
         ]
       end
 
@@ -2318,11 +2318,11 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('OfferingTransaction')
         visited = visited + ['OfferingTransaction']
         {
-          offering_status: Stubs::OfferingStatus.default(visited),
+          offering_status: OfferingStatus.default(visited),
           transaction_id: 'transaction_id',
           offering_promotion_id: 'offering_promotion_id',
           created_on: Time.now,
-          cost: Stubs::MonetaryAmount.default(visited),
+          cost: MonetaryAmount.default(visited),
         }
       end
 
@@ -2342,7 +2342,7 @@ module AWS::SDK::DeviceFarm
     class ListOfferings
       def self.default(visited=[])
         {
-          offerings: Stubs::Offerings.default(visited),
+          offerings: Offerings.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2362,7 +2362,7 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('Offerings')
         visited = visited + ['Offerings']
         [
-          Stubs::Offering.default(visited)
+          Offering.default(visited)
         ]
       end
 
@@ -2380,7 +2380,7 @@ module AWS::SDK::DeviceFarm
     class ListProjects
       def self.default(visited=[])
         {
-          projects: Stubs::Projects.default(visited),
+          projects: Projects.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2400,7 +2400,7 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('Projects')
         visited = visited + ['Projects']
         [
-          Stubs::Project.default(visited)
+          Project.default(visited)
         ]
       end
 
@@ -2418,7 +2418,7 @@ module AWS::SDK::DeviceFarm
     class ListRemoteAccessSessions
       def self.default(visited=[])
         {
-          remote_access_sessions: Stubs::RemoteAccessSessions.default(visited),
+          remote_access_sessions: RemoteAccessSessions.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2438,7 +2438,7 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('RemoteAccessSessions')
         visited = visited + ['RemoteAccessSessions']
         [
-          Stubs::RemoteAccessSession.default(visited)
+          RemoteAccessSession.default(visited)
         ]
       end
 
@@ -2456,7 +2456,7 @@ module AWS::SDK::DeviceFarm
     class ListRuns
       def self.default(visited=[])
         {
-          runs: Stubs::Runs.default(visited),
+          runs: Runs.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2476,7 +2476,7 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('Runs')
         visited = visited + ['Runs']
         [
-          Stubs::Run.default(visited)
+          Run.default(visited)
         ]
       end
 
@@ -2494,7 +2494,7 @@ module AWS::SDK::DeviceFarm
     class ListSamples
       def self.default(visited=[])
         {
-          samples: Stubs::Samples.default(visited),
+          samples: Samples.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2514,7 +2514,7 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('Samples')
         visited = visited + ['Samples']
         [
-          Stubs::Sample.default(visited)
+          Sample.default(visited)
         ]
       end
 
@@ -2554,7 +2554,7 @@ module AWS::SDK::DeviceFarm
     class ListSuites
       def self.default(visited=[])
         {
-          suites: Stubs::Suites.default(visited),
+          suites: Suites.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2574,7 +2574,7 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('Suites')
         visited = visited + ['Suites']
         [
-          Stubs::Suite.default(visited)
+          Suite.default(visited)
         ]
       end
 
@@ -2592,7 +2592,7 @@ module AWS::SDK::DeviceFarm
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -2610,7 +2610,7 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -2648,7 +2648,7 @@ module AWS::SDK::DeviceFarm
     class ListTestGridProjects
       def self.default(visited=[])
         {
-          test_grid_projects: Stubs::TestGridProjects.default(visited),
+          test_grid_projects: TestGridProjects.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2668,7 +2668,7 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('TestGridProjects')
         visited = visited + ['TestGridProjects']
         [
-          Stubs::TestGridProject.default(visited)
+          TestGridProject.default(visited)
         ]
       end
 
@@ -2686,7 +2686,7 @@ module AWS::SDK::DeviceFarm
     class ListTestGridSessionActions
       def self.default(visited=[])
         {
-          actions: Stubs::TestGridSessionActions.default(visited),
+          actions: TestGridSessionActions.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2706,7 +2706,7 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('TestGridSessionActions')
         visited = visited + ['TestGridSessionActions']
         [
-          Stubs::TestGridSessionAction.default(visited)
+          TestGridSessionAction.default(visited)
         ]
       end
 
@@ -2750,7 +2750,7 @@ module AWS::SDK::DeviceFarm
     class ListTestGridSessionArtifacts
       def self.default(visited=[])
         {
-          artifacts: Stubs::TestGridSessionArtifacts.default(visited),
+          artifacts: TestGridSessionArtifacts.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2770,7 +2770,7 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('TestGridSessionArtifacts')
         visited = visited + ['TestGridSessionArtifacts']
         [
-          Stubs::TestGridSessionArtifact.default(visited)
+          TestGridSessionArtifact.default(visited)
         ]
       end
 
@@ -2810,7 +2810,7 @@ module AWS::SDK::DeviceFarm
     class ListTestGridSessions
       def self.default(visited=[])
         {
-          test_grid_sessions: Stubs::TestGridSessions.default(visited),
+          test_grid_sessions: TestGridSessions.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2830,7 +2830,7 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('TestGridSessions')
         visited = visited + ['TestGridSessions']
         [
-          Stubs::TestGridSession.default(visited)
+          TestGridSession.default(visited)
         ]
       end
 
@@ -2848,7 +2848,7 @@ module AWS::SDK::DeviceFarm
     class ListTests
       def self.default(visited=[])
         {
-          tests: Stubs::Tests.default(visited),
+          tests: Tests.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2868,7 +2868,7 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('Tests')
         visited = visited + ['Tests']
         [
-          Stubs::Test.default(visited)
+          Test.default(visited)
         ]
       end
 
@@ -2886,7 +2886,7 @@ module AWS::SDK::DeviceFarm
     class ListUniqueProblems
       def self.default(visited=[])
         {
-          unique_problems: Stubs::UniqueProblemsByExecutionResultMap.default(visited),
+          unique_problems: UniqueProblemsByExecutionResultMap.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2906,7 +2906,7 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('UniqueProblemsByExecutionResultMap')
         visited = visited + ['UniqueProblemsByExecutionResultMap']
         {
-          test_key: Stubs::UniqueProblems.default(visited)
+          test_key: UniqueProblems.default(visited)
         }
       end
 
@@ -2926,7 +2926,7 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('UniqueProblems')
         visited = visited + ['UniqueProblems']
         [
-          Stubs::UniqueProblem.default(visited)
+          UniqueProblem.default(visited)
         ]
       end
 
@@ -2947,7 +2947,7 @@ module AWS::SDK::DeviceFarm
         visited = visited + ['UniqueProblem']
         {
           message: 'message',
-          problems: Stubs::Problems.default(visited),
+          problems: Problems.default(visited),
         }
       end
 
@@ -2966,7 +2966,7 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('Problems')
         visited = visited + ['Problems']
         [
-          Stubs::Problem.default(visited)
+          Problem.default(visited)
         ]
       end
 
@@ -2986,11 +2986,11 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('Problem')
         visited = visited + ['Problem']
         {
-          run: Stubs::ProblemDetail.default(visited),
-          job: Stubs::ProblemDetail.default(visited),
-          suite: Stubs::ProblemDetail.default(visited),
-          test: Stubs::ProblemDetail.default(visited),
-          device: Stubs::Device.default(visited),
+          run: ProblemDetail.default(visited),
+          job: ProblemDetail.default(visited),
+          suite: ProblemDetail.default(visited),
+          test: ProblemDetail.default(visited),
+          device: Device.default(visited),
           result: 'result',
           message: 'message',
         }
@@ -3034,7 +3034,7 @@ module AWS::SDK::DeviceFarm
     class ListUploads
       def self.default(visited=[])
         {
-          uploads: Stubs::Uploads.default(visited),
+          uploads: Uploads.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3054,7 +3054,7 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('Uploads')
         visited = visited + ['Uploads']
         [
-          Stubs::Upload.default(visited)
+          Upload.default(visited)
         ]
       end
 
@@ -3072,7 +3072,7 @@ module AWS::SDK::DeviceFarm
     class ListVPCEConfigurations
       def self.default(visited=[])
         {
-          vpce_configurations: Stubs::VPCEConfigurations.default(visited),
+          vpce_configurations: VPCEConfigurations.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3092,7 +3092,7 @@ module AWS::SDK::DeviceFarm
         return nil if visited.include?('VPCEConfigurations')
         visited = visited + ['VPCEConfigurations']
         [
-          Stubs::VPCEConfiguration.default(visited)
+          VPCEConfiguration.default(visited)
         ]
       end
 
@@ -3110,7 +3110,7 @@ module AWS::SDK::DeviceFarm
     class PurchaseOffering
       def self.default(visited=[])
         {
-          offering_transaction: Stubs::OfferingTransaction.default(visited),
+          offering_transaction: OfferingTransaction.default(visited),
         }
       end
 
@@ -3126,7 +3126,7 @@ module AWS::SDK::DeviceFarm
     class RenewOffering
       def self.default(visited=[])
         {
-          offering_transaction: Stubs::OfferingTransaction.default(visited),
+          offering_transaction: OfferingTransaction.default(visited),
         }
       end
 
@@ -3142,7 +3142,7 @@ module AWS::SDK::DeviceFarm
     class ScheduleRun
       def self.default(visited=[])
         {
-          run: Stubs::Run.default(visited),
+          run: Run.default(visited),
         }
       end
 
@@ -3158,7 +3158,7 @@ module AWS::SDK::DeviceFarm
     class StopJob
       def self.default(visited=[])
         {
-          job: Stubs::Job.default(visited),
+          job: Job.default(visited),
         }
       end
 
@@ -3174,7 +3174,7 @@ module AWS::SDK::DeviceFarm
     class StopRemoteAccessSession
       def self.default(visited=[])
         {
-          remote_access_session: Stubs::RemoteAccessSession.default(visited),
+          remote_access_session: RemoteAccessSession.default(visited),
         }
       end
 
@@ -3190,7 +3190,7 @@ module AWS::SDK::DeviceFarm
     class StopRun
       def self.default(visited=[])
         {
-          run: Stubs::Run.default(visited),
+          run: Run.default(visited),
         }
       end
 
@@ -3234,7 +3234,7 @@ module AWS::SDK::DeviceFarm
     class UpdateDeviceInstance
       def self.default(visited=[])
         {
-          device_instance: Stubs::DeviceInstance.default(visited),
+          device_instance: DeviceInstance.default(visited),
         }
       end
 
@@ -3250,7 +3250,7 @@ module AWS::SDK::DeviceFarm
     class UpdateDevicePool
       def self.default(visited=[])
         {
-          device_pool: Stubs::DevicePool.default(visited),
+          device_pool: DevicePool.default(visited),
         }
       end
 
@@ -3266,7 +3266,7 @@ module AWS::SDK::DeviceFarm
     class UpdateInstanceProfile
       def self.default(visited=[])
         {
-          instance_profile: Stubs::InstanceProfile.default(visited),
+          instance_profile: InstanceProfile.default(visited),
         }
       end
 
@@ -3282,7 +3282,7 @@ module AWS::SDK::DeviceFarm
     class UpdateNetworkProfile
       def self.default(visited=[])
         {
-          network_profile: Stubs::NetworkProfile.default(visited),
+          network_profile: NetworkProfile.default(visited),
         }
       end
 
@@ -3298,7 +3298,7 @@ module AWS::SDK::DeviceFarm
     class UpdateProject
       def self.default(visited=[])
         {
-          project: Stubs::Project.default(visited),
+          project: Project.default(visited),
         }
       end
 
@@ -3314,7 +3314,7 @@ module AWS::SDK::DeviceFarm
     class UpdateTestGridProject
       def self.default(visited=[])
         {
-          test_grid_project: Stubs::TestGridProject.default(visited),
+          test_grid_project: TestGridProject.default(visited),
         }
       end
 
@@ -3330,7 +3330,7 @@ module AWS::SDK::DeviceFarm
     class UpdateUpload
       def self.default(visited=[])
         {
-          upload: Stubs::Upload.default(visited),
+          upload: Upload.default(visited),
         }
       end
 
@@ -3346,7 +3346,7 @@ module AWS::SDK::DeviceFarm
     class UpdateVPCEConfiguration
       def self.default(visited=[])
         {
-          vpce_configuration: Stubs::VPCEConfiguration.default(visited),
+          vpce_configuration: VPCEConfiguration.default(visited),
         }
       end
 

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::TimestreamWrite
   module Validators
 
@@ -29,14 +31,14 @@ module AWS::SDK::TimestreamWrite
         Hearth::Validator.validate!(input, Types::CreateDatabaseInput, context: context)
         Hearth::Validator.validate!(input[:database_name], ::String, context: "#{context}[:database_name]")
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateDatabaseOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateDatabaseOutput, context: context)
-        Validators::Database.validate!(input[:database], context: "#{context}[:database]") unless input[:database].nil?
+        Database.validate!(input[:database], context: "#{context}[:database]") unless input[:database].nil?
       end
     end
 
@@ -45,16 +47,16 @@ module AWS::SDK::TimestreamWrite
         Hearth::Validator.validate!(input, Types::CreateTableInput, context: context)
         Hearth::Validator.validate!(input[:database_name], ::String, context: "#{context}[:database_name]")
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
-        Validators::RetentionProperties.validate!(input[:retention_properties], context: "#{context}[:retention_properties]") unless input[:retention_properties].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::MagneticStoreWriteProperties.validate!(input[:magnetic_store_write_properties], context: "#{context}[:magnetic_store_write_properties]") unless input[:magnetic_store_write_properties].nil?
+        RetentionProperties.validate!(input[:retention_properties], context: "#{context}[:retention_properties]") unless input[:retention_properties].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        MagneticStoreWriteProperties.validate!(input[:magnetic_store_write_properties], context: "#{context}[:magnetic_store_write_properties]") unless input[:magnetic_store_write_properties].nil?
       end
     end
 
     class CreateTableOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateTableOutput, context: context)
-        Validators::Table.validate!(input[:table], context: "#{context}[:table]") unless input[:table].nil?
+        Table.validate!(input[:table], context: "#{context}[:table]") unless input[:table].nil?
       end
     end
 
@@ -74,7 +76,7 @@ module AWS::SDK::TimestreamWrite
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Database.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Database.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -116,7 +118,7 @@ module AWS::SDK::TimestreamWrite
     class DescribeDatabaseOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeDatabaseOutput, context: context)
-        Validators::Database.validate!(input[:database], context: "#{context}[:database]") unless input[:database].nil?
+        Database.validate!(input[:database], context: "#{context}[:database]") unless input[:database].nil?
       end
     end
 
@@ -129,7 +131,7 @@ module AWS::SDK::TimestreamWrite
     class DescribeEndpointsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEndpointsOutput, context: context)
-        Validators::Endpoints.validate!(input[:endpoints], context: "#{context}[:endpoints]") unless input[:endpoints].nil?
+        Endpoints.validate!(input[:endpoints], context: "#{context}[:endpoints]") unless input[:endpoints].nil?
       end
     end
 
@@ -144,7 +146,7 @@ module AWS::SDK::TimestreamWrite
     class DescribeTableOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeTableOutput, context: context)
-        Validators::Table.validate!(input[:table], context: "#{context}[:table]") unless input[:table].nil?
+        Table.validate!(input[:table], context: "#{context}[:table]") unless input[:table].nil?
       end
     end
 
@@ -161,7 +163,7 @@ module AWS::SDK::TimestreamWrite
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Dimension.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Dimension.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -178,7 +180,7 @@ module AWS::SDK::TimestreamWrite
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Endpoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Endpoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -208,7 +210,7 @@ module AWS::SDK::TimestreamWrite
     class ListDatabasesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDatabasesOutput, context: context)
-        Validators::DatabaseList.validate!(input[:databases], context: "#{context}[:databases]") unless input[:databases].nil?
+        DatabaseList.validate!(input[:databases], context: "#{context}[:databases]") unless input[:databases].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -225,7 +227,7 @@ module AWS::SDK::TimestreamWrite
     class ListTablesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTablesOutput, context: context)
-        Validators::TableList.validate!(input[:tables], context: "#{context}[:tables]") unless input[:tables].nil?
+        TableList.validate!(input[:tables], context: "#{context}[:tables]") unless input[:tables].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -240,14 +242,14 @@ module AWS::SDK::TimestreamWrite
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class MagneticStoreRejectedDataLocation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MagneticStoreRejectedDataLocation, context: context)
-        Validators::S3Configuration.validate!(input[:s3_configuration], context: "#{context}[:s3_configuration]") unless input[:s3_configuration].nil?
+        S3Configuration.validate!(input[:s3_configuration], context: "#{context}[:s3_configuration]") unless input[:s3_configuration].nil?
       end
     end
 
@@ -255,7 +257,7 @@ module AWS::SDK::TimestreamWrite
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MagneticStoreWriteProperties, context: context)
         Hearth::Validator.validate!(input[:enable_magnetic_store_writes], ::TrueClass, ::FalseClass, context: "#{context}[:enable_magnetic_store_writes]")
-        Validators::MagneticStoreRejectedDataLocation.validate!(input[:magnetic_store_rejected_data_location], context: "#{context}[:magnetic_store_rejected_data_location]") unless input[:magnetic_store_rejected_data_location].nil?
+        MagneticStoreRejectedDataLocation.validate!(input[:magnetic_store_rejected_data_location], context: "#{context}[:magnetic_store_rejected_data_location]") unless input[:magnetic_store_rejected_data_location].nil?
       end
     end
 
@@ -272,7 +274,7 @@ module AWS::SDK::TimestreamWrite
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MeasureValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MeasureValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -280,14 +282,14 @@ module AWS::SDK::TimestreamWrite
     class Record
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Record, context: context)
-        Validators::Dimensions.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
+        Dimensions.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
         Hearth::Validator.validate!(input[:measure_name], ::String, context: "#{context}[:measure_name]")
         Hearth::Validator.validate!(input[:measure_value], ::String, context: "#{context}[:measure_value]")
         Hearth::Validator.validate!(input[:measure_value_type], ::String, context: "#{context}[:measure_value_type]")
         Hearth::Validator.validate!(input[:time], ::String, context: "#{context}[:time]")
         Hearth::Validator.validate!(input[:time_unit], ::String, context: "#{context}[:time_unit]")
         Hearth::Validator.validate!(input[:version], ::Integer, context: "#{context}[:version]")
-        Validators::MeasureValues.validate!(input[:measure_values], context: "#{context}[:measure_values]") unless input[:measure_values].nil?
+        MeasureValues.validate!(input[:measure_values], context: "#{context}[:measure_values]") unless input[:measure_values].nil?
       end
     end
 
@@ -295,7 +297,7 @@ module AWS::SDK::TimestreamWrite
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Record.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Record.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -322,7 +324,7 @@ module AWS::SDK::TimestreamWrite
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RejectedRecord.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RejectedRecord.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -331,7 +333,7 @@ module AWS::SDK::TimestreamWrite
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RejectedRecordsException, context: context)
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
-        Validators::RejectedRecords.validate!(input[:rejected_records], context: "#{context}[:rejected_records]") unless input[:rejected_records].nil?
+        RejectedRecords.validate!(input[:rejected_records], context: "#{context}[:rejected_records]") unless input[:rejected_records].nil?
       end
     end
 
@@ -374,10 +376,10 @@ module AWS::SDK::TimestreamWrite
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
         Hearth::Validator.validate!(input[:database_name], ::String, context: "#{context}[:database_name]")
         Hearth::Validator.validate!(input[:table_status], ::String, context: "#{context}[:table_status]")
-        Validators::RetentionProperties.validate!(input[:retention_properties], context: "#{context}[:retention_properties]") unless input[:retention_properties].nil?
+        RetentionProperties.validate!(input[:retention_properties], context: "#{context}[:retention_properties]") unless input[:retention_properties].nil?
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:last_updated_time], ::Time, context: "#{context}[:last_updated_time]")
-        Validators::MagneticStoreWriteProperties.validate!(input[:magnetic_store_write_properties], context: "#{context}[:magnetic_store_write_properties]") unless input[:magnetic_store_write_properties].nil?
+        MagneticStoreWriteProperties.validate!(input[:magnetic_store_write_properties], context: "#{context}[:magnetic_store_write_properties]") unless input[:magnetic_store_write_properties].nil?
       end
     end
 
@@ -385,7 +387,7 @@ module AWS::SDK::TimestreamWrite
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Table.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Table.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -411,7 +413,7 @@ module AWS::SDK::TimestreamWrite
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -420,7 +422,7 @@ module AWS::SDK::TimestreamWrite
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -441,7 +443,7 @@ module AWS::SDK::TimestreamWrite
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -462,7 +464,7 @@ module AWS::SDK::TimestreamWrite
     class UpdateDatabaseOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateDatabaseOutput, context: context)
-        Validators::Database.validate!(input[:database], context: "#{context}[:database]") unless input[:database].nil?
+        Database.validate!(input[:database], context: "#{context}[:database]") unless input[:database].nil?
       end
     end
 
@@ -471,15 +473,15 @@ module AWS::SDK::TimestreamWrite
         Hearth::Validator.validate!(input, Types::UpdateTableInput, context: context)
         Hearth::Validator.validate!(input[:database_name], ::String, context: "#{context}[:database_name]")
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
-        Validators::RetentionProperties.validate!(input[:retention_properties], context: "#{context}[:retention_properties]") unless input[:retention_properties].nil?
-        Validators::MagneticStoreWriteProperties.validate!(input[:magnetic_store_write_properties], context: "#{context}[:magnetic_store_write_properties]") unless input[:magnetic_store_write_properties].nil?
+        RetentionProperties.validate!(input[:retention_properties], context: "#{context}[:retention_properties]") unless input[:retention_properties].nil?
+        MagneticStoreWriteProperties.validate!(input[:magnetic_store_write_properties], context: "#{context}[:magnetic_store_write_properties]") unless input[:magnetic_store_write_properties].nil?
       end
     end
 
     class UpdateTableOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateTableOutput, context: context)
-        Validators::Table.validate!(input[:table], context: "#{context}[:table]") unless input[:table].nil?
+        Table.validate!(input[:table], context: "#{context}[:table]") unless input[:table].nil?
       end
     end
 
@@ -495,15 +497,15 @@ module AWS::SDK::TimestreamWrite
         Hearth::Validator.validate!(input, Types::WriteRecordsInput, context: context)
         Hearth::Validator.validate!(input[:database_name], ::String, context: "#{context}[:database_name]")
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
-        Validators::Record.validate!(input[:common_attributes], context: "#{context}[:common_attributes]") unless input[:common_attributes].nil?
-        Validators::Records.validate!(input[:records], context: "#{context}[:records]") unless input[:records].nil?
+        Record.validate!(input[:common_attributes], context: "#{context}[:common_attributes]") unless input[:common_attributes].nil?
+        Records.validate!(input[:records], context: "#{context}[:records]") unless input[:records].nil?
       end
     end
 
     class WriteRecordsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::WriteRecordsOutput, context: context)
-        Validators::RecordsIngested.validate!(input[:records_ingested], context: "#{context}[:records_ingested]") unless input[:records_ingested].nil?
+        RecordsIngested.validate!(input[:records_ingested], context: "#{context}[:records_ingested]") unless input[:records_ingested].nil?
       end
     end
 

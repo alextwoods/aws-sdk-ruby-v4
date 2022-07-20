@@ -393,11 +393,11 @@ module AWS::SDK::Inspector
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.duration_in_seconds ||= 0
       end
-
     end
 
     # <p>Contains information about an Amazon Inspector agent. This data type is used as a
@@ -830,11 +830,11 @@ module AWS::SDK::Inspector
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.duration_in_seconds ||= 0
       end
-
     end
 
     # <p>Used as the request parameter in the <a>ListAssessmentTemplates</a>
@@ -928,11 +928,11 @@ module AWS::SDK::Inspector
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.schema_version ||= 0
       end
-
     end
 
     # Includes enum constants for AssetType
@@ -1039,11 +1039,11 @@ module AWS::SDK::Inspector
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.duration_in_seconds ||= 0
       end
-
     end
 
     # @!attribute assessment_template_arn
@@ -1463,12 +1463,12 @@ module AWS::SDK::Inspector
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.min_seconds ||= 0
         self.max_seconds ||= 0
       end
-
     end
 
     # <p>This data type is used in the <a>Subscription</a> data type.</p>
@@ -1748,13 +1748,13 @@ module AWS::SDK::Inspector
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.schema_version ||= 0
         self.numeric_severity ||= 0
         self.confidence ||= 0
       end
-
     end
 
     # <p>This data type is used as a request parameter in the <a>ListFindings</a>
@@ -2023,11 +2023,11 @@ module AWS::SDK::Inspector
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.schema_version ||= 0
       end
-
     end
 
     # <p>Internal server error.</p>

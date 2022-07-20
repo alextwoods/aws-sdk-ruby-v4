@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::RUM
   module Validators
 
@@ -25,10 +27,10 @@ module AWS::SDK::RUM
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:created], ::String, context: "#{context}[:created]")
         Hearth::Validator.validate!(input[:last_modified], ::String, context: "#{context}[:last_modified]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::AppMonitorConfiguration.validate!(input[:app_monitor_configuration], context: "#{context}[:app_monitor_configuration]") unless input[:app_monitor_configuration].nil?
-        Validators::DataStorage.validate!(input[:data_storage], context: "#{context}[:data_storage]") unless input[:data_storage].nil?
+        AppMonitorConfiguration.validate!(input[:app_monitor_configuration], context: "#{context}[:app_monitor_configuration]") unless input[:app_monitor_configuration].nil?
+        DataStorage.validate!(input[:data_storage], context: "#{context}[:data_storage]") unless input[:data_storage].nil?
       end
     end
 
@@ -36,13 +38,13 @@ module AWS::SDK::RUM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AppMonitorConfiguration, context: context)
         Hearth::Validator.validate!(input[:identity_pool_id], ::String, context: "#{context}[:identity_pool_id]")
-        Validators::Pages.validate!(input[:excluded_pages], context: "#{context}[:excluded_pages]") unless input[:excluded_pages].nil?
-        Validators::Pages.validate!(input[:included_pages], context: "#{context}[:included_pages]") unless input[:included_pages].nil?
-        Validators::FavoritePages.validate!(input[:favorite_pages], context: "#{context}[:favorite_pages]") unless input[:favorite_pages].nil?
+        Pages.validate!(input[:excluded_pages], context: "#{context}[:excluded_pages]") unless input[:excluded_pages].nil?
+        Pages.validate!(input[:included_pages], context: "#{context}[:included_pages]") unless input[:included_pages].nil?
+        FavoritePages.validate!(input[:favorite_pages], context: "#{context}[:favorite_pages]") unless input[:favorite_pages].nil?
         Hearth::Validator.validate!(input[:session_sample_rate], ::Float, context: "#{context}[:session_sample_rate]")
         Hearth::Validator.validate!(input[:guest_role_arn], ::String, context: "#{context}[:guest_role_arn]")
         Hearth::Validator.validate!(input[:allow_cookies], ::TrueClass, ::FalseClass, context: "#{context}[:allow_cookies]")
-        Validators::Telemetries.validate!(input[:telemetries], context: "#{context}[:telemetries]") unless input[:telemetries].nil?
+        Telemetries.validate!(input[:telemetries], context: "#{context}[:telemetries]") unless input[:telemetries].nil?
         Hearth::Validator.validate!(input[:enable_x_ray], ::TrueClass, ::FalseClass, context: "#{context}[:enable_x_ray]")
       end
     end
@@ -71,7 +73,7 @@ module AWS::SDK::RUM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AppMonitorSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AppMonitorSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -90,8 +92,8 @@ module AWS::SDK::RUM
         Hearth::Validator.validate!(input, Types::CreateAppMonitorInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:domain], ::String, context: "#{context}[:domain]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::AppMonitorConfiguration.validate!(input[:app_monitor_configuration], context: "#{context}[:app_monitor_configuration]") unless input[:app_monitor_configuration].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        AppMonitorConfiguration.validate!(input[:app_monitor_configuration], context: "#{context}[:app_monitor_configuration]") unless input[:app_monitor_configuration].nil?
         Hearth::Validator.validate!(input[:cw_log_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:cw_log_enabled]")
       end
     end
@@ -114,7 +116,7 @@ module AWS::SDK::RUM
     class DataStorage
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DataStorage, context: context)
-        Validators::CwLog.validate!(input[:cw_log], context: "#{context}[:cw_log]") unless input[:cw_log].nil?
+        CwLog.validate!(input[:cw_log], context: "#{context}[:cw_log]") unless input[:cw_log].nil?
       end
     end
 
@@ -153,8 +155,8 @@ module AWS::SDK::RUM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAppMonitorDataInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::TimeRange.validate!(input[:time_range], context: "#{context}[:time_range]") unless input[:time_range].nil?
-        Validators::QueryFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        TimeRange.validate!(input[:time_range], context: "#{context}[:time_range]") unless input[:time_range].nil?
+        QueryFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -163,7 +165,7 @@ module AWS::SDK::RUM
     class GetAppMonitorDataOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAppMonitorDataOutput, context: context)
-        Validators::EventDataList.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
+        EventDataList.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -178,7 +180,7 @@ module AWS::SDK::RUM
     class GetAppMonitorOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAppMonitorOutput, context: context)
-        Validators::AppMonitor.validate!(input[:app_monitor], context: "#{context}[:app_monitor]") unless input[:app_monitor].nil?
+        AppMonitor.validate!(input[:app_monitor], context: "#{context}[:app_monitor]") unless input[:app_monitor].nil?
       end
     end
 
@@ -202,7 +204,7 @@ module AWS::SDK::RUM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAppMonitorsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::AppMonitorSummaryList.validate!(input[:app_monitor_summaries], context: "#{context}[:app_monitor_summaries]") unless input[:app_monitor_summaries].nil?
+        AppMonitorSummaryList.validate!(input[:app_monitor_summaries], context: "#{context}[:app_monitor_summaries]") unless input[:app_monitor_summaries].nil?
       end
     end
 
@@ -217,7 +219,7 @@ module AWS::SDK::RUM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -235,9 +237,9 @@ module AWS::SDK::RUM
         Hearth::Validator.validate!(input, Types::PutRumEventsInput, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:batch_id], ::String, context: "#{context}[:batch_id]")
-        Validators::AppMonitorDetails.validate!(input[:app_monitor_details], context: "#{context}[:app_monitor_details]") unless input[:app_monitor_details].nil?
-        Validators::UserDetails.validate!(input[:user_details], context: "#{context}[:user_details]") unless input[:user_details].nil?
-        Validators::RumEventList.validate!(input[:rum_events], context: "#{context}[:rum_events]") unless input[:rum_events].nil?
+        AppMonitorDetails.validate!(input[:app_monitor_details], context: "#{context}[:app_monitor_details]") unless input[:app_monitor_details].nil?
+        UserDetails.validate!(input[:user_details], context: "#{context}[:user_details]") unless input[:user_details].nil?
+        RumEventList.validate!(input[:rum_events], context: "#{context}[:rum_events]") unless input[:rum_events].nil?
       end
     end
 
@@ -251,7 +253,7 @@ module AWS::SDK::RUM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::QueryFilter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::QueryFilterValueList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        QueryFilterValueList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -268,7 +270,7 @@ module AWS::SDK::RUM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::QueryFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          QueryFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -297,7 +299,7 @@ module AWS::SDK::RUM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RumEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RumEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -332,7 +334,7 @@ module AWS::SDK::RUM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -373,7 +375,7 @@ module AWS::SDK::RUM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -388,7 +390,7 @@ module AWS::SDK::RUM
         Hearth::Validator.validate!(input, Types::UpdateAppMonitorInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:domain], ::String, context: "#{context}[:domain]")
-        Validators::AppMonitorConfiguration.validate!(input[:app_monitor_configuration], context: "#{context}[:app_monitor_configuration]") unless input[:app_monitor_configuration].nil?
+        AppMonitorConfiguration.validate!(input[:app_monitor_configuration], context: "#{context}[:app_monitor_configuration]") unless input[:app_monitor_configuration].nil?
         Hearth::Validator.validate!(input[:cw_log_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:cw_log_enabled]")
       end
     end

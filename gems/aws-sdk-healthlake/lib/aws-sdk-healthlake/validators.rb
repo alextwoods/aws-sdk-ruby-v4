@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::HealthLake
   module Validators
 
@@ -29,10 +31,10 @@ module AWS::SDK::HealthLake
         Hearth::Validator.validate!(input, Types::CreateFHIRDatastoreInput, context: context)
         Hearth::Validator.validate!(input[:datastore_name], ::String, context: "#{context}[:datastore_name]")
         Hearth::Validator.validate!(input[:datastore_type_version], ::String, context: "#{context}[:datastore_type_version]")
-        Validators::SseConfiguration.validate!(input[:sse_configuration], context: "#{context}[:sse_configuration]") unless input[:sse_configuration].nil?
-        Validators::PreloadDataConfig.validate!(input[:preload_data_config], context: "#{context}[:preload_data_config]") unless input[:preload_data_config].nil?
+        SseConfiguration.validate!(input[:sse_configuration], context: "#{context}[:sse_configuration]") unless input[:sse_configuration].nil?
+        PreloadDataConfig.validate!(input[:preload_data_config], context: "#{context}[:preload_data_config]") unless input[:preload_data_config].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -66,8 +68,8 @@ module AWS::SDK::HealthLake
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:datastore_type_version], ::String, context: "#{context}[:datastore_type_version]")
         Hearth::Validator.validate!(input[:datastore_endpoint], ::String, context: "#{context}[:datastore_endpoint]")
-        Validators::SseConfiguration.validate!(input[:sse_configuration], context: "#{context}[:sse_configuration]") unless input[:sse_configuration].nil?
-        Validators::PreloadDataConfig.validate!(input[:preload_data_config], context: "#{context}[:preload_data_config]") unless input[:preload_data_config].nil?
+        SseConfiguration.validate!(input[:sse_configuration], context: "#{context}[:sse_configuration]") unless input[:sse_configuration].nil?
+        PreloadDataConfig.validate!(input[:preload_data_config], context: "#{context}[:preload_data_config]") unless input[:preload_data_config].nil?
       end
     end
 
@@ -75,7 +77,7 @@ module AWS::SDK::HealthLake
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DatastoreProperties.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DatastoreProperties.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -107,7 +109,7 @@ module AWS::SDK::HealthLake
     class DescribeFHIRDatastoreOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeFHIRDatastoreOutput, context: context)
-        Validators::DatastoreProperties.validate!(input[:datastore_properties], context: "#{context}[:datastore_properties]") unless input[:datastore_properties].nil?
+        DatastoreProperties.validate!(input[:datastore_properties], context: "#{context}[:datastore_properties]") unless input[:datastore_properties].nil?
       end
     end
 
@@ -122,7 +124,7 @@ module AWS::SDK::HealthLake
     class DescribeFHIRExportJobOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeFHIRExportJobOutput, context: context)
-        Validators::ExportJobProperties.validate!(input[:export_job_properties], context: "#{context}[:export_job_properties]") unless input[:export_job_properties].nil?
+        ExportJobProperties.validate!(input[:export_job_properties], context: "#{context}[:export_job_properties]") unless input[:export_job_properties].nil?
       end
     end
 
@@ -137,7 +139,7 @@ module AWS::SDK::HealthLake
     class DescribeFHIRImportJobOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeFHIRImportJobOutput, context: context)
-        Validators::ImportJobProperties.validate!(input[:import_job_properties], context: "#{context}[:import_job_properties]") unless input[:import_job_properties].nil?
+        ImportJobProperties.validate!(input[:import_job_properties], context: "#{context}[:import_job_properties]") unless input[:import_job_properties].nil?
       end
     end
 
@@ -150,7 +152,7 @@ module AWS::SDK::HealthLake
         Hearth::Validator.validate!(input[:submit_time], ::Time, context: "#{context}[:submit_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
         Hearth::Validator.validate!(input[:datastore_id], ::String, context: "#{context}[:datastore_id]")
-        Validators::OutputDataConfig.validate!(input[:output_data_config], context: "#{context}[:output_data_config]") unless input[:output_data_config].nil?
+        OutputDataConfig.validate!(input[:output_data_config], context: "#{context}[:output_data_config]") unless input[:output_data_config].nil?
         Hearth::Validator.validate!(input[:data_access_role_arn], ::String, context: "#{context}[:data_access_role_arn]")
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
       end
@@ -160,7 +162,7 @@ module AWS::SDK::HealthLake
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ExportJobProperties.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ExportJobProperties.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -174,8 +176,8 @@ module AWS::SDK::HealthLake
         Hearth::Validator.validate!(input[:submit_time], ::Time, context: "#{context}[:submit_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
         Hearth::Validator.validate!(input[:datastore_id], ::String, context: "#{context}[:datastore_id]")
-        Validators::InputDataConfig.validate!(input[:input_data_config], context: "#{context}[:input_data_config]") unless input[:input_data_config].nil?
-        Validators::OutputDataConfig.validate!(input[:job_output_data_config], context: "#{context}[:job_output_data_config]") unless input[:job_output_data_config].nil?
+        InputDataConfig.validate!(input[:input_data_config], context: "#{context}[:input_data_config]") unless input[:input_data_config].nil?
+        OutputDataConfig.validate!(input[:job_output_data_config], context: "#{context}[:job_output_data_config]") unless input[:job_output_data_config].nil?
         Hearth::Validator.validate!(input[:data_access_role_arn], ::String, context: "#{context}[:data_access_role_arn]")
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
       end
@@ -185,7 +187,7 @@ module AWS::SDK::HealthLake
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ImportJobProperties.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ImportJobProperties.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -227,7 +229,7 @@ module AWS::SDK::HealthLake
     class ListFHIRDatastoresInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFHIRDatastoresInput, context: context)
-        Validators::DatastoreFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        DatastoreFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -236,7 +238,7 @@ module AWS::SDK::HealthLake
     class ListFHIRDatastoresOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFHIRDatastoresOutput, context: context)
-        Validators::DatastorePropertiesList.validate!(input[:datastore_properties_list], context: "#{context}[:datastore_properties_list]") unless input[:datastore_properties_list].nil?
+        DatastorePropertiesList.validate!(input[:datastore_properties_list], context: "#{context}[:datastore_properties_list]") unless input[:datastore_properties_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -257,7 +259,7 @@ module AWS::SDK::HealthLake
     class ListFHIRExportJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFHIRExportJobsOutput, context: context)
-        Validators::ExportJobPropertiesList.validate!(input[:export_job_properties_list], context: "#{context}[:export_job_properties_list]") unless input[:export_job_properties_list].nil?
+        ExportJobPropertiesList.validate!(input[:export_job_properties_list], context: "#{context}[:export_job_properties_list]") unless input[:export_job_properties_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -278,7 +280,7 @@ module AWS::SDK::HealthLake
     class ListFHIRImportJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFHIRImportJobsOutput, context: context)
-        Validators::ImportJobPropertiesList.validate!(input[:import_job_properties_list], context: "#{context}[:import_job_properties_list]") unless input[:import_job_properties_list].nil?
+        ImportJobPropertiesList.validate!(input[:import_job_properties_list], context: "#{context}[:import_job_properties_list]") unless input[:import_job_properties_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -293,7 +295,7 @@ module AWS::SDK::HealthLake
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -301,7 +303,7 @@ module AWS::SDK::HealthLake
       def self.validate!(input, context:)
         case input
         when Types::OutputDataConfig::S3Configuration
-          Validators::S3Configuration.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          S3Configuration.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -341,7 +343,7 @@ module AWS::SDK::HealthLake
     class SseConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SseConfiguration, context: context)
-        Validators::KmsEncryptionConfig.validate!(input[:kms_encryption_config], context: "#{context}[:kms_encryption_config]") unless input[:kms_encryption_config].nil?
+        KmsEncryptionConfig.validate!(input[:kms_encryption_config], context: "#{context}[:kms_encryption_config]") unless input[:kms_encryption_config].nil?
       end
     end
 
@@ -349,7 +351,7 @@ module AWS::SDK::HealthLake
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartFHIRExportJobInput, context: context)
         Hearth::Validator.validate!(input[:job_name], ::String, context: "#{context}[:job_name]")
-        Validators::OutputDataConfig.validate!(input[:output_data_config], context: "#{context}[:output_data_config]") unless input[:output_data_config].nil?
+        OutputDataConfig.validate!(input[:output_data_config], context: "#{context}[:output_data_config]") unless input[:output_data_config].nil?
         Hearth::Validator.validate!(input[:datastore_id], ::String, context: "#{context}[:datastore_id]")
         Hearth::Validator.validate!(input[:data_access_role_arn], ::String, context: "#{context}[:data_access_role_arn]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
@@ -369,8 +371,8 @@ module AWS::SDK::HealthLake
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartFHIRImportJobInput, context: context)
         Hearth::Validator.validate!(input[:job_name], ::String, context: "#{context}[:job_name]")
-        Validators::InputDataConfig.validate!(input[:input_data_config], context: "#{context}[:input_data_config]") unless input[:input_data_config].nil?
-        Validators::OutputDataConfig.validate!(input[:job_output_data_config], context: "#{context}[:job_output_data_config]") unless input[:job_output_data_config].nil?
+        InputDataConfig.validate!(input[:input_data_config], context: "#{context}[:input_data_config]") unless input[:input_data_config].nil?
+        OutputDataConfig.validate!(input[:job_output_data_config], context: "#{context}[:job_output_data_config]") unless input[:job_output_data_config].nil?
         Hearth::Validator.validate!(input[:datastore_id], ::String, context: "#{context}[:datastore_id]")
         Hearth::Validator.validate!(input[:data_access_role_arn], ::String, context: "#{context}[:data_access_role_arn]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
@@ -407,7 +409,7 @@ module AWS::SDK::HealthLake
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -416,7 +418,7 @@ module AWS::SDK::HealthLake
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -437,7 +439,7 @@ module AWS::SDK::HealthLake
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 

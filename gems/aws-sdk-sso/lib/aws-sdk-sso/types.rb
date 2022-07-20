@@ -273,6 +273,7 @@ module AWS::SDK::SSO
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.expiration ||= 0

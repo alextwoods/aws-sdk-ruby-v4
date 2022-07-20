@@ -169,10 +169,10 @@ module AWS::SDK::Glacier
           archive_sha256_tree_hash: 'archive_sha256_tree_hash',
           retrieval_byte_range: 'retrieval_byte_range',
           tier: 'tier',
-          inventory_retrieval_parameters: Stubs::InventoryRetrievalJobDescription.default(visited),
+          inventory_retrieval_parameters: InventoryRetrievalJobDescription.default(visited),
           job_output_path: 'job_output_path',
-          select_parameters: Stubs::SelectParameters.default(visited),
-          output_location: Stubs::OutputLocation.default(visited),
+          select_parameters: SelectParameters.default(visited),
+          output_location: OutputLocation.default(visited),
         }
       end
 
@@ -211,7 +211,7 @@ module AWS::SDK::Glacier
         return nil if visited.include?('OutputLocation')
         visited = visited + ['OutputLocation']
         {
-          s3: Stubs::S3Location.default(visited),
+          s3: S3Location.default(visited),
         }
       end
 
@@ -231,11 +231,11 @@ module AWS::SDK::Glacier
         {
           bucket_name: 'bucket_name',
           prefix: 'prefix',
-          encryption: Stubs::Encryption.default(visited),
+          encryption: Encryption.default(visited),
           canned_acl: 'canned_acl',
-          access_control_list: Stubs::AccessControlPolicyList.default(visited),
-          tagging: Stubs::Hashmap.default(visited),
-          user_metadata: Stubs::Hashmap.default(visited),
+          access_control_list: AccessControlPolicyList.default(visited),
+          tagging: Hashmap.default(visited),
+          user_metadata: Hashmap.default(visited),
           storage_class: 'storage_class',
         }
       end
@@ -281,7 +281,7 @@ module AWS::SDK::Glacier
         return nil if visited.include?('AccessControlPolicyList')
         visited = visited + ['AccessControlPolicyList']
         [
-          Stubs::Grant.default(visited)
+          Grant.default(visited)
         ]
       end
 
@@ -301,7 +301,7 @@ module AWS::SDK::Glacier
         return nil if visited.include?('Grant')
         visited = visited + ['Grant']
         {
-          grantee: Stubs::Grantee.default(visited),
+          grantee: Grantee.default(visited),
           permission: 'permission',
         }
       end
@@ -369,10 +369,10 @@ module AWS::SDK::Glacier
         return nil if visited.include?('SelectParameters')
         visited = visited + ['SelectParameters']
         {
-          input_serialization: Stubs::InputSerialization.default(visited),
+          input_serialization: InputSerialization.default(visited),
           expression_type: 'expression_type',
           expression: 'expression',
-          output_serialization: Stubs::OutputSerialization.default(visited),
+          output_serialization: OutputSerialization.default(visited),
         }
       end
 
@@ -393,7 +393,7 @@ module AWS::SDK::Glacier
         return nil if visited.include?('OutputSerialization')
         visited = visited + ['OutputSerialization']
         {
-          csv: Stubs::CSVOutput.default(visited),
+          csv: CSVOutput.default(visited),
         }
       end
 
@@ -437,7 +437,7 @@ module AWS::SDK::Glacier
         return nil if visited.include?('InputSerialization')
         visited = visited + ['InputSerialization']
         {
-          csv: Stubs::CSVInput.default(visited),
+          csv: CSVInput.default(visited),
         }
       end
 
@@ -534,7 +534,7 @@ module AWS::SDK::Glacier
     class GetDataRetrievalPolicy
       def self.default(visited=[])
         {
-          policy: Stubs::DataRetrievalPolicy.default(visited),
+          policy: DataRetrievalPolicy.default(visited),
         }
       end
 
@@ -553,7 +553,7 @@ module AWS::SDK::Glacier
         return nil if visited.include?('DataRetrievalPolicy')
         visited = visited + ['DataRetrievalPolicy']
         {
-          rules: Stubs::DataRetrievalRulesList.default(visited),
+          rules: DataRetrievalRulesList.default(visited),
         }
       end
 
@@ -571,7 +571,7 @@ module AWS::SDK::Glacier
         return nil if visited.include?('DataRetrievalRulesList')
         visited = visited + ['DataRetrievalRulesList']
         [
-          Stubs::DataRetrievalRule.default(visited)
+          DataRetrievalRule.default(visited)
         ]
       end
 
@@ -636,7 +636,7 @@ module AWS::SDK::Glacier
     class GetVaultAccessPolicy
       def self.default(visited=[])
         {
-          policy: Stubs::VaultAccessPolicy.default(visited),
+          policy: VaultAccessPolicy.default(visited),
         }
       end
 
@@ -694,7 +694,7 @@ module AWS::SDK::Glacier
     class GetVaultNotifications
       def self.default(visited=[])
         {
-          vault_notification_config: Stubs::VaultNotificationConfig.default(visited),
+          vault_notification_config: VaultNotificationConfig.default(visited),
         }
       end
 
@@ -714,7 +714,7 @@ module AWS::SDK::Glacier
         visited = visited + ['VaultNotificationConfig']
         {
           sns_topic: 'sns_topic',
-          events: Stubs::NotificationEventList.default(visited),
+          events: NotificationEventList.default(visited),
         }
       end
 
@@ -802,7 +802,7 @@ module AWS::SDK::Glacier
     class ListJobs
       def self.default(visited=[])
         {
-          job_list: Stubs::JobList.default(visited),
+          job_list: JobList.default(visited),
           marker: 'marker',
         }
       end
@@ -823,7 +823,7 @@ module AWS::SDK::Glacier
         return nil if visited.include?('JobList')
         visited = visited + ['JobList']
         [
-          Stubs::GlacierJobDescription.default(visited)
+          GlacierJobDescription.default(visited)
         ]
       end
 
@@ -860,10 +860,10 @@ module AWS::SDK::Glacier
           archive_sha256_tree_hash: 'archive_sha256_tree_hash',
           retrieval_byte_range: 'retrieval_byte_range',
           tier: 'tier',
-          inventory_retrieval_parameters: Stubs::InventoryRetrievalJobDescription.default(visited),
+          inventory_retrieval_parameters: InventoryRetrievalJobDescription.default(visited),
           job_output_path: 'job_output_path',
-          select_parameters: Stubs::SelectParameters.default(visited),
-          output_location: Stubs::OutputLocation.default(visited),
+          select_parameters: SelectParameters.default(visited),
+          output_location: OutputLocation.default(visited),
         }
       end
 
@@ -899,7 +899,7 @@ module AWS::SDK::Glacier
     class ListMultipartUploads
       def self.default(visited=[])
         {
-          uploads_list: Stubs::UploadsList.default(visited),
+          uploads_list: UploadsList.default(visited),
           marker: 'marker',
         }
       end
@@ -920,7 +920,7 @@ module AWS::SDK::Glacier
         return nil if visited.include?('UploadsList')
         visited = visited + ['UploadsList']
         [
-          Stubs::UploadListElement.default(visited)
+          UploadListElement.default(visited)
         ]
       end
 
@@ -969,7 +969,7 @@ module AWS::SDK::Glacier
           archive_description: 'archive_description',
           part_size_in_bytes: 1,
           creation_date: 'creation_date',
-          parts: Stubs::PartList.default(visited),
+          parts: PartList.default(visited),
           marker: 'marker',
         }
       end
@@ -995,7 +995,7 @@ module AWS::SDK::Glacier
         return nil if visited.include?('PartList')
         visited = visited + ['PartList']
         [
-          Stubs::PartListElement.default(visited)
+          PartListElement.default(visited)
         ]
       end
 
@@ -1033,7 +1033,7 @@ module AWS::SDK::Glacier
     class ListProvisionedCapacity
       def self.default(visited=[])
         {
-          provisioned_capacity_list: Stubs::ProvisionedCapacityList.default(visited),
+          provisioned_capacity_list: ProvisionedCapacityList.default(visited),
         }
       end
 
@@ -1052,7 +1052,7 @@ module AWS::SDK::Glacier
         return nil if visited.include?('ProvisionedCapacityList')
         visited = visited + ['ProvisionedCapacityList']
         [
-          Stubs::ProvisionedCapacityDescription.default(visited)
+          ProvisionedCapacityDescription.default(visited)
         ]
       end
 
@@ -1092,7 +1092,7 @@ module AWS::SDK::Glacier
     class ListTagsForVault
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1129,7 +1129,7 @@ module AWS::SDK::Glacier
     class ListVaults
       def self.default(visited=[])
         {
-          vault_list: Stubs::VaultList.default(visited),
+          vault_list: VaultList.default(visited),
           marker: 'marker',
         }
       end
@@ -1150,7 +1150,7 @@ module AWS::SDK::Glacier
         return nil if visited.include?('VaultList')
         visited = visited + ['VaultList']
         [
-          Stubs::DescribeVaultOutput.default(visited)
+          DescribeVaultOutput.default(visited)
         ]
       end
 

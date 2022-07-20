@@ -762,12 +762,12 @@ module AWS::SDK::ChimeSDKMeetings
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable_partial_results_stabilization ||= false
         self.identify_language ||= false
       end
-
     end
 
     # <p>The client is permanently forbidden from making the request.</p>

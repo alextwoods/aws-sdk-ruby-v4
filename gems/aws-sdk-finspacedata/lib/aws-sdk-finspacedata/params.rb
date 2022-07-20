@@ -121,7 +121,7 @@ module AWS::SDK::FinspaceData
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateChangesetInput, context: context)
         type = Types::CreateChangesetInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.dataset_id = params[:dataset_id]
         type.change_type = params[:change_type]
         type.source_params = SourceParams.build(params[:source_params], context: "#{context}[:source_params]") unless params[:source_params].nil?
@@ -144,7 +144,7 @@ module AWS::SDK::FinspaceData
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateDataViewInput, context: context)
         type = Types::CreateDataViewInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.dataset_id = params[:dataset_id]
         type.auto_update = params[:auto_update]
         type.sort_columns = SortColumnList.build(params[:sort_columns], context: "#{context}[:sort_columns]") unless params[:sort_columns].nil?
@@ -169,7 +169,7 @@ module AWS::SDK::FinspaceData
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateDatasetInput, context: context)
         type = Types::CreateDatasetInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.dataset_title = params[:dataset_title]
         type.kind = params[:kind]
         type.dataset_description = params[:dataset_description]
@@ -197,7 +197,7 @@ module AWS::SDK::FinspaceData
         type.name = params[:name]
         type.description = params[:description]
         type.application_permissions = ApplicationPermissionList.build(params[:application_permissions], context: "#{context}[:application_permissions]") unless params[:application_permissions].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -221,7 +221,7 @@ module AWS::SDK::FinspaceData
         type.last_name = params[:last_name]
         type.api_access = params[:api_access]
         type.api_access_principal_arn = params[:api_access_principal_arn]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -342,7 +342,7 @@ module AWS::SDK::FinspaceData
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::DeleteDatasetInput, context: context)
         type = Types::DeleteDatasetInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.dataset_id = params[:dataset_id]
         type
       end
@@ -362,7 +362,7 @@ module AWS::SDK::FinspaceData
         Hearth::Validator.validate!(params, ::Hash, Types::DeletePermissionGroupInput, context: context)
         type = Types::DeletePermissionGroupInput.new
         type.permission_group_id = params[:permission_group_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -381,7 +381,7 @@ module AWS::SDK::FinspaceData
         Hearth::Validator.validate!(params, ::Hash, Types::DisableUserInput, context: context)
         type = Types::DisableUserInput.new
         type.user_id = params[:user_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -400,7 +400,7 @@ module AWS::SDK::FinspaceData
         Hearth::Validator.validate!(params, ::Hash, Types::EnableUserInput, context: context)
         type = Types::EnableUserInput.new
         type.user_id = params[:user_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -754,7 +754,7 @@ module AWS::SDK::FinspaceData
         Hearth::Validator.validate!(params, ::Hash, Types::ResetUserPasswordInput, context: context)
         type = Types::ResetUserPasswordInput.new
         type.user_id = params[:user_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -863,7 +863,7 @@ module AWS::SDK::FinspaceData
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::UpdateChangesetInput, context: context)
         type = Types::UpdateChangesetInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.dataset_id = params[:dataset_id]
         type.changeset_id = params[:changeset_id]
         type.source_params = SourceParams.build(params[:source_params], context: "#{context}[:source_params]") unless params[:source_params].nil?
@@ -886,7 +886,7 @@ module AWS::SDK::FinspaceData
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::UpdateDatasetInput, context: context)
         type = Types::UpdateDatasetInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.dataset_id = params[:dataset_id]
         type.dataset_title = params[:dataset_title]
         type.kind = params[:kind]
@@ -914,7 +914,7 @@ module AWS::SDK::FinspaceData
         type.name = params[:name]
         type.description = params[:description]
         type.application_permissions = ApplicationPermissionList.build(params[:application_permissions], context: "#{context}[:application_permissions]") unless params[:application_permissions].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -938,7 +938,7 @@ module AWS::SDK::FinspaceData
         type.last_name = params[:last_name]
         type.api_access = params[:api_access]
         type.api_access_principal_arn = params[:api_access_principal_arn]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end

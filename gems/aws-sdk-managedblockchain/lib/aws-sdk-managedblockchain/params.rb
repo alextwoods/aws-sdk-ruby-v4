@@ -36,7 +36,7 @@ module AWS::SDK::ManagedBlockchain
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateMemberInput, context: context)
         type = Types::CreateMemberInput.new
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.invitation_id = params[:invitation_id]
         type.network_id = params[:network_id]
         type.member_configuration = MemberConfiguration.build(params[:member_configuration], context: "#{context}[:member_configuration]") unless params[:member_configuration].nil?
@@ -57,7 +57,7 @@ module AWS::SDK::ManagedBlockchain
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateNetworkInput, context: context)
         type = Types::CreateNetworkInput.new
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.name = params[:name]
         type.description = params[:description]
         type.framework = params[:framework]
@@ -84,7 +84,7 @@ module AWS::SDK::ManagedBlockchain
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateNodeInput, context: context)
         type = Types::CreateNodeInput.new
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.network_id = params[:network_id]
         type.member_id = params[:member_id]
         type.node_configuration = NodeConfiguration.build(params[:node_configuration], context: "#{context}[:node_configuration]") unless params[:node_configuration].nil?
@@ -106,7 +106,7 @@ module AWS::SDK::ManagedBlockchain
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateProposalInput, context: context)
         type = Types::CreateProposalInput.new
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.network_id = params[:network_id]
         type.member_id = params[:member_id]
         type.actions = ProposalActions.build(params[:actions], context: "#{context}[:actions]") unless params[:actions].nil?

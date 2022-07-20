@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::TimestreamWrite
@@ -94,7 +96,7 @@ module AWS::SDK::TimestreamWrite
     def create_database(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDatabaseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDatabaseInput,
         validate_input: @config.validate_input
@@ -224,7 +226,7 @@ module AWS::SDK::TimestreamWrite
     def create_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTableInput,
         validate_input: @config.validate_input
@@ -305,7 +307,7 @@ module AWS::SDK::TimestreamWrite
     def delete_database(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDatabaseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDatabaseInput,
         validate_input: @config.validate_input
@@ -386,7 +388,7 @@ module AWS::SDK::TimestreamWrite
     def delete_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTableInput,
         validate_input: @config.validate_input
@@ -464,7 +466,7 @@ module AWS::SDK::TimestreamWrite
     def describe_database(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDatabaseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDatabaseInput,
         validate_input: @config.validate_input
@@ -549,7 +551,7 @@ module AWS::SDK::TimestreamWrite
     def describe_endpoints(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEndpointsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEndpointsInput,
         validate_input: @config.validate_input
@@ -643,7 +645,7 @@ module AWS::SDK::TimestreamWrite
     def describe_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTableInput,
         validate_input: @config.validate_input
@@ -727,7 +729,7 @@ module AWS::SDK::TimestreamWrite
     def list_databases(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDatabasesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDatabasesInput,
         validate_input: @config.validate_input
@@ -826,7 +828,7 @@ module AWS::SDK::TimestreamWrite
     def list_tables(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTablesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTablesInput,
         validate_input: @config.validate_input
@@ -902,7 +904,7 @@ module AWS::SDK::TimestreamWrite
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -988,7 +990,7 @@ module AWS::SDK::TimestreamWrite
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -1070,7 +1072,7 @@ module AWS::SDK::TimestreamWrite
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -1180,7 +1182,7 @@ module AWS::SDK::TimestreamWrite
     def update_database(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDatabaseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDatabaseInput,
         validate_input: @config.validate_input
@@ -1298,7 +1300,7 @@ module AWS::SDK::TimestreamWrite
     def update_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTableInput,
         validate_input: @config.validate_input
@@ -1455,7 +1457,7 @@ module AWS::SDK::TimestreamWrite
     def write_records(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::WriteRecordsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::WriteRecordsInput,
         validate_input: @config.validate_input

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::ApiGatewayV2
   module Validators
 
@@ -32,18 +34,18 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input[:api_gateway_managed], ::TrueClass, ::FalseClass, context: "#{context}[:api_gateway_managed]")
         Hearth::Validator.validate!(input[:api_id], ::String, context: "#{context}[:api_id]")
         Hearth::Validator.validate!(input[:api_key_selection_expression], ::String, context: "#{context}[:api_key_selection_expression]")
-        Validators::Cors.validate!(input[:cors_configuration], context: "#{context}[:cors_configuration]") unless input[:cors_configuration].nil?
+        Cors.validate!(input[:cors_configuration], context: "#{context}[:cors_configuration]") unless input[:cors_configuration].nil?
         Hearth::Validator.validate!(input[:created_date], ::Time, context: "#{context}[:created_date]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:disable_schema_validation], ::TrueClass, ::FalseClass, context: "#{context}[:disable_schema_validation]")
         Hearth::Validator.validate!(input[:disable_execute_api_endpoint], ::TrueClass, ::FalseClass, context: "#{context}[:disable_execute_api_endpoint]")
-        Validators::List____listOf__string.validate!(input[:import_info], context: "#{context}[:import_info]") unless input[:import_info].nil?
+        List____listOf__string.validate!(input[:import_info], context: "#{context}[:import_info]") unless input[:import_info].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:protocol_type], ::String, context: "#{context}[:protocol_type]")
         Hearth::Validator.validate!(input[:route_selection_expression], ::String, context: "#{context}[:route_selection_expression]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
-        Validators::List____listOf__string.validate!(input[:warnings], context: "#{context}[:warnings]") unless input[:warnings].nil?
+        List____listOf__string.validate!(input[:warnings], context: "#{context}[:warnings]") unless input[:warnings].nil?
       end
     end
 
@@ -76,9 +78,9 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input[:authorizer_type], ::String, context: "#{context}[:authorizer_type]")
         Hearth::Validator.validate!(input[:authorizer_uri], ::String, context: "#{context}[:authorizer_uri]")
         Hearth::Validator.validate!(input[:enable_simple_responses], ::TrueClass, ::FalseClass, context: "#{context}[:enable_simple_responses]")
-        Validators::IdentitySourceList.validate!(input[:identity_source], context: "#{context}[:identity_source]") unless input[:identity_source].nil?
+        IdentitySourceList.validate!(input[:identity_source], context: "#{context}[:identity_source]") unless input[:identity_source].nil?
         Hearth::Validator.validate!(input[:identity_validation_expression], ::String, context: "#{context}[:identity_validation_expression]")
-        Validators::JWTConfiguration.validate!(input[:jwt_configuration], context: "#{context}[:jwt_configuration]") unless input[:jwt_configuration].nil?
+        JWTConfiguration.validate!(input[:jwt_configuration], context: "#{context}[:jwt_configuration]") unless input[:jwt_configuration].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
       end
     end
@@ -101,10 +103,10 @@ module AWS::SDK::ApiGatewayV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Cors, context: context)
         Hearth::Validator.validate!(input[:allow_credentials], ::TrueClass, ::FalseClass, context: "#{context}[:allow_credentials]")
-        Validators::CorsHeaderList.validate!(input[:allow_headers], context: "#{context}[:allow_headers]") unless input[:allow_headers].nil?
-        Validators::CorsMethodList.validate!(input[:allow_methods], context: "#{context}[:allow_methods]") unless input[:allow_methods].nil?
-        Validators::CorsOriginList.validate!(input[:allow_origins], context: "#{context}[:allow_origins]") unless input[:allow_origins].nil?
-        Validators::CorsHeaderList.validate!(input[:expose_headers], context: "#{context}[:expose_headers]") unless input[:expose_headers].nil?
+        CorsHeaderList.validate!(input[:allow_headers], context: "#{context}[:allow_headers]") unless input[:allow_headers].nil?
+        CorsMethodList.validate!(input[:allow_methods], context: "#{context}[:allow_methods]") unless input[:allow_methods].nil?
+        CorsOriginList.validate!(input[:allow_origins], context: "#{context}[:allow_origins]") unless input[:allow_origins].nil?
+        CorsHeaderList.validate!(input[:expose_headers], context: "#{context}[:expose_headers]") unless input[:expose_headers].nil?
         Hearth::Validator.validate!(input[:max_age], ::Integer, context: "#{context}[:max_age]")
       end
     end
@@ -140,7 +142,7 @@ module AWS::SDK::ApiGatewayV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateApiInput, context: context)
         Hearth::Validator.validate!(input[:api_key_selection_expression], ::String, context: "#{context}[:api_key_selection_expression]")
-        Validators::Cors.validate!(input[:cors_configuration], context: "#{context}[:cors_configuration]") unless input[:cors_configuration].nil?
+        Cors.validate!(input[:cors_configuration], context: "#{context}[:cors_configuration]") unless input[:cors_configuration].nil?
         Hearth::Validator.validate!(input[:credentials_arn], ::String, context: "#{context}[:credentials_arn]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:disable_schema_validation], ::TrueClass, ::FalseClass, context: "#{context}[:disable_schema_validation]")
@@ -149,7 +151,7 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input[:protocol_type], ::String, context: "#{context}[:protocol_type]")
         Hearth::Validator.validate!(input[:route_key], ::String, context: "#{context}[:route_key]")
         Hearth::Validator.validate!(input[:route_selection_expression], ::String, context: "#{context}[:route_selection_expression]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:target], ::String, context: "#{context}[:target]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
       end
@@ -182,18 +184,18 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input[:api_gateway_managed], ::TrueClass, ::FalseClass, context: "#{context}[:api_gateway_managed]")
         Hearth::Validator.validate!(input[:api_id], ::String, context: "#{context}[:api_id]")
         Hearth::Validator.validate!(input[:api_key_selection_expression], ::String, context: "#{context}[:api_key_selection_expression]")
-        Validators::Cors.validate!(input[:cors_configuration], context: "#{context}[:cors_configuration]") unless input[:cors_configuration].nil?
+        Cors.validate!(input[:cors_configuration], context: "#{context}[:cors_configuration]") unless input[:cors_configuration].nil?
         Hearth::Validator.validate!(input[:created_date], ::Time, context: "#{context}[:created_date]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:disable_schema_validation], ::TrueClass, ::FalseClass, context: "#{context}[:disable_schema_validation]")
         Hearth::Validator.validate!(input[:disable_execute_api_endpoint], ::TrueClass, ::FalseClass, context: "#{context}[:disable_execute_api_endpoint]")
-        Validators::List____listOf__string.validate!(input[:import_info], context: "#{context}[:import_info]") unless input[:import_info].nil?
+        List____listOf__string.validate!(input[:import_info], context: "#{context}[:import_info]") unless input[:import_info].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:protocol_type], ::String, context: "#{context}[:protocol_type]")
         Hearth::Validator.validate!(input[:route_selection_expression], ::String, context: "#{context}[:route_selection_expression]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
-        Validators::List____listOf__string.validate!(input[:warnings], context: "#{context}[:warnings]") unless input[:warnings].nil?
+        List____listOf__string.validate!(input[:warnings], context: "#{context}[:warnings]") unless input[:warnings].nil?
       end
     end
 
@@ -207,9 +209,9 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input[:authorizer_type], ::String, context: "#{context}[:authorizer_type]")
         Hearth::Validator.validate!(input[:authorizer_uri], ::String, context: "#{context}[:authorizer_uri]")
         Hearth::Validator.validate!(input[:enable_simple_responses], ::TrueClass, ::FalseClass, context: "#{context}[:enable_simple_responses]")
-        Validators::IdentitySourceList.validate!(input[:identity_source], context: "#{context}[:identity_source]") unless input[:identity_source].nil?
+        IdentitySourceList.validate!(input[:identity_source], context: "#{context}[:identity_source]") unless input[:identity_source].nil?
         Hearth::Validator.validate!(input[:identity_validation_expression], ::String, context: "#{context}[:identity_validation_expression]")
-        Validators::JWTConfiguration.validate!(input[:jwt_configuration], context: "#{context}[:jwt_configuration]") unless input[:jwt_configuration].nil?
+        JWTConfiguration.validate!(input[:jwt_configuration], context: "#{context}[:jwt_configuration]") unless input[:jwt_configuration].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
       end
     end
@@ -224,9 +226,9 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input[:authorizer_type], ::String, context: "#{context}[:authorizer_type]")
         Hearth::Validator.validate!(input[:authorizer_uri], ::String, context: "#{context}[:authorizer_uri]")
         Hearth::Validator.validate!(input[:enable_simple_responses], ::TrueClass, ::FalseClass, context: "#{context}[:enable_simple_responses]")
-        Validators::IdentitySourceList.validate!(input[:identity_source], context: "#{context}[:identity_source]") unless input[:identity_source].nil?
+        IdentitySourceList.validate!(input[:identity_source], context: "#{context}[:identity_source]") unless input[:identity_source].nil?
         Hearth::Validator.validate!(input[:identity_validation_expression], ::String, context: "#{context}[:identity_validation_expression]")
-        Validators::JWTConfiguration.validate!(input[:jwt_configuration], context: "#{context}[:jwt_configuration]") unless input[:jwt_configuration].nil?
+        JWTConfiguration.validate!(input[:jwt_configuration], context: "#{context}[:jwt_configuration]") unless input[:jwt_configuration].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
       end
     end
@@ -256,9 +258,9 @@ module AWS::SDK::ApiGatewayV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateDomainNameInput, context: context)
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
-        Validators::DomainNameConfigurations.validate!(input[:domain_name_configurations], context: "#{context}[:domain_name_configurations]") unless input[:domain_name_configurations].nil?
-        Validators::MutualTlsAuthenticationInput.validate!(input[:mutual_tls_authentication], context: "#{context}[:mutual_tls_authentication]") unless input[:mutual_tls_authentication].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        DomainNameConfigurations.validate!(input[:domain_name_configurations], context: "#{context}[:domain_name_configurations]") unless input[:domain_name_configurations].nil?
+        MutualTlsAuthenticationInput.validate!(input[:mutual_tls_authentication], context: "#{context}[:mutual_tls_authentication]") unless input[:mutual_tls_authentication].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -267,9 +269,9 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input, Types::CreateDomainNameOutput, context: context)
         Hearth::Validator.validate!(input[:api_mapping_selection_expression], ::String, context: "#{context}[:api_mapping_selection_expression]")
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
-        Validators::DomainNameConfigurations.validate!(input[:domain_name_configurations], context: "#{context}[:domain_name_configurations]") unless input[:domain_name_configurations].nil?
-        Validators::MutualTlsAuthentication.validate!(input[:mutual_tls_authentication], context: "#{context}[:mutual_tls_authentication]") unless input[:mutual_tls_authentication].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        DomainNameConfigurations.validate!(input[:domain_name_configurations], context: "#{context}[:domain_name_configurations]") unless input[:domain_name_configurations].nil?
+        MutualTlsAuthentication.validate!(input[:mutual_tls_authentication], context: "#{context}[:mutual_tls_authentication]") unless input[:mutual_tls_authentication].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -288,12 +290,12 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input[:integration_uri], ::String, context: "#{context}[:integration_uri]")
         Hearth::Validator.validate!(input[:passthrough_behavior], ::String, context: "#{context}[:passthrough_behavior]")
         Hearth::Validator.validate!(input[:payload_format_version], ::String, context: "#{context}[:payload_format_version]")
-        Validators::IntegrationParameters.validate!(input[:request_parameters], context: "#{context}[:request_parameters]") unless input[:request_parameters].nil?
-        Validators::TemplateMap.validate!(input[:request_templates], context: "#{context}[:request_templates]") unless input[:request_templates].nil?
-        Validators::ResponseParameters.validate!(input[:response_parameters], context: "#{context}[:response_parameters]") unless input[:response_parameters].nil?
+        IntegrationParameters.validate!(input[:request_parameters], context: "#{context}[:request_parameters]") unless input[:request_parameters].nil?
+        TemplateMap.validate!(input[:request_templates], context: "#{context}[:request_templates]") unless input[:request_templates].nil?
+        ResponseParameters.validate!(input[:response_parameters], context: "#{context}[:response_parameters]") unless input[:response_parameters].nil?
         Hearth::Validator.validate!(input[:template_selection_expression], ::String, context: "#{context}[:template_selection_expression]")
         Hearth::Validator.validate!(input[:timeout_in_millis], ::Integer, context: "#{context}[:timeout_in_millis]")
-        Validators::TlsConfigInput.validate!(input[:tls_config], context: "#{context}[:tls_config]") unless input[:tls_config].nil?
+        TlsConfigInput.validate!(input[:tls_config], context: "#{context}[:tls_config]") unless input[:tls_config].nil?
       end
     end
 
@@ -314,12 +316,12 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input[:integration_uri], ::String, context: "#{context}[:integration_uri]")
         Hearth::Validator.validate!(input[:passthrough_behavior], ::String, context: "#{context}[:passthrough_behavior]")
         Hearth::Validator.validate!(input[:payload_format_version], ::String, context: "#{context}[:payload_format_version]")
-        Validators::IntegrationParameters.validate!(input[:request_parameters], context: "#{context}[:request_parameters]") unless input[:request_parameters].nil?
-        Validators::TemplateMap.validate!(input[:request_templates], context: "#{context}[:request_templates]") unless input[:request_templates].nil?
-        Validators::ResponseParameters.validate!(input[:response_parameters], context: "#{context}[:response_parameters]") unless input[:response_parameters].nil?
+        IntegrationParameters.validate!(input[:request_parameters], context: "#{context}[:request_parameters]") unless input[:request_parameters].nil?
+        TemplateMap.validate!(input[:request_templates], context: "#{context}[:request_templates]") unless input[:request_templates].nil?
+        ResponseParameters.validate!(input[:response_parameters], context: "#{context}[:response_parameters]") unless input[:response_parameters].nil?
         Hearth::Validator.validate!(input[:template_selection_expression], ::String, context: "#{context}[:template_selection_expression]")
         Hearth::Validator.validate!(input[:timeout_in_millis], ::Integer, context: "#{context}[:timeout_in_millis]")
-        Validators::TlsConfig.validate!(input[:tls_config], context: "#{context}[:tls_config]") unless input[:tls_config].nil?
+        TlsConfig.validate!(input[:tls_config], context: "#{context}[:tls_config]") unless input[:tls_config].nil?
       end
     end
 
@@ -330,8 +332,8 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input[:content_handling_strategy], ::String, context: "#{context}[:content_handling_strategy]")
         Hearth::Validator.validate!(input[:integration_id], ::String, context: "#{context}[:integration_id]")
         Hearth::Validator.validate!(input[:integration_response_key], ::String, context: "#{context}[:integration_response_key]")
-        Validators::IntegrationParameters.validate!(input[:response_parameters], context: "#{context}[:response_parameters]") unless input[:response_parameters].nil?
-        Validators::TemplateMap.validate!(input[:response_templates], context: "#{context}[:response_templates]") unless input[:response_templates].nil?
+        IntegrationParameters.validate!(input[:response_parameters], context: "#{context}[:response_parameters]") unless input[:response_parameters].nil?
+        TemplateMap.validate!(input[:response_templates], context: "#{context}[:response_templates]") unless input[:response_templates].nil?
         Hearth::Validator.validate!(input[:template_selection_expression], ::String, context: "#{context}[:template_selection_expression]")
       end
     end
@@ -342,8 +344,8 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input[:content_handling_strategy], ::String, context: "#{context}[:content_handling_strategy]")
         Hearth::Validator.validate!(input[:integration_response_id], ::String, context: "#{context}[:integration_response_id]")
         Hearth::Validator.validate!(input[:integration_response_key], ::String, context: "#{context}[:integration_response_key]")
-        Validators::IntegrationParameters.validate!(input[:response_parameters], context: "#{context}[:response_parameters]") unless input[:response_parameters].nil?
-        Validators::TemplateMap.validate!(input[:response_templates], context: "#{context}[:response_templates]") unless input[:response_templates].nil?
+        IntegrationParameters.validate!(input[:response_parameters], context: "#{context}[:response_parameters]") unless input[:response_parameters].nil?
+        TemplateMap.validate!(input[:response_templates], context: "#{context}[:response_templates]") unless input[:response_templates].nil?
         Hearth::Validator.validate!(input[:template_selection_expression], ::String, context: "#{context}[:template_selection_expression]")
       end
     end
@@ -375,13 +377,13 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input, Types::CreateRouteInput, context: context)
         Hearth::Validator.validate!(input[:api_id], ::String, context: "#{context}[:api_id]")
         Hearth::Validator.validate!(input[:api_key_required], ::TrueClass, ::FalseClass, context: "#{context}[:api_key_required]")
-        Validators::AuthorizationScopes.validate!(input[:authorization_scopes], context: "#{context}[:authorization_scopes]") unless input[:authorization_scopes].nil?
+        AuthorizationScopes.validate!(input[:authorization_scopes], context: "#{context}[:authorization_scopes]") unless input[:authorization_scopes].nil?
         Hearth::Validator.validate!(input[:authorization_type], ::String, context: "#{context}[:authorization_type]")
         Hearth::Validator.validate!(input[:authorizer_id], ::String, context: "#{context}[:authorizer_id]")
         Hearth::Validator.validate!(input[:model_selection_expression], ::String, context: "#{context}[:model_selection_expression]")
         Hearth::Validator.validate!(input[:operation_name], ::String, context: "#{context}[:operation_name]")
-        Validators::RouteModels.validate!(input[:request_models], context: "#{context}[:request_models]") unless input[:request_models].nil?
-        Validators::RouteParameters.validate!(input[:request_parameters], context: "#{context}[:request_parameters]") unless input[:request_parameters].nil?
+        RouteModels.validate!(input[:request_models], context: "#{context}[:request_models]") unless input[:request_models].nil?
+        RouteParameters.validate!(input[:request_parameters], context: "#{context}[:request_parameters]") unless input[:request_parameters].nil?
         Hearth::Validator.validate!(input[:route_key], ::String, context: "#{context}[:route_key]")
         Hearth::Validator.validate!(input[:route_response_selection_expression], ::String, context: "#{context}[:route_response_selection_expression]")
         Hearth::Validator.validate!(input[:target], ::String, context: "#{context}[:target]")
@@ -393,13 +395,13 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input, Types::CreateRouteOutput, context: context)
         Hearth::Validator.validate!(input[:api_gateway_managed], ::TrueClass, ::FalseClass, context: "#{context}[:api_gateway_managed]")
         Hearth::Validator.validate!(input[:api_key_required], ::TrueClass, ::FalseClass, context: "#{context}[:api_key_required]")
-        Validators::AuthorizationScopes.validate!(input[:authorization_scopes], context: "#{context}[:authorization_scopes]") unless input[:authorization_scopes].nil?
+        AuthorizationScopes.validate!(input[:authorization_scopes], context: "#{context}[:authorization_scopes]") unless input[:authorization_scopes].nil?
         Hearth::Validator.validate!(input[:authorization_type], ::String, context: "#{context}[:authorization_type]")
         Hearth::Validator.validate!(input[:authorizer_id], ::String, context: "#{context}[:authorizer_id]")
         Hearth::Validator.validate!(input[:model_selection_expression], ::String, context: "#{context}[:model_selection_expression]")
         Hearth::Validator.validate!(input[:operation_name], ::String, context: "#{context}[:operation_name]")
-        Validators::RouteModels.validate!(input[:request_models], context: "#{context}[:request_models]") unless input[:request_models].nil?
-        Validators::RouteParameters.validate!(input[:request_parameters], context: "#{context}[:request_parameters]") unless input[:request_parameters].nil?
+        RouteModels.validate!(input[:request_models], context: "#{context}[:request_models]") unless input[:request_models].nil?
+        RouteParameters.validate!(input[:request_parameters], context: "#{context}[:request_parameters]") unless input[:request_parameters].nil?
         Hearth::Validator.validate!(input[:route_id], ::String, context: "#{context}[:route_id]")
         Hearth::Validator.validate!(input[:route_key], ::String, context: "#{context}[:route_key]")
         Hearth::Validator.validate!(input[:route_response_selection_expression], ::String, context: "#{context}[:route_response_selection_expression]")
@@ -412,8 +414,8 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input, Types::CreateRouteResponseInput, context: context)
         Hearth::Validator.validate!(input[:api_id], ::String, context: "#{context}[:api_id]")
         Hearth::Validator.validate!(input[:model_selection_expression], ::String, context: "#{context}[:model_selection_expression]")
-        Validators::RouteModels.validate!(input[:response_models], context: "#{context}[:response_models]") unless input[:response_models].nil?
-        Validators::RouteParameters.validate!(input[:response_parameters], context: "#{context}[:response_parameters]") unless input[:response_parameters].nil?
+        RouteModels.validate!(input[:response_models], context: "#{context}[:response_models]") unless input[:response_models].nil?
+        RouteParameters.validate!(input[:response_parameters], context: "#{context}[:response_parameters]") unless input[:response_parameters].nil?
         Hearth::Validator.validate!(input[:route_id], ::String, context: "#{context}[:route_id]")
         Hearth::Validator.validate!(input[:route_response_key], ::String, context: "#{context}[:route_response_key]")
       end
@@ -423,8 +425,8 @@ module AWS::SDK::ApiGatewayV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateRouteResponseOutput, context: context)
         Hearth::Validator.validate!(input[:model_selection_expression], ::String, context: "#{context}[:model_selection_expression]")
-        Validators::RouteModels.validate!(input[:response_models], context: "#{context}[:response_models]") unless input[:response_models].nil?
-        Validators::RouteParameters.validate!(input[:response_parameters], context: "#{context}[:response_parameters]") unless input[:response_parameters].nil?
+        RouteModels.validate!(input[:response_models], context: "#{context}[:response_models]") unless input[:response_models].nil?
+        RouteParameters.validate!(input[:response_parameters], context: "#{context}[:response_parameters]") unless input[:response_parameters].nil?
         Hearth::Validator.validate!(input[:route_response_id], ::String, context: "#{context}[:route_response_id]")
         Hearth::Validator.validate!(input[:route_response_key], ::String, context: "#{context}[:route_response_key]")
       end
@@ -433,37 +435,37 @@ module AWS::SDK::ApiGatewayV2
     class CreateStageInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateStageInput, context: context)
-        Validators::AccessLogSettings.validate!(input[:access_log_settings], context: "#{context}[:access_log_settings]") unless input[:access_log_settings].nil?
+        AccessLogSettings.validate!(input[:access_log_settings], context: "#{context}[:access_log_settings]") unless input[:access_log_settings].nil?
         Hearth::Validator.validate!(input[:api_id], ::String, context: "#{context}[:api_id]")
         Hearth::Validator.validate!(input[:auto_deploy], ::TrueClass, ::FalseClass, context: "#{context}[:auto_deploy]")
         Hearth::Validator.validate!(input[:client_certificate_id], ::String, context: "#{context}[:client_certificate_id]")
-        Validators::RouteSettings.validate!(input[:default_route_settings], context: "#{context}[:default_route_settings]") unless input[:default_route_settings].nil?
+        RouteSettings.validate!(input[:default_route_settings], context: "#{context}[:default_route_settings]") unless input[:default_route_settings].nil?
         Hearth::Validator.validate!(input[:deployment_id], ::String, context: "#{context}[:deployment_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::RouteSettingsMap.validate!(input[:route_settings], context: "#{context}[:route_settings]") unless input[:route_settings].nil?
+        RouteSettingsMap.validate!(input[:route_settings], context: "#{context}[:route_settings]") unless input[:route_settings].nil?
         Hearth::Validator.validate!(input[:stage_name], ::String, context: "#{context}[:stage_name]")
-        Validators::StageVariablesMap.validate!(input[:stage_variables], context: "#{context}[:stage_variables]") unless input[:stage_variables].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        StageVariablesMap.validate!(input[:stage_variables], context: "#{context}[:stage_variables]") unless input[:stage_variables].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateStageOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateStageOutput, context: context)
-        Validators::AccessLogSettings.validate!(input[:access_log_settings], context: "#{context}[:access_log_settings]") unless input[:access_log_settings].nil?
+        AccessLogSettings.validate!(input[:access_log_settings], context: "#{context}[:access_log_settings]") unless input[:access_log_settings].nil?
         Hearth::Validator.validate!(input[:api_gateway_managed], ::TrueClass, ::FalseClass, context: "#{context}[:api_gateway_managed]")
         Hearth::Validator.validate!(input[:auto_deploy], ::TrueClass, ::FalseClass, context: "#{context}[:auto_deploy]")
         Hearth::Validator.validate!(input[:client_certificate_id], ::String, context: "#{context}[:client_certificate_id]")
         Hearth::Validator.validate!(input[:created_date], ::Time, context: "#{context}[:created_date]")
-        Validators::RouteSettings.validate!(input[:default_route_settings], context: "#{context}[:default_route_settings]") unless input[:default_route_settings].nil?
+        RouteSettings.validate!(input[:default_route_settings], context: "#{context}[:default_route_settings]") unless input[:default_route_settings].nil?
         Hearth::Validator.validate!(input[:deployment_id], ::String, context: "#{context}[:deployment_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:last_deployment_status_message], ::String, context: "#{context}[:last_deployment_status_message]")
         Hearth::Validator.validate!(input[:last_updated_date], ::Time, context: "#{context}[:last_updated_date]")
-        Validators::RouteSettingsMap.validate!(input[:route_settings], context: "#{context}[:route_settings]") unless input[:route_settings].nil?
+        RouteSettingsMap.validate!(input[:route_settings], context: "#{context}[:route_settings]") unless input[:route_settings].nil?
         Hearth::Validator.validate!(input[:stage_name], ::String, context: "#{context}[:stage_name]")
-        Validators::StageVariablesMap.validate!(input[:stage_variables], context: "#{context}[:stage_variables]") unless input[:stage_variables].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        StageVariablesMap.validate!(input[:stage_variables], context: "#{context}[:stage_variables]") unless input[:stage_variables].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -471,9 +473,9 @@ module AWS::SDK::ApiGatewayV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateVpcLinkInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::SecurityGroupIdList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
-        Validators::SubnetIdList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        SecurityGroupIdList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        SubnetIdList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -482,9 +484,9 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input, Types::CreateVpcLinkOutput, context: context)
         Hearth::Validator.validate!(input[:created_date], ::Time, context: "#{context}[:created_date]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::SecurityGroupIdList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
-        Validators::SubnetIdList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        SecurityGroupIdList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        SubnetIdList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:vpc_link_id], ::String, context: "#{context}[:vpc_link_id]")
         Hearth::Validator.validate!(input[:vpc_link_status], ::String, context: "#{context}[:vpc_link_status]")
         Hearth::Validator.validate!(input[:vpc_link_status_message], ::String, context: "#{context}[:vpc_link_status_message]")
@@ -733,9 +735,9 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input, Types::DomainName, context: context)
         Hearth::Validator.validate!(input[:api_mapping_selection_expression], ::String, context: "#{context}[:api_mapping_selection_expression]")
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
-        Validators::DomainNameConfigurations.validate!(input[:domain_name_configurations], context: "#{context}[:domain_name_configurations]") unless input[:domain_name_configurations].nil?
-        Validators::MutualTlsAuthentication.validate!(input[:mutual_tls_authentication], context: "#{context}[:mutual_tls_authentication]") unless input[:mutual_tls_authentication].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        DomainNameConfigurations.validate!(input[:domain_name_configurations], context: "#{context}[:domain_name_configurations]") unless input[:domain_name_configurations].nil?
+        MutualTlsAuthentication.validate!(input[:mutual_tls_authentication], context: "#{context}[:mutual_tls_authentication]") unless input[:mutual_tls_authentication].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -759,7 +761,7 @@ module AWS::SDK::ApiGatewayV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DomainNameConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DomainNameConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -820,7 +822,7 @@ module AWS::SDK::ApiGatewayV2
     class GetApiMappingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetApiMappingsOutput, context: context)
-        Validators::List____listOfApiMapping.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        List____listOfApiMapping.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -832,18 +834,18 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input[:api_gateway_managed], ::TrueClass, ::FalseClass, context: "#{context}[:api_gateway_managed]")
         Hearth::Validator.validate!(input[:api_id], ::String, context: "#{context}[:api_id]")
         Hearth::Validator.validate!(input[:api_key_selection_expression], ::String, context: "#{context}[:api_key_selection_expression]")
-        Validators::Cors.validate!(input[:cors_configuration], context: "#{context}[:cors_configuration]") unless input[:cors_configuration].nil?
+        Cors.validate!(input[:cors_configuration], context: "#{context}[:cors_configuration]") unless input[:cors_configuration].nil?
         Hearth::Validator.validate!(input[:created_date], ::Time, context: "#{context}[:created_date]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:disable_schema_validation], ::TrueClass, ::FalseClass, context: "#{context}[:disable_schema_validation]")
         Hearth::Validator.validate!(input[:disable_execute_api_endpoint], ::TrueClass, ::FalseClass, context: "#{context}[:disable_execute_api_endpoint]")
-        Validators::List____listOf__string.validate!(input[:import_info], context: "#{context}[:import_info]") unless input[:import_info].nil?
+        List____listOf__string.validate!(input[:import_info], context: "#{context}[:import_info]") unless input[:import_info].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:protocol_type], ::String, context: "#{context}[:protocol_type]")
         Hearth::Validator.validate!(input[:route_selection_expression], ::String, context: "#{context}[:route_selection_expression]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
-        Validators::List____listOf__string.validate!(input[:warnings], context: "#{context}[:warnings]") unless input[:warnings].nil?
+        List____listOf__string.validate!(input[:warnings], context: "#{context}[:warnings]") unless input[:warnings].nil?
       end
     end
 
@@ -858,7 +860,7 @@ module AWS::SDK::ApiGatewayV2
     class GetApisOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetApisOutput, context: context)
-        Validators::List____listOfApi.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        List____listOfApi.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -881,9 +883,9 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input[:authorizer_type], ::String, context: "#{context}[:authorizer_type]")
         Hearth::Validator.validate!(input[:authorizer_uri], ::String, context: "#{context}[:authorizer_uri]")
         Hearth::Validator.validate!(input[:enable_simple_responses], ::TrueClass, ::FalseClass, context: "#{context}[:enable_simple_responses]")
-        Validators::IdentitySourceList.validate!(input[:identity_source], context: "#{context}[:identity_source]") unless input[:identity_source].nil?
+        IdentitySourceList.validate!(input[:identity_source], context: "#{context}[:identity_source]") unless input[:identity_source].nil?
         Hearth::Validator.validate!(input[:identity_validation_expression], ::String, context: "#{context}[:identity_validation_expression]")
-        Validators::JWTConfiguration.validate!(input[:jwt_configuration], context: "#{context}[:jwt_configuration]") unless input[:jwt_configuration].nil?
+        JWTConfiguration.validate!(input[:jwt_configuration], context: "#{context}[:jwt_configuration]") unless input[:jwt_configuration].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
       end
     end
@@ -900,7 +902,7 @@ module AWS::SDK::ApiGatewayV2
     class GetAuthorizersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAuthorizersOutput, context: context)
-        Validators::List____listOfAuthorizer.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        List____listOfAuthorizer.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -937,7 +939,7 @@ module AWS::SDK::ApiGatewayV2
     class GetDeploymentsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDeploymentsOutput, context: context)
-        Validators::List____listOfDeployment.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        List____listOfDeployment.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -954,9 +956,9 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input, Types::GetDomainNameOutput, context: context)
         Hearth::Validator.validate!(input[:api_mapping_selection_expression], ::String, context: "#{context}[:api_mapping_selection_expression]")
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
-        Validators::DomainNameConfigurations.validate!(input[:domain_name_configurations], context: "#{context}[:domain_name_configurations]") unless input[:domain_name_configurations].nil?
-        Validators::MutualTlsAuthentication.validate!(input[:mutual_tls_authentication], context: "#{context}[:mutual_tls_authentication]") unless input[:mutual_tls_authentication].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        DomainNameConfigurations.validate!(input[:domain_name_configurations], context: "#{context}[:domain_name_configurations]") unless input[:domain_name_configurations].nil?
+        MutualTlsAuthentication.validate!(input[:mutual_tls_authentication], context: "#{context}[:mutual_tls_authentication]") unless input[:mutual_tls_authentication].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -971,7 +973,7 @@ module AWS::SDK::ApiGatewayV2
     class GetDomainNamesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDomainNamesOutput, context: context)
-        Validators::List____listOfDomainName.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        List____listOfDomainName.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1001,12 +1003,12 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input[:integration_uri], ::String, context: "#{context}[:integration_uri]")
         Hearth::Validator.validate!(input[:passthrough_behavior], ::String, context: "#{context}[:passthrough_behavior]")
         Hearth::Validator.validate!(input[:payload_format_version], ::String, context: "#{context}[:payload_format_version]")
-        Validators::IntegrationParameters.validate!(input[:request_parameters], context: "#{context}[:request_parameters]") unless input[:request_parameters].nil?
-        Validators::TemplateMap.validate!(input[:request_templates], context: "#{context}[:request_templates]") unless input[:request_templates].nil?
-        Validators::ResponseParameters.validate!(input[:response_parameters], context: "#{context}[:response_parameters]") unless input[:response_parameters].nil?
+        IntegrationParameters.validate!(input[:request_parameters], context: "#{context}[:request_parameters]") unless input[:request_parameters].nil?
+        TemplateMap.validate!(input[:request_templates], context: "#{context}[:request_templates]") unless input[:request_templates].nil?
+        ResponseParameters.validate!(input[:response_parameters], context: "#{context}[:response_parameters]") unless input[:response_parameters].nil?
         Hearth::Validator.validate!(input[:template_selection_expression], ::String, context: "#{context}[:template_selection_expression]")
         Hearth::Validator.validate!(input[:timeout_in_millis], ::Integer, context: "#{context}[:timeout_in_millis]")
-        Validators::TlsConfig.validate!(input[:tls_config], context: "#{context}[:tls_config]") unless input[:tls_config].nil?
+        TlsConfig.validate!(input[:tls_config], context: "#{context}[:tls_config]") unless input[:tls_config].nil?
       end
     end
 
@@ -1025,8 +1027,8 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input[:content_handling_strategy], ::String, context: "#{context}[:content_handling_strategy]")
         Hearth::Validator.validate!(input[:integration_response_id], ::String, context: "#{context}[:integration_response_id]")
         Hearth::Validator.validate!(input[:integration_response_key], ::String, context: "#{context}[:integration_response_key]")
-        Validators::IntegrationParameters.validate!(input[:response_parameters], context: "#{context}[:response_parameters]") unless input[:response_parameters].nil?
-        Validators::TemplateMap.validate!(input[:response_templates], context: "#{context}[:response_templates]") unless input[:response_templates].nil?
+        IntegrationParameters.validate!(input[:response_parameters], context: "#{context}[:response_parameters]") unless input[:response_parameters].nil?
+        TemplateMap.validate!(input[:response_templates], context: "#{context}[:response_templates]") unless input[:response_templates].nil?
         Hearth::Validator.validate!(input[:template_selection_expression], ::String, context: "#{context}[:template_selection_expression]")
       end
     end
@@ -1044,7 +1046,7 @@ module AWS::SDK::ApiGatewayV2
     class GetIntegrationResponsesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetIntegrationResponsesOutput, context: context)
-        Validators::List____listOfIntegrationResponse.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        List____listOfIntegrationResponse.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1061,7 +1063,7 @@ module AWS::SDK::ApiGatewayV2
     class GetIntegrationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetIntegrationsOutput, context: context)
-        Validators::List____listOfIntegration.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        List____listOfIntegration.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1112,7 +1114,7 @@ module AWS::SDK::ApiGatewayV2
     class GetModelsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetModelsOutput, context: context)
-        Validators::List____listOfModel.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        List____listOfModel.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1130,13 +1132,13 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input, Types::GetRouteOutput, context: context)
         Hearth::Validator.validate!(input[:api_gateway_managed], ::TrueClass, ::FalseClass, context: "#{context}[:api_gateway_managed]")
         Hearth::Validator.validate!(input[:api_key_required], ::TrueClass, ::FalseClass, context: "#{context}[:api_key_required]")
-        Validators::AuthorizationScopes.validate!(input[:authorization_scopes], context: "#{context}[:authorization_scopes]") unless input[:authorization_scopes].nil?
+        AuthorizationScopes.validate!(input[:authorization_scopes], context: "#{context}[:authorization_scopes]") unless input[:authorization_scopes].nil?
         Hearth::Validator.validate!(input[:authorization_type], ::String, context: "#{context}[:authorization_type]")
         Hearth::Validator.validate!(input[:authorizer_id], ::String, context: "#{context}[:authorizer_id]")
         Hearth::Validator.validate!(input[:model_selection_expression], ::String, context: "#{context}[:model_selection_expression]")
         Hearth::Validator.validate!(input[:operation_name], ::String, context: "#{context}[:operation_name]")
-        Validators::RouteModels.validate!(input[:request_models], context: "#{context}[:request_models]") unless input[:request_models].nil?
-        Validators::RouteParameters.validate!(input[:request_parameters], context: "#{context}[:request_parameters]") unless input[:request_parameters].nil?
+        RouteModels.validate!(input[:request_models], context: "#{context}[:request_models]") unless input[:request_models].nil?
+        RouteParameters.validate!(input[:request_parameters], context: "#{context}[:request_parameters]") unless input[:request_parameters].nil?
         Hearth::Validator.validate!(input[:route_id], ::String, context: "#{context}[:route_id]")
         Hearth::Validator.validate!(input[:route_key], ::String, context: "#{context}[:route_key]")
         Hearth::Validator.validate!(input[:route_response_selection_expression], ::String, context: "#{context}[:route_response_selection_expression]")
@@ -1157,8 +1159,8 @@ module AWS::SDK::ApiGatewayV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRouteResponseOutput, context: context)
         Hearth::Validator.validate!(input[:model_selection_expression], ::String, context: "#{context}[:model_selection_expression]")
-        Validators::RouteModels.validate!(input[:response_models], context: "#{context}[:response_models]") unless input[:response_models].nil?
-        Validators::RouteParameters.validate!(input[:response_parameters], context: "#{context}[:response_parameters]") unless input[:response_parameters].nil?
+        RouteModels.validate!(input[:response_models], context: "#{context}[:response_models]") unless input[:response_models].nil?
+        RouteParameters.validate!(input[:response_parameters], context: "#{context}[:response_parameters]") unless input[:response_parameters].nil?
         Hearth::Validator.validate!(input[:route_response_id], ::String, context: "#{context}[:route_response_id]")
         Hearth::Validator.validate!(input[:route_response_key], ::String, context: "#{context}[:route_response_key]")
       end
@@ -1177,7 +1179,7 @@ module AWS::SDK::ApiGatewayV2
     class GetRouteResponsesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRouteResponsesOutput, context: context)
-        Validators::List____listOfRouteResponse.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        List____listOfRouteResponse.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1194,7 +1196,7 @@ module AWS::SDK::ApiGatewayV2
     class GetRoutesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRoutesOutput, context: context)
-        Validators::List____listOfRoute.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        List____listOfRoute.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1210,20 +1212,20 @@ module AWS::SDK::ApiGatewayV2
     class GetStageOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetStageOutput, context: context)
-        Validators::AccessLogSettings.validate!(input[:access_log_settings], context: "#{context}[:access_log_settings]") unless input[:access_log_settings].nil?
+        AccessLogSettings.validate!(input[:access_log_settings], context: "#{context}[:access_log_settings]") unless input[:access_log_settings].nil?
         Hearth::Validator.validate!(input[:api_gateway_managed], ::TrueClass, ::FalseClass, context: "#{context}[:api_gateway_managed]")
         Hearth::Validator.validate!(input[:auto_deploy], ::TrueClass, ::FalseClass, context: "#{context}[:auto_deploy]")
         Hearth::Validator.validate!(input[:client_certificate_id], ::String, context: "#{context}[:client_certificate_id]")
         Hearth::Validator.validate!(input[:created_date], ::Time, context: "#{context}[:created_date]")
-        Validators::RouteSettings.validate!(input[:default_route_settings], context: "#{context}[:default_route_settings]") unless input[:default_route_settings].nil?
+        RouteSettings.validate!(input[:default_route_settings], context: "#{context}[:default_route_settings]") unless input[:default_route_settings].nil?
         Hearth::Validator.validate!(input[:deployment_id], ::String, context: "#{context}[:deployment_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:last_deployment_status_message], ::String, context: "#{context}[:last_deployment_status_message]")
         Hearth::Validator.validate!(input[:last_updated_date], ::Time, context: "#{context}[:last_updated_date]")
-        Validators::RouteSettingsMap.validate!(input[:route_settings], context: "#{context}[:route_settings]") unless input[:route_settings].nil?
+        RouteSettingsMap.validate!(input[:route_settings], context: "#{context}[:route_settings]") unless input[:route_settings].nil?
         Hearth::Validator.validate!(input[:stage_name], ::String, context: "#{context}[:stage_name]")
-        Validators::StageVariablesMap.validate!(input[:stage_variables], context: "#{context}[:stage_variables]") unless input[:stage_variables].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        StageVariablesMap.validate!(input[:stage_variables], context: "#{context}[:stage_variables]") unless input[:stage_variables].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1239,7 +1241,7 @@ module AWS::SDK::ApiGatewayV2
     class GetStagesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetStagesOutput, context: context)
-        Validators::List____listOfStage.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        List____listOfStage.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1254,7 +1256,7 @@ module AWS::SDK::ApiGatewayV2
     class GetTagsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetTagsOutput, context: context)
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1270,9 +1272,9 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input, Types::GetVpcLinkOutput, context: context)
         Hearth::Validator.validate!(input[:created_date], ::Time, context: "#{context}[:created_date]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::SecurityGroupIdList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
-        Validators::SubnetIdList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        SecurityGroupIdList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        SubnetIdList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:vpc_link_id], ::String, context: "#{context}[:vpc_link_id]")
         Hearth::Validator.validate!(input[:vpc_link_status], ::String, context: "#{context}[:vpc_link_status]")
         Hearth::Validator.validate!(input[:vpc_link_status_message], ::String, context: "#{context}[:vpc_link_status_message]")
@@ -1291,7 +1293,7 @@ module AWS::SDK::ApiGatewayV2
     class GetVpcLinksOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetVpcLinksOutput, context: context)
-        Validators::List____listOfVpcLink.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        List____listOfVpcLink.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1321,18 +1323,18 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input[:api_gateway_managed], ::TrueClass, ::FalseClass, context: "#{context}[:api_gateway_managed]")
         Hearth::Validator.validate!(input[:api_id], ::String, context: "#{context}[:api_id]")
         Hearth::Validator.validate!(input[:api_key_selection_expression], ::String, context: "#{context}[:api_key_selection_expression]")
-        Validators::Cors.validate!(input[:cors_configuration], context: "#{context}[:cors_configuration]") unless input[:cors_configuration].nil?
+        Cors.validate!(input[:cors_configuration], context: "#{context}[:cors_configuration]") unless input[:cors_configuration].nil?
         Hearth::Validator.validate!(input[:created_date], ::Time, context: "#{context}[:created_date]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:disable_schema_validation], ::TrueClass, ::FalseClass, context: "#{context}[:disable_schema_validation]")
         Hearth::Validator.validate!(input[:disable_execute_api_endpoint], ::TrueClass, ::FalseClass, context: "#{context}[:disable_execute_api_endpoint]")
-        Validators::List____listOf__string.validate!(input[:import_info], context: "#{context}[:import_info]") unless input[:import_info].nil?
+        List____listOf__string.validate!(input[:import_info], context: "#{context}[:import_info]") unless input[:import_info].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:protocol_type], ::String, context: "#{context}[:protocol_type]")
         Hearth::Validator.validate!(input[:route_selection_expression], ::String, context: "#{context}[:route_selection_expression]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
-        Validators::List____listOf__string.validate!(input[:warnings], context: "#{context}[:warnings]") unless input[:warnings].nil?
+        List____listOf__string.validate!(input[:warnings], context: "#{context}[:warnings]") unless input[:warnings].nil?
       end
     end
 
@@ -1353,12 +1355,12 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input[:integration_uri], ::String, context: "#{context}[:integration_uri]")
         Hearth::Validator.validate!(input[:passthrough_behavior], ::String, context: "#{context}[:passthrough_behavior]")
         Hearth::Validator.validate!(input[:payload_format_version], ::String, context: "#{context}[:payload_format_version]")
-        Validators::IntegrationParameters.validate!(input[:request_parameters], context: "#{context}[:request_parameters]") unless input[:request_parameters].nil?
-        Validators::TemplateMap.validate!(input[:request_templates], context: "#{context}[:request_templates]") unless input[:request_templates].nil?
-        Validators::ResponseParameters.validate!(input[:response_parameters], context: "#{context}[:response_parameters]") unless input[:response_parameters].nil?
+        IntegrationParameters.validate!(input[:request_parameters], context: "#{context}[:request_parameters]") unless input[:request_parameters].nil?
+        TemplateMap.validate!(input[:request_templates], context: "#{context}[:request_templates]") unless input[:request_templates].nil?
+        ResponseParameters.validate!(input[:response_parameters], context: "#{context}[:response_parameters]") unless input[:response_parameters].nil?
         Hearth::Validator.validate!(input[:template_selection_expression], ::String, context: "#{context}[:template_selection_expression]")
         Hearth::Validator.validate!(input[:timeout_in_millis], ::Integer, context: "#{context}[:timeout_in_millis]")
-        Validators::TlsConfig.validate!(input[:tls_config], context: "#{context}[:tls_config]") unless input[:tls_config].nil?
+        TlsConfig.validate!(input[:tls_config], context: "#{context}[:tls_config]") unless input[:tls_config].nil?
       end
     end
 
@@ -1378,8 +1380,8 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input[:content_handling_strategy], ::String, context: "#{context}[:content_handling_strategy]")
         Hearth::Validator.validate!(input[:integration_response_id], ::String, context: "#{context}[:integration_response_id]")
         Hearth::Validator.validate!(input[:integration_response_key], ::String, context: "#{context}[:integration_response_key]")
-        Validators::IntegrationParameters.validate!(input[:response_parameters], context: "#{context}[:response_parameters]") unless input[:response_parameters].nil?
-        Validators::TemplateMap.validate!(input[:response_templates], context: "#{context}[:response_templates]") unless input[:response_templates].nil?
+        IntegrationParameters.validate!(input[:response_parameters], context: "#{context}[:response_parameters]") unless input[:response_parameters].nil?
+        TemplateMap.validate!(input[:response_templates], context: "#{context}[:response_templates]") unless input[:response_templates].nil?
         Hearth::Validator.validate!(input[:template_selection_expression], ::String, context: "#{context}[:template_selection_expression]")
       end
     end
@@ -1387,7 +1389,7 @@ module AWS::SDK::ApiGatewayV2
     class JWTConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::JWTConfiguration, context: context)
-        Validators::List____listOf__string.validate!(input[:audience], context: "#{context}[:audience]") unless input[:audience].nil?
+        List____listOf__string.validate!(input[:audience], context: "#{context}[:audience]") unless input[:audience].nil?
         Hearth::Validator.validate!(input[:issuer], ::String, context: "#{context}[:issuer]")
       end
     end
@@ -1408,7 +1410,7 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input, Types::MutualTlsAuthentication, context: context)
         Hearth::Validator.validate!(input[:truststore_uri], ::String, context: "#{context}[:truststore_uri]")
         Hearth::Validator.validate!(input[:truststore_version], ::String, context: "#{context}[:truststore_version]")
-        Validators::List____listOf__string.validate!(input[:truststore_warnings], context: "#{context}[:truststore_warnings]") unless input[:truststore_warnings].nil?
+        List____listOf__string.validate!(input[:truststore_warnings], context: "#{context}[:truststore_warnings]") unless input[:truststore_warnings].nil?
       end
     end
 
@@ -1452,18 +1454,18 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input[:api_gateway_managed], ::TrueClass, ::FalseClass, context: "#{context}[:api_gateway_managed]")
         Hearth::Validator.validate!(input[:api_id], ::String, context: "#{context}[:api_id]")
         Hearth::Validator.validate!(input[:api_key_selection_expression], ::String, context: "#{context}[:api_key_selection_expression]")
-        Validators::Cors.validate!(input[:cors_configuration], context: "#{context}[:cors_configuration]") unless input[:cors_configuration].nil?
+        Cors.validate!(input[:cors_configuration], context: "#{context}[:cors_configuration]") unless input[:cors_configuration].nil?
         Hearth::Validator.validate!(input[:created_date], ::Time, context: "#{context}[:created_date]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:disable_schema_validation], ::TrueClass, ::FalseClass, context: "#{context}[:disable_schema_validation]")
         Hearth::Validator.validate!(input[:disable_execute_api_endpoint], ::TrueClass, ::FalseClass, context: "#{context}[:disable_execute_api_endpoint]")
-        Validators::List____listOf__string.validate!(input[:import_info], context: "#{context}[:import_info]") unless input[:import_info].nil?
+        List____listOf__string.validate!(input[:import_info], context: "#{context}[:import_info]") unless input[:import_info].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:protocol_type], ::String, context: "#{context}[:protocol_type]")
         Hearth::Validator.validate!(input[:route_selection_expression], ::String, context: "#{context}[:route_selection_expression]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
-        Validators::List____listOf__string.validate!(input[:warnings], context: "#{context}[:warnings]") unless input[:warnings].nil?
+        List____listOf__string.validate!(input[:warnings], context: "#{context}[:warnings]") unless input[:warnings].nil?
       end
     end
 
@@ -1486,7 +1488,7 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::IntegrationParameters.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          IntegrationParameters.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -1496,13 +1498,13 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input, Types::Route, context: context)
         Hearth::Validator.validate!(input[:api_gateway_managed], ::TrueClass, ::FalseClass, context: "#{context}[:api_gateway_managed]")
         Hearth::Validator.validate!(input[:api_key_required], ::TrueClass, ::FalseClass, context: "#{context}[:api_key_required]")
-        Validators::AuthorizationScopes.validate!(input[:authorization_scopes], context: "#{context}[:authorization_scopes]") unless input[:authorization_scopes].nil?
+        AuthorizationScopes.validate!(input[:authorization_scopes], context: "#{context}[:authorization_scopes]") unless input[:authorization_scopes].nil?
         Hearth::Validator.validate!(input[:authorization_type], ::String, context: "#{context}[:authorization_type]")
         Hearth::Validator.validate!(input[:authorizer_id], ::String, context: "#{context}[:authorizer_id]")
         Hearth::Validator.validate!(input[:model_selection_expression], ::String, context: "#{context}[:model_selection_expression]")
         Hearth::Validator.validate!(input[:operation_name], ::String, context: "#{context}[:operation_name]")
-        Validators::RouteModels.validate!(input[:request_models], context: "#{context}[:request_models]") unless input[:request_models].nil?
-        Validators::RouteParameters.validate!(input[:request_parameters], context: "#{context}[:request_parameters]") unless input[:request_parameters].nil?
+        RouteModels.validate!(input[:request_models], context: "#{context}[:request_models]") unless input[:request_models].nil?
+        RouteParameters.validate!(input[:request_parameters], context: "#{context}[:request_parameters]") unless input[:request_parameters].nil?
         Hearth::Validator.validate!(input[:route_id], ::String, context: "#{context}[:route_id]")
         Hearth::Validator.validate!(input[:route_key], ::String, context: "#{context}[:route_key]")
         Hearth::Validator.validate!(input[:route_response_selection_expression], ::String, context: "#{context}[:route_response_selection_expression]")
@@ -1525,7 +1527,7 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::ParameterConstraints.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          ParameterConstraints.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -1534,8 +1536,8 @@ module AWS::SDK::ApiGatewayV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RouteResponse, context: context)
         Hearth::Validator.validate!(input[:model_selection_expression], ::String, context: "#{context}[:model_selection_expression]")
-        Validators::RouteModels.validate!(input[:response_models], context: "#{context}[:response_models]") unless input[:response_models].nil?
-        Validators::RouteParameters.validate!(input[:response_parameters], context: "#{context}[:response_parameters]") unless input[:response_parameters].nil?
+        RouteModels.validate!(input[:response_models], context: "#{context}[:response_models]") unless input[:response_models].nil?
+        RouteParameters.validate!(input[:response_parameters], context: "#{context}[:response_parameters]") unless input[:response_parameters].nil?
         Hearth::Validator.validate!(input[:route_response_id], ::String, context: "#{context}[:route_response_id]")
         Hearth::Validator.validate!(input[:route_response_key], ::String, context: "#{context}[:route_response_key]")
       end
@@ -1557,7 +1559,7 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::RouteSettings.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          RouteSettings.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -1574,20 +1576,20 @@ module AWS::SDK::ApiGatewayV2
     class Stage
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Stage, context: context)
-        Validators::AccessLogSettings.validate!(input[:access_log_settings], context: "#{context}[:access_log_settings]") unless input[:access_log_settings].nil?
+        AccessLogSettings.validate!(input[:access_log_settings], context: "#{context}[:access_log_settings]") unless input[:access_log_settings].nil?
         Hearth::Validator.validate!(input[:api_gateway_managed], ::TrueClass, ::FalseClass, context: "#{context}[:api_gateway_managed]")
         Hearth::Validator.validate!(input[:auto_deploy], ::TrueClass, ::FalseClass, context: "#{context}[:auto_deploy]")
         Hearth::Validator.validate!(input[:client_certificate_id], ::String, context: "#{context}[:client_certificate_id]")
         Hearth::Validator.validate!(input[:created_date], ::Time, context: "#{context}[:created_date]")
-        Validators::RouteSettings.validate!(input[:default_route_settings], context: "#{context}[:default_route_settings]") unless input[:default_route_settings].nil?
+        RouteSettings.validate!(input[:default_route_settings], context: "#{context}[:default_route_settings]") unless input[:default_route_settings].nil?
         Hearth::Validator.validate!(input[:deployment_id], ::String, context: "#{context}[:deployment_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:last_deployment_status_message], ::String, context: "#{context}[:last_deployment_status_message]")
         Hearth::Validator.validate!(input[:last_updated_date], ::Time, context: "#{context}[:last_updated_date]")
-        Validators::RouteSettingsMap.validate!(input[:route_settings], context: "#{context}[:route_settings]") unless input[:route_settings].nil?
+        RouteSettingsMap.validate!(input[:route_settings], context: "#{context}[:route_settings]") unless input[:route_settings].nil?
         Hearth::Validator.validate!(input[:stage_name], ::String, context: "#{context}[:stage_name]")
-        Validators::StageVariablesMap.validate!(input[:stage_variables], context: "#{context}[:stage_variables]") unless input[:stage_variables].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        StageVariablesMap.validate!(input[:stage_variables], context: "#{context}[:stage_variables]") unless input[:stage_variables].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1614,7 +1616,7 @@ module AWS::SDK::ApiGatewayV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1670,7 +1672,7 @@ module AWS::SDK::ApiGatewayV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::List____listOf__string.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        List____listOf__string.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1685,7 +1687,7 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input, Types::UpdateApiInput, context: context)
         Hearth::Validator.validate!(input[:api_id], ::String, context: "#{context}[:api_id]")
         Hearth::Validator.validate!(input[:api_key_selection_expression], ::String, context: "#{context}[:api_key_selection_expression]")
-        Validators::Cors.validate!(input[:cors_configuration], context: "#{context}[:cors_configuration]") unless input[:cors_configuration].nil?
+        Cors.validate!(input[:cors_configuration], context: "#{context}[:cors_configuration]") unless input[:cors_configuration].nil?
         Hearth::Validator.validate!(input[:credentials_arn], ::String, context: "#{context}[:credentials_arn]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:disable_schema_validation], ::TrueClass, ::FalseClass, context: "#{context}[:disable_schema_validation]")
@@ -1726,18 +1728,18 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input[:api_gateway_managed], ::TrueClass, ::FalseClass, context: "#{context}[:api_gateway_managed]")
         Hearth::Validator.validate!(input[:api_id], ::String, context: "#{context}[:api_id]")
         Hearth::Validator.validate!(input[:api_key_selection_expression], ::String, context: "#{context}[:api_key_selection_expression]")
-        Validators::Cors.validate!(input[:cors_configuration], context: "#{context}[:cors_configuration]") unless input[:cors_configuration].nil?
+        Cors.validate!(input[:cors_configuration], context: "#{context}[:cors_configuration]") unless input[:cors_configuration].nil?
         Hearth::Validator.validate!(input[:created_date], ::Time, context: "#{context}[:created_date]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:disable_schema_validation], ::TrueClass, ::FalseClass, context: "#{context}[:disable_schema_validation]")
         Hearth::Validator.validate!(input[:disable_execute_api_endpoint], ::TrueClass, ::FalseClass, context: "#{context}[:disable_execute_api_endpoint]")
-        Validators::List____listOf__string.validate!(input[:import_info], context: "#{context}[:import_info]") unless input[:import_info].nil?
+        List____listOf__string.validate!(input[:import_info], context: "#{context}[:import_info]") unless input[:import_info].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:protocol_type], ::String, context: "#{context}[:protocol_type]")
         Hearth::Validator.validate!(input[:route_selection_expression], ::String, context: "#{context}[:route_selection_expression]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
-        Validators::List____listOf__string.validate!(input[:warnings], context: "#{context}[:warnings]") unless input[:warnings].nil?
+        List____listOf__string.validate!(input[:warnings], context: "#{context}[:warnings]") unless input[:warnings].nil?
       end
     end
 
@@ -1752,9 +1754,9 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input[:authorizer_type], ::String, context: "#{context}[:authorizer_type]")
         Hearth::Validator.validate!(input[:authorizer_uri], ::String, context: "#{context}[:authorizer_uri]")
         Hearth::Validator.validate!(input[:enable_simple_responses], ::TrueClass, ::FalseClass, context: "#{context}[:enable_simple_responses]")
-        Validators::IdentitySourceList.validate!(input[:identity_source], context: "#{context}[:identity_source]") unless input[:identity_source].nil?
+        IdentitySourceList.validate!(input[:identity_source], context: "#{context}[:identity_source]") unless input[:identity_source].nil?
         Hearth::Validator.validate!(input[:identity_validation_expression], ::String, context: "#{context}[:identity_validation_expression]")
-        Validators::JWTConfiguration.validate!(input[:jwt_configuration], context: "#{context}[:jwt_configuration]") unless input[:jwt_configuration].nil?
+        JWTConfiguration.validate!(input[:jwt_configuration], context: "#{context}[:jwt_configuration]") unless input[:jwt_configuration].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
       end
     end
@@ -1769,9 +1771,9 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input[:authorizer_type], ::String, context: "#{context}[:authorizer_type]")
         Hearth::Validator.validate!(input[:authorizer_uri], ::String, context: "#{context}[:authorizer_uri]")
         Hearth::Validator.validate!(input[:enable_simple_responses], ::TrueClass, ::FalseClass, context: "#{context}[:enable_simple_responses]")
-        Validators::IdentitySourceList.validate!(input[:identity_source], context: "#{context}[:identity_source]") unless input[:identity_source].nil?
+        IdentitySourceList.validate!(input[:identity_source], context: "#{context}[:identity_source]") unless input[:identity_source].nil?
         Hearth::Validator.validate!(input[:identity_validation_expression], ::String, context: "#{context}[:identity_validation_expression]")
-        Validators::JWTConfiguration.validate!(input[:jwt_configuration], context: "#{context}[:jwt_configuration]") unless input[:jwt_configuration].nil?
+        JWTConfiguration.validate!(input[:jwt_configuration], context: "#{context}[:jwt_configuration]") unless input[:jwt_configuration].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
       end
     end
@@ -1801,8 +1803,8 @@ module AWS::SDK::ApiGatewayV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateDomainNameInput, context: context)
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
-        Validators::DomainNameConfigurations.validate!(input[:domain_name_configurations], context: "#{context}[:domain_name_configurations]") unless input[:domain_name_configurations].nil?
-        Validators::MutualTlsAuthenticationInput.validate!(input[:mutual_tls_authentication], context: "#{context}[:mutual_tls_authentication]") unless input[:mutual_tls_authentication].nil?
+        DomainNameConfigurations.validate!(input[:domain_name_configurations], context: "#{context}[:domain_name_configurations]") unless input[:domain_name_configurations].nil?
+        MutualTlsAuthenticationInput.validate!(input[:mutual_tls_authentication], context: "#{context}[:mutual_tls_authentication]") unless input[:mutual_tls_authentication].nil?
       end
     end
 
@@ -1811,9 +1813,9 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input, Types::UpdateDomainNameOutput, context: context)
         Hearth::Validator.validate!(input[:api_mapping_selection_expression], ::String, context: "#{context}[:api_mapping_selection_expression]")
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
-        Validators::DomainNameConfigurations.validate!(input[:domain_name_configurations], context: "#{context}[:domain_name_configurations]") unless input[:domain_name_configurations].nil?
-        Validators::MutualTlsAuthentication.validate!(input[:mutual_tls_authentication], context: "#{context}[:mutual_tls_authentication]") unless input[:mutual_tls_authentication].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        DomainNameConfigurations.validate!(input[:domain_name_configurations], context: "#{context}[:domain_name_configurations]") unless input[:domain_name_configurations].nil?
+        MutualTlsAuthentication.validate!(input[:mutual_tls_authentication], context: "#{context}[:mutual_tls_authentication]") unless input[:mutual_tls_authentication].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1833,12 +1835,12 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input[:integration_uri], ::String, context: "#{context}[:integration_uri]")
         Hearth::Validator.validate!(input[:passthrough_behavior], ::String, context: "#{context}[:passthrough_behavior]")
         Hearth::Validator.validate!(input[:payload_format_version], ::String, context: "#{context}[:payload_format_version]")
-        Validators::IntegrationParameters.validate!(input[:request_parameters], context: "#{context}[:request_parameters]") unless input[:request_parameters].nil?
-        Validators::TemplateMap.validate!(input[:request_templates], context: "#{context}[:request_templates]") unless input[:request_templates].nil?
-        Validators::ResponseParameters.validate!(input[:response_parameters], context: "#{context}[:response_parameters]") unless input[:response_parameters].nil?
+        IntegrationParameters.validate!(input[:request_parameters], context: "#{context}[:request_parameters]") unless input[:request_parameters].nil?
+        TemplateMap.validate!(input[:request_templates], context: "#{context}[:request_templates]") unless input[:request_templates].nil?
+        ResponseParameters.validate!(input[:response_parameters], context: "#{context}[:response_parameters]") unless input[:response_parameters].nil?
         Hearth::Validator.validate!(input[:template_selection_expression], ::String, context: "#{context}[:template_selection_expression]")
         Hearth::Validator.validate!(input[:timeout_in_millis], ::Integer, context: "#{context}[:timeout_in_millis]")
-        Validators::TlsConfigInput.validate!(input[:tls_config], context: "#{context}[:tls_config]") unless input[:tls_config].nil?
+        TlsConfigInput.validate!(input[:tls_config], context: "#{context}[:tls_config]") unless input[:tls_config].nil?
       end
     end
 
@@ -1859,12 +1861,12 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input[:integration_uri], ::String, context: "#{context}[:integration_uri]")
         Hearth::Validator.validate!(input[:passthrough_behavior], ::String, context: "#{context}[:passthrough_behavior]")
         Hearth::Validator.validate!(input[:payload_format_version], ::String, context: "#{context}[:payload_format_version]")
-        Validators::IntegrationParameters.validate!(input[:request_parameters], context: "#{context}[:request_parameters]") unless input[:request_parameters].nil?
-        Validators::TemplateMap.validate!(input[:request_templates], context: "#{context}[:request_templates]") unless input[:request_templates].nil?
-        Validators::ResponseParameters.validate!(input[:response_parameters], context: "#{context}[:response_parameters]") unless input[:response_parameters].nil?
+        IntegrationParameters.validate!(input[:request_parameters], context: "#{context}[:request_parameters]") unless input[:request_parameters].nil?
+        TemplateMap.validate!(input[:request_templates], context: "#{context}[:request_templates]") unless input[:request_templates].nil?
+        ResponseParameters.validate!(input[:response_parameters], context: "#{context}[:response_parameters]") unless input[:response_parameters].nil?
         Hearth::Validator.validate!(input[:template_selection_expression], ::String, context: "#{context}[:template_selection_expression]")
         Hearth::Validator.validate!(input[:timeout_in_millis], ::Integer, context: "#{context}[:timeout_in_millis]")
-        Validators::TlsConfig.validate!(input[:tls_config], context: "#{context}[:tls_config]") unless input[:tls_config].nil?
+        TlsConfig.validate!(input[:tls_config], context: "#{context}[:tls_config]") unless input[:tls_config].nil?
       end
     end
 
@@ -1876,8 +1878,8 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input[:integration_id], ::String, context: "#{context}[:integration_id]")
         Hearth::Validator.validate!(input[:integration_response_id], ::String, context: "#{context}[:integration_response_id]")
         Hearth::Validator.validate!(input[:integration_response_key], ::String, context: "#{context}[:integration_response_key]")
-        Validators::IntegrationParameters.validate!(input[:response_parameters], context: "#{context}[:response_parameters]") unless input[:response_parameters].nil?
-        Validators::TemplateMap.validate!(input[:response_templates], context: "#{context}[:response_templates]") unless input[:response_templates].nil?
+        IntegrationParameters.validate!(input[:response_parameters], context: "#{context}[:response_parameters]") unless input[:response_parameters].nil?
+        TemplateMap.validate!(input[:response_templates], context: "#{context}[:response_templates]") unless input[:response_templates].nil?
         Hearth::Validator.validate!(input[:template_selection_expression], ::String, context: "#{context}[:template_selection_expression]")
       end
     end
@@ -1888,8 +1890,8 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input[:content_handling_strategy], ::String, context: "#{context}[:content_handling_strategy]")
         Hearth::Validator.validate!(input[:integration_response_id], ::String, context: "#{context}[:integration_response_id]")
         Hearth::Validator.validate!(input[:integration_response_key], ::String, context: "#{context}[:integration_response_key]")
-        Validators::IntegrationParameters.validate!(input[:response_parameters], context: "#{context}[:response_parameters]") unless input[:response_parameters].nil?
-        Validators::TemplateMap.validate!(input[:response_templates], context: "#{context}[:response_templates]") unless input[:response_templates].nil?
+        IntegrationParameters.validate!(input[:response_parameters], context: "#{context}[:response_parameters]") unless input[:response_parameters].nil?
+        TemplateMap.validate!(input[:response_templates], context: "#{context}[:response_templates]") unless input[:response_templates].nil?
         Hearth::Validator.validate!(input[:template_selection_expression], ::String, context: "#{context}[:template_selection_expression]")
       end
     end
@@ -1922,13 +1924,13 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input, Types::UpdateRouteInput, context: context)
         Hearth::Validator.validate!(input[:api_id], ::String, context: "#{context}[:api_id]")
         Hearth::Validator.validate!(input[:api_key_required], ::TrueClass, ::FalseClass, context: "#{context}[:api_key_required]")
-        Validators::AuthorizationScopes.validate!(input[:authorization_scopes], context: "#{context}[:authorization_scopes]") unless input[:authorization_scopes].nil?
+        AuthorizationScopes.validate!(input[:authorization_scopes], context: "#{context}[:authorization_scopes]") unless input[:authorization_scopes].nil?
         Hearth::Validator.validate!(input[:authorization_type], ::String, context: "#{context}[:authorization_type]")
         Hearth::Validator.validate!(input[:authorizer_id], ::String, context: "#{context}[:authorizer_id]")
         Hearth::Validator.validate!(input[:model_selection_expression], ::String, context: "#{context}[:model_selection_expression]")
         Hearth::Validator.validate!(input[:operation_name], ::String, context: "#{context}[:operation_name]")
-        Validators::RouteModels.validate!(input[:request_models], context: "#{context}[:request_models]") unless input[:request_models].nil?
-        Validators::RouteParameters.validate!(input[:request_parameters], context: "#{context}[:request_parameters]") unless input[:request_parameters].nil?
+        RouteModels.validate!(input[:request_models], context: "#{context}[:request_models]") unless input[:request_models].nil?
+        RouteParameters.validate!(input[:request_parameters], context: "#{context}[:request_parameters]") unless input[:request_parameters].nil?
         Hearth::Validator.validate!(input[:route_id], ::String, context: "#{context}[:route_id]")
         Hearth::Validator.validate!(input[:route_key], ::String, context: "#{context}[:route_key]")
         Hearth::Validator.validate!(input[:route_response_selection_expression], ::String, context: "#{context}[:route_response_selection_expression]")
@@ -1941,13 +1943,13 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input, Types::UpdateRouteOutput, context: context)
         Hearth::Validator.validate!(input[:api_gateway_managed], ::TrueClass, ::FalseClass, context: "#{context}[:api_gateway_managed]")
         Hearth::Validator.validate!(input[:api_key_required], ::TrueClass, ::FalseClass, context: "#{context}[:api_key_required]")
-        Validators::AuthorizationScopes.validate!(input[:authorization_scopes], context: "#{context}[:authorization_scopes]") unless input[:authorization_scopes].nil?
+        AuthorizationScopes.validate!(input[:authorization_scopes], context: "#{context}[:authorization_scopes]") unless input[:authorization_scopes].nil?
         Hearth::Validator.validate!(input[:authorization_type], ::String, context: "#{context}[:authorization_type]")
         Hearth::Validator.validate!(input[:authorizer_id], ::String, context: "#{context}[:authorizer_id]")
         Hearth::Validator.validate!(input[:model_selection_expression], ::String, context: "#{context}[:model_selection_expression]")
         Hearth::Validator.validate!(input[:operation_name], ::String, context: "#{context}[:operation_name]")
-        Validators::RouteModels.validate!(input[:request_models], context: "#{context}[:request_models]") unless input[:request_models].nil?
-        Validators::RouteParameters.validate!(input[:request_parameters], context: "#{context}[:request_parameters]") unless input[:request_parameters].nil?
+        RouteModels.validate!(input[:request_models], context: "#{context}[:request_models]") unless input[:request_models].nil?
+        RouteParameters.validate!(input[:request_parameters], context: "#{context}[:request_parameters]") unless input[:request_parameters].nil?
         Hearth::Validator.validate!(input[:route_id], ::String, context: "#{context}[:route_id]")
         Hearth::Validator.validate!(input[:route_key], ::String, context: "#{context}[:route_key]")
         Hearth::Validator.validate!(input[:route_response_selection_expression], ::String, context: "#{context}[:route_response_selection_expression]")
@@ -1960,8 +1962,8 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input, Types::UpdateRouteResponseInput, context: context)
         Hearth::Validator.validate!(input[:api_id], ::String, context: "#{context}[:api_id]")
         Hearth::Validator.validate!(input[:model_selection_expression], ::String, context: "#{context}[:model_selection_expression]")
-        Validators::RouteModels.validate!(input[:response_models], context: "#{context}[:response_models]") unless input[:response_models].nil?
-        Validators::RouteParameters.validate!(input[:response_parameters], context: "#{context}[:response_parameters]") unless input[:response_parameters].nil?
+        RouteModels.validate!(input[:response_models], context: "#{context}[:response_models]") unless input[:response_models].nil?
+        RouteParameters.validate!(input[:response_parameters], context: "#{context}[:response_parameters]") unless input[:response_parameters].nil?
         Hearth::Validator.validate!(input[:route_id], ::String, context: "#{context}[:route_id]")
         Hearth::Validator.validate!(input[:route_response_id], ::String, context: "#{context}[:route_response_id]")
         Hearth::Validator.validate!(input[:route_response_key], ::String, context: "#{context}[:route_response_key]")
@@ -1972,8 +1974,8 @@ module AWS::SDK::ApiGatewayV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateRouteResponseOutput, context: context)
         Hearth::Validator.validate!(input[:model_selection_expression], ::String, context: "#{context}[:model_selection_expression]")
-        Validators::RouteModels.validate!(input[:response_models], context: "#{context}[:response_models]") unless input[:response_models].nil?
-        Validators::RouteParameters.validate!(input[:response_parameters], context: "#{context}[:response_parameters]") unless input[:response_parameters].nil?
+        RouteModels.validate!(input[:response_models], context: "#{context}[:response_models]") unless input[:response_models].nil?
+        RouteParameters.validate!(input[:response_parameters], context: "#{context}[:response_parameters]") unless input[:response_parameters].nil?
         Hearth::Validator.validate!(input[:route_response_id], ::String, context: "#{context}[:route_response_id]")
         Hearth::Validator.validate!(input[:route_response_key], ::String, context: "#{context}[:route_response_key]")
       end
@@ -1982,36 +1984,36 @@ module AWS::SDK::ApiGatewayV2
     class UpdateStageInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateStageInput, context: context)
-        Validators::AccessLogSettings.validate!(input[:access_log_settings], context: "#{context}[:access_log_settings]") unless input[:access_log_settings].nil?
+        AccessLogSettings.validate!(input[:access_log_settings], context: "#{context}[:access_log_settings]") unless input[:access_log_settings].nil?
         Hearth::Validator.validate!(input[:api_id], ::String, context: "#{context}[:api_id]")
         Hearth::Validator.validate!(input[:auto_deploy], ::TrueClass, ::FalseClass, context: "#{context}[:auto_deploy]")
         Hearth::Validator.validate!(input[:client_certificate_id], ::String, context: "#{context}[:client_certificate_id]")
-        Validators::RouteSettings.validate!(input[:default_route_settings], context: "#{context}[:default_route_settings]") unless input[:default_route_settings].nil?
+        RouteSettings.validate!(input[:default_route_settings], context: "#{context}[:default_route_settings]") unless input[:default_route_settings].nil?
         Hearth::Validator.validate!(input[:deployment_id], ::String, context: "#{context}[:deployment_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::RouteSettingsMap.validate!(input[:route_settings], context: "#{context}[:route_settings]") unless input[:route_settings].nil?
+        RouteSettingsMap.validate!(input[:route_settings], context: "#{context}[:route_settings]") unless input[:route_settings].nil?
         Hearth::Validator.validate!(input[:stage_name], ::String, context: "#{context}[:stage_name]")
-        Validators::StageVariablesMap.validate!(input[:stage_variables], context: "#{context}[:stage_variables]") unless input[:stage_variables].nil?
+        StageVariablesMap.validate!(input[:stage_variables], context: "#{context}[:stage_variables]") unless input[:stage_variables].nil?
       end
     end
 
     class UpdateStageOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateStageOutput, context: context)
-        Validators::AccessLogSettings.validate!(input[:access_log_settings], context: "#{context}[:access_log_settings]") unless input[:access_log_settings].nil?
+        AccessLogSettings.validate!(input[:access_log_settings], context: "#{context}[:access_log_settings]") unless input[:access_log_settings].nil?
         Hearth::Validator.validate!(input[:api_gateway_managed], ::TrueClass, ::FalseClass, context: "#{context}[:api_gateway_managed]")
         Hearth::Validator.validate!(input[:auto_deploy], ::TrueClass, ::FalseClass, context: "#{context}[:auto_deploy]")
         Hearth::Validator.validate!(input[:client_certificate_id], ::String, context: "#{context}[:client_certificate_id]")
         Hearth::Validator.validate!(input[:created_date], ::Time, context: "#{context}[:created_date]")
-        Validators::RouteSettings.validate!(input[:default_route_settings], context: "#{context}[:default_route_settings]") unless input[:default_route_settings].nil?
+        RouteSettings.validate!(input[:default_route_settings], context: "#{context}[:default_route_settings]") unless input[:default_route_settings].nil?
         Hearth::Validator.validate!(input[:deployment_id], ::String, context: "#{context}[:deployment_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:last_deployment_status_message], ::String, context: "#{context}[:last_deployment_status_message]")
         Hearth::Validator.validate!(input[:last_updated_date], ::Time, context: "#{context}[:last_updated_date]")
-        Validators::RouteSettingsMap.validate!(input[:route_settings], context: "#{context}[:route_settings]") unless input[:route_settings].nil?
+        RouteSettingsMap.validate!(input[:route_settings], context: "#{context}[:route_settings]") unless input[:route_settings].nil?
         Hearth::Validator.validate!(input[:stage_name], ::String, context: "#{context}[:stage_name]")
-        Validators::StageVariablesMap.validate!(input[:stage_variables], context: "#{context}[:stage_variables]") unless input[:stage_variables].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        StageVariablesMap.validate!(input[:stage_variables], context: "#{context}[:stage_variables]") unless input[:stage_variables].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2028,9 +2030,9 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input, Types::UpdateVpcLinkOutput, context: context)
         Hearth::Validator.validate!(input[:created_date], ::Time, context: "#{context}[:created_date]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::SecurityGroupIdList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
-        Validators::SubnetIdList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        SecurityGroupIdList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        SubnetIdList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:vpc_link_id], ::String, context: "#{context}[:vpc_link_id]")
         Hearth::Validator.validate!(input[:vpc_link_status], ::String, context: "#{context}[:vpc_link_status]")
         Hearth::Validator.validate!(input[:vpc_link_status_message], ::String, context: "#{context}[:vpc_link_status_message]")
@@ -2043,9 +2045,9 @@ module AWS::SDK::ApiGatewayV2
         Hearth::Validator.validate!(input, Types::VpcLink, context: context)
         Hearth::Validator.validate!(input[:created_date], ::Time, context: "#{context}[:created_date]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::SecurityGroupIdList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
-        Validators::SubnetIdList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        SecurityGroupIdList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        SubnetIdList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:vpc_link_id], ::String, context: "#{context}[:vpc_link_id]")
         Hearth::Validator.validate!(input[:vpc_link_status], ::String, context: "#{context}[:vpc_link_status]")
         Hearth::Validator.validate!(input[:vpc_link_status_message], ::String, context: "#{context}[:vpc_link_status_message]")
@@ -2057,7 +2059,7 @@ module AWS::SDK::ApiGatewayV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Api.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Api.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2066,7 +2068,7 @@ module AWS::SDK::ApiGatewayV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ApiMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ApiMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2075,7 +2077,7 @@ module AWS::SDK::ApiGatewayV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Authorizer.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Authorizer.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2084,7 +2086,7 @@ module AWS::SDK::ApiGatewayV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Deployment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Deployment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2093,7 +2095,7 @@ module AWS::SDK::ApiGatewayV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DomainName.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DomainName.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2102,7 +2104,7 @@ module AWS::SDK::ApiGatewayV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Integration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Integration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2111,7 +2113,7 @@ module AWS::SDK::ApiGatewayV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::IntegrationResponse.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          IntegrationResponse.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2120,7 +2122,7 @@ module AWS::SDK::ApiGatewayV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Model.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Model.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2129,7 +2131,7 @@ module AWS::SDK::ApiGatewayV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Route.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Route.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2138,7 +2140,7 @@ module AWS::SDK::ApiGatewayV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RouteResponse.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RouteResponse.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2147,7 +2149,7 @@ module AWS::SDK::ApiGatewayV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Stage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Stage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2156,7 +2158,7 @@ module AWS::SDK::ApiGatewayV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::VpcLink.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          VpcLink.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

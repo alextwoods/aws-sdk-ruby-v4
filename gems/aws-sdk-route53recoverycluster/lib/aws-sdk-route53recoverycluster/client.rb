@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Route53RecoveryCluster
@@ -129,7 +131,7 @@ module AWS::SDK::Route53RecoveryCluster
     def get_routing_control_state(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRoutingControlStateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRoutingControlStateInput,
         validate_input: @config.validate_input
@@ -244,7 +246,7 @@ module AWS::SDK::Route53RecoveryCluster
     def list_routing_controls(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRoutingControlsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRoutingControlsInput,
         validate_input: @config.validate_input
@@ -359,7 +361,7 @@ module AWS::SDK::Route53RecoveryCluster
     def update_routing_control_state(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRoutingControlStateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRoutingControlStateInput,
         validate_input: @config.validate_input
@@ -475,7 +477,7 @@ module AWS::SDK::Route53RecoveryCluster
     def update_routing_control_states(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRoutingControlStatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRoutingControlStatesInput,
         validate_input: @config.validate_input

@@ -16,12 +16,12 @@ module AWS::SDK::EFS
         {
           client_token: 'client_token',
           name: 'name',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           access_point_id: 'access_point_id',
           access_point_arn: 'access_point_arn',
           file_system_id: 'file_system_id',
-          posix_user: Stubs::PosixUser.default(visited),
-          root_directory: Stubs::RootDirectory.default(visited),
+          posix_user: PosixUser.default(visited),
+          root_directory: RootDirectory.default(visited),
           owner_id: 'owner_id',
           life_cycle_state: 'life_cycle_state',
         }
@@ -52,7 +52,7 @@ module AWS::SDK::EFS
         visited = visited + ['RootDirectory']
         {
           path: 'path',
-          creation_info: Stubs::CreationInfo.default(visited),
+          creation_info: CreationInfo.default(visited),
         }
       end
 
@@ -95,7 +95,7 @@ module AWS::SDK::EFS
         {
           uid: 1,
           gid: 1,
-          secondary_gids: Stubs::SecondaryGids.default(visited),
+          secondary_gids: SecondaryGids.default(visited),
         }
       end
 
@@ -135,7 +135,7 @@ module AWS::SDK::EFS
         return nil if visited.include?('Tags')
         visited = visited + ['Tags']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -181,7 +181,7 @@ module AWS::SDK::EFS
           life_cycle_state: 'life_cycle_state',
           name: 'name',
           number_of_mount_targets: 1,
-          size_in_bytes: Stubs::FileSystemSize.default(visited),
+          size_in_bytes: FileSystemSize.default(visited),
           performance_mode: 'performance_mode',
           encrypted: false,
           kms_key_id: 'kms_key_id',
@@ -189,7 +189,7 @@ module AWS::SDK::EFS
           provisioned_throughput_in_mibps: 1.0,
           availability_zone_name: 'availability_zone_name',
           availability_zone_id: 'availability_zone_id',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -286,7 +286,7 @@ module AWS::SDK::EFS
           source_file_system_arn: 'source_file_system_arn',
           original_source_file_system_arn: 'original_source_file_system_arn',
           creation_time: Time.now,
-          destinations: Stubs::Destinations.default(visited),
+          destinations: Destinations.default(visited),
         }
       end
 
@@ -310,7 +310,7 @@ module AWS::SDK::EFS
         return nil if visited.include?('Destinations')
         visited = visited + ['Destinations']
         [
-          Stubs::Destination.default(visited)
+          Destination.default(visited)
         ]
       end
 
@@ -443,7 +443,7 @@ module AWS::SDK::EFS
     class DescribeAccessPoints
       def self.default(visited=[])
         {
-          access_points: Stubs::AccessPointDescriptions.default(visited),
+          access_points: AccessPointDescriptions.default(visited),
           next_token: 'next_token',
         }
       end
@@ -464,7 +464,7 @@ module AWS::SDK::EFS
         return nil if visited.include?('AccessPointDescriptions')
         visited = visited + ['AccessPointDescriptions']
         [
-          Stubs::AccessPointDescription.default(visited)
+          AccessPointDescription.default(visited)
         ]
       end
 
@@ -486,12 +486,12 @@ module AWS::SDK::EFS
         {
           client_token: 'client_token',
           name: 'name',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           access_point_id: 'access_point_id',
           access_point_arn: 'access_point_arn',
           file_system_id: 'file_system_id',
-          posix_user: Stubs::PosixUser.default(visited),
-          root_directory: Stubs::RootDirectory.default(visited),
+          posix_user: PosixUser.default(visited),
+          root_directory: RootDirectory.default(visited),
           owner_id: 'owner_id',
           life_cycle_state: 'life_cycle_state',
         }
@@ -518,7 +518,7 @@ module AWS::SDK::EFS
     class DescribeAccountPreferences
       def self.default(visited=[])
         {
-          resource_id_preference: Stubs::ResourceIdPreference.default(visited),
+          resource_id_preference: ResourceIdPreference.default(visited),
           next_token: 'next_token',
         }
       end
@@ -540,7 +540,7 @@ module AWS::SDK::EFS
         visited = visited + ['ResourceIdPreference']
         {
           resource_id_type: 'resource_id_type',
-          resources: Stubs::Resources.default(visited),
+          resources: Resources.default(visited),
         }
       end
 
@@ -577,7 +577,7 @@ module AWS::SDK::EFS
     class DescribeBackupPolicy
       def self.default(visited=[])
         {
-          backup_policy: Stubs::BackupPolicy.default(visited),
+          backup_policy: BackupPolicy.default(visited),
         }
       end
 
@@ -632,7 +632,7 @@ module AWS::SDK::EFS
       def self.default(visited=[])
         {
           marker: 'marker',
-          file_systems: Stubs::FileSystemDescriptions.default(visited),
+          file_systems: FileSystemDescriptions.default(visited),
           next_marker: 'next_marker',
         }
       end
@@ -654,7 +654,7 @@ module AWS::SDK::EFS
         return nil if visited.include?('FileSystemDescriptions')
         visited = visited + ['FileSystemDescriptions']
         [
-          Stubs::FileSystemDescription.default(visited)
+          FileSystemDescription.default(visited)
         ]
       end
 
@@ -682,7 +682,7 @@ module AWS::SDK::EFS
           life_cycle_state: 'life_cycle_state',
           name: 'name',
           number_of_mount_targets: 1,
-          size_in_bytes: Stubs::FileSystemSize.default(visited),
+          size_in_bytes: FileSystemSize.default(visited),
           performance_mode: 'performance_mode',
           encrypted: false,
           kms_key_id: 'kms_key_id',
@@ -690,7 +690,7 @@ module AWS::SDK::EFS
           provisioned_throughput_in_mibps: 1.0,
           availability_zone_name: 'availability_zone_name',
           availability_zone_id: 'availability_zone_id',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -722,7 +722,7 @@ module AWS::SDK::EFS
     class DescribeLifecycleConfiguration
       def self.default(visited=[])
         {
-          lifecycle_policies: Stubs::LifecyclePolicies.default(visited),
+          lifecycle_policies: LifecyclePolicies.default(visited),
         }
       end
 
@@ -741,7 +741,7 @@ module AWS::SDK::EFS
         return nil if visited.include?('LifecyclePolicies')
         visited = visited + ['LifecyclePolicies']
         [
-          Stubs::LifecyclePolicy.default(visited)
+          LifecyclePolicy.default(visited)
         ]
       end
 
@@ -779,7 +779,7 @@ module AWS::SDK::EFS
     class DescribeMountTargetSecurityGroups
       def self.default(visited=[])
         {
-          security_groups: Stubs::SecurityGroups.default(visited),
+          security_groups: SecurityGroups.default(visited),
         }
       end
 
@@ -817,7 +817,7 @@ module AWS::SDK::EFS
       def self.default(visited=[])
         {
           marker: 'marker',
-          mount_targets: Stubs::MountTargetDescriptions.default(visited),
+          mount_targets: MountTargetDescriptions.default(visited),
           next_marker: 'next_marker',
         }
       end
@@ -839,7 +839,7 @@ module AWS::SDK::EFS
         return nil if visited.include?('MountTargetDescriptions')
         visited = visited + ['MountTargetDescriptions']
         [
-          Stubs::MountTargetDescription.default(visited)
+          MountTargetDescription.default(visited)
         ]
       end
 
@@ -893,7 +893,7 @@ module AWS::SDK::EFS
     class DescribeReplicationConfigurations
       def self.default(visited=[])
         {
-          replications: Stubs::ReplicationConfigurationDescriptions.default(visited),
+          replications: ReplicationConfigurationDescriptions.default(visited),
           next_token: 'next_token',
         }
       end
@@ -914,7 +914,7 @@ module AWS::SDK::EFS
         return nil if visited.include?('ReplicationConfigurationDescriptions')
         visited = visited + ['ReplicationConfigurationDescriptions']
         [
-          Stubs::ReplicationConfigurationDescription.default(visited)
+          ReplicationConfigurationDescription.default(visited)
         ]
       end
 
@@ -939,7 +939,7 @@ module AWS::SDK::EFS
           source_file_system_arn: 'source_file_system_arn',
           original_source_file_system_arn: 'original_source_file_system_arn',
           creation_time: Time.now,
-          destinations: Stubs::Destinations.default(visited),
+          destinations: Destinations.default(visited),
         }
       end
 
@@ -961,7 +961,7 @@ module AWS::SDK::EFS
       def self.default(visited=[])
         {
           marker: 'marker',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           next_marker: 'next_marker',
         }
       end
@@ -981,7 +981,7 @@ module AWS::SDK::EFS
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1013,7 +1013,7 @@ module AWS::SDK::EFS
     class PutAccountPreferences
       def self.default(visited=[])
         {
-          resource_id_preference: Stubs::ResourceIdPreference.default(visited),
+          resource_id_preference: ResourceIdPreference.default(visited),
         }
       end
 
@@ -1030,7 +1030,7 @@ module AWS::SDK::EFS
     class PutBackupPolicy
       def self.default(visited=[])
         {
-          backup_policy: Stubs::BackupPolicy.default(visited),
+          backup_policy: BackupPolicy.default(visited),
         }
       end
 
@@ -1066,7 +1066,7 @@ module AWS::SDK::EFS
     class PutLifecycleConfiguration
       def self.default(visited=[])
         {
-          lifecycle_policies: Stubs::LifecyclePolicies.default(visited),
+          lifecycle_policies: LifecyclePolicies.default(visited),
         }
       end
 
@@ -1117,7 +1117,7 @@ module AWS::SDK::EFS
           life_cycle_state: 'life_cycle_state',
           name: 'name',
           number_of_mount_targets: 1,
-          size_in_bytes: Stubs::FileSystemSize.default(visited),
+          size_in_bytes: FileSystemSize.default(visited),
           performance_mode: 'performance_mode',
           encrypted: false,
           kms_key_id: 'kms_key_id',
@@ -1125,7 +1125,7 @@ module AWS::SDK::EFS
           provisioned_throughput_in_mibps: 1.0,
           availability_zone_name: 'availability_zone_name',
           availability_zone_id: 'availability_zone_id',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 

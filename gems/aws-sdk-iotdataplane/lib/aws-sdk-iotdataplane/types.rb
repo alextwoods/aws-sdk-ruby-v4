@@ -102,12 +102,12 @@ module AWS::SDK::IoTDataPlane
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.qos ||= 0
         self.last_modified_time ||= 0
       end
-
     end
 
     # <p>The input for the GetThingShadow operation.</p>
@@ -218,11 +218,11 @@ module AWS::SDK::IoTDataPlane
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.timestamp ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -243,11 +243,11 @@ module AWS::SDK::IoTDataPlane
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute retained_topics
@@ -320,12 +320,12 @@ module AWS::SDK::IoTDataPlane
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.qos ||= 0
         self.retain ||= false
       end
-
     end
 
     PublishOutput = ::Struct.new(
@@ -393,13 +393,13 @@ module AWS::SDK::IoTDataPlane
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.payload_size ||= 0
         self.qos ||= 0
         self.last_modified_time ||= 0
       end
-
     end
 
     # <p>The service is temporarily unavailable.</p>

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::PersonalizeEvents
@@ -89,7 +91,7 @@ module AWS::SDK::PersonalizeEvents
     def put_events(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutEventsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutEventsInput,
         validate_input: @config.validate_input
@@ -168,7 +170,7 @@ module AWS::SDK::PersonalizeEvents
     def put_items(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutItemsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutItemsInput,
         validate_input: @config.validate_input
@@ -246,7 +248,7 @@ module AWS::SDK::PersonalizeEvents
     def put_users(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutUsersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutUsersInput,
         validate_input: @config.validate_input

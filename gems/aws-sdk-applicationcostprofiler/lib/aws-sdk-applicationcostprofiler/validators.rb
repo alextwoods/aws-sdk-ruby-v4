@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::ApplicationCostProfiler
   module Validators
 
@@ -45,7 +47,7 @@ module AWS::SDK::ApplicationCostProfiler
         Hearth::Validator.validate!(input[:report_description], ::String, context: "#{context}[:report_description]")
         Hearth::Validator.validate!(input[:report_frequency], ::String, context: "#{context}[:report_frequency]")
         Hearth::Validator.validate!(input[:format], ::String, context: "#{context}[:format]")
-        Validators::S3Location.validate!(input[:destination_s3_location], context: "#{context}[:destination_s3_location]") unless input[:destination_s3_location].nil?
+        S3Location.validate!(input[:destination_s3_location], context: "#{context}[:destination_s3_location]") unless input[:destination_s3_location].nil?
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:last_updated], ::Time, context: "#{context}[:last_updated]")
       end
@@ -54,7 +56,7 @@ module AWS::SDK::ApplicationCostProfiler
     class ImportApplicationUsageInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ImportApplicationUsageInput, context: context)
-        Validators::SourceS3Location.validate!(input[:source_s3_location], context: "#{context}[:source_s3_location]") unless input[:source_s3_location].nil?
+        SourceS3Location.validate!(input[:source_s3_location], context: "#{context}[:source_s3_location]") unless input[:source_s3_location].nil?
       end
     end
 
@@ -83,7 +85,7 @@ module AWS::SDK::ApplicationCostProfiler
     class ListReportDefinitionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListReportDefinitionsOutput, context: context)
-        Validators::ReportDefinitionList.validate!(input[:report_definitions], context: "#{context}[:report_definitions]") unless input[:report_definitions].nil?
+        ReportDefinitionList.validate!(input[:report_definitions], context: "#{context}[:report_definitions]") unless input[:report_definitions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -95,7 +97,7 @@ module AWS::SDK::ApplicationCostProfiler
         Hearth::Validator.validate!(input[:report_description], ::String, context: "#{context}[:report_description]")
         Hearth::Validator.validate!(input[:report_frequency], ::String, context: "#{context}[:report_frequency]")
         Hearth::Validator.validate!(input[:format], ::String, context: "#{context}[:format]")
-        Validators::S3Location.validate!(input[:destination_s3_location], context: "#{context}[:destination_s3_location]") unless input[:destination_s3_location].nil?
+        S3Location.validate!(input[:destination_s3_location], context: "#{context}[:destination_s3_location]") unless input[:destination_s3_location].nil?
       end
     end
 
@@ -113,7 +115,7 @@ module AWS::SDK::ApplicationCostProfiler
         Hearth::Validator.validate!(input[:report_description], ::String, context: "#{context}[:report_description]")
         Hearth::Validator.validate!(input[:report_frequency], ::String, context: "#{context}[:report_frequency]")
         Hearth::Validator.validate!(input[:format], ::String, context: "#{context}[:format]")
-        Validators::S3Location.validate!(input[:destination_s3_location], context: "#{context}[:destination_s3_location]") unless input[:destination_s3_location].nil?
+        S3Location.validate!(input[:destination_s3_location], context: "#{context}[:destination_s3_location]") unless input[:destination_s3_location].nil?
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:last_updated_at], ::Time, context: "#{context}[:last_updated_at]")
       end
@@ -123,7 +125,7 @@ module AWS::SDK::ApplicationCostProfiler
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReportDefinition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReportDefinition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -166,7 +168,7 @@ module AWS::SDK::ApplicationCostProfiler
         Hearth::Validator.validate!(input[:report_description], ::String, context: "#{context}[:report_description]")
         Hearth::Validator.validate!(input[:report_frequency], ::String, context: "#{context}[:report_frequency]")
         Hearth::Validator.validate!(input[:format], ::String, context: "#{context}[:format]")
-        Validators::S3Location.validate!(input[:destination_s3_location], context: "#{context}[:destination_s3_location]") unless input[:destination_s3_location].nil?
+        S3Location.validate!(input[:destination_s3_location], context: "#{context}[:destination_s3_location]") unless input[:destination_s3_location].nil?
       end
     end
 

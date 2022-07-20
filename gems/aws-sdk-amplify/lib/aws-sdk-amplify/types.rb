@@ -1966,11 +1966,11 @@ module AWS::SDK::Amplify
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p> The result structure for an Amplify app list request. </p>
@@ -2033,11 +2033,11 @@ module AWS::SDK::Amplify
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p> The result structure for the list artifacts request. </p>
@@ -2093,11 +2093,11 @@ module AWS::SDK::Amplify
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p> The result structure for the list backend environments result. </p>
@@ -2147,11 +2147,11 @@ module AWS::SDK::Amplify
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p> The result structure for the list branches request. </p>
@@ -2201,11 +2201,11 @@ module AWS::SDK::Amplify
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p> The result structure for the list domain association request. </p>
@@ -2261,11 +2261,11 @@ module AWS::SDK::Amplify
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p> The maximum number of records to list in a single response. </p>
@@ -2343,11 +2343,11 @@ module AWS::SDK::Amplify
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p> The result structure for the list webhooks request. </p>

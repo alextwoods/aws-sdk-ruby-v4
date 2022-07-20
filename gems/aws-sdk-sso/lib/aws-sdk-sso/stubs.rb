@@ -14,7 +14,7 @@ module AWS::SDK::SSO
     class GetRoleCredentials
       def self.default(visited=[])
         {
-          role_credentials: Stubs::RoleCredentials.default(visited),
+          role_credentials: RoleCredentials.default(visited),
         }
       end
 
@@ -56,7 +56,7 @@ module AWS::SDK::SSO
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          role_list: Stubs::RoleListType.default(visited),
+          role_list: RoleListType.default(visited),
         }
       end
 
@@ -76,7 +76,7 @@ module AWS::SDK::SSO
         return nil if visited.include?('RoleListType')
         visited = visited + ['RoleListType']
         [
-          Stubs::RoleInfo.default(visited)
+          RoleInfo.default(visited)
         ]
       end
 
@@ -115,7 +115,7 @@ module AWS::SDK::SSO
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          account_list: Stubs::AccountListType.default(visited),
+          account_list: AccountListType.default(visited),
         }
       end
 
@@ -135,7 +135,7 @@ module AWS::SDK::SSO
         return nil if visited.include?('AccountListType')
         visited = visited + ['AccountListType']
         [
-          Stubs::AccountInfo.default(visited)
+          AccountInfo.default(visited)
         ]
       end
 

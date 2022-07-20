@@ -119,11 +119,11 @@ module AWS::SDK::SNS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.sender_fault ||= false
       end
-
     end
 
     # <p>The input for the <code>CheckIfPhoneNumberIsOptedOut</code> action.</p>
@@ -164,11 +164,11 @@ module AWS::SDK::SNS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_opted_out ||= false
       end
-
     end
 
     # <p>Can't perform multiple operations on a tag simultaneously. Perform the operations
@@ -776,11 +776,11 @@ module AWS::SDK::SNS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_in_sandbox ||= false
       end
-
     end
 
     # <p>Input for GetSubscriptionAttributes.</p>
@@ -2836,11 +2836,11 @@ module AWS::SDK::SNS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return_subscription_arn ||= false
       end
-
     end
 
     # <p>Response for Subscribe action.</p>

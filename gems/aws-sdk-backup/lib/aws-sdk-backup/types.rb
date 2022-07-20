@@ -965,11 +965,11 @@ module AWS::SDK::Backup
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.number_of_recovery_points ||= 0
       end
-
     end
 
     # <p>Contains <code>DeleteAt</code> and <code>MoveToColdStorageAt</code> timestamps, which
@@ -2260,11 +2260,11 @@ module AWS::SDK::Backup
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.number_of_recovery_points ||= 0
       end
-
     end
 
     # @!attribute copy_job_id
@@ -2654,11 +2654,11 @@ module AWS::SDK::Backup
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_encrypted ||= false
       end
-
     end
 
     DescribeRegionSettingsInput = ::Struct.new(
@@ -2966,11 +2966,11 @@ module AWS::SDK::Backup
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.number_of_controls ||= 0
       end
-
     end
 
     # <p>Contains detailed information about all of the controls of a framework. Each framework
@@ -4983,11 +4983,11 @@ module AWS::SDK::Backup
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_encrypted ||= false
       end
-
     end
 
     # <p>Contains detailed information about a saved recovery point.</p>
@@ -5351,11 +5351,11 @@ module AWS::SDK::Backup
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.number_of_frameworks ||= 0
       end
-
     end
 
     # <p>A resource that is required for the action doesn't exist.</p>

@@ -7,8 +7,6 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-require 'base64'
-
 module AWS::SDK::IoTTwinMaker
   module Builders
 
@@ -232,10 +230,10 @@ module AWS::SDK::IoTTwinMaker
       end
     end
 
-    # Set Builder for RequiredProperties
+    # List Builder for RequiredProperties
     class RequiredProperties
       def self.build(input)
-        data = Set.new
+        data = []
         input.each do |element|
           data << element unless element.nil?
         end

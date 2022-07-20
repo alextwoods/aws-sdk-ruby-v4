@@ -222,7 +222,7 @@ module AWS::SDK::SNS
     class GetEndpointAttributes
       def self.default(visited=[])
         {
-          attributes: Stubs::MapStringToString.default(visited),
+          attributes: MapStringToString.default(visited),
         }
       end
 
@@ -264,7 +264,7 @@ module AWS::SDK::SNS
     class GetPlatformApplicationAttributes
       def self.default(visited=[])
         {
-          attributes: Stubs::MapStringToString.default(visited),
+          attributes: MapStringToString.default(visited),
         }
       end
 
@@ -284,7 +284,7 @@ module AWS::SDK::SNS
     class GetSMSAttributes
       def self.default(visited=[])
         {
-          attributes: Stubs::MapStringToString.default(visited),
+          attributes: MapStringToString.default(visited),
         }
       end
 
@@ -324,7 +324,7 @@ module AWS::SDK::SNS
     class GetSubscriptionAttributes
       def self.default(visited=[])
         {
-          attributes: Stubs::SubscriptionAttributesMap.default(visited),
+          attributes: SubscriptionAttributesMap.default(visited),
         }
       end
 
@@ -366,7 +366,7 @@ module AWS::SDK::SNS
     class GetTopicAttributes
       def self.default(visited=[])
         {
-          attributes: Stubs::TopicAttributesMap.default(visited),
+          attributes: TopicAttributesMap.default(visited),
         }
       end
 
@@ -408,7 +408,7 @@ module AWS::SDK::SNS
     class ListEndpointsByPlatformApplication
       def self.default(visited=[])
         {
-          endpoints: Stubs::ListOfEndpoints.default(visited),
+          endpoints: ListOfEndpoints.default(visited),
           next_token: 'next_token',
         }
       end
@@ -432,7 +432,7 @@ module AWS::SDK::SNS
         return nil if visited.include?('ListOfEndpoints')
         visited = visited + ['ListOfEndpoints']
         [
-          Stubs::Endpoint.default(visited)
+          Endpoint.default(visited)
         ]
       end
 
@@ -452,7 +452,7 @@ module AWS::SDK::SNS
         visited = visited + ['Endpoint']
         {
           endpoint_arn: 'endpoint_arn',
-          attributes: Stubs::MapStringToString.default(visited),
+          attributes: MapStringToString.default(visited),
         }
       end
 
@@ -470,7 +470,7 @@ module AWS::SDK::SNS
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          phone_numbers: Stubs::PhoneNumberInformationList.default(visited),
+          phone_numbers: PhoneNumberInformationList.default(visited),
         }
       end
 
@@ -493,7 +493,7 @@ module AWS::SDK::SNS
         return nil if visited.include?('PhoneNumberInformationList')
         visited = visited + ['PhoneNumberInformationList']
         [
-          Stubs::PhoneNumberInformation.default(visited)
+          PhoneNumberInformation.default(visited)
         ]
       end
 
@@ -517,7 +517,7 @@ module AWS::SDK::SNS
           status: 'status',
           iso2_country_code: 'iso2_country_code',
           route_type: 'route_type',
-          number_capabilities: Stubs::NumberCapabilityList.default(visited),
+          number_capabilities: NumberCapabilityList.default(visited),
         }
       end
 
@@ -557,7 +557,7 @@ module AWS::SDK::SNS
     class ListPhoneNumbersOptedOut
       def self.default(visited=[])
         {
-          phone_numbers: Stubs::PhoneNumberList.default(visited),
+          phone_numbers: PhoneNumberList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -598,7 +598,7 @@ module AWS::SDK::SNS
     class ListPlatformApplications
       def self.default(visited=[])
         {
-          platform_applications: Stubs::ListOfPlatformApplications.default(visited),
+          platform_applications: ListOfPlatformApplications.default(visited),
           next_token: 'next_token',
         }
       end
@@ -622,7 +622,7 @@ module AWS::SDK::SNS
         return nil if visited.include?('ListOfPlatformApplications')
         visited = visited + ['ListOfPlatformApplications']
         [
-          Stubs::PlatformApplication.default(visited)
+          PlatformApplication.default(visited)
         ]
       end
 
@@ -642,7 +642,7 @@ module AWS::SDK::SNS
         visited = visited + ['PlatformApplication']
         {
           platform_application_arn: 'platform_application_arn',
-          attributes: Stubs::MapStringToString.default(visited),
+          attributes: MapStringToString.default(visited),
         }
       end
 
@@ -659,7 +659,7 @@ module AWS::SDK::SNS
     class ListSMSSandboxPhoneNumbers
       def self.default(visited=[])
         {
-          phone_numbers: Stubs::SMSSandboxPhoneNumberList.default(visited),
+          phone_numbers: SMSSandboxPhoneNumberList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -683,7 +683,7 @@ module AWS::SDK::SNS
         return nil if visited.include?('SMSSandboxPhoneNumberList')
         visited = visited + ['SMSSandboxPhoneNumberList']
         [
-          Stubs::SMSSandboxPhoneNumber.default(visited)
+          SMSSandboxPhoneNumber.default(visited)
         ]
       end
 
@@ -720,7 +720,7 @@ module AWS::SDK::SNS
     class ListSubscriptions
       def self.default(visited=[])
         {
-          subscriptions: Stubs::SubscriptionsList.default(visited),
+          subscriptions: SubscriptionsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -744,7 +744,7 @@ module AWS::SDK::SNS
         return nil if visited.include?('SubscriptionsList')
         visited = visited + ['SubscriptionsList']
         [
-          Stubs::Subscription.default(visited)
+          Subscription.default(visited)
         ]
       end
 
@@ -787,7 +787,7 @@ module AWS::SDK::SNS
     class ListSubscriptionsByTopic
       def self.default(visited=[])
         {
-          subscriptions: Stubs::SubscriptionsList.default(visited),
+          subscriptions: SubscriptionsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -809,7 +809,7 @@ module AWS::SDK::SNS
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -831,7 +831,7 @@ module AWS::SDK::SNS
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -868,7 +868,7 @@ module AWS::SDK::SNS
     class ListTopics
       def self.default(visited=[])
         {
-          topics: Stubs::TopicsList.default(visited),
+          topics: TopicsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -892,7 +892,7 @@ module AWS::SDK::SNS
         return nil if visited.include?('TopicsList')
         visited = visited + ['TopicsList']
         [
-          Stubs::Topic.default(visited)
+          Topic.default(visited)
         ]
       end
 
@@ -967,8 +967,8 @@ module AWS::SDK::SNS
     class PublishBatch
       def self.default(visited=[])
         {
-          successful: Stubs::PublishBatchResultEntryList.default(visited),
-          failed: Stubs::BatchResultErrorEntryList.default(visited),
+          successful: PublishBatchResultEntryList.default(visited),
+          failed: BatchResultErrorEntryList.default(visited),
         }
       end
 
@@ -991,7 +991,7 @@ module AWS::SDK::SNS
         return nil if visited.include?('BatchResultErrorEntryList')
         visited = visited + ['BatchResultErrorEntryList']
         [
-          Stubs::BatchResultErrorEntry.default(visited)
+          BatchResultErrorEntry.default(visited)
         ]
       end
 
@@ -1034,7 +1034,7 @@ module AWS::SDK::SNS
         return nil if visited.include?('PublishBatchResultEntryList')
         visited = visited + ['PublishBatchResultEntryList']
         [
-          Stubs::PublishBatchResultEntry.default(visited)
+          PublishBatchResultEntry.default(visited)
         ]
       end
 

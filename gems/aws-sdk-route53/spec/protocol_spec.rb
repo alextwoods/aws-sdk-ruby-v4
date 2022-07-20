@@ -9,9 +9,6 @@
 
 require 'aws-sdk-route53'
 
-require 'hearth/xml/node_matcher'
-require 'hearth/query/param_matcher'
-
 module AWS::SDK::Route53
   describe Client do
     let(:endpoint) { 'http://127.0.0.1' }

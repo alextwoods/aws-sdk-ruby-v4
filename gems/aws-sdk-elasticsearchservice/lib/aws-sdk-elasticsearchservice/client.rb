@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::ElasticsearchService
@@ -73,7 +75,7 @@ module AWS::SDK::ElasticsearchService
     def accept_inbound_cross_cluster_search_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AcceptInboundCrossClusterSearchConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AcceptInboundCrossClusterSearchConnectionInput,
         validate_input: @config.validate_input
@@ -150,7 +152,7 @@ module AWS::SDK::ElasticsearchService
     def add_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddTagsInput,
         validate_input: @config.validate_input
@@ -234,7 +236,7 @@ module AWS::SDK::ElasticsearchService
     def associate_package(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociatePackageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociatePackageInput,
         validate_input: @config.validate_input
@@ -310,7 +312,7 @@ module AWS::SDK::ElasticsearchService
     def cancel_elasticsearch_service_software_update(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelElasticsearchServiceSoftwareUpdateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelElasticsearchServiceSoftwareUpdateInput,
         validate_input: @config.validate_input
@@ -619,7 +621,7 @@ module AWS::SDK::ElasticsearchService
     def create_elasticsearch_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateElasticsearchDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateElasticsearchDomainInput,
         validate_input: @config.validate_input
@@ -708,7 +710,7 @@ module AWS::SDK::ElasticsearchService
     def create_outbound_cross_cluster_search_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateOutboundCrossClusterSearchConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateOutboundCrossClusterSearchConnectionInput,
         validate_input: @config.validate_input
@@ -803,7 +805,7 @@ module AWS::SDK::ElasticsearchService
     def create_package(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePackageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePackageInput,
         validate_input: @config.validate_input
@@ -961,7 +963,7 @@ module AWS::SDK::ElasticsearchService
     def delete_elasticsearch_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteElasticsearchDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteElasticsearchDomainInput,
         validate_input: @config.validate_input
@@ -1023,7 +1025,7 @@ module AWS::SDK::ElasticsearchService
     def delete_elasticsearch_service_role(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteElasticsearchServiceRoleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteElasticsearchServiceRoleInput,
         validate_input: @config.validate_input
@@ -1100,7 +1102,7 @@ module AWS::SDK::ElasticsearchService
     def delete_inbound_cross_cluster_search_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteInboundCrossClusterSearchConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteInboundCrossClusterSearchConnectionInput,
         validate_input: @config.validate_input
@@ -1178,7 +1180,7 @@ module AWS::SDK::ElasticsearchService
     def delete_outbound_cross_cluster_search_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteOutboundCrossClusterSearchConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteOutboundCrossClusterSearchConnectionInput,
         validate_input: @config.validate_input
@@ -1257,7 +1259,7 @@ module AWS::SDK::ElasticsearchService
     def delete_package(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePackageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePackageInput,
         validate_input: @config.validate_input
@@ -1342,7 +1344,7 @@ module AWS::SDK::ElasticsearchService
     def describe_domain_auto_tunes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDomainAutoTunesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDomainAutoTunesInput,
         validate_input: @config.validate_input
@@ -1431,7 +1433,7 @@ module AWS::SDK::ElasticsearchService
     def describe_domain_change_progress(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDomainChangeProgressInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDomainChangeProgressInput,
         validate_input: @config.validate_input
@@ -1588,7 +1590,7 @@ module AWS::SDK::ElasticsearchService
     def describe_elasticsearch_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeElasticsearchDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeElasticsearchDomainInput,
         validate_input: @config.validate_input
@@ -1772,7 +1774,7 @@ module AWS::SDK::ElasticsearchService
     def describe_elasticsearch_domain_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeElasticsearchDomainConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeElasticsearchDomainConfigInput,
         validate_input: @config.validate_input
@@ -1932,7 +1934,7 @@ module AWS::SDK::ElasticsearchService
     def describe_elasticsearch_domains(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeElasticsearchDomainsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeElasticsearchDomainsInput,
         validate_input: @config.validate_input
@@ -2054,7 +2056,7 @@ module AWS::SDK::ElasticsearchService
     def describe_elasticsearch_instance_type_limits(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeElasticsearchInstanceTypeLimitsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeElasticsearchInstanceTypeLimitsInput,
         validate_input: @config.validate_input
@@ -2158,7 +2160,7 @@ module AWS::SDK::ElasticsearchService
     def describe_inbound_cross_cluster_search_connections(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeInboundCrossClusterSearchConnectionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeInboundCrossClusterSearchConnectionsInput,
         validate_input: @config.validate_input
@@ -2264,7 +2266,7 @@ module AWS::SDK::ElasticsearchService
     def describe_outbound_cross_cluster_search_connections(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeOutboundCrossClusterSearchConnectionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeOutboundCrossClusterSearchConnectionsInput,
         validate_input: @config.validate_input
@@ -2361,7 +2363,7 @@ module AWS::SDK::ElasticsearchService
     def describe_packages(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePackagesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePackagesInput,
         validate_input: @config.validate_input
@@ -2452,7 +2454,7 @@ module AWS::SDK::ElasticsearchService
     def describe_reserved_elasticsearch_instance_offerings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeReservedElasticsearchInstanceOfferingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeReservedElasticsearchInstanceOfferingsInput,
         validate_input: @config.validate_input
@@ -2547,7 +2549,7 @@ module AWS::SDK::ElasticsearchService
     def describe_reserved_elasticsearch_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeReservedElasticsearchInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeReservedElasticsearchInstancesInput,
         validate_input: @config.validate_input
@@ -2630,7 +2632,7 @@ module AWS::SDK::ElasticsearchService
     def dissociate_package(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DissociatePackageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DissociatePackageInput,
         validate_input: @config.validate_input
@@ -2709,7 +2711,7 @@ module AWS::SDK::ElasticsearchService
     def get_compatible_elasticsearch_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCompatibleElasticsearchVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCompatibleElasticsearchVersionsInput,
         validate_input: @config.validate_input
@@ -2791,7 +2793,7 @@ module AWS::SDK::ElasticsearchService
     def get_package_version_history(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPackageVersionHistoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPackageVersionHistoryInput,
         validate_input: @config.validate_input
@@ -2884,7 +2886,7 @@ module AWS::SDK::ElasticsearchService
     def get_upgrade_history(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetUpgradeHistoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetUpgradeHistoryInput,
         validate_input: @config.validate_input
@@ -2954,7 +2956,7 @@ module AWS::SDK::ElasticsearchService
     def get_upgrade_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetUpgradeStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetUpgradeStatusInput,
         validate_input: @config.validate_input
@@ -3025,7 +3027,7 @@ module AWS::SDK::ElasticsearchService
     def list_domain_names(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDomainNamesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDomainNamesInput,
         validate_input: @config.validate_input
@@ -3114,7 +3116,7 @@ module AWS::SDK::ElasticsearchService
     def list_domains_for_package(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDomainsForPackageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDomainsForPackageInput,
         validate_input: @config.validate_input
@@ -3205,7 +3207,7 @@ module AWS::SDK::ElasticsearchService
     def list_elasticsearch_instance_types(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListElasticsearchInstanceTypesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListElasticsearchInstanceTypesInput,
         validate_input: @config.validate_input
@@ -3285,7 +3287,7 @@ module AWS::SDK::ElasticsearchService
     def list_elasticsearch_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListElasticsearchVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListElasticsearchVersionsInput,
         validate_input: @config.validate_input
@@ -3374,7 +3376,7 @@ module AWS::SDK::ElasticsearchService
     def list_packages_for_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPackagesForDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPackagesForDomainInput,
         validate_input: @config.validate_input
@@ -3445,7 +3447,7 @@ module AWS::SDK::ElasticsearchService
     def list_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsInput,
         validate_input: @config.validate_input
@@ -3522,7 +3524,7 @@ module AWS::SDK::ElasticsearchService
     def purchase_reserved_elasticsearch_instance_offering(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PurchaseReservedElasticsearchInstanceOfferingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PurchaseReservedElasticsearchInstanceOfferingInput,
         validate_input: @config.validate_input
@@ -3600,7 +3602,7 @@ module AWS::SDK::ElasticsearchService
     def reject_inbound_cross_cluster_search_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RejectInboundCrossClusterSearchConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RejectInboundCrossClusterSearchConnectionInput,
         validate_input: @config.validate_input
@@ -3673,7 +3675,7 @@ module AWS::SDK::ElasticsearchService
     def remove_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveTagsInput,
         validate_input: @config.validate_input
@@ -3750,7 +3752,7 @@ module AWS::SDK::ElasticsearchService
     def start_elasticsearch_service_software_update(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartElasticsearchServiceSoftwareUpdateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartElasticsearchServiceSoftwareUpdateInput,
         validate_input: @config.validate_input
@@ -4083,7 +4085,7 @@ module AWS::SDK::ElasticsearchService
     def update_elasticsearch_domain_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateElasticsearchDomainConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateElasticsearchDomainConfigInput,
         validate_input: @config.validate_input
@@ -4178,7 +4180,7 @@ module AWS::SDK::ElasticsearchService
     def update_package(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePackageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePackageInput,
         validate_input: @config.validate_input
@@ -4263,7 +4265,7 @@ module AWS::SDK::ElasticsearchService
     def upgrade_elasticsearch_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpgradeElasticsearchDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpgradeElasticsearchDomainInput,
         validate_input: @config.validate_input

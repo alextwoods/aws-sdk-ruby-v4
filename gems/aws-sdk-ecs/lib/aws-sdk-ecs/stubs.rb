@@ -14,7 +14,7 @@ module AWS::SDK::ECS
     class CreateCapacityProvider
       def self.default(visited=[])
         {
-          capacity_provider: Stubs::CapacityProvider.default(visited),
+          capacity_provider: CapacityProvider.default(visited),
         }
       end
 
@@ -35,10 +35,10 @@ module AWS::SDK::ECS
           capacity_provider_arn: 'capacity_provider_arn',
           name: 'name',
           status: 'status',
-          auto_scaling_group_provider: Stubs::AutoScalingGroupProvider.default(visited),
+          auto_scaling_group_provider: AutoScalingGroupProvider.default(visited),
           update_status: 'update_status',
           update_status_reason: 'update_status_reason',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -62,7 +62,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('Tags')
         visited = visited + ['Tags']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -103,7 +103,7 @@ module AWS::SDK::ECS
         visited = visited + ['AutoScalingGroupProvider']
         {
           auto_scaling_group_arn: 'auto_scaling_group_arn',
-          managed_scaling: Stubs::ManagedScaling.default(visited),
+          managed_scaling: ManagedScaling.default(visited),
           managed_termination_protection: 'managed_termination_protection',
         }
       end
@@ -148,7 +148,7 @@ module AWS::SDK::ECS
     class CreateCluster
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -168,18 +168,18 @@ module AWS::SDK::ECS
         {
           cluster_arn: 'cluster_arn',
           cluster_name: 'cluster_name',
-          configuration: Stubs::ClusterConfiguration.default(visited),
+          configuration: ClusterConfiguration.default(visited),
           status: 'status',
           registered_container_instances_count: 1,
           running_tasks_count: 1,
           pending_tasks_count: 1,
           active_services_count: 1,
-          statistics: Stubs::Statistics.default(visited),
-          tags: Stubs::Tags.default(visited),
-          settings: Stubs::ClusterSettings.default(visited),
-          capacity_providers: Stubs::StringList.default(visited),
-          default_capacity_provider_strategy: Stubs::CapacityProviderStrategy.default(visited),
-          attachments: Stubs::Attachments.default(visited),
+          statistics: Statistics.default(visited),
+          tags: Tags.default(visited),
+          settings: ClusterSettings.default(visited),
+          capacity_providers: StringList.default(visited),
+          default_capacity_provider_strategy: CapacityProviderStrategy.default(visited),
+          attachments: Attachments.default(visited),
           attachments_status: 'attachments_status',
         }
       end
@@ -212,7 +212,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('Attachments')
         visited = visited + ['Attachments']
         [
-          Stubs::Attachment.default(visited)
+          Attachment.default(visited)
         ]
       end
 
@@ -235,7 +235,7 @@ module AWS::SDK::ECS
           id: 'id',
           type: 'type',
           status: 'status',
-          details: Stubs::AttachmentDetails.default(visited),
+          details: AttachmentDetails.default(visited),
         }
       end
 
@@ -256,7 +256,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('AttachmentDetails')
         visited = visited + ['AttachmentDetails']
         [
-          Stubs::KeyValuePair.default(visited)
+          KeyValuePair.default(visited)
         ]
       end
 
@@ -296,7 +296,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('CapacityProviderStrategy')
         visited = visited + ['CapacityProviderStrategy']
         [
-          Stubs::CapacityProviderStrategyItem.default(visited)
+          CapacityProviderStrategyItem.default(visited)
         ]
       end
 
@@ -358,7 +358,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('ClusterSettings')
         visited = visited + ['ClusterSettings']
         [
-          Stubs::ClusterSetting.default(visited)
+          ClusterSetting.default(visited)
         ]
       end
 
@@ -398,7 +398,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('Statistics')
         visited = visited + ['Statistics']
         [
-          Stubs::KeyValuePair.default(visited)
+          KeyValuePair.default(visited)
         ]
       end
 
@@ -418,7 +418,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('ClusterConfiguration')
         visited = visited + ['ClusterConfiguration']
         {
-          execute_command_configuration: Stubs::ExecuteCommandConfiguration.default(visited),
+          execute_command_configuration: ExecuteCommandConfiguration.default(visited),
         }
       end
 
@@ -438,7 +438,7 @@ module AWS::SDK::ECS
         {
           kms_key_id: 'kms_key_id',
           logging: 'logging',
-          log_configuration: Stubs::ExecuteCommandLogConfiguration.default(visited),
+          log_configuration: ExecuteCommandLogConfiguration.default(visited),
         }
       end
 
@@ -482,7 +482,7 @@ module AWS::SDK::ECS
     class CreateService
       def self.default(visited=[])
         {
-          service: Stubs::Service.default(visited),
+          service: Service.default(visited),
         }
       end
 
@@ -503,30 +503,30 @@ module AWS::SDK::ECS
           service_arn: 'service_arn',
           service_name: 'service_name',
           cluster_arn: 'cluster_arn',
-          load_balancers: Stubs::LoadBalancers.default(visited),
-          service_registries: Stubs::ServiceRegistries.default(visited),
+          load_balancers: LoadBalancers.default(visited),
+          service_registries: ServiceRegistries.default(visited),
           status: 'status',
           desired_count: 1,
           running_count: 1,
           pending_count: 1,
           launch_type: 'launch_type',
-          capacity_provider_strategy: Stubs::CapacityProviderStrategy.default(visited),
+          capacity_provider_strategy: CapacityProviderStrategy.default(visited),
           platform_version: 'platform_version',
           platform_family: 'platform_family',
           task_definition: 'task_definition',
-          deployment_configuration: Stubs::DeploymentConfiguration.default(visited),
-          task_sets: Stubs::TaskSets.default(visited),
-          deployments: Stubs::Deployments.default(visited),
+          deployment_configuration: DeploymentConfiguration.default(visited),
+          task_sets: TaskSets.default(visited),
+          deployments: Deployments.default(visited),
           role_arn: 'role_arn',
-          events: Stubs::ServiceEvents.default(visited),
+          events: ServiceEvents.default(visited),
           created_at: Time.now,
-          placement_constraints: Stubs::PlacementConstraints.default(visited),
-          placement_strategy: Stubs::PlacementStrategies.default(visited),
-          network_configuration: Stubs::NetworkConfiguration.default(visited),
+          placement_constraints: PlacementConstraints.default(visited),
+          placement_strategy: PlacementStrategies.default(visited),
+          network_configuration: NetworkConfiguration.default(visited),
           health_check_grace_period_seconds: 1,
           scheduling_strategy: 'scheduling_strategy',
-          deployment_controller: Stubs::DeploymentController.default(visited),
-          tags: Stubs::Tags.default(visited),
+          deployment_controller: DeploymentController.default(visited),
+          tags: Tags.default(visited),
           created_by: 'created_by',
           enable_ecs_managed_tags: false,
           propagate_tags: 'propagate_tags',
@@ -596,7 +596,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('NetworkConfiguration')
         visited = visited + ['NetworkConfiguration']
         {
-          awsvpc_configuration: Stubs::AwsVpcConfiguration.default(visited),
+          awsvpc_configuration: AwsVpcConfiguration.default(visited),
         }
       end
 
@@ -614,8 +614,8 @@ module AWS::SDK::ECS
         return nil if visited.include?('AwsVpcConfiguration')
         visited = visited + ['AwsVpcConfiguration']
         {
-          subnets: Stubs::StringList.default(visited),
-          security_groups: Stubs::StringList.default(visited),
+          subnets: StringList.default(visited),
+          security_groups: StringList.default(visited),
           assign_public_ip: 'assign_public_ip',
         }
       end
@@ -636,7 +636,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('PlacementStrategies')
         visited = visited + ['PlacementStrategies']
         [
-          Stubs::PlacementStrategy.default(visited)
+          PlacementStrategy.default(visited)
         ]
       end
 
@@ -676,7 +676,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('PlacementConstraints')
         visited = visited + ['PlacementConstraints']
         [
-          Stubs::PlacementConstraint.default(visited)
+          PlacementConstraint.default(visited)
         ]
       end
 
@@ -716,7 +716,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('ServiceEvents')
         visited = visited + ['ServiceEvents']
         [
-          Stubs::ServiceEvent.default(visited)
+          ServiceEvent.default(visited)
         ]
       end
 
@@ -758,7 +758,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('Deployments')
         visited = visited + ['Deployments']
         [
-          Stubs::Deployment.default(visited)
+          Deployment.default(visited)
         ]
       end
 
@@ -787,11 +787,11 @@ module AWS::SDK::ECS
           failed_tasks: 1,
           created_at: Time.now,
           updated_at: Time.now,
-          capacity_provider_strategy: Stubs::CapacityProviderStrategy.default(visited),
+          capacity_provider_strategy: CapacityProviderStrategy.default(visited),
           launch_type: 'launch_type',
           platform_version: 'platform_version',
           platform_family: 'platform_family',
-          network_configuration: Stubs::NetworkConfiguration.default(visited),
+          network_configuration: NetworkConfiguration.default(visited),
           rollout_state: 'rollout_state',
           rollout_state_reason: 'rollout_state_reason',
         }
@@ -826,7 +826,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('TaskSets')
         visited = visited + ['TaskSets']
         [
-          Stubs::TaskSet.default(visited)
+          TaskSet.default(visited)
         ]
       end
 
@@ -860,16 +860,16 @@ module AWS::SDK::ECS
           created_at: Time.now,
           updated_at: Time.now,
           launch_type: 'launch_type',
-          capacity_provider_strategy: Stubs::CapacityProviderStrategy.default(visited),
+          capacity_provider_strategy: CapacityProviderStrategy.default(visited),
           platform_version: 'platform_version',
           platform_family: 'platform_family',
-          network_configuration: Stubs::NetworkConfiguration.default(visited),
-          load_balancers: Stubs::LoadBalancers.default(visited),
-          service_registries: Stubs::ServiceRegistries.default(visited),
-          scale: Stubs::Scale.default(visited),
+          network_configuration: NetworkConfiguration.default(visited),
+          load_balancers: LoadBalancers.default(visited),
+          service_registries: ServiceRegistries.default(visited),
+          scale: Scale.default(visited),
           stability_status: 'stability_status',
           stability_status_at: Time.now,
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -930,7 +930,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('ServiceRegistries')
         visited = visited + ['ServiceRegistries']
         [
-          Stubs::ServiceRegistry.default(visited)
+          ServiceRegistry.default(visited)
         ]
       end
 
@@ -974,7 +974,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('LoadBalancers')
         visited = visited + ['LoadBalancers']
         [
-          Stubs::LoadBalancer.default(visited)
+          LoadBalancer.default(visited)
         ]
       end
 
@@ -1018,7 +1018,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('DeploymentConfiguration')
         visited = visited + ['DeploymentConfiguration']
         {
-          deployment_circuit_breaker: Stubs::DeploymentCircuitBreaker.default(visited),
+          deployment_circuit_breaker: DeploymentCircuitBreaker.default(visited),
           maximum_percent: 1,
           minimum_healthy_percent: 1,
         }
@@ -1058,7 +1058,7 @@ module AWS::SDK::ECS
     class CreateTaskSet
       def self.default(visited=[])
         {
-          task_set: Stubs::TaskSet.default(visited),
+          task_set: TaskSet.default(visited),
         }
       end
 
@@ -1074,7 +1074,7 @@ module AWS::SDK::ECS
     class DeleteAccountSetting
       def self.default(visited=[])
         {
-          setting: Stubs::Setting.default(visited),
+          setting: Setting.default(visited),
         }
       end
 
@@ -1112,7 +1112,7 @@ module AWS::SDK::ECS
     class DeleteAttributes
       def self.default(visited=[])
         {
-          attributes: Stubs::Attributes.default(visited),
+          attributes: Attributes.default(visited),
         }
       end
 
@@ -1130,7 +1130,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('Attributes')
         visited = visited + ['Attributes']
         [
-          Stubs::Attribute.default(visited)
+          Attribute.default(visited)
         ]
       end
 
@@ -1172,7 +1172,7 @@ module AWS::SDK::ECS
     class DeleteCapacityProvider
       def self.default(visited=[])
         {
-          capacity_provider: Stubs::CapacityProvider.default(visited),
+          capacity_provider: CapacityProvider.default(visited),
         }
       end
 
@@ -1188,7 +1188,7 @@ module AWS::SDK::ECS
     class DeleteCluster
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -1204,7 +1204,7 @@ module AWS::SDK::ECS
     class DeleteService
       def self.default(visited=[])
         {
-          service: Stubs::Service.default(visited),
+          service: Service.default(visited),
         }
       end
 
@@ -1220,7 +1220,7 @@ module AWS::SDK::ECS
     class DeleteTaskSet
       def self.default(visited=[])
         {
-          task_set: Stubs::TaskSet.default(visited),
+          task_set: TaskSet.default(visited),
         }
       end
 
@@ -1236,7 +1236,7 @@ module AWS::SDK::ECS
     class DeregisterContainerInstance
       def self.default(visited=[])
         {
-          container_instance: Stubs::ContainerInstance.default(visited),
+          container_instance: ContainerInstance.default(visited),
         }
       end
 
@@ -1258,20 +1258,20 @@ module AWS::SDK::ECS
           ec2_instance_id: 'ec2_instance_id',
           capacity_provider_name: 'capacity_provider_name',
           version: 1,
-          version_info: Stubs::VersionInfo.default(visited),
-          remaining_resources: Stubs::Resources.default(visited),
-          registered_resources: Stubs::Resources.default(visited),
+          version_info: VersionInfo.default(visited),
+          remaining_resources: Resources.default(visited),
+          registered_resources: Resources.default(visited),
           status: 'status',
           status_reason: 'status_reason',
           agent_connected: false,
           running_tasks_count: 1,
           pending_tasks_count: 1,
           agent_update_status: 'agent_update_status',
-          attributes: Stubs::Attributes.default(visited),
+          attributes: Attributes.default(visited),
           registered_at: Time.now,
-          attachments: Stubs::Attachments.default(visited),
-          tags: Stubs::Tags.default(visited),
-          health_status: Stubs::ContainerInstanceHealthStatus.default(visited),
+          attachments: Attachments.default(visited),
+          tags: Tags.default(visited),
+          health_status: ContainerInstanceHealthStatus.default(visited),
         }
       end
 
@@ -1307,7 +1307,7 @@ module AWS::SDK::ECS
         visited = visited + ['ContainerInstanceHealthStatus']
         {
           overall_status: 'overall_status',
-          details: Stubs::InstanceHealthCheckResultList.default(visited),
+          details: InstanceHealthCheckResultList.default(visited),
         }
       end
 
@@ -1326,7 +1326,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('InstanceHealthCheckResultList')
         visited = visited + ['InstanceHealthCheckResultList']
         [
-          Stubs::InstanceHealthCheckResult.default(visited)
+          InstanceHealthCheckResult.default(visited)
         ]
       end
 
@@ -1370,7 +1370,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('Resources')
         visited = visited + ['Resources']
         [
-          Stubs::Resource.default(visited)
+          Resource.default(visited)
         ]
       end
 
@@ -1395,7 +1395,7 @@ module AWS::SDK::ECS
           double_value: 1.0,
           long_value: 1,
           integer_value: 1,
-          string_set_value: Stubs::StringList.default(visited),
+          string_set_value: StringList.default(visited),
         }
       end
 
@@ -1438,7 +1438,7 @@ module AWS::SDK::ECS
     class DeregisterTaskDefinition
       def self.default(visited=[])
         {
-          task_definition: Stubs::TaskDefinition.default(visited),
+          task_definition: TaskDefinition.default(visited),
         }
       end
 
@@ -1457,29 +1457,29 @@ module AWS::SDK::ECS
         visited = visited + ['TaskDefinition']
         {
           task_definition_arn: 'task_definition_arn',
-          container_definitions: Stubs::ContainerDefinitions.default(visited),
+          container_definitions: ContainerDefinitions.default(visited),
           family: 'family',
           task_role_arn: 'task_role_arn',
           execution_role_arn: 'execution_role_arn',
           network_mode: 'network_mode',
           revision: 1,
-          volumes: Stubs::VolumeList.default(visited),
+          volumes: VolumeList.default(visited),
           status: 'status',
-          requires_attributes: Stubs::RequiresAttributes.default(visited),
-          placement_constraints: Stubs::TaskDefinitionPlacementConstraints.default(visited),
-          compatibilities: Stubs::CompatibilityList.default(visited),
-          runtime_platform: Stubs::RuntimePlatform.default(visited),
-          requires_compatibilities: Stubs::CompatibilityList.default(visited),
+          requires_attributes: RequiresAttributes.default(visited),
+          placement_constraints: TaskDefinitionPlacementConstraints.default(visited),
+          compatibilities: CompatibilityList.default(visited),
+          runtime_platform: RuntimePlatform.default(visited),
+          requires_compatibilities: CompatibilityList.default(visited),
           cpu: 'cpu',
           memory: 'memory',
-          inference_accelerators: Stubs::InferenceAccelerators.default(visited),
+          inference_accelerators: InferenceAccelerators.default(visited),
           pid_mode: 'pid_mode',
           ipc_mode: 'ipc_mode',
-          proxy_configuration: Stubs::ProxyConfiguration.default(visited),
+          proxy_configuration: ProxyConfiguration.default(visited),
           registered_at: Time.now,
           deregistered_at: Time.now,
           registered_by: 'registered_by',
-          ephemeral_storage: Stubs::EphemeralStorage.default(visited),
+          ephemeral_storage: EphemeralStorage.default(visited),
         }
       end
 
@@ -1540,7 +1540,7 @@ module AWS::SDK::ECS
         {
           type: 'type',
           container_name: 'container_name',
-          properties: Stubs::ProxyConfigurationProperties.default(visited),
+          properties: ProxyConfigurationProperties.default(visited),
         }
       end
 
@@ -1560,7 +1560,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('ProxyConfigurationProperties')
         visited = visited + ['ProxyConfigurationProperties']
         [
-          Stubs::KeyValuePair.default(visited)
+          KeyValuePair.default(visited)
         ]
       end
 
@@ -1580,7 +1580,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('InferenceAccelerators')
         visited = visited + ['InferenceAccelerators']
         [
-          Stubs::InferenceAccelerator.default(visited)
+          InferenceAccelerator.default(visited)
         ]
       end
 
@@ -1660,7 +1660,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('TaskDefinitionPlacementConstraints')
         visited = visited + ['TaskDefinitionPlacementConstraints']
         [
-          Stubs::TaskDefinitionPlacementConstraint.default(visited)
+          TaskDefinitionPlacementConstraint.default(visited)
         ]
       end
 
@@ -1700,7 +1700,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('RequiresAttributes')
         visited = visited + ['RequiresAttributes']
         [
-          Stubs::Attribute.default(visited)
+          Attribute.default(visited)
         ]
       end
 
@@ -1720,7 +1720,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('VolumeList')
         visited = visited + ['VolumeList']
         [
-          Stubs::Volume.default(visited)
+          Volume.default(visited)
         ]
       end
 
@@ -1741,10 +1741,10 @@ module AWS::SDK::ECS
         visited = visited + ['Volume']
         {
           name: 'name',
-          host: Stubs::HostVolumeProperties.default(visited),
-          docker_volume_configuration: Stubs::DockerVolumeConfiguration.default(visited),
-          efs_volume_configuration: Stubs::EFSVolumeConfiguration.default(visited),
-          fsx_windows_file_server_volume_configuration: Stubs::FSxWindowsFileServerVolumeConfiguration.default(visited),
+          host: HostVolumeProperties.default(visited),
+          docker_volume_configuration: DockerVolumeConfiguration.default(visited),
+          efs_volume_configuration: EFSVolumeConfiguration.default(visited),
+          fsx_windows_file_server_volume_configuration: FSxWindowsFileServerVolumeConfiguration.default(visited),
         }
       end
 
@@ -1768,7 +1768,7 @@ module AWS::SDK::ECS
         {
           file_system_id: 'file_system_id',
           root_directory: 'root_directory',
-          authorization_config: Stubs::FSxWindowsFileServerAuthorizationConfig.default(visited),
+          authorization_config: FSxWindowsFileServerAuthorizationConfig.default(visited),
         }
       end
 
@@ -1812,7 +1812,7 @@ module AWS::SDK::ECS
           root_directory: 'root_directory',
           transit_encryption: 'transit_encryption',
           transit_encryption_port: 1,
-          authorization_config: Stubs::EFSAuthorizationConfig.default(visited),
+          authorization_config: EFSAuthorizationConfig.default(visited),
         }
       end
 
@@ -1857,8 +1857,8 @@ module AWS::SDK::ECS
           scope: 'scope',
           autoprovision: false,
           driver: 'driver',
-          driver_opts: Stubs::StringMap.default(visited),
-          labels: Stubs::StringMap.default(visited),
+          driver_opts: StringMap.default(visited),
+          labels: StringMap.default(visited),
         }
       end
 
@@ -1918,7 +1918,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('ContainerDefinitions')
         visited = visited + ['ContainerDefinitions']
         [
-          Stubs::ContainerDefinition.default(visited)
+          ContainerDefinition.default(visited)
         ]
       end
 
@@ -1940,22 +1940,22 @@ module AWS::SDK::ECS
         {
           name: 'name',
           image: 'image',
-          repository_credentials: Stubs::RepositoryCredentials.default(visited),
+          repository_credentials: RepositoryCredentials.default(visited),
           cpu: 1,
           memory: 1,
           memory_reservation: 1,
-          links: Stubs::StringList.default(visited),
-          port_mappings: Stubs::PortMappingList.default(visited),
+          links: StringList.default(visited),
+          port_mappings: PortMappingList.default(visited),
           essential: false,
-          entry_point: Stubs::StringList.default(visited),
-          command: Stubs::StringList.default(visited),
-          environment: Stubs::EnvironmentVariables.default(visited),
-          environment_files: Stubs::EnvironmentFiles.default(visited),
-          mount_points: Stubs::MountPointList.default(visited),
-          volumes_from: Stubs::VolumeFromList.default(visited),
-          linux_parameters: Stubs::LinuxParameters.default(visited),
-          secrets: Stubs::SecretList.default(visited),
-          depends_on: Stubs::ContainerDependencies.default(visited),
+          entry_point: StringList.default(visited),
+          command: StringList.default(visited),
+          environment: EnvironmentVariables.default(visited),
+          environment_files: EnvironmentFiles.default(visited),
+          mount_points: MountPointList.default(visited),
+          volumes_from: VolumeFromList.default(visited),
+          linux_parameters: LinuxParameters.default(visited),
+          secrets: SecretList.default(visited),
+          depends_on: ContainerDependencies.default(visited),
           start_timeout: 1,
           stop_timeout: 1,
           hostname: 'hostname',
@@ -1964,19 +1964,19 @@ module AWS::SDK::ECS
           disable_networking: false,
           privileged: false,
           readonly_root_filesystem: false,
-          dns_servers: Stubs::StringList.default(visited),
-          dns_search_domains: Stubs::StringList.default(visited),
-          extra_hosts: Stubs::HostEntryList.default(visited),
-          docker_security_options: Stubs::StringList.default(visited),
+          dns_servers: StringList.default(visited),
+          dns_search_domains: StringList.default(visited),
+          extra_hosts: HostEntryList.default(visited),
+          docker_security_options: StringList.default(visited),
           interactive: false,
           pseudo_terminal: false,
-          docker_labels: Stubs::DockerLabelsMap.default(visited),
-          ulimits: Stubs::UlimitList.default(visited),
-          log_configuration: Stubs::LogConfiguration.default(visited),
-          health_check: Stubs::HealthCheck.default(visited),
-          system_controls: Stubs::SystemControls.default(visited),
-          resource_requirements: Stubs::ResourceRequirements.default(visited),
-          firelens_configuration: Stubs::FirelensConfiguration.default(visited),
+          docker_labels: DockerLabelsMap.default(visited),
+          ulimits: UlimitList.default(visited),
+          log_configuration: LogConfiguration.default(visited),
+          health_check: HealthCheck.default(visited),
+          system_controls: SystemControls.default(visited),
+          resource_requirements: ResourceRequirements.default(visited),
+          firelens_configuration: FirelensConfiguration.default(visited),
         }
       end
 
@@ -2033,7 +2033,7 @@ module AWS::SDK::ECS
         visited = visited + ['FirelensConfiguration']
         {
           type: 'type',
-          options: Stubs::FirelensConfigurationOptionsMap.default(visited),
+          options: FirelensConfigurationOptionsMap.default(visited),
         }
       end
 
@@ -2072,7 +2072,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('ResourceRequirements')
         visited = visited + ['ResourceRequirements']
         [
-          Stubs::ResourceRequirement.default(visited)
+          ResourceRequirement.default(visited)
         ]
       end
 
@@ -2112,7 +2112,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('SystemControls')
         visited = visited + ['SystemControls']
         [
-          Stubs::SystemControl.default(visited)
+          SystemControl.default(visited)
         ]
       end
 
@@ -2152,7 +2152,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('HealthCheck')
         visited = visited + ['HealthCheck']
         {
-          command: Stubs::StringList.default(visited),
+          command: StringList.default(visited),
           interval: 1,
           timeout: 1,
           retries: 1,
@@ -2179,8 +2179,8 @@ module AWS::SDK::ECS
         visited = visited + ['LogConfiguration']
         {
           log_driver: 'log_driver',
-          options: Stubs::LogConfigurationOptionsMap.default(visited),
-          secret_options: Stubs::SecretList.default(visited),
+          options: LogConfigurationOptionsMap.default(visited),
+          secret_options: SecretList.default(visited),
         }
       end
 
@@ -2200,7 +2200,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('SecretList')
         visited = visited + ['SecretList']
         [
-          Stubs::Secret.default(visited)
+          Secret.default(visited)
         ]
       end
 
@@ -2260,7 +2260,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('UlimitList')
         visited = visited + ['UlimitList']
         [
-          Stubs::Ulimit.default(visited)
+          Ulimit.default(visited)
         ]
       end
 
@@ -2322,7 +2322,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('HostEntryList')
         visited = visited + ['HostEntryList']
         [
-          Stubs::HostEntry.default(visited)
+          HostEntry.default(visited)
         ]
       end
 
@@ -2362,7 +2362,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('ContainerDependencies')
         visited = visited + ['ContainerDependencies']
         [
-          Stubs::ContainerDependency.default(visited)
+          ContainerDependency.default(visited)
         ]
       end
 
@@ -2402,11 +2402,11 @@ module AWS::SDK::ECS
         return nil if visited.include?('LinuxParameters')
         visited = visited + ['LinuxParameters']
         {
-          capabilities: Stubs::KernelCapabilities.default(visited),
-          devices: Stubs::DevicesList.default(visited),
+          capabilities: KernelCapabilities.default(visited),
+          devices: DevicesList.default(visited),
           init_process_enabled: false,
           shared_memory_size: 1,
-          tmpfs: Stubs::TmpfsList.default(visited),
+          tmpfs: TmpfsList.default(visited),
           max_swap: 1,
           swappiness: 1,
         }
@@ -2432,7 +2432,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('TmpfsList')
         visited = visited + ['TmpfsList']
         [
-          Stubs::Tmpfs.default(visited)
+          Tmpfs.default(visited)
         ]
       end
 
@@ -2454,7 +2454,7 @@ module AWS::SDK::ECS
         {
           container_path: 'container_path',
           size: 1,
-          mount_options: Stubs::StringList.default(visited),
+          mount_options: StringList.default(visited),
         }
       end
 
@@ -2474,7 +2474,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('DevicesList')
         visited = visited + ['DevicesList']
         [
-          Stubs::Device.default(visited)
+          Device.default(visited)
         ]
       end
 
@@ -2496,7 +2496,7 @@ module AWS::SDK::ECS
         {
           host_path: 'host_path',
           container_path: 'container_path',
-          permissions: Stubs::DeviceCgroupPermissions.default(visited),
+          permissions: DeviceCgroupPermissions.default(visited),
         }
       end
 
@@ -2536,8 +2536,8 @@ module AWS::SDK::ECS
         return nil if visited.include?('KernelCapabilities')
         visited = visited + ['KernelCapabilities']
         {
-          add: Stubs::StringList.default(visited),
-          drop: Stubs::StringList.default(visited),
+          add: StringList.default(visited),
+          drop: StringList.default(visited),
         }
       end
 
@@ -2556,7 +2556,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('VolumeFromList')
         visited = visited + ['VolumeFromList']
         [
-          Stubs::VolumeFrom.default(visited)
+          VolumeFrom.default(visited)
         ]
       end
 
@@ -2596,7 +2596,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('MountPointList')
         visited = visited + ['MountPointList']
         [
-          Stubs::MountPoint.default(visited)
+          MountPoint.default(visited)
         ]
       end
 
@@ -2638,7 +2638,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('EnvironmentFiles')
         visited = visited + ['EnvironmentFiles']
         [
-          Stubs::EnvironmentFile.default(visited)
+          EnvironmentFile.default(visited)
         ]
       end
 
@@ -2678,7 +2678,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('EnvironmentVariables')
         visited = visited + ['EnvironmentVariables']
         [
-          Stubs::KeyValuePair.default(visited)
+          KeyValuePair.default(visited)
         ]
       end
 
@@ -2698,7 +2698,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('PortMappingList')
         visited = visited + ['PortMappingList']
         [
-          Stubs::PortMapping.default(visited)
+          PortMapping.default(visited)
         ]
       end
 
@@ -2756,8 +2756,8 @@ module AWS::SDK::ECS
     class DescribeCapacityProviders
       def self.default(visited=[])
         {
-          capacity_providers: Stubs::CapacityProviders.default(visited),
-          failures: Stubs::Failures.default(visited),
+          capacity_providers: CapacityProviders.default(visited),
+          failures: Failures.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2778,7 +2778,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('Failures')
         visited = visited + ['Failures']
         [
-          Stubs::Failure.default(visited)
+          Failure.default(visited)
         ]
       end
 
@@ -2820,7 +2820,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('CapacityProviders')
         visited = visited + ['CapacityProviders']
         [
-          Stubs::CapacityProvider.default(visited)
+          CapacityProvider.default(visited)
         ]
       end
 
@@ -2838,8 +2838,8 @@ module AWS::SDK::ECS
     class DescribeClusters
       def self.default(visited=[])
         {
-          clusters: Stubs::Clusters.default(visited),
-          failures: Stubs::Failures.default(visited),
+          clusters: Clusters.default(visited),
+          failures: Failures.default(visited),
         }
       end
 
@@ -2858,7 +2858,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('Clusters')
         visited = visited + ['Clusters']
         [
-          Stubs::Cluster.default(visited)
+          Cluster.default(visited)
         ]
       end
 
@@ -2876,8 +2876,8 @@ module AWS::SDK::ECS
     class DescribeContainerInstances
       def self.default(visited=[])
         {
-          container_instances: Stubs::ContainerInstances.default(visited),
-          failures: Stubs::Failures.default(visited),
+          container_instances: ContainerInstances.default(visited),
+          failures: Failures.default(visited),
         }
       end
 
@@ -2896,7 +2896,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('ContainerInstances')
         visited = visited + ['ContainerInstances']
         [
-          Stubs::ContainerInstance.default(visited)
+          ContainerInstance.default(visited)
         ]
       end
 
@@ -2914,8 +2914,8 @@ module AWS::SDK::ECS
     class DescribeServices
       def self.default(visited=[])
         {
-          services: Stubs::Services.default(visited),
-          failures: Stubs::Failures.default(visited),
+          services: Services.default(visited),
+          failures: Failures.default(visited),
         }
       end
 
@@ -2934,7 +2934,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('Services')
         visited = visited + ['Services']
         [
-          Stubs::Service.default(visited)
+          Service.default(visited)
         ]
       end
 
@@ -2952,8 +2952,8 @@ module AWS::SDK::ECS
     class DescribeTaskDefinition
       def self.default(visited=[])
         {
-          task_definition: Stubs::TaskDefinition.default(visited),
-          tags: Stubs::Tags.default(visited),
+          task_definition: TaskDefinition.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -2970,8 +2970,8 @@ module AWS::SDK::ECS
     class DescribeTaskSets
       def self.default(visited=[])
         {
-          task_sets: Stubs::TaskSets.default(visited),
-          failures: Stubs::Failures.default(visited),
+          task_sets: TaskSets.default(visited),
+          failures: Failures.default(visited),
         }
       end
 
@@ -2988,8 +2988,8 @@ module AWS::SDK::ECS
     class DescribeTasks
       def self.default(visited=[])
         {
-          tasks: Stubs::Tasks.default(visited),
-          failures: Stubs::Failures.default(visited),
+          tasks: Tasks.default(visited),
+          failures: Failures.default(visited),
         }
       end
 
@@ -3008,7 +3008,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('Tasks')
         visited = visited + ['Tasks']
         [
-          Stubs::Task.default(visited)
+          Task.default(visited)
         ]
       end
 
@@ -3028,15 +3028,15 @@ module AWS::SDK::ECS
         return nil if visited.include?('Task')
         visited = visited + ['Task']
         {
-          attachments: Stubs::Attachments.default(visited),
-          attributes: Stubs::Attributes.default(visited),
+          attachments: Attachments.default(visited),
+          attributes: Attributes.default(visited),
           availability_zone: 'availability_zone',
           capacity_provider_name: 'capacity_provider_name',
           cluster_arn: 'cluster_arn',
           connectivity: 'connectivity',
           connectivity_at: Time.now,
           container_instance_arn: 'container_instance_arn',
-          containers: Stubs::Containers.default(visited),
+          containers: Containers.default(visited),
           cpu: 'cpu',
           created_at: Time.now,
           desired_status: 'desired_status',
@@ -3044,11 +3044,11 @@ module AWS::SDK::ECS
           execution_stopped_at: Time.now,
           group: 'group',
           health_status: 'health_status',
-          inference_accelerators: Stubs::InferenceAccelerators.default(visited),
+          inference_accelerators: InferenceAccelerators.default(visited),
           last_status: 'last_status',
           launch_type: 'launch_type',
           memory: 'memory',
-          overrides: Stubs::TaskOverride.default(visited),
+          overrides: TaskOverride.default(visited),
           platform_version: 'platform_version',
           platform_family: 'platform_family',
           pull_started_at: Time.now,
@@ -3059,11 +3059,11 @@ module AWS::SDK::ECS
           stopped_at: Time.now,
           stopped_reason: 'stopped_reason',
           stopping_at: Time.now,
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           task_arn: 'task_arn',
           task_definition_arn: 'task_definition_arn',
           version: 1,
-          ephemeral_storage: Stubs::EphemeralStorage.default(visited),
+          ephemeral_storage: EphemeralStorage.default(visited),
         }
       end
 
@@ -3116,13 +3116,13 @@ module AWS::SDK::ECS
         return nil if visited.include?('TaskOverride')
         visited = visited + ['TaskOverride']
         {
-          container_overrides: Stubs::ContainerOverrides.default(visited),
+          container_overrides: ContainerOverrides.default(visited),
           cpu: 'cpu',
-          inference_accelerator_overrides: Stubs::InferenceAcceleratorOverrides.default(visited),
+          inference_accelerator_overrides: InferenceAcceleratorOverrides.default(visited),
           execution_role_arn: 'execution_role_arn',
           memory: 'memory',
           task_role_arn: 'task_role_arn',
-          ephemeral_storage: Stubs::EphemeralStorage.default(visited),
+          ephemeral_storage: EphemeralStorage.default(visited),
         }
       end
 
@@ -3146,7 +3146,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('InferenceAcceleratorOverrides')
         visited = visited + ['InferenceAcceleratorOverrides']
         [
-          Stubs::InferenceAcceleratorOverride.default(visited)
+          InferenceAcceleratorOverride.default(visited)
         ]
       end
 
@@ -3186,7 +3186,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('ContainerOverrides')
         visited = visited + ['ContainerOverrides']
         [
-          Stubs::ContainerOverride.default(visited)
+          ContainerOverride.default(visited)
         ]
       end
 
@@ -3207,13 +3207,13 @@ module AWS::SDK::ECS
         visited = visited + ['ContainerOverride']
         {
           name: 'name',
-          command: Stubs::StringList.default(visited),
-          environment: Stubs::EnvironmentVariables.default(visited),
-          environment_files: Stubs::EnvironmentFiles.default(visited),
+          command: StringList.default(visited),
+          environment: EnvironmentVariables.default(visited),
+          environment_files: EnvironmentFiles.default(visited),
           cpu: 1,
           memory: 1,
           memory_reservation: 1,
-          resource_requirements: Stubs::ResourceRequirements.default(visited),
+          resource_requirements: ResourceRequirements.default(visited),
         }
       end
 
@@ -3238,7 +3238,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('Containers')
         visited = visited + ['Containers']
         [
-          Stubs::Container.default(visited)
+          Container.default(visited)
         ]
       end
 
@@ -3267,14 +3267,14 @@ module AWS::SDK::ECS
           last_status: 'last_status',
           exit_code: 1,
           reason: 'reason',
-          network_bindings: Stubs::NetworkBindings.default(visited),
-          network_interfaces: Stubs::NetworkInterfaces.default(visited),
+          network_bindings: NetworkBindings.default(visited),
+          network_interfaces: NetworkInterfaces.default(visited),
           health_status: 'health_status',
-          managed_agents: Stubs::ManagedAgents.default(visited),
+          managed_agents: ManagedAgents.default(visited),
           cpu: 'cpu',
           memory: 'memory',
           memory_reservation: 'memory_reservation',
-          gpu_ids: Stubs::GpuIds.default(visited),
+          gpu_ids: GpuIds.default(visited),
         }
       end
 
@@ -3328,7 +3328,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('ManagedAgents')
         visited = visited + ['ManagedAgents']
         [
-          Stubs::ManagedAgent.default(visited)
+          ManagedAgent.default(visited)
         ]
       end
 
@@ -3372,7 +3372,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('NetworkInterfaces')
         visited = visited + ['NetworkInterfaces']
         [
-          Stubs::NetworkInterface.default(visited)
+          NetworkInterface.default(visited)
         ]
       end
 
@@ -3414,7 +3414,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('NetworkBindings')
         visited = visited + ['NetworkBindings']
         [
-          Stubs::NetworkBinding.default(visited)
+          NetworkBinding.default(visited)
         ]
       end
 
@@ -3478,7 +3478,7 @@ module AWS::SDK::ECS
           container_arn: 'container_arn',
           container_name: 'container_name',
           interactive: false,
-          session: Stubs::Session.default(visited),
+          session: Session.default(visited),
           task_arn: 'task_arn',
         }
       end
@@ -3522,7 +3522,7 @@ module AWS::SDK::ECS
     class ListAccountSettings
       def self.default(visited=[])
         {
-          settings: Stubs::Settings.default(visited),
+          settings: Settings.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3542,7 +3542,7 @@ module AWS::SDK::ECS
         return nil if visited.include?('Settings')
         visited = visited + ['Settings']
         [
-          Stubs::Setting.default(visited)
+          Setting.default(visited)
         ]
       end
 
@@ -3560,7 +3560,7 @@ module AWS::SDK::ECS
     class ListAttributes
       def self.default(visited=[])
         {
-          attributes: Stubs::Attributes.default(visited),
+          attributes: Attributes.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3578,7 +3578,7 @@ module AWS::SDK::ECS
     class ListClusters
       def self.default(visited=[])
         {
-          cluster_arns: Stubs::StringList.default(visited),
+          cluster_arns: StringList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3596,7 +3596,7 @@ module AWS::SDK::ECS
     class ListContainerInstances
       def self.default(visited=[])
         {
-          container_instance_arns: Stubs::StringList.default(visited),
+          container_instance_arns: StringList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3614,7 +3614,7 @@ module AWS::SDK::ECS
     class ListServices
       def self.default(visited=[])
         {
-          service_arns: Stubs::StringList.default(visited),
+          service_arns: StringList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3632,7 +3632,7 @@ module AWS::SDK::ECS
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -3648,7 +3648,7 @@ module AWS::SDK::ECS
     class ListTaskDefinitionFamilies
       def self.default(visited=[])
         {
-          families: Stubs::StringList.default(visited),
+          families: StringList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3666,7 +3666,7 @@ module AWS::SDK::ECS
     class ListTaskDefinitions
       def self.default(visited=[])
         {
-          task_definition_arns: Stubs::StringList.default(visited),
+          task_definition_arns: StringList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3684,7 +3684,7 @@ module AWS::SDK::ECS
     class ListTasks
       def self.default(visited=[])
         {
-          task_arns: Stubs::StringList.default(visited),
+          task_arns: StringList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3702,7 +3702,7 @@ module AWS::SDK::ECS
     class PutAccountSetting
       def self.default(visited=[])
         {
-          setting: Stubs::Setting.default(visited),
+          setting: Setting.default(visited),
         }
       end
 
@@ -3718,7 +3718,7 @@ module AWS::SDK::ECS
     class PutAccountSettingDefault
       def self.default(visited=[])
         {
-          setting: Stubs::Setting.default(visited),
+          setting: Setting.default(visited),
         }
       end
 
@@ -3734,7 +3734,7 @@ module AWS::SDK::ECS
     class PutAttributes
       def self.default(visited=[])
         {
-          attributes: Stubs::Attributes.default(visited),
+          attributes: Attributes.default(visited),
         }
       end
 
@@ -3750,7 +3750,7 @@ module AWS::SDK::ECS
     class PutClusterCapacityProviders
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -3766,7 +3766,7 @@ module AWS::SDK::ECS
     class RegisterContainerInstance
       def self.default(visited=[])
         {
-          container_instance: Stubs::ContainerInstance.default(visited),
+          container_instance: ContainerInstance.default(visited),
         }
       end
 
@@ -3782,8 +3782,8 @@ module AWS::SDK::ECS
     class RegisterTaskDefinition
       def self.default(visited=[])
         {
-          task_definition: Stubs::TaskDefinition.default(visited),
-          tags: Stubs::Tags.default(visited),
+          task_definition: TaskDefinition.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -3800,8 +3800,8 @@ module AWS::SDK::ECS
     class RunTask
       def self.default(visited=[])
         {
-          tasks: Stubs::Tasks.default(visited),
-          failures: Stubs::Failures.default(visited),
+          tasks: Tasks.default(visited),
+          failures: Failures.default(visited),
         }
       end
 
@@ -3818,8 +3818,8 @@ module AWS::SDK::ECS
     class StartTask
       def self.default(visited=[])
         {
-          tasks: Stubs::Tasks.default(visited),
-          failures: Stubs::Failures.default(visited),
+          tasks: Tasks.default(visited),
+          failures: Failures.default(visited),
         }
       end
 
@@ -3836,7 +3836,7 @@ module AWS::SDK::ECS
     class StopTask
       def self.default(visited=[])
         {
-          task: Stubs::Task.default(visited),
+          task: Task.default(visited),
         }
       end
 
@@ -3928,7 +3928,7 @@ module AWS::SDK::ECS
     class UpdateCapacityProvider
       def self.default(visited=[])
         {
-          capacity_provider: Stubs::CapacityProvider.default(visited),
+          capacity_provider: CapacityProvider.default(visited),
         }
       end
 
@@ -3944,7 +3944,7 @@ module AWS::SDK::ECS
     class UpdateCluster
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -3960,7 +3960,7 @@ module AWS::SDK::ECS
     class UpdateClusterSettings
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -3976,7 +3976,7 @@ module AWS::SDK::ECS
     class UpdateContainerAgent
       def self.default(visited=[])
         {
-          container_instance: Stubs::ContainerInstance.default(visited),
+          container_instance: ContainerInstance.default(visited),
         }
       end
 
@@ -3992,8 +3992,8 @@ module AWS::SDK::ECS
     class UpdateContainerInstancesState
       def self.default(visited=[])
         {
-          container_instances: Stubs::ContainerInstances.default(visited),
-          failures: Stubs::Failures.default(visited),
+          container_instances: ContainerInstances.default(visited),
+          failures: Failures.default(visited),
         }
       end
 
@@ -4010,7 +4010,7 @@ module AWS::SDK::ECS
     class UpdateService
       def self.default(visited=[])
         {
-          service: Stubs::Service.default(visited),
+          service: Service.default(visited),
         }
       end
 
@@ -4026,7 +4026,7 @@ module AWS::SDK::ECS
     class UpdateServicePrimaryTaskSet
       def self.default(visited=[])
         {
-          task_set: Stubs::TaskSet.default(visited),
+          task_set: TaskSet.default(visited),
         }
       end
 
@@ -4042,7 +4042,7 @@ module AWS::SDK::ECS
     class UpdateTaskSet
       def self.default(visited=[])
         {
-          task_set: Stubs::TaskSet.default(visited),
+          task_set: TaskSet.default(visited),
         }
       end
 

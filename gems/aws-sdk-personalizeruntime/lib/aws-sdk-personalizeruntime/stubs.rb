@@ -14,7 +14,7 @@ module AWS::SDK::PersonalizeRuntime
     class GetPersonalizedRanking
       def self.default(visited=[])
         {
-          personalized_ranking: Stubs::ItemList.default(visited),
+          personalized_ranking: ItemList.default(visited),
           recommendation_id: 'recommendation_id',
         }
       end
@@ -35,7 +35,7 @@ module AWS::SDK::PersonalizeRuntime
         return nil if visited.include?('ItemList')
         visited = visited + ['ItemList']
         [
-          Stubs::PredictedItem.default(visited)
+          PredictedItem.default(visited)
         ]
       end
 
@@ -73,7 +73,7 @@ module AWS::SDK::PersonalizeRuntime
     class GetRecommendations
       def self.default(visited=[])
         {
-          item_list: Stubs::ItemList.default(visited),
+          item_list: ItemList.default(visited),
           recommendation_id: 'recommendation_id',
         }
       end

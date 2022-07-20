@@ -1952,7 +1952,7 @@ module AWS::SDK::CodePipeline
         Hearth::Validator.validate!(params, ::Hash, Types::StartPipelineExecutionInput, context: context)
         type = Types::StartPipelineExecutionInput.new
         type.name = params[:name]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end

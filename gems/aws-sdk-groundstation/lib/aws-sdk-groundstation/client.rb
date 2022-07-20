@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::GroundStation
@@ -61,7 +63,7 @@ module AWS::SDK::GroundStation
     def cancel_contact(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelContactInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelContactInput,
         validate_input: @config.validate_input
@@ -191,7 +193,7 @@ module AWS::SDK::GroundStation
     def create_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateConfigInput,
         validate_input: @config.validate_input
@@ -291,7 +293,7 @@ module AWS::SDK::GroundStation
     def create_dataflow_endpoint_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDataflowEndpointGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDataflowEndpointGroupInput,
         validate_input: @config.validate_input
@@ -395,7 +397,7 @@ module AWS::SDK::GroundStation
     def create_mission_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateMissionProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateMissionProfileInput,
         validate_input: @config.validate_input
@@ -470,7 +472,7 @@ module AWS::SDK::GroundStation
     def delete_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteConfigInput,
         validate_input: @config.validate_input
@@ -538,7 +540,7 @@ module AWS::SDK::GroundStation
     def delete_dataflow_endpoint_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDataflowEndpointGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDataflowEndpointGroupInput,
         validate_input: @config.validate_input
@@ -606,7 +608,7 @@ module AWS::SDK::GroundStation
     def delete_mission_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteMissionProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMissionProfileInput,
         validate_input: @config.validate_input
@@ -690,19 +692,38 @@ module AWS::SDK::GroundStation
     #   resp.data.dataflow_list[0].source #=> Types::Source
     #   resp.data.dataflow_list[0].source.config_type #=> String, one of ["antenna-downlink", "antenna-downlink-demod-decode", "antenna-uplink", "dataflow-endpoint", "tracking", "uplink-echo", "s3-recording"]
     #   resp.data.dataflow_list[0].source.config_id #=> String
-    #   resp.data.dataflow_list[0].source.config_details #=> ConfigDetails
+    #   resp.data.dataflow_list[0].source.config_details #=> Types::ConfigDetails, one of [EndpointDetails, AntennaDemodDecodeDetails, S3RecordingDetails]
+    #   resp.data.dataflow_list[0].source.config_details.endpoint_details #=> Types::EndpointDetails
+    #   resp.data.dataflow_list[0].source.config_details.endpoint_details.security_details #=> Types::SecurityDetails
+    #   resp.data.dataflow_list[0].source.config_details.endpoint_details.security_details.subnet_ids #=> Array<String>
+    #   resp.data.dataflow_list[0].source.config_details.endpoint_details.security_details.subnet_ids[0] #=> String
+    #   resp.data.dataflow_list[0].source.config_details.endpoint_details.security_details.security_group_ids #=> Array<String>
+    #   resp.data.dataflow_list[0].source.config_details.endpoint_details.security_details.security_group_ids[0] #=> String
+    #   resp.data.dataflow_list[0].source.config_details.endpoint_details.security_details.role_arn #=> String
+    #   resp.data.dataflow_list[0].source.config_details.endpoint_details.endpoint #=> Types::DataflowEndpoint
+    #   resp.data.dataflow_list[0].source.config_details.endpoint_details.endpoint.name #=> String
+    #   resp.data.dataflow_list[0].source.config_details.endpoint_details.endpoint.address #=> Types::SocketAddress
+    #   resp.data.dataflow_list[0].source.config_details.endpoint_details.endpoint.address.name #=> String
+    #   resp.data.dataflow_list[0].source.config_details.endpoint_details.endpoint.address.port #=> Integer
+    #   resp.data.dataflow_list[0].source.config_details.endpoint_details.endpoint.status #=> String, one of ["created", "creating", "deleted", "deleting", "failed"]
+    #   resp.data.dataflow_list[0].source.config_details.endpoint_details.endpoint.mtu #=> Integer
+    #   resp.data.dataflow_list[0].source.config_details.antenna_demod_decode_details #=> Types::AntennaDemodDecodeDetails
+    #   resp.data.dataflow_list[0].source.config_details.antenna_demod_decode_details.output_node #=> String
+    #   resp.data.dataflow_list[0].source.config_details.s3_recording_details #=> Types::S3RecordingDetails
+    #   resp.data.dataflow_list[0].source.config_details.s3_recording_details.bucket_arn #=> String
+    #   resp.data.dataflow_list[0].source.config_details.s3_recording_details.key_template #=> String
     #   resp.data.dataflow_list[0].source.dataflow_source_region #=> String
     #   resp.data.dataflow_list[0].destination #=> Types::Destination
     #   resp.data.dataflow_list[0].destination.config_type #=> String, one of ["antenna-downlink", "antenna-downlink-demod-decode", "antenna-uplink", "dataflow-endpoint", "tracking", "uplink-echo", "s3-recording"]
     #   resp.data.dataflow_list[0].destination.config_id #=> String
-    #   resp.data.dataflow_list[0].destination.config_details #=> ConfigDetails
+    #   resp.data.dataflow_list[0].destination.config_details #=> Types::ConfigDetails, one of [EndpointDetails, AntennaDemodDecodeDetails, S3RecordingDetails]
     #   resp.data.dataflow_list[0].destination.dataflow_destination_region #=> String
     #   resp.data.dataflow_list[0].error_message #=> String
     #
     def describe_contact(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeContactInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeContactInput,
         validate_input: @config.validate_input
@@ -774,14 +795,49 @@ module AWS::SDK::GroundStation
     #   resp.data.config_arn #=> String
     #   resp.data.name #=> String
     #   resp.data.config_type #=> String, one of ["antenna-downlink", "antenna-downlink-demod-decode", "antenna-uplink", "dataflow-endpoint", "tracking", "uplink-echo", "s3-recording"]
-    #   resp.data.config_data #=> ConfigTypeData
+    #   resp.data.config_data #=> Types::ConfigTypeData, one of [AntennaDownlinkConfig, TrackingConfig, DataflowEndpointConfig, AntennaDownlinkDemodDecodeConfig, AntennaUplinkConfig, UplinkEchoConfig, S3RecordingConfig]
+    #   resp.data.config_data.antenna_downlink_config #=> Types::AntennaDownlinkConfig
+    #   resp.data.config_data.antenna_downlink_config.spectrum_config #=> Types::SpectrumConfig
+    #   resp.data.config_data.antenna_downlink_config.spectrum_config.center_frequency #=> Types::Frequency
+    #   resp.data.config_data.antenna_downlink_config.spectrum_config.center_frequency.value #=> Float
+    #   resp.data.config_data.antenna_downlink_config.spectrum_config.center_frequency.units #=> String, one of ["GHz", "MHz", "kHz"]
+    #   resp.data.config_data.antenna_downlink_config.spectrum_config.bandwidth #=> Types::FrequencyBandwidth
+    #   resp.data.config_data.antenna_downlink_config.spectrum_config.bandwidth.value #=> Float
+    #   resp.data.config_data.antenna_downlink_config.spectrum_config.bandwidth.units #=> String, one of ["GHz", "MHz", "kHz"]
+    #   resp.data.config_data.antenna_downlink_config.spectrum_config.polarization #=> String, one of ["LEFT_HAND", "NONE", "RIGHT_HAND"]
+    #   resp.data.config_data.tracking_config #=> Types::TrackingConfig
+    #   resp.data.config_data.tracking_config.autotrack #=> String, one of ["PREFERRED", "REMOVED", "REQUIRED"]
+    #   resp.data.config_data.dataflow_endpoint_config #=> Types::DataflowEndpointConfig
+    #   resp.data.config_data.dataflow_endpoint_config.dataflow_endpoint_name #=> String
+    #   resp.data.config_data.dataflow_endpoint_config.dataflow_endpoint_region #=> String
+    #   resp.data.config_data.antenna_downlink_demod_decode_config #=> Types::AntennaDownlinkDemodDecodeConfig
+    #   resp.data.config_data.antenna_downlink_demod_decode_config.spectrum_config #=> Types::SpectrumConfig
+    #   resp.data.config_data.antenna_downlink_demod_decode_config.demodulation_config #=> Types::DemodulationConfig
+    #   resp.data.config_data.antenna_downlink_demod_decode_config.demodulation_config.unvalidated_json #=> String
+    #   resp.data.config_data.antenna_downlink_demod_decode_config.decode_config #=> Types::DecodeConfig
+    #   resp.data.config_data.antenna_downlink_demod_decode_config.decode_config.unvalidated_json #=> String
+    #   resp.data.config_data.antenna_uplink_config #=> Types::AntennaUplinkConfig
+    #   resp.data.config_data.antenna_uplink_config.transmit_disabled #=> Boolean
+    #   resp.data.config_data.antenna_uplink_config.spectrum_config #=> Types::UplinkSpectrumConfig
+    #   resp.data.config_data.antenna_uplink_config.spectrum_config.center_frequency #=> Types::Frequency
+    #   resp.data.config_data.antenna_uplink_config.spectrum_config.polarization #=> String, one of ["LEFT_HAND", "NONE", "RIGHT_HAND"]
+    #   resp.data.config_data.antenna_uplink_config.target_eirp #=> Types::Eirp
+    #   resp.data.config_data.antenna_uplink_config.target_eirp.value #=> Float
+    #   resp.data.config_data.antenna_uplink_config.target_eirp.units #=> String, one of ["dBW"]
+    #   resp.data.config_data.uplink_echo_config #=> Types::UplinkEchoConfig
+    #   resp.data.config_data.uplink_echo_config.enabled #=> Boolean
+    #   resp.data.config_data.uplink_echo_config.antenna_uplink_config_arn #=> String
+    #   resp.data.config_data.s3_recording_config #=> Types::S3RecordingConfig
+    #   resp.data.config_data.s3_recording_config.bucket_arn #=> String
+    #   resp.data.config_data.s3_recording_config.role_arn #=> String
+    #   resp.data.config_data.s3_recording_config.prefix #=> String
     #   resp.data.tags #=> Hash<String, String>
     #   resp.data.tags['key'] #=> String
     #
     def get_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetConfigInput,
         validate_input: @config.validate_input
@@ -867,7 +923,7 @@ module AWS::SDK::GroundStation
     def get_dataflow_endpoint_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDataflowEndpointGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDataflowEndpointGroupInput,
         validate_input: @config.validate_input
@@ -943,7 +999,7 @@ module AWS::SDK::GroundStation
     def get_minute_usage(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMinuteUsageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMinuteUsageInput,
         validate_input: @config.validate_input
@@ -1024,7 +1080,7 @@ module AWS::SDK::GroundStation
     def get_mission_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMissionProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMissionProfileInput,
         validate_input: @config.validate_input
@@ -1096,7 +1152,7 @@ module AWS::SDK::GroundStation
     def get_satellite(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSatelliteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSatelliteInput,
         validate_input: @config.validate_input
@@ -1174,7 +1230,7 @@ module AWS::SDK::GroundStation
     def list_configs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListConfigsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListConfigsInput,
         validate_input: @config.validate_input
@@ -1293,7 +1349,7 @@ module AWS::SDK::GroundStation
     def list_contacts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListContactsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListContactsInput,
         validate_input: @config.validate_input
@@ -1370,7 +1426,7 @@ module AWS::SDK::GroundStation
     def list_dataflow_endpoint_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDataflowEndpointGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDataflowEndpointGroupsInput,
         validate_input: @config.validate_input
@@ -1451,7 +1507,7 @@ module AWS::SDK::GroundStation
     def list_ground_stations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListGroundStationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListGroundStationsInput,
         validate_input: @config.validate_input
@@ -1529,7 +1585,7 @@ module AWS::SDK::GroundStation
     def list_mission_profiles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMissionProfilesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMissionProfilesInput,
         validate_input: @config.validate_input
@@ -1608,7 +1664,7 @@ module AWS::SDK::GroundStation
     def list_satellites(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSatellitesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSatellitesInput,
         validate_input: @config.validate_input
@@ -1677,7 +1733,7 @@ module AWS::SDK::GroundStation
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -1767,7 +1823,7 @@ module AWS::SDK::GroundStation
     def reserve_contact(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ReserveContactInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ReserveContactInput,
         validate_input: @config.validate_input
@@ -1841,7 +1897,7 @@ module AWS::SDK::GroundStation
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -1915,7 +1971,7 @@ module AWS::SDK::GroundStation
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2048,7 +2104,7 @@ module AWS::SDK::GroundStation
     def update_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateConfigInput,
         validate_input: @config.validate_input
@@ -2149,7 +2205,7 @@ module AWS::SDK::GroundStation
     def update_mission_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateMissionProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateMissionProfileInput,
         validate_input: @config.validate_input

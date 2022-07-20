@@ -27,7 +27,7 @@ module AWS::SDK::CloudFront
     class CreateCachePolicy
       def self.default(visited=[])
         {
-          cache_policy: Stubs::CachePolicy.default(visited),
+          cache_policy: CachePolicy.default(visited),
           location: 'location',
           e_tag: 'e_tag',
         }
@@ -52,7 +52,7 @@ module AWS::SDK::CloudFront
         {
           id: 'id',
           last_modified_time: Time.now,
-          cache_policy_config: Stubs::CachePolicyConfig.default(visited),
+          cache_policy_config: CachePolicyConfig.default(visited),
         }
       end
 
@@ -77,7 +77,7 @@ module AWS::SDK::CloudFront
           default_ttl: 1,
           max_ttl: 1,
           min_ttl: 1,
-          parameters_in_cache_key_and_forwarded_to_origin: Stubs::ParametersInCacheKeyAndForwardedToOrigin.default(visited),
+          parameters_in_cache_key_and_forwarded_to_origin: ParametersInCacheKeyAndForwardedToOrigin.default(visited),
         }
       end
 
@@ -102,9 +102,9 @@ module AWS::SDK::CloudFront
         {
           enable_accept_encoding_gzip: false,
           enable_accept_encoding_brotli: false,
-          headers_config: Stubs::CachePolicyHeadersConfig.default(visited),
-          cookies_config: Stubs::CachePolicyCookiesConfig.default(visited),
-          query_strings_config: Stubs::CachePolicyQueryStringsConfig.default(visited),
+          headers_config: CachePolicyHeadersConfig.default(visited),
+          cookies_config: CachePolicyCookiesConfig.default(visited),
+          query_strings_config: CachePolicyQueryStringsConfig.default(visited),
         }
       end
 
@@ -127,7 +127,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['CachePolicyQueryStringsConfig']
         {
           query_string_behavior: 'query_string_behavior',
-          query_strings: Stubs::QueryStringNames.default(visited),
+          query_strings: QueryStringNames.default(visited),
         }
       end
 
@@ -147,7 +147,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['QueryStringNames']
         {
           quantity: 1,
-          items: Stubs::QueryStringNamesList.default(visited),
+          items: QueryStringNamesList.default(visited),
         }
       end
 
@@ -187,7 +187,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['CachePolicyCookiesConfig']
         {
           cookie_behavior: 'cookie_behavior',
-          cookies: Stubs::CookieNames.default(visited),
+          cookies: CookieNames.default(visited),
         }
       end
 
@@ -207,7 +207,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['CookieNames']
         {
           quantity: 1,
-          items: Stubs::CookieNameList.default(visited),
+          items: CookieNameList.default(visited),
         }
       end
 
@@ -247,7 +247,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['CachePolicyHeadersConfig']
         {
           header_behavior: 'header_behavior',
-          headers: Stubs::Headers.default(visited),
+          headers: Headers.default(visited),
         }
       end
 
@@ -267,7 +267,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['Headers']
         {
           quantity: 1,
-          items: Stubs::HeaderList.default(visited),
+          items: HeaderList.default(visited),
         }
       end
 
@@ -304,7 +304,7 @@ module AWS::SDK::CloudFront
     class CreateCloudFrontOriginAccessIdentity
       def self.default(visited=[])
         {
-          cloud_front_origin_access_identity: Stubs::CloudFrontOriginAccessIdentity.default(visited),
+          cloud_front_origin_access_identity: CloudFrontOriginAccessIdentity.default(visited),
           location: 'location',
           e_tag: 'e_tag',
         }
@@ -329,7 +329,7 @@ module AWS::SDK::CloudFront
         {
           id: 'id',
           s3_canonical_user_id: 's3_canonical_user_id',
-          cloud_front_origin_access_identity_config: Stubs::CloudFrontOriginAccessIdentityConfig.default(visited),
+          cloud_front_origin_access_identity_config: CloudFrontOriginAccessIdentityConfig.default(visited),
         }
       end
 
@@ -367,7 +367,7 @@ module AWS::SDK::CloudFront
     class CreateDistribution
       def self.default(visited=[])
         {
-          distribution: Stubs::Distribution.default(visited),
+          distribution: Distribution.default(visited),
           location: 'location',
           e_tag: 'e_tag',
         }
@@ -396,10 +396,10 @@ module AWS::SDK::CloudFront
           last_modified_time: Time.now,
           in_progress_invalidation_batches: 1,
           domain_name: 'domain_name',
-          active_trusted_signers: Stubs::ActiveTrustedSigners.default(visited),
-          active_trusted_key_groups: Stubs::ActiveTrustedKeyGroups.default(visited),
-          distribution_config: Stubs::DistributionConfig.default(visited),
-          alias_icp_recordals: Stubs::AliasICPRecordals.default(visited),
+          active_trusted_signers: ActiveTrustedSigners.default(visited),
+          active_trusted_key_groups: ActiveTrustedKeyGroups.default(visited),
+          distribution_config: DistributionConfig.default(visited),
+          alias_icp_recordals: AliasICPRecordals.default(visited),
         }
       end
 
@@ -426,7 +426,7 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('AliasICPRecordals')
         visited = visited + ['AliasICPRecordals']
         [
-          Stubs::AliasICPRecordal.default(visited)
+          AliasICPRecordal.default(visited)
         ]
       end
 
@@ -467,19 +467,19 @@ module AWS::SDK::CloudFront
         visited = visited + ['DistributionConfig']
         {
           caller_reference: 'caller_reference',
-          aliases: Stubs::Aliases.default(visited),
+          aliases: Aliases.default(visited),
           default_root_object: 'default_root_object',
-          origins: Stubs::Origins.default(visited),
-          origin_groups: Stubs::OriginGroups.default(visited),
-          default_cache_behavior: Stubs::DefaultCacheBehavior.default(visited),
-          cache_behaviors: Stubs::CacheBehaviors.default(visited),
-          custom_error_responses: Stubs::CustomErrorResponses.default(visited),
+          origins: Origins.default(visited),
+          origin_groups: OriginGroups.default(visited),
+          default_cache_behavior: DefaultCacheBehavior.default(visited),
+          cache_behaviors: CacheBehaviors.default(visited),
+          custom_error_responses: CustomErrorResponses.default(visited),
           comment: 'comment',
-          logging: Stubs::LoggingConfig.default(visited),
+          logging: LoggingConfig.default(visited),
           price_class: 'price_class',
           enabled: false,
-          viewer_certificate: Stubs::ViewerCertificate.default(visited),
-          restrictions: Stubs::Restrictions.default(visited),
+          viewer_certificate: ViewerCertificate.default(visited),
+          restrictions: Restrictions.default(visited),
           web_acl_id: 'web_acl_id',
           http_version: 'http_version',
           is_ipv6_enabled: false,
@@ -516,7 +516,7 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('Restrictions')
         visited = visited + ['Restrictions']
         {
-          geo_restriction: Stubs::GeoRestriction.default(visited),
+          geo_restriction: GeoRestriction.default(visited),
         }
       end
 
@@ -536,7 +536,7 @@ module AWS::SDK::CloudFront
         {
           restriction_type: 'restriction_type',
           quantity: 1,
-          items: Stubs::LocationList.default(visited),
+          items: LocationList.default(visited),
         }
       end
 
@@ -631,7 +631,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['CustomErrorResponses']
         {
           quantity: 1,
-          items: Stubs::CustomErrorResponseList.default(visited),
+          items: CustomErrorResponseList.default(visited),
         }
       end
 
@@ -650,7 +650,7 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('CustomErrorResponseList')
         visited = visited + ['CustomErrorResponseList']
         [
-          Stubs::CustomErrorResponse.default(visited)
+          CustomErrorResponse.default(visited)
         ]
       end
 
@@ -695,7 +695,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['CacheBehaviors']
         {
           quantity: 1,
-          items: Stubs::CacheBehaviorList.default(visited),
+          items: CacheBehaviorList.default(visited),
         }
       end
 
@@ -714,7 +714,7 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('CacheBehaviorList')
         visited = visited + ['CacheBehaviorList']
         [
-          Stubs::CacheBehavior.default(visited)
+          CacheBehavior.default(visited)
         ]
       end
 
@@ -736,20 +736,20 @@ module AWS::SDK::CloudFront
         {
           path_pattern: 'path_pattern',
           target_origin_id: 'target_origin_id',
-          trusted_signers: Stubs::TrustedSigners.default(visited),
-          trusted_key_groups: Stubs::TrustedKeyGroups.default(visited),
+          trusted_signers: TrustedSigners.default(visited),
+          trusted_key_groups: TrustedKeyGroups.default(visited),
           viewer_protocol_policy: 'viewer_protocol_policy',
-          allowed_methods: Stubs::AllowedMethods.default(visited),
+          allowed_methods: AllowedMethods.default(visited),
           smooth_streaming: false,
           compress: false,
-          lambda_function_associations: Stubs::LambdaFunctionAssociations.default(visited),
-          function_associations: Stubs::FunctionAssociations.default(visited),
+          lambda_function_associations: LambdaFunctionAssociations.default(visited),
+          function_associations: FunctionAssociations.default(visited),
           field_level_encryption_id: 'field_level_encryption_id',
           realtime_log_config_arn: 'realtime_log_config_arn',
           cache_policy_id: 'cache_policy_id',
           origin_request_policy_id: 'origin_request_policy_id',
           response_headers_policy_id: 'response_headers_policy_id',
-          forwarded_values: Stubs::ForwardedValues.default(visited),
+          forwarded_values: ForwardedValues.default(visited),
           min_ttl: 1,
           default_ttl: 1,
           max_ttl: 1,
@@ -789,9 +789,9 @@ module AWS::SDK::CloudFront
         visited = visited + ['ForwardedValues']
         {
           query_string: false,
-          cookies: Stubs::CookiePreference.default(visited),
-          headers: Stubs::Headers.default(visited),
-          query_string_cache_keys: Stubs::QueryStringCacheKeys.default(visited),
+          cookies: CookiePreference.default(visited),
+          headers: Headers.default(visited),
+          query_string_cache_keys: QueryStringCacheKeys.default(visited),
         }
       end
 
@@ -813,7 +813,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['QueryStringCacheKeys']
         {
           quantity: 1,
-          items: Stubs::QueryStringCacheKeysList.default(visited),
+          items: QueryStringCacheKeysList.default(visited),
         }
       end
 
@@ -853,7 +853,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['CookiePreference']
         {
           forward: 'forward',
-          whitelisted_names: Stubs::CookieNames.default(visited),
+          whitelisted_names: CookieNames.default(visited),
         }
       end
 
@@ -873,7 +873,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['FunctionAssociations']
         {
           quantity: 1,
-          items: Stubs::FunctionAssociationList.default(visited),
+          items: FunctionAssociationList.default(visited),
         }
       end
 
@@ -892,7 +892,7 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('FunctionAssociationList')
         visited = visited + ['FunctionAssociationList']
         [
-          Stubs::FunctionAssociation.default(visited)
+          FunctionAssociation.default(visited)
         ]
       end
 
@@ -933,7 +933,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['LambdaFunctionAssociations']
         {
           quantity: 1,
-          items: Stubs::LambdaFunctionAssociationList.default(visited),
+          items: LambdaFunctionAssociationList.default(visited),
         }
       end
 
@@ -952,7 +952,7 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('LambdaFunctionAssociationList')
         visited = visited + ['LambdaFunctionAssociationList']
         [
-          Stubs::LambdaFunctionAssociation.default(visited)
+          LambdaFunctionAssociation.default(visited)
         ]
       end
 
@@ -995,8 +995,8 @@ module AWS::SDK::CloudFront
         visited = visited + ['AllowedMethods']
         {
           quantity: 1,
-          items: Stubs::MethodsList.default(visited),
-          cached_methods: Stubs::CachedMethods.default(visited),
+          items: MethodsList.default(visited),
+          cached_methods: CachedMethods.default(visited),
         }
       end
 
@@ -1017,7 +1017,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['CachedMethods']
         {
           quantity: 1,
-          items: Stubs::MethodsList.default(visited),
+          items: MethodsList.default(visited),
         }
       end
 
@@ -1058,7 +1058,7 @@ module AWS::SDK::CloudFront
         {
           enabled: false,
           quantity: 1,
-          items: Stubs::TrustedKeyGroupIdList.default(visited),
+          items: TrustedKeyGroupIdList.default(visited),
         }
       end
 
@@ -1100,7 +1100,7 @@ module AWS::SDK::CloudFront
         {
           enabled: false,
           quantity: 1,
-          items: Stubs::AwsAccountNumberList.default(visited),
+          items: AwsAccountNumberList.default(visited),
         }
       end
 
@@ -1141,20 +1141,20 @@ module AWS::SDK::CloudFront
         visited = visited + ['DefaultCacheBehavior']
         {
           target_origin_id: 'target_origin_id',
-          trusted_signers: Stubs::TrustedSigners.default(visited),
-          trusted_key_groups: Stubs::TrustedKeyGroups.default(visited),
+          trusted_signers: TrustedSigners.default(visited),
+          trusted_key_groups: TrustedKeyGroups.default(visited),
           viewer_protocol_policy: 'viewer_protocol_policy',
-          allowed_methods: Stubs::AllowedMethods.default(visited),
+          allowed_methods: AllowedMethods.default(visited),
           smooth_streaming: false,
           compress: false,
-          lambda_function_associations: Stubs::LambdaFunctionAssociations.default(visited),
-          function_associations: Stubs::FunctionAssociations.default(visited),
+          lambda_function_associations: LambdaFunctionAssociations.default(visited),
+          function_associations: FunctionAssociations.default(visited),
           field_level_encryption_id: 'field_level_encryption_id',
           realtime_log_config_arn: 'realtime_log_config_arn',
           cache_policy_id: 'cache_policy_id',
           origin_request_policy_id: 'origin_request_policy_id',
           response_headers_policy_id: 'response_headers_policy_id',
-          forwarded_values: Stubs::ForwardedValues.default(visited),
+          forwarded_values: ForwardedValues.default(visited),
           min_ttl: 1,
           default_ttl: 1,
           max_ttl: 1,
@@ -1193,7 +1193,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['OriginGroups']
         {
           quantity: 1,
-          items: Stubs::OriginGroupList.default(visited),
+          items: OriginGroupList.default(visited),
         }
       end
 
@@ -1212,7 +1212,7 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('OriginGroupList')
         visited = visited + ['OriginGroupList']
         [
-          Stubs::OriginGroup.default(visited)
+          OriginGroup.default(visited)
         ]
       end
 
@@ -1233,8 +1233,8 @@ module AWS::SDK::CloudFront
         visited = visited + ['OriginGroup']
         {
           id: 'id',
-          failover_criteria: Stubs::OriginGroupFailoverCriteria.default(visited),
-          members: Stubs::OriginGroupMembers.default(visited),
+          failover_criteria: OriginGroupFailoverCriteria.default(visited),
+          members: OriginGroupMembers.default(visited),
         }
       end
 
@@ -1255,7 +1255,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['OriginGroupMembers']
         {
           quantity: 1,
-          items: Stubs::OriginGroupMemberList.default(visited),
+          items: OriginGroupMemberList.default(visited),
         }
       end
 
@@ -1274,7 +1274,7 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('OriginGroupMemberList')
         visited = visited + ['OriginGroupMemberList']
         [
-          Stubs::OriginGroupMember.default(visited)
+          OriginGroupMember.default(visited)
         ]
       end
 
@@ -1312,7 +1312,7 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('OriginGroupFailoverCriteria')
         visited = visited + ['OriginGroupFailoverCriteria']
         {
-          status_codes: Stubs::StatusCodes.default(visited),
+          status_codes: StatusCodes.default(visited),
         }
       end
 
@@ -1331,7 +1331,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['StatusCodes']
         {
           quantity: 1,
-          items: Stubs::StatusCodeList.default(visited),
+          items: StatusCodeList.default(visited),
         }
       end
 
@@ -1371,7 +1371,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['Origins']
         {
           quantity: 1,
-          items: Stubs::OriginList.default(visited),
+          items: OriginList.default(visited),
         }
       end
 
@@ -1390,7 +1390,7 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('OriginList')
         visited = visited + ['OriginList']
         [
-          Stubs::Origin.default(visited)
+          Origin.default(visited)
         ]
       end
 
@@ -1413,12 +1413,12 @@ module AWS::SDK::CloudFront
           id: 'id',
           domain_name: 'domain_name',
           origin_path: 'origin_path',
-          custom_headers: Stubs::CustomHeaders.default(visited),
-          s3_origin_config: Stubs::S3OriginConfig.default(visited),
-          custom_origin_config: Stubs::CustomOriginConfig.default(visited),
+          custom_headers: CustomHeaders.default(visited),
+          s3_origin_config: S3OriginConfig.default(visited),
+          custom_origin_config: CustomOriginConfig.default(visited),
           connection_attempts: 1,
           connection_timeout: 1,
-          origin_shield: Stubs::OriginShield.default(visited),
+          origin_shield: OriginShield.default(visited),
         }
       end
 
@@ -1467,7 +1467,7 @@ module AWS::SDK::CloudFront
           http_port: 1,
           https_port: 1,
           origin_protocol_policy: 'origin_protocol_policy',
-          origin_ssl_protocols: Stubs::OriginSslProtocols.default(visited),
+          origin_ssl_protocols: OriginSslProtocols.default(visited),
           origin_read_timeout: 1,
           origin_keepalive_timeout: 1,
         }
@@ -1493,7 +1493,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['OriginSslProtocols']
         {
           quantity: 1,
-          items: Stubs::SslProtocolsList.default(visited),
+          items: SslProtocolsList.default(visited),
         }
       end
 
@@ -1551,7 +1551,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['CustomHeaders']
         {
           quantity: 1,
-          items: Stubs::OriginCustomHeadersList.default(visited),
+          items: OriginCustomHeadersList.default(visited),
         }
       end
 
@@ -1570,7 +1570,7 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('OriginCustomHeadersList')
         visited = visited + ['OriginCustomHeadersList']
         [
-          Stubs::OriginCustomHeader.default(visited)
+          OriginCustomHeader.default(visited)
         ]
       end
 
@@ -1611,7 +1611,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['Aliases']
         {
           quantity: 1,
-          items: Stubs::AliasList.default(visited),
+          items: AliasList.default(visited),
         }
       end
 
@@ -1652,7 +1652,7 @@ module AWS::SDK::CloudFront
         {
           enabled: false,
           quantity: 1,
-          items: Stubs::KGKeyPairIdsList.default(visited),
+          items: KGKeyPairIdsList.default(visited),
         }
       end
 
@@ -1672,7 +1672,7 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('KGKeyPairIdsList')
         visited = visited + ['KGKeyPairIdsList']
         [
-          Stubs::KGKeyPairIds.default(visited)
+          KGKeyPairIds.default(visited)
         ]
       end
 
@@ -1693,7 +1693,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['KGKeyPairIds']
         {
           key_group_id: 'key_group_id',
-          key_pair_ids: Stubs::KeyPairIds.default(visited),
+          key_pair_ids: KeyPairIds.default(visited),
         }
       end
 
@@ -1713,7 +1713,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['KeyPairIds']
         {
           quantity: 1,
-          items: Stubs::KeyPairIdList.default(visited),
+          items: KeyPairIdList.default(visited),
         }
       end
 
@@ -1754,7 +1754,7 @@ module AWS::SDK::CloudFront
         {
           enabled: false,
           quantity: 1,
-          items: Stubs::SignerList.default(visited),
+          items: SignerList.default(visited),
         }
       end
 
@@ -1774,7 +1774,7 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('SignerList')
         visited = visited + ['SignerList']
         [
-          Stubs::Signer.default(visited)
+          Signer.default(visited)
         ]
       end
 
@@ -1795,7 +1795,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['Signer']
         {
           aws_account_number: 'aws_account_number',
-          key_pair_ids: Stubs::KeyPairIds.default(visited),
+          key_pair_ids: KeyPairIds.default(visited),
         }
       end
 
@@ -1812,7 +1812,7 @@ module AWS::SDK::CloudFront
     class CreateDistributionWithTags
       def self.default(visited=[])
         {
-          distribution: Stubs::Distribution.default(visited),
+          distribution: Distribution.default(visited),
           location: 'location',
           e_tag: 'e_tag',
         }
@@ -1833,7 +1833,7 @@ module AWS::SDK::CloudFront
     class CreateFieldLevelEncryptionConfig
       def self.default(visited=[])
         {
-          field_level_encryption: Stubs::FieldLevelEncryption.default(visited),
+          field_level_encryption: FieldLevelEncryption.default(visited),
           location: 'location',
           e_tag: 'e_tag',
         }
@@ -1858,7 +1858,7 @@ module AWS::SDK::CloudFront
         {
           id: 'id',
           last_modified_time: Time.now,
-          field_level_encryption_config: Stubs::FieldLevelEncryptionConfig.default(visited),
+          field_level_encryption_config: FieldLevelEncryptionConfig.default(visited),
         }
       end
 
@@ -1880,8 +1880,8 @@ module AWS::SDK::CloudFront
         {
           caller_reference: 'caller_reference',
           comment: 'comment',
-          query_arg_profile_config: Stubs::QueryArgProfileConfig.default(visited),
-          content_type_profile_config: Stubs::ContentTypeProfileConfig.default(visited),
+          query_arg_profile_config: QueryArgProfileConfig.default(visited),
+          content_type_profile_config: ContentTypeProfileConfig.default(visited),
         }
       end
 
@@ -1903,7 +1903,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['ContentTypeProfileConfig']
         {
           forward_when_content_type_is_unknown: false,
-          content_type_profiles: Stubs::ContentTypeProfiles.default(visited),
+          content_type_profiles: ContentTypeProfiles.default(visited),
         }
       end
 
@@ -1923,7 +1923,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['ContentTypeProfiles']
         {
           quantity: 1,
-          items: Stubs::ContentTypeProfileList.default(visited),
+          items: ContentTypeProfileList.default(visited),
         }
       end
 
@@ -1942,7 +1942,7 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('ContentTypeProfileList')
         visited = visited + ['ContentTypeProfileList']
         [
-          Stubs::ContentTypeProfile.default(visited)
+          ContentTypeProfile.default(visited)
         ]
       end
 
@@ -1985,7 +1985,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['QueryArgProfileConfig']
         {
           forward_when_query_arg_profile_is_unknown: false,
-          query_arg_profiles: Stubs::QueryArgProfiles.default(visited),
+          query_arg_profiles: QueryArgProfiles.default(visited),
         }
       end
 
@@ -2005,7 +2005,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['QueryArgProfiles']
         {
           quantity: 1,
-          items: Stubs::QueryArgProfileList.default(visited),
+          items: QueryArgProfileList.default(visited),
         }
       end
 
@@ -2024,7 +2024,7 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('QueryArgProfileList')
         visited = visited + ['QueryArgProfileList']
         [
-          Stubs::QueryArgProfile.default(visited)
+          QueryArgProfile.default(visited)
         ]
       end
 
@@ -2062,7 +2062,7 @@ module AWS::SDK::CloudFront
     class CreateFieldLevelEncryptionProfile
       def self.default(visited=[])
         {
-          field_level_encryption_profile: Stubs::FieldLevelEncryptionProfile.default(visited),
+          field_level_encryption_profile: FieldLevelEncryptionProfile.default(visited),
           location: 'location',
           e_tag: 'e_tag',
         }
@@ -2087,7 +2087,7 @@ module AWS::SDK::CloudFront
         {
           id: 'id',
           last_modified_time: Time.now,
-          field_level_encryption_profile_config: Stubs::FieldLevelEncryptionProfileConfig.default(visited),
+          field_level_encryption_profile_config: FieldLevelEncryptionProfileConfig.default(visited),
         }
       end
 
@@ -2110,7 +2110,7 @@ module AWS::SDK::CloudFront
           name: 'name',
           caller_reference: 'caller_reference',
           comment: 'comment',
-          encryption_entities: Stubs::EncryptionEntities.default(visited),
+          encryption_entities: EncryptionEntities.default(visited),
         }
       end
 
@@ -2132,7 +2132,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['EncryptionEntities']
         {
           quantity: 1,
-          items: Stubs::EncryptionEntityList.default(visited),
+          items: EncryptionEntityList.default(visited),
         }
       end
 
@@ -2151,7 +2151,7 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('EncryptionEntityList')
         visited = visited + ['EncryptionEntityList']
         [
-          Stubs::EncryptionEntity.default(visited)
+          EncryptionEntity.default(visited)
         ]
       end
 
@@ -2173,7 +2173,7 @@ module AWS::SDK::CloudFront
         {
           public_key_id: 'public_key_id',
           provider_id: 'provider_id',
-          field_patterns: Stubs::FieldPatterns.default(visited),
+          field_patterns: FieldPatterns.default(visited),
         }
       end
 
@@ -2194,7 +2194,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['FieldPatterns']
         {
           quantity: 1,
-          items: Stubs::FieldPatternList.default(visited),
+          items: FieldPatternList.default(visited),
         }
       end
 
@@ -2231,7 +2231,7 @@ module AWS::SDK::CloudFront
     class CreateFunction
       def self.default(visited=[])
         {
-          function_summary: Stubs::FunctionSummary.default(visited),
+          function_summary: FunctionSummary.default(visited),
           location: 'location',
           e_tag: 'e_tag',
         }
@@ -2256,8 +2256,8 @@ module AWS::SDK::CloudFront
         {
           name: 'name',
           status: 'status',
-          function_config: Stubs::FunctionConfig.default(visited),
-          function_metadata: Stubs::FunctionMetadata.default(visited),
+          function_config: FunctionConfig.default(visited),
+          function_metadata: FunctionMetadata.default(visited),
         }
       end
 
@@ -2321,7 +2321,7 @@ module AWS::SDK::CloudFront
       def self.default(visited=[])
         {
           location: 'location',
-          invalidation: Stubs::Invalidation.default(visited),
+          invalidation: Invalidation.default(visited),
         }
       end
 
@@ -2344,7 +2344,7 @@ module AWS::SDK::CloudFront
           id: 'id',
           status: 'status',
           create_time: Time.now,
-          invalidation_batch: Stubs::InvalidationBatch.default(visited),
+          invalidation_batch: InvalidationBatch.default(visited),
         }
       end
 
@@ -2365,7 +2365,7 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('InvalidationBatch')
         visited = visited + ['InvalidationBatch']
         {
-          paths: Stubs::Paths.default(visited),
+          paths: Paths.default(visited),
           caller_reference: 'caller_reference',
         }
       end
@@ -2386,7 +2386,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['Paths']
         {
           quantity: 1,
-          items: Stubs::PathList.default(visited),
+          items: PathList.default(visited),
         }
       end
 
@@ -2423,7 +2423,7 @@ module AWS::SDK::CloudFront
     class CreateKeyGroup
       def self.default(visited=[])
         {
-          key_group: Stubs::KeyGroup.default(visited),
+          key_group: KeyGroup.default(visited),
           location: 'location',
           e_tag: 'e_tag',
         }
@@ -2448,7 +2448,7 @@ module AWS::SDK::CloudFront
         {
           id: 'id',
           last_modified_time: Time.now,
-          key_group_config: Stubs::KeyGroupConfig.default(visited),
+          key_group_config: KeyGroupConfig.default(visited),
         }
       end
 
@@ -2469,7 +2469,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['KeyGroupConfig']
         {
           name: 'name',
-          items: Stubs::PublicKeyIdList.default(visited),
+          items: PublicKeyIdList.default(visited),
           comment: 'comment',
         }
       end
@@ -2508,7 +2508,7 @@ module AWS::SDK::CloudFront
     class CreateMonitoringSubscription
       def self.default(visited=[])
         {
-          monitoring_subscription: Stubs::MonitoringSubscription.default(visited),
+          monitoring_subscription: MonitoringSubscription.default(visited),
         }
       end
 
@@ -2527,7 +2527,7 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('MonitoringSubscription')
         visited = visited + ['MonitoringSubscription']
         {
-          realtime_metrics_subscription_config: Stubs::RealtimeMetricsSubscriptionConfig.default(visited),
+          realtime_metrics_subscription_config: RealtimeMetricsSubscriptionConfig.default(visited),
         }
       end
 
@@ -2561,7 +2561,7 @@ module AWS::SDK::CloudFront
     class CreateOriginRequestPolicy
       def self.default(visited=[])
         {
-          origin_request_policy: Stubs::OriginRequestPolicy.default(visited),
+          origin_request_policy: OriginRequestPolicy.default(visited),
           location: 'location',
           e_tag: 'e_tag',
         }
@@ -2586,7 +2586,7 @@ module AWS::SDK::CloudFront
         {
           id: 'id',
           last_modified_time: Time.now,
-          origin_request_policy_config: Stubs::OriginRequestPolicyConfig.default(visited),
+          origin_request_policy_config: OriginRequestPolicyConfig.default(visited),
         }
       end
 
@@ -2608,9 +2608,9 @@ module AWS::SDK::CloudFront
         {
           comment: 'comment',
           name: 'name',
-          headers_config: Stubs::OriginRequestPolicyHeadersConfig.default(visited),
-          cookies_config: Stubs::OriginRequestPolicyCookiesConfig.default(visited),
-          query_strings_config: Stubs::OriginRequestPolicyQueryStringsConfig.default(visited),
+          headers_config: OriginRequestPolicyHeadersConfig.default(visited),
+          cookies_config: OriginRequestPolicyCookiesConfig.default(visited),
+          query_strings_config: OriginRequestPolicyQueryStringsConfig.default(visited),
         }
       end
 
@@ -2633,7 +2633,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['OriginRequestPolicyQueryStringsConfig']
         {
           query_string_behavior: 'query_string_behavior',
-          query_strings: Stubs::QueryStringNames.default(visited),
+          query_strings: QueryStringNames.default(visited),
         }
       end
 
@@ -2653,7 +2653,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['OriginRequestPolicyCookiesConfig']
         {
           cookie_behavior: 'cookie_behavior',
-          cookies: Stubs::CookieNames.default(visited),
+          cookies: CookieNames.default(visited),
         }
       end
 
@@ -2673,7 +2673,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['OriginRequestPolicyHeadersConfig']
         {
           header_behavior: 'header_behavior',
-          headers: Stubs::Headers.default(visited),
+          headers: Headers.default(visited),
         }
       end
 
@@ -2690,7 +2690,7 @@ module AWS::SDK::CloudFront
     class CreatePublicKey
       def self.default(visited=[])
         {
-          public_key: Stubs::PublicKey.default(visited),
+          public_key: PublicKey.default(visited),
           location: 'location',
           e_tag: 'e_tag',
         }
@@ -2715,7 +2715,7 @@ module AWS::SDK::CloudFront
         {
           id: 'id',
           created_time: Time.now,
-          public_key_config: Stubs::PublicKeyConfig.default(visited),
+          public_key_config: PublicKeyConfig.default(visited),
         }
       end
 
@@ -2757,7 +2757,7 @@ module AWS::SDK::CloudFront
     class CreateRealtimeLogConfig
       def self.default(visited=[])
         {
-          realtime_log_config: Stubs::RealtimeLogConfig.default(visited),
+          realtime_log_config: RealtimeLogConfig.default(visited),
         }
       end
 
@@ -2782,8 +2782,8 @@ module AWS::SDK::CloudFront
           arn: 'arn',
           name: 'name',
           sampling_rate: 1,
-          end_points: Stubs::EndPointList.default(visited),
-          fields: Stubs::FieldList.default(visited),
+          end_points: EndPointList.default(visited),
+          fields: FieldList.default(visited),
         }
       end
 
@@ -2825,7 +2825,7 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('EndPointList')
         visited = visited + ['EndPointList']
         [
-          Stubs::EndPoint.default(visited)
+          EndPoint.default(visited)
         ]
       end
 
@@ -2846,7 +2846,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['EndPoint']
         {
           stream_type: 'stream_type',
-          kinesis_stream_config: Stubs::KinesisStreamConfig.default(visited),
+          kinesis_stream_config: KinesisStreamConfig.default(visited),
         }
       end
 
@@ -2883,7 +2883,7 @@ module AWS::SDK::CloudFront
     class CreateResponseHeadersPolicy
       def self.default(visited=[])
         {
-          response_headers_policy: Stubs::ResponseHeadersPolicy.default(visited),
+          response_headers_policy: ResponseHeadersPolicy.default(visited),
           location: 'location',
           e_tag: 'e_tag',
         }
@@ -2908,7 +2908,7 @@ module AWS::SDK::CloudFront
         {
           id: 'id',
           last_modified_time: Time.now,
-          response_headers_policy_config: Stubs::ResponseHeadersPolicyConfig.default(visited),
+          response_headers_policy_config: ResponseHeadersPolicyConfig.default(visited),
         }
       end
 
@@ -2930,10 +2930,10 @@ module AWS::SDK::CloudFront
         {
           comment: 'comment',
           name: 'name',
-          cors_config: Stubs::ResponseHeadersPolicyCorsConfig.default(visited),
-          security_headers_config: Stubs::ResponseHeadersPolicySecurityHeadersConfig.default(visited),
-          custom_headers_config: Stubs::ResponseHeadersPolicyCustomHeadersConfig.default(visited),
-          server_timing_headers_config: Stubs::ResponseHeadersPolicyServerTimingHeadersConfig.default(visited),
+          cors_config: ResponseHeadersPolicyCorsConfig.default(visited),
+          security_headers_config: ResponseHeadersPolicySecurityHeadersConfig.default(visited),
+          custom_headers_config: ResponseHeadersPolicyCustomHeadersConfig.default(visited),
+          server_timing_headers_config: ResponseHeadersPolicyServerTimingHeadersConfig.default(visited),
         }
       end
 
@@ -2977,7 +2977,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['ResponseHeadersPolicyCustomHeadersConfig']
         {
           quantity: 1,
-          items: Stubs::ResponseHeadersPolicyCustomHeaderList.default(visited),
+          items: ResponseHeadersPolicyCustomHeaderList.default(visited),
         }
       end
 
@@ -2996,7 +2996,7 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('ResponseHeadersPolicyCustomHeaderList')
         visited = visited + ['ResponseHeadersPolicyCustomHeaderList']
         [
-          Stubs::ResponseHeadersPolicyCustomHeader.default(visited)
+          ResponseHeadersPolicyCustomHeader.default(visited)
         ]
       end
 
@@ -3038,12 +3038,12 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('ResponseHeadersPolicySecurityHeadersConfig')
         visited = visited + ['ResponseHeadersPolicySecurityHeadersConfig']
         {
-          xss_protection: Stubs::ResponseHeadersPolicyXSSProtection.default(visited),
-          frame_options: Stubs::ResponseHeadersPolicyFrameOptions.default(visited),
-          referrer_policy: Stubs::ResponseHeadersPolicyReferrerPolicy.default(visited),
-          content_security_policy: Stubs::ResponseHeadersPolicyContentSecurityPolicy.default(visited),
-          content_type_options: Stubs::ResponseHeadersPolicyContentTypeOptions.default(visited),
-          strict_transport_security: Stubs::ResponseHeadersPolicyStrictTransportSecurity.default(visited),
+          xss_protection: ResponseHeadersPolicyXSSProtection.default(visited),
+          frame_options: ResponseHeadersPolicyFrameOptions.default(visited),
+          referrer_policy: ResponseHeadersPolicyReferrerPolicy.default(visited),
+          content_security_policy: ResponseHeadersPolicyContentSecurityPolicy.default(visited),
+          content_type_options: ResponseHeadersPolicyContentTypeOptions.default(visited),
+          strict_transport_security: ResponseHeadersPolicyStrictTransportSecurity.default(visited),
         }
       end
 
@@ -3192,11 +3192,11 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('ResponseHeadersPolicyCorsConfig')
         visited = visited + ['ResponseHeadersPolicyCorsConfig']
         {
-          access_control_allow_origins: Stubs::ResponseHeadersPolicyAccessControlAllowOrigins.default(visited),
-          access_control_allow_headers: Stubs::ResponseHeadersPolicyAccessControlAllowHeaders.default(visited),
-          access_control_allow_methods: Stubs::ResponseHeadersPolicyAccessControlAllowMethods.default(visited),
+          access_control_allow_origins: ResponseHeadersPolicyAccessControlAllowOrigins.default(visited),
+          access_control_allow_headers: ResponseHeadersPolicyAccessControlAllowHeaders.default(visited),
+          access_control_allow_methods: ResponseHeadersPolicyAccessControlAllowMethods.default(visited),
           access_control_allow_credentials: false,
-          access_control_expose_headers: Stubs::ResponseHeadersPolicyAccessControlExposeHeaders.default(visited),
+          access_control_expose_headers: ResponseHeadersPolicyAccessControlExposeHeaders.default(visited),
           access_control_max_age_sec: 1,
           origin_override: false,
         }
@@ -3223,7 +3223,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['ResponseHeadersPolicyAccessControlExposeHeaders']
         {
           quantity: 1,
-          items: Stubs::AccessControlExposeHeadersList.default(visited),
+          items: AccessControlExposeHeadersList.default(visited),
         }
       end
 
@@ -3263,7 +3263,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['ResponseHeadersPolicyAccessControlAllowMethods']
         {
           quantity: 1,
-          items: Stubs::AccessControlAllowMethodsList.default(visited),
+          items: AccessControlAllowMethodsList.default(visited),
         }
       end
 
@@ -3303,7 +3303,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['ResponseHeadersPolicyAccessControlAllowHeaders']
         {
           quantity: 1,
-          items: Stubs::AccessControlAllowHeadersList.default(visited),
+          items: AccessControlAllowHeadersList.default(visited),
         }
       end
 
@@ -3343,7 +3343,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['ResponseHeadersPolicyAccessControlAllowOrigins']
         {
           quantity: 1,
-          items: Stubs::AccessControlAllowOriginsList.default(visited),
+          items: AccessControlAllowOriginsList.default(visited),
         }
       end
 
@@ -3380,7 +3380,7 @@ module AWS::SDK::CloudFront
     class CreateStreamingDistribution
       def self.default(visited=[])
         {
-          streaming_distribution: Stubs::StreamingDistribution.default(visited),
+          streaming_distribution: StreamingDistribution.default(visited),
           location: 'location',
           e_tag: 'e_tag',
         }
@@ -3408,8 +3408,8 @@ module AWS::SDK::CloudFront
           status: 'status',
           last_modified_time: Time.now,
           domain_name: 'domain_name',
-          active_trusted_signers: Stubs::ActiveTrustedSigners.default(visited),
-          streaming_distribution_config: Stubs::StreamingDistributionConfig.default(visited),
+          active_trusted_signers: ActiveTrustedSigners.default(visited),
+          streaming_distribution_config: StreamingDistributionConfig.default(visited),
         }
       end
 
@@ -3434,11 +3434,11 @@ module AWS::SDK::CloudFront
         visited = visited + ['StreamingDistributionConfig']
         {
           caller_reference: 'caller_reference',
-          s3_origin: Stubs::S3Origin.default(visited),
-          aliases: Stubs::Aliases.default(visited),
+          s3_origin: S3Origin.default(visited),
+          aliases: Aliases.default(visited),
           comment: 'comment',
-          logging: Stubs::StreamingLoggingConfig.default(visited),
-          trusted_signers: Stubs::TrustedSigners.default(visited),
+          logging: StreamingLoggingConfig.default(visited),
+          trusted_signers: TrustedSigners.default(visited),
           price_class: 'price_class',
           enabled: false,
         }
@@ -3505,7 +3505,7 @@ module AWS::SDK::CloudFront
     class CreateStreamingDistributionWithTags
       def self.default(visited=[])
         {
-          streaming_distribution: Stubs::StreamingDistribution.default(visited),
+          streaming_distribution: StreamingDistribution.default(visited),
           location: 'location',
           e_tag: 'e_tag',
         }
@@ -3695,7 +3695,7 @@ module AWS::SDK::CloudFront
     class DescribeFunction
       def self.default(visited=[])
         {
-          function_summary: Stubs::FunctionSummary.default(visited),
+          function_summary: FunctionSummary.default(visited),
           e_tag: 'e_tag',
         }
       end
@@ -3714,7 +3714,7 @@ module AWS::SDK::CloudFront
     class GetCachePolicy
       def self.default(visited=[])
         {
-          cache_policy: Stubs::CachePolicy.default(visited),
+          cache_policy: CachePolicy.default(visited),
           e_tag: 'e_tag',
         }
       end
@@ -3733,7 +3733,7 @@ module AWS::SDK::CloudFront
     class GetCachePolicyConfig
       def self.default(visited=[])
         {
-          cache_policy_config: Stubs::CachePolicyConfig.default(visited),
+          cache_policy_config: CachePolicyConfig.default(visited),
           e_tag: 'e_tag',
         }
       end
@@ -3752,7 +3752,7 @@ module AWS::SDK::CloudFront
     class GetCloudFrontOriginAccessIdentity
       def self.default(visited=[])
         {
-          cloud_front_origin_access_identity: Stubs::CloudFrontOriginAccessIdentity.default(visited),
+          cloud_front_origin_access_identity: CloudFrontOriginAccessIdentity.default(visited),
           e_tag: 'e_tag',
         }
       end
@@ -3771,7 +3771,7 @@ module AWS::SDK::CloudFront
     class GetCloudFrontOriginAccessIdentityConfig
       def self.default(visited=[])
         {
-          cloud_front_origin_access_identity_config: Stubs::CloudFrontOriginAccessIdentityConfig.default(visited),
+          cloud_front_origin_access_identity_config: CloudFrontOriginAccessIdentityConfig.default(visited),
           e_tag: 'e_tag',
         }
       end
@@ -3790,7 +3790,7 @@ module AWS::SDK::CloudFront
     class GetDistribution
       def self.default(visited=[])
         {
-          distribution: Stubs::Distribution.default(visited),
+          distribution: Distribution.default(visited),
           e_tag: 'e_tag',
         }
       end
@@ -3809,7 +3809,7 @@ module AWS::SDK::CloudFront
     class GetDistributionConfig
       def self.default(visited=[])
         {
-          distribution_config: Stubs::DistributionConfig.default(visited),
+          distribution_config: DistributionConfig.default(visited),
           e_tag: 'e_tag',
         }
       end
@@ -3828,7 +3828,7 @@ module AWS::SDK::CloudFront
     class GetFieldLevelEncryption
       def self.default(visited=[])
         {
-          field_level_encryption: Stubs::FieldLevelEncryption.default(visited),
+          field_level_encryption: FieldLevelEncryption.default(visited),
           e_tag: 'e_tag',
         }
       end
@@ -3847,7 +3847,7 @@ module AWS::SDK::CloudFront
     class GetFieldLevelEncryptionConfig
       def self.default(visited=[])
         {
-          field_level_encryption_config: Stubs::FieldLevelEncryptionConfig.default(visited),
+          field_level_encryption_config: FieldLevelEncryptionConfig.default(visited),
           e_tag: 'e_tag',
         }
       end
@@ -3866,7 +3866,7 @@ module AWS::SDK::CloudFront
     class GetFieldLevelEncryptionProfile
       def self.default(visited=[])
         {
-          field_level_encryption_profile: Stubs::FieldLevelEncryptionProfile.default(visited),
+          field_level_encryption_profile: FieldLevelEncryptionProfile.default(visited),
           e_tag: 'e_tag',
         }
       end
@@ -3885,7 +3885,7 @@ module AWS::SDK::CloudFront
     class GetFieldLevelEncryptionProfileConfig
       def self.default(visited=[])
         {
-          field_level_encryption_profile_config: Stubs::FieldLevelEncryptionProfileConfig.default(visited),
+          field_level_encryption_profile_config: FieldLevelEncryptionProfileConfig.default(visited),
           e_tag: 'e_tag',
         }
       end
@@ -3924,7 +3924,7 @@ module AWS::SDK::CloudFront
     class GetInvalidation
       def self.default(visited=[])
         {
-          invalidation: Stubs::Invalidation.default(visited),
+          invalidation: Invalidation.default(visited),
         }
       end
 
@@ -3941,7 +3941,7 @@ module AWS::SDK::CloudFront
     class GetKeyGroup
       def self.default(visited=[])
         {
-          key_group: Stubs::KeyGroup.default(visited),
+          key_group: KeyGroup.default(visited),
           e_tag: 'e_tag',
         }
       end
@@ -3960,7 +3960,7 @@ module AWS::SDK::CloudFront
     class GetKeyGroupConfig
       def self.default(visited=[])
         {
-          key_group_config: Stubs::KeyGroupConfig.default(visited),
+          key_group_config: KeyGroupConfig.default(visited),
           e_tag: 'e_tag',
         }
       end
@@ -3979,7 +3979,7 @@ module AWS::SDK::CloudFront
     class GetMonitoringSubscription
       def self.default(visited=[])
         {
-          monitoring_subscription: Stubs::MonitoringSubscription.default(visited),
+          monitoring_subscription: MonitoringSubscription.default(visited),
         }
       end
 
@@ -3996,7 +3996,7 @@ module AWS::SDK::CloudFront
     class GetOriginRequestPolicy
       def self.default(visited=[])
         {
-          origin_request_policy: Stubs::OriginRequestPolicy.default(visited),
+          origin_request_policy: OriginRequestPolicy.default(visited),
           e_tag: 'e_tag',
         }
       end
@@ -4015,7 +4015,7 @@ module AWS::SDK::CloudFront
     class GetOriginRequestPolicyConfig
       def self.default(visited=[])
         {
-          origin_request_policy_config: Stubs::OriginRequestPolicyConfig.default(visited),
+          origin_request_policy_config: OriginRequestPolicyConfig.default(visited),
           e_tag: 'e_tag',
         }
       end
@@ -4034,7 +4034,7 @@ module AWS::SDK::CloudFront
     class GetPublicKey
       def self.default(visited=[])
         {
-          public_key: Stubs::PublicKey.default(visited),
+          public_key: PublicKey.default(visited),
           e_tag: 'e_tag',
         }
       end
@@ -4053,7 +4053,7 @@ module AWS::SDK::CloudFront
     class GetPublicKeyConfig
       def self.default(visited=[])
         {
-          public_key_config: Stubs::PublicKeyConfig.default(visited),
+          public_key_config: PublicKeyConfig.default(visited),
           e_tag: 'e_tag',
         }
       end
@@ -4072,7 +4072,7 @@ module AWS::SDK::CloudFront
     class GetRealtimeLogConfig
       def self.default(visited=[])
         {
-          realtime_log_config: Stubs::RealtimeLogConfig.default(visited),
+          realtime_log_config: RealtimeLogConfig.default(visited),
         }
       end
 
@@ -4092,7 +4092,7 @@ module AWS::SDK::CloudFront
     class GetResponseHeadersPolicy
       def self.default(visited=[])
         {
-          response_headers_policy: Stubs::ResponseHeadersPolicy.default(visited),
+          response_headers_policy: ResponseHeadersPolicy.default(visited),
           e_tag: 'e_tag',
         }
       end
@@ -4111,7 +4111,7 @@ module AWS::SDK::CloudFront
     class GetResponseHeadersPolicyConfig
       def self.default(visited=[])
         {
-          response_headers_policy_config: Stubs::ResponseHeadersPolicyConfig.default(visited),
+          response_headers_policy_config: ResponseHeadersPolicyConfig.default(visited),
           e_tag: 'e_tag',
         }
       end
@@ -4130,7 +4130,7 @@ module AWS::SDK::CloudFront
     class GetStreamingDistribution
       def self.default(visited=[])
         {
-          streaming_distribution: Stubs::StreamingDistribution.default(visited),
+          streaming_distribution: StreamingDistribution.default(visited),
           e_tag: 'e_tag',
         }
       end
@@ -4149,7 +4149,7 @@ module AWS::SDK::CloudFront
     class GetStreamingDistributionConfig
       def self.default(visited=[])
         {
-          streaming_distribution_config: Stubs::StreamingDistributionConfig.default(visited),
+          streaming_distribution_config: StreamingDistributionConfig.default(visited),
           e_tag: 'e_tag',
         }
       end
@@ -4168,7 +4168,7 @@ module AWS::SDK::CloudFront
     class ListCachePolicies
       def self.default(visited=[])
         {
-          cache_policy_list: Stubs::CachePolicyList.default(visited),
+          cache_policy_list: CachePolicyList.default(visited),
         }
       end
 
@@ -4190,7 +4190,7 @@ module AWS::SDK::CloudFront
           next_marker: 'next_marker',
           max_items: 1,
           quantity: 1,
-          items: Stubs::CachePolicySummaryList.default(visited),
+          items: CachePolicySummaryList.default(visited),
         }
       end
 
@@ -4211,7 +4211,7 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('CachePolicySummaryList')
         visited = visited + ['CachePolicySummaryList']
         [
-          Stubs::CachePolicySummary.default(visited)
+          CachePolicySummary.default(visited)
         ]
       end
 
@@ -4232,7 +4232,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['CachePolicySummary']
         {
           type: 'type',
-          cache_policy: Stubs::CachePolicy.default(visited),
+          cache_policy: CachePolicy.default(visited),
         }
       end
 
@@ -4249,7 +4249,7 @@ module AWS::SDK::CloudFront
     class ListCloudFrontOriginAccessIdentities
       def self.default(visited=[])
         {
-          cloud_front_origin_access_identity_list: Stubs::CloudFrontOriginAccessIdentityList.default(visited),
+          cloud_front_origin_access_identity_list: CloudFrontOriginAccessIdentityList.default(visited),
         }
       end
 
@@ -4273,7 +4273,7 @@ module AWS::SDK::CloudFront
           max_items: 1,
           is_truncated: false,
           quantity: 1,
-          items: Stubs::CloudFrontOriginAccessIdentitySummaryList.default(visited),
+          items: CloudFrontOriginAccessIdentitySummaryList.default(visited),
         }
       end
 
@@ -4296,7 +4296,7 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('CloudFrontOriginAccessIdentitySummaryList')
         visited = visited + ['CloudFrontOriginAccessIdentitySummaryList']
         [
-          Stubs::CloudFrontOriginAccessIdentitySummary.default(visited)
+          CloudFrontOriginAccessIdentitySummary.default(visited)
         ]
       end
 
@@ -4336,7 +4336,7 @@ module AWS::SDK::CloudFront
     class ListConflictingAliases
       def self.default(visited=[])
         {
-          conflicting_aliases_list: Stubs::ConflictingAliasesList.default(visited),
+          conflicting_aliases_list: ConflictingAliasesList.default(visited),
         }
       end
 
@@ -4358,7 +4358,7 @@ module AWS::SDK::CloudFront
           next_marker: 'next_marker',
           max_items: 1,
           quantity: 1,
-          items: Stubs::ConflictingAliases.default(visited),
+          items: ConflictingAliases.default(visited),
         }
       end
 
@@ -4379,7 +4379,7 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('ConflictingAliases')
         visited = visited + ['ConflictingAliases']
         [
-          Stubs::ConflictingAlias.default(visited)
+          ConflictingAlias.default(visited)
         ]
       end
 
@@ -4419,7 +4419,7 @@ module AWS::SDK::CloudFront
     class ListDistributions
       def self.default(visited=[])
         {
-          distribution_list: Stubs::DistributionList.default(visited),
+          distribution_list: DistributionList.default(visited),
         }
       end
 
@@ -4443,7 +4443,7 @@ module AWS::SDK::CloudFront
           max_items: 1,
           is_truncated: false,
           quantity: 1,
-          items: Stubs::DistributionSummaryList.default(visited),
+          items: DistributionSummaryList.default(visited),
         }
       end
 
@@ -4466,7 +4466,7 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('DistributionSummaryList')
         visited = visited + ['DistributionSummaryList']
         [
-          Stubs::DistributionSummary.default(visited)
+          DistributionSummary.default(visited)
         ]
       end
 
@@ -4491,21 +4491,21 @@ module AWS::SDK::CloudFront
           status: 'status',
           last_modified_time: Time.now,
           domain_name: 'domain_name',
-          aliases: Stubs::Aliases.default(visited),
-          origins: Stubs::Origins.default(visited),
-          origin_groups: Stubs::OriginGroups.default(visited),
-          default_cache_behavior: Stubs::DefaultCacheBehavior.default(visited),
-          cache_behaviors: Stubs::CacheBehaviors.default(visited),
-          custom_error_responses: Stubs::CustomErrorResponses.default(visited),
+          aliases: Aliases.default(visited),
+          origins: Origins.default(visited),
+          origin_groups: OriginGroups.default(visited),
+          default_cache_behavior: DefaultCacheBehavior.default(visited),
+          cache_behaviors: CacheBehaviors.default(visited),
+          custom_error_responses: CustomErrorResponses.default(visited),
           comment: 'comment',
           price_class: 'price_class',
           enabled: false,
-          viewer_certificate: Stubs::ViewerCertificate.default(visited),
-          restrictions: Stubs::Restrictions.default(visited),
+          viewer_certificate: ViewerCertificate.default(visited),
+          restrictions: Restrictions.default(visited),
           web_acl_id: 'web_acl_id',
           http_version: 'http_version',
           is_ipv6_enabled: false,
-          alias_icp_recordals: Stubs::AliasICPRecordals.default(visited),
+          alias_icp_recordals: AliasICPRecordals.default(visited),
         }
       end
 
@@ -4540,7 +4540,7 @@ module AWS::SDK::CloudFront
     class ListDistributionsByCachePolicyId
       def self.default(visited=[])
         {
-          distribution_id_list: Stubs::DistributionIdList.default(visited),
+          distribution_id_list: DistributionIdList.default(visited),
         }
       end
 
@@ -4564,7 +4564,7 @@ module AWS::SDK::CloudFront
           max_items: 1,
           is_truncated: false,
           quantity: 1,
-          items: Stubs::DistributionIdListSummary.default(visited),
+          items: DistributionIdListSummary.default(visited),
         }
       end
 
@@ -4605,7 +4605,7 @@ module AWS::SDK::CloudFront
     class ListDistributionsByKeyGroup
       def self.default(visited=[])
         {
-          distribution_id_list: Stubs::DistributionIdList.default(visited),
+          distribution_id_list: DistributionIdList.default(visited),
         }
       end
 
@@ -4622,7 +4622,7 @@ module AWS::SDK::CloudFront
     class ListDistributionsByOriginRequestPolicyId
       def self.default(visited=[])
         {
-          distribution_id_list: Stubs::DistributionIdList.default(visited),
+          distribution_id_list: DistributionIdList.default(visited),
         }
       end
 
@@ -4639,7 +4639,7 @@ module AWS::SDK::CloudFront
     class ListDistributionsByRealtimeLogConfig
       def self.default(visited=[])
         {
-          distribution_list: Stubs::DistributionList.default(visited),
+          distribution_list: DistributionList.default(visited),
         }
       end
 
@@ -4656,7 +4656,7 @@ module AWS::SDK::CloudFront
     class ListDistributionsByResponseHeadersPolicyId
       def self.default(visited=[])
         {
-          distribution_id_list: Stubs::DistributionIdList.default(visited),
+          distribution_id_list: DistributionIdList.default(visited),
         }
       end
 
@@ -4673,7 +4673,7 @@ module AWS::SDK::CloudFront
     class ListDistributionsByWebACLId
       def self.default(visited=[])
         {
-          distribution_list: Stubs::DistributionList.default(visited),
+          distribution_list: DistributionList.default(visited),
         }
       end
 
@@ -4690,7 +4690,7 @@ module AWS::SDK::CloudFront
     class ListFieldLevelEncryptionConfigs
       def self.default(visited=[])
         {
-          field_level_encryption_list: Stubs::FieldLevelEncryptionList.default(visited),
+          field_level_encryption_list: FieldLevelEncryptionList.default(visited),
         }
       end
 
@@ -4712,7 +4712,7 @@ module AWS::SDK::CloudFront
           next_marker: 'next_marker',
           max_items: 1,
           quantity: 1,
-          items: Stubs::FieldLevelEncryptionSummaryList.default(visited),
+          items: FieldLevelEncryptionSummaryList.default(visited),
         }
       end
 
@@ -4733,7 +4733,7 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('FieldLevelEncryptionSummaryList')
         visited = visited + ['FieldLevelEncryptionSummaryList']
         [
-          Stubs::FieldLevelEncryptionSummary.default(visited)
+          FieldLevelEncryptionSummary.default(visited)
         ]
       end
 
@@ -4756,8 +4756,8 @@ module AWS::SDK::CloudFront
           id: 'id',
           last_modified_time: Time.now,
           comment: 'comment',
-          query_arg_profile_config: Stubs::QueryArgProfileConfig.default(visited),
-          content_type_profile_config: Stubs::ContentTypeProfileConfig.default(visited),
+          query_arg_profile_config: QueryArgProfileConfig.default(visited),
+          content_type_profile_config: ContentTypeProfileConfig.default(visited),
         }
       end
 
@@ -4777,7 +4777,7 @@ module AWS::SDK::CloudFront
     class ListFieldLevelEncryptionProfiles
       def self.default(visited=[])
         {
-          field_level_encryption_profile_list: Stubs::FieldLevelEncryptionProfileList.default(visited),
+          field_level_encryption_profile_list: FieldLevelEncryptionProfileList.default(visited),
         }
       end
 
@@ -4799,7 +4799,7 @@ module AWS::SDK::CloudFront
           next_marker: 'next_marker',
           max_items: 1,
           quantity: 1,
-          items: Stubs::FieldLevelEncryptionProfileSummaryList.default(visited),
+          items: FieldLevelEncryptionProfileSummaryList.default(visited),
         }
       end
 
@@ -4820,7 +4820,7 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('FieldLevelEncryptionProfileSummaryList')
         visited = visited + ['FieldLevelEncryptionProfileSummaryList']
         [
-          Stubs::FieldLevelEncryptionProfileSummary.default(visited)
+          FieldLevelEncryptionProfileSummary.default(visited)
         ]
       end
 
@@ -4843,7 +4843,7 @@ module AWS::SDK::CloudFront
           id: 'id',
           last_modified_time: Time.now,
           name: 'name',
-          encryption_entities: Stubs::EncryptionEntities.default(visited),
+          encryption_entities: EncryptionEntities.default(visited),
           comment: 'comment',
         }
       end
@@ -4864,7 +4864,7 @@ module AWS::SDK::CloudFront
     class ListFunctions
       def self.default(visited=[])
         {
-          function_list: Stubs::FunctionList.default(visited),
+          function_list: FunctionList.default(visited),
         }
       end
 
@@ -4886,7 +4886,7 @@ module AWS::SDK::CloudFront
           next_marker: 'next_marker',
           max_items: 1,
           quantity: 1,
-          items: Stubs::FunctionSummaryList.default(visited),
+          items: FunctionSummaryList.default(visited),
         }
       end
 
@@ -4907,7 +4907,7 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('FunctionSummaryList')
         visited = visited + ['FunctionSummaryList']
         [
-          Stubs::FunctionSummary.default(visited)
+          FunctionSummary.default(visited)
         ]
       end
 
@@ -4925,7 +4925,7 @@ module AWS::SDK::CloudFront
     class ListInvalidations
       def self.default(visited=[])
         {
-          invalidation_list: Stubs::InvalidationList.default(visited),
+          invalidation_list: InvalidationList.default(visited),
         }
       end
 
@@ -4949,7 +4949,7 @@ module AWS::SDK::CloudFront
           max_items: 1,
           is_truncated: false,
           quantity: 1,
-          items: Stubs::InvalidationSummaryList.default(visited),
+          items: InvalidationSummaryList.default(visited),
         }
       end
 
@@ -4972,7 +4972,7 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('InvalidationSummaryList')
         visited = visited + ['InvalidationSummaryList']
         [
-          Stubs::InvalidationSummary.default(visited)
+          InvalidationSummary.default(visited)
         ]
       end
 
@@ -5012,7 +5012,7 @@ module AWS::SDK::CloudFront
     class ListKeyGroups
       def self.default(visited=[])
         {
-          key_group_list: Stubs::KeyGroupList.default(visited),
+          key_group_list: KeyGroupList.default(visited),
         }
       end
 
@@ -5034,7 +5034,7 @@ module AWS::SDK::CloudFront
           next_marker: 'next_marker',
           max_items: 1,
           quantity: 1,
-          items: Stubs::KeyGroupSummaryList.default(visited),
+          items: KeyGroupSummaryList.default(visited),
         }
       end
 
@@ -5055,7 +5055,7 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('KeyGroupSummaryList')
         visited = visited + ['KeyGroupSummaryList']
         [
-          Stubs::KeyGroupSummary.default(visited)
+          KeyGroupSummary.default(visited)
         ]
       end
 
@@ -5075,7 +5075,7 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('KeyGroupSummary')
         visited = visited + ['KeyGroupSummary']
         {
-          key_group: Stubs::KeyGroup.default(visited),
+          key_group: KeyGroup.default(visited),
         }
       end
 
@@ -5091,7 +5091,7 @@ module AWS::SDK::CloudFront
     class ListOriginRequestPolicies
       def self.default(visited=[])
         {
-          origin_request_policy_list: Stubs::OriginRequestPolicyList.default(visited),
+          origin_request_policy_list: OriginRequestPolicyList.default(visited),
         }
       end
 
@@ -5113,7 +5113,7 @@ module AWS::SDK::CloudFront
           next_marker: 'next_marker',
           max_items: 1,
           quantity: 1,
-          items: Stubs::OriginRequestPolicySummaryList.default(visited),
+          items: OriginRequestPolicySummaryList.default(visited),
         }
       end
 
@@ -5134,7 +5134,7 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('OriginRequestPolicySummaryList')
         visited = visited + ['OriginRequestPolicySummaryList']
         [
-          Stubs::OriginRequestPolicySummary.default(visited)
+          OriginRequestPolicySummary.default(visited)
         ]
       end
 
@@ -5155,7 +5155,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['OriginRequestPolicySummary']
         {
           type: 'type',
-          origin_request_policy: Stubs::OriginRequestPolicy.default(visited),
+          origin_request_policy: OriginRequestPolicy.default(visited),
         }
       end
 
@@ -5172,7 +5172,7 @@ module AWS::SDK::CloudFront
     class ListPublicKeys
       def self.default(visited=[])
         {
-          public_key_list: Stubs::PublicKeyList.default(visited),
+          public_key_list: PublicKeyList.default(visited),
         }
       end
 
@@ -5194,7 +5194,7 @@ module AWS::SDK::CloudFront
           next_marker: 'next_marker',
           max_items: 1,
           quantity: 1,
-          items: Stubs::PublicKeySummaryList.default(visited),
+          items: PublicKeySummaryList.default(visited),
         }
       end
 
@@ -5215,7 +5215,7 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('PublicKeySummaryList')
         visited = visited + ['PublicKeySummaryList']
         [
-          Stubs::PublicKeySummary.default(visited)
+          PublicKeySummary.default(visited)
         ]
       end
 
@@ -5259,7 +5259,7 @@ module AWS::SDK::CloudFront
     class ListRealtimeLogConfigs
       def self.default(visited=[])
         {
-          realtime_log_configs: Stubs::RealtimeLogConfigs.default(visited),
+          realtime_log_configs: RealtimeLogConfigs.default(visited),
         }
       end
 
@@ -5279,7 +5279,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['RealtimeLogConfigs']
         {
           max_items: 1,
-          items: Stubs::RealtimeLogConfigList.default(visited),
+          items: RealtimeLogConfigList.default(visited),
           is_truncated: false,
           marker: 'marker',
           next_marker: 'next_marker',
@@ -5304,7 +5304,7 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('RealtimeLogConfigList')
         visited = visited + ['RealtimeLogConfigList']
         [
-          Stubs::RealtimeLogConfig.default(visited)
+          RealtimeLogConfig.default(visited)
         ]
       end
 
@@ -5322,7 +5322,7 @@ module AWS::SDK::CloudFront
     class ListResponseHeadersPolicies
       def self.default(visited=[])
         {
-          response_headers_policy_list: Stubs::ResponseHeadersPolicyList.default(visited),
+          response_headers_policy_list: ResponseHeadersPolicyList.default(visited),
         }
       end
 
@@ -5344,7 +5344,7 @@ module AWS::SDK::CloudFront
           next_marker: 'next_marker',
           max_items: 1,
           quantity: 1,
-          items: Stubs::ResponseHeadersPolicySummaryList.default(visited),
+          items: ResponseHeadersPolicySummaryList.default(visited),
         }
       end
 
@@ -5365,7 +5365,7 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('ResponseHeadersPolicySummaryList')
         visited = visited + ['ResponseHeadersPolicySummaryList']
         [
-          Stubs::ResponseHeadersPolicySummary.default(visited)
+          ResponseHeadersPolicySummary.default(visited)
         ]
       end
 
@@ -5386,7 +5386,7 @@ module AWS::SDK::CloudFront
         visited = visited + ['ResponseHeadersPolicySummary']
         {
           type: 'type',
-          response_headers_policy: Stubs::ResponseHeadersPolicy.default(visited),
+          response_headers_policy: ResponseHeadersPolicy.default(visited),
         }
       end
 
@@ -5403,7 +5403,7 @@ module AWS::SDK::CloudFront
     class ListStreamingDistributions
       def self.default(visited=[])
         {
-          streaming_distribution_list: Stubs::StreamingDistributionList.default(visited),
+          streaming_distribution_list: StreamingDistributionList.default(visited),
         }
       end
 
@@ -5427,7 +5427,7 @@ module AWS::SDK::CloudFront
           max_items: 1,
           is_truncated: false,
           quantity: 1,
-          items: Stubs::StreamingDistributionSummaryList.default(visited),
+          items: StreamingDistributionSummaryList.default(visited),
         }
       end
 
@@ -5450,7 +5450,7 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('StreamingDistributionSummaryList')
         visited = visited + ['StreamingDistributionSummaryList']
         [
-          Stubs::StreamingDistributionSummary.default(visited)
+          StreamingDistributionSummary.default(visited)
         ]
       end
 
@@ -5475,9 +5475,9 @@ module AWS::SDK::CloudFront
           status: 'status',
           last_modified_time: Time.now,
           domain_name: 'domain_name',
-          s3_origin: Stubs::S3Origin.default(visited),
-          aliases: Stubs::Aliases.default(visited),
-          trusted_signers: Stubs::TrustedSigners.default(visited),
+          s3_origin: S3Origin.default(visited),
+          aliases: Aliases.default(visited),
+          trusted_signers: TrustedSigners.default(visited),
           comment: 'comment',
           price_class: 'price_class',
           enabled: false,
@@ -5506,7 +5506,7 @@ module AWS::SDK::CloudFront
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -5525,7 +5525,7 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('Tags')
         visited = visited + ['Tags']
         {
-          items: Stubs::TagList.default(visited),
+          items: TagList.default(visited),
         }
       end
 
@@ -5543,7 +5543,7 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -5581,7 +5581,7 @@ module AWS::SDK::CloudFront
     class PublishFunction
       def self.default(visited=[])
         {
-          function_summary: Stubs::FunctionSummary.default(visited),
+          function_summary: FunctionSummary.default(visited),
         }
       end
 
@@ -5611,7 +5611,7 @@ module AWS::SDK::CloudFront
     class TestFunction
       def self.default(visited=[])
         {
-          test_result: Stubs::TestResult.default(visited),
+          test_result: TestResult.default(visited),
         }
       end
 
@@ -5630,9 +5630,9 @@ module AWS::SDK::CloudFront
         return nil if visited.include?('TestResult')
         visited = visited + ['TestResult']
         {
-          function_summary: Stubs::FunctionSummary.default(visited),
+          function_summary: FunctionSummary.default(visited),
           compute_utilization: 'compute_utilization',
-          function_execution_logs: Stubs::FunctionExecutionLogList.default(visited),
+          function_execution_logs: FunctionExecutionLogList.default(visited),
           function_error_message: 'function_error_message',
           function_output: 'function_output',
         }
@@ -5687,7 +5687,7 @@ module AWS::SDK::CloudFront
     class UpdateCachePolicy
       def self.default(visited=[])
         {
-          cache_policy: Stubs::CachePolicy.default(visited),
+          cache_policy: CachePolicy.default(visited),
           e_tag: 'e_tag',
         }
       end
@@ -5706,7 +5706,7 @@ module AWS::SDK::CloudFront
     class UpdateCloudFrontOriginAccessIdentity
       def self.default(visited=[])
         {
-          cloud_front_origin_access_identity: Stubs::CloudFrontOriginAccessIdentity.default(visited),
+          cloud_front_origin_access_identity: CloudFrontOriginAccessIdentity.default(visited),
           e_tag: 'e_tag',
         }
       end
@@ -5725,7 +5725,7 @@ module AWS::SDK::CloudFront
     class UpdateDistribution
       def self.default(visited=[])
         {
-          distribution: Stubs::Distribution.default(visited),
+          distribution: Distribution.default(visited),
           e_tag: 'e_tag',
         }
       end
@@ -5744,7 +5744,7 @@ module AWS::SDK::CloudFront
     class UpdateFieldLevelEncryptionConfig
       def self.default(visited=[])
         {
-          field_level_encryption: Stubs::FieldLevelEncryption.default(visited),
+          field_level_encryption: FieldLevelEncryption.default(visited),
           e_tag: 'e_tag',
         }
       end
@@ -5763,7 +5763,7 @@ module AWS::SDK::CloudFront
     class UpdateFieldLevelEncryptionProfile
       def self.default(visited=[])
         {
-          field_level_encryption_profile: Stubs::FieldLevelEncryptionProfile.default(visited),
+          field_level_encryption_profile: FieldLevelEncryptionProfile.default(visited),
           e_tag: 'e_tag',
         }
       end
@@ -5782,7 +5782,7 @@ module AWS::SDK::CloudFront
     class UpdateFunction
       def self.default(visited=[])
         {
-          function_summary: Stubs::FunctionSummary.default(visited),
+          function_summary: FunctionSummary.default(visited),
           e_tag: 'e_tag',
         }
       end
@@ -5801,7 +5801,7 @@ module AWS::SDK::CloudFront
     class UpdateKeyGroup
       def self.default(visited=[])
         {
-          key_group: Stubs::KeyGroup.default(visited),
+          key_group: KeyGroup.default(visited),
           e_tag: 'e_tag',
         }
       end
@@ -5820,7 +5820,7 @@ module AWS::SDK::CloudFront
     class UpdateOriginRequestPolicy
       def self.default(visited=[])
         {
-          origin_request_policy: Stubs::OriginRequestPolicy.default(visited),
+          origin_request_policy: OriginRequestPolicy.default(visited),
           e_tag: 'e_tag',
         }
       end
@@ -5839,7 +5839,7 @@ module AWS::SDK::CloudFront
     class UpdatePublicKey
       def self.default(visited=[])
         {
-          public_key: Stubs::PublicKey.default(visited),
+          public_key: PublicKey.default(visited),
           e_tag: 'e_tag',
         }
       end
@@ -5858,7 +5858,7 @@ module AWS::SDK::CloudFront
     class UpdateRealtimeLogConfig
       def self.default(visited=[])
         {
-          realtime_log_config: Stubs::RealtimeLogConfig.default(visited),
+          realtime_log_config: RealtimeLogConfig.default(visited),
         }
       end
 
@@ -5878,7 +5878,7 @@ module AWS::SDK::CloudFront
     class UpdateResponseHeadersPolicy
       def self.default(visited=[])
         {
-          response_headers_policy: Stubs::ResponseHeadersPolicy.default(visited),
+          response_headers_policy: ResponseHeadersPolicy.default(visited),
           e_tag: 'e_tag',
         }
       end
@@ -5897,7 +5897,7 @@ module AWS::SDK::CloudFront
     class UpdateStreamingDistribution
       def self.default(visited=[])
         {
-          streaming_distribution: Stubs::StreamingDistribution.default(visited),
+          streaming_distribution: StreamingDistribution.default(visited),
           e_tag: 'e_tag',
         }
       end

@@ -74,7 +74,7 @@ module AWS::SDK::PinpointEmail
         {
           identity_type: 'identity_type',
           verified_for_sending_status: false,
-          dkim_attributes: Stubs::DkimAttributes.default(visited),
+          dkim_attributes: DkimAttributes.default(visited),
         }
       end
 
@@ -97,7 +97,7 @@ module AWS::SDK::PinpointEmail
         {
           signing_enabled: false,
           status: 'status',
-          tokens: Stubs::DnsTokenList.default(visited),
+          tokens: DnsTokenList.default(visited),
         }
       end
 
@@ -187,7 +187,7 @@ module AWS::SDK::PinpointEmail
     class GetAccount
       def self.default(visited=[])
         {
-          send_quota: Stubs::SendQuota.default(visited),
+          send_quota: SendQuota.default(visited),
           sending_enabled: false,
           dedicated_ip_auto_warmup_enabled: false,
           enforcement_status: 'enforcement_status',
@@ -234,7 +234,7 @@ module AWS::SDK::PinpointEmail
     class GetBlacklistReports
       def self.default(visited=[])
         {
-          blacklist_report: Stubs::BlacklistReport.default(visited),
+          blacklist_report: BlacklistReport.default(visited),
         }
       end
 
@@ -253,7 +253,7 @@ module AWS::SDK::PinpointEmail
         return nil if visited.include?('BlacklistReport')
         visited = visited + ['BlacklistReport']
         {
-          test_key: Stubs::BlacklistEntries.default(visited)
+          test_key: BlacklistEntries.default(visited)
         }
       end
 
@@ -273,7 +273,7 @@ module AWS::SDK::PinpointEmail
         return nil if visited.include?('BlacklistEntries')
         visited = visited + ['BlacklistEntries']
         [
-          Stubs::BlacklistEntry.default(visited)
+          BlacklistEntry.default(visited)
         ]
       end
 
@@ -314,11 +314,11 @@ module AWS::SDK::PinpointEmail
       def self.default(visited=[])
         {
           configuration_set_name: 'configuration_set_name',
-          tracking_options: Stubs::TrackingOptions.default(visited),
-          delivery_options: Stubs::DeliveryOptions.default(visited),
-          reputation_options: Stubs::ReputationOptions.default(visited),
-          sending_options: Stubs::SendingOptions.default(visited),
-          tags: Stubs::TagList.default(visited),
+          tracking_options: TrackingOptions.default(visited),
+          delivery_options: DeliveryOptions.default(visited),
+          reputation_options: ReputationOptions.default(visited),
+          sending_options: SendingOptions.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -342,7 +342,7 @@ module AWS::SDK::PinpointEmail
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -456,7 +456,7 @@ module AWS::SDK::PinpointEmail
     class GetConfigurationSetEventDestinations
       def self.default(visited=[])
         {
-          event_destinations: Stubs::EventDestinations.default(visited),
+          event_destinations: EventDestinations.default(visited),
         }
       end
 
@@ -475,7 +475,7 @@ module AWS::SDK::PinpointEmail
         return nil if visited.include?('EventDestinations')
         visited = visited + ['EventDestinations']
         [
-          Stubs::EventDestination.default(visited)
+          EventDestination.default(visited)
         ]
       end
 
@@ -497,11 +497,11 @@ module AWS::SDK::PinpointEmail
         {
           name: 'name',
           enabled: false,
-          matching_event_types: Stubs::EventTypes.default(visited),
-          kinesis_firehose_destination: Stubs::KinesisFirehoseDestination.default(visited),
-          cloud_watch_destination: Stubs::CloudWatchDestination.default(visited),
-          sns_destination: Stubs::SnsDestination.default(visited),
-          pinpoint_destination: Stubs::PinpointDestination.default(visited),
+          matching_event_types: EventTypes.default(visited),
+          kinesis_firehose_destination: KinesisFirehoseDestination.default(visited),
+          cloud_watch_destination: CloudWatchDestination.default(visited),
+          sns_destination: SnsDestination.default(visited),
+          pinpoint_destination: PinpointDestination.default(visited),
         }
       end
 
@@ -561,7 +561,7 @@ module AWS::SDK::PinpointEmail
         return nil if visited.include?('CloudWatchDestination')
         visited = visited + ['CloudWatchDestination']
         {
-          dimension_configurations: Stubs::CloudWatchDimensionConfigurations.default(visited),
+          dimension_configurations: CloudWatchDimensionConfigurations.default(visited),
         }
       end
 
@@ -579,7 +579,7 @@ module AWS::SDK::PinpointEmail
         return nil if visited.include?('CloudWatchDimensionConfigurations')
         visited = visited + ['CloudWatchDimensionConfigurations']
         [
-          Stubs::CloudWatchDimensionConfiguration.default(visited)
+          CloudWatchDimensionConfiguration.default(visited)
         ]
       end
 
@@ -659,7 +659,7 @@ module AWS::SDK::PinpointEmail
     class GetDedicatedIp
       def self.default(visited=[])
         {
-          dedicated_ip: Stubs::DedicatedIp.default(visited),
+          dedicated_ip: DedicatedIp.default(visited),
         }
       end
 
@@ -700,7 +700,7 @@ module AWS::SDK::PinpointEmail
     class GetDedicatedIps
       def self.default(visited=[])
         {
-          dedicated_ips: Stubs::DedicatedIpList.default(visited),
+          dedicated_ips: DedicatedIpList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -721,7 +721,7 @@ module AWS::SDK::PinpointEmail
         return nil if visited.include?('DedicatedIpList')
         visited = visited + ['DedicatedIpList']
         [
-          Stubs::DedicatedIp.default(visited)
+          DedicatedIp.default(visited)
         ]
       end
 
@@ -742,8 +742,8 @@ module AWS::SDK::PinpointEmail
           dashboard_enabled: false,
           subscription_expiry_date: Time.now,
           account_status: 'account_status',
-          active_subscribed_domains: Stubs::DomainDeliverabilityTrackingOptions.default(visited),
-          pending_expiration_subscribed_domains: Stubs::DomainDeliverabilityTrackingOptions.default(visited),
+          active_subscribed_domains: DomainDeliverabilityTrackingOptions.default(visited),
+          pending_expiration_subscribed_domains: DomainDeliverabilityTrackingOptions.default(visited),
         }
       end
 
@@ -766,7 +766,7 @@ module AWS::SDK::PinpointEmail
         return nil if visited.include?('DomainDeliverabilityTrackingOptions')
         visited = visited + ['DomainDeliverabilityTrackingOptions']
         [
-          Stubs::DomainDeliverabilityTrackingOption.default(visited)
+          DomainDeliverabilityTrackingOption.default(visited)
         ]
       end
 
@@ -788,7 +788,7 @@ module AWS::SDK::PinpointEmail
         {
           domain: 'domain',
           subscription_start_date: Time.now,
-          inbox_placement_tracking_option: Stubs::InboxPlacementTrackingOption.default(visited),
+          inbox_placement_tracking_option: InboxPlacementTrackingOption.default(visited),
         }
       end
 
@@ -809,7 +809,7 @@ module AWS::SDK::PinpointEmail
         visited = visited + ['InboxPlacementTrackingOption']
         {
           global: false,
-          tracked_isps: Stubs::IspNameList.default(visited),
+          tracked_isps: IspNameList.default(visited),
         }
       end
 
@@ -846,11 +846,11 @@ module AWS::SDK::PinpointEmail
     class GetDeliverabilityTestReport
       def self.default(visited=[])
         {
-          deliverability_test_report: Stubs::DeliverabilityTestReport.default(visited),
-          overall_placement: Stubs::PlacementStatistics.default(visited),
-          isp_placements: Stubs::IspPlacements.default(visited),
+          deliverability_test_report: DeliverabilityTestReport.default(visited),
+          overall_placement: PlacementStatistics.default(visited),
+          isp_placements: IspPlacements.default(visited),
           message: 'message',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -873,7 +873,7 @@ module AWS::SDK::PinpointEmail
         return nil if visited.include?('IspPlacements')
         visited = visited + ['IspPlacements']
         [
-          Stubs::IspPlacement.default(visited)
+          IspPlacement.default(visited)
         ]
       end
 
@@ -894,7 +894,7 @@ module AWS::SDK::PinpointEmail
         visited = visited + ['IspPlacement']
         {
           isp_name: 'isp_name',
-          placement_statistics: Stubs::PlacementStatistics.default(visited),
+          placement_statistics: PlacementStatistics.default(visited),
         }
       end
 
@@ -965,7 +965,7 @@ module AWS::SDK::PinpointEmail
     class GetDomainDeliverabilityCampaign
       def self.default(visited=[])
         {
-          domain_deliverability_campaign: Stubs::DomainDeliverabilityCampaign.default(visited),
+          domain_deliverability_campaign: DomainDeliverabilityCampaign.default(visited),
         }
       end
 
@@ -988,7 +988,7 @@ module AWS::SDK::PinpointEmail
           image_url: 'image_url',
           subject: 'subject',
           from_address: 'from_address',
-          sending_ips: Stubs::IpList.default(visited),
+          sending_ips: IpList.default(visited),
           first_seen_date_time: Time.now,
           last_seen_date_time: Time.now,
           inbox_count: 1,
@@ -997,7 +997,7 @@ module AWS::SDK::PinpointEmail
           delete_rate: 1.0,
           read_delete_rate: 1.0,
           projected_volume: 1,
-          esps: Stubs::Esps.default(visited),
+          esps: Esps.default(visited),
         }
       end
 
@@ -1066,8 +1066,8 @@ module AWS::SDK::PinpointEmail
     class GetDomainStatisticsReport
       def self.default(visited=[])
         {
-          overall_volume: Stubs::OverallVolume.default(visited),
-          daily_volumes: Stubs::DailyVolumes.default(visited),
+          overall_volume: OverallVolume.default(visited),
+          daily_volumes: DailyVolumes.default(visited),
         }
       end
 
@@ -1087,7 +1087,7 @@ module AWS::SDK::PinpointEmail
         return nil if visited.include?('DailyVolumes')
         visited = visited + ['DailyVolumes']
         [
-          Stubs::DailyVolume.default(visited)
+          DailyVolume.default(visited)
         ]
       end
 
@@ -1108,8 +1108,8 @@ module AWS::SDK::PinpointEmail
         visited = visited + ['DailyVolume']
         {
           start_date: Time.now,
-          volume_statistics: Stubs::VolumeStatistics.default(visited),
-          domain_isp_placements: Stubs::DomainIspPlacements.default(visited),
+          volume_statistics: VolumeStatistics.default(visited),
+          domain_isp_placements: DomainIspPlacements.default(visited),
         }
       end
 
@@ -1129,7 +1129,7 @@ module AWS::SDK::PinpointEmail
         return nil if visited.include?('DomainIspPlacements')
         visited = visited + ['DomainIspPlacements']
         [
-          Stubs::DomainIspPlacement.default(visited)
+          DomainIspPlacement.default(visited)
         ]
       end
 
@@ -1199,9 +1199,9 @@ module AWS::SDK::PinpointEmail
         return nil if visited.include?('OverallVolume')
         visited = visited + ['OverallVolume']
         {
-          volume_statistics: Stubs::VolumeStatistics.default(visited),
+          volume_statistics: VolumeStatistics.default(visited),
           read_rate_percent: 1.0,
-          domain_isp_placements: Stubs::DomainIspPlacements.default(visited),
+          domain_isp_placements: DomainIspPlacements.default(visited),
         }
       end
 
@@ -1222,9 +1222,9 @@ module AWS::SDK::PinpointEmail
           identity_type: 'identity_type',
           feedback_forwarding_status: false,
           verified_for_sending_status: false,
-          dkim_attributes: Stubs::DkimAttributes.default(visited),
-          mail_from_attributes: Stubs::MailFromAttributes.default(visited),
-          tags: Stubs::TagList.default(visited),
+          dkim_attributes: DkimAttributes.default(visited),
+          mail_from_attributes: MailFromAttributes.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -1268,7 +1268,7 @@ module AWS::SDK::PinpointEmail
     class ListConfigurationSets
       def self.default(visited=[])
         {
-          configuration_sets: Stubs::ConfigurationSetNameList.default(visited),
+          configuration_sets: ConfigurationSetNameList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1307,7 +1307,7 @@ module AWS::SDK::PinpointEmail
     class ListDedicatedIpPools
       def self.default(visited=[])
         {
-          dedicated_ip_pools: Stubs::ListOfDedicatedIpPools.default(visited),
+          dedicated_ip_pools: ListOfDedicatedIpPools.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1346,7 +1346,7 @@ module AWS::SDK::PinpointEmail
     class ListDeliverabilityTestReports
       def self.default(visited=[])
         {
-          deliverability_test_reports: Stubs::DeliverabilityTestReports.default(visited),
+          deliverability_test_reports: DeliverabilityTestReports.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1367,7 +1367,7 @@ module AWS::SDK::PinpointEmail
         return nil if visited.include?('DeliverabilityTestReports')
         visited = visited + ['DeliverabilityTestReports']
         [
-          Stubs::DeliverabilityTestReport.default(visited)
+          DeliverabilityTestReport.default(visited)
         ]
       end
 
@@ -1385,7 +1385,7 @@ module AWS::SDK::PinpointEmail
     class ListDomainDeliverabilityCampaigns
       def self.default(visited=[])
         {
-          domain_deliverability_campaigns: Stubs::DomainDeliverabilityCampaignList.default(visited),
+          domain_deliverability_campaigns: DomainDeliverabilityCampaignList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1406,7 +1406,7 @@ module AWS::SDK::PinpointEmail
         return nil if visited.include?('DomainDeliverabilityCampaignList')
         visited = visited + ['DomainDeliverabilityCampaignList']
         [
-          Stubs::DomainDeliverabilityCampaign.default(visited)
+          DomainDeliverabilityCampaign.default(visited)
         ]
       end
 
@@ -1424,7 +1424,7 @@ module AWS::SDK::PinpointEmail
     class ListEmailIdentities
       def self.default(visited=[])
         {
-          email_identities: Stubs::IdentityInfoList.default(visited),
+          email_identities: IdentityInfoList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1445,7 +1445,7 @@ module AWS::SDK::PinpointEmail
         return nil if visited.include?('IdentityInfoList')
         visited = visited + ['IdentityInfoList']
         [
-          Stubs::IdentityInfo.default(visited)
+          IdentityInfo.default(visited)
         ]
       end
 
@@ -1485,7 +1485,7 @@ module AWS::SDK::PinpointEmail
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 

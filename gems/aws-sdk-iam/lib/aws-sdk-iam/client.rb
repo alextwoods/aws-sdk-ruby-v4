@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::IAM
@@ -70,7 +72,7 @@ module AWS::SDK::IAM
     def add_client_id_to_open_id_connect_provider(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddClientIDToOpenIDConnectProviderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddClientIDToOpenIDConnectProviderInput,
         validate_input: @config.validate_input
@@ -158,7 +160,7 @@ module AWS::SDK::IAM
     def add_role_to_instance_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddRoleToInstanceProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddRoleToInstanceProfileInput,
         validate_input: @config.validate_input
@@ -234,7 +236,7 @@ module AWS::SDK::IAM
     def add_user_to_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddUserToGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddUserToGroupInput,
         validate_input: @config.validate_input
@@ -316,7 +318,7 @@ module AWS::SDK::IAM
     def attach_group_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AttachGroupPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AttachGroupPolicyInput,
         validate_input: @config.validate_input
@@ -405,7 +407,7 @@ module AWS::SDK::IAM
     def attach_role_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AttachRolePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AttachRolePolicyInput,
         validate_input: @config.validate_input
@@ -487,7 +489,7 @@ module AWS::SDK::IAM
     def attach_user_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AttachUserPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AttachUserPolicyInput,
         validate_input: @config.validate_input
@@ -574,7 +576,7 @@ module AWS::SDK::IAM
     def change_password(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ChangePasswordInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ChangePasswordInput,
         validate_input: @config.validate_input
@@ -663,7 +665,7 @@ module AWS::SDK::IAM
     def create_access_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAccessKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAccessKeyInput,
         validate_input: @config.validate_input
@@ -737,7 +739,7 @@ module AWS::SDK::IAM
     def create_account_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAccountAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAccountAliasInput,
         validate_input: @config.validate_input
@@ -826,7 +828,7 @@ module AWS::SDK::IAM
     def create_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateGroupInput,
         validate_input: @config.validate_input
@@ -952,7 +954,7 @@ module AWS::SDK::IAM
     def create_instance_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateInstanceProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateInstanceProfileInput,
         validate_input: @config.validate_input
@@ -1047,7 +1049,7 @@ module AWS::SDK::IAM
     def create_login_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLoginProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLoginProfileInput,
         validate_input: @config.validate_input
@@ -1216,7 +1218,7 @@ module AWS::SDK::IAM
     def create_open_id_connect_provider(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateOpenIDConnectProviderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateOpenIDConnectProviderInput,
         validate_input: @config.validate_input
@@ -1378,7 +1380,7 @@ module AWS::SDK::IAM
     def create_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePolicyInput,
         validate_input: @config.validate_input
@@ -1495,7 +1497,7 @@ module AWS::SDK::IAM
     def create_policy_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePolicyVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePolicyVersionInput,
         validate_input: @config.validate_input
@@ -1664,7 +1666,7 @@ module AWS::SDK::IAM
     def create_role(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRoleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRoleInput,
         validate_input: @config.validate_input
@@ -1782,7 +1784,7 @@ module AWS::SDK::IAM
     def create_saml_provider(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSAMLProviderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSAMLProviderInput,
         validate_input: @config.validate_input
@@ -1900,7 +1902,7 @@ module AWS::SDK::IAM
     def create_service_linked_role(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateServiceLinkedRoleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateServiceLinkedRoleInput,
         validate_input: @config.validate_input
@@ -1996,7 +1998,7 @@ module AWS::SDK::IAM
     def create_service_specific_credential(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateServiceSpecificCredentialInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateServiceSpecificCredentialInput,
         validate_input: @config.validate_input
@@ -2113,7 +2115,7 @@ module AWS::SDK::IAM
     def create_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateUserInput,
         validate_input: @config.validate_input
@@ -2241,7 +2243,7 @@ module AWS::SDK::IAM
     def create_virtual_mfa_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateVirtualMFADeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateVirtualMFADeviceInput,
         validate_input: @config.validate_input
@@ -2323,7 +2325,7 @@ module AWS::SDK::IAM
     def deactivate_mfa_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeactivateMFADeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeactivateMFADeviceInput,
         validate_input: @config.validate_input
@@ -2404,7 +2406,7 @@ module AWS::SDK::IAM
     def delete_access_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAccessKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAccessKeyInput,
         validate_input: @config.validate_input
@@ -2477,7 +2479,7 @@ module AWS::SDK::IAM
     def delete_account_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAccountAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAccountAliasInput,
         validate_input: @config.validate_input
@@ -2540,7 +2542,7 @@ module AWS::SDK::IAM
     def delete_account_password_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAccountPasswordPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAccountPasswordPolicyInput,
         validate_input: @config.validate_input
@@ -2611,7 +2613,7 @@ module AWS::SDK::IAM
     def delete_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteGroupInput,
         validate_input: @config.validate_input
@@ -2693,7 +2695,7 @@ module AWS::SDK::IAM
     def delete_group_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteGroupPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteGroupPolicyInput,
         validate_input: @config.validate_input
@@ -2772,7 +2774,7 @@ module AWS::SDK::IAM
     def delete_instance_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteInstanceProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteInstanceProfileInput,
         validate_input: @config.validate_input
@@ -2854,7 +2856,7 @@ module AWS::SDK::IAM
     def delete_login_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLoginProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLoginProfileInput,
         validate_input: @config.validate_input
@@ -2928,7 +2930,7 @@ module AWS::SDK::IAM
     def delete_open_id_connect_provider(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteOpenIDConnectProviderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteOpenIDConnectProviderInput,
         validate_input: @config.validate_input
@@ -3021,7 +3023,7 @@ module AWS::SDK::IAM
     def delete_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePolicyInput,
         validate_input: @config.validate_input
@@ -3105,7 +3107,7 @@ module AWS::SDK::IAM
     def delete_policy_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePolicyVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePolicyVersionInput,
         validate_input: @config.validate_input
@@ -3181,7 +3183,7 @@ module AWS::SDK::IAM
     def delete_role(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRoleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRoleInput,
         validate_input: @config.validate_input
@@ -3255,7 +3257,7 @@ module AWS::SDK::IAM
     def delete_role_permissions_boundary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRolePermissionsBoundaryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRolePermissionsBoundaryInput,
         validate_input: @config.validate_input
@@ -3337,7 +3339,7 @@ module AWS::SDK::IAM
     def delete_role_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRolePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRolePolicyInput,
         validate_input: @config.validate_input
@@ -3411,7 +3413,7 @@ module AWS::SDK::IAM
     def delete_saml_provider(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSAMLProviderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSAMLProviderInput,
         validate_input: @config.validate_input
@@ -3491,7 +3493,7 @@ module AWS::SDK::IAM
     def delete_ssh_public_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSSHPublicKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSSHPublicKeyInput,
         validate_input: @config.validate_input
@@ -3575,7 +3577,7 @@ module AWS::SDK::IAM
     def delete_server_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteServerCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteServerCertificateInput,
         validate_input: @config.validate_input
@@ -3660,7 +3662,7 @@ module AWS::SDK::IAM
     def delete_service_linked_role(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteServiceLinkedRoleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteServiceLinkedRoleInput,
         validate_input: @config.validate_input
@@ -3739,7 +3741,7 @@ module AWS::SDK::IAM
     def delete_service_specific_credential(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteServiceSpecificCredentialInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteServiceSpecificCredentialInput,
         validate_input: @config.validate_input
@@ -3819,7 +3821,7 @@ module AWS::SDK::IAM
     def delete_signing_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSigningCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSigningCertificateInput,
         validate_input: @config.validate_input
@@ -3921,7 +3923,7 @@ module AWS::SDK::IAM
     def delete_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteUserInput,
         validate_input: @config.validate_input
@@ -3995,7 +3997,7 @@ module AWS::SDK::IAM
     def delete_user_permissions_boundary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteUserPermissionsBoundaryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteUserPermissionsBoundaryInput,
         validate_input: @config.validate_input
@@ -4077,7 +4079,7 @@ module AWS::SDK::IAM
     def delete_user_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteUserPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteUserPolicyInput,
         validate_input: @config.validate_input
@@ -4153,7 +4155,7 @@ module AWS::SDK::IAM
     def delete_virtual_mfa_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVirtualMFADeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVirtualMFADeviceInput,
         validate_input: @config.validate_input
@@ -4232,7 +4234,7 @@ module AWS::SDK::IAM
     def detach_group_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetachGroupPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetachGroupPolicyInput,
         validate_input: @config.validate_input
@@ -4311,7 +4313,7 @@ module AWS::SDK::IAM
     def detach_role_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetachRolePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetachRolePolicyInput,
         validate_input: @config.validate_input
@@ -4390,7 +4392,7 @@ module AWS::SDK::IAM
     def detach_user_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetachUserPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetachUserPolicyInput,
         validate_input: @config.validate_input
@@ -4496,7 +4498,7 @@ module AWS::SDK::IAM
     def enable_mfa_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableMFADeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableMFADeviceInput,
         validate_input: @config.validate_input
@@ -4563,7 +4565,7 @@ module AWS::SDK::IAM
     def generate_credential_report(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GenerateCredentialReportInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GenerateCredentialReportInput,
         validate_input: @config.validate_input
@@ -4775,7 +4777,7 @@ module AWS::SDK::IAM
     def generate_organizations_access_report(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GenerateOrganizationsAccessReportInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GenerateOrganizationsAccessReportInput,
         validate_input: @config.validate_input
@@ -4907,7 +4909,7 @@ module AWS::SDK::IAM
     def generate_service_last_accessed_details(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GenerateServiceLastAccessedDetailsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GenerateServiceLastAccessedDetailsInput,
         validate_input: @config.validate_input
@@ -4984,7 +4986,7 @@ module AWS::SDK::IAM
     def get_access_key_last_used(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAccessKeyLastUsedInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAccessKeyLastUsedInput,
         validate_input: @config.validate_input
@@ -5179,7 +5181,7 @@ module AWS::SDK::IAM
     def get_account_authorization_details(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAccountAuthorizationDetailsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAccountAuthorizationDetailsInput,
         validate_input: @config.validate_input
@@ -5256,7 +5258,7 @@ module AWS::SDK::IAM
     def get_account_password_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAccountPasswordPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAccountPasswordPolicyInput,
         validate_input: @config.validate_input
@@ -5324,7 +5326,7 @@ module AWS::SDK::IAM
     def get_account_summary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAccountSummaryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAccountSummaryInput,
         validate_input: @config.validate_input
@@ -5423,7 +5425,7 @@ module AWS::SDK::IAM
     def get_context_keys_for_custom_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetContextKeysForCustomPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetContextKeysForCustomPolicyInput,
         validate_input: @config.validate_input
@@ -5536,7 +5538,7 @@ module AWS::SDK::IAM
     def get_context_keys_for_principal_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetContextKeysForPrincipalPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetContextKeysForPrincipalPolicyInput,
         validate_input: @config.validate_input
@@ -5604,7 +5606,7 @@ module AWS::SDK::IAM
     def get_credential_report(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCredentialReportInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCredentialReportInput,
         validate_input: @config.validate_input
@@ -5716,7 +5718,7 @@ module AWS::SDK::IAM
     def get_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetGroupInput,
         validate_input: @config.validate_input
@@ -5809,7 +5811,7 @@ module AWS::SDK::IAM
     def get_group_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetGroupPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetGroupPolicyInput,
         validate_input: @config.validate_input
@@ -5909,7 +5911,7 @@ module AWS::SDK::IAM
     def get_instance_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetInstanceProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetInstanceProfileInput,
         validate_input: @config.validate_input
@@ -5992,7 +5994,7 @@ module AWS::SDK::IAM
     def get_login_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLoginProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLoginProfileInput,
         validate_input: @config.validate_input
@@ -6073,7 +6075,7 @@ module AWS::SDK::IAM
     def get_open_id_connect_provider(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetOpenIDConnectProviderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetOpenIDConnectProviderInput,
         validate_input: @config.validate_input
@@ -6201,7 +6203,7 @@ module AWS::SDK::IAM
     def get_organizations_access_report(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetOrganizationsAccessReportInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetOrganizationsAccessReportInput,
         validate_input: @config.validate_input
@@ -6296,7 +6298,7 @@ module AWS::SDK::IAM
     def get_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPolicyInput,
         validate_input: @config.validate_input
@@ -6393,7 +6395,7 @@ module AWS::SDK::IAM
     def get_policy_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPolicyVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPolicyVersionInput,
         validate_input: @config.validate_input
@@ -6491,7 +6493,7 @@ module AWS::SDK::IAM
     def get_role(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRoleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRoleInput,
         validate_input: @config.validate_input
@@ -6586,7 +6588,7 @@ module AWS::SDK::IAM
     def get_role_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRolePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRolePolicyInput,
         validate_input: @config.validate_input
@@ -6667,7 +6669,7 @@ module AWS::SDK::IAM
     def get_saml_provider(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSAMLProviderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSAMLProviderInput,
         validate_input: @config.validate_input
@@ -6760,7 +6762,7 @@ module AWS::SDK::IAM
     def get_ssh_public_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSSHPublicKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSSHPublicKeyInput,
         validate_input: @config.validate_input
@@ -6848,7 +6850,7 @@ module AWS::SDK::IAM
     def get_server_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetServerCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetServerCertificateInput,
         validate_input: @config.validate_input
@@ -7011,7 +7013,7 @@ module AWS::SDK::IAM
     def get_service_last_accessed_details(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetServiceLastAccessedDetailsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetServiceLastAccessedDetailsInput,
         validate_input: @config.validate_input
@@ -7151,7 +7153,7 @@ module AWS::SDK::IAM
     def get_service_last_accessed_details_with_entities(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetServiceLastAccessedDetailsWithEntitiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetServiceLastAccessedDetailsWithEntitiesInput,
         validate_input: @config.validate_input
@@ -7232,7 +7234,7 @@ module AWS::SDK::IAM
     def get_service_linked_role_deletion_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetServiceLinkedRoleDeletionStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetServiceLinkedRoleDeletionStatusInput,
         validate_input: @config.validate_input
@@ -7320,7 +7322,7 @@ module AWS::SDK::IAM
     def get_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetUserInput,
         validate_input: @config.validate_input
@@ -7413,7 +7415,7 @@ module AWS::SDK::IAM
     def get_user_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetUserPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetUserPolicyInput,
         validate_input: @config.validate_input
@@ -7521,7 +7523,7 @@ module AWS::SDK::IAM
     def list_access_keys(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAccessKeysInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAccessKeysInput,
         validate_input: @config.validate_input
@@ -7609,7 +7611,7 @@ module AWS::SDK::IAM
     def list_account_aliases(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAccountAliasesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAccountAliasesInput,
         validate_input: @config.validate_input
@@ -7721,7 +7723,7 @@ module AWS::SDK::IAM
     def list_attached_group_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAttachedGroupPoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAttachedGroupPoliciesInput,
         validate_input: @config.validate_input
@@ -7833,7 +7835,7 @@ module AWS::SDK::IAM
     def list_attached_role_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAttachedRolePoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAttachedRolePoliciesInput,
         validate_input: @config.validate_input
@@ -7945,7 +7947,7 @@ module AWS::SDK::IAM
     def list_attached_user_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAttachedUserPoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAttachedUserPoliciesInput,
         validate_input: @config.validate_input
@@ -8080,7 +8082,7 @@ module AWS::SDK::IAM
     def list_entities_for_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEntitiesForPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEntitiesForPolicyInput,
         validate_input: @config.validate_input
@@ -8180,7 +8182,7 @@ module AWS::SDK::IAM
     def list_group_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListGroupPoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListGroupPoliciesInput,
         validate_input: @config.validate_input
@@ -8284,7 +8286,7 @@ module AWS::SDK::IAM
     def list_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListGroupsInput,
         validate_input: @config.validate_input
@@ -8383,7 +8385,7 @@ module AWS::SDK::IAM
     def list_groups_for_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListGroupsForUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListGroupsForUserInput,
         validate_input: @config.validate_input
@@ -8479,7 +8481,7 @@ module AWS::SDK::IAM
     def list_instance_profile_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListInstanceProfileTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListInstanceProfileTagsInput,
         validate_input: @config.validate_input
@@ -8611,7 +8613,7 @@ module AWS::SDK::IAM
     def list_instance_profiles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListInstanceProfilesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListInstanceProfilesInput,
         validate_input: @config.validate_input
@@ -8734,7 +8736,7 @@ module AWS::SDK::IAM
     def list_instance_profiles_for_role(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListInstanceProfilesForRoleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListInstanceProfilesForRoleInput,
         validate_input: @config.validate_input
@@ -8831,7 +8833,7 @@ module AWS::SDK::IAM
     def list_mfa_device_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMFADeviceTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMFADeviceTagsInput,
         validate_input: @config.validate_input
@@ -8931,7 +8933,7 @@ module AWS::SDK::IAM
     def list_mfa_devices(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMFADevicesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMFADevicesInput,
         validate_input: @config.validate_input
@@ -9030,7 +9032,7 @@ module AWS::SDK::IAM
     def list_open_id_connect_provider_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListOpenIDConnectProviderTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListOpenIDConnectProviderTagsInput,
         validate_input: @config.validate_input
@@ -9101,7 +9103,7 @@ module AWS::SDK::IAM
     def list_open_id_connect_providers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListOpenIDConnectProvidersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListOpenIDConnectProvidersInput,
         validate_input: @config.validate_input
@@ -9251,7 +9253,7 @@ module AWS::SDK::IAM
     def list_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPoliciesInput,
         validate_input: @config.validate_input
@@ -9390,7 +9392,7 @@ module AWS::SDK::IAM
     def list_policies_granting_service_access(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPoliciesGrantingServiceAccessInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPoliciesGrantingServiceAccessInput,
         validate_input: @config.validate_input
@@ -9486,7 +9488,7 @@ module AWS::SDK::IAM
     def list_policy_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPolicyTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPolicyTagsInput,
         validate_input: @config.validate_input
@@ -9585,7 +9587,7 @@ module AWS::SDK::IAM
     def list_policy_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPolicyVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPolicyVersionsInput,
         validate_input: @config.validate_input
@@ -9685,7 +9687,7 @@ module AWS::SDK::IAM
     def list_role_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRolePoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRolePoliciesInput,
         validate_input: @config.validate_input
@@ -9781,7 +9783,7 @@ module AWS::SDK::IAM
     def list_role_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRoleTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRoleTagsInput,
         validate_input: @config.validate_input
@@ -9904,7 +9906,7 @@ module AWS::SDK::IAM
     def list_roles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRolesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRolesInput,
         validate_input: @config.validate_input
@@ -10003,7 +10005,7 @@ module AWS::SDK::IAM
     def list_saml_provider_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSAMLProviderTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSAMLProviderTagsInput,
         validate_input: @config.validate_input
@@ -10076,7 +10078,7 @@ module AWS::SDK::IAM
     def list_saml_providers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSAMLProvidersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSAMLProvidersInput,
         validate_input: @config.validate_input
@@ -10181,7 +10183,7 @@ module AWS::SDK::IAM
     def list_ssh_public_keys(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSSHPublicKeysInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSSHPublicKeysInput,
         validate_input: @config.validate_input
@@ -10284,7 +10286,7 @@ module AWS::SDK::IAM
     def list_server_certificate_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListServerCertificateTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListServerCertificateTagsInput,
         validate_input: @config.validate_input
@@ -10398,7 +10400,7 @@ module AWS::SDK::IAM
     def list_server_certificates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListServerCertificatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListServerCertificatesInput,
         validate_input: @config.validate_input
@@ -10488,7 +10490,7 @@ module AWS::SDK::IAM
     def list_service_specific_credentials(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListServiceSpecificCredentialsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListServiceSpecificCredentialsInput,
         validate_input: @config.validate_input
@@ -10594,7 +10596,7 @@ module AWS::SDK::IAM
     def list_signing_certificates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSigningCertificatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSigningCertificatesInput,
         validate_input: @config.validate_input
@@ -10693,7 +10695,7 @@ module AWS::SDK::IAM
     def list_user_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListUserPoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListUserPoliciesInput,
         validate_input: @config.validate_input
@@ -10788,7 +10790,7 @@ module AWS::SDK::IAM
     def list_user_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListUserTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListUserTagsInput,
         validate_input: @config.validate_input
@@ -10906,7 +10908,7 @@ module AWS::SDK::IAM
     def list_users(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListUsersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListUsersInput,
         validate_input: @config.validate_input
@@ -11027,7 +11029,7 @@ module AWS::SDK::IAM
     def list_virtual_mfa_devices(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListVirtualMFADevicesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListVirtualMFADevicesInput,
         validate_input: @config.validate_input
@@ -11141,7 +11143,7 @@ module AWS::SDK::IAM
     def put_group_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutGroupPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutGroupPolicyInput,
         validate_input: @config.validate_input
@@ -11226,7 +11228,7 @@ module AWS::SDK::IAM
     def put_role_permissions_boundary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutRolePermissionsBoundaryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutRolePermissionsBoundaryInput,
         validate_input: @config.validate_input
@@ -11344,7 +11346,7 @@ module AWS::SDK::IAM
     def put_role_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutRolePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutRolePolicyInput,
         validate_input: @config.validate_input
@@ -11428,7 +11430,7 @@ module AWS::SDK::IAM
     def put_user_permissions_boundary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutUserPermissionsBoundaryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutUserPermissionsBoundaryInput,
         validate_input: @config.validate_input
@@ -11542,7 +11544,7 @@ module AWS::SDK::IAM
     def put_user_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutUserPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutUserPolicyInput,
         validate_input: @config.validate_input
@@ -11621,7 +11623,7 @@ module AWS::SDK::IAM
     def remove_client_id_from_open_id_connect_provider(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveClientIDFromOpenIDConnectProviderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveClientIDFromOpenIDConnectProviderInput,
         validate_input: @config.validate_input
@@ -11706,7 +11708,7 @@ module AWS::SDK::IAM
     def remove_role_from_instance_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveRoleFromInstanceProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveRoleFromInstanceProfileInput,
         validate_input: @config.validate_input
@@ -11782,7 +11784,7 @@ module AWS::SDK::IAM
     def remove_user_from_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveUserFromGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveUserFromGroupInput,
         validate_input: @config.validate_input
@@ -11871,7 +11873,7 @@ module AWS::SDK::IAM
     def reset_service_specific_credential(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResetServiceSpecificCredentialInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResetServiceSpecificCredentialInput,
         validate_input: @config.validate_input
@@ -11960,7 +11962,7 @@ module AWS::SDK::IAM
     def resync_mfa_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResyncMFADeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResyncMFADeviceInput,
         validate_input: @config.validate_input
@@ -12041,7 +12043,7 @@ module AWS::SDK::IAM
     def set_default_policy_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetDefaultPolicyVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetDefaultPolicyVersionInput,
         validate_input: @config.validate_input
@@ -12133,7 +12135,7 @@ module AWS::SDK::IAM
     def set_security_token_service_preferences(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetSecurityTokenServicePreferencesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetSecurityTokenServicePreferencesInput,
         validate_input: @config.validate_input
@@ -12462,7 +12464,7 @@ module AWS::SDK::IAM
     def simulate_custom_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SimulateCustomPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SimulateCustomPolicyInput,
         validate_input: @config.validate_input
@@ -12810,7 +12812,7 @@ module AWS::SDK::IAM
     def simulate_principal_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SimulatePrincipalPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SimulatePrincipalPolicyInput,
         validate_input: @config.validate_input
@@ -12925,7 +12927,7 @@ module AWS::SDK::IAM
     def tag_instance_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagInstanceProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagInstanceProfileInput,
         validate_input: @config.validate_input
@@ -13042,7 +13044,7 @@ module AWS::SDK::IAM
     def tag_mfa_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagMFADeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagMFADeviceInput,
         validate_input: @config.validate_input
@@ -13159,7 +13161,7 @@ module AWS::SDK::IAM
     def tag_open_id_connect_provider(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagOpenIDConnectProviderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagOpenIDConnectProviderInput,
         validate_input: @config.validate_input
@@ -13274,7 +13276,7 @@ module AWS::SDK::IAM
     def tag_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagPolicyInput,
         validate_input: @config.validate_input
@@ -13397,7 +13399,7 @@ module AWS::SDK::IAM
     def tag_role(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagRoleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagRoleInput,
         validate_input: @config.validate_input
@@ -13514,7 +13516,7 @@ module AWS::SDK::IAM
     def tag_saml_provider(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagSAMLProviderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagSAMLProviderInput,
         validate_input: @config.validate_input
@@ -13641,7 +13643,7 @@ module AWS::SDK::IAM
     def tag_server_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagServerCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagServerCertificateInput,
         validate_input: @config.validate_input
@@ -13763,7 +13765,7 @@ module AWS::SDK::IAM
     def tag_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagUserInput,
         validate_input: @config.validate_input
@@ -13841,7 +13843,7 @@ module AWS::SDK::IAM
     def untag_instance_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagInstanceProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagInstanceProfileInput,
         validate_input: @config.validate_input
@@ -13921,7 +13923,7 @@ module AWS::SDK::IAM
     def untag_mfa_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagMFADeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagMFADeviceInput,
         validate_input: @config.validate_input
@@ -14001,7 +14003,7 @@ module AWS::SDK::IAM
     def untag_open_id_connect_provider(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagOpenIDConnectProviderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagOpenIDConnectProviderInput,
         validate_input: @config.validate_input
@@ -14080,7 +14082,7 @@ module AWS::SDK::IAM
     def untag_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagPolicyInput,
         validate_input: @config.validate_input
@@ -14158,7 +14160,7 @@ module AWS::SDK::IAM
     def untag_role(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagRoleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagRoleInput,
         validate_input: @config.validate_input
@@ -14239,7 +14241,7 @@ module AWS::SDK::IAM
     def untag_saml_provider(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagSAMLProviderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagSAMLProviderInput,
         validate_input: @config.validate_input
@@ -14325,7 +14327,7 @@ module AWS::SDK::IAM
     def untag_server_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagServerCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagServerCertificateInput,
         validate_input: @config.validate_input
@@ -14403,7 +14405,7 @@ module AWS::SDK::IAM
     def untag_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagUserInput,
         validate_input: @config.validate_input
@@ -14494,7 +14496,7 @@ module AWS::SDK::IAM
     def update_access_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAccessKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAccessKeyInput,
         validate_input: @config.validate_input
@@ -14650,7 +14652,7 @@ module AWS::SDK::IAM
     def update_account_password_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAccountPasswordPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAccountPasswordPolicyInput,
         validate_input: @config.validate_input
@@ -14746,7 +14748,7 @@ module AWS::SDK::IAM
     def update_assume_role_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAssumeRolePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAssumeRolePolicyInput,
         validate_input: @config.validate_input
@@ -14846,7 +14848,7 @@ module AWS::SDK::IAM
     def update_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGroupInput,
         validate_input: @config.validate_input
@@ -14949,7 +14951,7 @@ module AWS::SDK::IAM
     def update_login_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateLoginProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateLoginProfileInput,
         validate_input: @config.validate_input
@@ -15048,7 +15050,7 @@ module AWS::SDK::IAM
     def update_open_id_connect_provider_thumbprint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateOpenIDConnectProviderThumbprintInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateOpenIDConnectProviderThumbprintInput,
         validate_input: @config.validate_input
@@ -15136,7 +15138,7 @@ module AWS::SDK::IAM
     def update_role(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRoleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRoleInput,
         validate_input: @config.validate_input
@@ -15229,7 +15231,7 @@ module AWS::SDK::IAM
     def update_role_description(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRoleDescriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRoleDescriptionInput,
         validate_input: @config.validate_input
@@ -15310,7 +15312,7 @@ module AWS::SDK::IAM
     def update_saml_provider(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSAMLProviderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSAMLProviderInput,
         validate_input: @config.validate_input
@@ -15398,7 +15400,7 @@ module AWS::SDK::IAM
     def update_ssh_public_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSSHPublicKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSSHPublicKeyInput,
         validate_input: @config.validate_input
@@ -15503,7 +15505,7 @@ module AWS::SDK::IAM
     def update_server_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateServerCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateServerCertificateInput,
         validate_input: @config.validate_input
@@ -15588,7 +15590,7 @@ module AWS::SDK::IAM
     def update_service_specific_credential(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateServiceSpecificCredentialInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateServiceSpecificCredentialInput,
         validate_input: @config.validate_input
@@ -15677,7 +15679,7 @@ module AWS::SDK::IAM
     def update_signing_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSigningCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSigningCertificateInput,
         validate_input: @config.validate_input
@@ -15777,7 +15779,7 @@ module AWS::SDK::IAM
     def update_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateUserInput,
         validate_input: @config.validate_input
@@ -15880,7 +15882,7 @@ module AWS::SDK::IAM
     def upload_ssh_public_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UploadSSHPublicKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UploadSSHPublicKeyInput,
         validate_input: @config.validate_input
@@ -16077,7 +16079,7 @@ module AWS::SDK::IAM
     def upload_server_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UploadServerCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UploadServerCertificateInput,
         validate_input: @config.validate_input
@@ -16192,7 +16194,7 @@ module AWS::SDK::IAM
     def upload_signing_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UploadSigningCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UploadSigningCertificateInput,
         validate_input: @config.validate_input

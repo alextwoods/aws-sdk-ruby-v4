@@ -586,11 +586,11 @@ module AWS::SDK::CognitoSync
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dataset_count ||= 0
       end
-
     end
 
     # Indicates an internal service
@@ -719,11 +719,11 @@ module AWS::SDK::CognitoSync
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # Returned for a successful ListDatasets
@@ -752,11 +752,11 @@ module AWS::SDK::CognitoSync
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
       end
-
     end
 
     # A request for usage information on an
@@ -780,11 +780,11 @@ module AWS::SDK::CognitoSync
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # Returned for a successful
@@ -822,12 +822,12 @@ module AWS::SDK::CognitoSync
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.count ||= 0
       end
-
     end
 
     # A request for a list of records.
@@ -887,11 +887,11 @@ module AWS::SDK::CognitoSync
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # Returned for a successful
@@ -962,13 +962,13 @@ module AWS::SDK::CognitoSync
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
         self.dataset_exists ||= false
         self.dataset_deleted_after_requested_sync_count ||= false
       end
-
     end
 
     # Thrown when a user is not authorized to access the

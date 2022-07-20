@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::AppSync
@@ -67,7 +69,7 @@ module AWS::SDK::AppSync
     def associate_api(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateApiInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateApiInput,
         validate_input: @config.validate_input
@@ -249,7 +251,7 @@ module AWS::SDK::AppSync
     def create_api_cache(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateApiCacheInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateApiCacheInput,
         validate_input: @config.validate_input
@@ -332,7 +334,7 @@ module AWS::SDK::AppSync
     def create_api_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateApiKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateApiKeyInput,
         validate_input: @config.validate_input
@@ -517,7 +519,7 @@ module AWS::SDK::AppSync
     def create_data_source(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDataSourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDataSourceInput,
         validate_input: @config.validate_input
@@ -601,7 +603,7 @@ module AWS::SDK::AppSync
     def create_domain_name(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDomainNameInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDomainNameInput,
         validate_input: @config.validate_input
@@ -729,7 +731,7 @@ module AWS::SDK::AppSync
     def create_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFunctionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFunctionInput,
         validate_input: @config.validate_input
@@ -899,7 +901,7 @@ module AWS::SDK::AppSync
     def create_graphql_api(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateGraphqlApiInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateGraphqlApiInput,
         validate_input: @config.validate_input
@@ -1066,7 +1068,7 @@ module AWS::SDK::AppSync
     def create_resolver(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateResolverInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateResolverInput,
         validate_input: @config.validate_input
@@ -1150,7 +1152,7 @@ module AWS::SDK::AppSync
     def create_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTypeInput,
         validate_input: @config.validate_input
@@ -1218,7 +1220,7 @@ module AWS::SDK::AppSync
     def delete_api_cache(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteApiCacheInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteApiCacheInput,
         validate_input: @config.validate_input
@@ -1289,7 +1291,7 @@ module AWS::SDK::AppSync
     def delete_api_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteApiKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteApiKeyInput,
         validate_input: @config.validate_input
@@ -1360,7 +1362,7 @@ module AWS::SDK::AppSync
     def delete_data_source(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDataSourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDataSourceInput,
         validate_input: @config.validate_input
@@ -1427,7 +1429,7 @@ module AWS::SDK::AppSync
     def delete_domain_name(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDomainNameInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDomainNameInput,
         validate_input: @config.validate_input
@@ -1498,7 +1500,7 @@ module AWS::SDK::AppSync
     def delete_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFunctionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFunctionInput,
         validate_input: @config.validate_input
@@ -1565,7 +1567,7 @@ module AWS::SDK::AppSync
     def delete_graphql_api(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteGraphqlApiInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteGraphqlApiInput,
         validate_input: @config.validate_input
@@ -1640,7 +1642,7 @@ module AWS::SDK::AppSync
     def delete_resolver(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteResolverInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteResolverInput,
         validate_input: @config.validate_input
@@ -1711,7 +1713,7 @@ module AWS::SDK::AppSync
     def delete_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTypeInput,
         validate_input: @config.validate_input
@@ -1778,7 +1780,7 @@ module AWS::SDK::AppSync
     def disassociate_api(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateApiInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateApiInput,
         validate_input: @config.validate_input
@@ -1845,7 +1847,7 @@ module AWS::SDK::AppSync
     def flush_api_cache(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::FlushApiCacheInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::FlushApiCacheInput,
         validate_input: @config.validate_input
@@ -1917,7 +1919,7 @@ module AWS::SDK::AppSync
     def get_api_association(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetApiAssociationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetApiAssociationInput,
         validate_input: @config.validate_input
@@ -1991,7 +1993,7 @@ module AWS::SDK::AppSync
     def get_api_cache(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetApiCacheInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetApiCacheInput,
         validate_input: @config.validate_input
@@ -2100,7 +2102,7 @@ module AWS::SDK::AppSync
     def get_data_source(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDataSourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDataSourceInput,
         validate_input: @config.validate_input
@@ -2173,7 +2175,7 @@ module AWS::SDK::AppSync
     def get_domain_name(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDomainNameInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDomainNameInput,
         validate_input: @config.validate_input
@@ -2259,7 +2261,7 @@ module AWS::SDK::AppSync
     def get_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFunctionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFunctionInput,
         validate_input: @config.validate_input
@@ -2364,7 +2366,7 @@ module AWS::SDK::AppSync
     def get_graphql_api(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetGraphqlApiInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetGraphqlApiInput,
         validate_input: @config.validate_input
@@ -2440,7 +2442,7 @@ module AWS::SDK::AppSync
     def get_introspection_schema(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetIntrospectionSchemaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetIntrospectionSchemaInput,
         validate_input: @config.validate_input
@@ -2536,7 +2538,7 @@ module AWS::SDK::AppSync
     def get_resolver(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResolverInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResolverInput,
         validate_input: @config.validate_input
@@ -2605,7 +2607,7 @@ module AWS::SDK::AppSync
     def get_schema_creation_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSchemaCreationStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSchemaCreationStatusInput,
         validate_input: @config.validate_input
@@ -2686,7 +2688,7 @@ module AWS::SDK::AppSync
     def get_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTypeInput,
         validate_input: @config.validate_input
@@ -2775,7 +2777,7 @@ module AWS::SDK::AppSync
     def list_api_keys(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListApiKeysInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListApiKeysInput,
         validate_input: @config.validate_input
@@ -2891,7 +2893,7 @@ module AWS::SDK::AppSync
     def list_data_sources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDataSourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDataSourcesInput,
         validate_input: @config.validate_input
@@ -2970,7 +2972,7 @@ module AWS::SDK::AppSync
     def list_domain_names(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDomainNamesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDomainNamesInput,
         validate_input: @config.validate_input
@@ -3063,7 +3065,7 @@ module AWS::SDK::AppSync
     def list_functions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFunctionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFunctionsInput,
         validate_input: @config.validate_input
@@ -3175,7 +3177,7 @@ module AWS::SDK::AppSync
     def list_graphql_apis(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListGraphqlApisInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListGraphqlApisInput,
         validate_input: @config.validate_input
@@ -3278,7 +3280,7 @@ module AWS::SDK::AppSync
     def list_resolvers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListResolversInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListResolversInput,
         validate_input: @config.validate_input
@@ -3381,7 +3383,7 @@ module AWS::SDK::AppSync
     def list_resolvers_by_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListResolversByFunctionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListResolversByFunctionInput,
         validate_input: @config.validate_input
@@ -3450,7 +3452,7 @@ module AWS::SDK::AppSync
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -3538,7 +3540,7 @@ module AWS::SDK::AppSync
     def list_types(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTypesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTypesInput,
         validate_input: @config.validate_input
@@ -3612,7 +3614,7 @@ module AWS::SDK::AppSync
     def start_schema_creation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartSchemaCreationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartSchemaCreationInput,
         validate_input: @config.validate_input
@@ -3686,7 +3688,7 @@ module AWS::SDK::AppSync
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -3760,7 +3762,7 @@ module AWS::SDK::AppSync
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -3932,7 +3934,7 @@ module AWS::SDK::AppSync
     def update_api_cache(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateApiCacheInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateApiCacheInput,
         validate_input: @config.validate_input
@@ -4018,7 +4020,7 @@ module AWS::SDK::AppSync
     def update_api_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateApiKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateApiKeyInput,
         validate_input: @config.validate_input
@@ -4202,7 +4204,7 @@ module AWS::SDK::AppSync
     def update_data_source(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDataSourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDataSourceInput,
         validate_input: @config.validate_input
@@ -4280,7 +4282,7 @@ module AWS::SDK::AppSync
     def update_domain_name(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDomainNameInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDomainNameInput,
         validate_input: @config.validate_input
@@ -4410,7 +4412,7 @@ module AWS::SDK::AppSync
     def update_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFunctionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFunctionInput,
         validate_input: @config.validate_input
@@ -4578,7 +4580,7 @@ module AWS::SDK::AppSync
     def update_graphql_api(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGraphqlApiInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGraphqlApiInput,
         validate_input: @config.validate_input
@@ -4743,7 +4745,7 @@ module AWS::SDK::AppSync
     def update_resolver(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateResolverInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateResolverInput,
         validate_input: @config.validate_input
@@ -4829,7 +4831,7 @@ module AWS::SDK::AppSync
     def update_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTypeInput,
         validate_input: @config.validate_input

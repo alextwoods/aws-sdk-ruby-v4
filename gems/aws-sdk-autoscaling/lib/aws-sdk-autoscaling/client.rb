@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::AutoScaling
@@ -87,7 +89,7 @@ module AWS::SDK::AutoScaling
     def attach_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AttachInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AttachInstancesInput,
         validate_input: @config.validate_input
@@ -182,7 +184,7 @@ module AWS::SDK::AutoScaling
     def attach_load_balancer_target_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AttachLoadBalancerTargetGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AttachLoadBalancerTargetGroupsInput,
         validate_input: @config.validate_input
@@ -268,7 +270,7 @@ module AWS::SDK::AutoScaling
     def attach_load_balancers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AttachLoadBalancersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AttachLoadBalancersInput,
         validate_input: @config.validate_input
@@ -348,7 +350,7 @@ module AWS::SDK::AutoScaling
     def batch_delete_scheduled_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchDeleteScheduledActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchDeleteScheduledActionInput,
         validate_input: @config.validate_input
@@ -436,7 +438,7 @@ module AWS::SDK::AutoScaling
     def batch_put_scheduled_update_group_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchPutScheduledUpdateGroupActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchPutScheduledUpdateGroupActionInput,
         validate_input: @config.validate_input
@@ -510,7 +512,7 @@ module AWS::SDK::AutoScaling
     def cancel_instance_refresh(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelInstanceRefreshInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelInstanceRefreshInput,
         validate_input: @config.validate_input
@@ -634,7 +636,7 @@ module AWS::SDK::AutoScaling
     def complete_lifecycle_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CompleteLifecycleActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CompleteLifecycleActionInput,
         validate_input: @config.validate_input
@@ -1052,7 +1054,7 @@ module AWS::SDK::AutoScaling
     def create_auto_scaling_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAutoScalingGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAutoScalingGroupInput,
         validate_input: @config.validate_input
@@ -1320,7 +1322,7 @@ module AWS::SDK::AutoScaling
     def create_launch_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLaunchConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLaunchConfigurationInput,
         validate_input: @config.validate_input
@@ -1400,7 +1402,7 @@ module AWS::SDK::AutoScaling
     def create_or_update_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateOrUpdateTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateOrUpdateTagsInput,
         validate_input: @config.validate_input
@@ -1483,7 +1485,7 @@ module AWS::SDK::AutoScaling
     def delete_auto_scaling_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAutoScalingGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAutoScalingGroupInput,
         validate_input: @config.validate_input
@@ -1553,7 +1555,7 @@ module AWS::SDK::AutoScaling
     def delete_launch_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLaunchConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLaunchConfigurationInput,
         validate_input: @config.validate_input
@@ -1628,7 +1630,7 @@ module AWS::SDK::AutoScaling
     def delete_lifecycle_hook(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLifecycleHookInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLifecycleHookInput,
         validate_input: @config.validate_input
@@ -1700,7 +1702,7 @@ module AWS::SDK::AutoScaling
     def delete_notification_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteNotificationConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteNotificationConfigurationInput,
         validate_input: @config.validate_input
@@ -1777,7 +1779,7 @@ module AWS::SDK::AutoScaling
     def delete_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePolicyInput,
         validate_input: @config.validate_input
@@ -1849,7 +1851,7 @@ module AWS::SDK::AutoScaling
     def delete_scheduled_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteScheduledActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteScheduledActionInput,
         validate_input: @config.validate_input
@@ -1925,7 +1927,7 @@ module AWS::SDK::AutoScaling
     def delete_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTagsInput,
         validate_input: @config.validate_input
@@ -2002,7 +2004,7 @@ module AWS::SDK::AutoScaling
     def delete_warm_pool(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteWarmPoolInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteWarmPoolInput,
         validate_input: @config.validate_input
@@ -2073,7 +2075,7 @@ module AWS::SDK::AutoScaling
     def describe_account_limits(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAccountLimitsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAccountLimitsInput,
         validate_input: @config.validate_input
@@ -2158,7 +2160,7 @@ module AWS::SDK::AutoScaling
     def describe_adjustment_types(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAdjustmentTypesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAdjustmentTypesInput,
         validate_input: @config.validate_input
@@ -2388,7 +2390,7 @@ module AWS::SDK::AutoScaling
     def describe_auto_scaling_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAutoScalingGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAutoScalingGroupsInput,
         validate_input: @config.validate_input
@@ -2486,7 +2488,7 @@ module AWS::SDK::AutoScaling
     def describe_auto_scaling_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAutoScalingInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAutoScalingInstancesInput,
         validate_input: @config.validate_input
@@ -2551,7 +2553,7 @@ module AWS::SDK::AutoScaling
     def describe_auto_scaling_notification_types(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAutoScalingNotificationTypesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAutoScalingNotificationTypesInput,
         validate_input: @config.validate_input
@@ -2763,7 +2765,7 @@ module AWS::SDK::AutoScaling
     def describe_instance_refreshes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeInstanceRefreshesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeInstanceRefreshesInput,
         validate_input: @config.validate_input
@@ -2886,7 +2888,7 @@ module AWS::SDK::AutoScaling
     def describe_launch_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLaunchConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLaunchConfigurationsInput,
         validate_input: @config.validate_input
@@ -2964,7 +2966,7 @@ module AWS::SDK::AutoScaling
     def describe_lifecycle_hook_types(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLifecycleHookTypesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLifecycleHookTypesInput,
         validate_input: @config.validate_input
@@ -3050,7 +3052,7 @@ module AWS::SDK::AutoScaling
     def describe_lifecycle_hooks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLifecycleHooksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLifecycleHooksInput,
         validate_input: @config.validate_input
@@ -3152,7 +3154,7 @@ module AWS::SDK::AutoScaling
     def describe_load_balancer_target_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLoadBalancerTargetGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLoadBalancerTargetGroupsInput,
         validate_input: @config.validate_input
@@ -3256,7 +3258,7 @@ module AWS::SDK::AutoScaling
     def describe_load_balancers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLoadBalancersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLoadBalancersInput,
         validate_input: @config.validate_input
@@ -3327,7 +3329,7 @@ module AWS::SDK::AutoScaling
     def describe_metric_collection_types(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeMetricCollectionTypesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeMetricCollectionTypesInput,
         validate_input: @config.validate_input
@@ -3414,7 +3416,7 @@ module AWS::SDK::AutoScaling
     def describe_notification_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeNotificationConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeNotificationConfigurationsInput,
         validate_input: @config.validate_input
@@ -3583,7 +3585,7 @@ module AWS::SDK::AutoScaling
     def describe_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePoliciesInput,
         validate_input: @config.validate_input
@@ -3698,7 +3700,7 @@ module AWS::SDK::AutoScaling
     def describe_scaling_activities(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeScalingActivitiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeScalingActivitiesInput,
         validate_input: @config.validate_input
@@ -3765,7 +3767,7 @@ module AWS::SDK::AutoScaling
     def describe_scaling_process_types(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeScalingProcessTypesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeScalingProcessTypesInput,
         validate_input: @config.validate_input
@@ -3879,7 +3881,7 @@ module AWS::SDK::AutoScaling
     def describe_scheduled_actions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeScheduledActionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeScheduledActionsInput,
         validate_input: @config.validate_input
@@ -3981,7 +3983,7 @@ module AWS::SDK::AutoScaling
     def describe_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTagsInput,
         validate_input: @config.validate_input
@@ -4049,7 +4051,7 @@ module AWS::SDK::AutoScaling
     def describe_termination_policy_types(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTerminationPolicyTypesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTerminationPolicyTypesInput,
         validate_input: @config.validate_input
@@ -4151,7 +4153,7 @@ module AWS::SDK::AutoScaling
     def describe_warm_pool(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeWarmPoolInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeWarmPoolInput,
         validate_input: @config.validate_input
@@ -4253,7 +4255,7 @@ module AWS::SDK::AutoScaling
     def detach_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetachInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetachInstancesInput,
         validate_input: @config.validate_input
@@ -4328,7 +4330,7 @@ module AWS::SDK::AutoScaling
     def detach_load_balancer_target_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetachLoadBalancerTargetGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetachLoadBalancerTargetGroupsInput,
         validate_input: @config.validate_input
@@ -4407,7 +4409,7 @@ module AWS::SDK::AutoScaling
     def detach_load_balancers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetachLoadBalancersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetachLoadBalancersInput,
         validate_input: @config.validate_input
@@ -4584,7 +4586,7 @@ module AWS::SDK::AutoScaling
     def disable_metrics_collection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableMetricsCollectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableMetricsCollectionInput,
         validate_input: @config.validate_input
@@ -4774,7 +4776,7 @@ module AWS::SDK::AutoScaling
     def enable_metrics_collection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableMetricsCollectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableMetricsCollectionInput,
         validate_input: @config.validate_input
@@ -4876,7 +4878,7 @@ module AWS::SDK::AutoScaling
     def enter_standby(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnterStandbyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnterStandbyInput,
         validate_input: @config.validate_input
@@ -4975,7 +4977,7 @@ module AWS::SDK::AutoScaling
     def execute_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExecutePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExecutePolicyInput,
         validate_input: @config.validate_input
@@ -5068,7 +5070,7 @@ module AWS::SDK::AutoScaling
     def exit_standby(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExitStandbyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExitStandbyInput,
         validate_input: @config.validate_input
@@ -5203,7 +5205,7 @@ module AWS::SDK::AutoScaling
     def get_predictive_scaling_forecast(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPredictiveScalingForecastInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPredictiveScalingForecastInput,
         validate_input: @config.validate_input
@@ -5370,7 +5372,7 @@ module AWS::SDK::AutoScaling
     def put_lifecycle_hook(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutLifecycleHookInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutLifecycleHookInput,
         validate_input: @config.validate_input
@@ -5457,7 +5459,7 @@ module AWS::SDK::AutoScaling
     def put_notification_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutNotificationConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutNotificationConfigurationInput,
         validate_input: @config.validate_input
@@ -5768,7 +5770,7 @@ module AWS::SDK::AutoScaling
     def put_scaling_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutScalingPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutScalingPolicyInput,
         validate_input: @config.validate_input
@@ -5895,7 +5897,7 @@ module AWS::SDK::AutoScaling
     def put_scheduled_update_group_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutScheduledUpdateGroupActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutScheduledUpdateGroupActionInput,
         validate_input: @config.validate_input
@@ -6012,7 +6014,7 @@ module AWS::SDK::AutoScaling
     def put_warm_pool(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutWarmPoolInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutWarmPoolInput,
         validate_input: @config.validate_input
@@ -6130,7 +6132,7 @@ module AWS::SDK::AutoScaling
     def record_lifecycle_action_heartbeat(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RecordLifecycleActionHeartbeatInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RecordLifecycleActionHeartbeatInput,
         validate_input: @config.validate_input
@@ -6255,7 +6257,7 @@ module AWS::SDK::AutoScaling
     def resume_processes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResumeProcessesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResumeProcessesInput,
         validate_input: @config.validate_input
@@ -6339,7 +6341,7 @@ module AWS::SDK::AutoScaling
     def set_desired_capacity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetDesiredCapacityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetDesiredCapacityInput,
         validate_input: @config.validate_input
@@ -6426,7 +6428,7 @@ module AWS::SDK::AutoScaling
     def set_instance_health(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetInstanceHealthInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetInstanceHealthInput,
         validate_input: @config.validate_input
@@ -6512,7 +6514,7 @@ module AWS::SDK::AutoScaling
     def set_instance_protection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetInstanceProtectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetInstanceProtectionInput,
         validate_input: @config.validate_input
@@ -6717,7 +6719,7 @@ module AWS::SDK::AutoScaling
     def start_instance_refresh(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartInstanceRefreshInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartInstanceRefreshInput,
         validate_input: @config.validate_input
@@ -6845,7 +6847,7 @@ module AWS::SDK::AutoScaling
     def suspend_processes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SuspendProcessesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SuspendProcessesInput,
         validate_input: @config.validate_input
@@ -6942,7 +6944,7 @@ module AWS::SDK::AutoScaling
     def terminate_instance_in_auto_scaling_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TerminateInstanceInAutoScalingGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TerminateInstanceInAutoScalingGroupInput,
         validate_input: @config.validate_input
@@ -7296,7 +7298,7 @@ module AWS::SDK::AutoScaling
     def update_auto_scaling_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAutoScalingGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAutoScalingGroupInput,
         validate_input: @config.validate_input

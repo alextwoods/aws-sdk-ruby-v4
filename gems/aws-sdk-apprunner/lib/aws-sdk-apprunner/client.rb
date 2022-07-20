@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::AppRunner
@@ -105,7 +107,7 @@ module AWS::SDK::AppRunner
     def associate_custom_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateCustomDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateCustomDomainInput,
         validate_input: @config.validate_input
@@ -230,7 +232,7 @@ module AWS::SDK::AppRunner
     def create_auto_scaling_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAutoScalingConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAutoScalingConfigurationInput,
         validate_input: @config.validate_input
@@ -320,7 +322,7 @@ module AWS::SDK::AppRunner
     def create_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateConnectionInput,
         validate_input: @config.validate_input
@@ -428,7 +430,7 @@ module AWS::SDK::AppRunner
     def create_observability_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateObservabilityConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateObservabilityConfigurationInput,
         validate_input: @config.validate_input
@@ -656,7 +658,7 @@ module AWS::SDK::AppRunner
     def create_service(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateServiceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateServiceInput,
         validate_input: @config.validate_input
@@ -760,7 +762,7 @@ module AWS::SDK::AppRunner
     def create_vpc_connector(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateVpcConnectorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateVpcConnectorInput,
         validate_input: @config.validate_input
@@ -844,7 +846,7 @@ module AWS::SDK::AppRunner
     def delete_auto_scaling_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAutoScalingConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAutoScalingConfigurationInput,
         validate_input: @config.validate_input
@@ -919,7 +921,7 @@ module AWS::SDK::AppRunner
     def delete_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteConnectionInput,
         validate_input: @config.validate_input
@@ -1002,7 +1004,7 @@ module AWS::SDK::AppRunner
     def delete_observability_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteObservabilityConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteObservabilityConfigurationInput,
         validate_input: @config.validate_input
@@ -1132,7 +1134,7 @@ module AWS::SDK::AppRunner
     def delete_service(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteServiceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteServiceInput,
         validate_input: @config.validate_input
@@ -1212,7 +1214,7 @@ module AWS::SDK::AppRunner
     def delete_vpc_connector(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVpcConnectorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVpcConnectorInput,
         validate_input: @config.validate_input
@@ -1296,7 +1298,7 @@ module AWS::SDK::AppRunner
     def describe_auto_scaling_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAutoScalingConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAutoScalingConfigurationInput,
         validate_input: @config.validate_input
@@ -1389,7 +1391,7 @@ module AWS::SDK::AppRunner
     def describe_custom_domains(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCustomDomainsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCustomDomainsInput,
         validate_input: @config.validate_input
@@ -1472,7 +1474,7 @@ module AWS::SDK::AppRunner
     def describe_observability_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeObservabilityConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeObservabilityConfigurationInput,
         validate_input: @config.validate_input
@@ -1599,7 +1601,7 @@ module AWS::SDK::AppRunner
     def describe_service(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeServiceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeServiceInput,
         validate_input: @config.validate_input
@@ -1678,7 +1680,7 @@ module AWS::SDK::AppRunner
     def describe_vpc_connector(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeVpcConnectorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeVpcConnectorInput,
         validate_input: @config.validate_input
@@ -1765,7 +1767,7 @@ module AWS::SDK::AppRunner
     def disassociate_custom_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateCustomDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateCustomDomainInput,
         validate_input: @config.validate_input
@@ -1862,7 +1864,7 @@ module AWS::SDK::AppRunner
     def list_auto_scaling_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAutoScalingConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAutoScalingConfigurationsInput,
         validate_input: @config.validate_input
@@ -1949,7 +1951,7 @@ module AWS::SDK::AppRunner
     def list_connections(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListConnectionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListConnectionsInput,
         validate_input: @config.validate_input
@@ -2046,7 +2048,7 @@ module AWS::SDK::AppRunner
     def list_observability_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListObservabilityConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListObservabilityConfigurationsInput,
         validate_input: @config.validate_input
@@ -2137,7 +2139,7 @@ module AWS::SDK::AppRunner
     def list_operations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListOperationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListOperationsInput,
         validate_input: @config.validate_input
@@ -2222,7 +2224,7 @@ module AWS::SDK::AppRunner
     def list_services(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListServicesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListServicesInput,
         validate_input: @config.validate_input
@@ -2295,7 +2297,7 @@ module AWS::SDK::AppRunner
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2382,7 +2384,7 @@ module AWS::SDK::AppRunner
     def list_vpc_connectors(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListVpcConnectorsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListVpcConnectorsInput,
         validate_input: @config.validate_input
@@ -2513,7 +2515,7 @@ module AWS::SDK::AppRunner
     def pause_service(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PauseServiceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PauseServiceInput,
         validate_input: @config.validate_input
@@ -2643,7 +2645,7 @@ module AWS::SDK::AppRunner
     def resume_service(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResumeServiceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResumeServiceInput,
         validate_input: @config.validate_input
@@ -2717,7 +2719,7 @@ module AWS::SDK::AppRunner
     def start_deployment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartDeploymentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartDeploymentInput,
         validate_input: @config.validate_input
@@ -2796,7 +2798,7 @@ module AWS::SDK::AppRunner
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2871,7 +2873,7 @@ module AWS::SDK::AppRunner
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -3084,7 +3086,7 @@ module AWS::SDK::AppRunner
     def update_service(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateServiceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateServiceInput,
         validate_input: @config.validate_input

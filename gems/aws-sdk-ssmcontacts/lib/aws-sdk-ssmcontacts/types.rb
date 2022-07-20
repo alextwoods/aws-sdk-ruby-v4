@@ -961,11 +961,11 @@ module AWS::SDK::SSMContacts
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.retry_after_seconds ||= 0
       end
-
     end
 
     # @!attribute contact_id
@@ -1714,11 +1714,11 @@ module AWS::SDK::SSMContacts
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.retry_after_seconds ||= 0
       end
-
     end
 
     # <p>A range of between two set times</p>

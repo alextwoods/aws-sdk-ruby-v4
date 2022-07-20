@@ -25,7 +25,7 @@ module AWS::SDK::Route53Resolver
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::AssociateFirewallRuleGroupInput, context: context)
         type = Types::AssociateFirewallRuleGroupInput.new
-        type.creator_request_id = params[:creator_request_id] || SecureRandom.uuid
+        type.creator_request_id = params[:creator_request_id] || ::SecureRandom.uuid
         type.firewall_rule_group_id = params[:firewall_rule_group_id]
         type.vpc_id = params[:vpc_id]
         type.priority = params[:priority]
@@ -116,7 +116,7 @@ module AWS::SDK::Route53Resolver
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateFirewallDomainListInput, context: context)
         type = Types::CreateFirewallDomainListInput.new
-        type.creator_request_id = params[:creator_request_id] || SecureRandom.uuid
+        type.creator_request_id = params[:creator_request_id] || ::SecureRandom.uuid
         type.name = params[:name]
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
@@ -136,7 +136,7 @@ module AWS::SDK::Route53Resolver
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateFirewallRuleGroupInput, context: context)
         type = Types::CreateFirewallRuleGroupInput.new
-        type.creator_request_id = params[:creator_request_id] || SecureRandom.uuid
+        type.creator_request_id = params[:creator_request_id] || ::SecureRandom.uuid
         type.name = params[:name]
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
@@ -156,7 +156,7 @@ module AWS::SDK::Route53Resolver
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateFirewallRuleInput, context: context)
         type = Types::CreateFirewallRuleInput.new
-        type.creator_request_id = params[:creator_request_id] || SecureRandom.uuid
+        type.creator_request_id = params[:creator_request_id] || ::SecureRandom.uuid
         type.firewall_rule_group_id = params[:firewall_rule_group_id]
         type.firewall_domain_list_id = params[:firewall_domain_list_id]
         type.priority = params[:priority]
@@ -208,7 +208,7 @@ module AWS::SDK::Route53Resolver
         type = Types::CreateResolverQueryLogConfigInput.new
         type.name = params[:name]
         type.destination_arn = params[:destination_arn]
-        type.creator_request_id = params[:creator_request_id] || SecureRandom.uuid
+        type.creator_request_id = params[:creator_request_id] || ::SecureRandom.uuid
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end

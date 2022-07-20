@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::ElastiCache
@@ -95,7 +97,7 @@ module AWS::SDK::ElastiCache
     def add_tags_to_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddTagsToResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddTagsToResourceInput,
         validate_input: @config.validate_input
@@ -189,7 +191,7 @@ module AWS::SDK::ElastiCache
     def authorize_cache_security_group_ingress(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AuthorizeCacheSecurityGroupIngressInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AuthorizeCacheSecurityGroupIngressInput,
         validate_input: @config.validate_input
@@ -282,7 +284,7 @@ module AWS::SDK::ElastiCache
     def batch_apply_update_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchApplyUpdateActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchApplyUpdateActionInput,
         validate_input: @config.validate_input
@@ -375,7 +377,7 @@ module AWS::SDK::ElastiCache
     def batch_stop_update_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchStopUpdateActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchStopUpdateActionInput,
         validate_input: @config.validate_input
@@ -521,7 +523,7 @@ module AWS::SDK::ElastiCache
     def complete_migration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CompleteMigrationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CompleteMigrationInput,
         validate_input: @config.validate_input
@@ -757,7 +759,7 @@ module AWS::SDK::ElastiCache
     def copy_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CopySnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CopySnapshotInput,
         validate_input: @config.validate_input
@@ -1379,7 +1381,7 @@ module AWS::SDK::ElastiCache
     def create_cache_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCacheClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCacheClusterInput,
         validate_input: @config.validate_input
@@ -1496,7 +1498,7 @@ module AWS::SDK::ElastiCache
     def create_cache_parameter_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCacheParameterGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCacheParameterGroupInput,
         validate_input: @config.validate_input
@@ -1595,7 +1597,7 @@ module AWS::SDK::ElastiCache
     def create_cache_security_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCacheSecurityGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCacheSecurityGroupInput,
         validate_input: @config.validate_input
@@ -1698,7 +1700,7 @@ module AWS::SDK::ElastiCache
     def create_cache_subnet_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCacheSubnetGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCacheSubnetGroupInput,
         validate_input: @config.validate_input
@@ -1814,7 +1816,7 @@ module AWS::SDK::ElastiCache
     def create_global_replication_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateGlobalReplicationGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateGlobalReplicationGroupInput,
         validate_input: @config.validate_input
@@ -2613,7 +2615,7 @@ module AWS::SDK::ElastiCache
     def create_replication_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateReplicationGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateReplicationGroupInput,
         validate_input: @config.validate_input
@@ -2753,7 +2755,7 @@ module AWS::SDK::ElastiCache
     def create_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSnapshotInput,
         validate_input: @config.validate_input
@@ -2864,7 +2866,7 @@ module AWS::SDK::ElastiCache
     def create_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateUserInput,
         validate_input: @config.validate_input
@@ -2964,7 +2966,7 @@ module AWS::SDK::ElastiCache
     def create_user_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateUserGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateUserGroupInput,
         validate_input: @config.validate_input
@@ -3077,7 +3079,7 @@ module AWS::SDK::ElastiCache
     def decrease_node_groups_in_global_replication_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DecreaseNodeGroupsInGlobalReplicationGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DecreaseNodeGroupsInGlobalReplicationGroupInput,
         validate_input: @config.validate_input
@@ -3274,7 +3276,7 @@ module AWS::SDK::ElastiCache
     def decrease_replica_count(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DecreaseReplicaCountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DecreaseReplicaCountInput,
         validate_input: @config.validate_input
@@ -3452,7 +3454,7 @@ module AWS::SDK::ElastiCache
     def delete_cache_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCacheClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCacheClusterInput,
         validate_input: @config.validate_input
@@ -3525,7 +3527,7 @@ module AWS::SDK::ElastiCache
     def delete_cache_parameter_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCacheParameterGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCacheParameterGroupInput,
         validate_input: @config.validate_input
@@ -3599,7 +3601,7 @@ module AWS::SDK::ElastiCache
     def delete_cache_security_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCacheSecurityGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCacheSecurityGroupInput,
         validate_input: @config.validate_input
@@ -3671,7 +3673,7 @@ module AWS::SDK::ElastiCache
     def delete_cache_subnet_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCacheSubnetGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCacheSubnetGroupInput,
         validate_input: @config.validate_input
@@ -3782,7 +3784,7 @@ module AWS::SDK::ElastiCache
     def delete_global_replication_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteGlobalReplicationGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteGlobalReplicationGroupInput,
         validate_input: @config.validate_input
@@ -3944,7 +3946,7 @@ module AWS::SDK::ElastiCache
     def delete_replication_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteReplicationGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteReplicationGroupInput,
         validate_input: @config.validate_input
@@ -4064,7 +4066,7 @@ module AWS::SDK::ElastiCache
     def delete_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSnapshotInput,
         validate_input: @config.validate_input
@@ -4144,7 +4146,7 @@ module AWS::SDK::ElastiCache
     def delete_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteUserInput,
         validate_input: @config.validate_input
@@ -4224,7 +4226,7 @@ module AWS::SDK::ElastiCache
     def delete_user_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteUserGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteUserGroupInput,
         validate_input: @config.validate_input
@@ -4413,7 +4415,7 @@ module AWS::SDK::ElastiCache
     def describe_cache_clusters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCacheClustersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCacheClustersInput,
         validate_input: @config.validate_input
@@ -4545,7 +4547,7 @@ module AWS::SDK::ElastiCache
     def describe_cache_engine_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCacheEngineVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCacheEngineVersionsInput,
         validate_input: @config.validate_input
@@ -4638,7 +4640,7 @@ module AWS::SDK::ElastiCache
     def describe_cache_parameter_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCacheParameterGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCacheParameterGroupsInput,
         validate_input: @config.validate_input
@@ -4755,7 +4757,7 @@ module AWS::SDK::ElastiCache
     def describe_cache_parameters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCacheParametersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCacheParametersInput,
         validate_input: @config.validate_input
@@ -4853,7 +4855,7 @@ module AWS::SDK::ElastiCache
     def describe_cache_security_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCacheSecurityGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCacheSecurityGroupsInput,
         validate_input: @config.validate_input
@@ -4954,7 +4956,7 @@ module AWS::SDK::ElastiCache
     def describe_cache_subnet_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCacheSubnetGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCacheSubnetGroupsInput,
         validate_input: @config.validate_input
@@ -5078,7 +5080,7 @@ module AWS::SDK::ElastiCache
     def describe_engine_default_parameters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEngineDefaultParametersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEngineDefaultParametersInput,
         validate_input: @config.validate_input
@@ -5196,7 +5198,7 @@ module AWS::SDK::ElastiCache
     def describe_events(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEventsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEventsInput,
         validate_input: @config.validate_input
@@ -5301,7 +5303,7 @@ module AWS::SDK::ElastiCache
     def describe_global_replication_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeGlobalReplicationGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeGlobalReplicationGroupsInput,
         validate_input: @config.validate_input
@@ -5466,7 +5468,7 @@ module AWS::SDK::ElastiCache
     def describe_replication_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeReplicationGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeReplicationGroupsInput,
         validate_input: @config.validate_input
@@ -5859,7 +5861,7 @@ module AWS::SDK::ElastiCache
     def describe_reserved_cache_nodes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeReservedCacheNodesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeReservedCacheNodesInput,
         validate_input: @config.validate_input
@@ -6246,7 +6248,7 @@ module AWS::SDK::ElastiCache
     def describe_reserved_cache_nodes_offerings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeReservedCacheNodesOfferingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeReservedCacheNodesOfferingsInput,
         validate_input: @config.validate_input
@@ -6346,7 +6348,7 @@ module AWS::SDK::ElastiCache
     def describe_service_updates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeServiceUpdatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeServiceUpdatesInput,
         validate_input: @config.validate_input
@@ -6505,7 +6507,7 @@ module AWS::SDK::ElastiCache
     def describe_snapshots(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSnapshotsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSnapshotsInput,
         validate_input: @config.validate_input
@@ -6665,7 +6667,7 @@ module AWS::SDK::ElastiCache
     def describe_update_actions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeUpdateActionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeUpdateActionsInput,
         validate_input: @config.validate_input
@@ -6756,7 +6758,7 @@ module AWS::SDK::ElastiCache
     def describe_user_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeUserGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeUserGroupsInput,
         validate_input: @config.validate_input
@@ -6862,7 +6864,7 @@ module AWS::SDK::ElastiCache
     def describe_users(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeUsersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeUsersInput,
         validate_input: @config.validate_input
@@ -6961,7 +6963,7 @@ module AWS::SDK::ElastiCache
     def disassociate_global_replication_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateGlobalReplicationGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateGlobalReplicationGroupInput,
         validate_input: @config.validate_input
@@ -7060,7 +7062,7 @@ module AWS::SDK::ElastiCache
     def failover_global_replication_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::FailoverGlobalReplicationGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::FailoverGlobalReplicationGroupInput,
         validate_input: @config.validate_input
@@ -7176,7 +7178,7 @@ module AWS::SDK::ElastiCache
     def increase_node_groups_in_global_replication_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::IncreaseNodeGroupsInGlobalReplicationGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::IncreaseNodeGroupsInGlobalReplicationGroupInput,
         validate_input: @config.validate_input
@@ -7350,7 +7352,7 @@ module AWS::SDK::ElastiCache
     def increase_replica_count(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::IncreaseReplicaCountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::IncreaseReplicaCountInput,
         validate_input: @config.validate_input
@@ -7443,7 +7445,7 @@ module AWS::SDK::ElastiCache
     def list_allowed_node_type_modifications(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAllowedNodeTypeModificationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAllowedNodeTypeModificationsInput,
         validate_input: @config.validate_input
@@ -7524,7 +7526,7 @@ module AWS::SDK::ElastiCache
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -8022,7 +8024,7 @@ module AWS::SDK::ElastiCache
     def modify_cache_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyCacheClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyCacheClusterInput,
         validate_input: @config.validate_input
@@ -8102,7 +8104,7 @@ module AWS::SDK::ElastiCache
     def modify_cache_parameter_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyCacheParameterGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyCacheParameterGroupInput,
         validate_input: @config.validate_input
@@ -8195,7 +8197,7 @@ module AWS::SDK::ElastiCache
     def modify_cache_subnet_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyCacheSubnetGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyCacheSubnetGroupInput,
         validate_input: @config.validate_input
@@ -8312,7 +8314,7 @@ module AWS::SDK::ElastiCache
     def modify_global_replication_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyGlobalReplicationGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyGlobalReplicationGroupInput,
         validate_input: @config.validate_input
@@ -8697,7 +8699,7 @@ module AWS::SDK::ElastiCache
     def modify_replication_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyReplicationGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyReplicationGroupInput,
         validate_input: @config.validate_input
@@ -8893,7 +8895,7 @@ module AWS::SDK::ElastiCache
     def modify_replication_group_shard_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyReplicationGroupShardConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyReplicationGroupShardConfigurationInput,
         validate_input: @config.validate_input
@@ -8991,7 +8993,7 @@ module AWS::SDK::ElastiCache
     def modify_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyUserInput,
         validate_input: @config.validate_input
@@ -9080,7 +9082,7 @@ module AWS::SDK::ElastiCache
     def modify_user_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyUserGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyUserGroupInput,
         validate_input: @config.validate_input
@@ -9195,7 +9197,7 @@ module AWS::SDK::ElastiCache
     def purchase_reserved_cache_nodes_offering(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PurchaseReservedCacheNodesOfferingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PurchaseReservedCacheNodesOfferingInput,
         validate_input: @config.validate_input
@@ -9290,7 +9292,7 @@ module AWS::SDK::ElastiCache
     def rebalance_slots_in_global_replication_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RebalanceSlotsInGlobalReplicationGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RebalanceSlotsInGlobalReplicationGroupInput,
         validate_input: @config.validate_input
@@ -9452,7 +9454,7 @@ module AWS::SDK::ElastiCache
     def reboot_cache_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RebootCacheClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RebootCacheClusterInput,
         validate_input: @config.validate_input
@@ -9536,7 +9538,7 @@ module AWS::SDK::ElastiCache
     def remove_tags_from_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveTagsFromResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveTagsFromResourceInput,
         validate_input: @config.validate_input
@@ -9630,7 +9632,7 @@ module AWS::SDK::ElastiCache
     def reset_cache_parameter_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResetCacheParameterGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResetCacheParameterGroupInput,
         validate_input: @config.validate_input
@@ -9720,7 +9722,7 @@ module AWS::SDK::ElastiCache
     def revoke_cache_security_group_ingress(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RevokeCacheSecurityGroupIngressInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RevokeCacheSecurityGroupIngressInput,
         validate_input: @config.validate_input
@@ -9871,7 +9873,7 @@ module AWS::SDK::ElastiCache
     def start_migration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartMigrationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartMigrationInput,
         validate_input: @config.validate_input
@@ -10083,7 +10085,7 @@ module AWS::SDK::ElastiCache
     def test_failover(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TestFailoverInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TestFailoverInput,
         validate_input: @config.validate_input

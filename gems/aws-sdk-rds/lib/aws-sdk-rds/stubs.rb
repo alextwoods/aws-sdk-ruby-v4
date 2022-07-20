@@ -50,7 +50,7 @@ module AWS::SDK::RDS
     class AddSourceIdentifierToSubscription
       def self.default(visited=[])
         {
-          event_subscription: Stubs::EventSubscription.default(visited),
+          event_subscription: EventSubscription.default(visited),
         }
       end
 
@@ -78,8 +78,8 @@ module AWS::SDK::RDS
           status: 'status',
           subscription_creation_time: 'subscription_creation_time',
           source_type: 'source_type',
-          source_ids_list: Stubs::SourceIdsList.default(visited),
-          event_categories_list: Stubs::EventCategoriesList.default(visited),
+          source_ids_list: SourceIdsList.default(visited),
+          event_categories_list: EventCategoriesList.default(visited),
           enabled: false,
           event_subscription_arn: 'event_subscription_arn',
         }
@@ -162,7 +162,7 @@ module AWS::SDK::RDS
     class ApplyPendingMaintenanceAction
       def self.default(visited=[])
         {
-          resource_pending_maintenance_actions: Stubs::ResourcePendingMaintenanceActions.default(visited),
+          resource_pending_maintenance_actions: ResourcePendingMaintenanceActions.default(visited),
         }
       end
 
@@ -185,7 +185,7 @@ module AWS::SDK::RDS
         visited = visited + ['ResourcePendingMaintenanceActions']
         {
           resource_identifier: 'resource_identifier',
-          pending_maintenance_action_details: Stubs::PendingMaintenanceActionDetails.default(visited),
+          pending_maintenance_action_details: PendingMaintenanceActionDetails.default(visited),
         }
       end
 
@@ -204,7 +204,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('PendingMaintenanceActionDetails')
         visited = visited + ['PendingMaintenanceActionDetails']
         [
-          Stubs::PendingMaintenanceAction.default(visited)
+          PendingMaintenanceAction.default(visited)
         ]
       end
 
@@ -249,7 +249,7 @@ module AWS::SDK::RDS
     class AuthorizeDBSecurityGroupIngress
       def self.default(visited=[])
         {
-          db_security_group: Stubs::DBSecurityGroup.default(visited),
+          db_security_group: DBSecurityGroup.default(visited),
         }
       end
 
@@ -275,8 +275,8 @@ module AWS::SDK::RDS
           db_security_group_name: 'db_security_group_name',
           db_security_group_description: 'db_security_group_description',
           vpc_id: 'vpc_id',
-          ec2_security_groups: Stubs::EC2SecurityGroupList.default(visited),
-          ip_ranges: Stubs::IPRangeList.default(visited),
+          ec2_security_groups: EC2SecurityGroupList.default(visited),
+          ip_ranges: IPRangeList.default(visited),
           db_security_group_arn: 'db_security_group_arn',
         }
       end
@@ -301,7 +301,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('IPRangeList')
         visited = visited + ['IPRangeList']
         [
-          Stubs::IPRange.default(visited)
+          IPRange.default(visited)
         ]
       end
 
@@ -340,7 +340,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('EC2SecurityGroupList')
         visited = visited + ['EC2SecurityGroupList']
         [
-          Stubs::EC2SecurityGroup.default(visited)
+          EC2SecurityGroup.default(visited)
         ]
       end
 
@@ -413,7 +413,7 @@ module AWS::SDK::RDS
         {
           export_task_identifier: 'export_task_identifier',
           source_arn: 'source_arn',
-          export_only: Stubs::StringList.default(visited),
+          export_only: StringList.default(visited),
           snapshot_time: Time.now,
           task_start_time: Time.now,
           task_end_time: Time.now,
@@ -478,7 +478,7 @@ module AWS::SDK::RDS
     class CopyDBClusterParameterGroup
       def self.default(visited=[])
         {
-          db_cluster_parameter_group: Stubs::DBClusterParameterGroup.default(visited),
+          db_cluster_parameter_group: DBClusterParameterGroup.default(visited),
         }
       end
 
@@ -522,7 +522,7 @@ module AWS::SDK::RDS
     class CopyDBClusterSnapshot
       def self.default(visited=[])
         {
-          db_cluster_snapshot: Stubs::DBClusterSnapshot.default(visited),
+          db_cluster_snapshot: DBClusterSnapshot.default(visited),
         }
       end
 
@@ -544,7 +544,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('DBClusterSnapshot')
         visited = visited + ['DBClusterSnapshot']
         {
-          availability_zones: Stubs::AvailabilityZones.default(visited),
+          availability_zones: AvailabilityZones.default(visited),
           db_cluster_snapshot_identifier: 'db_cluster_snapshot_identifier',
           db_cluster_identifier: 'db_cluster_identifier',
           snapshot_create_time: Time.now,
@@ -565,7 +565,7 @@ module AWS::SDK::RDS
           db_cluster_snapshot_arn: 'db_cluster_snapshot_arn',
           source_db_cluster_snapshot_arn: 'source_db_cluster_snapshot_arn',
           iam_database_authentication_enabled: false,
-          tag_list: Stubs::TagList.default(visited),
+          tag_list: TagList.default(visited),
         }
       end
 
@@ -604,7 +604,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -660,7 +660,7 @@ module AWS::SDK::RDS
     class CopyDBParameterGroup
       def self.default(visited=[])
         {
-          db_parameter_group: Stubs::DBParameterGroup.default(visited),
+          db_parameter_group: DBParameterGroup.default(visited),
         }
       end
 
@@ -704,7 +704,7 @@ module AWS::SDK::RDS
     class CopyDBSnapshot
       def self.default(visited=[])
         {
-          db_snapshot: Stubs::DBSnapshot.default(visited),
+          db_snapshot: DBSnapshot.default(visited),
         }
       end
 
@@ -752,9 +752,9 @@ module AWS::SDK::RDS
           db_snapshot_arn: 'db_snapshot_arn',
           timezone: 'timezone',
           iam_database_authentication_enabled: false,
-          processor_features: Stubs::ProcessorFeatureList.default(visited),
+          processor_features: ProcessorFeatureList.default(visited),
           dbi_resource_id: 'dbi_resource_id',
-          tag_list: Stubs::TagList.default(visited),
+          tag_list: TagList.default(visited),
           original_snapshot_create_time: Time.now,
           snapshot_target: 'snapshot_target',
         }
@@ -804,7 +804,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('ProcessorFeatureList')
         visited = visited + ['ProcessorFeatureList']
         [
-          Stubs::ProcessorFeature.default(visited)
+          ProcessorFeature.default(visited)
         ]
       end
 
@@ -841,7 +841,7 @@ module AWS::SDK::RDS
     class CopyOptionGroup
       def self.default(visited=[])
         {
-          option_group: Stubs::OptionGroup.default(visited),
+          option_group: OptionGroup.default(visited),
         }
       end
 
@@ -867,7 +867,7 @@ module AWS::SDK::RDS
           option_group_description: 'option_group_description',
           engine_name: 'engine_name',
           major_engine_version: 'major_engine_version',
-          options: Stubs::OptionsList.default(visited),
+          options: OptionsList.default(visited),
           allows_vpc_and_non_vpc_instance_memberships: false,
           vpc_id: 'vpc_id',
           option_group_arn: 'option_group_arn',
@@ -895,7 +895,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('OptionsList')
         visited = visited + ['OptionsList']
         [
-          Stubs::Option.default(visited)
+          Option.default(visited)
         ]
       end
 
@@ -920,9 +920,9 @@ module AWS::SDK::RDS
           permanent: false,
           port: 1,
           option_version: 'option_version',
-          option_settings: Stubs::OptionSettingConfigurationList.default(visited),
-          db_security_group_memberships: Stubs::DBSecurityGroupMembershipList.default(visited),
-          vpc_security_group_memberships: Stubs::VpcSecurityGroupMembershipList.default(visited),
+          option_settings: OptionSettingConfigurationList.default(visited),
+          db_security_group_memberships: DBSecurityGroupMembershipList.default(visited),
+          vpc_security_group_memberships: VpcSecurityGroupMembershipList.default(visited),
         }
       end
 
@@ -948,7 +948,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('VpcSecurityGroupMembershipList')
         visited = visited + ['VpcSecurityGroupMembershipList']
         [
-          Stubs::VpcSecurityGroupMembership.default(visited)
+          VpcSecurityGroupMembership.default(visited)
         ]
       end
 
@@ -987,7 +987,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('DBSecurityGroupMembershipList')
         visited = visited + ['DBSecurityGroupMembershipList']
         [
-          Stubs::DBSecurityGroupMembership.default(visited)
+          DBSecurityGroupMembership.default(visited)
         ]
       end
 
@@ -1026,7 +1026,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('OptionSettingConfigurationList')
         visited = visited + ['OptionSettingConfigurationList']
         [
-          Stubs::OptionSetting.default(visited)
+          OptionSetting.default(visited)
         ]
       end
 
@@ -1082,16 +1082,16 @@ module AWS::SDK::RDS
           db_parameter_group_family: 'db_parameter_group_family',
           db_engine_description: 'db_engine_description',
           db_engine_version_description: 'db_engine_version_description',
-          default_character_set: Stubs::CharacterSet.default(visited),
-          supported_character_sets: Stubs::SupportedCharacterSetsList.default(visited),
-          supported_nchar_character_sets: Stubs::SupportedCharacterSetsList.default(visited),
-          valid_upgrade_target: Stubs::ValidUpgradeTargetList.default(visited),
-          supported_timezones: Stubs::SupportedTimezonesList.default(visited),
-          exportable_log_types: Stubs::LogTypeList.default(visited),
+          default_character_set: CharacterSet.default(visited),
+          supported_character_sets: SupportedCharacterSetsList.default(visited),
+          supported_nchar_character_sets: SupportedCharacterSetsList.default(visited),
+          valid_upgrade_target: ValidUpgradeTargetList.default(visited),
+          supported_timezones: SupportedTimezonesList.default(visited),
+          exportable_log_types: LogTypeList.default(visited),
           supports_log_exports_to_cloudwatch_logs: false,
           supports_read_replica: false,
-          supported_engine_modes: Stubs::EngineModeList.default(visited),
-          supported_feature_names: Stubs::FeatureNameList.default(visited),
+          supported_engine_modes: EngineModeList.default(visited),
+          supported_feature_names: FeatureNameList.default(visited),
           status: 'status',
           supports_parallel_query: false,
           supports_global_databases: false,
@@ -1101,7 +1101,7 @@ module AWS::SDK::RDS
           db_engine_version_arn: 'db_engine_version_arn',
           kms_key_id: 'kms_key_id',
           create_time: Time.now,
-          tag_list: Stubs::TagList.default(visited),
+          tag_list: TagList.default(visited),
           supports_babelfish: false,
         }
       end
@@ -1206,7 +1206,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('SupportedTimezonesList')
         visited = visited + ['SupportedTimezonesList']
         [
-          Stubs::Timezone.default(visited)
+          Timezone.default(visited)
         ]
       end
 
@@ -1243,7 +1243,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('ValidUpgradeTargetList')
         visited = visited + ['ValidUpgradeTargetList']
         [
-          Stubs::UpgradeTarget.default(visited)
+          UpgradeTarget.default(visited)
         ]
       end
 
@@ -1267,7 +1267,7 @@ module AWS::SDK::RDS
           description: 'description',
           auto_upgrade: false,
           is_major_version_upgrade: false,
-          supported_engine_modes: Stubs::EngineModeList.default(visited),
+          supported_engine_modes: EngineModeList.default(visited),
           supports_parallel_query: false,
           supports_global_databases: false,
           supports_babelfish: false,
@@ -1296,7 +1296,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('SupportedCharacterSetsList')
         visited = visited + ['SupportedCharacterSetsList']
         [
-          Stubs::CharacterSet.default(visited)
+          CharacterSet.default(visited)
         ]
       end
 
@@ -1333,7 +1333,7 @@ module AWS::SDK::RDS
     class CreateDBCluster
       def self.default(visited=[])
         {
-          db_cluster: Stubs::DBCluster.default(visited),
+          db_cluster: DBCluster.default(visited),
         }
       end
 
@@ -1356,7 +1356,7 @@ module AWS::SDK::RDS
         visited = visited + ['DBCluster']
         {
           allocated_storage: 1,
-          availability_zones: Stubs::AvailabilityZones.default(visited),
+          availability_zones: AvailabilityZones.default(visited),
           backup_retention_period: 1,
           character_set_name: 'character_set_name',
           database_name: 'database_name',
@@ -1369,36 +1369,36 @@ module AWS::SDK::RDS
           earliest_restorable_time: Time.now,
           endpoint: 'endpoint',
           reader_endpoint: 'reader_endpoint',
-          custom_endpoints: Stubs::StringList.default(visited),
+          custom_endpoints: StringList.default(visited),
           multi_az: false,
           engine: 'engine',
           engine_version: 'engine_version',
           latest_restorable_time: Time.now,
           port: 1,
           master_username: 'master_username',
-          db_cluster_option_group_memberships: Stubs::DBClusterOptionGroupMemberships.default(visited),
+          db_cluster_option_group_memberships: DBClusterOptionGroupMemberships.default(visited),
           preferred_backup_window: 'preferred_backup_window',
           preferred_maintenance_window: 'preferred_maintenance_window',
           replication_source_identifier: 'replication_source_identifier',
-          read_replica_identifiers: Stubs::ReadReplicaIdentifierList.default(visited),
-          db_cluster_members: Stubs::DBClusterMemberList.default(visited),
-          vpc_security_groups: Stubs::VpcSecurityGroupMembershipList.default(visited),
+          read_replica_identifiers: ReadReplicaIdentifierList.default(visited),
+          db_cluster_members: DBClusterMemberList.default(visited),
+          vpc_security_groups: VpcSecurityGroupMembershipList.default(visited),
           hosted_zone_id: 'hosted_zone_id',
           storage_encrypted: false,
           kms_key_id: 'kms_key_id',
           db_cluster_resource_id: 'db_cluster_resource_id',
           db_cluster_arn: 'db_cluster_arn',
-          associated_roles: Stubs::DBClusterRoles.default(visited),
+          associated_roles: DBClusterRoles.default(visited),
           iam_database_authentication_enabled: false,
           clone_group_id: 'clone_group_id',
           cluster_create_time: Time.now,
           earliest_backtrack_time: Time.now,
           backtrack_window: 1,
           backtrack_consumed_change_records: 1,
-          enabled_cloudwatch_logs_exports: Stubs::LogTypeList.default(visited),
+          enabled_cloudwatch_logs_exports: LogTypeList.default(visited),
           capacity: 1,
           engine_mode: 'engine_mode',
-          scaling_configuration_info: Stubs::ScalingConfigurationInfo.default(visited),
+          scaling_configuration_info: ScalingConfigurationInfo.default(visited),
           deletion_protection: false,
           http_endpoint_enabled: false,
           activity_stream_mode: 'activity_stream_mode',
@@ -1407,11 +1407,11 @@ module AWS::SDK::RDS
           activity_stream_kinesis_stream_name: 'activity_stream_kinesis_stream_name',
           copy_tags_to_snapshot: false,
           cross_account_clone: false,
-          domain_memberships: Stubs::DomainMembershipList.default(visited),
-          tag_list: Stubs::TagList.default(visited),
+          domain_memberships: DomainMembershipList.default(visited),
+          tag_list: TagList.default(visited),
           global_write_forwarding_status: 'global_write_forwarding_status',
           global_write_forwarding_requested: false,
-          pending_modified_values: Stubs::ClusterPendingModifiedValues.default(visited),
+          pending_modified_values: ClusterPendingModifiedValues.default(visited),
           db_cluster_instance_class: 'db_cluster_instance_class',
           storage_type: 'storage_type',
           iops: 1,
@@ -1422,7 +1422,7 @@ module AWS::SDK::RDS
           performance_insights_enabled: false,
           performance_insights_kms_key_id: 'performance_insights_kms_key_id',
           performance_insights_retention_period: 1,
-          serverless_v2_scaling_configuration: Stubs::ServerlessV2ScalingConfigurationInfo.default(visited),
+          serverless_v2_scaling_configuration: ServerlessV2ScalingConfigurationInfo.default(visited),
         }
       end
 
@@ -1527,7 +1527,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('ClusterPendingModifiedValues')
         visited = visited + ['ClusterPendingModifiedValues']
         {
-          pending_cloudwatch_logs_exports: Stubs::PendingCloudwatchLogsExports.default(visited),
+          pending_cloudwatch_logs_exports: PendingCloudwatchLogsExports.default(visited),
           db_cluster_identifier: 'db_cluster_identifier',
           master_user_password: 'master_user_password',
           iam_database_authentication_enabled: false,
@@ -1553,8 +1553,8 @@ module AWS::SDK::RDS
         return nil if visited.include?('PendingCloudwatchLogsExports')
         visited = visited + ['PendingCloudwatchLogsExports']
         {
-          log_types_to_enable: Stubs::LogTypeList.default(visited),
-          log_types_to_disable: Stubs::LogTypeList.default(visited),
+          log_types_to_enable: LogTypeList.default(visited),
+          log_types_to_disable: LogTypeList.default(visited),
         }
       end
 
@@ -1573,7 +1573,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('DomainMembershipList')
         visited = visited + ['DomainMembershipList']
         [
-          Stubs::DomainMembership.default(visited)
+          DomainMembership.default(visited)
         ]
       end
 
@@ -1644,7 +1644,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('DBClusterRoles')
         visited = visited + ['DBClusterRoles']
         [
-          Stubs::DBClusterRole.default(visited)
+          DBClusterRole.default(visited)
         ]
       end
 
@@ -1685,7 +1685,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('DBClusterMemberList')
         visited = visited + ['DBClusterMemberList']
         [
-          Stubs::DBClusterMember.default(visited)
+          DBClusterMember.default(visited)
         ]
       end
 
@@ -1747,7 +1747,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('DBClusterOptionGroupMemberships')
         visited = visited + ['DBClusterOptionGroupMemberships']
         [
-          Stubs::DBClusterOptionGroupStatus.default(visited)
+          DBClusterOptionGroupStatus.default(visited)
         ]
       end
 
@@ -1791,8 +1791,8 @@ module AWS::SDK::RDS
           status: 'status',
           endpoint_type: 'endpoint_type',
           custom_endpoint_type: 'custom_endpoint_type',
-          static_members: Stubs::StringList.default(visited),
-          excluded_members: Stubs::StringList.default(visited),
+          static_members: StringList.default(visited),
+          excluded_members: StringList.default(visited),
           db_cluster_endpoint_arn: 'db_cluster_endpoint_arn',
         }
       end
@@ -1822,7 +1822,7 @@ module AWS::SDK::RDS
     class CreateDBClusterParameterGroup
       def self.default(visited=[])
         {
-          db_cluster_parameter_group: Stubs::DBClusterParameterGroup.default(visited),
+          db_cluster_parameter_group: DBClusterParameterGroup.default(visited),
         }
       end
 
@@ -1842,7 +1842,7 @@ module AWS::SDK::RDS
     class CreateDBClusterSnapshot
       def self.default(visited=[])
         {
-          db_cluster_snapshot: Stubs::DBClusterSnapshot.default(visited),
+          db_cluster_snapshot: DBClusterSnapshot.default(visited),
         }
       end
 
@@ -1862,7 +1862,7 @@ module AWS::SDK::RDS
     class CreateDBInstance
       def self.default(visited=[])
         {
-          db_instance: Stubs::DBInstance.default(visited),
+          db_instance: DBInstance.default(visited),
         }
       end
 
@@ -1891,34 +1891,34 @@ module AWS::SDK::RDS
           automatic_restart_time: Time.now,
           master_username: 'master_username',
           db_name: 'db_name',
-          endpoint: Stubs::Endpoint.default(visited),
+          endpoint: Endpoint.default(visited),
           allocated_storage: 1,
           instance_create_time: Time.now,
           preferred_backup_window: 'preferred_backup_window',
           backup_retention_period: 1,
-          db_security_groups: Stubs::DBSecurityGroupMembershipList.default(visited),
-          vpc_security_groups: Stubs::VpcSecurityGroupMembershipList.default(visited),
-          db_parameter_groups: Stubs::DBParameterGroupStatusList.default(visited),
+          db_security_groups: DBSecurityGroupMembershipList.default(visited),
+          vpc_security_groups: VpcSecurityGroupMembershipList.default(visited),
+          db_parameter_groups: DBParameterGroupStatusList.default(visited),
           availability_zone: 'availability_zone',
-          db_subnet_group: Stubs::DBSubnetGroup.default(visited),
+          db_subnet_group: DBSubnetGroup.default(visited),
           preferred_maintenance_window: 'preferred_maintenance_window',
-          pending_modified_values: Stubs::PendingModifiedValues.default(visited),
+          pending_modified_values: PendingModifiedValues.default(visited),
           latest_restorable_time: Time.now,
           multi_az: false,
           engine_version: 'engine_version',
           auto_minor_version_upgrade: false,
           read_replica_source_db_instance_identifier: 'read_replica_source_db_instance_identifier',
-          read_replica_db_instance_identifiers: Stubs::ReadReplicaDBInstanceIdentifierList.default(visited),
-          read_replica_db_cluster_identifiers: Stubs::ReadReplicaDBClusterIdentifierList.default(visited),
+          read_replica_db_instance_identifiers: ReadReplicaDBInstanceIdentifierList.default(visited),
+          read_replica_db_cluster_identifiers: ReadReplicaDBClusterIdentifierList.default(visited),
           replica_mode: 'replica_mode',
           license_model: 'license_model',
           iops: 1,
-          option_group_memberships: Stubs::OptionGroupMembershipList.default(visited),
+          option_group_memberships: OptionGroupMembershipList.default(visited),
           character_set_name: 'character_set_name',
           nchar_character_set_name: 'nchar_character_set_name',
           secondary_availability_zone: 'secondary_availability_zone',
           publicly_accessible: false,
-          status_infos: Stubs::DBInstanceStatusInfoList.default(visited),
+          status_infos: DBInstanceStatusInfoList.default(visited),
           storage_type: 'storage_type',
           tde_credential_arn: 'tde_credential_arn',
           db_instance_port: 1,
@@ -1927,7 +1927,7 @@ module AWS::SDK::RDS
           kms_key_id: 'kms_key_id',
           dbi_resource_id: 'dbi_resource_id',
           ca_certificate_identifier: 'ca_certificate_identifier',
-          domain_memberships: Stubs::DomainMembershipList.default(visited),
+          domain_memberships: DomainMembershipList.default(visited),
           copy_tags_to_snapshot: false,
           monitoring_interval: 1,
           enhanced_monitoring_resource_arn: 'enhanced_monitoring_resource_arn',
@@ -1939,14 +1939,14 @@ module AWS::SDK::RDS
           performance_insights_enabled: false,
           performance_insights_kms_key_id: 'performance_insights_kms_key_id',
           performance_insights_retention_period: 1,
-          enabled_cloudwatch_logs_exports: Stubs::LogTypeList.default(visited),
-          processor_features: Stubs::ProcessorFeatureList.default(visited),
+          enabled_cloudwatch_logs_exports: LogTypeList.default(visited),
+          processor_features: ProcessorFeatureList.default(visited),
           deletion_protection: false,
-          associated_roles: Stubs::DBInstanceRoles.default(visited),
-          listener_endpoint: Stubs::Endpoint.default(visited),
+          associated_roles: DBInstanceRoles.default(visited),
+          listener_endpoint: Endpoint.default(visited),
           max_allocated_storage: 1,
-          tag_list: Stubs::TagList.default(visited),
-          db_instance_automated_backups_replications: Stubs::DBInstanceAutomatedBackupsReplicationList.default(visited),
+          tag_list: TagList.default(visited),
+          db_instance_automated_backups_replications: DBInstanceAutomatedBackupsReplicationList.default(visited),
           customer_owned_ip_enabled: false,
           aws_backup_recovery_point_arn: 'aws_backup_recovery_point_arn',
           activity_stream_status: 'activity_stream_status',
@@ -2050,7 +2050,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('DBInstanceAutomatedBackupsReplicationList')
         visited = visited + ['DBInstanceAutomatedBackupsReplicationList']
         [
-          Stubs::DBInstanceAutomatedBackupsReplication.default(visited)
+          DBInstanceAutomatedBackupsReplication.default(visited)
         ]
       end
 
@@ -2109,7 +2109,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('DBInstanceRoles')
         visited = visited + ['DBInstanceRoles']
         [
-          Stubs::DBInstanceRole.default(visited)
+          DBInstanceRole.default(visited)
         ]
       end
 
@@ -2150,7 +2150,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('DBInstanceStatusInfoList')
         visited = visited + ['DBInstanceStatusInfoList']
         [
-          Stubs::DBInstanceStatusInfo.default(visited)
+          DBInstanceStatusInfo.default(visited)
         ]
       end
 
@@ -2193,7 +2193,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('OptionGroupMembershipList')
         visited = visited + ['OptionGroupMembershipList']
         [
-          Stubs::OptionGroupMembership.default(visited)
+          OptionGroupMembership.default(visited)
         ]
       end
 
@@ -2283,8 +2283,8 @@ module AWS::SDK::RDS
           storage_type: 'storage_type',
           ca_certificate_identifier: 'ca_certificate_identifier',
           db_subnet_group_name: 'db_subnet_group_name',
-          pending_cloudwatch_logs_exports: Stubs::PendingCloudwatchLogsExports.default(visited),
-          processor_features: Stubs::ProcessorFeatureList.default(visited),
+          pending_cloudwatch_logs_exports: PendingCloudwatchLogsExports.default(visited),
+          processor_features: ProcessorFeatureList.default(visited),
           iam_database_authentication_enabled: false,
           automation_mode: 'automation_mode',
           resume_full_automation_mode_time: Time.now,
@@ -2326,9 +2326,9 @@ module AWS::SDK::RDS
           db_subnet_group_description: 'db_subnet_group_description',
           vpc_id: 'vpc_id',
           subnet_group_status: 'subnet_group_status',
-          subnets: Stubs::SubnetList.default(visited),
+          subnets: SubnetList.default(visited),
           db_subnet_group_arn: 'db_subnet_group_arn',
-          supported_network_types: Stubs::StringList.default(visited),
+          supported_network_types: StringList.default(visited),
         }
       end
 
@@ -2352,7 +2352,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('SubnetList')
         visited = visited + ['SubnetList']
         [
-          Stubs::Subnet.default(visited)
+          Subnet.default(visited)
         ]
       end
 
@@ -2372,8 +2372,8 @@ module AWS::SDK::RDS
         visited = visited + ['Subnet']
         {
           subnet_identifier: 'subnet_identifier',
-          subnet_availability_zone: Stubs::AvailabilityZone.default(visited),
-          subnet_outpost: Stubs::Outpost.default(visited),
+          subnet_availability_zone: AvailabilityZone.default(visited),
+          subnet_outpost: Outpost.default(visited),
           subnet_status: 'subnet_status',
         }
       end
@@ -2431,7 +2431,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('DBParameterGroupStatusList')
         visited = visited + ['DBParameterGroupStatusList']
         [
-          Stubs::DBParameterGroupStatus.default(visited)
+          DBParameterGroupStatus.default(visited)
         ]
       end
 
@@ -2468,7 +2468,7 @@ module AWS::SDK::RDS
     class CreateDBInstanceReadReplica
       def self.default(visited=[])
         {
-          db_instance: Stubs::DBInstance.default(visited),
+          db_instance: DBInstance.default(visited),
         }
       end
 
@@ -2488,7 +2488,7 @@ module AWS::SDK::RDS
     class CreateDBParameterGroup
       def self.default(visited=[])
         {
-          db_parameter_group: Stubs::DBParameterGroup.default(visited),
+          db_parameter_group: DBParameterGroup.default(visited),
         }
       end
 
@@ -2508,7 +2508,7 @@ module AWS::SDK::RDS
     class CreateDBProxy
       def self.default(visited=[])
         {
-          db_proxy: Stubs::DBProxy.default(visited),
+          db_proxy: DBProxy.default(visited),
         }
       end
 
@@ -2535,9 +2535,9 @@ module AWS::SDK::RDS
           status: 'status',
           engine_family: 'engine_family',
           vpc_id: 'vpc_id',
-          vpc_security_group_ids: Stubs::StringList.default(visited),
-          vpc_subnet_ids: Stubs::StringList.default(visited),
-          auth: Stubs::UserAuthConfigInfoList.default(visited),
+          vpc_security_group_ids: StringList.default(visited),
+          vpc_subnet_ids: StringList.default(visited),
+          auth: UserAuthConfigInfoList.default(visited),
           role_arn: 'role_arn',
           endpoint: 'endpoint',
           require_tls: false,
@@ -2576,7 +2576,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('UserAuthConfigInfoList')
         visited = visited + ['UserAuthConfigInfoList']
         [
-          Stubs::UserAuthConfigInfo.default(visited)
+          UserAuthConfigInfo.default(visited)
         ]
       end
 
@@ -2619,7 +2619,7 @@ module AWS::SDK::RDS
     class CreateDBProxyEndpoint
       def self.default(visited=[])
         {
-          db_proxy_endpoint: Stubs::DBProxyEndpoint.default(visited),
+          db_proxy_endpoint: DBProxyEndpoint.default(visited),
         }
       end
 
@@ -2646,8 +2646,8 @@ module AWS::SDK::RDS
           db_proxy_name: 'db_proxy_name',
           status: 'status',
           vpc_id: 'vpc_id',
-          vpc_security_group_ids: Stubs::StringList.default(visited),
-          vpc_subnet_ids: Stubs::StringList.default(visited),
+          vpc_security_group_ids: StringList.default(visited),
+          vpc_subnet_ids: StringList.default(visited),
           endpoint: 'endpoint',
           created_date: Time.now,
           target_role: 'target_role',
@@ -2677,7 +2677,7 @@ module AWS::SDK::RDS
     class CreateDBSecurityGroup
       def self.default(visited=[])
         {
-          db_security_group: Stubs::DBSecurityGroup.default(visited),
+          db_security_group: DBSecurityGroup.default(visited),
         }
       end
 
@@ -2697,7 +2697,7 @@ module AWS::SDK::RDS
     class CreateDBSnapshot
       def self.default(visited=[])
         {
-          db_snapshot: Stubs::DBSnapshot.default(visited),
+          db_snapshot: DBSnapshot.default(visited),
         }
       end
 
@@ -2717,7 +2717,7 @@ module AWS::SDK::RDS
     class CreateDBSubnetGroup
       def self.default(visited=[])
         {
-          db_subnet_group: Stubs::DBSubnetGroup.default(visited),
+          db_subnet_group: DBSubnetGroup.default(visited),
         }
       end
 
@@ -2737,7 +2737,7 @@ module AWS::SDK::RDS
     class CreateEventSubscription
       def self.default(visited=[])
         {
-          event_subscription: Stubs::EventSubscription.default(visited),
+          event_subscription: EventSubscription.default(visited),
         }
       end
 
@@ -2757,7 +2757,7 @@ module AWS::SDK::RDS
     class CreateGlobalCluster
       def self.default(visited=[])
         {
-          global_cluster: Stubs::GlobalCluster.default(visited),
+          global_cluster: GlobalCluster.default(visited),
         }
       end
 
@@ -2788,8 +2788,8 @@ module AWS::SDK::RDS
           database_name: 'database_name',
           storage_encrypted: false,
           deletion_protection: false,
-          global_cluster_members: Stubs::GlobalClusterMemberList.default(visited),
-          failover_state: Stubs::FailoverState.default(visited),
+          global_cluster_members: GlobalClusterMemberList.default(visited),
+          failover_state: FailoverState.default(visited),
         }
       end
 
@@ -2839,7 +2839,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('GlobalClusterMemberList')
         visited = visited + ['GlobalClusterMemberList']
         [
-          Stubs::GlobalClusterMember.default(visited)
+          GlobalClusterMember.default(visited)
         ]
       end
 
@@ -2859,7 +2859,7 @@ module AWS::SDK::RDS
         visited = visited + ['GlobalClusterMember']
         {
           db_cluster_arn: 'db_cluster_arn',
-          readers: Stubs::ReadersArnList.default(visited),
+          readers: ReadersArnList.default(visited),
           is_writer: false,
           global_write_forwarding_status: 'global_write_forwarding_status',
         }
@@ -2899,7 +2899,7 @@ module AWS::SDK::RDS
     class CreateOptionGroup
       def self.default(visited=[])
         {
-          option_group: Stubs::OptionGroup.default(visited),
+          option_group: OptionGroup.default(visited),
         }
       end
 
@@ -2924,16 +2924,16 @@ module AWS::SDK::RDS
           db_parameter_group_family: 'db_parameter_group_family',
           db_engine_description: 'db_engine_description',
           db_engine_version_description: 'db_engine_version_description',
-          default_character_set: Stubs::CharacterSet.default(visited),
-          supported_character_sets: Stubs::SupportedCharacterSetsList.default(visited),
-          supported_nchar_character_sets: Stubs::SupportedCharacterSetsList.default(visited),
-          valid_upgrade_target: Stubs::ValidUpgradeTargetList.default(visited),
-          supported_timezones: Stubs::SupportedTimezonesList.default(visited),
-          exportable_log_types: Stubs::LogTypeList.default(visited),
+          default_character_set: CharacterSet.default(visited),
+          supported_character_sets: SupportedCharacterSetsList.default(visited),
+          supported_nchar_character_sets: SupportedCharacterSetsList.default(visited),
+          valid_upgrade_target: ValidUpgradeTargetList.default(visited),
+          supported_timezones: SupportedTimezonesList.default(visited),
+          exportable_log_types: LogTypeList.default(visited),
           supports_log_exports_to_cloudwatch_logs: false,
           supports_read_replica: false,
-          supported_engine_modes: Stubs::EngineModeList.default(visited),
-          supported_feature_names: Stubs::FeatureNameList.default(visited),
+          supported_engine_modes: EngineModeList.default(visited),
+          supported_feature_names: FeatureNameList.default(visited),
           status: 'status',
           supports_parallel_query: false,
           supports_global_databases: false,
@@ -2943,7 +2943,7 @@ module AWS::SDK::RDS
           db_engine_version_arn: 'db_engine_version_arn',
           kms_key_id: 'kms_key_id',
           create_time: Time.now,
-          tag_list: Stubs::TagList.default(visited),
+          tag_list: TagList.default(visited),
           supports_babelfish: false,
         }
       end
@@ -2989,7 +2989,7 @@ module AWS::SDK::RDS
     class DeleteDBCluster
       def self.default(visited=[])
         {
-          db_cluster: Stubs::DBCluster.default(visited),
+          db_cluster: DBCluster.default(visited),
         }
       end
 
@@ -3016,8 +3016,8 @@ module AWS::SDK::RDS
           status: 'status',
           endpoint_type: 'endpoint_type',
           custom_endpoint_type: 'custom_endpoint_type',
-          static_members: Stubs::StringList.default(visited),
-          excluded_members: Stubs::StringList.default(visited),
+          static_members: StringList.default(visited),
+          excluded_members: StringList.default(visited),
           db_cluster_endpoint_arn: 'db_cluster_endpoint_arn',
         }
       end
@@ -3065,7 +3065,7 @@ module AWS::SDK::RDS
     class DeleteDBClusterSnapshot
       def self.default(visited=[])
         {
-          db_cluster_snapshot: Stubs::DBClusterSnapshot.default(visited),
+          db_cluster_snapshot: DBClusterSnapshot.default(visited),
         }
       end
 
@@ -3085,7 +3085,7 @@ module AWS::SDK::RDS
     class DeleteDBInstance
       def self.default(visited=[])
         {
-          db_instance: Stubs::DBInstance.default(visited),
+          db_instance: DBInstance.default(visited),
         }
       end
 
@@ -3105,7 +3105,7 @@ module AWS::SDK::RDS
     class DeleteDBInstanceAutomatedBackup
       def self.default(visited=[])
         {
-          db_instance_automated_backup: Stubs::DBInstanceAutomatedBackup.default(visited),
+          db_instance_automated_backup: DBInstanceAutomatedBackup.default(visited),
         }
       end
 
@@ -3131,7 +3131,7 @@ module AWS::SDK::RDS
           dbi_resource_id: 'dbi_resource_id',
           region: 'region',
           db_instance_identifier: 'db_instance_identifier',
-          restore_window: Stubs::RestoreWindow.default(visited),
+          restore_window: RestoreWindow.default(visited),
           allocated_storage: 1,
           status: 'status',
           port: 1,
@@ -3152,7 +3152,7 @@ module AWS::SDK::RDS
           iam_database_authentication_enabled: false,
           backup_retention_period: 1,
           db_instance_automated_backups_arn: 'db_instance_automated_backups_arn',
-          db_instance_automated_backups_replications: Stubs::DBInstanceAutomatedBackupsReplicationList.default(visited),
+          db_instance_automated_backups_replications: DBInstanceAutomatedBackupsReplicationList.default(visited),
           backup_target: 'backup_target',
         }
       end
@@ -3233,7 +3233,7 @@ module AWS::SDK::RDS
     class DeleteDBProxy
       def self.default(visited=[])
         {
-          db_proxy: Stubs::DBProxy.default(visited),
+          db_proxy: DBProxy.default(visited),
         }
       end
 
@@ -3253,7 +3253,7 @@ module AWS::SDK::RDS
     class DeleteDBProxyEndpoint
       def self.default(visited=[])
         {
-          db_proxy_endpoint: Stubs::DBProxyEndpoint.default(visited),
+          db_proxy_endpoint: DBProxyEndpoint.default(visited),
         }
       end
 
@@ -3291,7 +3291,7 @@ module AWS::SDK::RDS
     class DeleteDBSnapshot
       def self.default(visited=[])
         {
-          db_snapshot: Stubs::DBSnapshot.default(visited),
+          db_snapshot: DBSnapshot.default(visited),
         }
       end
 
@@ -3329,7 +3329,7 @@ module AWS::SDK::RDS
     class DeleteEventSubscription
       def self.default(visited=[])
         {
-          event_subscription: Stubs::EventSubscription.default(visited),
+          event_subscription: EventSubscription.default(visited),
         }
       end
 
@@ -3349,7 +3349,7 @@ module AWS::SDK::RDS
     class DeleteGlobalCluster
       def self.default(visited=[])
         {
-          global_cluster: Stubs::GlobalCluster.default(visited),
+          global_cluster: GlobalCluster.default(visited),
         }
       end
 
@@ -3405,7 +3405,7 @@ module AWS::SDK::RDS
     class DescribeAccountAttributes
       def self.default(visited=[])
         {
-          account_quotas: Stubs::AccountQuotaList.default(visited),
+          account_quotas: AccountQuotaList.default(visited),
         }
       end
 
@@ -3427,7 +3427,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('AccountQuotaList')
         visited = visited + ['AccountQuotaList']
         [
-          Stubs::AccountQuota.default(visited)
+          AccountQuota.default(visited)
         ]
       end
 
@@ -3466,7 +3466,7 @@ module AWS::SDK::RDS
     class DescribeCertificates
       def self.default(visited=[])
         {
-          certificates: Stubs::CertificateList.default(visited),
+          certificates: CertificateList.default(visited),
           marker: 'marker',
         }
       end
@@ -3490,7 +3490,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('CertificateList')
         visited = visited + ['CertificateList']
         [
-          Stubs::Certificate.default(visited)
+          Certificate.default(visited)
         ]
       end
 
@@ -3540,7 +3540,7 @@ module AWS::SDK::RDS
       def self.default(visited=[])
         {
           marker: 'marker',
-          db_cluster_backtracks: Stubs::DBClusterBacktrackList.default(visited),
+          db_cluster_backtracks: DBClusterBacktrackList.default(visited),
         }
       end
 
@@ -3563,7 +3563,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('DBClusterBacktrackList')
         visited = visited + ['DBClusterBacktrackList']
         [
-          Stubs::DBClusterBacktrack.default(visited)
+          DBClusterBacktrack.default(visited)
         ]
       end
 
@@ -3609,7 +3609,7 @@ module AWS::SDK::RDS
       def self.default(visited=[])
         {
           marker: 'marker',
-          db_cluster_endpoints: Stubs::DBClusterEndpointList.default(visited),
+          db_cluster_endpoints: DBClusterEndpointList.default(visited),
         }
       end
 
@@ -3632,7 +3632,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('DBClusterEndpointList')
         visited = visited + ['DBClusterEndpointList']
         [
-          Stubs::DBClusterEndpoint.default(visited)
+          DBClusterEndpoint.default(visited)
         ]
       end
 
@@ -3658,8 +3658,8 @@ module AWS::SDK::RDS
           status: 'status',
           endpoint_type: 'endpoint_type',
           custom_endpoint_type: 'custom_endpoint_type',
-          static_members: Stubs::StringList.default(visited),
-          excluded_members: Stubs::StringList.default(visited),
+          static_members: StringList.default(visited),
+          excluded_members: StringList.default(visited),
           db_cluster_endpoint_arn: 'db_cluster_endpoint_arn',
         }
       end
@@ -3686,7 +3686,7 @@ module AWS::SDK::RDS
       def self.default(visited=[])
         {
           marker: 'marker',
-          db_cluster_parameter_groups: Stubs::DBClusterParameterGroupList.default(visited),
+          db_cluster_parameter_groups: DBClusterParameterGroupList.default(visited),
         }
       end
 
@@ -3709,7 +3709,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('DBClusterParameterGroupList')
         visited = visited + ['DBClusterParameterGroupList']
         [
-          Stubs::DBClusterParameterGroup.default(visited)
+          DBClusterParameterGroup.default(visited)
         ]
       end
 
@@ -3726,7 +3726,7 @@ module AWS::SDK::RDS
     class DescribeDBClusterParameters
       def self.default(visited=[])
         {
-          parameters: Stubs::ParametersList.default(visited),
+          parameters: ParametersList.default(visited),
           marker: 'marker',
         }
       end
@@ -3750,7 +3750,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('ParametersList')
         visited = visited + ['ParametersList']
         [
-          Stubs::Parameter.default(visited)
+          Parameter.default(visited)
         ]
       end
 
@@ -3779,7 +3779,7 @@ module AWS::SDK::RDS
           is_modifiable: false,
           minimum_engine_version: 'minimum_engine_version',
           apply_method: 'apply_method',
-          supported_engine_modes: Stubs::EngineModeList.default(visited),
+          supported_engine_modes: EngineModeList.default(visited),
         }
       end
 
@@ -3805,7 +3805,7 @@ module AWS::SDK::RDS
     class DescribeDBClusterSnapshotAttributes
       def self.default(visited=[])
         {
-          db_cluster_snapshot_attributes_result: Stubs::DBClusterSnapshotAttributesResult.default(visited),
+          db_cluster_snapshot_attributes_result: DBClusterSnapshotAttributesResult.default(visited),
         }
       end
 
@@ -3828,7 +3828,7 @@ module AWS::SDK::RDS
         visited = visited + ['DBClusterSnapshotAttributesResult']
         {
           db_cluster_snapshot_identifier: 'db_cluster_snapshot_identifier',
-          db_cluster_snapshot_attributes: Stubs::DBClusterSnapshotAttributeList.default(visited),
+          db_cluster_snapshot_attributes: DBClusterSnapshotAttributeList.default(visited),
         }
       end
 
@@ -3847,7 +3847,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('DBClusterSnapshotAttributeList')
         visited = visited + ['DBClusterSnapshotAttributeList']
         [
-          Stubs::DBClusterSnapshotAttribute.default(visited)
+          DBClusterSnapshotAttribute.default(visited)
         ]
       end
 
@@ -3867,7 +3867,7 @@ module AWS::SDK::RDS
         visited = visited + ['DBClusterSnapshotAttribute']
         {
           attribute_name: 'attribute_name',
-          attribute_values: Stubs::AttributeValueList.default(visited),
+          attribute_values: AttributeValueList.default(visited),
         }
       end
 
@@ -3904,7 +3904,7 @@ module AWS::SDK::RDS
       def self.default(visited=[])
         {
           marker: 'marker',
-          db_cluster_snapshots: Stubs::DBClusterSnapshotList.default(visited),
+          db_cluster_snapshots: DBClusterSnapshotList.default(visited),
         }
       end
 
@@ -3927,7 +3927,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('DBClusterSnapshotList')
         visited = visited + ['DBClusterSnapshotList']
         [
-          Stubs::DBClusterSnapshot.default(visited)
+          DBClusterSnapshot.default(visited)
         ]
       end
 
@@ -3945,7 +3945,7 @@ module AWS::SDK::RDS
       def self.default(visited=[])
         {
           marker: 'marker',
-          db_clusters: Stubs::DBClusterList.default(visited),
+          db_clusters: DBClusterList.default(visited),
         }
       end
 
@@ -3968,7 +3968,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('DBClusterList')
         visited = visited + ['DBClusterList']
         [
-          Stubs::DBCluster.default(visited)
+          DBCluster.default(visited)
         ]
       end
 
@@ -3986,7 +3986,7 @@ module AWS::SDK::RDS
       def self.default(visited=[])
         {
           marker: 'marker',
-          db_engine_versions: Stubs::DBEngineVersionList.default(visited),
+          db_engine_versions: DBEngineVersionList.default(visited),
         }
       end
 
@@ -4009,7 +4009,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('DBEngineVersionList')
         visited = visited + ['DBEngineVersionList']
         [
-          Stubs::DBEngineVersion.default(visited)
+          DBEngineVersion.default(visited)
         ]
       end
 
@@ -4033,16 +4033,16 @@ module AWS::SDK::RDS
           db_parameter_group_family: 'db_parameter_group_family',
           db_engine_description: 'db_engine_description',
           db_engine_version_description: 'db_engine_version_description',
-          default_character_set: Stubs::CharacterSet.default(visited),
-          supported_character_sets: Stubs::SupportedCharacterSetsList.default(visited),
-          supported_nchar_character_sets: Stubs::SupportedCharacterSetsList.default(visited),
-          valid_upgrade_target: Stubs::ValidUpgradeTargetList.default(visited),
-          supported_timezones: Stubs::SupportedTimezonesList.default(visited),
-          exportable_log_types: Stubs::LogTypeList.default(visited),
+          default_character_set: CharacterSet.default(visited),
+          supported_character_sets: SupportedCharacterSetsList.default(visited),
+          supported_nchar_character_sets: SupportedCharacterSetsList.default(visited),
+          valid_upgrade_target: ValidUpgradeTargetList.default(visited),
+          supported_timezones: SupportedTimezonesList.default(visited),
+          exportable_log_types: LogTypeList.default(visited),
           supports_log_exports_to_cloudwatch_logs: false,
           supports_read_replica: false,
-          supported_engine_modes: Stubs::EngineModeList.default(visited),
-          supported_feature_names: Stubs::FeatureNameList.default(visited),
+          supported_engine_modes: EngineModeList.default(visited),
+          supported_feature_names: FeatureNameList.default(visited),
           status: 'status',
           supports_parallel_query: false,
           supports_global_databases: false,
@@ -4052,7 +4052,7 @@ module AWS::SDK::RDS
           db_engine_version_arn: 'db_engine_version_arn',
           kms_key_id: 'kms_key_id',
           create_time: Time.now,
-          tag_list: Stubs::TagList.default(visited),
+          tag_list: TagList.default(visited),
           supports_babelfish: false,
         }
       end
@@ -4095,7 +4095,7 @@ module AWS::SDK::RDS
       def self.default(visited=[])
         {
           marker: 'marker',
-          db_instance_automated_backups: Stubs::DBInstanceAutomatedBackupList.default(visited),
+          db_instance_automated_backups: DBInstanceAutomatedBackupList.default(visited),
         }
       end
 
@@ -4118,7 +4118,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('DBInstanceAutomatedBackupList')
         visited = visited + ['DBInstanceAutomatedBackupList']
         [
-          Stubs::DBInstanceAutomatedBackup.default(visited)
+          DBInstanceAutomatedBackup.default(visited)
         ]
       end
 
@@ -4136,7 +4136,7 @@ module AWS::SDK::RDS
       def self.default(visited=[])
         {
           marker: 'marker',
-          db_instances: Stubs::DBInstanceList.default(visited),
+          db_instances: DBInstanceList.default(visited),
         }
       end
 
@@ -4159,7 +4159,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('DBInstanceList')
         visited = visited + ['DBInstanceList']
         [
-          Stubs::DBInstance.default(visited)
+          DBInstance.default(visited)
         ]
       end
 
@@ -4176,7 +4176,7 @@ module AWS::SDK::RDS
     class DescribeDBLogFiles
       def self.default(visited=[])
         {
-          describe_db_log_files: Stubs::DescribeDBLogFilesList.default(visited),
+          describe_db_log_files: DescribeDBLogFilesList.default(visited),
           marker: 'marker',
         }
       end
@@ -4200,7 +4200,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('DescribeDBLogFilesList')
         visited = visited + ['DescribeDBLogFilesList']
         [
-          Stubs::DescribeDBLogFilesDetails.default(visited)
+          DescribeDBLogFilesDetails.default(visited)
         ]
       end
 
@@ -4240,7 +4240,7 @@ module AWS::SDK::RDS
       def self.default(visited=[])
         {
           marker: 'marker',
-          db_parameter_groups: Stubs::DBParameterGroupList.default(visited),
+          db_parameter_groups: DBParameterGroupList.default(visited),
         }
       end
 
@@ -4263,7 +4263,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('DBParameterGroupList')
         visited = visited + ['DBParameterGroupList']
         [
-          Stubs::DBParameterGroup.default(visited)
+          DBParameterGroup.default(visited)
         ]
       end
 
@@ -4280,7 +4280,7 @@ module AWS::SDK::RDS
     class DescribeDBParameters
       def self.default(visited=[])
         {
-          parameters: Stubs::ParametersList.default(visited),
+          parameters: ParametersList.default(visited),
           marker: 'marker',
         }
       end
@@ -4302,7 +4302,7 @@ module AWS::SDK::RDS
     class DescribeDBProxies
       def self.default(visited=[])
         {
-          db_proxies: Stubs::DBProxyList.default(visited),
+          db_proxies: DBProxyList.default(visited),
           marker: 'marker',
         }
       end
@@ -4326,7 +4326,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('DBProxyList')
         visited = visited + ['DBProxyList']
         [
-          Stubs::DBProxy.default(visited)
+          DBProxy.default(visited)
         ]
       end
 
@@ -4343,7 +4343,7 @@ module AWS::SDK::RDS
     class DescribeDBProxyEndpoints
       def self.default(visited=[])
         {
-          db_proxy_endpoints: Stubs::DBProxyEndpointList.default(visited),
+          db_proxy_endpoints: DBProxyEndpointList.default(visited),
           marker: 'marker',
         }
       end
@@ -4367,7 +4367,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('DBProxyEndpointList')
         visited = visited + ['DBProxyEndpointList']
         [
-          Stubs::DBProxyEndpoint.default(visited)
+          DBProxyEndpoint.default(visited)
         ]
       end
 
@@ -4384,7 +4384,7 @@ module AWS::SDK::RDS
     class DescribeDBProxyTargetGroups
       def self.default(visited=[])
         {
-          target_groups: Stubs::TargetGroupList.default(visited),
+          target_groups: TargetGroupList.default(visited),
           marker: 'marker',
         }
       end
@@ -4408,7 +4408,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('TargetGroupList')
         visited = visited + ['TargetGroupList']
         [
-          Stubs::DBProxyTargetGroup.default(visited)
+          DBProxyTargetGroup.default(visited)
         ]
       end
 
@@ -4432,7 +4432,7 @@ module AWS::SDK::RDS
           target_group_arn: 'target_group_arn',
           is_default: false,
           status: 'status',
-          connection_pool_config: Stubs::ConnectionPoolConfigurationInfo.default(visited),
+          connection_pool_config: ConnectionPoolConfigurationInfo.default(visited),
           created_date: Time.now,
           updated_date: Time.now,
         }
@@ -4462,7 +4462,7 @@ module AWS::SDK::RDS
           max_connections_percent: 1,
           max_idle_connections_percent: 1,
           connection_borrow_timeout: 1,
-          session_pinning_filters: Stubs::StringList.default(visited),
+          session_pinning_filters: StringList.default(visited),
           init_query: 'init_query',
         }
       end
@@ -4483,7 +4483,7 @@ module AWS::SDK::RDS
     class DescribeDBProxyTargets
       def self.default(visited=[])
         {
-          targets: Stubs::TargetList.default(visited),
+          targets: TargetList.default(visited),
           marker: 'marker',
         }
       end
@@ -4507,7 +4507,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('TargetList')
         visited = visited + ['TargetList']
         [
-          Stubs::DBProxyTarget.default(visited)
+          DBProxyTarget.default(visited)
         ]
       end
 
@@ -4533,7 +4533,7 @@ module AWS::SDK::RDS
           port: 1,
           type: 'type',
           role: 'role',
-          target_health: Stubs::TargetHealth.default(visited),
+          target_health: TargetHealth.default(visited),
         }
       end
 
@@ -4579,7 +4579,7 @@ module AWS::SDK::RDS
       def self.default(visited=[])
         {
           marker: 'marker',
-          db_security_groups: Stubs::DBSecurityGroups.default(visited),
+          db_security_groups: DBSecurityGroups.default(visited),
         }
       end
 
@@ -4602,7 +4602,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('DBSecurityGroups')
         visited = visited + ['DBSecurityGroups']
         [
-          Stubs::DBSecurityGroup.default(visited)
+          DBSecurityGroup.default(visited)
         ]
       end
 
@@ -4619,7 +4619,7 @@ module AWS::SDK::RDS
     class DescribeDBSnapshotAttributes
       def self.default(visited=[])
         {
-          db_snapshot_attributes_result: Stubs::DBSnapshotAttributesResult.default(visited),
+          db_snapshot_attributes_result: DBSnapshotAttributesResult.default(visited),
         }
       end
 
@@ -4642,7 +4642,7 @@ module AWS::SDK::RDS
         visited = visited + ['DBSnapshotAttributesResult']
         {
           db_snapshot_identifier: 'db_snapshot_identifier',
-          db_snapshot_attributes: Stubs::DBSnapshotAttributeList.default(visited),
+          db_snapshot_attributes: DBSnapshotAttributeList.default(visited),
         }
       end
 
@@ -4661,7 +4661,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('DBSnapshotAttributeList')
         visited = visited + ['DBSnapshotAttributeList']
         [
-          Stubs::DBSnapshotAttribute.default(visited)
+          DBSnapshotAttribute.default(visited)
         ]
       end
 
@@ -4681,7 +4681,7 @@ module AWS::SDK::RDS
         visited = visited + ['DBSnapshotAttribute']
         {
           attribute_name: 'attribute_name',
-          attribute_values: Stubs::AttributeValueList.default(visited),
+          attribute_values: AttributeValueList.default(visited),
         }
       end
 
@@ -4699,7 +4699,7 @@ module AWS::SDK::RDS
       def self.default(visited=[])
         {
           marker: 'marker',
-          db_snapshots: Stubs::DBSnapshotList.default(visited),
+          db_snapshots: DBSnapshotList.default(visited),
         }
       end
 
@@ -4722,7 +4722,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('DBSnapshotList')
         visited = visited + ['DBSnapshotList']
         [
-          Stubs::DBSnapshot.default(visited)
+          DBSnapshot.default(visited)
         ]
       end
 
@@ -4740,7 +4740,7 @@ module AWS::SDK::RDS
       def self.default(visited=[])
         {
           marker: 'marker',
-          db_subnet_groups: Stubs::DBSubnetGroups.default(visited),
+          db_subnet_groups: DBSubnetGroups.default(visited),
         }
       end
 
@@ -4763,7 +4763,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('DBSubnetGroups')
         visited = visited + ['DBSubnetGroups']
         [
-          Stubs::DBSubnetGroup.default(visited)
+          DBSubnetGroup.default(visited)
         ]
       end
 
@@ -4780,7 +4780,7 @@ module AWS::SDK::RDS
     class DescribeEngineDefaultClusterParameters
       def self.default(visited=[])
         {
-          engine_defaults: Stubs::EngineDefaults.default(visited),
+          engine_defaults: EngineDefaults.default(visited),
         }
       end
 
@@ -4804,7 +4804,7 @@ module AWS::SDK::RDS
         {
           db_parameter_group_family: 'db_parameter_group_family',
           marker: 'marker',
-          parameters: Stubs::ParametersList.default(visited),
+          parameters: ParametersList.default(visited),
         }
       end
 
@@ -4822,7 +4822,7 @@ module AWS::SDK::RDS
     class DescribeEngineDefaultParameters
       def self.default(visited=[])
         {
-          engine_defaults: Stubs::EngineDefaults.default(visited),
+          engine_defaults: EngineDefaults.default(visited),
         }
       end
 
@@ -4842,7 +4842,7 @@ module AWS::SDK::RDS
     class DescribeEventCategories
       def self.default(visited=[])
         {
-          event_categories_map_list: Stubs::EventCategoriesMapList.default(visited),
+          event_categories_map_list: EventCategoriesMapList.default(visited),
         }
       end
 
@@ -4864,7 +4864,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('EventCategoriesMapList')
         visited = visited + ['EventCategoriesMapList']
         [
-          Stubs::EventCategoriesMap.default(visited)
+          EventCategoriesMap.default(visited)
         ]
       end
 
@@ -4884,7 +4884,7 @@ module AWS::SDK::RDS
         visited = visited + ['EventCategoriesMap']
         {
           source_type: 'source_type',
-          event_categories: Stubs::EventCategoriesList.default(visited),
+          event_categories: EventCategoriesList.default(visited),
         }
       end
 
@@ -4902,7 +4902,7 @@ module AWS::SDK::RDS
       def self.default(visited=[])
         {
           marker: 'marker',
-          event_subscriptions_list: Stubs::EventSubscriptionsList.default(visited),
+          event_subscriptions_list: EventSubscriptionsList.default(visited),
         }
       end
 
@@ -4925,7 +4925,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('EventSubscriptionsList')
         visited = visited + ['EventSubscriptionsList']
         [
-          Stubs::EventSubscription.default(visited)
+          EventSubscription.default(visited)
         ]
       end
 
@@ -4943,7 +4943,7 @@ module AWS::SDK::RDS
       def self.default(visited=[])
         {
           marker: 'marker',
-          events: Stubs::EventList.default(visited),
+          events: EventList.default(visited),
         }
       end
 
@@ -4966,7 +4966,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('EventList')
         visited = visited + ['EventList']
         [
-          Stubs::Event.default(visited)
+          Event.default(visited)
         ]
       end
 
@@ -4988,7 +4988,7 @@ module AWS::SDK::RDS
           source_identifier: 'source_identifier',
           source_type: 'source_type',
           message: 'message',
-          event_categories: Stubs::EventCategoriesList.default(visited),
+          event_categories: EventCategoriesList.default(visited),
           date: Time.now,
           source_arn: 'source_arn',
         }
@@ -5012,7 +5012,7 @@ module AWS::SDK::RDS
       def self.default(visited=[])
         {
           marker: 'marker',
-          export_tasks: Stubs::ExportTasksList.default(visited),
+          export_tasks: ExportTasksList.default(visited),
         }
       end
 
@@ -5035,7 +5035,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('ExportTasksList')
         visited = visited + ['ExportTasksList']
         [
-          Stubs::ExportTask.default(visited)
+          ExportTask.default(visited)
         ]
       end
 
@@ -5056,7 +5056,7 @@ module AWS::SDK::RDS
         {
           export_task_identifier: 'export_task_identifier',
           source_arn: 'source_arn',
-          export_only: Stubs::StringList.default(visited),
+          export_only: StringList.default(visited),
           snapshot_time: Time.now,
           task_start_time: Time.now,
           task_end_time: Time.now,
@@ -5099,7 +5099,7 @@ module AWS::SDK::RDS
       def self.default(visited=[])
         {
           marker: 'marker',
-          global_clusters: Stubs::GlobalClusterList.default(visited),
+          global_clusters: GlobalClusterList.default(visited),
         }
       end
 
@@ -5122,7 +5122,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('GlobalClusterList')
         visited = visited + ['GlobalClusterList']
         [
-          Stubs::GlobalCluster.default(visited)
+          GlobalCluster.default(visited)
         ]
       end
 
@@ -5139,7 +5139,7 @@ module AWS::SDK::RDS
     class DescribeOptionGroupOptions
       def self.default(visited=[])
         {
-          option_group_options: Stubs::OptionGroupOptionsList.default(visited),
+          option_group_options: OptionGroupOptionsList.default(visited),
           marker: 'marker',
         }
       end
@@ -5163,7 +5163,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('OptionGroupOptionsList')
         visited = visited + ['OptionGroupOptionsList']
         [
-          Stubs::OptionGroupOption.default(visited)
+          OptionGroupOption.default(visited)
         ]
       end
 
@@ -5189,15 +5189,15 @@ module AWS::SDK::RDS
           minimum_required_minor_engine_version: 'minimum_required_minor_engine_version',
           port_required: false,
           default_port: 1,
-          options_depended_on: Stubs::OptionsDependedOn.default(visited),
-          options_conflicts_with: Stubs::OptionsConflictsWith.default(visited),
+          options_depended_on: OptionsDependedOn.default(visited),
+          options_conflicts_with: OptionsConflictsWith.default(visited),
           persistent: false,
           permanent: false,
           requires_auto_minor_engine_version_upgrade: false,
           vpc_only: false,
           supports_option_version_downgrade: false,
-          option_group_option_settings: Stubs::OptionGroupOptionSettingsList.default(visited),
-          option_group_option_versions: Stubs::OptionGroupOptionVersionsList.default(visited),
+          option_group_option_settings: OptionGroupOptionSettingsList.default(visited),
+          option_group_option_versions: OptionGroupOptionVersionsList.default(visited),
         }
       end
 
@@ -5230,7 +5230,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('OptionGroupOptionVersionsList')
         visited = visited + ['OptionGroupOptionVersionsList']
         [
-          Stubs::OptionVersion.default(visited)
+          OptionVersion.default(visited)
         ]
       end
 
@@ -5269,7 +5269,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('OptionGroupOptionSettingsList')
         visited = visited + ['OptionGroupOptionSettingsList']
         [
-          Stubs::OptionGroupOptionSetting.default(visited)
+          OptionGroupOptionSetting.default(visited)
         ]
       end
 
@@ -5295,7 +5295,7 @@ module AWS::SDK::RDS
           allowed_values: 'allowed_values',
           is_modifiable: false,
           is_required: false,
-          minimum_engine_version_per_allowed_value: Stubs::MinimumEngineVersionPerAllowedValueList.default(visited),
+          minimum_engine_version_per_allowed_value: MinimumEngineVersionPerAllowedValueList.default(visited),
         }
       end
 
@@ -5320,7 +5320,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('MinimumEngineVersionPerAllowedValueList')
         visited = visited + ['MinimumEngineVersionPerAllowedValueList']
         [
-          Stubs::MinimumEngineVersionPerAllowedValue.default(visited)
+          MinimumEngineVersionPerAllowedValue.default(visited)
         ]
       end
 
@@ -5395,7 +5395,7 @@ module AWS::SDK::RDS
     class DescribeOptionGroups
       def self.default(visited=[])
         {
-          option_groups_list: Stubs::OptionGroupsList.default(visited),
+          option_groups_list: OptionGroupsList.default(visited),
           marker: 'marker',
         }
       end
@@ -5419,7 +5419,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('OptionGroupsList')
         visited = visited + ['OptionGroupsList']
         [
-          Stubs::OptionGroup.default(visited)
+          OptionGroup.default(visited)
         ]
       end
 
@@ -5436,7 +5436,7 @@ module AWS::SDK::RDS
     class DescribeOrderableDBInstanceOptions
       def self.default(visited=[])
         {
-          orderable_db_instance_options: Stubs::OrderableDBInstanceOptionsList.default(visited),
+          orderable_db_instance_options: OrderableDBInstanceOptionsList.default(visited),
           marker: 'marker',
         }
       end
@@ -5460,7 +5460,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('OrderableDBInstanceOptionsList')
         visited = visited + ['OrderableDBInstanceOptionsList']
         [
-          Stubs::OrderableDBInstanceOption.default(visited)
+          OrderableDBInstanceOption.default(visited)
         ]
       end
 
@@ -5484,7 +5484,7 @@ module AWS::SDK::RDS
           db_instance_class: 'db_instance_class',
           license_model: 'license_model',
           availability_zone_group: 'availability_zone_group',
-          availability_zones: Stubs::AvailabilityZoneList.default(visited),
+          availability_zones: AvailabilityZoneList.default(visited),
           multi_az_capable: false,
           read_replica_capable: false,
           vpc: false,
@@ -5500,15 +5500,15 @@ module AWS::SDK::RDS
           max_iops_per_db_instance: 1,
           min_iops_per_gib: 1.0,
           max_iops_per_gib: 1.0,
-          available_processor_features: Stubs::AvailableProcessorFeatureList.default(visited),
-          supported_engine_modes: Stubs::EngineModeList.default(visited),
+          available_processor_features: AvailableProcessorFeatureList.default(visited),
+          supported_engine_modes: EngineModeList.default(visited),
           supports_storage_autoscaling: false,
           supports_kerberos_authentication: false,
           outpost_capable: false,
-          supported_activity_stream_modes: Stubs::ActivityStreamModeList.default(visited),
+          supported_activity_stream_modes: ActivityStreamModeList.default(visited),
           supports_global_databases: false,
           supports_clusters: false,
-          supported_network_types: Stubs::StringList.default(visited),
+          supported_network_types: StringList.default(visited),
         }
       end
 
@@ -5574,7 +5574,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('AvailableProcessorFeatureList')
         visited = visited + ['AvailableProcessorFeatureList']
         [
-          Stubs::AvailableProcessorFeature.default(visited)
+          AvailableProcessorFeature.default(visited)
         ]
       end
 
@@ -5615,7 +5615,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('AvailabilityZoneList')
         visited = visited + ['AvailabilityZoneList']
         [
-          Stubs::AvailabilityZone.default(visited)
+          AvailabilityZone.default(visited)
         ]
       end
 
@@ -5632,7 +5632,7 @@ module AWS::SDK::RDS
     class DescribePendingMaintenanceActions
       def self.default(visited=[])
         {
-          pending_maintenance_actions: Stubs::PendingMaintenanceActions.default(visited),
+          pending_maintenance_actions: PendingMaintenanceActions.default(visited),
           marker: 'marker',
         }
       end
@@ -5656,7 +5656,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('PendingMaintenanceActions')
         visited = visited + ['PendingMaintenanceActions']
         [
-          Stubs::ResourcePendingMaintenanceActions.default(visited)
+          ResourcePendingMaintenanceActions.default(visited)
         ]
       end
 
@@ -5674,7 +5674,7 @@ module AWS::SDK::RDS
       def self.default(visited=[])
         {
           marker: 'marker',
-          reserved_db_instances: Stubs::ReservedDBInstanceList.default(visited),
+          reserved_db_instances: ReservedDBInstanceList.default(visited),
         }
       end
 
@@ -5697,7 +5697,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('ReservedDBInstanceList')
         visited = visited + ['ReservedDBInstanceList']
         [
-          Stubs::ReservedDBInstance.default(visited)
+          ReservedDBInstance.default(visited)
         ]
       end
 
@@ -5729,7 +5729,7 @@ module AWS::SDK::RDS
           offering_type: 'offering_type',
           multi_az: false,
           state: 'state',
-          recurring_charges: Stubs::RecurringChargeList.default(visited),
+          recurring_charges: RecurringChargeList.default(visited),
           reserved_db_instance_arn: 'reserved_db_instance_arn',
           lease_id: 'lease_id',
         }
@@ -5764,7 +5764,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('RecurringChargeList')
         visited = visited + ['RecurringChargeList']
         [
-          Stubs::RecurringCharge.default(visited)
+          RecurringCharge.default(visited)
         ]
       end
 
@@ -5802,7 +5802,7 @@ module AWS::SDK::RDS
       def self.default(visited=[])
         {
           marker: 'marker',
-          reserved_db_instances_offerings: Stubs::ReservedDBInstancesOfferingList.default(visited),
+          reserved_db_instances_offerings: ReservedDBInstancesOfferingList.default(visited),
         }
       end
 
@@ -5825,7 +5825,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('ReservedDBInstancesOfferingList')
         visited = visited + ['ReservedDBInstancesOfferingList']
         [
-          Stubs::ReservedDBInstancesOffering.default(visited)
+          ReservedDBInstancesOffering.default(visited)
         ]
       end
 
@@ -5853,7 +5853,7 @@ module AWS::SDK::RDS
           product_description: 'product_description',
           offering_type: 'offering_type',
           multi_az: false,
-          recurring_charges: Stubs::RecurringChargeList.default(visited),
+          recurring_charges: RecurringChargeList.default(visited),
         }
       end
 
@@ -5879,7 +5879,7 @@ module AWS::SDK::RDS
       def self.default(visited=[])
         {
           marker: 'marker',
-          source_regions: Stubs::SourceRegionList.default(visited),
+          source_regions: SourceRegionList.default(visited),
         }
       end
 
@@ -5902,7 +5902,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('SourceRegionList')
         visited = visited + ['SourceRegionList']
         [
-          Stubs::SourceRegion.default(visited)
+          SourceRegion.default(visited)
         ]
       end
 
@@ -5943,7 +5943,7 @@ module AWS::SDK::RDS
     class DescribeValidDBInstanceModifications
       def self.default(visited=[])
         {
-          valid_db_instance_modifications_message: Stubs::ValidDBInstanceModificationsMessage.default(visited),
+          valid_db_instance_modifications_message: ValidDBInstanceModificationsMessage.default(visited),
         }
       end
 
@@ -5965,8 +5965,8 @@ module AWS::SDK::RDS
         return nil if visited.include?('ValidDBInstanceModificationsMessage')
         visited = visited + ['ValidDBInstanceModificationsMessage']
         {
-          storage: Stubs::ValidStorageOptionsList.default(visited),
-          valid_processor_features: Stubs::AvailableProcessorFeatureList.default(visited),
+          storage: ValidStorageOptionsList.default(visited),
+          valid_processor_features: AvailableProcessorFeatureList.default(visited),
         }
       end
 
@@ -5985,7 +5985,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('ValidStorageOptionsList')
         visited = visited + ['ValidStorageOptionsList']
         [
-          Stubs::ValidStorageOptions.default(visited)
+          ValidStorageOptions.default(visited)
         ]
       end
 
@@ -6005,9 +6005,9 @@ module AWS::SDK::RDS
         visited = visited + ['ValidStorageOptions']
         {
           storage_type: 'storage_type',
-          storage_size: Stubs::RangeList.default(visited),
-          provisioned_iops: Stubs::RangeList.default(visited),
-          iops_to_storage_ratio: Stubs::DoubleRangeList.default(visited),
+          storage_size: RangeList.default(visited),
+          provisioned_iops: RangeList.default(visited),
+          iops_to_storage_ratio: DoubleRangeList.default(visited),
           supports_storage_autoscaling: false,
         }
       end
@@ -6030,7 +6030,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('DoubleRangeList')
         visited = visited + ['DoubleRangeList']
         [
-          Stubs::DoubleRange.default(visited)
+          DoubleRange.default(visited)
         ]
       end
 
@@ -6069,7 +6069,7 @@ module AWS::SDK::RDS
         return nil if visited.include?('RangeList')
         visited = visited + ['RangeList']
         [
-          Stubs::Range.default(visited)
+          Range.default(visited)
         ]
       end
 
@@ -6132,7 +6132,7 @@ module AWS::SDK::RDS
     class FailoverDBCluster
       def self.default(visited=[])
         {
-          db_cluster: Stubs::DBCluster.default(visited),
+          db_cluster: DBCluster.default(visited),
         }
       end
 
@@ -6152,7 +6152,7 @@ module AWS::SDK::RDS
     class FailoverGlobalCluster
       def self.default(visited=[])
         {
-          global_cluster: Stubs::GlobalCluster.default(visited),
+          global_cluster: GlobalCluster.default(visited),
         }
       end
 
@@ -6172,7 +6172,7 @@ module AWS::SDK::RDS
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tag_list: Stubs::TagList.default(visited),
+          tag_list: TagList.default(visited),
         }
       end
 
@@ -6192,7 +6192,7 @@ module AWS::SDK::RDS
     class ModifyCertificates
       def self.default(visited=[])
         {
-          certificate: Stubs::Certificate.default(visited),
+          certificate: Certificate.default(visited),
         }
       end
 
@@ -6245,16 +6245,16 @@ module AWS::SDK::RDS
           db_parameter_group_family: 'db_parameter_group_family',
           db_engine_description: 'db_engine_description',
           db_engine_version_description: 'db_engine_version_description',
-          default_character_set: Stubs::CharacterSet.default(visited),
-          supported_character_sets: Stubs::SupportedCharacterSetsList.default(visited),
-          supported_nchar_character_sets: Stubs::SupportedCharacterSetsList.default(visited),
-          valid_upgrade_target: Stubs::ValidUpgradeTargetList.default(visited),
-          supported_timezones: Stubs::SupportedTimezonesList.default(visited),
-          exportable_log_types: Stubs::LogTypeList.default(visited),
+          default_character_set: CharacterSet.default(visited),
+          supported_character_sets: SupportedCharacterSetsList.default(visited),
+          supported_nchar_character_sets: SupportedCharacterSetsList.default(visited),
+          valid_upgrade_target: ValidUpgradeTargetList.default(visited),
+          supported_timezones: SupportedTimezonesList.default(visited),
+          exportable_log_types: LogTypeList.default(visited),
           supports_log_exports_to_cloudwatch_logs: false,
           supports_read_replica: false,
-          supported_engine_modes: Stubs::EngineModeList.default(visited),
-          supported_feature_names: Stubs::FeatureNameList.default(visited),
+          supported_engine_modes: EngineModeList.default(visited),
+          supported_feature_names: FeatureNameList.default(visited),
           status: 'status',
           supports_parallel_query: false,
           supports_global_databases: false,
@@ -6264,7 +6264,7 @@ module AWS::SDK::RDS
           db_engine_version_arn: 'db_engine_version_arn',
           kms_key_id: 'kms_key_id',
           create_time: Time.now,
-          tag_list: Stubs::TagList.default(visited),
+          tag_list: TagList.default(visited),
           supports_babelfish: false,
         }
       end
@@ -6310,7 +6310,7 @@ module AWS::SDK::RDS
     class ModifyDBCluster
       def self.default(visited=[])
         {
-          db_cluster: Stubs::DBCluster.default(visited),
+          db_cluster: DBCluster.default(visited),
         }
       end
 
@@ -6337,8 +6337,8 @@ module AWS::SDK::RDS
           status: 'status',
           endpoint_type: 'endpoint_type',
           custom_endpoint_type: 'custom_endpoint_type',
-          static_members: Stubs::StringList.default(visited),
-          excluded_members: Stubs::StringList.default(visited),
+          static_members: StringList.default(visited),
+          excluded_members: StringList.default(visited),
           db_cluster_endpoint_arn: 'db_cluster_endpoint_arn',
         }
       end
@@ -6388,7 +6388,7 @@ module AWS::SDK::RDS
     class ModifyDBClusterSnapshotAttribute
       def self.default(visited=[])
         {
-          db_cluster_snapshot_attributes_result: Stubs::DBClusterSnapshotAttributesResult.default(visited),
+          db_cluster_snapshot_attributes_result: DBClusterSnapshotAttributesResult.default(visited),
         }
       end
 
@@ -6408,7 +6408,7 @@ module AWS::SDK::RDS
     class ModifyDBInstance
       def self.default(visited=[])
         {
-          db_instance: Stubs::DBInstance.default(visited),
+          db_instance: DBInstance.default(visited),
         }
       end
 
@@ -6448,7 +6448,7 @@ module AWS::SDK::RDS
     class ModifyDBProxy
       def self.default(visited=[])
         {
-          db_proxy: Stubs::DBProxy.default(visited),
+          db_proxy: DBProxy.default(visited),
         }
       end
 
@@ -6468,7 +6468,7 @@ module AWS::SDK::RDS
     class ModifyDBProxyEndpoint
       def self.default(visited=[])
         {
-          db_proxy_endpoint: Stubs::DBProxyEndpoint.default(visited),
+          db_proxy_endpoint: DBProxyEndpoint.default(visited),
         }
       end
 
@@ -6488,7 +6488,7 @@ module AWS::SDK::RDS
     class ModifyDBProxyTargetGroup
       def self.default(visited=[])
         {
-          db_proxy_target_group: Stubs::DBProxyTargetGroup.default(visited),
+          db_proxy_target_group: DBProxyTargetGroup.default(visited),
         }
       end
 
@@ -6508,7 +6508,7 @@ module AWS::SDK::RDS
     class ModifyDBSnapshot
       def self.default(visited=[])
         {
-          db_snapshot: Stubs::DBSnapshot.default(visited),
+          db_snapshot: DBSnapshot.default(visited),
         }
       end
 
@@ -6528,7 +6528,7 @@ module AWS::SDK::RDS
     class ModifyDBSnapshotAttribute
       def self.default(visited=[])
         {
-          db_snapshot_attributes_result: Stubs::DBSnapshotAttributesResult.default(visited),
+          db_snapshot_attributes_result: DBSnapshotAttributesResult.default(visited),
         }
       end
 
@@ -6548,7 +6548,7 @@ module AWS::SDK::RDS
     class ModifyDBSubnetGroup
       def self.default(visited=[])
         {
-          db_subnet_group: Stubs::DBSubnetGroup.default(visited),
+          db_subnet_group: DBSubnetGroup.default(visited),
         }
       end
 
@@ -6568,7 +6568,7 @@ module AWS::SDK::RDS
     class ModifyEventSubscription
       def self.default(visited=[])
         {
-          event_subscription: Stubs::EventSubscription.default(visited),
+          event_subscription: EventSubscription.default(visited),
         }
       end
 
@@ -6588,7 +6588,7 @@ module AWS::SDK::RDS
     class ModifyGlobalCluster
       def self.default(visited=[])
         {
-          global_cluster: Stubs::GlobalCluster.default(visited),
+          global_cluster: GlobalCluster.default(visited),
         }
       end
 
@@ -6608,7 +6608,7 @@ module AWS::SDK::RDS
     class ModifyOptionGroup
       def self.default(visited=[])
         {
-          option_group: Stubs::OptionGroup.default(visited),
+          option_group: OptionGroup.default(visited),
         }
       end
 
@@ -6628,7 +6628,7 @@ module AWS::SDK::RDS
     class PromoteReadReplica
       def self.default(visited=[])
         {
-          db_instance: Stubs::DBInstance.default(visited),
+          db_instance: DBInstance.default(visited),
         }
       end
 
@@ -6648,7 +6648,7 @@ module AWS::SDK::RDS
     class PromoteReadReplicaDBCluster
       def self.default(visited=[])
         {
-          db_cluster: Stubs::DBCluster.default(visited),
+          db_cluster: DBCluster.default(visited),
         }
       end
 
@@ -6668,7 +6668,7 @@ module AWS::SDK::RDS
     class PurchaseReservedDBInstancesOffering
       def self.default(visited=[])
         {
-          reserved_db_instance: Stubs::ReservedDBInstance.default(visited),
+          reserved_db_instance: ReservedDBInstance.default(visited),
         }
       end
 
@@ -6688,7 +6688,7 @@ module AWS::SDK::RDS
     class RebootDBCluster
       def self.default(visited=[])
         {
-          db_cluster: Stubs::DBCluster.default(visited),
+          db_cluster: DBCluster.default(visited),
         }
       end
 
@@ -6708,7 +6708,7 @@ module AWS::SDK::RDS
     class RebootDBInstance
       def self.default(visited=[])
         {
-          db_instance: Stubs::DBInstance.default(visited),
+          db_instance: DBInstance.default(visited),
         }
       end
 
@@ -6728,7 +6728,7 @@ module AWS::SDK::RDS
     class RegisterDBProxyTargets
       def self.default(visited=[])
         {
-          db_proxy_targets: Stubs::TargetList.default(visited),
+          db_proxy_targets: TargetList.default(visited),
         }
       end
 
@@ -6748,7 +6748,7 @@ module AWS::SDK::RDS
     class RemoveFromGlobalCluster
       def self.default(visited=[])
         {
-          global_cluster: Stubs::GlobalCluster.default(visited),
+          global_cluster: GlobalCluster.default(visited),
         }
       end
 
@@ -6804,7 +6804,7 @@ module AWS::SDK::RDS
     class RemoveSourceIdentifierFromSubscription
       def self.default(visited=[])
         {
-          event_subscription: Stubs::EventSubscription.default(visited),
+          event_subscription: EventSubscription.default(visited),
         }
       end
 
@@ -6882,7 +6882,7 @@ module AWS::SDK::RDS
     class RestoreDBClusterFromS3
       def self.default(visited=[])
         {
-          db_cluster: Stubs::DBCluster.default(visited),
+          db_cluster: DBCluster.default(visited),
         }
       end
 
@@ -6902,7 +6902,7 @@ module AWS::SDK::RDS
     class RestoreDBClusterFromSnapshot
       def self.default(visited=[])
         {
-          db_cluster: Stubs::DBCluster.default(visited),
+          db_cluster: DBCluster.default(visited),
         }
       end
 
@@ -6922,7 +6922,7 @@ module AWS::SDK::RDS
     class RestoreDBClusterToPointInTime
       def self.default(visited=[])
         {
-          db_cluster: Stubs::DBCluster.default(visited),
+          db_cluster: DBCluster.default(visited),
         }
       end
 
@@ -6942,7 +6942,7 @@ module AWS::SDK::RDS
     class RestoreDBInstanceFromDBSnapshot
       def self.default(visited=[])
         {
-          db_instance: Stubs::DBInstance.default(visited),
+          db_instance: DBInstance.default(visited),
         }
       end
 
@@ -6962,7 +6962,7 @@ module AWS::SDK::RDS
     class RestoreDBInstanceFromS3
       def self.default(visited=[])
         {
-          db_instance: Stubs::DBInstance.default(visited),
+          db_instance: DBInstance.default(visited),
         }
       end
 
@@ -6982,7 +6982,7 @@ module AWS::SDK::RDS
     class RestoreDBInstanceToPointInTime
       def self.default(visited=[])
         {
-          db_instance: Stubs::DBInstance.default(visited),
+          db_instance: DBInstance.default(visited),
         }
       end
 
@@ -7002,7 +7002,7 @@ module AWS::SDK::RDS
     class RevokeDBSecurityGroupIngress
       def self.default(visited=[])
         {
-          db_security_group: Stubs::DBSecurityGroup.default(visited),
+          db_security_group: DBSecurityGroup.default(visited),
         }
       end
 
@@ -7052,7 +7052,7 @@ module AWS::SDK::RDS
     class StartDBCluster
       def self.default(visited=[])
         {
-          db_cluster: Stubs::DBCluster.default(visited),
+          db_cluster: DBCluster.default(visited),
         }
       end
 
@@ -7072,7 +7072,7 @@ module AWS::SDK::RDS
     class StartDBInstance
       def self.default(visited=[])
         {
-          db_instance: Stubs::DBInstance.default(visited),
+          db_instance: DBInstance.default(visited),
         }
       end
 
@@ -7092,7 +7092,7 @@ module AWS::SDK::RDS
     class StartDBInstanceAutomatedBackupsReplication
       def self.default(visited=[])
         {
-          db_instance_automated_backup: Stubs::DBInstanceAutomatedBackup.default(visited),
+          db_instance_automated_backup: DBInstanceAutomatedBackup.default(visited),
         }
       end
 
@@ -7114,7 +7114,7 @@ module AWS::SDK::RDS
         {
           export_task_identifier: 'export_task_identifier',
           source_arn: 'source_arn',
-          export_only: Stubs::StringList.default(visited),
+          export_only: StringList.default(visited),
           snapshot_time: Time.now,
           task_start_time: Time.now,
           task_end_time: Time.now,
@@ -7184,7 +7184,7 @@ module AWS::SDK::RDS
     class StopDBCluster
       def self.default(visited=[])
         {
-          db_cluster: Stubs::DBCluster.default(visited),
+          db_cluster: DBCluster.default(visited),
         }
       end
 
@@ -7204,7 +7204,7 @@ module AWS::SDK::RDS
     class StopDBInstance
       def self.default(visited=[])
         {
-          db_instance: Stubs::DBInstance.default(visited),
+          db_instance: DBInstance.default(visited),
         }
       end
 
@@ -7224,7 +7224,7 @@ module AWS::SDK::RDS
     class StopDBInstanceAutomatedBackupsReplication
       def self.default(visited=[])
         {
-          db_instance_automated_backup: Stubs::DBInstanceAutomatedBackup.default(visited),
+          db_instance_automated_backup: DBInstanceAutomatedBackup.default(visited),
         }
       end
 

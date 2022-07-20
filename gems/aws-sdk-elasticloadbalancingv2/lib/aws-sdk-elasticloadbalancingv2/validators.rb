@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::ElasticLoadBalancingV2
   module Validators
 
@@ -22,12 +24,12 @@ module AWS::SDK::ElasticLoadBalancingV2
         Hearth::Validator.validate!(input, Types::Action, context: context)
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:target_group_arn], ::String, context: "#{context}[:target_group_arn]")
-        Validators::AuthenticateOidcActionConfig.validate!(input[:authenticate_oidc_config], context: "#{context}[:authenticate_oidc_config]") unless input[:authenticate_oidc_config].nil?
-        Validators::AuthenticateCognitoActionConfig.validate!(input[:authenticate_cognito_config], context: "#{context}[:authenticate_cognito_config]") unless input[:authenticate_cognito_config].nil?
+        AuthenticateOidcActionConfig.validate!(input[:authenticate_oidc_config], context: "#{context}[:authenticate_oidc_config]") unless input[:authenticate_oidc_config].nil?
+        AuthenticateCognitoActionConfig.validate!(input[:authenticate_cognito_config], context: "#{context}[:authenticate_cognito_config]") unless input[:authenticate_cognito_config].nil?
         Hearth::Validator.validate!(input[:order], ::Integer, context: "#{context}[:order]")
-        Validators::RedirectActionConfig.validate!(input[:redirect_config], context: "#{context}[:redirect_config]") unless input[:redirect_config].nil?
-        Validators::FixedResponseActionConfig.validate!(input[:fixed_response_config], context: "#{context}[:fixed_response_config]") unless input[:fixed_response_config].nil?
-        Validators::ForwardActionConfig.validate!(input[:forward_config], context: "#{context}[:forward_config]") unless input[:forward_config].nil?
+        RedirectActionConfig.validate!(input[:redirect_config], context: "#{context}[:redirect_config]") unless input[:redirect_config].nil?
+        FixedResponseActionConfig.validate!(input[:fixed_response_config], context: "#{context}[:fixed_response_config]") unless input[:fixed_response_config].nil?
+        ForwardActionConfig.validate!(input[:forward_config], context: "#{context}[:forward_config]") unless input[:forward_config].nil?
       end
     end
 
@@ -35,7 +37,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Action.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Action.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -44,22 +46,22 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddListenerCertificatesInput, context: context)
         Hearth::Validator.validate!(input[:listener_arn], ::String, context: "#{context}[:listener_arn]")
-        Validators::CertificateList.validate!(input[:certificates], context: "#{context}[:certificates]") unless input[:certificates].nil?
+        CertificateList.validate!(input[:certificates], context: "#{context}[:certificates]") unless input[:certificates].nil?
       end
     end
 
     class AddListenerCertificatesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddListenerCertificatesOutput, context: context)
-        Validators::CertificateList.validate!(input[:certificates], context: "#{context}[:certificates]") unless input[:certificates].nil?
+        CertificateList.validate!(input[:certificates], context: "#{context}[:certificates]") unless input[:certificates].nil?
       end
     end
 
     class AddTagsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddTagsInput, context: context)
-        Validators::ResourceArns.validate!(input[:resource_arns], context: "#{context}[:resource_arns]") unless input[:resource_arns].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ResourceArns.validate!(input[:resource_arns], context: "#{context}[:resource_arns]") unless input[:resource_arns].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -104,7 +106,7 @@ module AWS::SDK::ElasticLoadBalancingV2
         Hearth::Validator.validate!(input[:session_cookie_name], ::String, context: "#{context}[:session_cookie_name]")
         Hearth::Validator.validate!(input[:scope], ::String, context: "#{context}[:scope]")
         Hearth::Validator.validate!(input[:session_timeout], ::Integer, context: "#{context}[:session_timeout]")
-        Validators::AuthenticateCognitoActionAuthenticationRequestExtraParams.validate!(input[:authentication_request_extra_params], context: "#{context}[:authentication_request_extra_params]") unless input[:authentication_request_extra_params].nil?
+        AuthenticateCognitoActionAuthenticationRequestExtraParams.validate!(input[:authentication_request_extra_params], context: "#{context}[:authentication_request_extra_params]") unless input[:authentication_request_extra_params].nil?
         Hearth::Validator.validate!(input[:on_unauthenticated_request], ::String, context: "#{context}[:on_unauthenticated_request]")
       end
     end
@@ -131,7 +133,7 @@ module AWS::SDK::ElasticLoadBalancingV2
         Hearth::Validator.validate!(input[:session_cookie_name], ::String, context: "#{context}[:session_cookie_name]")
         Hearth::Validator.validate!(input[:scope], ::String, context: "#{context}[:scope]")
         Hearth::Validator.validate!(input[:session_timeout], ::Integer, context: "#{context}[:session_timeout]")
-        Validators::AuthenticateOidcActionAuthenticationRequestExtraParams.validate!(input[:authentication_request_extra_params], context: "#{context}[:authentication_request_extra_params]") unless input[:authentication_request_extra_params].nil?
+        AuthenticateOidcActionAuthenticationRequestExtraParams.validate!(input[:authentication_request_extra_params], context: "#{context}[:authentication_request_extra_params]") unless input[:authentication_request_extra_params].nil?
         Hearth::Validator.validate!(input[:on_unauthenticated_request], ::String, context: "#{context}[:on_unauthenticated_request]")
         Hearth::Validator.validate!(input[:use_existing_client_secret], ::TrueClass, ::FalseClass, context: "#{context}[:use_existing_client_secret]")
       end
@@ -143,7 +145,7 @@ module AWS::SDK::ElasticLoadBalancingV2
         Hearth::Validator.validate!(input[:zone_name], ::String, context: "#{context}[:zone_name]")
         Hearth::Validator.validate!(input[:subnet_id], ::String, context: "#{context}[:subnet_id]")
         Hearth::Validator.validate!(input[:outpost_id], ::String, context: "#{context}[:outpost_id]")
-        Validators::LoadBalancerAddresses.validate!(input[:load_balancer_addresses], context: "#{context}[:load_balancer_addresses]") unless input[:load_balancer_addresses].nil?
+        LoadBalancerAddresses.validate!(input[:load_balancer_addresses], context: "#{context}[:load_balancer_addresses]") unless input[:load_balancer_addresses].nil?
       end
     end
 
@@ -158,7 +160,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AvailabilityZone.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AvailabilityZone.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -175,7 +177,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Certificate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Certificate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -199,7 +201,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Cipher.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Cipher.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -211,17 +213,17 @@ module AWS::SDK::ElasticLoadBalancingV2
         Hearth::Validator.validate!(input[:protocol], ::String, context: "#{context}[:protocol]")
         Hearth::Validator.validate!(input[:port], ::Integer, context: "#{context}[:port]")
         Hearth::Validator.validate!(input[:ssl_policy], ::String, context: "#{context}[:ssl_policy]")
-        Validators::CertificateList.validate!(input[:certificates], context: "#{context}[:certificates]") unless input[:certificates].nil?
-        Validators::Actions.validate!(input[:default_actions], context: "#{context}[:default_actions]") unless input[:default_actions].nil?
-        Validators::AlpnPolicyName.validate!(input[:alpn_policy], context: "#{context}[:alpn_policy]") unless input[:alpn_policy].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        CertificateList.validate!(input[:certificates], context: "#{context}[:certificates]") unless input[:certificates].nil?
+        Actions.validate!(input[:default_actions], context: "#{context}[:default_actions]") unless input[:default_actions].nil?
+        AlpnPolicyName.validate!(input[:alpn_policy], context: "#{context}[:alpn_policy]") unless input[:alpn_policy].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateListenerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateListenerOutput, context: context)
-        Validators::Listeners.validate!(input[:listeners], context: "#{context}[:listeners]") unless input[:listeners].nil?
+        Listeners.validate!(input[:listeners], context: "#{context}[:listeners]") unless input[:listeners].nil?
       end
     end
 
@@ -229,11 +231,11 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateLoadBalancerInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::Subnets.validate!(input[:subnets], context: "#{context}[:subnets]") unless input[:subnets].nil?
-        Validators::SubnetMappings.validate!(input[:subnet_mappings], context: "#{context}[:subnet_mappings]") unless input[:subnet_mappings].nil?
-        Validators::SecurityGroups.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
+        Subnets.validate!(input[:subnets], context: "#{context}[:subnets]") unless input[:subnets].nil?
+        SubnetMappings.validate!(input[:subnet_mappings], context: "#{context}[:subnet_mappings]") unless input[:subnet_mappings].nil?
+        SecurityGroups.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
         Hearth::Validator.validate!(input[:scheme], ::String, context: "#{context}[:scheme]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:ip_address_type], ::String, context: "#{context}[:ip_address_type]")
         Hearth::Validator.validate!(input[:customer_owned_ipv4_pool], ::String, context: "#{context}[:customer_owned_ipv4_pool]")
@@ -243,7 +245,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     class CreateLoadBalancerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateLoadBalancerOutput, context: context)
-        Validators::LoadBalancers.validate!(input[:load_balancers], context: "#{context}[:load_balancers]") unless input[:load_balancers].nil?
+        LoadBalancers.validate!(input[:load_balancers], context: "#{context}[:load_balancers]") unless input[:load_balancers].nil?
       end
     end
 
@@ -251,17 +253,17 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateRuleInput, context: context)
         Hearth::Validator.validate!(input[:listener_arn], ::String, context: "#{context}[:listener_arn]")
-        Validators::RuleConditionList.validate!(input[:conditions], context: "#{context}[:conditions]") unless input[:conditions].nil?
+        RuleConditionList.validate!(input[:conditions], context: "#{context}[:conditions]") unless input[:conditions].nil?
         Hearth::Validator.validate!(input[:priority], ::Integer, context: "#{context}[:priority]")
-        Validators::Actions.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Actions.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateRuleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateRuleOutput, context: context)
-        Validators::Rules.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        Rules.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
       end
     end
 
@@ -281,9 +283,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         Hearth::Validator.validate!(input[:health_check_timeout_seconds], ::Integer, context: "#{context}[:health_check_timeout_seconds]")
         Hearth::Validator.validate!(input[:healthy_threshold_count], ::Integer, context: "#{context}[:healthy_threshold_count]")
         Hearth::Validator.validate!(input[:unhealthy_threshold_count], ::Integer, context: "#{context}[:unhealthy_threshold_count]")
-        Validators::Matcher.validate!(input[:matcher], context: "#{context}[:matcher]") unless input[:matcher].nil?
+        Matcher.validate!(input[:matcher], context: "#{context}[:matcher]") unless input[:matcher].nil?
         Hearth::Validator.validate!(input[:target_type], ::String, context: "#{context}[:target_type]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:ip_address_type], ::String, context: "#{context}[:ip_address_type]")
       end
     end
@@ -291,7 +293,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     class CreateTargetGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateTargetGroupOutput, context: context)
-        Validators::TargetGroups.validate!(input[:target_groups], context: "#{context}[:target_groups]") unless input[:target_groups].nil?
+        TargetGroups.validate!(input[:target_groups], context: "#{context}[:target_groups]") unless input[:target_groups].nil?
       end
     end
 
@@ -351,7 +353,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeregisterTargetsInput, context: context)
         Hearth::Validator.validate!(input[:target_group_arn], ::String, context: "#{context}[:target_group_arn]")
-        Validators::TargetDescriptions.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
+        TargetDescriptions.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
       end
     end
 
@@ -372,7 +374,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     class DescribeAccountLimitsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAccountLimitsOutput, context: context)
-        Validators::Limits.validate!(input[:limits], context: "#{context}[:limits]") unless input[:limits].nil?
+        Limits.validate!(input[:limits], context: "#{context}[:limits]") unless input[:limits].nil?
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
       end
     end
@@ -389,7 +391,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     class DescribeListenerCertificatesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeListenerCertificatesOutput, context: context)
-        Validators::CertificateList.validate!(input[:certificates], context: "#{context}[:certificates]") unless input[:certificates].nil?
+        CertificateList.validate!(input[:certificates], context: "#{context}[:certificates]") unless input[:certificates].nil?
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
       end
     end
@@ -398,7 +400,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeListenersInput, context: context)
         Hearth::Validator.validate!(input[:load_balancer_arn], ::String, context: "#{context}[:load_balancer_arn]")
-        Validators::ListenerArns.validate!(input[:listener_arns], context: "#{context}[:listener_arns]") unless input[:listener_arns].nil?
+        ListenerArns.validate!(input[:listener_arns], context: "#{context}[:listener_arns]") unless input[:listener_arns].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
         Hearth::Validator.validate!(input[:page_size], ::Integer, context: "#{context}[:page_size]")
       end
@@ -407,7 +409,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     class DescribeListenersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeListenersOutput, context: context)
-        Validators::Listeners.validate!(input[:listeners], context: "#{context}[:listeners]") unless input[:listeners].nil?
+        Listeners.validate!(input[:listeners], context: "#{context}[:listeners]") unless input[:listeners].nil?
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
       end
     end
@@ -422,15 +424,15 @@ module AWS::SDK::ElasticLoadBalancingV2
     class DescribeLoadBalancerAttributesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeLoadBalancerAttributesOutput, context: context)
-        Validators::LoadBalancerAttributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        LoadBalancerAttributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
     class DescribeLoadBalancersInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeLoadBalancersInput, context: context)
-        Validators::LoadBalancerArns.validate!(input[:load_balancer_arns], context: "#{context}[:load_balancer_arns]") unless input[:load_balancer_arns].nil?
-        Validators::LoadBalancerNames.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
+        LoadBalancerArns.validate!(input[:load_balancer_arns], context: "#{context}[:load_balancer_arns]") unless input[:load_balancer_arns].nil?
+        LoadBalancerNames.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
         Hearth::Validator.validate!(input[:page_size], ::Integer, context: "#{context}[:page_size]")
       end
@@ -439,7 +441,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     class DescribeLoadBalancersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeLoadBalancersOutput, context: context)
-        Validators::LoadBalancers.validate!(input[:load_balancers], context: "#{context}[:load_balancers]") unless input[:load_balancers].nil?
+        LoadBalancers.validate!(input[:load_balancers], context: "#{context}[:load_balancers]") unless input[:load_balancers].nil?
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
       end
     end
@@ -448,7 +450,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeRulesInput, context: context)
         Hearth::Validator.validate!(input[:listener_arn], ::String, context: "#{context}[:listener_arn]")
-        Validators::RuleArns.validate!(input[:rule_arns], context: "#{context}[:rule_arns]") unless input[:rule_arns].nil?
+        RuleArns.validate!(input[:rule_arns], context: "#{context}[:rule_arns]") unless input[:rule_arns].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
         Hearth::Validator.validate!(input[:page_size], ::Integer, context: "#{context}[:page_size]")
       end
@@ -457,7 +459,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     class DescribeRulesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeRulesOutput, context: context)
-        Validators::Rules.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        Rules.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
       end
     end
@@ -465,7 +467,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     class DescribeSSLPoliciesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeSSLPoliciesInput, context: context)
-        Validators::SslPolicyNames.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
+        SslPolicyNames.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
         Hearth::Validator.validate!(input[:page_size], ::Integer, context: "#{context}[:page_size]")
         Hearth::Validator.validate!(input[:load_balancer_type], ::String, context: "#{context}[:load_balancer_type]")
@@ -475,7 +477,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     class DescribeSSLPoliciesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeSSLPoliciesOutput, context: context)
-        Validators::SslPolicies.validate!(input[:ssl_policies], context: "#{context}[:ssl_policies]") unless input[:ssl_policies].nil?
+        SslPolicies.validate!(input[:ssl_policies], context: "#{context}[:ssl_policies]") unless input[:ssl_policies].nil?
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
       end
     end
@@ -483,14 +485,14 @@ module AWS::SDK::ElasticLoadBalancingV2
     class DescribeTagsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeTagsInput, context: context)
-        Validators::ResourceArns.validate!(input[:resource_arns], context: "#{context}[:resource_arns]") unless input[:resource_arns].nil?
+        ResourceArns.validate!(input[:resource_arns], context: "#{context}[:resource_arns]") unless input[:resource_arns].nil?
       end
     end
 
     class DescribeTagsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeTagsOutput, context: context)
-        Validators::TagDescriptions.validate!(input[:tag_descriptions], context: "#{context}[:tag_descriptions]") unless input[:tag_descriptions].nil?
+        TagDescriptions.validate!(input[:tag_descriptions], context: "#{context}[:tag_descriptions]") unless input[:tag_descriptions].nil?
       end
     end
 
@@ -504,7 +506,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     class DescribeTargetGroupAttributesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeTargetGroupAttributesOutput, context: context)
-        Validators::TargetGroupAttributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        TargetGroupAttributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
@@ -512,8 +514,8 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeTargetGroupsInput, context: context)
         Hearth::Validator.validate!(input[:load_balancer_arn], ::String, context: "#{context}[:load_balancer_arn]")
-        Validators::TargetGroupArns.validate!(input[:target_group_arns], context: "#{context}[:target_group_arns]") unless input[:target_group_arns].nil?
-        Validators::TargetGroupNames.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
+        TargetGroupArns.validate!(input[:target_group_arns], context: "#{context}[:target_group_arns]") unless input[:target_group_arns].nil?
+        TargetGroupNames.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
         Hearth::Validator.validate!(input[:page_size], ::Integer, context: "#{context}[:page_size]")
       end
@@ -522,7 +524,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     class DescribeTargetGroupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeTargetGroupsOutput, context: context)
-        Validators::TargetGroups.validate!(input[:target_groups], context: "#{context}[:target_groups]") unless input[:target_groups].nil?
+        TargetGroups.validate!(input[:target_groups], context: "#{context}[:target_groups]") unless input[:target_groups].nil?
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
       end
     end
@@ -531,14 +533,14 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeTargetHealthInput, context: context)
         Hearth::Validator.validate!(input[:target_group_arn], ::String, context: "#{context}[:target_group_arn]")
-        Validators::TargetDescriptions.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
+        TargetDescriptions.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
       end
     end
 
     class DescribeTargetHealthOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeTargetHealthOutput, context: context)
-        Validators::TargetHealthDescriptions.validate!(input[:target_health_descriptions], context: "#{context}[:target_health_descriptions]") unless input[:target_health_descriptions].nil?
+        TargetHealthDescriptions.validate!(input[:target_health_descriptions], context: "#{context}[:target_health_descriptions]") unless input[:target_health_descriptions].nil?
       end
     end
 
@@ -582,8 +584,8 @@ module AWS::SDK::ElasticLoadBalancingV2
     class ForwardActionConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ForwardActionConfig, context: context)
-        Validators::TargetGroupList.validate!(input[:target_groups], context: "#{context}[:target_groups]") unless input[:target_groups].nil?
-        Validators::TargetGroupStickinessConfig.validate!(input[:target_group_stickiness_config], context: "#{context}[:target_group_stickiness_config]") unless input[:target_group_stickiness_config].nil?
+        TargetGroupList.validate!(input[:target_groups], context: "#{context}[:target_groups]") unless input[:target_groups].nil?
+        TargetGroupStickinessConfig.validate!(input[:target_group_stickiness_config], context: "#{context}[:target_group_stickiness_config]") unless input[:target_group_stickiness_config].nil?
       end
     end
 
@@ -597,7 +599,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     class HostHeaderConditionConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HostHeaderConditionConfig, context: context)
-        Validators::ListOfString.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        ListOfString.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -605,14 +607,14 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HttpHeaderConditionConfig, context: context)
         Hearth::Validator.validate!(input[:http_header_name], ::String, context: "#{context}[:http_header_name]")
-        Validators::ListOfString.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        ListOfString.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
     class HttpRequestMethodConditionConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HttpRequestMethodConditionConfig, context: context)
-        Validators::ListOfString.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        ListOfString.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -677,7 +679,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Limit.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Limit.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -698,10 +700,10 @@ module AWS::SDK::ElasticLoadBalancingV2
         Hearth::Validator.validate!(input[:load_balancer_arn], ::String, context: "#{context}[:load_balancer_arn]")
         Hearth::Validator.validate!(input[:port], ::Integer, context: "#{context}[:port]")
         Hearth::Validator.validate!(input[:protocol], ::String, context: "#{context}[:protocol]")
-        Validators::CertificateList.validate!(input[:certificates], context: "#{context}[:certificates]") unless input[:certificates].nil?
+        CertificateList.validate!(input[:certificates], context: "#{context}[:certificates]") unless input[:certificates].nil?
         Hearth::Validator.validate!(input[:ssl_policy], ::String, context: "#{context}[:ssl_policy]")
-        Validators::Actions.validate!(input[:default_actions], context: "#{context}[:default_actions]") unless input[:default_actions].nil?
-        Validators::AlpnPolicyName.validate!(input[:alpn_policy], context: "#{context}[:alpn_policy]") unless input[:alpn_policy].nil?
+        Actions.validate!(input[:default_actions], context: "#{context}[:default_actions]") unless input[:default_actions].nil?
+        AlpnPolicyName.validate!(input[:alpn_policy], context: "#{context}[:alpn_policy]") unless input[:alpn_policy].nil?
       end
     end
 
@@ -725,7 +727,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Listener.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Listener.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -740,10 +742,10 @@ module AWS::SDK::ElasticLoadBalancingV2
         Hearth::Validator.validate!(input[:load_balancer_name], ::String, context: "#{context}[:load_balancer_name]")
         Hearth::Validator.validate!(input[:scheme], ::String, context: "#{context}[:scheme]")
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
-        Validators::LoadBalancerState.validate!(input[:state], context: "#{context}[:state]") unless input[:state].nil?
+        LoadBalancerState.validate!(input[:state], context: "#{context}[:state]") unless input[:state].nil?
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::AvailabilityZones.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
-        Validators::SecurityGroups.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
+        AvailabilityZones.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
+        SecurityGroups.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
         Hearth::Validator.validate!(input[:ip_address_type], ::String, context: "#{context}[:ip_address_type]")
         Hearth::Validator.validate!(input[:customer_owned_ipv4_pool], ::String, context: "#{context}[:customer_owned_ipv4_pool]")
       end
@@ -763,7 +765,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LoadBalancerAddress.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LoadBalancerAddress.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -789,7 +791,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LoadBalancerAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LoadBalancerAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -822,7 +824,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LoadBalancer.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LoadBalancer.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -842,16 +844,16 @@ module AWS::SDK::ElasticLoadBalancingV2
         Hearth::Validator.validate!(input[:port], ::Integer, context: "#{context}[:port]")
         Hearth::Validator.validate!(input[:protocol], ::String, context: "#{context}[:protocol]")
         Hearth::Validator.validate!(input[:ssl_policy], ::String, context: "#{context}[:ssl_policy]")
-        Validators::CertificateList.validate!(input[:certificates], context: "#{context}[:certificates]") unless input[:certificates].nil?
-        Validators::Actions.validate!(input[:default_actions], context: "#{context}[:default_actions]") unless input[:default_actions].nil?
-        Validators::AlpnPolicyName.validate!(input[:alpn_policy], context: "#{context}[:alpn_policy]") unless input[:alpn_policy].nil?
+        CertificateList.validate!(input[:certificates], context: "#{context}[:certificates]") unless input[:certificates].nil?
+        Actions.validate!(input[:default_actions], context: "#{context}[:default_actions]") unless input[:default_actions].nil?
+        AlpnPolicyName.validate!(input[:alpn_policy], context: "#{context}[:alpn_policy]") unless input[:alpn_policy].nil?
       end
     end
 
     class ModifyListenerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyListenerOutput, context: context)
-        Validators::Listeners.validate!(input[:listeners], context: "#{context}[:listeners]") unless input[:listeners].nil?
+        Listeners.validate!(input[:listeners], context: "#{context}[:listeners]") unless input[:listeners].nil?
       end
     end
 
@@ -859,14 +861,14 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyLoadBalancerAttributesInput, context: context)
         Hearth::Validator.validate!(input[:load_balancer_arn], ::String, context: "#{context}[:load_balancer_arn]")
-        Validators::LoadBalancerAttributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        LoadBalancerAttributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
     class ModifyLoadBalancerAttributesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyLoadBalancerAttributesOutput, context: context)
-        Validators::LoadBalancerAttributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        LoadBalancerAttributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
@@ -874,15 +876,15 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyRuleInput, context: context)
         Hearth::Validator.validate!(input[:rule_arn], ::String, context: "#{context}[:rule_arn]")
-        Validators::RuleConditionList.validate!(input[:conditions], context: "#{context}[:conditions]") unless input[:conditions].nil?
-        Validators::Actions.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
+        RuleConditionList.validate!(input[:conditions], context: "#{context}[:conditions]") unless input[:conditions].nil?
+        Actions.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
       end
     end
 
     class ModifyRuleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyRuleOutput, context: context)
-        Validators::Rules.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        Rules.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
       end
     end
 
@@ -890,14 +892,14 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyTargetGroupAttributesInput, context: context)
         Hearth::Validator.validate!(input[:target_group_arn], ::String, context: "#{context}[:target_group_arn]")
-        Validators::TargetGroupAttributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        TargetGroupAttributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
     class ModifyTargetGroupAttributesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyTargetGroupAttributesOutput, context: context)
-        Validators::TargetGroupAttributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        TargetGroupAttributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
@@ -913,14 +915,14 @@ module AWS::SDK::ElasticLoadBalancingV2
         Hearth::Validator.validate!(input[:health_check_timeout_seconds], ::Integer, context: "#{context}[:health_check_timeout_seconds]")
         Hearth::Validator.validate!(input[:healthy_threshold_count], ::Integer, context: "#{context}[:healthy_threshold_count]")
         Hearth::Validator.validate!(input[:unhealthy_threshold_count], ::Integer, context: "#{context}[:unhealthy_threshold_count]")
-        Validators::Matcher.validate!(input[:matcher], context: "#{context}[:matcher]") unless input[:matcher].nil?
+        Matcher.validate!(input[:matcher], context: "#{context}[:matcher]") unless input[:matcher].nil?
       end
     end
 
     class ModifyTargetGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyTargetGroupOutput, context: context)
-        Validators::TargetGroups.validate!(input[:target_groups], context: "#{context}[:target_groups]") unless input[:target_groups].nil?
+        TargetGroups.validate!(input[:target_groups], context: "#{context}[:target_groups]") unless input[:target_groups].nil?
       end
     end
 
@@ -934,7 +936,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     class PathPatternConditionConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PathPatternConditionConfig, context: context)
-        Validators::ListOfString.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        ListOfString.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -948,7 +950,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     class QueryStringConditionConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::QueryStringConditionConfig, context: context)
-        Validators::QueryStringKeyValuePairList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        QueryStringKeyValuePairList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -964,7 +966,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::QueryStringKeyValuePair.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          QueryStringKeyValuePair.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -985,7 +987,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RegisterTargetsInput, context: context)
         Hearth::Validator.validate!(input[:target_group_arn], ::String, context: "#{context}[:target_group_arn]")
-        Validators::TargetDescriptions.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
+        TargetDescriptions.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
       end
     end
 
@@ -999,7 +1001,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RemoveListenerCertificatesInput, context: context)
         Hearth::Validator.validate!(input[:listener_arn], ::String, context: "#{context}[:listener_arn]")
-        Validators::CertificateList.validate!(input[:certificates], context: "#{context}[:certificates]") unless input[:certificates].nil?
+        CertificateList.validate!(input[:certificates], context: "#{context}[:certificates]") unless input[:certificates].nil?
       end
     end
 
@@ -1012,8 +1014,8 @@ module AWS::SDK::ElasticLoadBalancingV2
     class RemoveTagsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RemoveTagsInput, context: context)
-        Validators::ResourceArns.validate!(input[:resource_arns], context: "#{context}[:resource_arns]") unless input[:resource_arns].nil?
-        Validators::TagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        ResourceArns.validate!(input[:resource_arns], context: "#{context}[:resource_arns]") unless input[:resource_arns].nil?
+        TagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1044,8 +1046,8 @@ module AWS::SDK::ElasticLoadBalancingV2
         Hearth::Validator.validate!(input, Types::Rule, context: context)
         Hearth::Validator.validate!(input[:rule_arn], ::String, context: "#{context}[:rule_arn]")
         Hearth::Validator.validate!(input[:priority], ::String, context: "#{context}[:priority]")
-        Validators::RuleConditionList.validate!(input[:conditions], context: "#{context}[:conditions]") unless input[:conditions].nil?
-        Validators::Actions.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
+        RuleConditionList.validate!(input[:conditions], context: "#{context}[:conditions]") unless input[:conditions].nil?
+        Actions.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
         Hearth::Validator.validate!(input[:is_default], ::TrueClass, ::FalseClass, context: "#{context}[:is_default]")
       end
     end
@@ -1063,13 +1065,13 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RuleCondition, context: context)
         Hearth::Validator.validate!(input[:field], ::String, context: "#{context}[:field]")
-        Validators::ListOfString.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
-        Validators::HostHeaderConditionConfig.validate!(input[:host_header_config], context: "#{context}[:host_header_config]") unless input[:host_header_config].nil?
-        Validators::PathPatternConditionConfig.validate!(input[:path_pattern_config], context: "#{context}[:path_pattern_config]") unless input[:path_pattern_config].nil?
-        Validators::HttpHeaderConditionConfig.validate!(input[:http_header_config], context: "#{context}[:http_header_config]") unless input[:http_header_config].nil?
-        Validators::QueryStringConditionConfig.validate!(input[:query_string_config], context: "#{context}[:query_string_config]") unless input[:query_string_config].nil?
-        Validators::HttpRequestMethodConditionConfig.validate!(input[:http_request_method_config], context: "#{context}[:http_request_method_config]") unless input[:http_request_method_config].nil?
-        Validators::SourceIpConditionConfig.validate!(input[:source_ip_config], context: "#{context}[:source_ip_config]") unless input[:source_ip_config].nil?
+        ListOfString.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        HostHeaderConditionConfig.validate!(input[:host_header_config], context: "#{context}[:host_header_config]") unless input[:host_header_config].nil?
+        PathPatternConditionConfig.validate!(input[:path_pattern_config], context: "#{context}[:path_pattern_config]") unless input[:path_pattern_config].nil?
+        HttpHeaderConditionConfig.validate!(input[:http_header_config], context: "#{context}[:http_header_config]") unless input[:http_header_config].nil?
+        QueryStringConditionConfig.validate!(input[:query_string_config], context: "#{context}[:query_string_config]") unless input[:query_string_config].nil?
+        HttpRequestMethodConditionConfig.validate!(input[:http_request_method_config], context: "#{context}[:http_request_method_config]") unless input[:http_request_method_config].nil?
+        SourceIpConditionConfig.validate!(input[:source_ip_config], context: "#{context}[:source_ip_config]") unless input[:source_ip_config].nil?
       end
     end
 
@@ -1077,7 +1079,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RuleCondition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RuleCondition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1093,7 +1095,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RulePriorityPair.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RulePriorityPair.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1110,7 +1112,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Rule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Rule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1149,14 +1151,14 @@ module AWS::SDK::ElasticLoadBalancingV2
     class SetRulePrioritiesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SetRulePrioritiesInput, context: context)
-        Validators::RulePriorityList.validate!(input[:rule_priorities], context: "#{context}[:rule_priorities]") unless input[:rule_priorities].nil?
+        RulePriorityList.validate!(input[:rule_priorities], context: "#{context}[:rule_priorities]") unless input[:rule_priorities].nil?
       end
     end
 
     class SetRulePrioritiesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SetRulePrioritiesOutput, context: context)
-        Validators::Rules.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        Rules.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
       end
     end
 
@@ -1164,14 +1166,14 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SetSecurityGroupsInput, context: context)
         Hearth::Validator.validate!(input[:load_balancer_arn], ::String, context: "#{context}[:load_balancer_arn]")
-        Validators::SecurityGroups.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
+        SecurityGroups.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
       end
     end
 
     class SetSecurityGroupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SetSecurityGroupsOutput, context: context)
-        Validators::SecurityGroups.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        SecurityGroups.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
       end
     end
 
@@ -1179,8 +1181,8 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SetSubnetsInput, context: context)
         Hearth::Validator.validate!(input[:load_balancer_arn], ::String, context: "#{context}[:load_balancer_arn]")
-        Validators::Subnets.validate!(input[:subnets], context: "#{context}[:subnets]") unless input[:subnets].nil?
-        Validators::SubnetMappings.validate!(input[:subnet_mappings], context: "#{context}[:subnet_mappings]") unless input[:subnet_mappings].nil?
+        Subnets.validate!(input[:subnets], context: "#{context}[:subnets]") unless input[:subnets].nil?
+        SubnetMappings.validate!(input[:subnet_mappings], context: "#{context}[:subnet_mappings]") unless input[:subnet_mappings].nil?
         Hearth::Validator.validate!(input[:ip_address_type], ::String, context: "#{context}[:ip_address_type]")
       end
     end
@@ -1188,7 +1190,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     class SetSubnetsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SetSubnetsOutput, context: context)
-        Validators::AvailabilityZones.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
+        AvailabilityZones.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
         Hearth::Validator.validate!(input[:ip_address_type], ::String, context: "#{context}[:ip_address_type]")
       end
     end
@@ -1196,7 +1198,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     class SourceIpConditionConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SourceIpConditionConfig, context: context)
-        Validators::ListOfString.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        ListOfString.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -1204,7 +1206,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SslPolicy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SslPolicy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1212,10 +1214,10 @@ module AWS::SDK::ElasticLoadBalancingV2
     class SslPolicy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SslPolicy, context: context)
-        Validators::SslProtocols.validate!(input[:ssl_protocols], context: "#{context}[:ssl_protocols]") unless input[:ssl_protocols].nil?
-        Validators::Ciphers.validate!(input[:ciphers], context: "#{context}[:ciphers]") unless input[:ciphers].nil?
+        SslProtocols.validate!(input[:ssl_protocols], context: "#{context}[:ssl_protocols]") unless input[:ssl_protocols].nil?
+        Ciphers.validate!(input[:ciphers], context: "#{context}[:ciphers]") unless input[:ciphers].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ListOfString.validate!(input[:supported_load_balancer_types], context: "#{context}[:supported_load_balancer_types]") unless input[:supported_load_balancer_types].nil?
+        ListOfString.validate!(input[:supported_load_balancer_types], context: "#{context}[:supported_load_balancer_types]") unless input[:supported_load_balancer_types].nil?
       end
     end
 
@@ -1251,7 +1253,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SubnetMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SubnetMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1284,7 +1286,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagDescription, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1292,7 +1294,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TagDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TagDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1310,7 +1312,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1328,7 +1330,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TargetDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TargetDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1349,8 +1351,8 @@ module AWS::SDK::ElasticLoadBalancingV2
         Hearth::Validator.validate!(input[:healthy_threshold_count], ::Integer, context: "#{context}[:healthy_threshold_count]")
         Hearth::Validator.validate!(input[:unhealthy_threshold_count], ::Integer, context: "#{context}[:unhealthy_threshold_count]")
         Hearth::Validator.validate!(input[:health_check_path], ::String, context: "#{context}[:health_check_path]")
-        Validators::Matcher.validate!(input[:matcher], context: "#{context}[:matcher]") unless input[:matcher].nil?
-        Validators::LoadBalancerArns.validate!(input[:load_balancer_arns], context: "#{context}[:load_balancer_arns]") unless input[:load_balancer_arns].nil?
+        Matcher.validate!(input[:matcher], context: "#{context}[:matcher]") unless input[:matcher].nil?
+        LoadBalancerArns.validate!(input[:load_balancer_arns], context: "#{context}[:load_balancer_arns]") unless input[:load_balancer_arns].nil?
         Hearth::Validator.validate!(input[:target_type], ::String, context: "#{context}[:target_type]")
         Hearth::Validator.validate!(input[:protocol_version], ::String, context: "#{context}[:protocol_version]")
         Hearth::Validator.validate!(input[:ip_address_type], ::String, context: "#{context}[:ip_address_type]")
@@ -1385,7 +1387,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TargetGroupAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TargetGroupAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1394,7 +1396,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TargetGroupTuple.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TargetGroupTuple.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1435,7 +1437,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TargetGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TargetGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1452,9 +1454,9 @@ module AWS::SDK::ElasticLoadBalancingV2
     class TargetHealthDescription
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TargetHealthDescription, context: context)
-        Validators::TargetDescription.validate!(input[:target], context: "#{context}[:target]") unless input[:target].nil?
+        TargetDescription.validate!(input[:target], context: "#{context}[:target]") unless input[:target].nil?
         Hearth::Validator.validate!(input[:health_check_port], ::String, context: "#{context}[:health_check_port]")
-        Validators::TargetHealth.validate!(input[:target_health], context: "#{context}[:target_health]") unless input[:target_health].nil?
+        TargetHealth.validate!(input[:target_health], context: "#{context}[:target_health]") unless input[:target_health].nil?
       end
     end
 
@@ -1462,7 +1464,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TargetHealthDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TargetHealthDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

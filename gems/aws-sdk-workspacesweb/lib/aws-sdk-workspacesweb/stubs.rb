@@ -324,7 +324,7 @@ module AWS::SDK::WorkSpacesWeb
     class GetBrowserSettings
       def self.default(visited=[])
         {
-          browser_settings: Stubs::BrowserSettings.default(visited),
+          browser_settings: BrowserSettings.default(visited),
         }
       end
 
@@ -344,7 +344,7 @@ module AWS::SDK::WorkSpacesWeb
         visited = visited + ['BrowserSettings']
         {
           browser_settings_arn: 'browser_settings_arn',
-          associated_portal_arns: Stubs::ArnList.default(visited),
+          associated_portal_arns: ArnList.default(visited),
           browser_policy: 'browser_policy',
         }
       end
@@ -383,7 +383,7 @@ module AWS::SDK::WorkSpacesWeb
     class GetIdentityProvider
       def self.default(visited=[])
         {
-          identity_provider: Stubs::IdentityProvider.default(visited),
+          identity_provider: IdentityProvider.default(visited),
         }
       end
 
@@ -405,7 +405,7 @@ module AWS::SDK::WorkSpacesWeb
           identity_provider_arn: 'identity_provider_arn',
           identity_provider_name: 'identity_provider_name',
           identity_provider_type: 'identity_provider_type',
-          identity_provider_details: Stubs::IdentityProviderDetails.default(visited),
+          identity_provider_details: IdentityProviderDetails.default(visited),
         }
       end
 
@@ -444,7 +444,7 @@ module AWS::SDK::WorkSpacesWeb
     class GetNetworkSettings
       def self.default(visited=[])
         {
-          network_settings: Stubs::NetworkSettings.default(visited),
+          network_settings: NetworkSettings.default(visited),
         }
       end
 
@@ -464,10 +464,10 @@ module AWS::SDK::WorkSpacesWeb
         visited = visited + ['NetworkSettings']
         {
           network_settings_arn: 'network_settings_arn',
-          associated_portal_arns: Stubs::ArnList.default(visited),
+          associated_portal_arns: ArnList.default(visited),
           vpc_id: 'vpc_id',
-          subnet_ids: Stubs::SubnetIdList.default(visited),
-          security_group_ids: Stubs::SecurityGroupIdList.default(visited),
+          subnet_ids: SubnetIdList.default(visited),
+          security_group_ids: SecurityGroupIdList.default(visited),
         }
       end
 
@@ -527,7 +527,7 @@ module AWS::SDK::WorkSpacesWeb
     class GetPortal
       def self.default(visited=[])
         {
-          portal: Stubs::Portal.default(visited),
+          portal: Portal.default(visited),
         }
       end
 
@@ -603,7 +603,7 @@ module AWS::SDK::WorkSpacesWeb
     class GetTrustStore
       def self.default(visited=[])
         {
-          trust_store: Stubs::TrustStore.default(visited),
+          trust_store: TrustStore.default(visited),
         }
       end
 
@@ -622,7 +622,7 @@ module AWS::SDK::WorkSpacesWeb
         return nil if visited.include?('TrustStore')
         visited = visited + ['TrustStore']
         {
-          associated_portal_arns: Stubs::ArnList.default(visited),
+          associated_portal_arns: ArnList.default(visited),
           trust_store_arn: 'trust_store_arn',
         }
       end
@@ -641,7 +641,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.default(visited=[])
         {
           trust_store_arn: 'trust_store_arn',
-          certificate: Stubs::Certificate.default(visited),
+          certificate: Certificate.default(visited),
         }
       end
 
@@ -687,7 +687,7 @@ module AWS::SDK::WorkSpacesWeb
     class GetUserSettings
       def self.default(visited=[])
         {
-          user_settings: Stubs::UserSettings.default(visited),
+          user_settings: UserSettings.default(visited),
         }
       end
 
@@ -707,7 +707,7 @@ module AWS::SDK::WorkSpacesWeb
         visited = visited + ['UserSettings']
         {
           user_settings_arn: 'user_settings_arn',
-          associated_portal_arns: Stubs::ArnList.default(visited),
+          associated_portal_arns: ArnList.default(visited),
           copy_allowed: 'copy_allowed',
           paste_allowed: 'paste_allowed',
           download_allowed: 'download_allowed',
@@ -738,7 +738,7 @@ module AWS::SDK::WorkSpacesWeb
     class ListBrowserSettings
       def self.default(visited=[])
         {
-          browser_settings: Stubs::BrowserSettingsList.default(visited),
+          browser_settings: BrowserSettingsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -759,7 +759,7 @@ module AWS::SDK::WorkSpacesWeb
         return nil if visited.include?('BrowserSettingsList')
         visited = visited + ['BrowserSettingsList']
         [
-          Stubs::BrowserSettingsSummary.default(visited)
+          BrowserSettingsSummary.default(visited)
         ]
       end
 
@@ -796,7 +796,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          identity_providers: Stubs::IdentityProviderList.default(visited),
+          identity_providers: IdentityProviderList.default(visited),
         }
       end
 
@@ -816,7 +816,7 @@ module AWS::SDK::WorkSpacesWeb
         return nil if visited.include?('IdentityProviderList')
         visited = visited + ['IdentityProviderList']
         [
-          Stubs::IdentityProviderSummary.default(visited)
+          IdentityProviderSummary.default(visited)
         ]
       end
 
@@ -856,7 +856,7 @@ module AWS::SDK::WorkSpacesWeb
     class ListNetworkSettings
       def self.default(visited=[])
         {
-          network_settings: Stubs::NetworkSettingsList.default(visited),
+          network_settings: NetworkSettingsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -877,7 +877,7 @@ module AWS::SDK::WorkSpacesWeb
         return nil if visited.include?('NetworkSettingsList')
         visited = visited + ['NetworkSettingsList']
         [
-          Stubs::NetworkSettingsSummary.default(visited)
+          NetworkSettingsSummary.default(visited)
         ]
       end
 
@@ -915,7 +915,7 @@ module AWS::SDK::WorkSpacesWeb
     class ListPortals
       def self.default(visited=[])
         {
-          portals: Stubs::PortalList.default(visited),
+          portals: PortalList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -936,7 +936,7 @@ module AWS::SDK::WorkSpacesWeb
         return nil if visited.include?('PortalList')
         visited = visited + ['PortalList']
         [
-          Stubs::PortalSummary.default(visited)
+          PortalSummary.default(visited)
         ]
       end
 
@@ -992,7 +992,7 @@ module AWS::SDK::WorkSpacesWeb
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -1011,7 +1011,7 @@ module AWS::SDK::WorkSpacesWeb
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -1049,7 +1049,7 @@ module AWS::SDK::WorkSpacesWeb
     class ListTrustStoreCertificates
       def self.default(visited=[])
         {
-          certificate_list: Stubs::CertificateSummaryList.default(visited),
+          certificate_list: CertificateSummaryList.default(visited),
           trust_store_arn: 'trust_store_arn',
           next_token: 'next_token',
         }
@@ -1072,7 +1072,7 @@ module AWS::SDK::WorkSpacesWeb
         return nil if visited.include?('CertificateSummaryList')
         visited = visited + ['CertificateSummaryList']
         [
-          Stubs::CertificateSummary.default(visited)
+          CertificateSummary.default(visited)
         ]
       end
 
@@ -1116,7 +1116,7 @@ module AWS::SDK::WorkSpacesWeb
     class ListTrustStores
       def self.default(visited=[])
         {
-          trust_stores: Stubs::TrustStoreSummaryList.default(visited),
+          trust_stores: TrustStoreSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1137,7 +1137,7 @@ module AWS::SDK::WorkSpacesWeb
         return nil if visited.include?('TrustStoreSummaryList')
         visited = visited + ['TrustStoreSummaryList']
         [
-          Stubs::TrustStoreSummary.default(visited)
+          TrustStoreSummary.default(visited)
         ]
       end
 
@@ -1173,7 +1173,7 @@ module AWS::SDK::WorkSpacesWeb
     class ListUserSettings
       def self.default(visited=[])
         {
-          user_settings: Stubs::UserSettingsList.default(visited),
+          user_settings: UserSettingsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1194,7 +1194,7 @@ module AWS::SDK::WorkSpacesWeb
         return nil if visited.include?('UserSettingsList')
         visited = visited + ['UserSettingsList']
         [
-          Stubs::UserSettingsSummary.default(visited)
+          UserSettingsSummary.default(visited)
         ]
       end
 
@@ -1270,7 +1270,7 @@ module AWS::SDK::WorkSpacesWeb
     class UpdateBrowserSettings
       def self.default(visited=[])
         {
-          browser_settings: Stubs::BrowserSettings.default(visited),
+          browser_settings: BrowserSettings.default(visited),
         }
       end
 
@@ -1287,7 +1287,7 @@ module AWS::SDK::WorkSpacesWeb
     class UpdateIdentityProvider
       def self.default(visited=[])
         {
-          identity_provider: Stubs::IdentityProvider.default(visited),
+          identity_provider: IdentityProvider.default(visited),
         }
       end
 
@@ -1304,7 +1304,7 @@ module AWS::SDK::WorkSpacesWeb
     class UpdateNetworkSettings
       def self.default(visited=[])
         {
-          network_settings: Stubs::NetworkSettings.default(visited),
+          network_settings: NetworkSettings.default(visited),
         }
       end
 
@@ -1321,7 +1321,7 @@ module AWS::SDK::WorkSpacesWeb
     class UpdatePortal
       def self.default(visited=[])
         {
-          portal: Stubs::Portal.default(visited),
+          portal: Portal.default(visited),
         }
       end
 
@@ -1355,7 +1355,7 @@ module AWS::SDK::WorkSpacesWeb
     class UpdateUserSettings
       def self.default(visited=[])
         {
-          user_settings: Stubs::UserSettings.default(visited),
+          user_settings: UserSettings.default(visited),
         }
       end
 

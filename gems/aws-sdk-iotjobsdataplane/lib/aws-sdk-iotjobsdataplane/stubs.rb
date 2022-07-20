@@ -14,7 +14,7 @@ module AWS::SDK::IoTJobsDataPlane
     class DescribeJobExecution
       def self.default(visited=[])
         {
-          execution: Stubs::JobExecution.default(visited),
+          execution: JobExecution.default(visited),
         }
       end
 
@@ -36,7 +36,7 @@ module AWS::SDK::IoTJobsDataPlane
           job_id: 'job_id',
           thing_name: 'thing_name',
           status: 'status',
-          status_details: Stubs::DetailsMap.default(visited),
+          status_details: DetailsMap.default(visited),
           queued_at: 1,
           started_at: 1,
           last_updated_at: 1,
@@ -89,8 +89,8 @@ module AWS::SDK::IoTJobsDataPlane
     class GetPendingJobExecutions
       def self.default(visited=[])
         {
-          in_progress_jobs: Stubs::JobExecutionSummaryList.default(visited),
-          queued_jobs: Stubs::JobExecutionSummaryList.default(visited),
+          in_progress_jobs: JobExecutionSummaryList.default(visited),
+          queued_jobs: JobExecutionSummaryList.default(visited),
         }
       end
 
@@ -110,7 +110,7 @@ module AWS::SDK::IoTJobsDataPlane
         return nil if visited.include?('JobExecutionSummaryList')
         visited = visited + ['JobExecutionSummaryList']
         [
-          Stubs::JobExecutionSummary.default(visited)
+          JobExecutionSummary.default(visited)
         ]
       end
 
@@ -156,7 +156,7 @@ module AWS::SDK::IoTJobsDataPlane
     class StartNextPendingJobExecution
       def self.default(visited=[])
         {
-          execution: Stubs::JobExecution.default(visited),
+          execution: JobExecution.default(visited),
         }
       end
 
@@ -173,7 +173,7 @@ module AWS::SDK::IoTJobsDataPlane
     class UpdateJobExecution
       def self.default(visited=[])
         {
-          execution_state: Stubs::JobExecutionState.default(visited),
+          execution_state: JobExecutionState.default(visited),
           job_document: 'job_document',
         }
       end
@@ -195,7 +195,7 @@ module AWS::SDK::IoTJobsDataPlane
         visited = visited + ['JobExecutionState']
         {
           status: 'status',
-          status_details: Stubs::DetailsMap.default(visited),
+          status_details: DetailsMap.default(visited),
           version_number: 1,
         }
       end

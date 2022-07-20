@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::ServiceCatalog
   module Validators
 
@@ -46,7 +48,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -139,7 +141,7 @@ module AWS::SDK::ServiceCatalog
     class BatchAssociateServiceActionWithProvisioningArtifactInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchAssociateServiceActionWithProvisioningArtifactInput, context: context)
-        Validators::ServiceActionAssociations.validate!(input[:service_action_associations], context: "#{context}[:service_action_associations]") unless input[:service_action_associations].nil?
+        ServiceActionAssociations.validate!(input[:service_action_associations], context: "#{context}[:service_action_associations]") unless input[:service_action_associations].nil?
         Hearth::Validator.validate!(input[:accept_language], ::String, context: "#{context}[:accept_language]")
       end
     end
@@ -147,14 +149,14 @@ module AWS::SDK::ServiceCatalog
     class BatchAssociateServiceActionWithProvisioningArtifactOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchAssociateServiceActionWithProvisioningArtifactOutput, context: context)
-        Validators::FailedServiceActionAssociations.validate!(input[:failed_service_action_associations], context: "#{context}[:failed_service_action_associations]") unless input[:failed_service_action_associations].nil?
+        FailedServiceActionAssociations.validate!(input[:failed_service_action_associations], context: "#{context}[:failed_service_action_associations]") unless input[:failed_service_action_associations].nil?
       end
     end
 
     class BatchDisassociateServiceActionFromProvisioningArtifactInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDisassociateServiceActionFromProvisioningArtifactInput, context: context)
-        Validators::ServiceActionAssociations.validate!(input[:service_action_associations], context: "#{context}[:service_action_associations]") unless input[:service_action_associations].nil?
+        ServiceActionAssociations.validate!(input[:service_action_associations], context: "#{context}[:service_action_associations]") unless input[:service_action_associations].nil?
         Hearth::Validator.validate!(input[:accept_language], ::String, context: "#{context}[:accept_language]")
       end
     end
@@ -162,7 +164,7 @@ module AWS::SDK::ServiceCatalog
     class BatchDisassociateServiceActionFromProvisioningArtifactOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDisassociateServiceActionFromProvisioningArtifactOutput, context: context)
-        Validators::FailedServiceActionAssociations.validate!(input[:failed_service_action_associations], context: "#{context}[:failed_service_action_associations]") unless input[:failed_service_action_associations].nil?
+        FailedServiceActionAssociations.validate!(input[:failed_service_action_associations], context: "#{context}[:failed_service_action_associations]") unless input[:failed_service_action_associations].nil?
       end
     end
 
@@ -177,7 +179,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BudgetDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BudgetDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -193,7 +195,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CloudWatchDashboard.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CloudWatchDashboard.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -214,7 +216,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ConstraintDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ConstraintDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -223,7 +225,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ConstraintSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ConstraintSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -252,8 +254,8 @@ module AWS::SDK::ServiceCatalog
         Hearth::Validator.validate!(input[:source_product_arn], ::String, context: "#{context}[:source_product_arn]")
         Hearth::Validator.validate!(input[:target_product_id], ::String, context: "#{context}[:target_product_id]")
         Hearth::Validator.validate!(input[:target_product_name], ::String, context: "#{context}[:target_product_name]")
-        Validators::SourceProvisioningArtifactProperties.validate!(input[:source_provisioning_artifact_identifiers], context: "#{context}[:source_provisioning_artifact_identifiers]") unless input[:source_provisioning_artifact_identifiers].nil?
-        Validators::CopyOptions.validate!(input[:copy_options], context: "#{context}[:copy_options]") unless input[:copy_options].nil?
+        SourceProvisioningArtifactProperties.validate!(input[:source_provisioning_artifact_identifiers], context: "#{context}[:source_provisioning_artifact_identifiers]") unless input[:source_provisioning_artifact_identifiers].nil?
+        CopyOptions.validate!(input[:copy_options], context: "#{context}[:copy_options]") unless input[:copy_options].nil?
         Hearth::Validator.validate!(input[:idempotency_token], ::String, context: "#{context}[:idempotency_token]")
       end
     end
@@ -281,7 +283,7 @@ module AWS::SDK::ServiceCatalog
     class CreateConstraintOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateConstraintOutput, context: context)
-        Validators::ConstraintDetail.validate!(input[:constraint_detail], context: "#{context}[:constraint_detail]") unless input[:constraint_detail].nil?
+        ConstraintDetail.validate!(input[:constraint_detail], context: "#{context}[:constraint_detail]") unless input[:constraint_detail].nil?
         Hearth::Validator.validate!(input[:constraint_parameters], ::String, context: "#{context}[:constraint_parameters]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
       end
@@ -294,7 +296,7 @@ module AWS::SDK::ServiceCatalog
         Hearth::Validator.validate!(input[:display_name], ::String, context: "#{context}[:display_name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:provider_name], ::String, context: "#{context}[:provider_name]")
-        Validators::AddTags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        AddTags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:idempotency_token], ::String, context: "#{context}[:idempotency_token]")
       end
     end
@@ -302,8 +304,8 @@ module AWS::SDK::ServiceCatalog
     class CreatePortfolioOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreatePortfolioOutput, context: context)
-        Validators::PortfolioDetail.validate!(input[:portfolio_detail], context: "#{context}[:portfolio_detail]") unless input[:portfolio_detail].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        PortfolioDetail.validate!(input[:portfolio_detail], context: "#{context}[:portfolio_detail]") unless input[:portfolio_detail].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -313,7 +315,7 @@ module AWS::SDK::ServiceCatalog
         Hearth::Validator.validate!(input[:accept_language], ::String, context: "#{context}[:accept_language]")
         Hearth::Validator.validate!(input[:portfolio_id], ::String, context: "#{context}[:portfolio_id]")
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
-        Validators::OrganizationNode.validate!(input[:organization_node], context: "#{context}[:organization_node]") unless input[:organization_node].nil?
+        OrganizationNode.validate!(input[:organization_node], context: "#{context}[:organization_node]") unless input[:organization_node].nil?
         Hearth::Validator.validate!(input[:share_tag_options], ::TrueClass, ::FalseClass, context: "#{context}[:share_tag_options]")
       end
     end
@@ -337,8 +339,8 @@ module AWS::SDK::ServiceCatalog
         Hearth::Validator.validate!(input[:support_email], ::String, context: "#{context}[:support_email]")
         Hearth::Validator.validate!(input[:support_url], ::String, context: "#{context}[:support_url]")
         Hearth::Validator.validate!(input[:product_type], ::String, context: "#{context}[:product_type]")
-        Validators::AddTags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::ProvisioningArtifactProperties.validate!(input[:provisioning_artifact_parameters], context: "#{context}[:provisioning_artifact_parameters]") unless input[:provisioning_artifact_parameters].nil?
+        AddTags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ProvisioningArtifactProperties.validate!(input[:provisioning_artifact_parameters], context: "#{context}[:provisioning_artifact_parameters]") unless input[:provisioning_artifact_parameters].nil?
         Hearth::Validator.validate!(input[:idempotency_token], ::String, context: "#{context}[:idempotency_token]")
       end
     end
@@ -346,9 +348,9 @@ module AWS::SDK::ServiceCatalog
     class CreateProductOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateProductOutput, context: context)
-        Validators::ProductViewDetail.validate!(input[:product_view_detail], context: "#{context}[:product_view_detail]") unless input[:product_view_detail].nil?
-        Validators::ProvisioningArtifactDetail.validate!(input[:provisioning_artifact_detail], context: "#{context}[:provisioning_artifact_detail]") unless input[:provisioning_artifact_detail].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ProductViewDetail.validate!(input[:product_view_detail], context: "#{context}[:product_view_detail]") unless input[:product_view_detail].nil?
+        ProvisioningArtifactDetail.validate!(input[:provisioning_artifact_detail], context: "#{context}[:provisioning_artifact_detail]") unless input[:provisioning_artifact_detail].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -358,14 +360,14 @@ module AWS::SDK::ServiceCatalog
         Hearth::Validator.validate!(input[:accept_language], ::String, context: "#{context}[:accept_language]")
         Hearth::Validator.validate!(input[:plan_name], ::String, context: "#{context}[:plan_name]")
         Hearth::Validator.validate!(input[:plan_type], ::String, context: "#{context}[:plan_type]")
-        Validators::NotificationArns.validate!(input[:notification_arns], context: "#{context}[:notification_arns]") unless input[:notification_arns].nil?
+        NotificationArns.validate!(input[:notification_arns], context: "#{context}[:notification_arns]") unless input[:notification_arns].nil?
         Hearth::Validator.validate!(input[:path_id], ::String, context: "#{context}[:path_id]")
         Hearth::Validator.validate!(input[:product_id], ::String, context: "#{context}[:product_id]")
         Hearth::Validator.validate!(input[:provisioned_product_name], ::String, context: "#{context}[:provisioned_product_name]")
         Hearth::Validator.validate!(input[:provisioning_artifact_id], ::String, context: "#{context}[:provisioning_artifact_id]")
-        Validators::UpdateProvisioningParameters.validate!(input[:provisioning_parameters], context: "#{context}[:provisioning_parameters]") unless input[:provisioning_parameters].nil?
+        UpdateProvisioningParameters.validate!(input[:provisioning_parameters], context: "#{context}[:provisioning_parameters]") unless input[:provisioning_parameters].nil?
         Hearth::Validator.validate!(input[:idempotency_token], ::String, context: "#{context}[:idempotency_token]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -385,7 +387,7 @@ module AWS::SDK::ServiceCatalog
         Hearth::Validator.validate!(input, Types::CreateProvisioningArtifactInput, context: context)
         Hearth::Validator.validate!(input[:accept_language], ::String, context: "#{context}[:accept_language]")
         Hearth::Validator.validate!(input[:product_id], ::String, context: "#{context}[:product_id]")
-        Validators::ProvisioningArtifactProperties.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        ProvisioningArtifactProperties.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
         Hearth::Validator.validate!(input[:idempotency_token], ::String, context: "#{context}[:idempotency_token]")
       end
     end
@@ -393,8 +395,8 @@ module AWS::SDK::ServiceCatalog
     class CreateProvisioningArtifactOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateProvisioningArtifactOutput, context: context)
-        Validators::ProvisioningArtifactDetail.validate!(input[:provisioning_artifact_detail], context: "#{context}[:provisioning_artifact_detail]") unless input[:provisioning_artifact_detail].nil?
-        Validators::ProvisioningArtifactInfo.validate!(input[:info], context: "#{context}[:info]") unless input[:info].nil?
+        ProvisioningArtifactDetail.validate!(input[:provisioning_artifact_detail], context: "#{context}[:provisioning_artifact_detail]") unless input[:provisioning_artifact_detail].nil?
+        ProvisioningArtifactInfo.validate!(input[:info], context: "#{context}[:info]") unless input[:info].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
       end
     end
@@ -404,7 +406,7 @@ module AWS::SDK::ServiceCatalog
         Hearth::Validator.validate!(input, Types::CreateServiceActionInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:definition_type], ::String, context: "#{context}[:definition_type]")
-        Validators::ServiceActionDefinitionMap.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
+        ServiceActionDefinitionMap.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:accept_language], ::String, context: "#{context}[:accept_language]")
         Hearth::Validator.validate!(input[:idempotency_token], ::String, context: "#{context}[:idempotency_token]")
@@ -414,7 +416,7 @@ module AWS::SDK::ServiceCatalog
     class CreateServiceActionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateServiceActionOutput, context: context)
-        Validators::ServiceActionDetail.validate!(input[:service_action_detail], context: "#{context}[:service_action_detail]") unless input[:service_action_detail].nil?
+        ServiceActionDetail.validate!(input[:service_action_detail], context: "#{context}[:service_action_detail]") unless input[:service_action_detail].nil?
       end
     end
 
@@ -429,7 +431,7 @@ module AWS::SDK::ServiceCatalog
     class CreateTagOptionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateTagOptionOutput, context: context)
-        Validators::TagOptionDetail.validate!(input[:tag_option_detail], context: "#{context}[:tag_option_detail]") unless input[:tag_option_detail].nil?
+        TagOptionDetail.validate!(input[:tag_option_detail], context: "#{context}[:tag_option_detail]") unless input[:tag_option_detail].nil?
       end
     end
 
@@ -467,7 +469,7 @@ module AWS::SDK::ServiceCatalog
         Hearth::Validator.validate!(input[:accept_language], ::String, context: "#{context}[:accept_language]")
         Hearth::Validator.validate!(input[:portfolio_id], ::String, context: "#{context}[:portfolio_id]")
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
-        Validators::OrganizationNode.validate!(input[:organization_node], context: "#{context}[:organization_node]") unless input[:organization_node].nil?
+        OrganizationNode.validate!(input[:organization_node], context: "#{context}[:organization_node]") unless input[:organization_node].nil?
       end
     end
 
@@ -560,7 +562,7 @@ module AWS::SDK::ServiceCatalog
     class DescribeConstraintOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeConstraintOutput, context: context)
-        Validators::ConstraintDetail.validate!(input[:constraint_detail], context: "#{context}[:constraint_detail]") unless input[:constraint_detail].nil?
+        ConstraintDetail.validate!(input[:constraint_detail], context: "#{context}[:constraint_detail]") unless input[:constraint_detail].nil?
         Hearth::Validator.validate!(input[:constraint_parameters], ::String, context: "#{context}[:constraint_parameters]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
       end
@@ -594,10 +596,10 @@ module AWS::SDK::ServiceCatalog
     class DescribePortfolioOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribePortfolioOutput, context: context)
-        Validators::PortfolioDetail.validate!(input[:portfolio_detail], context: "#{context}[:portfolio_detail]") unless input[:portfolio_detail].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::TagOptionDetails.validate!(input[:tag_options], context: "#{context}[:tag_options]") unless input[:tag_options].nil?
-        Validators::Budgets.validate!(input[:budgets], context: "#{context}[:budgets]") unless input[:budgets].nil?
+        PortfolioDetail.validate!(input[:portfolio_detail], context: "#{context}[:portfolio_detail]") unless input[:portfolio_detail].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagOptionDetails.validate!(input[:tag_options], context: "#{context}[:tag_options]") unless input[:tag_options].nil?
+        Budgets.validate!(input[:budgets], context: "#{context}[:budgets]") unless input[:budgets].nil?
       end
     end
 
@@ -615,7 +617,7 @@ module AWS::SDK::ServiceCatalog
         Hearth::Validator.validate!(input[:portfolio_id], ::String, context: "#{context}[:portfolio_id]")
         Hearth::Validator.validate!(input[:organization_node_value], ::String, context: "#{context}[:organization_node_value]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::ShareDetails.validate!(input[:share_details], context: "#{context}[:share_details]") unless input[:share_details].nil?
+        ShareDetails.validate!(input[:share_details], context: "#{context}[:share_details]") unless input[:share_details].nil?
       end
     end
 
@@ -633,7 +635,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribePortfolioSharesOutput, context: context)
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
-        Validators::PortfolioShareDetails.validate!(input[:portfolio_share_details], context: "#{context}[:portfolio_share_details]") unless input[:portfolio_share_details].nil?
+        PortfolioShareDetails.validate!(input[:portfolio_share_details], context: "#{context}[:portfolio_share_details]") unless input[:portfolio_share_details].nil?
       end
     end
 
@@ -650,11 +652,11 @@ module AWS::SDK::ServiceCatalog
     class DescribeProductAsAdminOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeProductAsAdminOutput, context: context)
-        Validators::ProductViewDetail.validate!(input[:product_view_detail], context: "#{context}[:product_view_detail]") unless input[:product_view_detail].nil?
-        Validators::ProvisioningArtifactSummaries.validate!(input[:provisioning_artifact_summaries], context: "#{context}[:provisioning_artifact_summaries]") unless input[:provisioning_artifact_summaries].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::TagOptionDetails.validate!(input[:tag_options], context: "#{context}[:tag_options]") unless input[:tag_options].nil?
-        Validators::Budgets.validate!(input[:budgets], context: "#{context}[:budgets]") unless input[:budgets].nil?
+        ProductViewDetail.validate!(input[:product_view_detail], context: "#{context}[:product_view_detail]") unless input[:product_view_detail].nil?
+        ProvisioningArtifactSummaries.validate!(input[:provisioning_artifact_summaries], context: "#{context}[:provisioning_artifact_summaries]") unless input[:provisioning_artifact_summaries].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagOptionDetails.validate!(input[:tag_options], context: "#{context}[:tag_options]") unless input[:tag_options].nil?
+        Budgets.validate!(input[:budgets], context: "#{context}[:budgets]") unless input[:budgets].nil?
       end
     end
 
@@ -670,10 +672,10 @@ module AWS::SDK::ServiceCatalog
     class DescribeProductOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeProductOutput, context: context)
-        Validators::ProductViewSummary.validate!(input[:product_view_summary], context: "#{context}[:product_view_summary]") unless input[:product_view_summary].nil?
-        Validators::ProvisioningArtifacts.validate!(input[:provisioning_artifacts], context: "#{context}[:provisioning_artifacts]") unless input[:provisioning_artifacts].nil?
-        Validators::Budgets.validate!(input[:budgets], context: "#{context}[:budgets]") unless input[:budgets].nil?
-        Validators::LaunchPaths.validate!(input[:launch_paths], context: "#{context}[:launch_paths]") unless input[:launch_paths].nil?
+        ProductViewSummary.validate!(input[:product_view_summary], context: "#{context}[:product_view_summary]") unless input[:product_view_summary].nil?
+        ProvisioningArtifacts.validate!(input[:provisioning_artifacts], context: "#{context}[:provisioning_artifacts]") unless input[:provisioning_artifacts].nil?
+        Budgets.validate!(input[:budgets], context: "#{context}[:budgets]") unless input[:budgets].nil?
+        LaunchPaths.validate!(input[:launch_paths], context: "#{context}[:launch_paths]") unless input[:launch_paths].nil?
       end
     end
 
@@ -688,8 +690,8 @@ module AWS::SDK::ServiceCatalog
     class DescribeProductViewOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeProductViewOutput, context: context)
-        Validators::ProductViewSummary.validate!(input[:product_view_summary], context: "#{context}[:product_view_summary]") unless input[:product_view_summary].nil?
-        Validators::ProvisioningArtifacts.validate!(input[:provisioning_artifacts], context: "#{context}[:provisioning_artifacts]") unless input[:provisioning_artifacts].nil?
+        ProductViewSummary.validate!(input[:product_view_summary], context: "#{context}[:product_view_summary]") unless input[:product_view_summary].nil?
+        ProvisioningArtifacts.validate!(input[:provisioning_artifacts], context: "#{context}[:provisioning_artifacts]") unless input[:provisioning_artifacts].nil?
       end
     end
 
@@ -705,8 +707,8 @@ module AWS::SDK::ServiceCatalog
     class DescribeProvisionedProductOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeProvisionedProductOutput, context: context)
-        Validators::ProvisionedProductDetail.validate!(input[:provisioned_product_detail], context: "#{context}[:provisioned_product_detail]") unless input[:provisioned_product_detail].nil?
-        Validators::CloudWatchDashboards.validate!(input[:cloud_watch_dashboards], context: "#{context}[:cloud_watch_dashboards]") unless input[:cloud_watch_dashboards].nil?
+        ProvisionedProductDetail.validate!(input[:provisioned_product_detail], context: "#{context}[:provisioned_product_detail]") unless input[:provisioned_product_detail].nil?
+        CloudWatchDashboards.validate!(input[:cloud_watch_dashboards], context: "#{context}[:cloud_watch_dashboards]") unless input[:cloud_watch_dashboards].nil?
       end
     end
 
@@ -723,8 +725,8 @@ module AWS::SDK::ServiceCatalog
     class DescribeProvisionedProductPlanOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeProvisionedProductPlanOutput, context: context)
-        Validators::ProvisionedProductPlanDetails.validate!(input[:provisioned_product_plan_details], context: "#{context}[:provisioned_product_plan_details]") unless input[:provisioned_product_plan_details].nil?
-        Validators::ResourceChanges.validate!(input[:resource_changes], context: "#{context}[:resource_changes]") unless input[:resource_changes].nil?
+        ProvisionedProductPlanDetails.validate!(input[:provisioned_product_plan_details], context: "#{context}[:provisioned_product_plan_details]") unless input[:provisioned_product_plan_details].nil?
+        ResourceChanges.validate!(input[:resource_changes], context: "#{context}[:resource_changes]") unless input[:resource_changes].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -744,8 +746,8 @@ module AWS::SDK::ServiceCatalog
     class DescribeProvisioningArtifactOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeProvisioningArtifactOutput, context: context)
-        Validators::ProvisioningArtifactDetail.validate!(input[:provisioning_artifact_detail], context: "#{context}[:provisioning_artifact_detail]") unless input[:provisioning_artifact_detail].nil?
-        Validators::ProvisioningArtifactInfo.validate!(input[:info], context: "#{context}[:info]") unless input[:info].nil?
+        ProvisioningArtifactDetail.validate!(input[:provisioning_artifact_detail], context: "#{context}[:provisioning_artifact_detail]") unless input[:provisioning_artifact_detail].nil?
+        ProvisioningArtifactInfo.validate!(input[:info], context: "#{context}[:info]") unless input[:info].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
       end
     end
@@ -766,13 +768,13 @@ module AWS::SDK::ServiceCatalog
     class DescribeProvisioningParametersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeProvisioningParametersOutput, context: context)
-        Validators::ProvisioningArtifactParameters.validate!(input[:provisioning_artifact_parameters], context: "#{context}[:provisioning_artifact_parameters]") unless input[:provisioning_artifact_parameters].nil?
-        Validators::ConstraintSummaries.validate!(input[:constraint_summaries], context: "#{context}[:constraint_summaries]") unless input[:constraint_summaries].nil?
-        Validators::UsageInstructions.validate!(input[:usage_instructions], context: "#{context}[:usage_instructions]") unless input[:usage_instructions].nil?
-        Validators::TagOptionSummaries.validate!(input[:tag_options], context: "#{context}[:tag_options]") unless input[:tag_options].nil?
-        Validators::ProvisioningArtifactPreferences.validate!(input[:provisioning_artifact_preferences], context: "#{context}[:provisioning_artifact_preferences]") unless input[:provisioning_artifact_preferences].nil?
-        Validators::ProvisioningArtifactOutputs.validate!(input[:provisioning_artifact_outputs], context: "#{context}[:provisioning_artifact_outputs]") unless input[:provisioning_artifact_outputs].nil?
-        Validators::ProvisioningArtifactOutputs.validate!(input[:provisioning_artifact_output_keys], context: "#{context}[:provisioning_artifact_output_keys]") unless input[:provisioning_artifact_output_keys].nil?
+        ProvisioningArtifactParameters.validate!(input[:provisioning_artifact_parameters], context: "#{context}[:provisioning_artifact_parameters]") unless input[:provisioning_artifact_parameters].nil?
+        ConstraintSummaries.validate!(input[:constraint_summaries], context: "#{context}[:constraint_summaries]") unless input[:constraint_summaries].nil?
+        UsageInstructions.validate!(input[:usage_instructions], context: "#{context}[:usage_instructions]") unless input[:usage_instructions].nil?
+        TagOptionSummaries.validate!(input[:tag_options], context: "#{context}[:tag_options]") unless input[:tag_options].nil?
+        ProvisioningArtifactPreferences.validate!(input[:provisioning_artifact_preferences], context: "#{context}[:provisioning_artifact_preferences]") unless input[:provisioning_artifact_preferences].nil?
+        ProvisioningArtifactOutputs.validate!(input[:provisioning_artifact_outputs], context: "#{context}[:provisioning_artifact_outputs]") unless input[:provisioning_artifact_outputs].nil?
+        ProvisioningArtifactOutputs.validate!(input[:provisioning_artifact_output_keys], context: "#{context}[:provisioning_artifact_output_keys]") unless input[:provisioning_artifact_output_keys].nil?
       end
     end
 
@@ -789,8 +791,8 @@ module AWS::SDK::ServiceCatalog
     class DescribeRecordOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeRecordOutput, context: context)
-        Validators::RecordDetail.validate!(input[:record_detail], context: "#{context}[:record_detail]") unless input[:record_detail].nil?
-        Validators::RecordOutputs.validate!(input[:record_outputs], context: "#{context}[:record_outputs]") unless input[:record_outputs].nil?
+        RecordDetail.validate!(input[:record_detail], context: "#{context}[:record_detail]") unless input[:record_detail].nil?
+        RecordOutputs.validate!(input[:record_outputs], context: "#{context}[:record_outputs]") unless input[:record_outputs].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -807,7 +809,7 @@ module AWS::SDK::ServiceCatalog
     class DescribeServiceActionExecutionParametersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeServiceActionExecutionParametersOutput, context: context)
-        Validators::ExecutionParameters.validate!(input[:service_action_parameters], context: "#{context}[:service_action_parameters]") unless input[:service_action_parameters].nil?
+        ExecutionParameters.validate!(input[:service_action_parameters], context: "#{context}[:service_action_parameters]") unless input[:service_action_parameters].nil?
       end
     end
 
@@ -822,7 +824,7 @@ module AWS::SDK::ServiceCatalog
     class DescribeServiceActionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeServiceActionOutput, context: context)
-        Validators::ServiceActionDetail.validate!(input[:service_action_detail], context: "#{context}[:service_action_detail]") unless input[:service_action_detail].nil?
+        ServiceActionDetail.validate!(input[:service_action_detail], context: "#{context}[:service_action_detail]") unless input[:service_action_detail].nil?
       end
     end
 
@@ -836,7 +838,7 @@ module AWS::SDK::ServiceCatalog
     class DescribeTagOptionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeTagOptionOutput, context: context)
-        Validators::TagOptionDetail.validate!(input[:tag_option_detail], context: "#{context}[:tag_option_detail]") unless input[:tag_option_detail].nil?
+        TagOptionDetail.validate!(input[:tag_option_detail], context: "#{context}[:tag_option_detail]") unless input[:tag_option_detail].nil?
       end
     end
 
@@ -957,7 +959,7 @@ module AWS::SDK::ServiceCatalog
     class ExecuteProvisionedProductPlanOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExecuteProvisionedProductPlanOutput, context: context)
-        Validators::RecordDetail.validate!(input[:record_detail], context: "#{context}[:record_detail]") unless input[:record_detail].nil?
+        RecordDetail.validate!(input[:record_detail], context: "#{context}[:record_detail]") unless input[:record_detail].nil?
       end
     end
 
@@ -968,14 +970,14 @@ module AWS::SDK::ServiceCatalog
         Hearth::Validator.validate!(input[:service_action_id], ::String, context: "#{context}[:service_action_id]")
         Hearth::Validator.validate!(input[:execute_token], ::String, context: "#{context}[:execute_token]")
         Hearth::Validator.validate!(input[:accept_language], ::String, context: "#{context}[:accept_language]")
-        Validators::ExecutionParameterMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        ExecutionParameterMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
       end
     end
 
     class ExecuteProvisionedProductServiceActionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExecuteProvisionedProductServiceActionOutput, context: context)
-        Validators::RecordDetail.validate!(input[:record_detail], context: "#{context}[:record_detail]") unless input[:record_detail].nil?
+        RecordDetail.validate!(input[:record_detail], context: "#{context}[:record_detail]") unless input[:record_detail].nil?
       end
     end
 
@@ -984,7 +986,7 @@ module AWS::SDK::ServiceCatalog
         Hearth::Validator.validate!(input, Types::ExecutionParameter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::ExecutionParameterValueList.validate!(input[:default_values], context: "#{context}[:default_values]") unless input[:default_values].nil?
+        ExecutionParameterValueList.validate!(input[:default_values], context: "#{context}[:default_values]") unless input[:default_values].nil?
       end
     end
 
@@ -993,7 +995,7 @@ module AWS::SDK::ServiceCatalog
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::ExecutionParameterValueList.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          ExecutionParameterValueList.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -1011,7 +1013,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ExecutionParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ExecutionParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1031,7 +1033,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FailedServiceActionAssociation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FailedServiceActionAssociation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1055,7 +1057,7 @@ module AWS::SDK::ServiceCatalog
         Hearth::Validator.validate!(input[:accept_language], ::String, context: "#{context}[:accept_language]")
         Hearth::Validator.validate!(input[:provisioned_product_id], ::String, context: "#{context}[:provisioned_product_id]")
         Hearth::Validator.validate!(input[:provisioned_product_name], ::String, context: "#{context}[:provisioned_product_name]")
-        Validators::OutputKeys.validate!(input[:output_keys], context: "#{context}[:output_keys]") unless input[:output_keys].nil?
+        OutputKeys.validate!(input[:output_keys], context: "#{context}[:output_keys]") unless input[:output_keys].nil?
         Hearth::Validator.validate!(input[:page_size], ::Integer, context: "#{context}[:page_size]")
         Hearth::Validator.validate!(input[:page_token], ::String, context: "#{context}[:page_token]")
       end
@@ -1064,7 +1066,7 @@ module AWS::SDK::ServiceCatalog
     class GetProvisionedProductOutputsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetProvisionedProductOutputsOutput, context: context)
-        Validators::RecordOutputs.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
+        RecordOutputs.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -1084,7 +1086,7 @@ module AWS::SDK::ServiceCatalog
     class ImportAsProvisionedProductOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ImportAsProvisionedProductOutput, context: context)
-        Validators::RecordDetail.validate!(input[:record_detail], context: "#{context}[:record_detail]") unless input[:record_detail].nil?
+        RecordDetail.validate!(input[:record_detail], context: "#{context}[:record_detail]") unless input[:record_detail].nil?
       end
     end
 
@@ -1114,7 +1116,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LaunchPathSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LaunchPathSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1123,8 +1125,8 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LaunchPathSummary, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::ConstraintSummaries.validate!(input[:constraint_summaries], context: "#{context}[:constraint_summaries]") unless input[:constraint_summaries].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ConstraintSummaries.validate!(input[:constraint_summaries], context: "#{context}[:constraint_summaries]") unless input[:constraint_summaries].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
       end
     end
@@ -1133,7 +1135,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LaunchPath.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LaunchPath.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1158,7 +1160,7 @@ module AWS::SDK::ServiceCatalog
     class ListAcceptedPortfolioSharesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAcceptedPortfolioSharesOutput, context: context)
-        Validators::PortfolioDetails.validate!(input[:portfolio_details], context: "#{context}[:portfolio_details]") unless input[:portfolio_details].nil?
+        PortfolioDetails.validate!(input[:portfolio_details], context: "#{context}[:portfolio_details]") unless input[:portfolio_details].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -1176,7 +1178,7 @@ module AWS::SDK::ServiceCatalog
     class ListBudgetsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListBudgetsForResourceOutput, context: context)
-        Validators::Budgets.validate!(input[:budgets], context: "#{context}[:budgets]") unless input[:budgets].nil?
+        Budgets.validate!(input[:budgets], context: "#{context}[:budgets]") unless input[:budgets].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -1195,7 +1197,7 @@ module AWS::SDK::ServiceCatalog
     class ListConstraintsForPortfolioOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListConstraintsForPortfolioOutput, context: context)
-        Validators::ConstraintDetails.validate!(input[:constraint_details], context: "#{context}[:constraint_details]") unless input[:constraint_details].nil?
+        ConstraintDetails.validate!(input[:constraint_details], context: "#{context}[:constraint_details]") unless input[:constraint_details].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -1213,7 +1215,7 @@ module AWS::SDK::ServiceCatalog
     class ListLaunchPathsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListLaunchPathsOutput, context: context)
-        Validators::LaunchPathSummaries.validate!(input[:launch_path_summaries], context: "#{context}[:launch_path_summaries]") unless input[:launch_path_summaries].nil?
+        LaunchPathSummaries.validate!(input[:launch_path_summaries], context: "#{context}[:launch_path_summaries]") unless input[:launch_path_summaries].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -1232,7 +1234,7 @@ module AWS::SDK::ServiceCatalog
     class ListOrganizationPortfolioAccessOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListOrganizationPortfolioAccessOutput, context: context)
-        Validators::OrganizationNodes.validate!(input[:organization_nodes], context: "#{context}[:organization_nodes]") unless input[:organization_nodes].nil?
+        OrganizationNodes.validate!(input[:organization_nodes], context: "#{context}[:organization_nodes]") unless input[:organization_nodes].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -1251,7 +1253,7 @@ module AWS::SDK::ServiceCatalog
     class ListPortfolioAccessOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPortfolioAccessOutput, context: context)
-        Validators::AccountIds.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
+        AccountIds.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -1269,7 +1271,7 @@ module AWS::SDK::ServiceCatalog
     class ListPortfoliosForProductOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPortfoliosForProductOutput, context: context)
-        Validators::PortfolioDetails.validate!(input[:portfolio_details], context: "#{context}[:portfolio_details]") unless input[:portfolio_details].nil?
+        PortfolioDetails.validate!(input[:portfolio_details], context: "#{context}[:portfolio_details]") unless input[:portfolio_details].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -1286,7 +1288,7 @@ module AWS::SDK::ServiceCatalog
     class ListPortfoliosOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPortfoliosOutput, context: context)
-        Validators::PortfolioDetails.validate!(input[:portfolio_details], context: "#{context}[:portfolio_details]") unless input[:portfolio_details].nil?
+        PortfolioDetails.validate!(input[:portfolio_details], context: "#{context}[:portfolio_details]") unless input[:portfolio_details].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -1304,7 +1306,7 @@ module AWS::SDK::ServiceCatalog
     class ListPrincipalsForPortfolioOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPrincipalsForPortfolioOutput, context: context)
-        Validators::Principals.validate!(input[:principals], context: "#{context}[:principals]") unless input[:principals].nil?
+        Principals.validate!(input[:principals], context: "#{context}[:principals]") unless input[:principals].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -1316,14 +1318,14 @@ module AWS::SDK::ServiceCatalog
         Hearth::Validator.validate!(input[:provision_product_id], ::String, context: "#{context}[:provision_product_id]")
         Hearth::Validator.validate!(input[:page_size], ::Integer, context: "#{context}[:page_size]")
         Hearth::Validator.validate!(input[:page_token], ::String, context: "#{context}[:page_token]")
-        Validators::AccessLevelFilter.validate!(input[:access_level_filter], context: "#{context}[:access_level_filter]") unless input[:access_level_filter].nil?
+        AccessLevelFilter.validate!(input[:access_level_filter], context: "#{context}[:access_level_filter]") unless input[:access_level_filter].nil?
       end
     end
 
     class ListProvisionedProductPlansOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListProvisionedProductPlansOutput, context: context)
-        Validators::ProvisionedProductPlans.validate!(input[:provisioned_product_plans], context: "#{context}[:provisioned_product_plans]") unless input[:provisioned_product_plans].nil?
+        ProvisionedProductPlans.validate!(input[:provisioned_product_plans], context: "#{context}[:provisioned_product_plans]") unless input[:provisioned_product_plans].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -1341,7 +1343,7 @@ module AWS::SDK::ServiceCatalog
     class ListProvisioningArtifactsForServiceActionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListProvisioningArtifactsForServiceActionOutput, context: context)
-        Validators::ProvisioningArtifactViews.validate!(input[:provisioning_artifact_views], context: "#{context}[:provisioning_artifact_views]") unless input[:provisioning_artifact_views].nil?
+        ProvisioningArtifactViews.validate!(input[:provisioning_artifact_views], context: "#{context}[:provisioning_artifact_views]") unless input[:provisioning_artifact_views].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -1357,7 +1359,7 @@ module AWS::SDK::ServiceCatalog
     class ListProvisioningArtifactsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListProvisioningArtifactsOutput, context: context)
-        Validators::ProvisioningArtifactDetails.validate!(input[:provisioning_artifact_details], context: "#{context}[:provisioning_artifact_details]") unless input[:provisioning_artifact_details].nil?
+        ProvisioningArtifactDetails.validate!(input[:provisioning_artifact_details], context: "#{context}[:provisioning_artifact_details]") unless input[:provisioning_artifact_details].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -1366,8 +1368,8 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRecordHistoryInput, context: context)
         Hearth::Validator.validate!(input[:accept_language], ::String, context: "#{context}[:accept_language]")
-        Validators::AccessLevelFilter.validate!(input[:access_level_filter], context: "#{context}[:access_level_filter]") unless input[:access_level_filter].nil?
-        Validators::ListRecordHistorySearchFilter.validate!(input[:search_filter], context: "#{context}[:search_filter]") unless input[:search_filter].nil?
+        AccessLevelFilter.validate!(input[:access_level_filter], context: "#{context}[:access_level_filter]") unless input[:access_level_filter].nil?
+        ListRecordHistorySearchFilter.validate!(input[:search_filter], context: "#{context}[:search_filter]") unless input[:search_filter].nil?
         Hearth::Validator.validate!(input[:page_size], ::Integer, context: "#{context}[:page_size]")
         Hearth::Validator.validate!(input[:page_token], ::String, context: "#{context}[:page_token]")
       end
@@ -1376,7 +1378,7 @@ module AWS::SDK::ServiceCatalog
     class ListRecordHistoryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRecordHistoryOutput, context: context)
-        Validators::RecordDetails.validate!(input[:record_details], context: "#{context}[:record_details]") unless input[:record_details].nil?
+        RecordDetails.validate!(input[:record_details], context: "#{context}[:record_details]") unless input[:record_details].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -1402,7 +1404,7 @@ module AWS::SDK::ServiceCatalog
     class ListResourcesForTagOptionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListResourcesForTagOptionOutput, context: context)
-        Validators::ResourceDetails.validate!(input[:resource_details], context: "#{context}[:resource_details]") unless input[:resource_details].nil?
+        ResourceDetails.validate!(input[:resource_details], context: "#{context}[:resource_details]") unless input[:resource_details].nil?
         Hearth::Validator.validate!(input[:page_token], ::String, context: "#{context}[:page_token]")
       end
     end
@@ -1421,7 +1423,7 @@ module AWS::SDK::ServiceCatalog
     class ListServiceActionsForProvisioningArtifactOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListServiceActionsForProvisioningArtifactOutput, context: context)
-        Validators::ServiceActionSummaries.validate!(input[:service_action_summaries], context: "#{context}[:service_action_summaries]") unless input[:service_action_summaries].nil?
+        ServiceActionSummaries.validate!(input[:service_action_summaries], context: "#{context}[:service_action_summaries]") unless input[:service_action_summaries].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -1438,7 +1440,7 @@ module AWS::SDK::ServiceCatalog
     class ListServiceActionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListServiceActionsOutput, context: context)
-        Validators::ServiceActionSummaries.validate!(input[:service_action_summaries], context: "#{context}[:service_action_summaries]") unless input[:service_action_summaries].nil?
+        ServiceActionSummaries.validate!(input[:service_action_summaries], context: "#{context}[:service_action_summaries]") unless input[:service_action_summaries].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -1456,7 +1458,7 @@ module AWS::SDK::ServiceCatalog
     class ListStackInstancesForProvisionedProductOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListStackInstancesForProvisionedProductOutput, context: context)
-        Validators::StackInstances.validate!(input[:stack_instances], context: "#{context}[:stack_instances]") unless input[:stack_instances].nil?
+        StackInstances.validate!(input[:stack_instances], context: "#{context}[:stack_instances]") unless input[:stack_instances].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -1473,7 +1475,7 @@ module AWS::SDK::ServiceCatalog
     class ListTagOptionsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagOptionsInput, context: context)
-        Validators::ListTagOptionsFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        ListTagOptionsFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:page_size], ::Integer, context: "#{context}[:page_size]")
         Hearth::Validator.validate!(input[:page_token], ::String, context: "#{context}[:page_token]")
       end
@@ -1482,7 +1484,7 @@ module AWS::SDK::ServiceCatalog
     class ListTagOptionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagOptionsOutput, context: context)
-        Validators::TagOptionDetails.validate!(input[:tag_option_details], context: "#{context}[:tag_option_details]") unless input[:tag_option_details].nil?
+        TagOptionDetails.validate!(input[:tag_option_details], context: "#{context}[:tag_option_details]") unless input[:tag_option_details].nil?
         Hearth::Validator.validate!(input[:page_token], ::String, context: "#{context}[:page_token]")
       end
     end
@@ -1524,7 +1526,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OrganizationNode.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OrganizationNode.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1541,7 +1543,7 @@ module AWS::SDK::ServiceCatalog
     class ParameterConstraints
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ParameterConstraints, context: context)
-        Validators::AllowedValues.validate!(input[:allowed_values], context: "#{context}[:allowed_values]") unless input[:allowed_values].nil?
+        AllowedValues.validate!(input[:allowed_values], context: "#{context}[:allowed_values]") unless input[:allowed_values].nil?
         Hearth::Validator.validate!(input[:allowed_pattern], ::String, context: "#{context}[:allowed_pattern]")
         Hearth::Validator.validate!(input[:constraint_description], ::String, context: "#{context}[:constraint_description]")
         Hearth::Validator.validate!(input[:max_length], ::String, context: "#{context}[:max_length]")
@@ -1567,7 +1569,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PortfolioDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PortfolioDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1586,7 +1588,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PortfolioShareDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PortfolioShareDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1603,7 +1605,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Principal.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Principal.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1620,7 +1622,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProductViewAggregationValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProductViewAggregationValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1630,7 +1632,7 @@ module AWS::SDK::ServiceCatalog
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::ProductViewAggregationValues.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          ProductViewAggregationValues.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -1638,7 +1640,7 @@ module AWS::SDK::ServiceCatalog
     class ProductViewDetail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ProductViewDetail, context: context)
-        Validators::ProductViewSummary.validate!(input[:product_view_summary], context: "#{context}[:product_view_summary]") unless input[:product_view_summary].nil?
+        ProductViewSummary.validate!(input[:product_view_summary], context: "#{context}[:product_view_summary]") unless input[:product_view_summary].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:product_arn], ::String, context: "#{context}[:product_arn]")
         Hearth::Validator.validate!(input[:created_time], ::Time, context: "#{context}[:created_time]")
@@ -1649,7 +1651,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProductViewDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProductViewDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1668,7 +1670,7 @@ module AWS::SDK::ServiceCatalog
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::ProductViewFilterValues.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          ProductViewFilterValues.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -1677,7 +1679,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProductViewSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProductViewSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1710,10 +1712,10 @@ module AWS::SDK::ServiceCatalog
         Hearth::Validator.validate!(input[:path_id], ::String, context: "#{context}[:path_id]")
         Hearth::Validator.validate!(input[:path_name], ::String, context: "#{context}[:path_name]")
         Hearth::Validator.validate!(input[:provisioned_product_name], ::String, context: "#{context}[:provisioned_product_name]")
-        Validators::ProvisioningParameters.validate!(input[:provisioning_parameters], context: "#{context}[:provisioning_parameters]") unless input[:provisioning_parameters].nil?
-        Validators::ProvisioningPreferences.validate!(input[:provisioning_preferences], context: "#{context}[:provisioning_preferences]") unless input[:provisioning_preferences].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::NotificationArns.validate!(input[:notification_arns], context: "#{context}[:notification_arns]") unless input[:notification_arns].nil?
+        ProvisioningParameters.validate!(input[:provisioning_parameters], context: "#{context}[:provisioning_parameters]") unless input[:provisioning_parameters].nil?
+        ProvisioningPreferences.validate!(input[:provisioning_preferences], context: "#{context}[:provisioning_preferences]") unless input[:provisioning_preferences].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        NotificationArns.validate!(input[:notification_arns], context: "#{context}[:notification_arns]") unless input[:notification_arns].nil?
         Hearth::Validator.validate!(input[:provision_token], ::String, context: "#{context}[:provision_token]")
       end
     end
@@ -1721,7 +1723,7 @@ module AWS::SDK::ServiceCatalog
     class ProvisionProductOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ProvisionProductOutput, context: context)
-        Validators::RecordDetail.validate!(input[:record_detail], context: "#{context}[:record_detail]") unless input[:record_detail].nil?
+        RecordDetail.validate!(input[:record_detail], context: "#{context}[:record_detail]") unless input[:record_detail].nil?
       end
     end
 
@@ -1739,7 +1741,7 @@ module AWS::SDK::ServiceCatalog
         Hearth::Validator.validate!(input[:last_record_id], ::String, context: "#{context}[:last_record_id]")
         Hearth::Validator.validate!(input[:last_provisioning_record_id], ::String, context: "#{context}[:last_provisioning_record_id]")
         Hearth::Validator.validate!(input[:last_successful_provisioning_record_id], ::String, context: "#{context}[:last_successful_provisioning_record_id]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:physical_id], ::String, context: "#{context}[:physical_id]")
         Hearth::Validator.validate!(input[:product_id], ::String, context: "#{context}[:product_id]")
         Hearth::Validator.validate!(input[:product_name], ::String, context: "#{context}[:product_name]")
@@ -1754,7 +1756,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProvisionedProductAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProvisionedProductAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1783,7 +1785,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProvisionedProductDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProvisionedProductDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1793,7 +1795,7 @@ module AWS::SDK::ServiceCatalog
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::ProvisionedProductViewFilterValues.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          ProvisionedProductViewFilterValues.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -1812,9 +1814,9 @@ module AWS::SDK::ServiceCatalog
         Hearth::Validator.validate!(input[:provisioning_artifact_id], ::String, context: "#{context}[:provisioning_artifact_id]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:updated_time], ::Time, context: "#{context}[:updated_time]")
-        Validators::NotificationArns.validate!(input[:notification_arns], context: "#{context}[:notification_arns]") unless input[:notification_arns].nil?
-        Validators::UpdateProvisioningParameters.validate!(input[:provisioning_parameters], context: "#{context}[:provisioning_parameters]") unless input[:provisioning_parameters].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        NotificationArns.validate!(input[:notification_arns], context: "#{context}[:notification_arns]") unless input[:notification_arns].nil?
+        UpdateProvisioningParameters.validate!(input[:provisioning_parameters], context: "#{context}[:provisioning_parameters]") unless input[:provisioning_parameters].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:status_message], ::String, context: "#{context}[:status_message]")
       end
     end
@@ -1835,7 +1837,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProvisionedProductPlanSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProvisionedProductPlanSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1887,7 +1889,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProvisioningArtifactDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProvisioningArtifactDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1914,7 +1916,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProvisioningArtifactOutput.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProvisioningArtifactOutput.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1927,7 +1929,7 @@ module AWS::SDK::ServiceCatalog
         Hearth::Validator.validate!(input[:parameter_type], ::String, context: "#{context}[:parameter_type]")
         Hearth::Validator.validate!(input[:is_no_echo], ::TrueClass, ::FalseClass, context: "#{context}[:is_no_echo]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ParameterConstraints.validate!(input[:parameter_constraints], context: "#{context}[:parameter_constraints]") unless input[:parameter_constraints].nil?
+        ParameterConstraints.validate!(input[:parameter_constraints], context: "#{context}[:parameter_constraints]") unless input[:parameter_constraints].nil?
       end
     end
 
@@ -1935,7 +1937,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProvisioningArtifactParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProvisioningArtifactParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1943,8 +1945,8 @@ module AWS::SDK::ServiceCatalog
     class ProvisioningArtifactPreferences
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ProvisioningArtifactPreferences, context: context)
-        Validators::StackSetAccounts.validate!(input[:stack_set_accounts], context: "#{context}[:stack_set_accounts]") unless input[:stack_set_accounts].nil?
-        Validators::StackSetRegions.validate!(input[:stack_set_regions], context: "#{context}[:stack_set_regions]") unless input[:stack_set_regions].nil?
+        StackSetAccounts.validate!(input[:stack_set_accounts], context: "#{context}[:stack_set_accounts]") unless input[:stack_set_accounts].nil?
+        StackSetRegions.validate!(input[:stack_set_regions], context: "#{context}[:stack_set_regions]") unless input[:stack_set_regions].nil?
       end
     end
 
@@ -1953,7 +1955,7 @@ module AWS::SDK::ServiceCatalog
         Hearth::Validator.validate!(input, Types::ProvisioningArtifactProperties, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ProvisioningArtifactInfo.validate!(input[:info], context: "#{context}[:info]") unless input[:info].nil?
+        ProvisioningArtifactInfo.validate!(input[:info], context: "#{context}[:info]") unless input[:info].nil?
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:disable_template_validation], ::TrueClass, ::FalseClass, context: "#{context}[:disable_template_validation]")
       end
@@ -1963,7 +1965,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProvisioningArtifactSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProvisioningArtifactSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1975,15 +1977,15 @@ module AWS::SDK::ServiceCatalog
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:created_time], ::Time, context: "#{context}[:created_time]")
-        Validators::ProvisioningArtifactInfo.validate!(input[:provisioning_artifact_metadata], context: "#{context}[:provisioning_artifact_metadata]") unless input[:provisioning_artifact_metadata].nil?
+        ProvisioningArtifactInfo.validate!(input[:provisioning_artifact_metadata], context: "#{context}[:provisioning_artifact_metadata]") unless input[:provisioning_artifact_metadata].nil?
       end
     end
 
     class ProvisioningArtifactView
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ProvisioningArtifactView, context: context)
-        Validators::ProductViewSummary.validate!(input[:product_view_summary], context: "#{context}[:product_view_summary]") unless input[:product_view_summary].nil?
-        Validators::ProvisioningArtifact.validate!(input[:provisioning_artifact], context: "#{context}[:provisioning_artifact]") unless input[:provisioning_artifact].nil?
+        ProductViewSummary.validate!(input[:product_view_summary], context: "#{context}[:product_view_summary]") unless input[:product_view_summary].nil?
+        ProvisioningArtifact.validate!(input[:provisioning_artifact], context: "#{context}[:provisioning_artifact]") unless input[:provisioning_artifact].nil?
       end
     end
 
@@ -1991,7 +1993,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProvisioningArtifactView.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProvisioningArtifactView.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2000,7 +2002,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProvisioningArtifact.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProvisioningArtifact.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2017,7 +2019,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProvisioningParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProvisioningParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2025,8 +2027,8 @@ module AWS::SDK::ServiceCatalog
     class ProvisioningPreferences
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ProvisioningPreferences, context: context)
-        Validators::StackSetAccounts.validate!(input[:stack_set_accounts], context: "#{context}[:stack_set_accounts]") unless input[:stack_set_accounts].nil?
-        Validators::StackSetRegions.validate!(input[:stack_set_regions], context: "#{context}[:stack_set_regions]") unless input[:stack_set_regions].nil?
+        StackSetAccounts.validate!(input[:stack_set_accounts], context: "#{context}[:stack_set_accounts]") unless input[:stack_set_accounts].nil?
+        StackSetRegions.validate!(input[:stack_set_regions], context: "#{context}[:stack_set_regions]") unless input[:stack_set_regions].nil?
         Hearth::Validator.validate!(input[:stack_set_failure_tolerance_count], ::Integer, context: "#{context}[:stack_set_failure_tolerance_count]")
         Hearth::Validator.validate!(input[:stack_set_failure_tolerance_percentage], ::Integer, context: "#{context}[:stack_set_failure_tolerance_percentage]")
         Hearth::Validator.validate!(input[:stack_set_max_concurrency_count], ::Integer, context: "#{context}[:stack_set_max_concurrency_count]")
@@ -2048,8 +2050,8 @@ module AWS::SDK::ServiceCatalog
         Hearth::Validator.validate!(input[:product_id], ::String, context: "#{context}[:product_id]")
         Hearth::Validator.validate!(input[:provisioning_artifact_id], ::String, context: "#{context}[:provisioning_artifact_id]")
         Hearth::Validator.validate!(input[:path_id], ::String, context: "#{context}[:path_id]")
-        Validators::RecordErrors.validate!(input[:record_errors], context: "#{context}[:record_errors]") unless input[:record_errors].nil?
-        Validators::RecordTags.validate!(input[:record_tags], context: "#{context}[:record_tags]") unless input[:record_tags].nil?
+        RecordErrors.validate!(input[:record_errors], context: "#{context}[:record_errors]") unless input[:record_errors].nil?
+        RecordTags.validate!(input[:record_tags], context: "#{context}[:record_tags]") unless input[:record_tags].nil?
         Hearth::Validator.validate!(input[:launch_role_arn], ::String, context: "#{context}[:launch_role_arn]")
       end
     end
@@ -2058,7 +2060,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RecordDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RecordDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2075,7 +2077,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RecordError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RecordError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2093,7 +2095,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RecordOutput.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RecordOutput.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2110,7 +2112,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RecordTag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RecordTag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2138,15 +2140,15 @@ module AWS::SDK::ServiceCatalog
         Hearth::Validator.validate!(input[:physical_resource_id], ::String, context: "#{context}[:physical_resource_id]")
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
         Hearth::Validator.validate!(input[:replacement], ::String, context: "#{context}[:replacement]")
-        Validators::Scope.validate!(input[:scope], context: "#{context}[:scope]") unless input[:scope].nil?
-        Validators::ResourceChangeDetails.validate!(input[:details], context: "#{context}[:details]") unless input[:details].nil?
+        Scope.validate!(input[:scope], context: "#{context}[:scope]") unless input[:scope].nil?
+        ResourceChangeDetails.validate!(input[:details], context: "#{context}[:details]") unless input[:details].nil?
       end
     end
 
     class ResourceChangeDetail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResourceChangeDetail, context: context)
-        Validators::ResourceTargetDefinition.validate!(input[:target], context: "#{context}[:target]") unless input[:target].nil?
+        ResourceTargetDefinition.validate!(input[:target], context: "#{context}[:target]") unless input[:target].nil?
         Hearth::Validator.validate!(input[:evaluation], ::String, context: "#{context}[:evaluation]")
         Hearth::Validator.validate!(input[:causing_entity], ::String, context: "#{context}[:causing_entity]")
       end
@@ -2156,7 +2158,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourceChangeDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourceChangeDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2165,7 +2167,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourceChange.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourceChange.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2185,7 +2187,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourceDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourceDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2217,7 +2219,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ScanProvisionedProductsInput, context: context)
         Hearth::Validator.validate!(input[:accept_language], ::String, context: "#{context}[:accept_language]")
-        Validators::AccessLevelFilter.validate!(input[:access_level_filter], context: "#{context}[:access_level_filter]") unless input[:access_level_filter].nil?
+        AccessLevelFilter.validate!(input[:access_level_filter], context: "#{context}[:access_level_filter]") unless input[:access_level_filter].nil?
         Hearth::Validator.validate!(input[:page_size], ::Integer, context: "#{context}[:page_size]")
         Hearth::Validator.validate!(input[:page_token], ::String, context: "#{context}[:page_token]")
       end
@@ -2226,7 +2228,7 @@ module AWS::SDK::ServiceCatalog
     class ScanProvisionedProductsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ScanProvisionedProductsOutput, context: context)
-        Validators::ProvisionedProductDetails.validate!(input[:provisioned_products], context: "#{context}[:provisioned_products]") unless input[:provisioned_products].nil?
+        ProvisionedProductDetails.validate!(input[:provisioned_products], context: "#{context}[:provisioned_products]") unless input[:provisioned_products].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -2245,7 +2247,7 @@ module AWS::SDK::ServiceCatalog
         Hearth::Validator.validate!(input, Types::SearchProductsAsAdminInput, context: context)
         Hearth::Validator.validate!(input[:accept_language], ::String, context: "#{context}[:accept_language]")
         Hearth::Validator.validate!(input[:portfolio_id], ::String, context: "#{context}[:portfolio_id]")
-        Validators::ProductViewFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        ProductViewFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:sort_by], ::String, context: "#{context}[:sort_by]")
         Hearth::Validator.validate!(input[:sort_order], ::String, context: "#{context}[:sort_order]")
         Hearth::Validator.validate!(input[:page_token], ::String, context: "#{context}[:page_token]")
@@ -2257,7 +2259,7 @@ module AWS::SDK::ServiceCatalog
     class SearchProductsAsAdminOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchProductsAsAdminOutput, context: context)
-        Validators::ProductViewDetails.validate!(input[:product_view_details], context: "#{context}[:product_view_details]") unless input[:product_view_details].nil?
+        ProductViewDetails.validate!(input[:product_view_details], context: "#{context}[:product_view_details]") unless input[:product_view_details].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -2266,7 +2268,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchProductsInput, context: context)
         Hearth::Validator.validate!(input[:accept_language], ::String, context: "#{context}[:accept_language]")
-        Validators::ProductViewFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        ProductViewFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:page_size], ::Integer, context: "#{context}[:page_size]")
         Hearth::Validator.validate!(input[:sort_by], ::String, context: "#{context}[:sort_by]")
         Hearth::Validator.validate!(input[:sort_order], ::String, context: "#{context}[:sort_order]")
@@ -2277,8 +2279,8 @@ module AWS::SDK::ServiceCatalog
     class SearchProductsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchProductsOutput, context: context)
-        Validators::ProductViewSummaries.validate!(input[:product_view_summaries], context: "#{context}[:product_view_summaries]") unless input[:product_view_summaries].nil?
-        Validators::ProductViewAggregations.validate!(input[:product_view_aggregations], context: "#{context}[:product_view_aggregations]") unless input[:product_view_aggregations].nil?
+        ProductViewSummaries.validate!(input[:product_view_summaries], context: "#{context}[:product_view_summaries]") unless input[:product_view_summaries].nil?
+        ProductViewAggregations.validate!(input[:product_view_aggregations], context: "#{context}[:product_view_aggregations]") unless input[:product_view_aggregations].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -2287,8 +2289,8 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchProvisionedProductsInput, context: context)
         Hearth::Validator.validate!(input[:accept_language], ::String, context: "#{context}[:accept_language]")
-        Validators::AccessLevelFilter.validate!(input[:access_level_filter], context: "#{context}[:access_level_filter]") unless input[:access_level_filter].nil?
-        Validators::ProvisionedProductFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        AccessLevelFilter.validate!(input[:access_level_filter], context: "#{context}[:access_level_filter]") unless input[:access_level_filter].nil?
+        ProvisionedProductFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:sort_by], ::String, context: "#{context}[:sort_by]")
         Hearth::Validator.validate!(input[:sort_order], ::String, context: "#{context}[:sort_order]")
         Hearth::Validator.validate!(input[:page_size], ::Integer, context: "#{context}[:page_size]")
@@ -2299,7 +2301,7 @@ module AWS::SDK::ServiceCatalog
     class SearchProvisionedProductsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchProvisionedProductsOutput, context: context)
-        Validators::ProvisionedProductAttributes.validate!(input[:provisioned_products], context: "#{context}[:provisioned_products]") unless input[:provisioned_products].nil?
+        ProvisionedProductAttributes.validate!(input[:provisioned_products], context: "#{context}[:provisioned_products]") unless input[:provisioned_products].nil?
         Hearth::Validator.validate!(input[:total_results_count], ::Integer, context: "#{context}[:total_results_count]")
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
@@ -2318,7 +2320,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ServiceActionAssociation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ServiceActionAssociation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2336,8 +2338,8 @@ module AWS::SDK::ServiceCatalog
     class ServiceActionDetail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ServiceActionDetail, context: context)
-        Validators::ServiceActionSummary.validate!(input[:service_action_summary], context: "#{context}[:service_action_summary]") unless input[:service_action_summary].nil?
-        Validators::ServiceActionDefinitionMap.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
+        ServiceActionSummary.validate!(input[:service_action_summary], context: "#{context}[:service_action_summary]") unless input[:service_action_summary].nil?
+        ServiceActionDefinitionMap.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
       end
     end
 
@@ -2345,7 +2347,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ServiceActionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ServiceActionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2363,15 +2365,15 @@ module AWS::SDK::ServiceCatalog
     class ShareDetails
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ShareDetails, context: context)
-        Validators::SuccessfulShares.validate!(input[:successful_shares], context: "#{context}[:successful_shares]") unless input[:successful_shares].nil?
-        Validators::ShareErrors.validate!(input[:share_errors], context: "#{context}[:share_errors]") unless input[:share_errors].nil?
+        SuccessfulShares.validate!(input[:successful_shares], context: "#{context}[:successful_shares]") unless input[:successful_shares].nil?
+        ShareErrors.validate!(input[:share_errors], context: "#{context}[:share_errors]") unless input[:share_errors].nil?
       end
     end
 
     class ShareError
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ShareError, context: context)
-        Validators::Namespaces.validate!(input[:accounts], context: "#{context}[:accounts]") unless input[:accounts].nil?
+        Namespaces.validate!(input[:accounts], context: "#{context}[:accounts]") unless input[:accounts].nil?
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:error], ::String, context: "#{context}[:error]")
       end
@@ -2381,7 +2383,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ShareError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ShareError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2390,7 +2392,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SourceProvisioningArtifactPropertiesMap.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SourceProvisioningArtifactPropertiesMap.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2418,7 +2420,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StackInstance.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StackInstance.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2482,7 +2484,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TagOptionDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TagOptionDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2498,7 +2500,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TagOptionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TagOptionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2507,7 +2509,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagOptionSummary, context: context)
         Hearth::Validator.validate!(input[:key], ::String, context: "#{context}[:key]")
-        Validators::TagOptionValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        TagOptionValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -2524,7 +2526,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2544,7 +2546,7 @@ module AWS::SDK::ServiceCatalog
     class TerminateProvisionedProductOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TerminateProvisionedProductOutput, context: context)
-        Validators::RecordDetail.validate!(input[:record_detail], context: "#{context}[:record_detail]") unless input[:record_detail].nil?
+        RecordDetail.validate!(input[:record_detail], context: "#{context}[:record_detail]") unless input[:record_detail].nil?
       end
     end
 
@@ -2561,7 +2563,7 @@ module AWS::SDK::ServiceCatalog
     class UpdateConstraintOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateConstraintOutput, context: context)
-        Validators::ConstraintDetail.validate!(input[:constraint_detail], context: "#{context}[:constraint_detail]") unless input[:constraint_detail].nil?
+        ConstraintDetail.validate!(input[:constraint_detail], context: "#{context}[:constraint_detail]") unless input[:constraint_detail].nil?
         Hearth::Validator.validate!(input[:constraint_parameters], ::String, context: "#{context}[:constraint_parameters]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
       end
@@ -2575,16 +2577,16 @@ module AWS::SDK::ServiceCatalog
         Hearth::Validator.validate!(input[:display_name], ::String, context: "#{context}[:display_name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:provider_name], ::String, context: "#{context}[:provider_name]")
-        Validators::AddTags.validate!(input[:add_tags], context: "#{context}[:add_tags]") unless input[:add_tags].nil?
-        Validators::TagKeys.validate!(input[:remove_tags], context: "#{context}[:remove_tags]") unless input[:remove_tags].nil?
+        AddTags.validate!(input[:add_tags], context: "#{context}[:add_tags]") unless input[:add_tags].nil?
+        TagKeys.validate!(input[:remove_tags], context: "#{context}[:remove_tags]") unless input[:remove_tags].nil?
       end
     end
 
     class UpdatePortfolioOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdatePortfolioOutput, context: context)
-        Validators::PortfolioDetail.validate!(input[:portfolio_detail], context: "#{context}[:portfolio_detail]") unless input[:portfolio_detail].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        PortfolioDetail.validate!(input[:portfolio_detail], context: "#{context}[:portfolio_detail]") unless input[:portfolio_detail].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2594,7 +2596,7 @@ module AWS::SDK::ServiceCatalog
         Hearth::Validator.validate!(input[:accept_language], ::String, context: "#{context}[:accept_language]")
         Hearth::Validator.validate!(input[:portfolio_id], ::String, context: "#{context}[:portfolio_id]")
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
-        Validators::OrganizationNode.validate!(input[:organization_node], context: "#{context}[:organization_node]") unless input[:organization_node].nil?
+        OrganizationNode.validate!(input[:organization_node], context: "#{context}[:organization_node]") unless input[:organization_node].nil?
         Hearth::Validator.validate!(input[:share_tag_options], ::TrueClass, ::FalseClass, context: "#{context}[:share_tag_options]")
       end
     end
@@ -2619,16 +2621,16 @@ module AWS::SDK::ServiceCatalog
         Hearth::Validator.validate!(input[:support_description], ::String, context: "#{context}[:support_description]")
         Hearth::Validator.validate!(input[:support_email], ::String, context: "#{context}[:support_email]")
         Hearth::Validator.validate!(input[:support_url], ::String, context: "#{context}[:support_url]")
-        Validators::AddTags.validate!(input[:add_tags], context: "#{context}[:add_tags]") unless input[:add_tags].nil?
-        Validators::TagKeys.validate!(input[:remove_tags], context: "#{context}[:remove_tags]") unless input[:remove_tags].nil?
+        AddTags.validate!(input[:add_tags], context: "#{context}[:add_tags]") unless input[:add_tags].nil?
+        TagKeys.validate!(input[:remove_tags], context: "#{context}[:remove_tags]") unless input[:remove_tags].nil?
       end
     end
 
     class UpdateProductOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateProductOutput, context: context)
-        Validators::ProductViewDetail.validate!(input[:product_view_detail], context: "#{context}[:product_view_detail]") unless input[:product_view_detail].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ProductViewDetail.validate!(input[:product_view_detail], context: "#{context}[:product_view_detail]") unless input[:product_view_detail].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2644,9 +2646,9 @@ module AWS::SDK::ServiceCatalog
         Hearth::Validator.validate!(input[:provisioning_artifact_name], ::String, context: "#{context}[:provisioning_artifact_name]")
         Hearth::Validator.validate!(input[:path_id], ::String, context: "#{context}[:path_id]")
         Hearth::Validator.validate!(input[:path_name], ::String, context: "#{context}[:path_name]")
-        Validators::UpdateProvisioningParameters.validate!(input[:provisioning_parameters], context: "#{context}[:provisioning_parameters]") unless input[:provisioning_parameters].nil?
-        Validators::UpdateProvisioningPreferences.validate!(input[:provisioning_preferences], context: "#{context}[:provisioning_preferences]") unless input[:provisioning_preferences].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        UpdateProvisioningParameters.validate!(input[:provisioning_parameters], context: "#{context}[:provisioning_parameters]") unless input[:provisioning_parameters].nil?
+        UpdateProvisioningPreferences.validate!(input[:provisioning_preferences], context: "#{context}[:provisioning_preferences]") unless input[:provisioning_preferences].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:update_token], ::String, context: "#{context}[:update_token]")
       end
     end
@@ -2654,7 +2656,7 @@ module AWS::SDK::ServiceCatalog
     class UpdateProvisionedProductOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateProvisionedProductOutput, context: context)
-        Validators::RecordDetail.validate!(input[:record_detail], context: "#{context}[:record_detail]") unless input[:record_detail].nil?
+        RecordDetail.validate!(input[:record_detail], context: "#{context}[:record_detail]") unless input[:record_detail].nil?
       end
     end
 
@@ -2663,7 +2665,7 @@ module AWS::SDK::ServiceCatalog
         Hearth::Validator.validate!(input, Types::UpdateProvisionedProductPropertiesInput, context: context)
         Hearth::Validator.validate!(input[:accept_language], ::String, context: "#{context}[:accept_language]")
         Hearth::Validator.validate!(input[:provisioned_product_id], ::String, context: "#{context}[:provisioned_product_id]")
-        Validators::ProvisionedProductProperties.validate!(input[:provisioned_product_properties], context: "#{context}[:provisioned_product_properties]") unless input[:provisioned_product_properties].nil?
+        ProvisionedProductProperties.validate!(input[:provisioned_product_properties], context: "#{context}[:provisioned_product_properties]") unless input[:provisioned_product_properties].nil?
         Hearth::Validator.validate!(input[:idempotency_token], ::String, context: "#{context}[:idempotency_token]")
       end
     end
@@ -2672,7 +2674,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateProvisionedProductPropertiesOutput, context: context)
         Hearth::Validator.validate!(input[:provisioned_product_id], ::String, context: "#{context}[:provisioned_product_id]")
-        Validators::ProvisionedProductProperties.validate!(input[:provisioned_product_properties], context: "#{context}[:provisioned_product_properties]") unless input[:provisioned_product_properties].nil?
+        ProvisionedProductProperties.validate!(input[:provisioned_product_properties], context: "#{context}[:provisioned_product_properties]") unless input[:provisioned_product_properties].nil?
         Hearth::Validator.validate!(input[:record_id], ::String, context: "#{context}[:record_id]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
       end
@@ -2694,8 +2696,8 @@ module AWS::SDK::ServiceCatalog
     class UpdateProvisioningArtifactOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateProvisioningArtifactOutput, context: context)
-        Validators::ProvisioningArtifactDetail.validate!(input[:provisioning_artifact_detail], context: "#{context}[:provisioning_artifact_detail]") unless input[:provisioning_artifact_detail].nil?
-        Validators::ProvisioningArtifactInfo.validate!(input[:info], context: "#{context}[:info]") unless input[:info].nil?
+        ProvisioningArtifactDetail.validate!(input[:provisioning_artifact_detail], context: "#{context}[:provisioning_artifact_detail]") unless input[:provisioning_artifact_detail].nil?
+        ProvisioningArtifactInfo.validate!(input[:info], context: "#{context}[:info]") unless input[:info].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
       end
     end
@@ -2713,7 +2715,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UpdateProvisioningParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UpdateProvisioningParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2721,8 +2723,8 @@ module AWS::SDK::ServiceCatalog
     class UpdateProvisioningPreferences
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateProvisioningPreferences, context: context)
-        Validators::StackSetAccounts.validate!(input[:stack_set_accounts], context: "#{context}[:stack_set_accounts]") unless input[:stack_set_accounts].nil?
-        Validators::StackSetRegions.validate!(input[:stack_set_regions], context: "#{context}[:stack_set_regions]") unless input[:stack_set_regions].nil?
+        StackSetAccounts.validate!(input[:stack_set_accounts], context: "#{context}[:stack_set_accounts]") unless input[:stack_set_accounts].nil?
+        StackSetRegions.validate!(input[:stack_set_regions], context: "#{context}[:stack_set_regions]") unless input[:stack_set_regions].nil?
         Hearth::Validator.validate!(input[:stack_set_failure_tolerance_count], ::Integer, context: "#{context}[:stack_set_failure_tolerance_count]")
         Hearth::Validator.validate!(input[:stack_set_failure_tolerance_percentage], ::Integer, context: "#{context}[:stack_set_failure_tolerance_percentage]")
         Hearth::Validator.validate!(input[:stack_set_max_concurrency_count], ::Integer, context: "#{context}[:stack_set_max_concurrency_count]")
@@ -2736,7 +2738,7 @@ module AWS::SDK::ServiceCatalog
         Hearth::Validator.validate!(input, Types::UpdateServiceActionInput, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ServiceActionDefinitionMap.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
+        ServiceActionDefinitionMap.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:accept_language], ::String, context: "#{context}[:accept_language]")
       end
@@ -2745,7 +2747,7 @@ module AWS::SDK::ServiceCatalog
     class UpdateServiceActionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateServiceActionOutput, context: context)
-        Validators::ServiceActionDetail.validate!(input[:service_action_detail], context: "#{context}[:service_action_detail]") unless input[:service_action_detail].nil?
+        ServiceActionDetail.validate!(input[:service_action_detail], context: "#{context}[:service_action_detail]") unless input[:service_action_detail].nil?
       end
     end
 
@@ -2761,7 +2763,7 @@ module AWS::SDK::ServiceCatalog
     class UpdateTagOptionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateTagOptionOutput, context: context)
-        Validators::TagOptionDetail.validate!(input[:tag_option_detail], context: "#{context}[:tag_option_detail]") unless input[:tag_option_detail].nil?
+        TagOptionDetail.validate!(input[:tag_option_detail], context: "#{context}[:tag_option_detail]") unless input[:tag_option_detail].nil?
       end
     end
 
@@ -2777,7 +2779,7 @@ module AWS::SDK::ServiceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UsageInstruction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UsageInstruction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

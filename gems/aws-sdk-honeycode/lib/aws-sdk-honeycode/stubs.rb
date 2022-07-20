@@ -15,8 +15,8 @@ module AWS::SDK::Honeycode
       def self.default(visited=[])
         {
           workbook_cursor: 1,
-          created_rows: Stubs::CreatedRowsMap.default(visited),
-          failed_batch_items: Stubs::FailedBatchItems.default(visited),
+          created_rows: CreatedRowsMap.default(visited),
+          failed_batch_items: FailedBatchItems.default(visited),
         }
       end
 
@@ -37,7 +37,7 @@ module AWS::SDK::Honeycode
         return nil if visited.include?('FailedBatchItems')
         visited = visited + ['FailedBatchItems']
         [
-          Stubs::FailedBatchItem.default(visited)
+          FailedBatchItem.default(visited)
         ]
       end
 
@@ -96,7 +96,7 @@ module AWS::SDK::Honeycode
       def self.default(visited=[])
         {
           workbook_cursor: 1,
-          failed_batch_items: Stubs::FailedBatchItems.default(visited),
+          failed_batch_items: FailedBatchItems.default(visited),
         }
       end
 
@@ -115,7 +115,7 @@ module AWS::SDK::Honeycode
       def self.default(visited=[])
         {
           workbook_cursor: 1,
-          failed_batch_items: Stubs::FailedBatchItems.default(visited),
+          failed_batch_items: FailedBatchItems.default(visited),
         }
       end
 
@@ -133,9 +133,9 @@ module AWS::SDK::Honeycode
     class BatchUpsertTableRows
       def self.default(visited=[])
         {
-          rows: Stubs::UpsertRowsResultMap.default(visited),
+          rows: UpsertRowsResultMap.default(visited),
           workbook_cursor: 1,
-          failed_batch_items: Stubs::FailedBatchItems.default(visited),
+          failed_batch_items: FailedBatchItems.default(visited),
         }
       end
 
@@ -156,7 +156,7 @@ module AWS::SDK::Honeycode
         return nil if visited.include?('UpsertRowsResultMap')
         visited = visited + ['UpsertRowsResultMap']
         {
-          test_key: Stubs::UpsertRowsResult.default(visited)
+          test_key: UpsertRowsResult.default(visited)
         }
       end
 
@@ -176,7 +176,7 @@ module AWS::SDK::Honeycode
         return nil if visited.include?('UpsertRowsResult')
         visited = visited + ['UpsertRowsResult']
         {
-          row_ids: Stubs::RowIdList.default(visited),
+          row_ids: RowIdList.default(visited),
           upsert_action: 'upsert_action',
         }
       end
@@ -216,7 +216,7 @@ module AWS::SDK::Honeycode
         {
           job_status: 'job_status',
           message: 'message',
-          job_metadata: Stubs::TableDataImportJobMetadata.default(visited),
+          job_metadata: TableDataImportJobMetadata.default(visited),
           error_code: 'error_code',
         }
       end
@@ -239,10 +239,10 @@ module AWS::SDK::Honeycode
         return nil if visited.include?('TableDataImportJobMetadata')
         visited = visited + ['TableDataImportJobMetadata']
         {
-          submitter: Stubs::ImportJobSubmitter.default(visited),
+          submitter: ImportJobSubmitter.default(visited),
           submit_time: Time.now,
-          import_options: Stubs::ImportOptions.default(visited),
-          data_source: Stubs::ImportDataSource.default(visited),
+          import_options: ImportOptions.default(visited),
+          data_source: ImportDataSource.default(visited),
         }
       end
 
@@ -263,7 +263,7 @@ module AWS::SDK::Honeycode
         return nil if visited.include?('ImportDataSource')
         visited = visited + ['ImportDataSource']
         {
-          data_source_config: Stubs::ImportDataSourceConfig.default(visited),
+          data_source_config: ImportDataSourceConfig.default(visited),
         }
       end
 
@@ -299,8 +299,8 @@ module AWS::SDK::Honeycode
         return nil if visited.include?('ImportOptions')
         visited = visited + ['ImportOptions']
         {
-          destination_options: Stubs::DestinationOptions.default(visited),
-          delimited_text_options: Stubs::DelimitedTextImportOptions.default(visited),
+          destination_options: DestinationOptions.default(visited),
+          delimited_text_options: DelimitedTextImportOptions.default(visited),
         }
       end
 
@@ -343,7 +343,7 @@ module AWS::SDK::Honeycode
         return nil if visited.include?('DestinationOptions')
         visited = visited + ['DestinationOptions']
         {
-          column_map: Stubs::ImportColumnMap.default(visited),
+          column_map: ImportColumnMap.default(visited),
         }
       end
 
@@ -361,7 +361,7 @@ module AWS::SDK::Honeycode
         return nil if visited.include?('ImportColumnMap')
         visited = visited + ['ImportColumnMap']
         {
-          test_key: Stubs::SourceDataColumnProperties.default(visited)
+          test_key: SourceDataColumnProperties.default(visited)
         }
       end
 
@@ -417,7 +417,7 @@ module AWS::SDK::Honeycode
     class GetScreenData
       def self.default(visited=[])
         {
-          results: Stubs::ResultSetMap.default(visited),
+          results: ResultSetMap.default(visited),
           workbook_cursor: 1,
           next_token: 'next_token',
         }
@@ -440,7 +440,7 @@ module AWS::SDK::Honeycode
         return nil if visited.include?('ResultSetMap')
         visited = visited + ['ResultSetMap']
         {
-          test_key: Stubs::ResultSet.default(visited)
+          test_key: ResultSet.default(visited)
         }
       end
 
@@ -460,8 +460,8 @@ module AWS::SDK::Honeycode
         return nil if visited.include?('ResultSet')
         visited = visited + ['ResultSet']
         {
-          headers: Stubs::ResultHeader.default(visited),
-          rows: Stubs::ResultRows.default(visited),
+          headers: ResultHeader.default(visited),
+          rows: ResultRows.default(visited),
         }
       end
 
@@ -480,7 +480,7 @@ module AWS::SDK::Honeycode
         return nil if visited.include?('ResultRows')
         visited = visited + ['ResultRows']
         [
-          Stubs::ResultRow.default(visited)
+          ResultRow.default(visited)
         ]
       end
 
@@ -501,7 +501,7 @@ module AWS::SDK::Honeycode
         visited = visited + ['ResultRow']
         {
           row_id: 'row_id',
-          data_items: Stubs::DataItems.default(visited),
+          data_items: DataItems.default(visited),
         }
       end
 
@@ -520,7 +520,7 @@ module AWS::SDK::Honeycode
         return nil if visited.include?('DataItems')
         visited = visited + ['DataItems']
         [
-          Stubs::DataItem.default(visited)
+          DataItem.default(visited)
         ]
       end
 
@@ -562,7 +562,7 @@ module AWS::SDK::Honeycode
         return nil if visited.include?('ResultHeader')
         visited = visited + ['ResultHeader']
         [
-          Stubs::ColumnMetadata.default(visited)
+          ColumnMetadata.default(visited)
         ]
       end
 
@@ -617,7 +617,7 @@ module AWS::SDK::Honeycode
     class ListTableColumns
       def self.default(visited=[])
         {
-          table_columns: Stubs::TableColumns.default(visited),
+          table_columns: TableColumns.default(visited),
           next_token: 'next_token',
           workbook_cursor: 1,
         }
@@ -640,7 +640,7 @@ module AWS::SDK::Honeycode
         return nil if visited.include?('TableColumns')
         visited = visited + ['TableColumns']
         [
-          Stubs::TableColumn.default(visited)
+          TableColumn.default(visited)
         ]
       end
 
@@ -680,9 +680,9 @@ module AWS::SDK::Honeycode
     class ListTableRows
       def self.default(visited=[])
         {
-          column_ids: Stubs::ResourceIds.default(visited),
-          rows: Stubs::TableRows.default(visited),
-          row_ids_not_found: Stubs::RowIdList.default(visited),
+          column_ids: ResourceIds.default(visited),
+          rows: TableRows.default(visited),
+          row_ids_not_found: RowIdList.default(visited),
           next_token: 'next_token',
           workbook_cursor: 1,
         }
@@ -707,7 +707,7 @@ module AWS::SDK::Honeycode
         return nil if visited.include?('TableRows')
         visited = visited + ['TableRows']
         [
-          Stubs::TableRow.default(visited)
+          TableRow.default(visited)
         ]
       end
 
@@ -728,7 +728,7 @@ module AWS::SDK::Honeycode
         visited = visited + ['TableRow']
         {
           row_id: 'row_id',
-          cells: Stubs::Cells.default(visited),
+          cells: Cells.default(visited),
         }
       end
 
@@ -747,7 +747,7 @@ module AWS::SDK::Honeycode
         return nil if visited.include?('Cells')
         visited = visited + ['Cells']
         [
-          Stubs::Cell.default(visited)
+          Cell.default(visited)
         ]
       end
 
@@ -771,7 +771,7 @@ module AWS::SDK::Honeycode
           format: 'format',
           raw_value: 'raw_value',
           formatted_value: 'formatted_value',
-          formatted_values: Stubs::FormattedValuesList.default(visited),
+          formatted_values: FormattedValuesList.default(visited),
         }
       end
 
@@ -831,7 +831,7 @@ module AWS::SDK::Honeycode
     class ListTables
       def self.default(visited=[])
         {
-          tables: Stubs::Tables.default(visited),
+          tables: Tables.default(visited),
           next_token: 'next_token',
           workbook_cursor: 1,
         }
@@ -854,7 +854,7 @@ module AWS::SDK::Honeycode
         return nil if visited.include?('Tables')
         visited = visited + ['Tables']
         [
-          Stubs::Table.default(visited)
+          Table.default(visited)
         ]
       end
 
@@ -892,7 +892,7 @@ module AWS::SDK::Honeycode
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagsMap.default(visited),
+          tags: TagsMap.default(visited),
         }
       end
 
@@ -929,8 +929,8 @@ module AWS::SDK::Honeycode
     class QueryTableRows
       def self.default(visited=[])
         {
-          column_ids: Stubs::ResourceIds.default(visited),
-          rows: Stubs::TableRows.default(visited),
+          column_ids: ResourceIds.default(visited),
+          rows: TableRows.default(visited),
           next_token: 'next_token',
           workbook_cursor: 1,
         }

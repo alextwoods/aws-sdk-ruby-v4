@@ -44,7 +44,7 @@ module AWS::SDK::S3Outposts
     class ListEndpoints
       def self.default(visited=[])
         {
-          endpoints: Stubs::Endpoints.default(visited),
+          endpoints: Endpoints.default(visited),
           next_token: 'next_token',
         }
       end
@@ -65,7 +65,7 @@ module AWS::SDK::S3Outposts
         return nil if visited.include?('Endpoints')
         visited = visited + ['Endpoints']
         [
-          Stubs::Endpoint.default(visited)
+          Endpoint.default(visited)
         ]
       end
 
@@ -90,7 +90,7 @@ module AWS::SDK::S3Outposts
           cidr_block: 'cidr_block',
           status: 'status',
           creation_time: Time.now,
-          network_interfaces: Stubs::NetworkInterfaces.default(visited),
+          network_interfaces: NetworkInterfaces.default(visited),
           vpc_id: 'vpc_id',
           subnet_id: 'subnet_id',
           security_group_id: 'security_group_id',
@@ -123,7 +123,7 @@ module AWS::SDK::S3Outposts
         return nil if visited.include?('NetworkInterfaces')
         visited = visited + ['NetworkInterfaces']
         [
-          Stubs::NetworkInterface.default(visited)
+          NetworkInterface.default(visited)
         ]
       end
 
@@ -159,7 +159,7 @@ module AWS::SDK::S3Outposts
     class ListSharedEndpoints
       def self.default(visited=[])
         {
-          endpoints: Stubs::Endpoints.default(visited),
+          endpoints: Endpoints.default(visited),
           next_token: 'next_token',
         }
       end

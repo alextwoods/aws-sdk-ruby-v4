@@ -86,7 +86,7 @@ module AWS::SDK::DataPipeline
     class DescribeObjects
       def self.default(visited=[])
         {
-          pipeline_objects: Stubs::PipelineObjectList.default(visited),
+          pipeline_objects: PipelineObjectList.default(visited),
           marker: 'marker',
           has_more_results: false,
         }
@@ -108,7 +108,7 @@ module AWS::SDK::DataPipeline
         return nil if visited.include?('PipelineObjectList')
         visited = visited + ['PipelineObjectList']
         [
-          Stubs::PipelineObject.default(visited)
+          PipelineObject.default(visited)
         ]
       end
 
@@ -130,7 +130,7 @@ module AWS::SDK::DataPipeline
         {
           id: 'id',
           name: 'name',
-          fields: Stubs::FieldList.default(visited),
+          fields: FieldList.default(visited),
         }
       end
 
@@ -150,7 +150,7 @@ module AWS::SDK::DataPipeline
         return nil if visited.include?('FieldList')
         visited = visited + ['FieldList']
         [
-          Stubs::Field.default(visited)
+          Field.default(visited)
         ]
       end
 
@@ -190,7 +190,7 @@ module AWS::SDK::DataPipeline
     class DescribePipelines
       def self.default(visited=[])
         {
-          pipeline_description_list: Stubs::PipelineDescriptionList.default(visited),
+          pipeline_description_list: PipelineDescriptionList.default(visited),
         }
       end
 
@@ -208,7 +208,7 @@ module AWS::SDK::DataPipeline
         return nil if visited.include?('PipelineDescriptionList')
         visited = visited + ['PipelineDescriptionList']
         [
-          Stubs::PipelineDescription.default(visited)
+          PipelineDescription.default(visited)
         ]
       end
 
@@ -230,9 +230,9 @@ module AWS::SDK::DataPipeline
         {
           pipeline_id: 'pipeline_id',
           name: 'name',
-          fields: Stubs::FieldList.default(visited),
+          fields: FieldList.default(visited),
           description: 'description',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -254,7 +254,7 @@ module AWS::SDK::DataPipeline
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -308,9 +308,9 @@ module AWS::SDK::DataPipeline
     class GetPipelineDefinition
       def self.default(visited=[])
         {
-          pipeline_objects: Stubs::PipelineObjectList.default(visited),
-          parameter_objects: Stubs::ParameterObjectList.default(visited),
-          parameter_values: Stubs::ParameterValueList.default(visited),
+          pipeline_objects: PipelineObjectList.default(visited),
+          parameter_objects: ParameterObjectList.default(visited),
+          parameter_values: ParameterValueList.default(visited),
         }
       end
 
@@ -330,7 +330,7 @@ module AWS::SDK::DataPipeline
         return nil if visited.include?('ParameterValueList')
         visited = visited + ['ParameterValueList']
         [
-          Stubs::ParameterValue.default(visited)
+          ParameterValue.default(visited)
         ]
       end
 
@@ -370,7 +370,7 @@ module AWS::SDK::DataPipeline
         return nil if visited.include?('ParameterObjectList')
         visited = visited + ['ParameterObjectList']
         [
-          Stubs::ParameterObject.default(visited)
+          ParameterObject.default(visited)
         ]
       end
 
@@ -391,7 +391,7 @@ module AWS::SDK::DataPipeline
         visited = visited + ['ParameterObject']
         {
           id: 'id',
-          attributes: Stubs::ParameterAttributeList.default(visited),
+          attributes: ParameterAttributeList.default(visited),
         }
       end
 
@@ -410,7 +410,7 @@ module AWS::SDK::DataPipeline
         return nil if visited.include?('ParameterAttributeList')
         visited = visited + ['ParameterAttributeList']
         [
-          Stubs::ParameterAttribute.default(visited)
+          ParameterAttribute.default(visited)
         ]
       end
 
@@ -448,7 +448,7 @@ module AWS::SDK::DataPipeline
     class ListPipelines
       def self.default(visited=[])
         {
-          pipeline_id_list: Stubs::PipelineList.default(visited),
+          pipeline_id_list: PipelineList.default(visited),
           marker: 'marker',
           has_more_results: false,
         }
@@ -470,7 +470,7 @@ module AWS::SDK::DataPipeline
         return nil if visited.include?('PipelineList')
         visited = visited + ['PipelineList']
         [
-          Stubs::PipelineIdName.default(visited)
+          PipelineIdName.default(visited)
         ]
       end
 
@@ -508,7 +508,7 @@ module AWS::SDK::DataPipeline
     class PollForTask
       def self.default(visited=[])
         {
-          task_object: Stubs::TaskObject.default(visited),
+          task_object: TaskObject.default(visited),
         }
       end
 
@@ -529,7 +529,7 @@ module AWS::SDK::DataPipeline
           task_id: 'task_id',
           pipeline_id: 'pipeline_id',
           attempt_id: 'attempt_id',
-          objects: Stubs::PipelineObjectMap.default(visited),
+          objects: PipelineObjectMap.default(visited),
         }
       end
 
@@ -550,7 +550,7 @@ module AWS::SDK::DataPipeline
         return nil if visited.include?('PipelineObjectMap')
         visited = visited + ['PipelineObjectMap']
         {
-          test_key: Stubs::PipelineObject.default(visited)
+          test_key: PipelineObject.default(visited)
         }
       end
 
@@ -568,8 +568,8 @@ module AWS::SDK::DataPipeline
     class PutPipelineDefinition
       def self.default(visited=[])
         {
-          validation_errors: Stubs::ValidationErrors.default(visited),
-          validation_warnings: Stubs::ValidationWarnings.default(visited),
+          validation_errors: ValidationErrors.default(visited),
+          validation_warnings: ValidationWarnings.default(visited),
           errored: false,
         }
       end
@@ -590,7 +590,7 @@ module AWS::SDK::DataPipeline
         return nil if visited.include?('ValidationWarnings')
         visited = visited + ['ValidationWarnings']
         [
-          Stubs::ValidationWarning.default(visited)
+          ValidationWarning.default(visited)
         ]
       end
 
@@ -611,7 +611,7 @@ module AWS::SDK::DataPipeline
         visited = visited + ['ValidationWarning']
         {
           id: 'id',
-          warnings: Stubs::ValidationMessages.default(visited),
+          warnings: ValidationMessages.default(visited),
         }
       end
 
@@ -650,7 +650,7 @@ module AWS::SDK::DataPipeline
         return nil if visited.include?('ValidationErrors')
         visited = visited + ['ValidationErrors']
         [
-          Stubs::ValidationError.default(visited)
+          ValidationError.default(visited)
         ]
       end
 
@@ -671,7 +671,7 @@ module AWS::SDK::DataPipeline
         visited = visited + ['ValidationError']
         {
           id: 'id',
-          errors: Stubs::ValidationMessages.default(visited),
+          errors: ValidationMessages.default(visited),
         }
       end
 
@@ -688,7 +688,7 @@ module AWS::SDK::DataPipeline
     class QueryObjects
       def self.default(visited=[])
         {
-          ids: Stubs::IdList.default(visited),
+          ids: IdList.default(visited),
           marker: 'marker',
           has_more_results: false,
         }
@@ -802,8 +802,8 @@ module AWS::SDK::DataPipeline
     class ValidatePipelineDefinition
       def self.default(visited=[])
         {
-          validation_errors: Stubs::ValidationErrors.default(visited),
-          validation_warnings: Stubs::ValidationWarnings.default(visited),
+          validation_errors: ValidationErrors.default(visited),
+          validation_warnings: ValidationWarnings.default(visited),
           errored: false,
         }
       end

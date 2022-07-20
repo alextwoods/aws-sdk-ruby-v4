@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::ApplicationAutoScaling
@@ -295,7 +297,7 @@ module AWS::SDK::ApplicationAutoScaling
     def delete_scaling_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteScalingPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteScalingPolicyInput,
         validate_input: @config.validate_input
@@ -524,7 +526,7 @@ module AWS::SDK::ApplicationAutoScaling
     def delete_scheduled_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteScheduledActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteScheduledActionInput,
         validate_input: @config.validate_input
@@ -754,7 +756,7 @@ module AWS::SDK::ApplicationAutoScaling
     def deregister_scalable_target(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterScalableTargetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterScalableTargetInput,
         validate_input: @config.validate_input
@@ -1011,7 +1013,7 @@ module AWS::SDK::ApplicationAutoScaling
     def describe_scalable_targets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeScalableTargetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeScalableTargetsInput,
         validate_input: @config.validate_input
@@ -1267,7 +1269,7 @@ module AWS::SDK::ApplicationAutoScaling
     def describe_scaling_activities(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeScalingActivitiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeScalingActivitiesInput,
         validate_input: @config.validate_input
@@ -1556,7 +1558,7 @@ module AWS::SDK::ApplicationAutoScaling
     def describe_scaling_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeScalingPoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeScalingPoliciesInput,
         validate_input: @config.validate_input
@@ -1821,7 +1823,7 @@ module AWS::SDK::ApplicationAutoScaling
     def describe_scheduled_actions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeScheduledActionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeScheduledActionsInput,
         validate_input: @config.validate_input
@@ -2136,7 +2138,7 @@ module AWS::SDK::ApplicationAutoScaling
     def put_scaling_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutScalingPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutScalingPolicyInput,
         validate_input: @config.validate_input
@@ -2429,7 +2431,7 @@ module AWS::SDK::ApplicationAutoScaling
     def put_scheduled_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutScheduledActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutScheduledActionInput,
         validate_input: @config.validate_input
@@ -2734,7 +2736,7 @@ module AWS::SDK::ApplicationAutoScaling
     def register_scalable_target(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterScalableTargetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterScalableTargetInput,
         validate_input: @config.validate_input

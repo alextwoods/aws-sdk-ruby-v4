@@ -23,8 +23,8 @@ module AWS::SDK::ElasticInference
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AcceleratorType, context: context)
         Hearth::Validator.validate!(input[:accelerator_type_name], ::String, context: "#{context}[:accelerator_type_name]")
-        Validators::MemoryInfo.validate!(input[:memory_info], context: "#{context}[:memory_info]") unless input[:memory_info].nil?
-        Validators::ThroughputInfoList.validate!(input[:throughput_info], context: "#{context}[:throughput_info]") unless input[:throughput_info].nil?
+        MemoryInfo.validate!(input[:memory_info], context: "#{context}[:memory_info]") unless input[:memory_info].nil?
+        ThroughputInfoList.validate!(input[:throughput_info], context: "#{context}[:throughput_info]") unless input[:throughput_info].nil?
       end
     end
 
@@ -32,7 +32,7 @@ module AWS::SDK::ElasticInference
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AcceleratorType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AcceleratorType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -59,7 +59,7 @@ module AWS::SDK::ElasticInference
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AcceleratorTypeOffering.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AcceleratorTypeOffering.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -75,14 +75,14 @@ module AWS::SDK::ElasticInference
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAcceleratorOfferingsInput, context: context)
         Hearth::Validator.validate!(input[:location_type], ::String, context: "#{context}[:location_type]")
-        Validators::AcceleratorTypeNameList.validate!(input[:accelerator_types], context: "#{context}[:accelerator_types]") unless input[:accelerator_types].nil?
+        AcceleratorTypeNameList.validate!(input[:accelerator_types], context: "#{context}[:accelerator_types]") unless input[:accelerator_types].nil?
       end
     end
 
     class DescribeAcceleratorOfferingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAcceleratorOfferingsOutput, context: context)
-        Validators::AcceleratorTypeOfferingList.validate!(input[:accelerator_type_offerings], context: "#{context}[:accelerator_type_offerings]") unless input[:accelerator_type_offerings].nil?
+        AcceleratorTypeOfferingList.validate!(input[:accelerator_type_offerings], context: "#{context}[:accelerator_type_offerings]") unless input[:accelerator_type_offerings].nil?
       end
     end
 
@@ -95,15 +95,15 @@ module AWS::SDK::ElasticInference
     class DescribeAcceleratorTypesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAcceleratorTypesOutput, context: context)
-        Validators::AcceleratorTypeList.validate!(input[:accelerator_types], context: "#{context}[:accelerator_types]") unless input[:accelerator_types].nil?
+        AcceleratorTypeList.validate!(input[:accelerator_types], context: "#{context}[:accelerator_types]") unless input[:accelerator_types].nil?
       end
     end
 
     class DescribeAcceleratorsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAcceleratorsInput, context: context)
-        Validators::AcceleratorIdList.validate!(input[:accelerator_ids], context: "#{context}[:accelerator_ids]") unless input[:accelerator_ids].nil?
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        AcceleratorIdList.validate!(input[:accelerator_ids], context: "#{context}[:accelerator_ids]") unless input[:accelerator_ids].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -112,7 +112,7 @@ module AWS::SDK::ElasticInference
     class DescribeAcceleratorsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAcceleratorsOutput, context: context)
-        Validators::ElasticInferenceAcceleratorSet.validate!(input[:accelerator_set], context: "#{context}[:accelerator_set]") unless input[:accelerator_set].nil?
+        ElasticInferenceAcceleratorSet.validate!(input[:accelerator_set], context: "#{context}[:accelerator_set]") unless input[:accelerator_set].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -120,7 +120,7 @@ module AWS::SDK::ElasticInference
     class ElasticInferenceAccelerator
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ElasticInferenceAccelerator, context: context)
-        Validators::ElasticInferenceAcceleratorHealth.validate!(input[:accelerator_health], context: "#{context}[:accelerator_health]") unless input[:accelerator_health].nil?
+        ElasticInferenceAcceleratorHealth.validate!(input[:accelerator_health], context: "#{context}[:accelerator_health]") unless input[:accelerator_health].nil?
         Hearth::Validator.validate!(input[:accelerator_type], ::String, context: "#{context}[:accelerator_type]")
         Hearth::Validator.validate!(input[:accelerator_id], ::String, context: "#{context}[:accelerator_id]")
         Hearth::Validator.validate!(input[:availability_zone], ::String, context: "#{context}[:availability_zone]")
@@ -139,7 +139,7 @@ module AWS::SDK::ElasticInference
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ElasticInferenceAccelerator.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ElasticInferenceAccelerator.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -148,7 +148,7 @@ module AWS::SDK::ElasticInference
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Filter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ValueStringList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        ValueStringList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -156,7 +156,7 @@ module AWS::SDK::ElasticInference
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -186,7 +186,7 @@ module AWS::SDK::ElasticInference
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -227,7 +227,7 @@ module AWS::SDK::ElasticInference
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -241,7 +241,7 @@ module AWS::SDK::ElasticInference
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::KeyValuePair.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          KeyValuePair.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -250,7 +250,7 @@ module AWS::SDK::ElasticInference
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 

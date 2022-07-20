@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::MTurk
@@ -73,7 +75,7 @@ module AWS::SDK::MTurk
     def accept_qualification_request(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AcceptQualificationRequestInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AcceptQualificationRequestInput,
         validate_input: @config.validate_input
@@ -184,7 +186,7 @@ module AWS::SDK::MTurk
     def approve_assignment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ApproveAssignmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ApproveAssignmentInput,
         validate_input: @config.validate_input
@@ -291,7 +293,7 @@ module AWS::SDK::MTurk
     def associate_qualification_with_worker(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateQualificationWithWorkerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateQualificationWithWorkerInput,
         validate_input: @config.validate_input
@@ -396,7 +398,7 @@ module AWS::SDK::MTurk
     def create_additional_assignments_for_hit(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAdditionalAssignmentsForHITInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAdditionalAssignmentsForHITInput,
         validate_input: @config.validate_input
@@ -697,7 +699,7 @@ module AWS::SDK::MTurk
     def create_hit(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateHITInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateHITInput,
         validate_input: @config.validate_input
@@ -842,7 +844,7 @@ module AWS::SDK::MTurk
     def create_hit_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateHITTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateHITTypeInput,
         validate_input: @config.validate_input
@@ -1073,7 +1075,7 @@ module AWS::SDK::MTurk
     def create_hit_with_hit_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateHITWithHITTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateHITWithHITTypeInput,
         validate_input: @config.validate_input
@@ -1237,7 +1239,7 @@ module AWS::SDK::MTurk
     def create_qualification_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateQualificationTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateQualificationTypeInput,
         validate_input: @config.validate_input
@@ -1309,7 +1311,7 @@ module AWS::SDK::MTurk
     def create_worker_block(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateWorkerBlockInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateWorkerBlockInput,
         validate_input: @config.validate_input
@@ -1412,7 +1414,7 @@ module AWS::SDK::MTurk
     def delete_hit(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteHITInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteHITInput,
         validate_input: @config.validate_input
@@ -1498,7 +1500,7 @@ module AWS::SDK::MTurk
     def delete_qualification_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteQualificationTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteQualificationTypeInput,
         validate_input: @config.validate_input
@@ -1570,7 +1572,7 @@ module AWS::SDK::MTurk
     def delete_worker_block(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteWorkerBlockInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteWorkerBlockInput,
         validate_input: @config.validate_input
@@ -1653,7 +1655,7 @@ module AWS::SDK::MTurk
     def disassociate_qualification_from_worker(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateQualificationFromWorkerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateQualificationFromWorkerInput,
         validate_input: @config.validate_input
@@ -1720,7 +1722,7 @@ module AWS::SDK::MTurk
     def get_account_balance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAccountBalanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAccountBalanceInput,
         validate_input: @config.validate_input
@@ -1836,7 +1838,7 @@ module AWS::SDK::MTurk
     def get_assignment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAssignmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAssignmentInput,
         validate_input: @config.validate_input
@@ -1928,7 +1930,7 @@ module AWS::SDK::MTurk
     def get_file_upload_url(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFileUploadURLInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFileUploadURLInput,
         validate_input: @config.validate_input
@@ -2031,7 +2033,7 @@ module AWS::SDK::MTurk
     def get_hit(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetHITInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetHITInput,
         validate_input: @config.validate_input
@@ -2125,7 +2127,7 @@ module AWS::SDK::MTurk
     def get_qualification_score(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetQualificationScoreInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetQualificationScoreInput,
         validate_input: @config.validate_input
@@ -2209,7 +2211,7 @@ module AWS::SDK::MTurk
     def get_qualification_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetQualificationTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetQualificationTypeInput,
         validate_input: @config.validate_input
@@ -2331,7 +2333,7 @@ module AWS::SDK::MTurk
     def list_assignments_for_hit(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAssignmentsForHITInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAssignmentsForHITInput,
         validate_input: @config.validate_input
@@ -2428,7 +2430,7 @@ module AWS::SDK::MTurk
     def list_bonus_payments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBonusPaymentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBonusPaymentsInput,
         validate_input: @config.validate_input
@@ -2539,7 +2541,7 @@ module AWS::SDK::MTurk
     def list_hi_ts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListHITsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListHITsInput,
         validate_input: @config.validate_input
@@ -2660,7 +2662,7 @@ module AWS::SDK::MTurk
     def list_hi_ts_for_qualification_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListHITsForQualificationTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListHITsForQualificationTypeInput,
         validate_input: @config.validate_input
@@ -2757,7 +2759,7 @@ module AWS::SDK::MTurk
     def list_qualification_requests(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListQualificationRequestsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListQualificationRequestsInput,
         validate_input: @config.validate_input
@@ -2879,7 +2881,7 @@ module AWS::SDK::MTurk
     def list_qualification_types(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListQualificationTypesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListQualificationTypesInput,
         validate_input: @config.validate_input
@@ -3018,7 +3020,7 @@ module AWS::SDK::MTurk
     def list_review_policy_results_for_hit(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListReviewPolicyResultsForHITInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListReviewPolicyResultsForHITInput,
         validate_input: @config.validate_input
@@ -3145,7 +3147,7 @@ module AWS::SDK::MTurk
     def list_reviewable_hi_ts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListReviewableHITsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListReviewableHITsInput,
         validate_input: @config.validate_input
@@ -3220,7 +3222,7 @@ module AWS::SDK::MTurk
     def list_worker_blocks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListWorkerBlocksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListWorkerBlocksInput,
         validate_input: @config.validate_input
@@ -3321,7 +3323,7 @@ module AWS::SDK::MTurk
     def list_workers_with_qualification_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListWorkersWithQualificationTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListWorkersWithQualificationTypeInput,
         validate_input: @config.validate_input
@@ -3417,7 +3419,7 @@ module AWS::SDK::MTurk
     def notify_workers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::NotifyWorkersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::NotifyWorkersInput,
         validate_input: @config.validate_input
@@ -3505,7 +3507,7 @@ module AWS::SDK::MTurk
     def reject_assignment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RejectAssignmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RejectAssignmentInput,
         validate_input: @config.validate_input
@@ -3588,7 +3590,7 @@ module AWS::SDK::MTurk
     def reject_qualification_request(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RejectQualificationRequestInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RejectQualificationRequestInput,
         validate_input: @config.validate_input
@@ -3695,7 +3697,7 @@ module AWS::SDK::MTurk
     def send_bonus(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendBonusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendBonusInput,
         validate_input: @config.validate_input
@@ -3789,7 +3791,7 @@ module AWS::SDK::MTurk
     def send_test_event_notification(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendTestEventNotificationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendTestEventNotificationInput,
         validate_input: @config.validate_input
@@ -3868,7 +3870,7 @@ module AWS::SDK::MTurk
     def update_expiration_for_hit(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateExpirationForHITInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateExpirationForHITInput,
         validate_input: @config.validate_input
@@ -3960,7 +3962,7 @@ module AWS::SDK::MTurk
     def update_hit_review_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateHITReviewStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateHITReviewStatusInput,
         validate_input: @config.validate_input
@@ -4039,7 +4041,7 @@ module AWS::SDK::MTurk
     def update_hit_type_of_hit(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateHITTypeOfHITInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateHITTypeOfHITInput,
         validate_input: @config.validate_input
@@ -4142,7 +4144,7 @@ module AWS::SDK::MTurk
     def update_notification_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateNotificationSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateNotificationSettingsInput,
         validate_input: @config.validate_input
@@ -4298,7 +4300,7 @@ module AWS::SDK::MTurk
     def update_qualification_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateQualificationTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateQualificationTypeInput,
         validate_input: @config.validate_input

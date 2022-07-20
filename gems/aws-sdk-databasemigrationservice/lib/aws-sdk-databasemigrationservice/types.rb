@@ -50,12 +50,12 @@ module AWS::SDK::DatabaseMigrationService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.used ||= 0
         self.max ||= 0
       end
-
     end
 
     # <p>Associates a set of tags with an DMS resource.</p>
@@ -4266,11 +4266,11 @@ module AWS::SDK::DatabaseMigrationService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Identifies the name and value of a filter object. This filter is used to limit the
@@ -5918,12 +5918,12 @@ module AWS::SDK::DatabaseMigrationService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.apply_immediately ||= false
         self.allow_major_version_upgrade ||= false
       end
-
     end
 
     # <p></p>
@@ -7063,6 +7063,7 @@ module AWS::SDK::DatabaseMigrationService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.min_allocated_storage ||= 0
@@ -7070,7 +7071,6 @@ module AWS::SDK::DatabaseMigrationService
         self.default_allocated_storage ||= 0
         self.included_allocated_storage ||= 0
       end
-
     end
 
     # Includes enum constants for ParquetVersionValue
@@ -7476,6 +7476,7 @@ module AWS::SDK::DatabaseMigrationService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
@@ -8256,6 +8257,7 @@ module AWS::SDK::DatabaseMigrationService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allocated_storage ||= 0
@@ -8263,7 +8265,6 @@ module AWS::SDK::DatabaseMigrationService
         self.auto_minor_version_upgrade ||= false
         self.publicly_accessible ||= false
       end
-
     end
 
     # <p>Contains metadata for a replication instance task log.</p>
@@ -8290,11 +8291,11 @@ module AWS::SDK::DatabaseMigrationService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.replication_instance_task_log_size ||= 0
       end
-
     end
 
     # <p>Provides information about the values of pending modifications to a replication
@@ -8898,12 +8899,12 @@ module AWS::SDK::DatabaseMigrationService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.individual_assessment_count ||= 0
         self.individual_assessment_completed_count ||= 0
       end
-
     end
 
     # <p>Provides information that describes an individual assessment from a premigration
@@ -9054,6 +9055,7 @@ module AWS::SDK::DatabaseMigrationService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.full_load_progress_percent ||= 0
@@ -9063,7 +9065,6 @@ module AWS::SDK::DatabaseMigrationService
         self.tables_queued ||= 0
         self.tables_errored ||= 0
       end
-
     end
 
     # <p>The resource you are attempting to create already exists.</p>
@@ -10363,11 +10364,11 @@ module AWS::SDK::DatabaseMigrationService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.supports_cdc ||= false
       end
-
     end
 
     # <p>Provides information that defines a SAP ASE endpoint.</p>
@@ -10614,6 +10615,7 @@ module AWS::SDK::DatabaseMigrationService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.inserts ||= 0
@@ -10627,7 +10629,6 @@ module AWS::SDK::DatabaseMigrationService
         self.validation_failed_records ||= 0
         self.validation_suspended_records ||= 0
       end
-
     end
 
     # <p>Provides the name of the schema and table to be reloaded.</p>

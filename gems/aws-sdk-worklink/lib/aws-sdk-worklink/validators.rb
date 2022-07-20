@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::WorkLink
   module Validators
 
@@ -64,7 +66,7 @@ module AWS::SDK::WorkLink
         Hearth::Validator.validate!(input[:fleet_name], ::String, context: "#{context}[:fleet_name]")
         Hearth::Validator.validate!(input[:display_name], ::String, context: "#{context}[:display_name]")
         Hearth::Validator.validate!(input[:optimize_for_end_user_location], ::TrueClass, ::FalseClass, context: "#{context}[:optimize_for_end_user_location]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -113,8 +115,8 @@ module AWS::SDK::WorkLink
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeCompanyNetworkConfigurationOutput, context: context)
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
-        Validators::SubnetIds.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
-        Validators::SecurityGroupIds.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        SubnetIds.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        SecurityGroupIds.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
       end
     end
 
@@ -191,7 +193,7 @@ module AWS::SDK::WorkLink
         Hearth::Validator.validate!(input[:optimize_for_end_user_location], ::TrueClass, ::FalseClass, context: "#{context}[:optimize_for_end_user_location]")
         Hearth::Validator.validate!(input[:company_code], ::String, context: "#{context}[:company_code]")
         Hearth::Validator.validate!(input[:fleet_status], ::String, context: "#{context}[:fleet_status]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -240,7 +242,7 @@ module AWS::SDK::WorkLink
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DeviceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DeviceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -301,7 +303,7 @@ module AWS::SDK::WorkLink
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DomainSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DomainSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -316,7 +318,7 @@ module AWS::SDK::WorkLink
         Hearth::Validator.validate!(input[:display_name], ::String, context: "#{context}[:display_name]")
         Hearth::Validator.validate!(input[:company_code], ::String, context: "#{context}[:company_code]")
         Hearth::Validator.validate!(input[:fleet_status], ::String, context: "#{context}[:fleet_status]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -324,7 +326,7 @@ module AWS::SDK::WorkLink
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FleetSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FleetSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -355,7 +357,7 @@ module AWS::SDK::WorkLink
     class ListDevicesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDevicesOutput, context: context)
-        Validators::DeviceSummaryList.validate!(input[:devices], context: "#{context}[:devices]") unless input[:devices].nil?
+        DeviceSummaryList.validate!(input[:devices], context: "#{context}[:devices]") unless input[:devices].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -372,7 +374,7 @@ module AWS::SDK::WorkLink
     class ListDomainsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDomainsOutput, context: context)
-        Validators::DomainSummaryList.validate!(input[:domains], context: "#{context}[:domains]") unless input[:domains].nil?
+        DomainSummaryList.validate!(input[:domains], context: "#{context}[:domains]") unless input[:domains].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -388,7 +390,7 @@ module AWS::SDK::WorkLink
     class ListFleetsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFleetsOutput, context: context)
-        Validators::FleetSummaryList.validate!(input[:fleet_summary_list], context: "#{context}[:fleet_summary_list]") unless input[:fleet_summary_list].nil?
+        FleetSummaryList.validate!(input[:fleet_summary_list], context: "#{context}[:fleet_summary_list]") unless input[:fleet_summary_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -403,7 +405,7 @@ module AWS::SDK::WorkLink
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -419,7 +421,7 @@ module AWS::SDK::WorkLink
     class ListWebsiteAuthorizationProvidersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListWebsiteAuthorizationProvidersOutput, context: context)
-        Validators::WebsiteAuthorizationProvidersSummaryList.validate!(input[:website_authorization_providers], context: "#{context}[:website_authorization_providers]") unless input[:website_authorization_providers].nil?
+        WebsiteAuthorizationProvidersSummaryList.validate!(input[:website_authorization_providers], context: "#{context}[:website_authorization_providers]") unless input[:website_authorization_providers].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -436,7 +438,7 @@ module AWS::SDK::WorkLink
     class ListWebsiteCertificateAuthoritiesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListWebsiteCertificateAuthoritiesOutput, context: context)
-        Validators::WebsiteCaSummaryList.validate!(input[:website_certificate_authorities], context: "#{context}[:website_certificate_authorities]") unless input[:website_certificate_authorities].nil?
+        WebsiteCaSummaryList.validate!(input[:website_certificate_authorities], context: "#{context}[:website_certificate_authorities]") unless input[:website_certificate_authorities].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -538,7 +540,7 @@ module AWS::SDK::WorkLink
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -566,7 +568,7 @@ module AWS::SDK::WorkLink
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -595,8 +597,8 @@ module AWS::SDK::WorkLink
         Hearth::Validator.validate!(input, Types::UpdateCompanyNetworkConfigurationInput, context: context)
         Hearth::Validator.validate!(input[:fleet_arn], ::String, context: "#{context}[:fleet_arn]")
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
-        Validators::SubnetIds.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
-        Validators::SecurityGroupIds.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        SubnetIds.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        SecurityGroupIds.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
       end
     end
 
@@ -679,7 +681,7 @@ module AWS::SDK::WorkLink
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::WebsiteAuthorizationProviderSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          WebsiteAuthorizationProviderSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -697,7 +699,7 @@ module AWS::SDK::WorkLink
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::WebsiteCaSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          WebsiteCaSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

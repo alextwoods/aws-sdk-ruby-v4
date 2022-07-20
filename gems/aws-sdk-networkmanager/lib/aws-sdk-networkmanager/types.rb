@@ -4850,11 +4850,11 @@ module AWS::SDK::NetworkManager
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_middlebox ||= false
       end
-
     end
 
     # <p>Describes a network route.</p>
@@ -5366,12 +5366,12 @@ module AWS::SDK::NetworkManager
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_return_path ||= false
         self.use_middleboxes ||= false
       end
-
     end
 
     # <p>Describes the status of an analysis at completion.</p>
@@ -5846,12 +5846,12 @@ module AWS::SDK::NetworkManager
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_return_path ||= false
         self.use_middleboxes ||= false
       end
-
     end
 
     # @!attribute route_analysis
@@ -6614,11 +6614,11 @@ module AWS::SDK::NetworkManager
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ipv6_support ||= false
       end
-
     end
 
   end

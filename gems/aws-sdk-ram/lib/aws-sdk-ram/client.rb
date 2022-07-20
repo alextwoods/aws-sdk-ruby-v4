@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::RAM
@@ -112,7 +114,7 @@ module AWS::SDK::RAM
     def accept_resource_share_invitation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AcceptResourceShareInvitationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AcceptResourceShareInvitationInput,
         validate_input: @config.validate_input
@@ -254,7 +256,7 @@ module AWS::SDK::RAM
     def associate_resource_share(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateResourceShareInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateResourceShareInput,
         validate_input: @config.validate_input
@@ -365,7 +367,7 @@ module AWS::SDK::RAM
     def associate_resource_share_permission(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateResourceSharePermissionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateResourceSharePermissionInput,
         validate_input: @config.validate_input
@@ -538,7 +540,7 @@ module AWS::SDK::RAM
     def create_resource_share(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateResourceShareInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateResourceShareInput,
         validate_input: @config.validate_input
@@ -621,7 +623,7 @@ module AWS::SDK::RAM
     def delete_resource_share(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteResourceShareInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteResourceShareInput,
         validate_input: @config.validate_input
@@ -758,7 +760,7 @@ module AWS::SDK::RAM
     def disassociate_resource_share(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateResourceShareInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateResourceShareInput,
         validate_input: @config.validate_input
@@ -846,7 +848,7 @@ module AWS::SDK::RAM
     def disassociate_resource_share_permission(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateResourceSharePermissionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateResourceSharePermissionInput,
         validate_input: @config.validate_input
@@ -918,7 +920,7 @@ module AWS::SDK::RAM
     def enable_sharing_with_aws_organization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableSharingWithAwsOrganizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableSharingWithAwsOrganizationInput,
         validate_input: @config.validate_input
@@ -1002,7 +1004,7 @@ module AWS::SDK::RAM
     def get_permission(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPermissionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPermissionInput,
         validate_input: @config.validate_input
@@ -1100,7 +1102,7 @@ module AWS::SDK::RAM
     def get_resource_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResourcePoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResourcePoliciesInput,
         validate_input: @config.validate_input
@@ -1238,7 +1240,7 @@ module AWS::SDK::RAM
     def get_resource_share_associations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResourceShareAssociationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResourceShareAssociationsInput,
         validate_input: @config.validate_input
@@ -1358,7 +1360,7 @@ module AWS::SDK::RAM
     def get_resource_share_invitations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResourceShareInvitationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResourceShareInvitationsInput,
         validate_input: @config.validate_input
@@ -1512,7 +1514,7 @@ module AWS::SDK::RAM
     def get_resource_shares(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResourceSharesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResourceSharesInput,
         validate_input: @config.validate_input
@@ -1637,7 +1639,7 @@ module AWS::SDK::RAM
     def list_pending_invitation_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPendingInvitationResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPendingInvitationResourcesInput,
         validate_input: @config.validate_input
@@ -1739,7 +1741,7 @@ module AWS::SDK::RAM
     def list_permission_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPermissionVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPermissionVersionsInput,
         validate_input: @config.validate_input
@@ -1843,7 +1845,7 @@ module AWS::SDK::RAM
     def list_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPermissionsInput,
         validate_input: @config.validate_input
@@ -2014,7 +2016,7 @@ module AWS::SDK::RAM
     def list_principals(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPrincipalsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPrincipalsInput,
         validate_input: @config.validate_input
@@ -2115,7 +2117,7 @@ module AWS::SDK::RAM
     def list_resource_share_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListResourceSharePermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListResourceSharePermissionsInput,
         validate_input: @config.validate_input
@@ -2228,7 +2230,7 @@ module AWS::SDK::RAM
     def list_resource_types(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListResourceTypesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListResourceTypesInput,
         validate_input: @config.validate_input
@@ -2393,7 +2395,7 @@ module AWS::SDK::RAM
     def list_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListResourcesInput,
         validate_input: @config.validate_input
@@ -2467,7 +2469,7 @@ module AWS::SDK::RAM
     def promote_resource_share_created_from_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PromoteResourceShareCreatedFromPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PromoteResourceShareCreatedFromPolicyInput,
         validate_input: @config.validate_input
@@ -2566,7 +2568,7 @@ module AWS::SDK::RAM
     def reject_resource_share_invitation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RejectResourceShareInvitationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RejectResourceShareInvitationInput,
         validate_input: @config.validate_input
@@ -2645,7 +2647,7 @@ module AWS::SDK::RAM
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2720,7 +2722,7 @@ module AWS::SDK::RAM
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2823,7 +2825,7 @@ module AWS::SDK::RAM
     def update_resource_share(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateResourceShareInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateResourceShareInput,
         validate_input: @config.validate_input

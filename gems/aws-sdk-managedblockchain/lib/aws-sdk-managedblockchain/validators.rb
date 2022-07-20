@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::ManagedBlockchain
   module Validators
 
@@ -32,7 +34,7 @@ module AWS::SDK::ManagedBlockchain
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
         Hearth::Validator.validate!(input[:invitation_id], ::String, context: "#{context}[:invitation_id]")
         Hearth::Validator.validate!(input[:network_id], ::String, context: "#{context}[:network_id]")
-        Validators::MemberConfiguration.validate!(input[:member_configuration], context: "#{context}[:member_configuration]") unless input[:member_configuration].nil?
+        MemberConfiguration.validate!(input[:member_configuration], context: "#{context}[:member_configuration]") unless input[:member_configuration].nil?
       end
     end
 
@@ -51,10 +53,10 @@ module AWS::SDK::ManagedBlockchain
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:framework], ::String, context: "#{context}[:framework]")
         Hearth::Validator.validate!(input[:framework_version], ::String, context: "#{context}[:framework_version]")
-        Validators::NetworkFrameworkConfiguration.validate!(input[:framework_configuration], context: "#{context}[:framework_configuration]") unless input[:framework_configuration].nil?
-        Validators::VotingPolicy.validate!(input[:voting_policy], context: "#{context}[:voting_policy]") unless input[:voting_policy].nil?
-        Validators::MemberConfiguration.validate!(input[:member_configuration], context: "#{context}[:member_configuration]") unless input[:member_configuration].nil?
-        Validators::InputTagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        NetworkFrameworkConfiguration.validate!(input[:framework_configuration], context: "#{context}[:framework_configuration]") unless input[:framework_configuration].nil?
+        VotingPolicy.validate!(input[:voting_policy], context: "#{context}[:voting_policy]") unless input[:voting_policy].nil?
+        MemberConfiguration.validate!(input[:member_configuration], context: "#{context}[:member_configuration]") unless input[:member_configuration].nil?
+        InputTagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -72,8 +74,8 @@ module AWS::SDK::ManagedBlockchain
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
         Hearth::Validator.validate!(input[:network_id], ::String, context: "#{context}[:network_id]")
         Hearth::Validator.validate!(input[:member_id], ::String, context: "#{context}[:member_id]")
-        Validators::NodeConfiguration.validate!(input[:node_configuration], context: "#{context}[:node_configuration]") unless input[:node_configuration].nil?
-        Validators::InputTagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        NodeConfiguration.validate!(input[:node_configuration], context: "#{context}[:node_configuration]") unless input[:node_configuration].nil?
+        InputTagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -90,9 +92,9 @@ module AWS::SDK::ManagedBlockchain
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
         Hearth::Validator.validate!(input[:network_id], ::String, context: "#{context}[:network_id]")
         Hearth::Validator.validate!(input[:member_id], ::String, context: "#{context}[:member_id]")
-        Validators::ProposalActions.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
+        ProposalActions.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::InputTagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        InputTagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -143,7 +145,7 @@ module AWS::SDK::ManagedBlockchain
     class GetMemberOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetMemberOutput, context: context)
-        Validators::Member.validate!(input[:member], context: "#{context}[:member]") unless input[:member].nil?
+        Member.validate!(input[:member], context: "#{context}[:member]") unless input[:member].nil?
       end
     end
 
@@ -157,7 +159,7 @@ module AWS::SDK::ManagedBlockchain
     class GetNetworkOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetNetworkOutput, context: context)
-        Validators::Network.validate!(input[:network], context: "#{context}[:network]") unless input[:network].nil?
+        Network.validate!(input[:network], context: "#{context}[:network]") unless input[:network].nil?
       end
     end
 
@@ -173,7 +175,7 @@ module AWS::SDK::ManagedBlockchain
     class GetNodeOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetNodeOutput, context: context)
-        Validators::Node.validate!(input[:node], context: "#{context}[:node]") unless input[:node].nil?
+        Node.validate!(input[:node], context: "#{context}[:node]") unless input[:node].nil?
       end
     end
 
@@ -188,7 +190,7 @@ module AWS::SDK::ManagedBlockchain
     class GetProposalOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetProposalOutput, context: context)
-        Validators::Proposal.validate!(input[:proposal], context: "#{context}[:proposal]") unless input[:proposal].nil?
+        Proposal.validate!(input[:proposal], context: "#{context}[:proposal]") unless input[:proposal].nil?
       end
     end
 
@@ -229,7 +231,7 @@ module AWS::SDK::ManagedBlockchain
         Hearth::Validator.validate!(input[:creation_date], ::Time, context: "#{context}[:creation_date]")
         Hearth::Validator.validate!(input[:expiration_date], ::Time, context: "#{context}[:expiration_date]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::NetworkSummary.validate!(input[:network_summary], context: "#{context}[:network_summary]") unless input[:network_summary].nil?
+        NetworkSummary.validate!(input[:network_summary], context: "#{context}[:network_summary]") unless input[:network_summary].nil?
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
       end
     end
@@ -238,7 +240,7 @@ module AWS::SDK::ManagedBlockchain
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Invitation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Invitation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -254,7 +256,7 @@ module AWS::SDK::ManagedBlockchain
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InviteAction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InviteAction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -270,7 +272,7 @@ module AWS::SDK::ManagedBlockchain
     class ListInvitationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListInvitationsOutput, context: context)
-        Validators::InvitationList.validate!(input[:invitations], context: "#{context}[:invitations]") unless input[:invitations].nil?
+        InvitationList.validate!(input[:invitations], context: "#{context}[:invitations]") unless input[:invitations].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -290,7 +292,7 @@ module AWS::SDK::ManagedBlockchain
     class ListMembersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListMembersOutput, context: context)
-        Validators::MemberSummaryList.validate!(input[:members], context: "#{context}[:members]") unless input[:members].nil?
+        MemberSummaryList.validate!(input[:members], context: "#{context}[:members]") unless input[:members].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -309,7 +311,7 @@ module AWS::SDK::ManagedBlockchain
     class ListNetworksOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListNetworksOutput, context: context)
-        Validators::NetworkSummaryList.validate!(input[:networks], context: "#{context}[:networks]") unless input[:networks].nil?
+        NetworkSummaryList.validate!(input[:networks], context: "#{context}[:networks]") unless input[:networks].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -328,7 +330,7 @@ module AWS::SDK::ManagedBlockchain
     class ListNodesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListNodesOutput, context: context)
-        Validators::NodeSummaryList.validate!(input[:nodes], context: "#{context}[:nodes]") unless input[:nodes].nil?
+        NodeSummaryList.validate!(input[:nodes], context: "#{context}[:nodes]") unless input[:nodes].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -346,7 +348,7 @@ module AWS::SDK::ManagedBlockchain
     class ListProposalVotesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListProposalVotesOutput, context: context)
-        Validators::ProposalVoteList.validate!(input[:proposal_votes], context: "#{context}[:proposal_votes]") unless input[:proposal_votes].nil?
+        ProposalVoteList.validate!(input[:proposal_votes], context: "#{context}[:proposal_votes]") unless input[:proposal_votes].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -363,7 +365,7 @@ module AWS::SDK::ManagedBlockchain
     class ListProposalsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListProposalsOutput, context: context)
-        Validators::ProposalSummaryList.validate!(input[:proposals], context: "#{context}[:proposals]") unless input[:proposals].nil?
+        ProposalSummaryList.validate!(input[:proposals], context: "#{context}[:proposals]") unless input[:proposals].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -378,7 +380,7 @@ module AWS::SDK::ManagedBlockchain
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::OutputTagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        OutputTagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -392,7 +394,7 @@ module AWS::SDK::ManagedBlockchain
     class LogConfigurations
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LogConfigurations, context: context)
-        Validators::LogConfiguration.validate!(input[:cloudwatch], context: "#{context}[:cloudwatch]") unless input[:cloudwatch].nil?
+        LogConfiguration.validate!(input[:cloudwatch], context: "#{context}[:cloudwatch]") unless input[:cloudwatch].nil?
       end
     end
 
@@ -403,11 +405,11 @@ module AWS::SDK::ManagedBlockchain
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::MemberFrameworkAttributes.validate!(input[:framework_attributes], context: "#{context}[:framework_attributes]") unless input[:framework_attributes].nil?
-        Validators::MemberLogPublishingConfiguration.validate!(input[:log_publishing_configuration], context: "#{context}[:log_publishing_configuration]") unless input[:log_publishing_configuration].nil?
+        MemberFrameworkAttributes.validate!(input[:framework_attributes], context: "#{context}[:framework_attributes]") unless input[:framework_attributes].nil?
+        MemberLogPublishingConfiguration.validate!(input[:log_publishing_configuration], context: "#{context}[:log_publishing_configuration]") unless input[:log_publishing_configuration].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:creation_date], ::Time, context: "#{context}[:creation_date]")
-        Validators::OutputTagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        OutputTagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:kms_key_arn], ::String, context: "#{context}[:kms_key_arn]")
       end
@@ -418,9 +420,9 @@ module AWS::SDK::ManagedBlockchain
         Hearth::Validator.validate!(input, Types::MemberConfiguration, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::MemberFrameworkConfiguration.validate!(input[:framework_configuration], context: "#{context}[:framework_configuration]") unless input[:framework_configuration].nil?
-        Validators::MemberLogPublishingConfiguration.validate!(input[:log_publishing_configuration], context: "#{context}[:log_publishing_configuration]") unless input[:log_publishing_configuration].nil?
-        Validators::InputTagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        MemberFrameworkConfiguration.validate!(input[:framework_configuration], context: "#{context}[:framework_configuration]") unless input[:framework_configuration].nil?
+        MemberLogPublishingConfiguration.validate!(input[:log_publishing_configuration], context: "#{context}[:log_publishing_configuration]") unless input[:log_publishing_configuration].nil?
+        InputTagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:kms_key_arn], ::String, context: "#{context}[:kms_key_arn]")
       end
     end
@@ -444,28 +446,28 @@ module AWS::SDK::ManagedBlockchain
     class MemberFabricLogPublishingConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MemberFabricLogPublishingConfiguration, context: context)
-        Validators::LogConfigurations.validate!(input[:ca_logs], context: "#{context}[:ca_logs]") unless input[:ca_logs].nil?
+        LogConfigurations.validate!(input[:ca_logs], context: "#{context}[:ca_logs]") unless input[:ca_logs].nil?
       end
     end
 
     class MemberFrameworkAttributes
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MemberFrameworkAttributes, context: context)
-        Validators::MemberFabricAttributes.validate!(input[:fabric], context: "#{context}[:fabric]") unless input[:fabric].nil?
+        MemberFabricAttributes.validate!(input[:fabric], context: "#{context}[:fabric]") unless input[:fabric].nil?
       end
     end
 
     class MemberFrameworkConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MemberFrameworkConfiguration, context: context)
-        Validators::MemberFabricConfiguration.validate!(input[:fabric], context: "#{context}[:fabric]") unless input[:fabric].nil?
+        MemberFabricConfiguration.validate!(input[:fabric], context: "#{context}[:fabric]") unless input[:fabric].nil?
       end
     end
 
     class MemberLogPublishingConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MemberLogPublishingConfiguration, context: context)
-        Validators::MemberFabricLogPublishingConfiguration.validate!(input[:fabric], context: "#{context}[:fabric]") unless input[:fabric].nil?
+        MemberFabricLogPublishingConfiguration.validate!(input[:fabric], context: "#{context}[:fabric]") unless input[:fabric].nil?
       end
     end
 
@@ -486,7 +488,7 @@ module AWS::SDK::ManagedBlockchain
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MemberSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MemberSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -499,12 +501,12 @@ module AWS::SDK::ManagedBlockchain
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:framework], ::String, context: "#{context}[:framework]")
         Hearth::Validator.validate!(input[:framework_version], ::String, context: "#{context}[:framework_version]")
-        Validators::NetworkFrameworkAttributes.validate!(input[:framework_attributes], context: "#{context}[:framework_attributes]") unless input[:framework_attributes].nil?
+        NetworkFrameworkAttributes.validate!(input[:framework_attributes], context: "#{context}[:framework_attributes]") unless input[:framework_attributes].nil?
         Hearth::Validator.validate!(input[:vpc_endpoint_service_name], ::String, context: "#{context}[:vpc_endpoint_service_name]")
-        Validators::VotingPolicy.validate!(input[:voting_policy], context: "#{context}[:voting_policy]") unless input[:voting_policy].nil?
+        VotingPolicy.validate!(input[:voting_policy], context: "#{context}[:voting_policy]") unless input[:voting_policy].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:creation_date], ::Time, context: "#{context}[:creation_date]")
-        Validators::OutputTagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        OutputTagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
       end
     end
@@ -534,15 +536,15 @@ module AWS::SDK::ManagedBlockchain
     class NetworkFrameworkAttributes
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NetworkFrameworkAttributes, context: context)
-        Validators::NetworkFabricAttributes.validate!(input[:fabric], context: "#{context}[:fabric]") unless input[:fabric].nil?
-        Validators::NetworkEthereumAttributes.validate!(input[:ethereum], context: "#{context}[:ethereum]") unless input[:ethereum].nil?
+        NetworkFabricAttributes.validate!(input[:fabric], context: "#{context}[:fabric]") unless input[:fabric].nil?
+        NetworkEthereumAttributes.validate!(input[:ethereum], context: "#{context}[:ethereum]") unless input[:ethereum].nil?
       end
     end
 
     class NetworkFrameworkConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NetworkFrameworkConfiguration, context: context)
-        Validators::NetworkFabricConfiguration.validate!(input[:fabric], context: "#{context}[:fabric]") unless input[:fabric].nil?
+        NetworkFabricConfiguration.validate!(input[:fabric], context: "#{context}[:fabric]") unless input[:fabric].nil?
       end
     end
 
@@ -564,7 +566,7 @@ module AWS::SDK::ManagedBlockchain
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NetworkSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NetworkSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -577,12 +579,12 @@ module AWS::SDK::ManagedBlockchain
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:instance_type], ::String, context: "#{context}[:instance_type]")
         Hearth::Validator.validate!(input[:availability_zone], ::String, context: "#{context}[:availability_zone]")
-        Validators::NodeFrameworkAttributes.validate!(input[:framework_attributes], context: "#{context}[:framework_attributes]") unless input[:framework_attributes].nil?
-        Validators::NodeLogPublishingConfiguration.validate!(input[:log_publishing_configuration], context: "#{context}[:log_publishing_configuration]") unless input[:log_publishing_configuration].nil?
+        NodeFrameworkAttributes.validate!(input[:framework_attributes], context: "#{context}[:framework_attributes]") unless input[:framework_attributes].nil?
+        NodeLogPublishingConfiguration.validate!(input[:log_publishing_configuration], context: "#{context}[:log_publishing_configuration]") unless input[:log_publishing_configuration].nil?
         Hearth::Validator.validate!(input[:state_db], ::String, context: "#{context}[:state_db]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:creation_date], ::Time, context: "#{context}[:creation_date]")
-        Validators::OutputTagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        OutputTagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:kms_key_arn], ::String, context: "#{context}[:kms_key_arn]")
       end
@@ -593,7 +595,7 @@ module AWS::SDK::ManagedBlockchain
         Hearth::Validator.validate!(input, Types::NodeConfiguration, context: context)
         Hearth::Validator.validate!(input[:instance_type], ::String, context: "#{context}[:instance_type]")
         Hearth::Validator.validate!(input[:availability_zone], ::String, context: "#{context}[:availability_zone]")
-        Validators::NodeLogPublishingConfiguration.validate!(input[:log_publishing_configuration], context: "#{context}[:log_publishing_configuration]") unless input[:log_publishing_configuration].nil?
+        NodeLogPublishingConfiguration.validate!(input[:log_publishing_configuration], context: "#{context}[:log_publishing_configuration]") unless input[:log_publishing_configuration].nil?
         Hearth::Validator.validate!(input[:state_db], ::String, context: "#{context}[:state_db]")
       end
     end
@@ -617,23 +619,23 @@ module AWS::SDK::ManagedBlockchain
     class NodeFabricLogPublishingConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NodeFabricLogPublishingConfiguration, context: context)
-        Validators::LogConfigurations.validate!(input[:chaincode_logs], context: "#{context}[:chaincode_logs]") unless input[:chaincode_logs].nil?
-        Validators::LogConfigurations.validate!(input[:peer_logs], context: "#{context}[:peer_logs]") unless input[:peer_logs].nil?
+        LogConfigurations.validate!(input[:chaincode_logs], context: "#{context}[:chaincode_logs]") unless input[:chaincode_logs].nil?
+        LogConfigurations.validate!(input[:peer_logs], context: "#{context}[:peer_logs]") unless input[:peer_logs].nil?
       end
     end
 
     class NodeFrameworkAttributes
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NodeFrameworkAttributes, context: context)
-        Validators::NodeFabricAttributes.validate!(input[:fabric], context: "#{context}[:fabric]") unless input[:fabric].nil?
-        Validators::NodeEthereumAttributes.validate!(input[:ethereum], context: "#{context}[:ethereum]") unless input[:ethereum].nil?
+        NodeFabricAttributes.validate!(input[:fabric], context: "#{context}[:fabric]") unless input[:fabric].nil?
+        NodeEthereumAttributes.validate!(input[:ethereum], context: "#{context}[:ethereum]") unless input[:ethereum].nil?
       end
     end
 
     class NodeLogPublishingConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NodeLogPublishingConfiguration, context: context)
-        Validators::NodeFabricLogPublishingConfiguration.validate!(input[:fabric], context: "#{context}[:fabric]") unless input[:fabric].nil?
+        NodeFabricLogPublishingConfiguration.validate!(input[:fabric], context: "#{context}[:fabric]") unless input[:fabric].nil?
       end
     end
 
@@ -653,7 +655,7 @@ module AWS::SDK::ManagedBlockchain
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NodeSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NodeSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -674,7 +676,7 @@ module AWS::SDK::ManagedBlockchain
         Hearth::Validator.validate!(input[:proposal_id], ::String, context: "#{context}[:proposal_id]")
         Hearth::Validator.validate!(input[:network_id], ::String, context: "#{context}[:network_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ProposalActions.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
+        ProposalActions.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
         Hearth::Validator.validate!(input[:proposed_by_member_id], ::String, context: "#{context}[:proposed_by_member_id]")
         Hearth::Validator.validate!(input[:proposed_by_member_name], ::String, context: "#{context}[:proposed_by_member_name]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
@@ -683,7 +685,7 @@ module AWS::SDK::ManagedBlockchain
         Hearth::Validator.validate!(input[:yes_vote_count], ::Integer, context: "#{context}[:yes_vote_count]")
         Hearth::Validator.validate!(input[:no_vote_count], ::Integer, context: "#{context}[:no_vote_count]")
         Hearth::Validator.validate!(input[:outstanding_vote_count], ::Integer, context: "#{context}[:outstanding_vote_count]")
-        Validators::OutputTagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        OutputTagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
       end
     end
@@ -691,8 +693,8 @@ module AWS::SDK::ManagedBlockchain
     class ProposalActions
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ProposalActions, context: context)
-        Validators::InviteActionList.validate!(input[:invitations], context: "#{context}[:invitations]") unless input[:invitations].nil?
-        Validators::RemoveActionList.validate!(input[:removals], context: "#{context}[:removals]") unless input[:removals].nil?
+        InviteActionList.validate!(input[:invitations], context: "#{context}[:invitations]") unless input[:invitations].nil?
+        RemoveActionList.validate!(input[:removals], context: "#{context}[:removals]") unless input[:removals].nil?
       end
     end
 
@@ -714,7 +716,7 @@ module AWS::SDK::ManagedBlockchain
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProposalSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProposalSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -723,7 +725,7 @@ module AWS::SDK::ManagedBlockchain
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::VoteSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          VoteSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -752,7 +754,7 @@ module AWS::SDK::ManagedBlockchain
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RemoveAction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RemoveAction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -799,7 +801,7 @@ module AWS::SDK::ManagedBlockchain
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::InputTagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        InputTagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -827,7 +829,7 @@ module AWS::SDK::ManagedBlockchain
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -842,7 +844,7 @@ module AWS::SDK::ManagedBlockchain
         Hearth::Validator.validate!(input, Types::UpdateMemberInput, context: context)
         Hearth::Validator.validate!(input[:network_id], ::String, context: "#{context}[:network_id]")
         Hearth::Validator.validate!(input[:member_id], ::String, context: "#{context}[:member_id]")
-        Validators::MemberLogPublishingConfiguration.validate!(input[:log_publishing_configuration], context: "#{context}[:log_publishing_configuration]") unless input[:log_publishing_configuration].nil?
+        MemberLogPublishingConfiguration.validate!(input[:log_publishing_configuration], context: "#{context}[:log_publishing_configuration]") unless input[:log_publishing_configuration].nil?
       end
     end
 
@@ -858,7 +860,7 @@ module AWS::SDK::ManagedBlockchain
         Hearth::Validator.validate!(input[:network_id], ::String, context: "#{context}[:network_id]")
         Hearth::Validator.validate!(input[:member_id], ::String, context: "#{context}[:member_id]")
         Hearth::Validator.validate!(input[:node_id], ::String, context: "#{context}[:node_id]")
-        Validators::NodeLogPublishingConfiguration.validate!(input[:log_publishing_configuration], context: "#{context}[:log_publishing_configuration]") unless input[:log_publishing_configuration].nil?
+        NodeLogPublishingConfiguration.validate!(input[:log_publishing_configuration], context: "#{context}[:log_publishing_configuration]") unless input[:log_publishing_configuration].nil?
       end
     end
 
@@ -896,7 +898,7 @@ module AWS::SDK::ManagedBlockchain
     class VotingPolicy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VotingPolicy, context: context)
-        Validators::ApprovalThresholdPolicy.validate!(input[:approval_threshold_policy], context: "#{context}[:approval_threshold_policy]") unless input[:approval_threshold_policy].nil?
+        ApprovalThresholdPolicy.validate!(input[:approval_threshold_policy], context: "#{context}[:approval_threshold_policy]") unless input[:approval_threshold_policy].nil?
       end
     end
 

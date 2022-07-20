@@ -14,7 +14,7 @@ module AWS::SDK::Route53
     class ActivateKeySigningKey
       def self.default(visited=[])
         {
-          change_info: Stubs::ChangeInfo.default(visited),
+          change_info: ChangeInfo.default(visited),
         }
       end
 
@@ -58,7 +58,7 @@ module AWS::SDK::Route53
     class AssociateVPCWithHostedZone
       def self.default(visited=[])
         {
-          change_info: Stubs::ChangeInfo.default(visited),
+          change_info: ChangeInfo.default(visited),
         }
       end
 
@@ -98,7 +98,7 @@ module AWS::SDK::Route53
     class ChangeResourceRecordSets
       def self.default(visited=[])
         {
-          change_info: Stubs::ChangeInfo.default(visited),
+          change_info: ChangeInfo.default(visited),
         }
       end
 
@@ -131,7 +131,7 @@ module AWS::SDK::Route53
     class CreateCidrCollection
       def self.default(visited=[])
         {
-          collection: Stubs::CidrCollection.default(visited),
+          collection: CidrCollection.default(visited),
           location: 'location',
         }
       end
@@ -177,7 +177,7 @@ module AWS::SDK::Route53
     class CreateHealthCheck
       def self.default(visited=[])
         {
-          health_check: Stubs::HealthCheck.default(visited),
+          health_check: HealthCheck.default(visited),
           location: 'location',
         }
       end
@@ -203,10 +203,10 @@ module AWS::SDK::Route53
         {
           id: 'id',
           caller_reference: 'caller_reference',
-          linked_service: Stubs::LinkedService.default(visited),
-          health_check_config: Stubs::HealthCheckConfig.default(visited),
+          linked_service: LinkedService.default(visited),
+          health_check_config: HealthCheckConfig.default(visited),
           health_check_version: 1,
-          cloud_watch_alarm_configuration: Stubs::CloudWatchAlarmConfiguration.default(visited),
+          cloud_watch_alarm_configuration: CloudWatchAlarmConfiguration.default(visited),
         }
       end
 
@@ -236,7 +236,7 @@ module AWS::SDK::Route53
           metric_name: 'metric_name',
           namespace: 'namespace',
           statistic: 'statistic',
-          dimensions: Stubs::DimensionList.default(visited),
+          dimensions: DimensionList.default(visited),
         }
       end
 
@@ -261,7 +261,7 @@ module AWS::SDK::Route53
         return nil if visited.include?('DimensionList')
         visited = visited + ['DimensionList']
         [
-          Stubs::Dimension.default(visited)
+          Dimension.default(visited)
         ]
       end
 
@@ -313,10 +313,10 @@ module AWS::SDK::Route53
           inverted: false,
           disabled: false,
           health_threshold: 1,
-          child_health_checks: Stubs::ChildHealthCheckList.default(visited),
+          child_health_checks: ChildHealthCheckList.default(visited),
           enable_sni: false,
-          regions: Stubs::HealthCheckRegionList.default(visited),
-          alarm_identifier: Stubs::AlarmIdentifier.default(visited),
+          regions: HealthCheckRegionList.default(visited),
+          alarm_identifier: AlarmIdentifier.default(visited),
           insufficient_data_health_status: 'insufficient_data_health_status',
           routing_control_arn: 'routing_control_arn',
         }
@@ -431,10 +431,10 @@ module AWS::SDK::Route53
     class CreateHostedZone
       def self.default(visited=[])
         {
-          hosted_zone: Stubs::HostedZone.default(visited),
-          change_info: Stubs::ChangeInfo.default(visited),
-          delegation_set: Stubs::DelegationSet.default(visited),
-          vpc: Stubs::VPC.default(visited),
+          hosted_zone: HostedZone.default(visited),
+          change_info: ChangeInfo.default(visited),
+          delegation_set: DelegationSet.default(visited),
+          vpc: VPC.default(visited),
           location: 'location',
         }
       end
@@ -483,7 +483,7 @@ module AWS::SDK::Route53
         {
           id: 'id',
           caller_reference: 'caller_reference',
-          name_servers: Stubs::DelegationSetNameServers.default(visited),
+          name_servers: DelegationSetNameServers.default(visited),
         }
       end
 
@@ -526,9 +526,9 @@ module AWS::SDK::Route53
           id: 'id',
           name: 'name',
           caller_reference: 'caller_reference',
-          config: Stubs::HostedZoneConfig.default(visited),
+          config: HostedZoneConfig.default(visited),
           resource_record_set_count: 1,
-          linked_service: Stubs::LinkedService.default(visited),
+          linked_service: LinkedService.default(visited),
         }
       end
 
@@ -569,8 +569,8 @@ module AWS::SDK::Route53
     class CreateKeySigningKey
       def self.default(visited=[])
         {
-          change_info: Stubs::ChangeInfo.default(visited),
-          key_signing_key: Stubs::KeySigningKey.default(visited),
+          change_info: ChangeInfo.default(visited),
+          key_signing_key: KeySigningKey.default(visited),
           location: 'location',
         }
       end
@@ -641,7 +641,7 @@ module AWS::SDK::Route53
     class CreateQueryLoggingConfig
       def self.default(visited=[])
         {
-          query_logging_config: Stubs::QueryLoggingConfig.default(visited),
+          query_logging_config: QueryLoggingConfig.default(visited),
           location: 'location',
         }
       end
@@ -685,7 +685,7 @@ module AWS::SDK::Route53
     class CreateReusableDelegationSet
       def self.default(visited=[])
         {
-          delegation_set: Stubs::DelegationSet.default(visited),
+          delegation_set: DelegationSet.default(visited),
           location: 'location',
         }
       end
@@ -707,7 +707,7 @@ module AWS::SDK::Route53
     class CreateTrafficPolicy
       def self.default(visited=[])
         {
-          traffic_policy: Stubs::TrafficPolicy.default(visited),
+          traffic_policy: TrafficPolicy.default(visited),
           location: 'location',
         }
       end
@@ -757,7 +757,7 @@ module AWS::SDK::Route53
     class CreateTrafficPolicyInstance
       def self.default(visited=[])
         {
-          traffic_policy_instance: Stubs::TrafficPolicyInstance.default(visited),
+          traffic_policy_instance: TrafficPolicyInstance.default(visited),
           location: 'location',
         }
       end
@@ -813,7 +813,7 @@ module AWS::SDK::Route53
     class CreateTrafficPolicyVersion
       def self.default(visited=[])
         {
-          traffic_policy: Stubs::TrafficPolicy.default(visited),
+          traffic_policy: TrafficPolicy.default(visited),
           location: 'location',
         }
       end
@@ -836,7 +836,7 @@ module AWS::SDK::Route53
       def self.default(visited=[])
         {
           hosted_zone_id: 'hosted_zone_id',
-          vpc: Stubs::VPC.default(visited),
+          vpc: VPC.default(visited),
         }
       end
 
@@ -857,7 +857,7 @@ module AWS::SDK::Route53
     class DeactivateKeySigningKey
       def self.default(visited=[])
         {
-          change_info: Stubs::ChangeInfo.default(visited),
+          change_info: ChangeInfo.default(visited),
         }
       end
 
@@ -903,7 +903,7 @@ module AWS::SDK::Route53
     class DeleteHostedZone
       def self.default(visited=[])
         {
-          change_info: Stubs::ChangeInfo.default(visited),
+          change_info: ChangeInfo.default(visited),
         }
       end
 
@@ -923,7 +923,7 @@ module AWS::SDK::Route53
     class DeleteKeySigningKey
       def self.default(visited=[])
         {
-          change_info: Stubs::ChangeInfo.default(visited),
+          change_info: ChangeInfo.default(visited),
         }
       end
 
@@ -1008,7 +1008,7 @@ module AWS::SDK::Route53
     class DisableHostedZoneDNSSEC
       def self.default(visited=[])
         {
-          change_info: Stubs::ChangeInfo.default(visited),
+          change_info: ChangeInfo.default(visited),
         }
       end
 
@@ -1028,7 +1028,7 @@ module AWS::SDK::Route53
     class DisassociateVPCFromHostedZone
       def self.default(visited=[])
         {
-          change_info: Stubs::ChangeInfo.default(visited),
+          change_info: ChangeInfo.default(visited),
         }
       end
 
@@ -1048,7 +1048,7 @@ module AWS::SDK::Route53
     class EnableHostedZoneDNSSEC
       def self.default(visited=[])
         {
-          change_info: Stubs::ChangeInfo.default(visited),
+          change_info: ChangeInfo.default(visited),
         }
       end
 
@@ -1068,7 +1068,7 @@ module AWS::SDK::Route53
     class GetAccountLimit
       def self.default(visited=[])
         {
-          limit: Stubs::AccountLimit.default(visited),
+          limit: AccountLimit.default(visited),
           count: 1,
         }
       end
@@ -1110,7 +1110,7 @@ module AWS::SDK::Route53
     class GetChange
       def self.default(visited=[])
         {
-          change_info: Stubs::ChangeInfo.default(visited),
+          change_info: ChangeInfo.default(visited),
         }
       end
 
@@ -1130,7 +1130,7 @@ module AWS::SDK::Route53
     class GetCheckerIpRanges
       def self.default(visited=[])
         {
-          checker_ip_ranges: Stubs::CheckerIpRanges.default(visited),
+          checker_ip_ranges: CheckerIpRanges.default(visited),
         }
       end
 
@@ -1170,8 +1170,8 @@ module AWS::SDK::Route53
     class GetDNSSEC
       def self.default(visited=[])
         {
-          status: Stubs::DNSSECStatus.default(visited),
-          key_signing_keys: Stubs::KeySigningKeys.default(visited),
+          status: DNSSECStatus.default(visited),
+          key_signing_keys: KeySigningKeys.default(visited),
         }
       end
 
@@ -1194,7 +1194,7 @@ module AWS::SDK::Route53
         return nil if visited.include?('KeySigningKeys')
         visited = visited + ['KeySigningKeys']
         [
-          Stubs::KeySigningKey.default(visited)
+          KeySigningKey.default(visited)
         ]
       end
 
@@ -1232,7 +1232,7 @@ module AWS::SDK::Route53
     class GetGeoLocation
       def self.default(visited=[])
         {
-          geo_location_details: Stubs::GeoLocationDetails.default(visited),
+          geo_location_details: GeoLocationDetails.default(visited),
         }
       end
 
@@ -1280,7 +1280,7 @@ module AWS::SDK::Route53
     class GetHealthCheck
       def self.default(visited=[])
         {
-          health_check: Stubs::HealthCheck.default(visited),
+          health_check: HealthCheck.default(visited),
         }
       end
 
@@ -1320,7 +1320,7 @@ module AWS::SDK::Route53
     class GetHealthCheckLastFailureReason
       def self.default(visited=[])
         {
-          health_check_observations: Stubs::HealthCheckObservations.default(visited),
+          health_check_observations: HealthCheckObservations.default(visited),
         }
       end
 
@@ -1342,7 +1342,7 @@ module AWS::SDK::Route53
         return nil if visited.include?('HealthCheckObservations')
         visited = visited + ['HealthCheckObservations']
         [
-          Stubs::HealthCheckObservation.default(visited)
+          HealthCheckObservation.default(visited)
         ]
       end
 
@@ -1364,7 +1364,7 @@ module AWS::SDK::Route53
         {
           region: 'region',
           ip_address: 'ip_address',
-          status_report: Stubs::StatusReport.default(visited),
+          status_report: StatusReport.default(visited),
         }
       end
 
@@ -1402,7 +1402,7 @@ module AWS::SDK::Route53
     class GetHealthCheckStatus
       def self.default(visited=[])
         {
-          health_check_observations: Stubs::HealthCheckObservations.default(visited),
+          health_check_observations: HealthCheckObservations.default(visited),
         }
       end
 
@@ -1422,9 +1422,9 @@ module AWS::SDK::Route53
     class GetHostedZone
       def self.default(visited=[])
         {
-          hosted_zone: Stubs::HostedZone.default(visited),
-          delegation_set: Stubs::DelegationSet.default(visited),
-          vp_cs: Stubs::VPCs.default(visited),
+          hosted_zone: HostedZone.default(visited),
+          delegation_set: DelegationSet.default(visited),
+          vp_cs: VPCs.default(visited),
         }
       end
 
@@ -1448,7 +1448,7 @@ module AWS::SDK::Route53
         return nil if visited.include?('VPCs')
         visited = visited + ['VPCs']
         [
-          Stubs::VPC.default(visited)
+          VPC.default(visited)
         ]
       end
 
@@ -1486,7 +1486,7 @@ module AWS::SDK::Route53
     class GetHostedZoneLimit
       def self.default(visited=[])
         {
-          limit: Stubs::HostedZoneLimit.default(visited),
+          limit: HostedZoneLimit.default(visited),
           count: 1,
         }
       end
@@ -1528,7 +1528,7 @@ module AWS::SDK::Route53
     class GetQueryLoggingConfig
       def self.default(visited=[])
         {
-          query_logging_config: Stubs::QueryLoggingConfig.default(visited),
+          query_logging_config: QueryLoggingConfig.default(visited),
         }
       end
 
@@ -1548,7 +1548,7 @@ module AWS::SDK::Route53
     class GetReusableDelegationSet
       def self.default(visited=[])
         {
-          delegation_set: Stubs::DelegationSet.default(visited),
+          delegation_set: DelegationSet.default(visited),
         }
       end
 
@@ -1568,7 +1568,7 @@ module AWS::SDK::Route53
     class GetReusableDelegationSetLimit
       def self.default(visited=[])
         {
-          limit: Stubs::ReusableDelegationSetLimit.default(visited),
+          limit: ReusableDelegationSetLimit.default(visited),
           count: 1,
         }
       end
@@ -1610,7 +1610,7 @@ module AWS::SDK::Route53
     class GetTrafficPolicy
       def self.default(visited=[])
         {
-          traffic_policy: Stubs::TrafficPolicy.default(visited),
+          traffic_policy: TrafficPolicy.default(visited),
         }
       end
 
@@ -1630,7 +1630,7 @@ module AWS::SDK::Route53
     class GetTrafficPolicyInstance
       def self.default(visited=[])
         {
-          traffic_policy_instance: Stubs::TrafficPolicyInstance.default(visited),
+          traffic_policy_instance: TrafficPolicyInstance.default(visited),
         }
       end
 
@@ -1671,7 +1671,7 @@ module AWS::SDK::Route53
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          cidr_blocks: Stubs::CidrBlockSummaries.default(visited),
+          cidr_blocks: CidrBlockSummaries.default(visited),
         }
       end
 
@@ -1694,7 +1694,7 @@ module AWS::SDK::Route53
         return nil if visited.include?('CidrBlockSummaries')
         visited = visited + ['CidrBlockSummaries']
         [
-          Stubs::CidrBlockSummary.default(visited)
+          CidrBlockSummary.default(visited)
         ]
       end
 
@@ -1733,7 +1733,7 @@ module AWS::SDK::Route53
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          cidr_collections: Stubs::CollectionSummaries.default(visited),
+          cidr_collections: CollectionSummaries.default(visited),
         }
       end
 
@@ -1756,7 +1756,7 @@ module AWS::SDK::Route53
         return nil if visited.include?('CollectionSummaries')
         visited = visited + ['CollectionSummaries']
         [
-          Stubs::CollectionSummary.default(visited)
+          CollectionSummary.default(visited)
         ]
       end
 
@@ -1799,7 +1799,7 @@ module AWS::SDK::Route53
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          cidr_locations: Stubs::LocationSummaries.default(visited),
+          cidr_locations: LocationSummaries.default(visited),
         }
       end
 
@@ -1822,7 +1822,7 @@ module AWS::SDK::Route53
         return nil if visited.include?('LocationSummaries')
         visited = visited + ['LocationSummaries']
         [
-          Stubs::LocationSummary.default(visited)
+          LocationSummary.default(visited)
         ]
       end
 
@@ -1858,7 +1858,7 @@ module AWS::SDK::Route53
     class ListGeoLocations
       def self.default(visited=[])
         {
-          geo_location_details_list: Stubs::GeoLocationDetailsList.default(visited),
+          geo_location_details_list: GeoLocationDetailsList.default(visited),
           is_truncated: false,
           next_continent_code: 'next_continent_code',
           next_country_code: 'next_country_code',
@@ -1890,7 +1890,7 @@ module AWS::SDK::Route53
         return nil if visited.include?('GeoLocationDetailsList')
         visited = visited + ['GeoLocationDetailsList']
         [
-          Stubs::GeoLocationDetails.default(visited)
+          GeoLocationDetails.default(visited)
         ]
       end
 
@@ -1908,7 +1908,7 @@ module AWS::SDK::Route53
     class ListHealthChecks
       def self.default(visited=[])
         {
-          health_checks: Stubs::HealthChecks.default(visited),
+          health_checks: HealthChecks.default(visited),
           marker: 'marker',
           is_truncated: false,
           next_marker: 'next_marker',
@@ -1938,7 +1938,7 @@ module AWS::SDK::Route53
         return nil if visited.include?('HealthChecks')
         visited = visited + ['HealthChecks']
         [
-          Stubs::HealthCheck.default(visited)
+          HealthCheck.default(visited)
         ]
       end
 
@@ -1956,7 +1956,7 @@ module AWS::SDK::Route53
     class ListHostedZones
       def self.default(visited=[])
         {
-          hosted_zones: Stubs::HostedZones.default(visited),
+          hosted_zones: HostedZones.default(visited),
           marker: 'marker',
           is_truncated: false,
           next_marker: 'next_marker',
@@ -1986,7 +1986,7 @@ module AWS::SDK::Route53
         return nil if visited.include?('HostedZones')
         visited = visited + ['HostedZones']
         [
-          Stubs::HostedZone.default(visited)
+          HostedZone.default(visited)
         ]
       end
 
@@ -2004,7 +2004,7 @@ module AWS::SDK::Route53
     class ListHostedZonesByName
       def self.default(visited=[])
         {
-          hosted_zones: Stubs::HostedZones.default(visited),
+          hosted_zones: HostedZones.default(visited),
           dns_name: 'dns_name',
           hosted_zone_id: 'hosted_zone_id',
           is_truncated: false,
@@ -2036,7 +2036,7 @@ module AWS::SDK::Route53
     class ListHostedZonesByVPC
       def self.default(visited=[])
         {
-          hosted_zone_summaries: Stubs::HostedZoneSummaries.default(visited),
+          hosted_zone_summaries: HostedZoneSummaries.default(visited),
           max_items: 1,
           next_token: 'next_token',
         }
@@ -2062,7 +2062,7 @@ module AWS::SDK::Route53
         return nil if visited.include?('HostedZoneSummaries')
         visited = visited + ['HostedZoneSummaries']
         [
-          Stubs::HostedZoneSummary.default(visited)
+          HostedZoneSummary.default(visited)
         ]
       end
 
@@ -2084,7 +2084,7 @@ module AWS::SDK::Route53
         {
           hosted_zone_id: 'hosted_zone_id',
           name: 'name',
-          owner: Stubs::HostedZoneOwner.default(visited),
+          owner: HostedZoneOwner.default(visited),
         }
       end
 
@@ -2122,7 +2122,7 @@ module AWS::SDK::Route53
     class ListQueryLoggingConfigs
       def self.default(visited=[])
         {
-          query_logging_configs: Stubs::QueryLoggingConfigs.default(visited),
+          query_logging_configs: QueryLoggingConfigs.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2146,7 +2146,7 @@ module AWS::SDK::Route53
         return nil if visited.include?('QueryLoggingConfigs')
         visited = visited + ['QueryLoggingConfigs']
         [
-          Stubs::QueryLoggingConfig.default(visited)
+          QueryLoggingConfig.default(visited)
         ]
       end
 
@@ -2164,7 +2164,7 @@ module AWS::SDK::Route53
     class ListResourceRecordSets
       def self.default(visited=[])
         {
-          resource_record_sets: Stubs::ResourceRecordSets.default(visited),
+          resource_record_sets: ResourceRecordSets.default(visited),
           is_truncated: false,
           next_record_name: 'next_record_name',
           next_record_type: 'next_record_type',
@@ -2196,7 +2196,7 @@ module AWS::SDK::Route53
         return nil if visited.include?('ResourceRecordSets')
         visited = visited + ['ResourceRecordSets']
         [
-          Stubs::ResourceRecordSet.default(visited)
+          ResourceRecordSet.default(visited)
         ]
       end
 
@@ -2221,15 +2221,15 @@ module AWS::SDK::Route53
           set_identifier: 'set_identifier',
           weight: 1,
           region: 'region',
-          geo_location: Stubs::GeoLocation.default(visited),
+          geo_location: GeoLocation.default(visited),
           failover: 'failover',
           multi_value_answer: false,
           ttl: 1,
-          resource_records: Stubs::ResourceRecords.default(visited),
-          alias_target: Stubs::AliasTarget.default(visited),
+          resource_records: ResourceRecords.default(visited),
+          alias_target: AliasTarget.default(visited),
           health_check_id: 'health_check_id',
           traffic_policy_instance_id: 'traffic_policy_instance_id',
-          cidr_routing_config: Stubs::CidrRoutingConfig.default(visited),
+          cidr_routing_config: CidrRoutingConfig.default(visited),
         }
       end
 
@@ -2302,7 +2302,7 @@ module AWS::SDK::Route53
         return nil if visited.include?('ResourceRecords')
         visited = visited + ['ResourceRecords']
         [
-          Stubs::ResourceRecord.default(visited)
+          ResourceRecord.default(visited)
         ]
       end
 
@@ -2360,7 +2360,7 @@ module AWS::SDK::Route53
     class ListReusableDelegationSets
       def self.default(visited=[])
         {
-          delegation_sets: Stubs::DelegationSets.default(visited),
+          delegation_sets: DelegationSets.default(visited),
           marker: 'marker',
           is_truncated: false,
           next_marker: 'next_marker',
@@ -2390,7 +2390,7 @@ module AWS::SDK::Route53
         return nil if visited.include?('DelegationSets')
         visited = visited + ['DelegationSets']
         [
-          Stubs::DelegationSet.default(visited)
+          DelegationSet.default(visited)
         ]
       end
 
@@ -2408,7 +2408,7 @@ module AWS::SDK::Route53
     class ListTagsForResource
       def self.default(visited=[])
         {
-          resource_tag_set: Stubs::ResourceTagSet.default(visited),
+          resource_tag_set: ResourceTagSet.default(visited),
         }
       end
 
@@ -2432,7 +2432,7 @@ module AWS::SDK::Route53
         {
           resource_type: 'resource_type',
           resource_id: 'resource_id',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -2452,7 +2452,7 @@ module AWS::SDK::Route53
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -2490,7 +2490,7 @@ module AWS::SDK::Route53
     class ListTagsForResources
       def self.default(visited=[])
         {
-          resource_tag_sets: Stubs::ResourceTagSetList.default(visited),
+          resource_tag_sets: ResourceTagSetList.default(visited),
         }
       end
 
@@ -2512,7 +2512,7 @@ module AWS::SDK::Route53
         return nil if visited.include?('ResourceTagSetList')
         visited = visited + ['ResourceTagSetList']
         [
-          Stubs::ResourceTagSet.default(visited)
+          ResourceTagSet.default(visited)
         ]
       end
 
@@ -2530,7 +2530,7 @@ module AWS::SDK::Route53
     class ListTrafficPolicies
       def self.default(visited=[])
         {
-          traffic_policy_summaries: Stubs::TrafficPolicySummaries.default(visited),
+          traffic_policy_summaries: TrafficPolicySummaries.default(visited),
           is_truncated: false,
           traffic_policy_id_marker: 'traffic_policy_id_marker',
           max_items: 1,
@@ -2558,7 +2558,7 @@ module AWS::SDK::Route53
         return nil if visited.include?('TrafficPolicySummaries')
         visited = visited + ['TrafficPolicySummaries']
         [
-          Stubs::TrafficPolicySummary.default(visited)
+          TrafficPolicySummary.default(visited)
         ]
       end
 
@@ -2602,7 +2602,7 @@ module AWS::SDK::Route53
     class ListTrafficPolicyInstances
       def self.default(visited=[])
         {
-          traffic_policy_instances: Stubs::TrafficPolicyInstances.default(visited),
+          traffic_policy_instances: TrafficPolicyInstances.default(visited),
           hosted_zone_id_marker: 'hosted_zone_id_marker',
           traffic_policy_instance_name_marker: 'traffic_policy_instance_name_marker',
           traffic_policy_instance_type_marker: 'traffic_policy_instance_type_marker',
@@ -2634,7 +2634,7 @@ module AWS::SDK::Route53
         return nil if visited.include?('TrafficPolicyInstances')
         visited = visited + ['TrafficPolicyInstances']
         [
-          Stubs::TrafficPolicyInstance.default(visited)
+          TrafficPolicyInstance.default(visited)
         ]
       end
 
@@ -2652,7 +2652,7 @@ module AWS::SDK::Route53
     class ListTrafficPolicyInstancesByHostedZone
       def self.default(visited=[])
         {
-          traffic_policy_instances: Stubs::TrafficPolicyInstances.default(visited),
+          traffic_policy_instances: TrafficPolicyInstances.default(visited),
           traffic_policy_instance_name_marker: 'traffic_policy_instance_name_marker',
           traffic_policy_instance_type_marker: 'traffic_policy_instance_type_marker',
           is_truncated: false,
@@ -2680,7 +2680,7 @@ module AWS::SDK::Route53
     class ListTrafficPolicyInstancesByPolicy
       def self.default(visited=[])
         {
-          traffic_policy_instances: Stubs::TrafficPolicyInstances.default(visited),
+          traffic_policy_instances: TrafficPolicyInstances.default(visited),
           hosted_zone_id_marker: 'hosted_zone_id_marker',
           traffic_policy_instance_name_marker: 'traffic_policy_instance_name_marker',
           traffic_policy_instance_type_marker: 'traffic_policy_instance_type_marker',
@@ -2710,7 +2710,7 @@ module AWS::SDK::Route53
     class ListTrafficPolicyVersions
       def self.default(visited=[])
         {
-          traffic_policies: Stubs::TrafficPolicies.default(visited),
+          traffic_policies: TrafficPolicies.default(visited),
           is_truncated: false,
           traffic_policy_version_marker: 'traffic_policy_version_marker',
           max_items: 1,
@@ -2738,7 +2738,7 @@ module AWS::SDK::Route53
         return nil if visited.include?('TrafficPolicies')
         visited = visited + ['TrafficPolicies']
         [
-          Stubs::TrafficPolicy.default(visited)
+          TrafficPolicy.default(visited)
         ]
       end
 
@@ -2758,7 +2758,7 @@ module AWS::SDK::Route53
         {
           hosted_zone_id: 'hosted_zone_id',
           next_token: 'next_token',
-          vp_cs: Stubs::VPCs.default(visited),
+          vp_cs: VPCs.default(visited),
         }
       end
 
@@ -2783,7 +2783,7 @@ module AWS::SDK::Route53
           nameserver: 'nameserver',
           record_name: 'record_name',
           record_type: 'record_type',
-          record_data: Stubs::RecordData.default(visited),
+          record_data: RecordData.default(visited),
           response_code: 'response_code',
           protocol: 'protocol',
         }
@@ -2830,7 +2830,7 @@ module AWS::SDK::Route53
     class UpdateHealthCheck
       def self.default(visited=[])
         {
-          health_check: Stubs::HealthCheck.default(visited),
+          health_check: HealthCheck.default(visited),
         }
       end
 
@@ -2850,7 +2850,7 @@ module AWS::SDK::Route53
     class UpdateHostedZoneComment
       def self.default(visited=[])
         {
-          hosted_zone: Stubs::HostedZone.default(visited),
+          hosted_zone: HostedZone.default(visited),
         }
       end
 
@@ -2870,7 +2870,7 @@ module AWS::SDK::Route53
     class UpdateTrafficPolicyComment
       def self.default(visited=[])
         {
-          traffic_policy: Stubs::TrafficPolicy.default(visited),
+          traffic_policy: TrafficPolicy.default(visited),
         }
       end
 
@@ -2890,7 +2890,7 @@ module AWS::SDK::Route53
     class UpdateTrafficPolicyInstance
       def self.default(visited=[])
         {
-          traffic_policy_instance: Stubs::TrafficPolicyInstance.default(visited),
+          traffic_policy_instance: TrafficPolicyInstance.default(visited),
         }
       end
 

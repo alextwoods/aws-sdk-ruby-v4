@@ -14,7 +14,7 @@ module AWS::SDK::Route53Resolver
     class AssociateFirewallRuleGroup
       def self.default(visited=[])
         {
-          firewall_rule_group_association: Stubs::FirewallRuleGroupAssociation.default(visited),
+          firewall_rule_group_association: FirewallRuleGroupAssociation.default(visited),
         }
       end
 
@@ -72,7 +72,7 @@ module AWS::SDK::Route53Resolver
     class AssociateResolverEndpointIpAddress
       def self.default(visited=[])
         {
-          resolver_endpoint: Stubs::ResolverEndpoint.default(visited),
+          resolver_endpoint: ResolverEndpoint.default(visited),
         }
       end
 
@@ -94,7 +94,7 @@ module AWS::SDK::Route53Resolver
           creator_request_id: 'creator_request_id',
           arn: 'arn',
           name: 'name',
-          security_group_ids: Stubs::SecurityGroupIds.default(visited),
+          security_group_ids: SecurityGroupIds.default(visited),
           direction: 'direction',
           ip_address_count: 1,
           host_vpc_id: 'host_vpc_id',
@@ -148,7 +148,7 @@ module AWS::SDK::Route53Resolver
     class AssociateResolverQueryLogConfig
       def self.default(visited=[])
         {
-          resolver_query_log_config_association: Stubs::ResolverQueryLogConfigAssociation.default(visited),
+          resolver_query_log_config_association: ResolverQueryLogConfigAssociation.default(visited),
         }
       end
 
@@ -194,7 +194,7 @@ module AWS::SDK::Route53Resolver
     class AssociateResolverRule
       def self.default(visited=[])
         {
-          resolver_rule_association: Stubs::ResolverRuleAssociation.default(visited),
+          resolver_rule_association: ResolverRuleAssociation.default(visited),
         }
       end
 
@@ -238,7 +238,7 @@ module AWS::SDK::Route53Resolver
     class CreateFirewallDomainList
       def self.default(visited=[])
         {
-          firewall_domain_list: Stubs::FirewallDomainList.default(visited),
+          firewall_domain_list: FirewallDomainList.default(visited),
         }
       end
 
@@ -290,7 +290,7 @@ module AWS::SDK::Route53Resolver
     class CreateFirewallRule
       def self.default(visited=[])
         {
-          firewall_rule: Stubs::FirewallRule.default(visited),
+          firewall_rule: FirewallRule.default(visited),
         }
       end
 
@@ -346,7 +346,7 @@ module AWS::SDK::Route53Resolver
     class CreateFirewallRuleGroup
       def self.default(visited=[])
         {
-          firewall_rule_group: Stubs::FirewallRuleGroup.default(visited),
+          firewall_rule_group: FirewallRuleGroup.default(visited),
         }
       end
 
@@ -400,7 +400,7 @@ module AWS::SDK::Route53Resolver
     class CreateResolverEndpoint
       def self.default(visited=[])
         {
-          resolver_endpoint: Stubs::ResolverEndpoint.default(visited),
+          resolver_endpoint: ResolverEndpoint.default(visited),
         }
       end
 
@@ -416,7 +416,7 @@ module AWS::SDK::Route53Resolver
     class CreateResolverQueryLogConfig
       def self.default(visited=[])
         {
-          resolver_query_log_config: Stubs::ResolverQueryLogConfig.default(visited),
+          resolver_query_log_config: ResolverQueryLogConfig.default(visited),
         }
       end
 
@@ -468,7 +468,7 @@ module AWS::SDK::Route53Resolver
     class CreateResolverRule
       def self.default(visited=[])
         {
-          resolver_rule: Stubs::ResolverRule.default(visited),
+          resolver_rule: ResolverRule.default(visited),
         }
       end
 
@@ -494,7 +494,7 @@ module AWS::SDK::Route53Resolver
           status_message: 'status_message',
           rule_type: 'rule_type',
           name: 'name',
-          target_ips: Stubs::TargetList.default(visited),
+          target_ips: TargetList.default(visited),
           resolver_endpoint_id: 'resolver_endpoint_id',
           owner_id: 'owner_id',
           share_status: 'share_status',
@@ -530,7 +530,7 @@ module AWS::SDK::Route53Resolver
         return nil if visited.include?('TargetList')
         visited = visited + ['TargetList']
         [
-          Stubs::TargetAddress.default(visited)
+          TargetAddress.default(visited)
         ]
       end
 
@@ -568,7 +568,7 @@ module AWS::SDK::Route53Resolver
     class DeleteFirewallDomainList
       def self.default(visited=[])
         {
-          firewall_domain_list: Stubs::FirewallDomainList.default(visited),
+          firewall_domain_list: FirewallDomainList.default(visited),
         }
       end
 
@@ -584,7 +584,7 @@ module AWS::SDK::Route53Resolver
     class DeleteFirewallRule
       def self.default(visited=[])
         {
-          firewall_rule: Stubs::FirewallRule.default(visited),
+          firewall_rule: FirewallRule.default(visited),
         }
       end
 
@@ -600,7 +600,7 @@ module AWS::SDK::Route53Resolver
     class DeleteFirewallRuleGroup
       def self.default(visited=[])
         {
-          firewall_rule_group: Stubs::FirewallRuleGroup.default(visited),
+          firewall_rule_group: FirewallRuleGroup.default(visited),
         }
       end
 
@@ -616,7 +616,7 @@ module AWS::SDK::Route53Resolver
     class DeleteResolverEndpoint
       def self.default(visited=[])
         {
-          resolver_endpoint: Stubs::ResolverEndpoint.default(visited),
+          resolver_endpoint: ResolverEndpoint.default(visited),
         }
       end
 
@@ -632,7 +632,7 @@ module AWS::SDK::Route53Resolver
     class DeleteResolverQueryLogConfig
       def self.default(visited=[])
         {
-          resolver_query_log_config: Stubs::ResolverQueryLogConfig.default(visited),
+          resolver_query_log_config: ResolverQueryLogConfig.default(visited),
         }
       end
 
@@ -648,7 +648,7 @@ module AWS::SDK::Route53Resolver
     class DeleteResolverRule
       def self.default(visited=[])
         {
-          resolver_rule: Stubs::ResolverRule.default(visited),
+          resolver_rule: ResolverRule.default(visited),
         }
       end
 
@@ -664,7 +664,7 @@ module AWS::SDK::Route53Resolver
     class DisassociateFirewallRuleGroup
       def self.default(visited=[])
         {
-          firewall_rule_group_association: Stubs::FirewallRuleGroupAssociation.default(visited),
+          firewall_rule_group_association: FirewallRuleGroupAssociation.default(visited),
         }
       end
 
@@ -680,7 +680,7 @@ module AWS::SDK::Route53Resolver
     class DisassociateResolverEndpointIpAddress
       def self.default(visited=[])
         {
-          resolver_endpoint: Stubs::ResolverEndpoint.default(visited),
+          resolver_endpoint: ResolverEndpoint.default(visited),
         }
       end
 
@@ -696,7 +696,7 @@ module AWS::SDK::Route53Resolver
     class DisassociateResolverQueryLogConfig
       def self.default(visited=[])
         {
-          resolver_query_log_config_association: Stubs::ResolverQueryLogConfigAssociation.default(visited),
+          resolver_query_log_config_association: ResolverQueryLogConfigAssociation.default(visited),
         }
       end
 
@@ -712,7 +712,7 @@ module AWS::SDK::Route53Resolver
     class DisassociateResolverRule
       def self.default(visited=[])
         {
-          resolver_rule_association: Stubs::ResolverRuleAssociation.default(visited),
+          resolver_rule_association: ResolverRuleAssociation.default(visited),
         }
       end
 
@@ -728,7 +728,7 @@ module AWS::SDK::Route53Resolver
     class GetFirewallConfig
       def self.default(visited=[])
         {
-          firewall_config: Stubs::FirewallConfig.default(visited),
+          firewall_config: FirewallConfig.default(visited),
         }
       end
 
@@ -768,7 +768,7 @@ module AWS::SDK::Route53Resolver
     class GetFirewallDomainList
       def self.default(visited=[])
         {
-          firewall_domain_list: Stubs::FirewallDomainList.default(visited),
+          firewall_domain_list: FirewallDomainList.default(visited),
         }
       end
 
@@ -784,7 +784,7 @@ module AWS::SDK::Route53Resolver
     class GetFirewallRuleGroup
       def self.default(visited=[])
         {
-          firewall_rule_group: Stubs::FirewallRuleGroup.default(visited),
+          firewall_rule_group: FirewallRuleGroup.default(visited),
         }
       end
 
@@ -800,7 +800,7 @@ module AWS::SDK::Route53Resolver
     class GetFirewallRuleGroupAssociation
       def self.default(visited=[])
         {
-          firewall_rule_group_association: Stubs::FirewallRuleGroupAssociation.default(visited),
+          firewall_rule_group_association: FirewallRuleGroupAssociation.default(visited),
         }
       end
 
@@ -832,7 +832,7 @@ module AWS::SDK::Route53Resolver
     class GetResolverConfig
       def self.default(visited=[])
         {
-          resolver_config: Stubs::ResolverConfig.default(visited),
+          resolver_config: ResolverConfig.default(visited),
         }
       end
 
@@ -872,7 +872,7 @@ module AWS::SDK::Route53Resolver
     class GetResolverDnssecConfig
       def self.default(visited=[])
         {
-          resolver_dnssec_config: Stubs::ResolverDnssecConfig.default(visited),
+          resolver_dnssec_config: ResolverDnssecConfig.default(visited),
         }
       end
 
@@ -912,7 +912,7 @@ module AWS::SDK::Route53Resolver
     class GetResolverEndpoint
       def self.default(visited=[])
         {
-          resolver_endpoint: Stubs::ResolverEndpoint.default(visited),
+          resolver_endpoint: ResolverEndpoint.default(visited),
         }
       end
 
@@ -928,7 +928,7 @@ module AWS::SDK::Route53Resolver
     class GetResolverQueryLogConfig
       def self.default(visited=[])
         {
-          resolver_query_log_config: Stubs::ResolverQueryLogConfig.default(visited),
+          resolver_query_log_config: ResolverQueryLogConfig.default(visited),
         }
       end
 
@@ -944,7 +944,7 @@ module AWS::SDK::Route53Resolver
     class GetResolverQueryLogConfigAssociation
       def self.default(visited=[])
         {
-          resolver_query_log_config_association: Stubs::ResolverQueryLogConfigAssociation.default(visited),
+          resolver_query_log_config_association: ResolverQueryLogConfigAssociation.default(visited),
         }
       end
 
@@ -976,7 +976,7 @@ module AWS::SDK::Route53Resolver
     class GetResolverRule
       def self.default(visited=[])
         {
-          resolver_rule: Stubs::ResolverRule.default(visited),
+          resolver_rule: ResolverRule.default(visited),
         }
       end
 
@@ -992,7 +992,7 @@ module AWS::SDK::Route53Resolver
     class GetResolverRuleAssociation
       def self.default(visited=[])
         {
-          resolver_rule_association: Stubs::ResolverRuleAssociation.default(visited),
+          resolver_rule_association: ResolverRuleAssociation.default(visited),
         }
       end
 
@@ -1047,7 +1047,7 @@ module AWS::SDK::Route53Resolver
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          firewall_configs: Stubs::FirewallConfigList.default(visited),
+          firewall_configs: FirewallConfigList.default(visited),
         }
       end
 
@@ -1066,7 +1066,7 @@ module AWS::SDK::Route53Resolver
         return nil if visited.include?('FirewallConfigList')
         visited = visited + ['FirewallConfigList']
         [
-          Stubs::FirewallConfig.default(visited)
+          FirewallConfig.default(visited)
         ]
       end
 
@@ -1085,7 +1085,7 @@ module AWS::SDK::Route53Resolver
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          firewall_domain_lists: Stubs::FirewallDomainListMetadataList.default(visited),
+          firewall_domain_lists: FirewallDomainListMetadataList.default(visited),
         }
       end
 
@@ -1104,7 +1104,7 @@ module AWS::SDK::Route53Resolver
         return nil if visited.include?('FirewallDomainListMetadataList')
         visited = visited + ['FirewallDomainListMetadataList']
         [
-          Stubs::FirewallDomainListMetadata.default(visited)
+          FirewallDomainListMetadata.default(visited)
         ]
       end
 
@@ -1149,7 +1149,7 @@ module AWS::SDK::Route53Resolver
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          domains: Stubs::FirewallDomains.default(visited),
+          domains: FirewallDomains.default(visited),
         }
       end
 
@@ -1187,7 +1187,7 @@ module AWS::SDK::Route53Resolver
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          firewall_rule_group_associations: Stubs::FirewallRuleGroupAssociations.default(visited),
+          firewall_rule_group_associations: FirewallRuleGroupAssociations.default(visited),
         }
       end
 
@@ -1206,7 +1206,7 @@ module AWS::SDK::Route53Resolver
         return nil if visited.include?('FirewallRuleGroupAssociations')
         visited = visited + ['FirewallRuleGroupAssociations']
         [
-          Stubs::FirewallRuleGroupAssociation.default(visited)
+          FirewallRuleGroupAssociation.default(visited)
         ]
       end
 
@@ -1225,7 +1225,7 @@ module AWS::SDK::Route53Resolver
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          firewall_rule_groups: Stubs::FirewallRuleGroupMetadataList.default(visited),
+          firewall_rule_groups: FirewallRuleGroupMetadataList.default(visited),
         }
       end
 
@@ -1244,7 +1244,7 @@ module AWS::SDK::Route53Resolver
         return nil if visited.include?('FirewallRuleGroupMetadataList')
         visited = visited + ['FirewallRuleGroupMetadataList']
         [
-          Stubs::FirewallRuleGroupMetadata.default(visited)
+          FirewallRuleGroupMetadata.default(visited)
         ]
       end
 
@@ -1291,7 +1291,7 @@ module AWS::SDK::Route53Resolver
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          firewall_rules: Stubs::FirewallRules.default(visited),
+          firewall_rules: FirewallRules.default(visited),
         }
       end
 
@@ -1310,7 +1310,7 @@ module AWS::SDK::Route53Resolver
         return nil if visited.include?('FirewallRules')
         visited = visited + ['FirewallRules']
         [
-          Stubs::FirewallRule.default(visited)
+          FirewallRule.default(visited)
         ]
       end
 
@@ -1329,7 +1329,7 @@ module AWS::SDK::Route53Resolver
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          resolver_configs: Stubs::ResolverConfigList.default(visited),
+          resolver_configs: ResolverConfigList.default(visited),
         }
       end
 
@@ -1348,7 +1348,7 @@ module AWS::SDK::Route53Resolver
         return nil if visited.include?('ResolverConfigList')
         visited = visited + ['ResolverConfigList']
         [
-          Stubs::ResolverConfig.default(visited)
+          ResolverConfig.default(visited)
         ]
       end
 
@@ -1367,7 +1367,7 @@ module AWS::SDK::Route53Resolver
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          resolver_dnssec_configs: Stubs::ResolverDnssecConfigList.default(visited),
+          resolver_dnssec_configs: ResolverDnssecConfigList.default(visited),
         }
       end
 
@@ -1386,7 +1386,7 @@ module AWS::SDK::Route53Resolver
         return nil if visited.include?('ResolverDnssecConfigList')
         visited = visited + ['ResolverDnssecConfigList']
         [
-          Stubs::ResolverDnssecConfig.default(visited)
+          ResolverDnssecConfig.default(visited)
         ]
       end
 
@@ -1406,7 +1406,7 @@ module AWS::SDK::Route53Resolver
         {
           next_token: 'next_token',
           max_results: 1,
-          ip_addresses: Stubs::IpAddressesResponse.default(visited),
+          ip_addresses: IpAddressesResponse.default(visited),
         }
       end
 
@@ -1426,7 +1426,7 @@ module AWS::SDK::Route53Resolver
         return nil if visited.include?('IpAddressesResponse')
         visited = visited + ['IpAddressesResponse']
         [
-          Stubs::IpAddressResponse.default(visited)
+          IpAddressResponse.default(visited)
         ]
       end
 
@@ -1476,7 +1476,7 @@ module AWS::SDK::Route53Resolver
         {
           next_token: 'next_token',
           max_results: 1,
-          resolver_endpoints: Stubs::ResolverEndpoints.default(visited),
+          resolver_endpoints: ResolverEndpoints.default(visited),
         }
       end
 
@@ -1496,7 +1496,7 @@ module AWS::SDK::Route53Resolver
         return nil if visited.include?('ResolverEndpoints')
         visited = visited + ['ResolverEndpoints']
         [
-          Stubs::ResolverEndpoint.default(visited)
+          ResolverEndpoint.default(visited)
         ]
       end
 
@@ -1517,7 +1517,7 @@ module AWS::SDK::Route53Resolver
           next_token: 'next_token',
           total_count: 1,
           total_filtered_count: 1,
-          resolver_query_log_config_associations: Stubs::ResolverQueryLogConfigAssociationList.default(visited),
+          resolver_query_log_config_associations: ResolverQueryLogConfigAssociationList.default(visited),
         }
       end
 
@@ -1538,7 +1538,7 @@ module AWS::SDK::Route53Resolver
         return nil if visited.include?('ResolverQueryLogConfigAssociationList')
         visited = visited + ['ResolverQueryLogConfigAssociationList']
         [
-          Stubs::ResolverQueryLogConfigAssociation.default(visited)
+          ResolverQueryLogConfigAssociation.default(visited)
         ]
       end
 
@@ -1559,7 +1559,7 @@ module AWS::SDK::Route53Resolver
           next_token: 'next_token',
           total_count: 1,
           total_filtered_count: 1,
-          resolver_query_log_configs: Stubs::ResolverQueryLogConfigList.default(visited),
+          resolver_query_log_configs: ResolverQueryLogConfigList.default(visited),
         }
       end
 
@@ -1580,7 +1580,7 @@ module AWS::SDK::Route53Resolver
         return nil if visited.include?('ResolverQueryLogConfigList')
         visited = visited + ['ResolverQueryLogConfigList']
         [
-          Stubs::ResolverQueryLogConfig.default(visited)
+          ResolverQueryLogConfig.default(visited)
         ]
       end
 
@@ -1600,7 +1600,7 @@ module AWS::SDK::Route53Resolver
         {
           next_token: 'next_token',
           max_results: 1,
-          resolver_rule_associations: Stubs::ResolverRuleAssociations.default(visited),
+          resolver_rule_associations: ResolverRuleAssociations.default(visited),
         }
       end
 
@@ -1620,7 +1620,7 @@ module AWS::SDK::Route53Resolver
         return nil if visited.include?('ResolverRuleAssociations')
         visited = visited + ['ResolverRuleAssociations']
         [
-          Stubs::ResolverRuleAssociation.default(visited)
+          ResolverRuleAssociation.default(visited)
         ]
       end
 
@@ -1640,7 +1640,7 @@ module AWS::SDK::Route53Resolver
         {
           next_token: 'next_token',
           max_results: 1,
-          resolver_rules: Stubs::ResolverRules.default(visited),
+          resolver_rules: ResolverRules.default(visited),
         }
       end
 
@@ -1660,7 +1660,7 @@ module AWS::SDK::Route53Resolver
         return nil if visited.include?('ResolverRules')
         visited = visited + ['ResolverRules']
         [
-          Stubs::ResolverRule.default(visited)
+          ResolverRule.default(visited)
         ]
       end
 
@@ -1678,7 +1678,7 @@ module AWS::SDK::Route53Resolver
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1698,7 +1698,7 @@ module AWS::SDK::Route53Resolver
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -1812,7 +1812,7 @@ module AWS::SDK::Route53Resolver
     class UpdateFirewallConfig
       def self.default(visited=[])
         {
-          firewall_config: Stubs::FirewallConfig.default(visited),
+          firewall_config: FirewallConfig.default(visited),
         }
       end
 
@@ -1850,7 +1850,7 @@ module AWS::SDK::Route53Resolver
     class UpdateFirewallRule
       def self.default(visited=[])
         {
-          firewall_rule: Stubs::FirewallRule.default(visited),
+          firewall_rule: FirewallRule.default(visited),
         }
       end
 
@@ -1866,7 +1866,7 @@ module AWS::SDK::Route53Resolver
     class UpdateFirewallRuleGroupAssociation
       def self.default(visited=[])
         {
-          firewall_rule_group_association: Stubs::FirewallRuleGroupAssociation.default(visited),
+          firewall_rule_group_association: FirewallRuleGroupAssociation.default(visited),
         }
       end
 
@@ -1882,7 +1882,7 @@ module AWS::SDK::Route53Resolver
     class UpdateResolverConfig
       def self.default(visited=[])
         {
-          resolver_config: Stubs::ResolverConfig.default(visited),
+          resolver_config: ResolverConfig.default(visited),
         }
       end
 
@@ -1898,7 +1898,7 @@ module AWS::SDK::Route53Resolver
     class UpdateResolverDnssecConfig
       def self.default(visited=[])
         {
-          resolver_dnssec_config: Stubs::ResolverDnssecConfig.default(visited),
+          resolver_dnssec_config: ResolverDnssecConfig.default(visited),
         }
       end
 
@@ -1914,7 +1914,7 @@ module AWS::SDK::Route53Resolver
     class UpdateResolverEndpoint
       def self.default(visited=[])
         {
-          resolver_endpoint: Stubs::ResolverEndpoint.default(visited),
+          resolver_endpoint: ResolverEndpoint.default(visited),
         }
       end
 
@@ -1930,7 +1930,7 @@ module AWS::SDK::Route53Resolver
     class UpdateResolverRule
       def self.default(visited=[])
         {
-          resolver_rule: Stubs::ResolverRule.default(visited),
+          resolver_rule: ResolverRule.default(visited),
         }
       end
 

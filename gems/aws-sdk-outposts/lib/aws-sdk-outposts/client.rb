@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Outposts
@@ -65,7 +67,7 @@ module AWS::SDK::Outposts
     def cancel_order(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelOrderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelOrderInput,
         validate_input: @config.validate_input
@@ -164,7 +166,7 @@ module AWS::SDK::Outposts
     def create_order(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateOrderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateOrderInput,
         validate_input: @config.validate_input
@@ -283,7 +285,7 @@ module AWS::SDK::Outposts
     def create_outpost(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateOutpostInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateOutpostInput,
         validate_input: @config.validate_input
@@ -436,7 +438,7 @@ module AWS::SDK::Outposts
     def create_site(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSiteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSiteInput,
         validate_input: @config.validate_input
@@ -512,7 +514,7 @@ module AWS::SDK::Outposts
     def delete_outpost(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteOutpostInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteOutpostInput,
         validate_input: @config.validate_input
@@ -587,7 +589,7 @@ module AWS::SDK::Outposts
     def delete_site(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSiteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSiteInput,
         validate_input: @config.validate_input
@@ -668,7 +670,7 @@ module AWS::SDK::Outposts
     def get_catalog_item(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCatalogItemInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCatalogItemInput,
         validate_input: @config.validate_input
@@ -758,7 +760,7 @@ module AWS::SDK::Outposts
     def get_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetConnectionInput,
         validate_input: @config.validate_input
@@ -838,7 +840,7 @@ module AWS::SDK::Outposts
     def get_order(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetOrderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetOrderInput,
         validate_input: @config.validate_input
@@ -927,7 +929,7 @@ module AWS::SDK::Outposts
     def get_outpost(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetOutpostInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetOutpostInput,
         validate_input: @config.validate_input
@@ -1016,7 +1018,7 @@ module AWS::SDK::Outposts
     def get_outpost_instance_types(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetOutpostInstanceTypesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetOutpostInstanceTypesInput,
         validate_input: @config.validate_input
@@ -1115,7 +1117,7 @@ module AWS::SDK::Outposts
     def get_site(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSiteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSiteInput,
         validate_input: @config.validate_input
@@ -1210,7 +1212,7 @@ module AWS::SDK::Outposts
     def get_site_address(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSiteAddressInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSiteAddressInput,
         validate_input: @config.validate_input
@@ -1310,7 +1312,7 @@ module AWS::SDK::Outposts
     def list_assets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAssetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAssetsInput,
         validate_input: @config.validate_input
@@ -1434,7 +1436,7 @@ module AWS::SDK::Outposts
     def list_catalog_items(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCatalogItemsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCatalogItemsInput,
         validate_input: @config.validate_input
@@ -1523,7 +1525,7 @@ module AWS::SDK::Outposts
     def list_orders(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListOrdersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListOrdersInput,
         validate_input: @config.validate_input
@@ -1648,7 +1650,7 @@ module AWS::SDK::Outposts
     def list_outposts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListOutpostsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListOutpostsInput,
         validate_input: @config.validate_input
@@ -1777,7 +1779,7 @@ module AWS::SDK::Outposts
     def list_sites(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSitesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSitesInput,
         validate_input: @config.validate_input
@@ -1846,7 +1848,7 @@ module AWS::SDK::Outposts
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -1947,7 +1949,7 @@ module AWS::SDK::Outposts
     def start_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartConnectionInput,
         validate_input: @config.validate_input
@@ -2021,7 +2023,7 @@ module AWS::SDK::Outposts
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2095,7 +2097,7 @@ module AWS::SDK::Outposts
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2200,7 +2202,7 @@ module AWS::SDK::Outposts
     def update_outpost(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateOutpostInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateOutpostInput,
         validate_input: @config.validate_input
@@ -2314,7 +2316,7 @@ module AWS::SDK::Outposts
     def update_site(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSiteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSiteInput,
         validate_input: @config.validate_input
@@ -2438,7 +2440,7 @@ module AWS::SDK::Outposts
     def update_site_address(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSiteAddressInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSiteAddressInput,
         validate_input: @config.validate_input
@@ -2695,7 +2697,7 @@ module AWS::SDK::Outposts
     def update_site_rack_physical_properties(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSiteRackPhysicalPropertiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSiteRackPhysicalPropertiesInput,
         validate_input: @config.validate_input

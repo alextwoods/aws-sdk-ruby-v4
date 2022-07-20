@@ -667,11 +667,11 @@ module AWS::SDK::GreengrassV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port_number ||= 0
       end
-
     end
 
     # <p>Contains information about a Greengrass core device, which is an IoT thing that runs the IoT Greengrass
@@ -992,11 +992,11 @@ module AWS::SDK::GreengrassV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_latest_for_target ||= false
       end
-
     end
 
     # <p>Contains information about a deployment's policy that defines when components are safe to
@@ -1723,11 +1723,11 @@ module AWS::SDK::GreengrassV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_latest_for_target ||= false
       end
-
     end
 
     GetServiceRoleForAccountInput = ::Struct.new(
@@ -1795,11 +1795,11 @@ module AWS::SDK::GreengrassV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_root ||= false
       end
-
     end
 
     # Includes enum constants for InstalledComponentLifecycleState
@@ -1855,11 +1855,11 @@ module AWS::SDK::GreengrassV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.retry_after_seconds ||= 0
       end
-
     end
 
     # Includes enum constants for IoTJobAbortAction
@@ -1934,12 +1934,12 @@ module AWS::SDK::GreengrassV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.threshold_percentage ||= 0
         self.min_number_of_executed_things ||= 0
       end
-
     end
 
     # Includes enum constants for IoTJobExecutionFailureType
@@ -2011,12 +2011,12 @@ module AWS::SDK::GreengrassV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.base_rate_per_minute ||= 0
         self.increment_factor ||= 0
       end
-
     end
 
     # <p>Contains information about criteria to meet before a job increases its rollout rate.
@@ -3012,12 +3012,12 @@ module AWS::SDK::GreengrassV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.memory ||= 0
         self.cpus ||= 0
       end
-
     end
 
     # @!attribute resource_arn
@@ -3077,11 +3077,11 @@ module AWS::SDK::GreengrassV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.retry_after_seconds ||= 0
       end
-
     end
 
     # @!attribute resource_arn

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Mobile
   module Validators
 
@@ -42,7 +44,7 @@ module AWS::SDK::Mobile
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:icon_url], ::String, context: "#{context}[:icon_url]")
-        Validators::Platforms.validate!(input[:available_platforms], context: "#{context}[:available_platforms]") unless input[:available_platforms].nil?
+        Platforms.validate!(input[:available_platforms], context: "#{context}[:available_platforms]") unless input[:available_platforms].nil?
       end
     end
 
@@ -50,7 +52,7 @@ module AWS::SDK::Mobile
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BundleDetails.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BundleDetails.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -68,7 +70,7 @@ module AWS::SDK::Mobile
     class CreateProjectOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateProjectOutput, context: context)
-        Validators::ProjectDetails.validate!(input[:details], context: "#{context}[:details]") unless input[:details].nil?
+        ProjectDetails.validate!(input[:details], context: "#{context}[:details]") unless input[:details].nil?
       end
     end
 
@@ -82,8 +84,8 @@ module AWS::SDK::Mobile
     class DeleteProjectOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteProjectOutput, context: context)
-        Validators::Resources.validate!(input[:deleted_resources], context: "#{context}[:deleted_resources]") unless input[:deleted_resources].nil?
-        Validators::Resources.validate!(input[:orphaned_resources], context: "#{context}[:orphaned_resources]") unless input[:orphaned_resources].nil?
+        Resources.validate!(input[:deleted_resources], context: "#{context}[:deleted_resources]") unless input[:deleted_resources].nil?
+        Resources.validate!(input[:orphaned_resources], context: "#{context}[:orphaned_resources]") unless input[:orphaned_resources].nil?
       end
     end
 
@@ -97,7 +99,7 @@ module AWS::SDK::Mobile
     class DescribeBundleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeBundleOutput, context: context)
-        Validators::BundleDetails.validate!(input[:details], context: "#{context}[:details]") unless input[:details].nil?
+        BundleDetails.validate!(input[:details], context: "#{context}[:details]") unless input[:details].nil?
       end
     end
 
@@ -112,7 +114,7 @@ module AWS::SDK::Mobile
     class DescribeProjectOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeProjectOutput, context: context)
-        Validators::ProjectDetails.validate!(input[:details], context: "#{context}[:details]") unless input[:details].nil?
+        ProjectDetails.validate!(input[:details], context: "#{context}[:details]") unless input[:details].nil?
       end
     end
 
@@ -174,7 +176,7 @@ module AWS::SDK::Mobile
     class ListBundlesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListBundlesOutput, context: context)
-        Validators::BundleList.validate!(input[:bundle_list], context: "#{context}[:bundle_list]") unless input[:bundle_list].nil?
+        BundleList.validate!(input[:bundle_list], context: "#{context}[:bundle_list]") unless input[:bundle_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -190,7 +192,7 @@ module AWS::SDK::Mobile
     class ListProjectsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListProjectsOutput, context: context)
-        Validators::ProjectSummaries.validate!(input[:projects], context: "#{context}[:projects]") unless input[:projects].nil?
+        ProjectSummaries.validate!(input[:projects], context: "#{context}[:projects]") unless input[:projects].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -221,7 +223,7 @@ module AWS::SDK::Mobile
         Hearth::Validator.validate!(input[:created_date], ::Time, context: "#{context}[:created_date]")
         Hearth::Validator.validate!(input[:last_updated_date], ::Time, context: "#{context}[:last_updated_date]")
         Hearth::Validator.validate!(input[:console_url], ::String, context: "#{context}[:console_url]")
-        Validators::Resources.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
+        Resources.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
       end
     end
 
@@ -229,7 +231,7 @@ module AWS::SDK::Mobile
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProjectSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProjectSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -249,7 +251,7 @@ module AWS::SDK::Mobile
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:feature], ::String, context: "#{context}[:feature]")
-        Validators::Attributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        Attributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
@@ -257,7 +259,7 @@ module AWS::SDK::Mobile
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Resource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Resource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -296,7 +298,7 @@ module AWS::SDK::Mobile
     class UpdateProjectOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateProjectOutput, context: context)
-        Validators::ProjectDetails.validate!(input[:details], context: "#{context}[:details]") unless input[:details].nil?
+        ProjectDetails.validate!(input[:details], context: "#{context}[:details]") unless input[:details].nil?
       end
     end
 

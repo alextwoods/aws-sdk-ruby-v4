@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::DatabaseMigrationService
@@ -82,7 +84,7 @@ module AWS::SDK::DatabaseMigrationService
     def add_tags_to_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddTagsToResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddTagsToResourceInput,
         validate_input: @config.validate_input
@@ -189,7 +191,7 @@ module AWS::SDK::DatabaseMigrationService
     def apply_pending_maintenance_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ApplyPendingMaintenanceActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ApplyPendingMaintenanceActionInput,
         validate_input: @config.validate_input
@@ -275,7 +277,7 @@ module AWS::SDK::DatabaseMigrationService
     def cancel_replication_task_assessment_run(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelReplicationTaskAssessmentRunInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelReplicationTaskAssessmentRunInput,
         validate_input: @config.validate_input
@@ -1164,7 +1166,7 @@ module AWS::SDK::DatabaseMigrationService
     def create_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEndpointInput,
         validate_input: @config.validate_input
@@ -1308,7 +1310,7 @@ module AWS::SDK::DatabaseMigrationService
     def create_event_subscription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateEventSubscriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEventSubscriptionInput,
         validate_input: @config.validate_input
@@ -1393,7 +1395,7 @@ module AWS::SDK::DatabaseMigrationService
     def create_fleet_advisor_collector(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFleetAdvisorCollectorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFleetAdvisorCollectorInput,
         validate_input: @config.validate_input
@@ -1634,7 +1636,7 @@ module AWS::SDK::DatabaseMigrationService
     def create_replication_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateReplicationInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateReplicationInstanceInput,
         validate_input: @config.validate_input
@@ -1740,7 +1742,7 @@ module AWS::SDK::DatabaseMigrationService
     def create_replication_subnet_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateReplicationSubnetGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateReplicationSubnetGroupInput,
         validate_input: @config.validate_input
@@ -1942,7 +1944,7 @@ module AWS::SDK::DatabaseMigrationService
     def create_replication_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateReplicationTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateReplicationTaskInput,
         validate_input: @config.validate_input
@@ -2021,7 +2023,7 @@ module AWS::SDK::DatabaseMigrationService
     def delete_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCertificateInput,
         validate_input: @config.validate_input
@@ -2100,7 +2102,7 @@ module AWS::SDK::DatabaseMigrationService
     def delete_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteConnectionInput,
         validate_input: @config.validate_input
@@ -2469,7 +2471,7 @@ module AWS::SDK::DatabaseMigrationService
     def delete_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEndpointInput,
         validate_input: @config.validate_input
@@ -2549,7 +2551,7 @@ module AWS::SDK::DatabaseMigrationService
     def delete_event_subscription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEventSubscriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEventSubscriptionInput,
         validate_input: @config.validate_input
@@ -2617,7 +2619,7 @@ module AWS::SDK::DatabaseMigrationService
     def delete_fleet_advisor_collector(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFleetAdvisorCollectorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFleetAdvisorCollectorInput,
         validate_input: @config.validate_input
@@ -2689,7 +2691,7 @@ module AWS::SDK::DatabaseMigrationService
     def delete_fleet_advisor_databases(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFleetAdvisorDatabasesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFleetAdvisorDatabasesInput,
         validate_input: @config.validate_input
@@ -2805,7 +2807,7 @@ module AWS::SDK::DatabaseMigrationService
     def delete_replication_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteReplicationInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteReplicationInstanceInput,
         validate_input: @config.validate_input
@@ -2873,7 +2875,7 @@ module AWS::SDK::DatabaseMigrationService
     def delete_replication_subnet_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteReplicationSubnetGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteReplicationSubnetGroupInput,
         validate_input: @config.validate_input
@@ -2972,7 +2974,7 @@ module AWS::SDK::DatabaseMigrationService
     def delete_replication_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteReplicationTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteReplicationTaskInput,
         validate_input: @config.validate_input
@@ -3058,7 +3060,7 @@ module AWS::SDK::DatabaseMigrationService
     def delete_replication_task_assessment_run(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteReplicationTaskAssessmentRunInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteReplicationTaskAssessmentRunInput,
         validate_input: @config.validate_input
@@ -3133,7 +3135,7 @@ module AWS::SDK::DatabaseMigrationService
     def describe_account_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAccountAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAccountAttributesInput,
         validate_input: @config.validate_input
@@ -3248,7 +3250,7 @@ module AWS::SDK::DatabaseMigrationService
     def describe_applicable_individual_assessments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeApplicableIndividualAssessmentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeApplicableIndividualAssessmentsInput,
         validate_input: @config.validate_input
@@ -3350,7 +3352,7 @@ module AWS::SDK::DatabaseMigrationService
     def describe_certificates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCertificatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCertificatesInput,
         validate_input: @config.validate_input
@@ -3450,7 +3452,7 @@ module AWS::SDK::DatabaseMigrationService
     def describe_connections(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeConnectionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeConnectionsInput,
         validate_input: @config.validate_input
@@ -3543,7 +3545,7 @@ module AWS::SDK::DatabaseMigrationService
     def describe_endpoint_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEndpointSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEndpointSettingsInput,
         validate_input: @config.validate_input
@@ -3641,7 +3643,7 @@ module AWS::SDK::DatabaseMigrationService
     def describe_endpoint_types(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEndpointTypesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEndpointTypesInput,
         validate_input: @config.validate_input
@@ -4029,7 +4031,7 @@ module AWS::SDK::DatabaseMigrationService
     def describe_endpoints(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEndpointsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEndpointsInput,
         validate_input: @config.validate_input
@@ -4118,7 +4120,7 @@ module AWS::SDK::DatabaseMigrationService
     def describe_event_categories(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEventCategoriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEventCategoriesInput,
         validate_input: @config.validate_input
@@ -4231,7 +4233,7 @@ module AWS::SDK::DatabaseMigrationService
     def describe_event_subscriptions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEventSubscriptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEventSubscriptionsInput,
         validate_input: @config.validate_input
@@ -4360,7 +4362,7 @@ module AWS::SDK::DatabaseMigrationService
     def describe_events(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEventsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEventsInput,
         validate_input: @config.validate_input
@@ -4484,7 +4486,7 @@ module AWS::SDK::DatabaseMigrationService
     def describe_fleet_advisor_collectors(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFleetAdvisorCollectorsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFleetAdvisorCollectorsInput,
         validate_input: @config.validate_input
@@ -4625,7 +4627,7 @@ module AWS::SDK::DatabaseMigrationService
     def describe_fleet_advisor_databases(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFleetAdvisorDatabasesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFleetAdvisorDatabasesInput,
         validate_input: @config.validate_input
@@ -4706,7 +4708,7 @@ module AWS::SDK::DatabaseMigrationService
     def describe_fleet_advisor_lsa_analysis(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFleetAdvisorLsaAnalysisInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFleetAdvisorLsaAnalysisInput,
         validate_input: @config.validate_input
@@ -4812,7 +4814,7 @@ module AWS::SDK::DatabaseMigrationService
     def describe_fleet_advisor_schema_object_summary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFleetAdvisorSchemaObjectSummaryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFleetAdvisorSchemaObjectSummaryInput,
         validate_input: @config.validate_input
@@ -4966,7 +4968,7 @@ module AWS::SDK::DatabaseMigrationService
     def describe_fleet_advisor_schemas(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFleetAdvisorSchemasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFleetAdvisorSchemasInput,
         validate_input: @config.validate_input
@@ -5058,7 +5060,7 @@ module AWS::SDK::DatabaseMigrationService
     def describe_orderable_replication_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeOrderableReplicationInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeOrderableReplicationInstancesInput,
         validate_input: @config.validate_input
@@ -5163,7 +5165,7 @@ module AWS::SDK::DatabaseMigrationService
     def describe_pending_maintenance_actions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePendingMaintenanceActionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePendingMaintenanceActionsInput,
         validate_input: @config.validate_input
@@ -5237,7 +5239,7 @@ module AWS::SDK::DatabaseMigrationService
     def describe_refresh_schemas_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRefreshSchemasStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRefreshSchemasStatusInput,
         validate_input: @config.validate_input
@@ -5326,7 +5328,7 @@ module AWS::SDK::DatabaseMigrationService
     def describe_replication_instance_task_logs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeReplicationInstanceTaskLogsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeReplicationInstanceTaskLogsInput,
         validate_input: @config.validate_input
@@ -5463,7 +5465,7 @@ module AWS::SDK::DatabaseMigrationService
     def describe_replication_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeReplicationInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeReplicationInstancesInput,
         validate_input: @config.validate_input
@@ -5566,7 +5568,7 @@ module AWS::SDK::DatabaseMigrationService
     def describe_replication_subnet_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeReplicationSubnetGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeReplicationSubnetGroupsInput,
         validate_input: @config.validate_input
@@ -5666,7 +5668,7 @@ module AWS::SDK::DatabaseMigrationService
     def describe_replication_task_assessment_results(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeReplicationTaskAssessmentResultsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeReplicationTaskAssessmentResultsInput,
         validate_input: @config.validate_input
@@ -5781,7 +5783,7 @@ module AWS::SDK::DatabaseMigrationService
     def describe_replication_task_assessment_runs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeReplicationTaskAssessmentRunsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeReplicationTaskAssessmentRunsInput,
         validate_input: @config.validate_input
@@ -5882,7 +5884,7 @@ module AWS::SDK::DatabaseMigrationService
     def describe_replication_task_individual_assessments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeReplicationTaskIndividualAssessmentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeReplicationTaskIndividualAssessmentsInput,
         validate_input: @config.validate_input
@@ -6013,7 +6015,7 @@ module AWS::SDK::DatabaseMigrationService
     def describe_replication_tasks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeReplicationTasksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeReplicationTasksInput,
         validate_input: @config.validate_input
@@ -6100,7 +6102,7 @@ module AWS::SDK::DatabaseMigrationService
     def describe_schemas(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSchemasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSchemasInput,
         validate_input: @config.validate_input
@@ -6223,7 +6225,7 @@ module AWS::SDK::DatabaseMigrationService
     def describe_table_statistics(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTableStatisticsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTableStatisticsInput,
         validate_input: @config.validate_input
@@ -6325,7 +6327,7 @@ module AWS::SDK::DatabaseMigrationService
     def import_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ImportCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ImportCertificateInput,
         validate_input: @config.validate_input
@@ -6413,7 +6415,7 @@ module AWS::SDK::DatabaseMigrationService
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -7294,7 +7296,7 @@ module AWS::SDK::DatabaseMigrationService
     def modify_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyEndpointInput,
         validate_input: @config.validate_input
@@ -7396,7 +7398,7 @@ module AWS::SDK::DatabaseMigrationService
     def modify_event_subscription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyEventSubscriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyEventSubscriptionInput,
         validate_input: @config.validate_input
@@ -7593,7 +7595,7 @@ module AWS::SDK::DatabaseMigrationService
     def modify_replication_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyReplicationInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyReplicationInstanceInput,
         validate_input: @config.validate_input
@@ -7682,7 +7684,7 @@ module AWS::SDK::DatabaseMigrationService
     def modify_replication_subnet_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyReplicationSubnetGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyReplicationSubnetGroupInput,
         validate_input: @config.validate_input
@@ -7856,7 +7858,7 @@ module AWS::SDK::DatabaseMigrationService
     def modify_replication_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyReplicationTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyReplicationTaskInput,
         validate_input: @config.validate_input
@@ -7962,7 +7964,7 @@ module AWS::SDK::DatabaseMigrationService
     def move_replication_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::MoveReplicationTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::MoveReplicationTaskInput,
         validate_input: @config.validate_input
@@ -8087,7 +8089,7 @@ module AWS::SDK::DatabaseMigrationService
     def reboot_replication_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RebootReplicationInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RebootReplicationInstanceInput,
         validate_input: @config.validate_input
@@ -8167,7 +8169,7 @@ module AWS::SDK::DatabaseMigrationService
     def refresh_schemas(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RefreshSchemasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RefreshSchemasInput,
         validate_input: @config.validate_input
@@ -8255,7 +8257,7 @@ module AWS::SDK::DatabaseMigrationService
     def reload_tables(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ReloadTablesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ReloadTablesInput,
         validate_input: @config.validate_input
@@ -8334,7 +8336,7 @@ module AWS::SDK::DatabaseMigrationService
     def remove_tags_from_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveTagsFromResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveTagsFromResourceInput,
         validate_input: @config.validate_input
@@ -8399,7 +8401,7 @@ module AWS::SDK::DatabaseMigrationService
     def run_fleet_advisor_lsa_analysis(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RunFleetAdvisorLsaAnalysisInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RunFleetAdvisorLsaAnalysisInput,
         validate_input: @config.validate_input
@@ -8543,7 +8545,7 @@ module AWS::SDK::DatabaseMigrationService
     def start_replication_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartReplicationTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartReplicationTaskInput,
         validate_input: @config.validate_input
@@ -8656,7 +8658,7 @@ module AWS::SDK::DatabaseMigrationService
     def start_replication_task_assessment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartReplicationTaskAssessmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartReplicationTaskAssessmentInput,
         validate_input: @config.validate_input
@@ -8822,7 +8824,7 @@ module AWS::SDK::DatabaseMigrationService
     def start_replication_task_assessment_run(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartReplicationTaskAssessmentRunInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartReplicationTaskAssessmentRunInput,
         validate_input: @config.validate_input
@@ -8921,7 +8923,7 @@ module AWS::SDK::DatabaseMigrationService
     def stop_replication_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopReplicationTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopReplicationTaskInput,
         validate_input: @config.validate_input
@@ -9000,7 +9002,7 @@ module AWS::SDK::DatabaseMigrationService
     def test_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TestConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TestConnectionInput,
         validate_input: @config.validate_input

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::XRay
@@ -78,7 +80,7 @@ module AWS::SDK::XRay
     def batch_get_traces(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetTracesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetTracesInput,
         validate_input: @config.validate_input
@@ -210,7 +212,7 @@ module AWS::SDK::XRay
     def create_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateGroupInput,
         validate_input: @config.validate_input
@@ -352,7 +354,7 @@ module AWS::SDK::XRay
     def create_sampling_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSamplingRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSamplingRuleInput,
         validate_input: @config.validate_input
@@ -424,7 +426,7 @@ module AWS::SDK::XRay
     def delete_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteGroupInput,
         validate_input: @config.validate_input
@@ -514,7 +516,7 @@ module AWS::SDK::XRay
     def delete_sampling_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSamplingRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSamplingRuleInput,
         validate_input: @config.validate_input
@@ -581,7 +583,7 @@ module AWS::SDK::XRay
     def get_encryption_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEncryptionConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEncryptionConfigInput,
         validate_input: @config.validate_input
@@ -659,7 +661,7 @@ module AWS::SDK::XRay
     def get_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetGroupInput,
         validate_input: @config.validate_input
@@ -736,7 +738,7 @@ module AWS::SDK::XRay
     def get_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetGroupsInput,
         validate_input: @config.validate_input
@@ -830,7 +832,7 @@ module AWS::SDK::XRay
     def get_insight(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetInsightInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetInsightInput,
         validate_input: @config.validate_input
@@ -926,7 +928,7 @@ module AWS::SDK::XRay
     def get_insight_events(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetInsightEventsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetInsightEventsInput,
         validate_input: @config.validate_input
@@ -1026,7 +1028,7 @@ module AWS::SDK::XRay
     def get_insight_impact_graph(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetInsightImpactGraphInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetInsightImpactGraphInput,
         validate_input: @config.validate_input
@@ -1148,7 +1150,7 @@ module AWS::SDK::XRay
     def get_insight_summaries(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetInsightSummariesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetInsightSummariesInput,
         validate_input: @config.validate_input
@@ -1236,7 +1238,7 @@ module AWS::SDK::XRay
     def get_sampling_rules(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSamplingRulesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSamplingRulesInput,
         validate_input: @config.validate_input
@@ -1312,7 +1314,7 @@ module AWS::SDK::XRay
     def get_sampling_statistic_summaries(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSamplingStatisticSummariesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSamplingStatisticSummariesInput,
         validate_input: @config.validate_input
@@ -1403,7 +1405,7 @@ module AWS::SDK::XRay
     def get_sampling_targets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSamplingTargetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSamplingTargetsInput,
         validate_input: @config.validate_input
@@ -1541,7 +1543,7 @@ module AWS::SDK::XRay
     def get_service_graph(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetServiceGraphInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetServiceGraphInput,
         validate_input: @config.validate_input
@@ -1670,7 +1672,7 @@ module AWS::SDK::XRay
     def get_time_series_service_statistics(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTimeSeriesServiceStatisticsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTimeSeriesServiceStatisticsInput,
         validate_input: @config.validate_input
@@ -1791,7 +1793,7 @@ module AWS::SDK::XRay
     def get_trace_graph(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTraceGraphInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTraceGraphInput,
         validate_input: @config.validate_input
@@ -1920,7 +1922,10 @@ module AWS::SDK::XRay
     #   resp.data.trace_summaries[0].annotations #=> Hash<String, Array<ValueWithServiceIds>>
     #   resp.data.trace_summaries[0].annotations['key'] #=> Array<ValueWithServiceIds>
     #   resp.data.trace_summaries[0].annotations['key'][0] #=> Types::ValueWithServiceIds
-    #   resp.data.trace_summaries[0].annotations['key'][0].annotation_value #=> AnnotationValue
+    #   resp.data.trace_summaries[0].annotations['key'][0].annotation_value #=> Types::AnnotationValue, one of [NumberValue, BooleanValue, StringValue]
+    #   resp.data.trace_summaries[0].annotations['key'][0].annotation_value.number_value #=> Float
+    #   resp.data.trace_summaries[0].annotations['key'][0].annotation_value.boolean_value #=> Boolean
+    #   resp.data.trace_summaries[0].annotations['key'][0].annotation_value.string_value #=> String
     #   resp.data.trace_summaries[0].annotations['key'][0].service_ids #=> Array<ServiceId>
     #   resp.data.trace_summaries[0].annotations['key'][0].service_ids[0] #=> Types::ServiceId
     #   resp.data.trace_summaries[0].annotations['key'][0].service_ids[0].name #=> String
@@ -2000,7 +2005,7 @@ module AWS::SDK::XRay
     def get_trace_summaries(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTraceSummariesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTraceSummariesInput,
         validate_input: @config.validate_input
@@ -2078,7 +2083,7 @@ module AWS::SDK::XRay
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2175,7 +2180,7 @@ module AWS::SDK::XRay
     def put_encryption_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutEncryptionConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutEncryptionConfigInput,
         validate_input: @config.validate_input
@@ -2271,7 +2276,7 @@ module AWS::SDK::XRay
     def put_telemetry_records(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutTelemetryRecordsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutTelemetryRecordsInput,
         validate_input: @config.validate_input
@@ -2409,7 +2414,7 @@ module AWS::SDK::XRay
     def put_trace_segments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutTraceSegmentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutTraceSegmentsInput,
         validate_input: @config.validate_input
@@ -2511,7 +2516,7 @@ module AWS::SDK::XRay
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2586,7 +2591,7 @@ module AWS::SDK::XRay
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2686,7 +2691,7 @@ module AWS::SDK::XRay
     def update_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGroupInput,
         validate_input: @config.validate_input
@@ -2787,7 +2792,7 @@ module AWS::SDK::XRay
     def update_sampling_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSamplingRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSamplingRuleInput,
         validate_input: @config.validate_input

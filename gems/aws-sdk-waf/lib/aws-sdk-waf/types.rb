@@ -715,11 +715,11 @@ module AWS::SDK::WAF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.rate_limit ||= 0
       end
-
     end
 
     # @!attribute rule
@@ -3240,11 +3240,11 @@ module AWS::SDK::WAF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_items ||= 0
       end
-
     end
 
     # @!attribute sampled_requests
@@ -3273,11 +3273,11 @@ module AWS::SDK::WAF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.population_size ||= 0
       end
-
     end
 
     # @!attribute size_constraint_set_id
@@ -3761,11 +3761,11 @@ module AWS::SDK::WAF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute next_marker
@@ -3807,11 +3807,11 @@ module AWS::SDK::WAF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute next_marker
@@ -3856,11 +3856,11 @@ module AWS::SDK::WAF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute next_marker
@@ -3905,11 +3905,11 @@ module AWS::SDK::WAF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute next_marker
@@ -3951,11 +3951,11 @@ module AWS::SDK::WAF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute logging_configurations
@@ -4000,11 +4000,11 @@ module AWS::SDK::WAF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute next_marker
@@ -4050,11 +4050,11 @@ module AWS::SDK::WAF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute next_marker
@@ -4099,11 +4099,11 @@ module AWS::SDK::WAF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute next_marker
@@ -4146,11 +4146,11 @@ module AWS::SDK::WAF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute next_marker
@@ -4191,11 +4191,11 @@ module AWS::SDK::WAF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute next_marker
@@ -4238,11 +4238,11 @@ module AWS::SDK::WAF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute next_marker
@@ -4289,11 +4289,11 @@ module AWS::SDK::WAF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # <p>The response to a <a>ListSqlInjectionMatchSets</a> request.</p>
@@ -4340,11 +4340,11 @@ module AWS::SDK::WAF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute next_marker
@@ -4390,11 +4390,11 @@ module AWS::SDK::WAF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute next_marker
@@ -4436,11 +4436,11 @@ module AWS::SDK::WAF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute next_marker
@@ -4487,11 +4487,11 @@ module AWS::SDK::WAF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # <p>The response to a <a>ListXssMatchSets</a> request.</p>
@@ -4957,11 +4957,11 @@ module AWS::SDK::WAF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.rate_limit ||= 0
       end
-
     end
 
     # Includes enum constants for RateKey
@@ -5624,11 +5624,11 @@ module AWS::SDK::WAF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.weight ||= 0
       end
-
     end
 
     # <note>
@@ -5795,11 +5795,11 @@ module AWS::SDK::WAF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.size ||= 0
       end
-
     end
 
     # <note>
@@ -6551,11 +6551,11 @@ module AWS::SDK::WAF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.rate_limit ||= 0
       end
-
     end
 
     # @!attribute change_token

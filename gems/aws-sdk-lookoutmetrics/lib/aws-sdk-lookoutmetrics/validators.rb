@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::LookoutMetrics
   module Validators
 
@@ -20,8 +22,8 @@ module AWS::SDK::LookoutMetrics
     class Action
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Action, context: context)
-        Validators::SNSConfiguration.validate!(input[:sns_configuration], context: "#{context}[:sns_configuration]") unless input[:sns_configuration].nil?
-        Validators::LambdaConfiguration.validate!(input[:lambda_configuration], context: "#{context}[:lambda_configuration]") unless input[:lambda_configuration].nil?
+        SNSConfiguration.validate!(input[:sns_configuration], context: "#{context}[:sns_configuration]") unless input[:sns_configuration].nil?
+        LambdaConfiguration.validate!(input[:lambda_configuration], context: "#{context}[:lambda_configuration]") unless input[:lambda_configuration].nil?
       end
     end
 
@@ -41,7 +43,7 @@ module AWS::SDK::LookoutMetrics
     class Alert
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Alert, context: context)
-        Validators::Action.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
+        Action.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
         Hearth::Validator.validate!(input[:alert_description], ::String, context: "#{context}[:alert_description]")
         Hearth::Validator.validate!(input[:alert_arn], ::String, context: "#{context}[:alert_arn]")
         Hearth::Validator.validate!(input[:anomaly_detector_arn], ::String, context: "#{context}[:anomaly_detector_arn]")
@@ -65,7 +67,7 @@ module AWS::SDK::LookoutMetrics
         Hearth::Validator.validate!(input[:alert_status], ::String, context: "#{context}[:alert_status]")
         Hearth::Validator.validate!(input[:last_modification_time], ::Time, context: "#{context}[:last_modification_time]")
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -73,7 +75,7 @@ module AWS::SDK::LookoutMetrics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AlertSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AlertSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -101,7 +103,7 @@ module AWS::SDK::LookoutMetrics
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:last_modification_time], ::Time, context: "#{context}[:last_modification_time]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -109,7 +111,7 @@ module AWS::SDK::LookoutMetrics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AnomalyDetectorSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AnomalyDetectorSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -122,7 +124,7 @@ module AWS::SDK::LookoutMetrics
         Hearth::Validator.validate!(input[:anomaly_group_id], ::String, context: "#{context}[:anomaly_group_id]")
         Hearth::Validator.validate!(input[:anomaly_group_score], ::Float, context: "#{context}[:anomaly_group_score]")
         Hearth::Validator.validate!(input[:primary_metric_name], ::String, context: "#{context}[:primary_metric_name]")
-        Validators::MetricLevelImpactList.validate!(input[:metric_level_impact_list], context: "#{context}[:metric_level_impact_list]") unless input[:metric_level_impact_list].nil?
+        MetricLevelImpactList.validate!(input[:metric_level_impact_list], context: "#{context}[:metric_level_impact_list]") unless input[:metric_level_impact_list].nil?
       end
     end
 
@@ -131,7 +133,7 @@ module AWS::SDK::LookoutMetrics
         Hearth::Validator.validate!(input, Types::AnomalyGroupStatistics, context: context)
         Hearth::Validator.validate!(input[:evaluation_start_date], ::String, context: "#{context}[:evaluation_start_date]")
         Hearth::Validator.validate!(input[:total_count], ::Integer, context: "#{context}[:total_count]")
-        Validators::ItemizedMetricStatsList.validate!(input[:itemized_metric_stats_list], context: "#{context}[:itemized_metric_stats_list]") unless input[:itemized_metric_stats_list].nil?
+        ItemizedMetricStatsList.validate!(input[:itemized_metric_stats_list], context: "#{context}[:itemized_metric_stats_list]") unless input[:itemized_metric_stats_list].nil?
       end
     end
 
@@ -150,7 +152,7 @@ module AWS::SDK::LookoutMetrics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AnomalyGroupSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AnomalyGroupSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -189,7 +191,7 @@ module AWS::SDK::LookoutMetrics
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
         Hearth::Validator.validate!(input[:work_group_name], ::String, context: "#{context}[:work_group_name]")
         Hearth::Validator.validate!(input[:s3_results_path], ::String, context: "#{context}[:s3_results_path]")
-        Validators::BackTestConfiguration.validate!(input[:back_test_configuration], context: "#{context}[:back_test_configuration]") unless input[:back_test_configuration].nil?
+        BackTestConfiguration.validate!(input[:back_test_configuration], context: "#{context}[:back_test_configuration]") unless input[:back_test_configuration].nil?
       end
     end
 
@@ -199,24 +201,24 @@ module AWS::SDK::LookoutMetrics
         Hearth::Validator.validate!(input[:s], ::String, context: "#{context}[:s]")
         Hearth::Validator.validate!(input[:n], ::String, context: "#{context}[:n]")
         Hearth::Validator.validate!(input[:b], ::String, context: "#{context}[:b]")
-        Validators::StringListAttributeValue.validate!(input[:ss], context: "#{context}[:ss]") unless input[:ss].nil?
-        Validators::NumberListAttributeValue.validate!(input[:ns], context: "#{context}[:ns]") unless input[:ns].nil?
-        Validators::BinaryListAttributeValue.validate!(input[:bs], context: "#{context}[:bs]") unless input[:bs].nil?
+        StringListAttributeValue.validate!(input[:ss], context: "#{context}[:ss]") unless input[:ss].nil?
+        NumberListAttributeValue.validate!(input[:ns], context: "#{context}[:ns]") unless input[:ns].nil?
+        BinaryListAttributeValue.validate!(input[:bs], context: "#{context}[:bs]") unless input[:bs].nil?
       end
     end
 
     class AutoDetectionMetricSource
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AutoDetectionMetricSource, context: context)
-        Validators::AutoDetectionS3SourceConfig.validate!(input[:s3_source_config], context: "#{context}[:s3_source_config]") unless input[:s3_source_config].nil?
+        AutoDetectionS3SourceConfig.validate!(input[:s3_source_config], context: "#{context}[:s3_source_config]") unless input[:s3_source_config].nil?
       end
     end
 
     class AutoDetectionS3SourceConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AutoDetectionS3SourceConfig, context: context)
-        Validators::TemplatedPathList.validate!(input[:templated_path_list], context: "#{context}[:templated_path_list]") unless input[:templated_path_list].nil?
-        Validators::HistoricalDataPathList.validate!(input[:historical_data_path_list], context: "#{context}[:historical_data_path_list]") unless input[:historical_data_path_list].nil?
+        TemplatedPathList.validate!(input[:templated_path_list], context: "#{context}[:templated_path_list]") unless input[:templated_path_list].nil?
+        HistoricalDataPathList.validate!(input[:historical_data_path_list], context: "#{context}[:historical_data_path_list]") unless input[:historical_data_path_list].nil?
       end
     end
 
@@ -253,7 +255,7 @@ module AWS::SDK::LookoutMetrics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CloudWatchConfig, context: context)
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::BackTestConfiguration.validate!(input[:back_test_configuration], context: "#{context}[:back_test_configuration]") unless input[:back_test_configuration].nil?
+        BackTestConfiguration.validate!(input[:back_test_configuration], context: "#{context}[:back_test_configuration]") unless input[:back_test_configuration].nil?
       end
     end
 
@@ -269,7 +271,7 @@ module AWS::SDK::LookoutMetrics
     class ContributionMatrix
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ContributionMatrix, context: context)
-        Validators::DimensionContributionList.validate!(input[:dimension_contribution_list], context: "#{context}[:dimension_contribution_list]") unless input[:dimension_contribution_list].nil?
+        DimensionContributionList.validate!(input[:dimension_contribution_list], context: "#{context}[:dimension_contribution_list]") unless input[:dimension_contribution_list].nil?
       end
     end
 
@@ -280,8 +282,8 @@ module AWS::SDK::LookoutMetrics
         Hearth::Validator.validate!(input[:alert_sensitivity_threshold], ::Integer, context: "#{context}[:alert_sensitivity_threshold]")
         Hearth::Validator.validate!(input[:alert_description], ::String, context: "#{context}[:alert_description]")
         Hearth::Validator.validate!(input[:anomaly_detector_arn], ::String, context: "#{context}[:anomaly_detector_arn]")
-        Validators::Action.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Action.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -297,9 +299,9 @@ module AWS::SDK::LookoutMetrics
         Hearth::Validator.validate!(input, Types::CreateAnomalyDetectorInput, context: context)
         Hearth::Validator.validate!(input[:anomaly_detector_name], ::String, context: "#{context}[:anomaly_detector_name]")
         Hearth::Validator.validate!(input[:anomaly_detector_description], ::String, context: "#{context}[:anomaly_detector_description]")
-        Validators::AnomalyDetectorConfig.validate!(input[:anomaly_detector_config], context: "#{context}[:anomaly_detector_config]") unless input[:anomaly_detector_config].nil?
+        AnomalyDetectorConfig.validate!(input[:anomaly_detector_config], context: "#{context}[:anomaly_detector_config]") unless input[:anomaly_detector_config].nil?
         Hearth::Validator.validate!(input[:kms_key_arn], ::String, context: "#{context}[:kms_key_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -316,14 +318,14 @@ module AWS::SDK::LookoutMetrics
         Hearth::Validator.validate!(input[:anomaly_detector_arn], ::String, context: "#{context}[:anomaly_detector_arn]")
         Hearth::Validator.validate!(input[:metric_set_name], ::String, context: "#{context}[:metric_set_name]")
         Hearth::Validator.validate!(input[:metric_set_description], ::String, context: "#{context}[:metric_set_description]")
-        Validators::MetricList.validate!(input[:metric_list], context: "#{context}[:metric_list]") unless input[:metric_list].nil?
+        MetricList.validate!(input[:metric_list], context: "#{context}[:metric_list]") unless input[:metric_list].nil?
         Hearth::Validator.validate!(input[:offset], ::Integer, context: "#{context}[:offset]")
-        Validators::TimestampColumn.validate!(input[:timestamp_column], context: "#{context}[:timestamp_column]") unless input[:timestamp_column].nil?
-        Validators::DimensionList.validate!(input[:dimension_list], context: "#{context}[:dimension_list]") unless input[:dimension_list].nil?
+        TimestampColumn.validate!(input[:timestamp_column], context: "#{context}[:timestamp_column]") unless input[:timestamp_column].nil?
+        DimensionList.validate!(input[:dimension_list], context: "#{context}[:dimension_list]") unless input[:dimension_list].nil?
         Hearth::Validator.validate!(input[:metric_set_frequency], ::String, context: "#{context}[:metric_set_frequency]")
-        Validators::MetricSource.validate!(input[:metric_source], context: "#{context}[:metric_source]") unless input[:metric_source].nil?
+        MetricSource.validate!(input[:metric_source], context: "#{context}[:metric_source]") unless input[:metric_source].nil?
         Hearth::Validator.validate!(input[:timezone], ::String, context: "#{context}[:timezone]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -341,7 +343,7 @@ module AWS::SDK::LookoutMetrics
         Hearth::Validator.validate!(input[:charset], ::String, context: "#{context}[:charset]")
         Hearth::Validator.validate!(input[:contains_header], ::TrueClass, ::FalseClass, context: "#{context}[:contains_header]")
         Hearth::Validator.validate!(input[:delimiter], ::String, context: "#{context}[:delimiter]")
-        Validators::HeaderList.validate!(input[:header_list], context: "#{context}[:header_list]") unless input[:header_list].nil?
+        HeaderList.validate!(input[:header_list], context: "#{context}[:header_list]") unless input[:header_list].nil?
         Hearth::Validator.validate!(input[:quote_symbol], ::String, context: "#{context}[:quote_symbol]")
       end
     end
@@ -395,7 +397,7 @@ module AWS::SDK::LookoutMetrics
     class DescribeAlertOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAlertOutput, context: context)
-        Validators::Alert.validate!(input[:alert], context: "#{context}[:alert]") unless input[:alert].nil?
+        Alert.validate!(input[:alert], context: "#{context}[:alert]") unless input[:alert].nil?
       end
     end
 
@@ -412,7 +414,7 @@ module AWS::SDK::LookoutMetrics
     class DescribeAnomalyDetectionExecutionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAnomalyDetectionExecutionsOutput, context: context)
-        Validators::ExecutionList.validate!(input[:execution_list], context: "#{context}[:execution_list]") unless input[:execution_list].nil?
+        ExecutionList.validate!(input[:execution_list], context: "#{context}[:execution_list]") unless input[:execution_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -430,7 +432,7 @@ module AWS::SDK::LookoutMetrics
         Hearth::Validator.validate!(input[:anomaly_detector_arn], ::String, context: "#{context}[:anomaly_detector_arn]")
         Hearth::Validator.validate!(input[:anomaly_detector_name], ::String, context: "#{context}[:anomaly_detector_name]")
         Hearth::Validator.validate!(input[:anomaly_detector_description], ::String, context: "#{context}[:anomaly_detector_description]")
-        Validators::AnomalyDetectorConfigSummary.validate!(input[:anomaly_detector_config], context: "#{context}[:anomaly_detector_config]") unless input[:anomaly_detector_config].nil?
+        AnomalyDetectorConfigSummary.validate!(input[:anomaly_detector_config], context: "#{context}[:anomaly_detector_config]") unless input[:anomaly_detector_config].nil?
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:last_modification_time], ::Time, context: "#{context}[:last_modification_time]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
@@ -457,12 +459,12 @@ module AWS::SDK::LookoutMetrics
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:last_modification_time], ::Time, context: "#{context}[:last_modification_time]")
         Hearth::Validator.validate!(input[:offset], ::Integer, context: "#{context}[:offset]")
-        Validators::MetricList.validate!(input[:metric_list], context: "#{context}[:metric_list]") unless input[:metric_list].nil?
-        Validators::TimestampColumn.validate!(input[:timestamp_column], context: "#{context}[:timestamp_column]") unless input[:timestamp_column].nil?
-        Validators::DimensionList.validate!(input[:dimension_list], context: "#{context}[:dimension_list]") unless input[:dimension_list].nil?
+        MetricList.validate!(input[:metric_list], context: "#{context}[:metric_list]") unless input[:metric_list].nil?
+        TimestampColumn.validate!(input[:timestamp_column], context: "#{context}[:timestamp_column]") unless input[:timestamp_column].nil?
+        DimensionList.validate!(input[:dimension_list], context: "#{context}[:dimension_list]") unless input[:dimension_list].nil?
         Hearth::Validator.validate!(input[:metric_set_frequency], ::String, context: "#{context}[:metric_set_frequency]")
         Hearth::Validator.validate!(input[:timezone], ::String, context: "#{context}[:timezone]")
-        Validators::MetricSource.validate!(input[:metric_source], context: "#{context}[:metric_source]") unless input[:metric_source].nil?
+        MetricSource.validate!(input[:metric_source], context: "#{context}[:metric_source]") unless input[:metric_source].nil?
       end
     end
 
@@ -470,33 +472,33 @@ module AWS::SDK::LookoutMetrics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DetectMetricSetConfigInput, context: context)
         Hearth::Validator.validate!(input[:anomaly_detector_arn], ::String, context: "#{context}[:anomaly_detector_arn]")
-        Validators::AutoDetectionMetricSource.validate!(input[:auto_detection_metric_source], context: "#{context}[:auto_detection_metric_source]") unless input[:auto_detection_metric_source].nil?
+        AutoDetectionMetricSource.validate!(input[:auto_detection_metric_source], context: "#{context}[:auto_detection_metric_source]") unless input[:auto_detection_metric_source].nil?
       end
     end
 
     class DetectMetricSetConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DetectMetricSetConfigOutput, context: context)
-        Validators::DetectedMetricSetConfig.validate!(input[:detected_metric_set_config], context: "#{context}[:detected_metric_set_config]") unless input[:detected_metric_set_config].nil?
+        DetectedMetricSetConfig.validate!(input[:detected_metric_set_config], context: "#{context}[:detected_metric_set_config]") unless input[:detected_metric_set_config].nil?
       end
     end
 
     class DetectedCsvFormatDescriptor
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DetectedCsvFormatDescriptor, context: context)
-        Validators::DetectedField.validate!(input[:file_compression], context: "#{context}[:file_compression]") unless input[:file_compression].nil?
-        Validators::DetectedField.validate!(input[:charset], context: "#{context}[:charset]") unless input[:charset].nil?
-        Validators::DetectedField.validate!(input[:contains_header], context: "#{context}[:contains_header]") unless input[:contains_header].nil?
-        Validators::DetectedField.validate!(input[:delimiter], context: "#{context}[:delimiter]") unless input[:delimiter].nil?
-        Validators::DetectedField.validate!(input[:header_list], context: "#{context}[:header_list]") unless input[:header_list].nil?
-        Validators::DetectedField.validate!(input[:quote_symbol], context: "#{context}[:quote_symbol]") unless input[:quote_symbol].nil?
+        DetectedField.validate!(input[:file_compression], context: "#{context}[:file_compression]") unless input[:file_compression].nil?
+        DetectedField.validate!(input[:charset], context: "#{context}[:charset]") unless input[:charset].nil?
+        DetectedField.validate!(input[:contains_header], context: "#{context}[:contains_header]") unless input[:contains_header].nil?
+        DetectedField.validate!(input[:delimiter], context: "#{context}[:delimiter]") unless input[:delimiter].nil?
+        DetectedField.validate!(input[:header_list], context: "#{context}[:header_list]") unless input[:header_list].nil?
+        DetectedField.validate!(input[:quote_symbol], context: "#{context}[:quote_symbol]") unless input[:quote_symbol].nil?
       end
     end
 
     class DetectedField
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DetectedField, context: context)
-        Validators::AttributeValue.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
+        AttributeValue.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
         Hearth::Validator.validate!(input[:confidence], ::String, context: "#{context}[:confidence]")
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
       end
@@ -505,39 +507,39 @@ module AWS::SDK::LookoutMetrics
     class DetectedFileFormatDescriptor
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DetectedFileFormatDescriptor, context: context)
-        Validators::DetectedCsvFormatDescriptor.validate!(input[:csv_format_descriptor], context: "#{context}[:csv_format_descriptor]") unless input[:csv_format_descriptor].nil?
-        Validators::DetectedJsonFormatDescriptor.validate!(input[:json_format_descriptor], context: "#{context}[:json_format_descriptor]") unless input[:json_format_descriptor].nil?
+        DetectedCsvFormatDescriptor.validate!(input[:csv_format_descriptor], context: "#{context}[:csv_format_descriptor]") unless input[:csv_format_descriptor].nil?
+        DetectedJsonFormatDescriptor.validate!(input[:json_format_descriptor], context: "#{context}[:json_format_descriptor]") unless input[:json_format_descriptor].nil?
       end
     end
 
     class DetectedJsonFormatDescriptor
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DetectedJsonFormatDescriptor, context: context)
-        Validators::DetectedField.validate!(input[:file_compression], context: "#{context}[:file_compression]") unless input[:file_compression].nil?
-        Validators::DetectedField.validate!(input[:charset], context: "#{context}[:charset]") unless input[:charset].nil?
+        DetectedField.validate!(input[:file_compression], context: "#{context}[:file_compression]") unless input[:file_compression].nil?
+        DetectedField.validate!(input[:charset], context: "#{context}[:charset]") unless input[:charset].nil?
       end
     end
 
     class DetectedMetricSetConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DetectedMetricSetConfig, context: context)
-        Validators::DetectedField.validate!(input[:offset], context: "#{context}[:offset]") unless input[:offset].nil?
-        Validators::DetectedField.validate!(input[:metric_set_frequency], context: "#{context}[:metric_set_frequency]") unless input[:metric_set_frequency].nil?
-        Validators::DetectedMetricSource.validate!(input[:metric_source], context: "#{context}[:metric_source]") unless input[:metric_source].nil?
+        DetectedField.validate!(input[:offset], context: "#{context}[:offset]") unless input[:offset].nil?
+        DetectedField.validate!(input[:metric_set_frequency], context: "#{context}[:metric_set_frequency]") unless input[:metric_set_frequency].nil?
+        DetectedMetricSource.validate!(input[:metric_source], context: "#{context}[:metric_source]") unless input[:metric_source].nil?
       end
     end
 
     class DetectedMetricSource
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DetectedMetricSource, context: context)
-        Validators::DetectedS3SourceConfig.validate!(input[:s3_source_config], context: "#{context}[:s3_source_config]") unless input[:s3_source_config].nil?
+        DetectedS3SourceConfig.validate!(input[:s3_source_config], context: "#{context}[:s3_source_config]") unless input[:s3_source_config].nil?
       end
     end
 
     class DetectedS3SourceConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DetectedS3SourceConfig, context: context)
-        Validators::DetectedFileFormatDescriptor.validate!(input[:file_format_descriptor], context: "#{context}[:file_format_descriptor]") unless input[:file_format_descriptor].nil?
+        DetectedFileFormatDescriptor.validate!(input[:file_format_descriptor], context: "#{context}[:file_format_descriptor]") unless input[:file_format_descriptor].nil?
       end
     end
 
@@ -545,7 +547,7 @@ module AWS::SDK::LookoutMetrics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DimensionContribution, context: context)
         Hearth::Validator.validate!(input[:dimension_name], ::String, context: "#{context}[:dimension_name]")
-        Validators::DimensionValueContributionList.validate!(input[:dimension_value_contribution_list], context: "#{context}[:dimension_value_contribution_list]") unless input[:dimension_value_contribution_list].nil?
+        DimensionValueContributionList.validate!(input[:dimension_value_contribution_list], context: "#{context}[:dimension_value_contribution_list]") unless input[:dimension_value_contribution_list].nil?
       end
     end
 
@@ -553,7 +555,7 @@ module AWS::SDK::LookoutMetrics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DimensionContribution.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DimensionContribution.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -579,7 +581,7 @@ module AWS::SDK::LookoutMetrics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DimensionNameValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DimensionNameValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -596,7 +598,7 @@ module AWS::SDK::LookoutMetrics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DimensionValueContribution.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DimensionValueContribution.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -605,7 +607,7 @@ module AWS::SDK::LookoutMetrics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ExecutionStatus.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ExecutionStatus.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -622,8 +624,8 @@ module AWS::SDK::LookoutMetrics
     class FileFormatDescriptor
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FileFormatDescriptor, context: context)
-        Validators::CsvFormatDescriptor.validate!(input[:csv_format_descriptor], context: "#{context}[:csv_format_descriptor]") unless input[:csv_format_descriptor].nil?
-        Validators::JsonFormatDescriptor.validate!(input[:json_format_descriptor], context: "#{context}[:json_format_descriptor]") unless input[:json_format_descriptor].nil?
+        CsvFormatDescriptor.validate!(input[:csv_format_descriptor], context: "#{context}[:csv_format_descriptor]") unless input[:csv_format_descriptor].nil?
+        JsonFormatDescriptor.validate!(input[:json_format_descriptor], context: "#{context}[:json_format_descriptor]") unless input[:json_format_descriptor].nil?
       end
     end
 
@@ -638,7 +640,7 @@ module AWS::SDK::LookoutMetrics
     class GetAnomalyGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAnomalyGroupOutput, context: context)
-        Validators::AnomalyGroup.validate!(input[:anomaly_group], context: "#{context}[:anomaly_group]") unless input[:anomaly_group].nil?
+        AnomalyGroup.validate!(input[:anomaly_group], context: "#{context}[:anomaly_group]") unless input[:anomaly_group].nil?
       end
     end
 
@@ -646,7 +648,7 @@ module AWS::SDK::LookoutMetrics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetFeedbackInput, context: context)
         Hearth::Validator.validate!(input[:anomaly_detector_arn], ::String, context: "#{context}[:anomaly_detector_arn]")
-        Validators::AnomalyGroupTimeSeries.validate!(input[:anomaly_group_time_series_feedback], context: "#{context}[:anomaly_group_time_series_feedback]") unless input[:anomaly_group_time_series_feedback].nil?
+        AnomalyGroupTimeSeries.validate!(input[:anomaly_group_time_series_feedback], context: "#{context}[:anomaly_group_time_series_feedback]") unless input[:anomaly_group_time_series_feedback].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -655,7 +657,7 @@ module AWS::SDK::LookoutMetrics
     class GetFeedbackOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetFeedbackOutput, context: context)
-        Validators::TimeSeriesFeedbackList.validate!(input[:anomaly_group_time_series_feedback], context: "#{context}[:anomaly_group_time_series_feedback]") unless input[:anomaly_group_time_series_feedback].nil?
+        TimeSeriesFeedbackList.validate!(input[:anomaly_group_time_series_feedback], context: "#{context}[:anomaly_group_time_series_feedback]") unless input[:anomaly_group_time_series_feedback].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -663,15 +665,15 @@ module AWS::SDK::LookoutMetrics
     class GetSampleDataInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSampleDataInput, context: context)
-        Validators::SampleDataS3SourceConfig.validate!(input[:s3_source_config], context: "#{context}[:s3_source_config]") unless input[:s3_source_config].nil?
+        SampleDataS3SourceConfig.validate!(input[:s3_source_config], context: "#{context}[:s3_source_config]") unless input[:s3_source_config].nil?
       end
     end
 
     class GetSampleDataOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSampleDataOutput, context: context)
-        Validators::HeaderValueList.validate!(input[:header_values], context: "#{context}[:header_values]") unless input[:header_values].nil?
-        Validators::SampleRows.validate!(input[:sample_rows], context: "#{context}[:sample_rows]") unless input[:sample_rows].nil?
+        HeaderValueList.validate!(input[:header_values], context: "#{context}[:header_values]") unless input[:header_values].nil?
+        SampleRows.validate!(input[:sample_rows], context: "#{context}[:sample_rows]") unless input[:sample_rows].nil?
       end
     end
 
@@ -716,7 +718,7 @@ module AWS::SDK::LookoutMetrics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InterMetricImpactDetails.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InterMetricImpactDetails.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -740,7 +742,7 @@ module AWS::SDK::LookoutMetrics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ItemizedMetricStats.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ItemizedMetricStats.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -773,7 +775,7 @@ module AWS::SDK::LookoutMetrics
     class ListAlertsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAlertsOutput, context: context)
-        Validators::AlertSummaryList.validate!(input[:alert_summary_list], context: "#{context}[:alert_summary_list]") unless input[:alert_summary_list].nil?
+        AlertSummaryList.validate!(input[:alert_summary_list], context: "#{context}[:alert_summary_list]") unless input[:alert_summary_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -789,7 +791,7 @@ module AWS::SDK::LookoutMetrics
     class ListAnomalyDetectorsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAnomalyDetectorsOutput, context: context)
-        Validators::AnomalyDetectorSummaryList.validate!(input[:anomaly_detector_summary_list], context: "#{context}[:anomaly_detector_summary_list]") unless input[:anomaly_detector_summary_list].nil?
+        AnomalyDetectorSummaryList.validate!(input[:anomaly_detector_summary_list], context: "#{context}[:anomaly_detector_summary_list]") unless input[:anomaly_detector_summary_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -808,7 +810,7 @@ module AWS::SDK::LookoutMetrics
     class ListAnomalyGroupRelatedMetricsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAnomalyGroupRelatedMetricsOutput, context: context)
-        Validators::InterMetricImpactList.validate!(input[:inter_metric_impact_list], context: "#{context}[:inter_metric_impact_list]") unless input[:inter_metric_impact_list].nil?
+        InterMetricImpactList.validate!(input[:inter_metric_impact_list], context: "#{context}[:inter_metric_impact_list]") unless input[:inter_metric_impact_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -826,8 +828,8 @@ module AWS::SDK::LookoutMetrics
     class ListAnomalyGroupSummariesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAnomalyGroupSummariesOutput, context: context)
-        Validators::AnomalyGroupSummaryList.validate!(input[:anomaly_group_summary_list], context: "#{context}[:anomaly_group_summary_list]") unless input[:anomaly_group_summary_list].nil?
-        Validators::AnomalyGroupStatistics.validate!(input[:anomaly_group_statistics], context: "#{context}[:anomaly_group_statistics]") unless input[:anomaly_group_statistics].nil?
+        AnomalyGroupSummaryList.validate!(input[:anomaly_group_summary_list], context: "#{context}[:anomaly_group_summary_list]") unless input[:anomaly_group_summary_list].nil?
+        AnomalyGroupStatistics.validate!(input[:anomaly_group_statistics], context: "#{context}[:anomaly_group_statistics]") unless input[:anomaly_group_statistics].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -848,9 +850,9 @@ module AWS::SDK::LookoutMetrics
         Hearth::Validator.validate!(input, Types::ListAnomalyGroupTimeSeriesOutput, context: context)
         Hearth::Validator.validate!(input[:anomaly_group_id], ::String, context: "#{context}[:anomaly_group_id]")
         Hearth::Validator.validate!(input[:metric_name], ::String, context: "#{context}[:metric_name]")
-        Validators::TimestampList.validate!(input[:timestamp_list], context: "#{context}[:timestamp_list]") unless input[:timestamp_list].nil?
+        TimestampList.validate!(input[:timestamp_list], context: "#{context}[:timestamp_list]") unless input[:timestamp_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::TimeSeriesList.validate!(input[:time_series_list], context: "#{context}[:time_series_list]") unless input[:time_series_list].nil?
+        TimeSeriesList.validate!(input[:time_series_list], context: "#{context}[:time_series_list]") unless input[:time_series_list].nil?
       end
     end
 
@@ -866,7 +868,7 @@ module AWS::SDK::LookoutMetrics
     class ListMetricSetsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListMetricSetsOutput, context: context)
-        Validators::MetricSetSummaryList.validate!(input[:metric_set_summary_list], context: "#{context}[:metric_set_summary_list]") unless input[:metric_set_summary_list].nil?
+        MetricSetSummaryList.validate!(input[:metric_set_summary_list], context: "#{context}[:metric_set_summary_list]") unless input[:metric_set_summary_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -881,7 +883,7 @@ module AWS::SDK::LookoutMetrics
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -899,7 +901,7 @@ module AWS::SDK::LookoutMetrics
         Hearth::Validator.validate!(input, Types::MetricLevelImpact, context: context)
         Hearth::Validator.validate!(input[:metric_name], ::String, context: "#{context}[:metric_name]")
         Hearth::Validator.validate!(input[:num_time_series], ::Integer, context: "#{context}[:num_time_series]")
-        Validators::ContributionMatrix.validate!(input[:contribution_matrix], context: "#{context}[:contribution_matrix]") unless input[:contribution_matrix].nil?
+        ContributionMatrix.validate!(input[:contribution_matrix], context: "#{context}[:contribution_matrix]") unless input[:contribution_matrix].nil?
       end
     end
 
@@ -907,7 +909,7 @@ module AWS::SDK::LookoutMetrics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MetricLevelImpact.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MetricLevelImpact.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -916,7 +918,7 @@ module AWS::SDK::LookoutMetrics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Metric.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Metric.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -930,7 +932,7 @@ module AWS::SDK::LookoutMetrics
         Hearth::Validator.validate!(input[:metric_set_name], ::String, context: "#{context}[:metric_set_name]")
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:last_modification_time], ::Time, context: "#{context}[:last_modification_time]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -938,7 +940,7 @@ module AWS::SDK::LookoutMetrics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MetricSetSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MetricSetSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -946,12 +948,12 @@ module AWS::SDK::LookoutMetrics
     class MetricSource
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MetricSource, context: context)
-        Validators::S3SourceConfig.validate!(input[:s3_source_config], context: "#{context}[:s3_source_config]") unless input[:s3_source_config].nil?
-        Validators::AppFlowConfig.validate!(input[:app_flow_config], context: "#{context}[:app_flow_config]") unless input[:app_flow_config].nil?
-        Validators::CloudWatchConfig.validate!(input[:cloud_watch_config], context: "#{context}[:cloud_watch_config]") unless input[:cloud_watch_config].nil?
-        Validators::RDSSourceConfig.validate!(input[:rds_source_config], context: "#{context}[:rds_source_config]") unless input[:rds_source_config].nil?
-        Validators::RedshiftSourceConfig.validate!(input[:redshift_source_config], context: "#{context}[:redshift_source_config]") unless input[:redshift_source_config].nil?
-        Validators::AthenaSourceConfig.validate!(input[:athena_source_config], context: "#{context}[:athena_source_config]") unless input[:athena_source_config].nil?
+        S3SourceConfig.validate!(input[:s3_source_config], context: "#{context}[:s3_source_config]") unless input[:s3_source_config].nil?
+        AppFlowConfig.validate!(input[:app_flow_config], context: "#{context}[:app_flow_config]") unless input[:app_flow_config].nil?
+        CloudWatchConfig.validate!(input[:cloud_watch_config], context: "#{context}[:cloud_watch_config]") unless input[:cloud_watch_config].nil?
+        RDSSourceConfig.validate!(input[:rds_source_config], context: "#{context}[:rds_source_config]") unless input[:rds_source_config].nil?
+        RedshiftSourceConfig.validate!(input[:redshift_source_config], context: "#{context}[:redshift_source_config]") unless input[:redshift_source_config].nil?
+        AthenaSourceConfig.validate!(input[:athena_source_config], context: "#{context}[:athena_source_config]") unless input[:athena_source_config].nil?
       end
     end
 
@@ -977,7 +979,7 @@ module AWS::SDK::LookoutMetrics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutFeedbackInput, context: context)
         Hearth::Validator.validate!(input[:anomaly_detector_arn], ::String, context: "#{context}[:anomaly_detector_arn]")
-        Validators::AnomalyGroupTimeSeriesFeedback.validate!(input[:anomaly_group_time_series_feedback], context: "#{context}[:anomaly_group_time_series_feedback]") unless input[:anomaly_group_time_series_feedback].nil?
+        AnomalyGroupTimeSeriesFeedback.validate!(input[:anomaly_group_time_series_feedback], context: "#{context}[:anomaly_group_time_series_feedback]") unless input[:anomaly_group_time_series_feedback].nil?
       end
     end
 
@@ -997,7 +999,7 @@ module AWS::SDK::LookoutMetrics
         Hearth::Validator.validate!(input[:database_name], ::String, context: "#{context}[:database_name]")
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::VpcConfiguration.validate!(input[:vpc_configuration], context: "#{context}[:vpc_configuration]") unless input[:vpc_configuration].nil?
+        VpcConfiguration.validate!(input[:vpc_configuration], context: "#{context}[:vpc_configuration]") unless input[:vpc_configuration].nil?
       end
     end
 
@@ -1011,7 +1013,7 @@ module AWS::SDK::LookoutMetrics
         Hearth::Validator.validate!(input[:database_name], ::String, context: "#{context}[:database_name]")
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::VpcConfiguration.validate!(input[:vpc_configuration], context: "#{context}[:vpc_configuration]") unless input[:vpc_configuration].nil?
+        VpcConfiguration.validate!(input[:vpc_configuration], context: "#{context}[:vpc_configuration]") unless input[:vpc_configuration].nil?
       end
     end
 
@@ -1028,9 +1030,9 @@ module AWS::SDK::LookoutMetrics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::S3SourceConfig, context: context)
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::TemplatedPathList.validate!(input[:templated_path_list], context: "#{context}[:templated_path_list]") unless input[:templated_path_list].nil?
-        Validators::HistoricalDataPathList.validate!(input[:historical_data_path_list], context: "#{context}[:historical_data_path_list]") unless input[:historical_data_path_list].nil?
-        Validators::FileFormatDescriptor.validate!(input[:file_format_descriptor], context: "#{context}[:file_format_descriptor]") unless input[:file_format_descriptor].nil?
+        TemplatedPathList.validate!(input[:templated_path_list], context: "#{context}[:templated_path_list]") unless input[:templated_path_list].nil?
+        HistoricalDataPathList.validate!(input[:historical_data_path_list], context: "#{context}[:historical_data_path_list]") unless input[:historical_data_path_list].nil?
+        FileFormatDescriptor.validate!(input[:file_format_descriptor], context: "#{context}[:file_format_descriptor]") unless input[:file_format_descriptor].nil?
       end
     end
 
@@ -1047,9 +1049,9 @@ module AWS::SDK::LookoutMetrics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SampleDataS3SourceConfig, context: context)
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::TemplatedPathList.validate!(input[:templated_path_list], context: "#{context}[:templated_path_list]") unless input[:templated_path_list].nil?
-        Validators::HistoricalDataPathList.validate!(input[:historical_data_path_list], context: "#{context}[:historical_data_path_list]") unless input[:historical_data_path_list].nil?
-        Validators::FileFormatDescriptor.validate!(input[:file_format_descriptor], context: "#{context}[:file_format_descriptor]") unless input[:file_format_descriptor].nil?
+        TemplatedPathList.validate!(input[:templated_path_list], context: "#{context}[:templated_path_list]") unless input[:templated_path_list].nil?
+        HistoricalDataPathList.validate!(input[:historical_data_path_list], context: "#{context}[:historical_data_path_list]") unless input[:historical_data_path_list].nil?
+        FileFormatDescriptor.validate!(input[:file_format_descriptor], context: "#{context}[:file_format_descriptor]") unless input[:file_format_descriptor].nil?
       end
     end
 
@@ -1066,7 +1068,7 @@ module AWS::SDK::LookoutMetrics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SampleRow.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SampleRow.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1132,7 +1134,7 @@ module AWS::SDK::LookoutMetrics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1155,8 +1157,8 @@ module AWS::SDK::LookoutMetrics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TimeSeries, context: context)
         Hearth::Validator.validate!(input[:time_series_id], ::String, context: "#{context}[:time_series_id]")
-        Validators::DimensionNameValueList.validate!(input[:dimension_list], context: "#{context}[:dimension_list]") unless input[:dimension_list].nil?
-        Validators::MetricValueList.validate!(input[:metric_value_list], context: "#{context}[:metric_value_list]") unless input[:metric_value_list].nil?
+        DimensionNameValueList.validate!(input[:dimension_list], context: "#{context}[:dimension_list]") unless input[:dimension_list].nil?
+        MetricValueList.validate!(input[:metric_value_list], context: "#{context}[:metric_value_list]") unless input[:metric_value_list].nil?
       end
     end
 
@@ -1172,7 +1174,7 @@ module AWS::SDK::LookoutMetrics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TimeSeriesFeedback.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TimeSeriesFeedback.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1181,7 +1183,7 @@ module AWS::SDK::LookoutMetrics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TimeSeries.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TimeSeries.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1214,7 +1216,7 @@ module AWS::SDK::LookoutMetrics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1230,7 +1232,7 @@ module AWS::SDK::LookoutMetrics
         Hearth::Validator.validate!(input[:anomaly_detector_arn], ::String, context: "#{context}[:anomaly_detector_arn]")
         Hearth::Validator.validate!(input[:kms_key_arn], ::String, context: "#{context}[:kms_key_arn]")
         Hearth::Validator.validate!(input[:anomaly_detector_description], ::String, context: "#{context}[:anomaly_detector_description]")
-        Validators::AnomalyDetectorConfig.validate!(input[:anomaly_detector_config], context: "#{context}[:anomaly_detector_config]") unless input[:anomaly_detector_config].nil?
+        AnomalyDetectorConfig.validate!(input[:anomaly_detector_config], context: "#{context}[:anomaly_detector_config]") unless input[:anomaly_detector_config].nil?
       end
     end
 
@@ -1246,12 +1248,12 @@ module AWS::SDK::LookoutMetrics
         Hearth::Validator.validate!(input, Types::UpdateMetricSetInput, context: context)
         Hearth::Validator.validate!(input[:metric_set_arn], ::String, context: "#{context}[:metric_set_arn]")
         Hearth::Validator.validate!(input[:metric_set_description], ::String, context: "#{context}[:metric_set_description]")
-        Validators::MetricList.validate!(input[:metric_list], context: "#{context}[:metric_list]") unless input[:metric_list].nil?
+        MetricList.validate!(input[:metric_list], context: "#{context}[:metric_list]") unless input[:metric_list].nil?
         Hearth::Validator.validate!(input[:offset], ::Integer, context: "#{context}[:offset]")
-        Validators::TimestampColumn.validate!(input[:timestamp_column], context: "#{context}[:timestamp_column]") unless input[:timestamp_column].nil?
-        Validators::DimensionList.validate!(input[:dimension_list], context: "#{context}[:dimension_list]") unless input[:dimension_list].nil?
+        TimestampColumn.validate!(input[:timestamp_column], context: "#{context}[:timestamp_column]") unless input[:timestamp_column].nil?
+        DimensionList.validate!(input[:dimension_list], context: "#{context}[:dimension_list]") unless input[:dimension_list].nil?
         Hearth::Validator.validate!(input[:metric_set_frequency], ::String, context: "#{context}[:metric_set_frequency]")
-        Validators::MetricSource.validate!(input[:metric_source], context: "#{context}[:metric_source]") unless input[:metric_source].nil?
+        MetricSource.validate!(input[:metric_source], context: "#{context}[:metric_source]") unless input[:metric_source].nil?
       end
     end
 
@@ -1267,7 +1269,7 @@ module AWS::SDK::LookoutMetrics
         Hearth::Validator.validate!(input, Types::ValidationException, context: context)
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:reason], ::String, context: "#{context}[:reason]")
-        Validators::ValidationExceptionFieldList.validate!(input[:fields], context: "#{context}[:fields]") unless input[:fields].nil?
+        ValidationExceptionFieldList.validate!(input[:fields], context: "#{context}[:fields]") unless input[:fields].nil?
       end
     end
 
@@ -1283,7 +1285,7 @@ module AWS::SDK::LookoutMetrics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ValidationExceptionField.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ValidationExceptionField.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1291,8 +1293,8 @@ module AWS::SDK::LookoutMetrics
     class VpcConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VpcConfiguration, context: context)
-        Validators::SubnetIdList.validate!(input[:subnet_id_list], context: "#{context}[:subnet_id_list]") unless input[:subnet_id_list].nil?
-        Validators::SecurityGroupIdList.validate!(input[:security_group_id_list], context: "#{context}[:security_group_id_list]") unless input[:security_group_id_list].nil?
+        SubnetIdList.validate!(input[:subnet_id_list], context: "#{context}[:subnet_id_list]") unless input[:subnet_id_list].nil?
+        SecurityGroupIdList.validate!(input[:security_group_id_list], context: "#{context}[:security_group_id_list]") unless input[:security_group_id_list].nil?
       end
     end
 

@@ -14,7 +14,7 @@ module AWS::SDK::AppStream
     class AssociateApplicationFleet
       def self.default(visited=[])
         {
-          application_fleet_association: Stubs::ApplicationFleetAssociation.default(visited),
+          application_fleet_association: ApplicationFleetAssociation.default(visited),
         }
       end
 
@@ -78,7 +78,7 @@ module AWS::SDK::AppStream
     class BatchAssociateUserStack
       def self.default(visited=[])
         {
-          errors: Stubs::UserStackAssociationErrorList.default(visited),
+          errors: UserStackAssociationErrorList.default(visited),
         }
       end
 
@@ -96,7 +96,7 @@ module AWS::SDK::AppStream
         return nil if visited.include?('UserStackAssociationErrorList')
         visited = visited + ['UserStackAssociationErrorList']
         [
-          Stubs::UserStackAssociationError.default(visited)
+          UserStackAssociationError.default(visited)
         ]
       end
 
@@ -116,7 +116,7 @@ module AWS::SDK::AppStream
         return nil if visited.include?('UserStackAssociationError')
         visited = visited + ['UserStackAssociationError']
         {
-          user_stack_association: Stubs::UserStackAssociation.default(visited),
+          user_stack_association: UserStackAssociation.default(visited),
           error_code: 'error_code',
           error_message: 'error_message',
         }
@@ -160,7 +160,7 @@ module AWS::SDK::AppStream
     class BatchDisassociateUserStack
       def self.default(visited=[])
         {
-          errors: Stubs::UserStackAssociationErrorList.default(visited),
+          errors: UserStackAssociationErrorList.default(visited),
         }
       end
 
@@ -192,7 +192,7 @@ module AWS::SDK::AppStream
     class CreateAppBlock
       def self.default(visited=[])
         {
-          app_block: Stubs::AppBlock.default(visited),
+          app_block: AppBlock.default(visited),
         }
       end
 
@@ -214,8 +214,8 @@ module AWS::SDK::AppStream
           arn: 'arn',
           description: 'description',
           display_name: 'display_name',
-          source_s3_location: Stubs::S3Location.default(visited),
-          setup_script_details: Stubs::ScriptDetails.default(visited),
+          source_s3_location: S3Location.default(visited),
+          setup_script_details: ScriptDetails.default(visited),
           created_time: Time.now,
         }
       end
@@ -240,7 +240,7 @@ module AWS::SDK::AppStream
         return nil if visited.include?('ScriptDetails')
         visited = visited + ['ScriptDetails']
         {
-          script_s3_location: Stubs::S3Location.default(visited),
+          script_s3_location: S3Location.default(visited),
           executable_path: 'executable_path',
           executable_parameters: 'executable_parameters',
           timeout_in_seconds: 1,
@@ -282,7 +282,7 @@ module AWS::SDK::AppStream
     class CreateApplication
       def self.default(visited=[])
         {
-          application: Stubs::Application.default(visited),
+          application: Application.default(visited),
         }
       end
 
@@ -306,14 +306,14 @@ module AWS::SDK::AppStream
           launch_path: 'launch_path',
           launch_parameters: 'launch_parameters',
           enabled: false,
-          metadata: Stubs::Metadata.default(visited),
+          metadata: Metadata.default(visited),
           working_directory: 'working_directory',
           description: 'description',
           arn: 'arn',
           app_block_arn: 'app_block_arn',
-          icon_s3_location: Stubs::S3Location.default(visited),
-          platforms: Stubs::Platforms.default(visited),
-          instance_families: Stubs::StringList.default(visited),
+          icon_s3_location: S3Location.default(visited),
+          platforms: Platforms.default(visited),
+          instance_families: StringList.default(visited),
           created_time: Time.now,
         }
       end
@@ -404,7 +404,7 @@ module AWS::SDK::AppStream
     class CreateDirectoryConfig
       def self.default(visited=[])
         {
-          directory_config: Stubs::DirectoryConfig.default(visited),
+          directory_config: DirectoryConfig.default(visited),
         }
       end
 
@@ -423,8 +423,8 @@ module AWS::SDK::AppStream
         visited = visited + ['DirectoryConfig']
         {
           directory_name: 'directory_name',
-          organizational_unit_distinguished_names: Stubs::OrganizationalUnitDistinguishedNamesList.default(visited),
-          service_account_credentials: Stubs::ServiceAccountCredentials.default(visited),
+          organizational_unit_distinguished_names: OrganizationalUnitDistinguishedNamesList.default(visited),
+          service_account_credentials: ServiceAccountCredentials.default(visited),
           created_time: Time.now,
         }
       end
@@ -484,7 +484,7 @@ module AWS::SDK::AppStream
     class CreateEntitlement
       def self.default(visited=[])
         {
-          entitlement: Stubs::Entitlement.default(visited),
+          entitlement: Entitlement.default(visited),
         }
       end
 
@@ -506,7 +506,7 @@ module AWS::SDK::AppStream
           stack_name: 'stack_name',
           description: 'description',
           app_visibility: 'app_visibility',
-          attributes: Stubs::EntitlementAttributeList.default(visited),
+          attributes: EntitlementAttributeList.default(visited),
           created_time: Time.now,
           last_modified_time: Time.now,
         }
@@ -532,7 +532,7 @@ module AWS::SDK::AppStream
         return nil if visited.include?('EntitlementAttributeList')
         visited = visited + ['EntitlementAttributeList']
         [
-          Stubs::EntitlementAttribute.default(visited)
+          EntitlementAttribute.default(visited)
         ]
       end
 
@@ -570,7 +570,7 @@ module AWS::SDK::AppStream
     class CreateFleet
       def self.default(visited=[])
         {
-          fleet: Stubs::Fleet.default(visited),
+          fleet: Fleet.default(visited),
         }
       end
 
@@ -596,22 +596,22 @@ module AWS::SDK::AppStream
           image_arn: 'image_arn',
           instance_type: 'instance_type',
           fleet_type: 'fleet_type',
-          compute_capacity_status: Stubs::ComputeCapacityStatus.default(visited),
+          compute_capacity_status: ComputeCapacityStatus.default(visited),
           max_user_duration_in_seconds: 1,
           disconnect_timeout_in_seconds: 1,
           state: 'state',
-          vpc_config: Stubs::VpcConfig.default(visited),
+          vpc_config: VpcConfig.default(visited),
           created_time: Time.now,
-          fleet_errors: Stubs::FleetErrors.default(visited),
+          fleet_errors: FleetErrors.default(visited),
           enable_default_internet_access: false,
-          domain_join_info: Stubs::DomainJoinInfo.default(visited),
+          domain_join_info: DomainJoinInfo.default(visited),
           idle_disconnect_timeout_in_seconds: 1,
           iam_role_arn: 'iam_role_arn',
           stream_view: 'stream_view',
           platform: 'platform',
           max_concurrent_sessions: 1,
-          usb_device_filter_strings: Stubs::UsbDeviceFilterStrings.default(visited),
-          session_script_s3_location: Stubs::S3Location.default(visited),
+          usb_device_filter_strings: UsbDeviceFilterStrings.default(visited),
+          session_script_s3_location: S3Location.default(visited),
         }
       end
 
@@ -692,7 +692,7 @@ module AWS::SDK::AppStream
         return nil if visited.include?('FleetErrors')
         visited = visited + ['FleetErrors']
         [
-          Stubs::FleetError.default(visited)
+          FleetError.default(visited)
         ]
       end
 
@@ -732,8 +732,8 @@ module AWS::SDK::AppStream
         return nil if visited.include?('VpcConfig')
         visited = visited + ['VpcConfig']
         {
-          subnet_ids: Stubs::SubnetIdList.default(visited),
-          security_group_ids: Stubs::SecurityGroupIdList.default(visited),
+          subnet_ids: SubnetIdList.default(visited),
+          security_group_ids: SecurityGroupIdList.default(visited),
         }
       end
 
@@ -814,7 +814,7 @@ module AWS::SDK::AppStream
     class CreateImageBuilder
       def self.default(visited=[])
         {
-          image_builder: Stubs::ImageBuilder.default(visited),
+          image_builder: ImageBuilder.default(visited),
         }
       end
 
@@ -837,19 +837,19 @@ module AWS::SDK::AppStream
           image_arn: 'image_arn',
           description: 'description',
           display_name: 'display_name',
-          vpc_config: Stubs::VpcConfig.default(visited),
+          vpc_config: VpcConfig.default(visited),
           instance_type: 'instance_type',
           platform: 'platform',
           iam_role_arn: 'iam_role_arn',
           state: 'state',
-          state_change_reason: Stubs::ImageBuilderStateChangeReason.default(visited),
+          state_change_reason: ImageBuilderStateChangeReason.default(visited),
           created_time: Time.now,
           enable_default_internet_access: false,
-          domain_join_info: Stubs::DomainJoinInfo.default(visited),
-          network_access_configuration: Stubs::NetworkAccessConfiguration.default(visited),
-          image_builder_errors: Stubs::ResourceErrors.default(visited),
+          domain_join_info: DomainJoinInfo.default(visited),
+          network_access_configuration: NetworkAccessConfiguration.default(visited),
+          image_builder_errors: ResourceErrors.default(visited),
           appstream_agent_version: 'appstream_agent_version',
-          access_endpoints: Stubs::AccessEndpointList.default(visited),
+          access_endpoints: AccessEndpointList.default(visited),
         }
       end
 
@@ -884,7 +884,7 @@ module AWS::SDK::AppStream
         return nil if visited.include?('AccessEndpointList')
         visited = visited + ['AccessEndpointList']
         [
-          Stubs::AccessEndpoint.default(visited)
+          AccessEndpoint.default(visited)
         ]
       end
 
@@ -924,7 +924,7 @@ module AWS::SDK::AppStream
         return nil if visited.include?('ResourceErrors')
         visited = visited + ['ResourceErrors']
         [
-          Stubs::ResourceError.default(visited)
+          ResourceError.default(visited)
         ]
       end
 
@@ -1022,7 +1022,7 @@ module AWS::SDK::AppStream
     class CreateStack
       def self.default(visited=[])
         {
-          stack: Stubs::Stack.default(visited),
+          stack: Stack.default(visited),
         }
       end
 
@@ -1045,14 +1045,14 @@ module AWS::SDK::AppStream
           description: 'description',
           display_name: 'display_name',
           created_time: Time.now,
-          storage_connectors: Stubs::StorageConnectorList.default(visited),
+          storage_connectors: StorageConnectorList.default(visited),
           redirect_url: 'redirect_url',
           feedback_url: 'feedback_url',
-          stack_errors: Stubs::StackErrors.default(visited),
-          user_settings: Stubs::UserSettingList.default(visited),
-          application_settings: Stubs::ApplicationSettingsResponse.default(visited),
-          access_endpoints: Stubs::AccessEndpointList.default(visited),
-          embed_host_domains: Stubs::EmbedHostDomains.default(visited),
+          stack_errors: StackErrors.default(visited),
+          user_settings: UserSettingList.default(visited),
+          application_settings: ApplicationSettingsResponse.default(visited),
+          access_endpoints: AccessEndpointList.default(visited),
+          embed_host_domains: EmbedHostDomains.default(visited),
         }
       end
 
@@ -1124,7 +1124,7 @@ module AWS::SDK::AppStream
         return nil if visited.include?('UserSettingList')
         visited = visited + ['UserSettingList']
         [
-          Stubs::UserSetting.default(visited)
+          UserSetting.default(visited)
         ]
       end
 
@@ -1164,7 +1164,7 @@ module AWS::SDK::AppStream
         return nil if visited.include?('StackErrors')
         visited = visited + ['StackErrors']
         [
-          Stubs::StackError.default(visited)
+          StackError.default(visited)
         ]
       end
 
@@ -1204,7 +1204,7 @@ module AWS::SDK::AppStream
         return nil if visited.include?('StorageConnectorList')
         visited = visited + ['StorageConnectorList']
         [
-          Stubs::StorageConnector.default(visited)
+          StorageConnector.default(visited)
         ]
       end
 
@@ -1226,7 +1226,7 @@ module AWS::SDK::AppStream
         {
           connector_type: 'connector_type',
           resource_identifier: 'resource_identifier',
-          domains: Stubs::DomainList.default(visited),
+          domains: DomainList.default(visited),
         }
       end
 
@@ -1282,7 +1282,7 @@ module AWS::SDK::AppStream
     class CreateUpdatedImage
       def self.default(visited=[])
         {
-          image: Stubs::Image.default(visited),
+          image: Image.default(visited),
           can_update_image: false,
         }
       end
@@ -1312,13 +1312,13 @@ module AWS::SDK::AppStream
           image_builder_name: 'image_builder_name',
           platform: 'platform',
           description: 'description',
-          state_change_reason: Stubs::ImageStateChangeReason.default(visited),
-          applications: Stubs::Applications.default(visited),
+          state_change_reason: ImageStateChangeReason.default(visited),
+          applications: Applications.default(visited),
           created_time: Time.now,
           public_base_image_released_date: Time.now,
           appstream_agent_version: 'appstream_agent_version',
-          image_permissions: Stubs::ImagePermissions.default(visited),
-          image_errors: Stubs::ResourceErrors.default(visited),
+          image_permissions: ImagePermissions.default(visited),
+          image_errors: ResourceErrors.default(visited),
         }
       end
 
@@ -1372,7 +1372,7 @@ module AWS::SDK::AppStream
         return nil if visited.include?('Applications')
         visited = visited + ['Applications']
         [
-          Stubs::Application.default(visited)
+          Application.default(visited)
         ]
       end
 
@@ -1512,7 +1512,7 @@ module AWS::SDK::AppStream
     class DeleteImage
       def self.default(visited=[])
         {
-          image: Stubs::Image.default(visited),
+          image: Image.default(visited),
         }
       end
 
@@ -1528,7 +1528,7 @@ module AWS::SDK::AppStream
     class DeleteImageBuilder
       def self.default(visited=[])
         {
-          image_builder: Stubs::ImageBuilder.default(visited),
+          image_builder: ImageBuilder.default(visited),
         }
       end
 
@@ -1600,7 +1600,7 @@ module AWS::SDK::AppStream
     class DescribeAppBlocks
       def self.default(visited=[])
         {
-          app_blocks: Stubs::AppBlocks.default(visited),
+          app_blocks: AppBlocks.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1620,7 +1620,7 @@ module AWS::SDK::AppStream
         return nil if visited.include?('AppBlocks')
         visited = visited + ['AppBlocks']
         [
-          Stubs::AppBlock.default(visited)
+          AppBlock.default(visited)
         ]
       end
 
@@ -1638,7 +1638,7 @@ module AWS::SDK::AppStream
     class DescribeApplicationFleetAssociations
       def self.default(visited=[])
         {
-          application_fleet_associations: Stubs::ApplicationFleetAssociationList.default(visited),
+          application_fleet_associations: ApplicationFleetAssociationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1658,7 +1658,7 @@ module AWS::SDK::AppStream
         return nil if visited.include?('ApplicationFleetAssociationList')
         visited = visited + ['ApplicationFleetAssociationList']
         [
-          Stubs::ApplicationFleetAssociation.default(visited)
+          ApplicationFleetAssociation.default(visited)
         ]
       end
 
@@ -1676,7 +1676,7 @@ module AWS::SDK::AppStream
     class DescribeApplications
       def self.default(visited=[])
         {
-          applications: Stubs::Applications.default(visited),
+          applications: Applications.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1694,7 +1694,7 @@ module AWS::SDK::AppStream
     class DescribeDirectoryConfigs
       def self.default(visited=[])
         {
-          directory_configs: Stubs::DirectoryConfigList.default(visited),
+          directory_configs: DirectoryConfigList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1714,7 +1714,7 @@ module AWS::SDK::AppStream
         return nil if visited.include?('DirectoryConfigList')
         visited = visited + ['DirectoryConfigList']
         [
-          Stubs::DirectoryConfig.default(visited)
+          DirectoryConfig.default(visited)
         ]
       end
 
@@ -1732,7 +1732,7 @@ module AWS::SDK::AppStream
     class DescribeEntitlements
       def self.default(visited=[])
         {
-          entitlements: Stubs::EntitlementList.default(visited),
+          entitlements: EntitlementList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1752,7 +1752,7 @@ module AWS::SDK::AppStream
         return nil if visited.include?('EntitlementList')
         visited = visited + ['EntitlementList']
         [
-          Stubs::Entitlement.default(visited)
+          Entitlement.default(visited)
         ]
       end
 
@@ -1770,7 +1770,7 @@ module AWS::SDK::AppStream
     class DescribeFleets
       def self.default(visited=[])
         {
-          fleets: Stubs::FleetList.default(visited),
+          fleets: FleetList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1790,7 +1790,7 @@ module AWS::SDK::AppStream
         return nil if visited.include?('FleetList')
         visited = visited + ['FleetList']
         [
-          Stubs::Fleet.default(visited)
+          Fleet.default(visited)
         ]
       end
 
@@ -1808,7 +1808,7 @@ module AWS::SDK::AppStream
     class DescribeImageBuilders
       def self.default(visited=[])
         {
-          image_builders: Stubs::ImageBuilderList.default(visited),
+          image_builders: ImageBuilderList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1828,7 +1828,7 @@ module AWS::SDK::AppStream
         return nil if visited.include?('ImageBuilderList')
         visited = visited + ['ImageBuilderList']
         [
-          Stubs::ImageBuilder.default(visited)
+          ImageBuilder.default(visited)
         ]
       end
 
@@ -1847,7 +1847,7 @@ module AWS::SDK::AppStream
       def self.default(visited=[])
         {
           name: 'name',
-          shared_image_permissions_list: Stubs::SharedImagePermissionsList.default(visited),
+          shared_image_permissions_list: SharedImagePermissionsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1868,7 +1868,7 @@ module AWS::SDK::AppStream
         return nil if visited.include?('SharedImagePermissionsList')
         visited = visited + ['SharedImagePermissionsList']
         [
-          Stubs::SharedImagePermissions.default(visited)
+          SharedImagePermissions.default(visited)
         ]
       end
 
@@ -1889,7 +1889,7 @@ module AWS::SDK::AppStream
         visited = visited + ['SharedImagePermissions']
         {
           shared_account_id: 'shared_account_id',
-          image_permissions: Stubs::ImagePermissions.default(visited),
+          image_permissions: ImagePermissions.default(visited),
         }
       end
 
@@ -1906,7 +1906,7 @@ module AWS::SDK::AppStream
     class DescribeImages
       def self.default(visited=[])
         {
-          images: Stubs::ImageList.default(visited),
+          images: ImageList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1926,7 +1926,7 @@ module AWS::SDK::AppStream
         return nil if visited.include?('ImageList')
         visited = visited + ['ImageList']
         [
-          Stubs::Image.default(visited)
+          Image.default(visited)
         ]
       end
 
@@ -1944,7 +1944,7 @@ module AWS::SDK::AppStream
     class DescribeSessions
       def self.default(visited=[])
         {
-          sessions: Stubs::SessionList.default(visited),
+          sessions: SessionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1964,7 +1964,7 @@ module AWS::SDK::AppStream
         return nil if visited.include?('SessionList')
         visited = visited + ['SessionList']
         [
-          Stubs::Session.default(visited)
+          Session.default(visited)
         ]
       end
 
@@ -1993,7 +1993,7 @@ module AWS::SDK::AppStream
           start_time: Time.now,
           max_expiration_time: Time.now,
           authentication_type: 'authentication_type',
-          network_access_configuration: Stubs::NetworkAccessConfiguration.default(visited),
+          network_access_configuration: NetworkAccessConfiguration.default(visited),
         }
       end
 
@@ -2018,7 +2018,7 @@ module AWS::SDK::AppStream
     class DescribeStacks
       def self.default(visited=[])
         {
-          stacks: Stubs::StackList.default(visited),
+          stacks: StackList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2038,7 +2038,7 @@ module AWS::SDK::AppStream
         return nil if visited.include?('StackList')
         visited = visited + ['StackList']
         [
-          Stubs::Stack.default(visited)
+          Stack.default(visited)
         ]
       end
 
@@ -2056,7 +2056,7 @@ module AWS::SDK::AppStream
     class DescribeUsageReportSubscriptions
       def self.default(visited=[])
         {
-          usage_report_subscriptions: Stubs::UsageReportSubscriptionList.default(visited),
+          usage_report_subscriptions: UsageReportSubscriptionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2076,7 +2076,7 @@ module AWS::SDK::AppStream
         return nil if visited.include?('UsageReportSubscriptionList')
         visited = visited + ['UsageReportSubscriptionList']
         [
-          Stubs::UsageReportSubscription.default(visited)
+          UsageReportSubscription.default(visited)
         ]
       end
 
@@ -2099,7 +2099,7 @@ module AWS::SDK::AppStream
           s3_bucket_name: 's3_bucket_name',
           schedule: 'schedule',
           last_generated_report_date: Time.now,
-          subscription_errors: Stubs::LastReportGenerationExecutionErrors.default(visited),
+          subscription_errors: LastReportGenerationExecutionErrors.default(visited),
         }
       end
 
@@ -2120,7 +2120,7 @@ module AWS::SDK::AppStream
         return nil if visited.include?('LastReportGenerationExecutionErrors')
         visited = visited + ['LastReportGenerationExecutionErrors']
         [
-          Stubs::LastReportGenerationExecutionError.default(visited)
+          LastReportGenerationExecutionError.default(visited)
         ]
       end
 
@@ -2158,7 +2158,7 @@ module AWS::SDK::AppStream
     class DescribeUserStackAssociations
       def self.default(visited=[])
         {
-          user_stack_associations: Stubs::UserStackAssociationList.default(visited),
+          user_stack_associations: UserStackAssociationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2178,7 +2178,7 @@ module AWS::SDK::AppStream
         return nil if visited.include?('UserStackAssociationList')
         visited = visited + ['UserStackAssociationList']
         [
-          Stubs::UserStackAssociation.default(visited)
+          UserStackAssociation.default(visited)
         ]
       end
 
@@ -2196,7 +2196,7 @@ module AWS::SDK::AppStream
     class DescribeUsers
       def self.default(visited=[])
         {
-          users: Stubs::UserList.default(visited),
+          users: UserList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2216,7 +2216,7 @@ module AWS::SDK::AppStream
         return nil if visited.include?('UserList')
         visited = visited + ['UserList']
         [
-          Stubs::User.default(visited)
+          User.default(visited)
         ]
       end
 
@@ -2350,7 +2350,7 @@ module AWS::SDK::AppStream
     class ListAssociatedFleets
       def self.default(visited=[])
         {
-          names: Stubs::StringList.default(visited),
+          names: StringList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2368,7 +2368,7 @@ module AWS::SDK::AppStream
     class ListAssociatedStacks
       def self.default(visited=[])
         {
-          names: Stubs::StringList.default(visited),
+          names: StringList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2386,7 +2386,7 @@ module AWS::SDK::AppStream
     class ListEntitledApplications
       def self.default(visited=[])
         {
-          entitled_applications: Stubs::EntitledApplicationList.default(visited),
+          entitled_applications: EntitledApplicationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2406,7 +2406,7 @@ module AWS::SDK::AppStream
         return nil if visited.include?('EntitledApplicationList')
         visited = visited + ['EntitledApplicationList']
         [
-          Stubs::EntitledApplication.default(visited)
+          EntitledApplication.default(visited)
         ]
       end
 
@@ -2442,7 +2442,7 @@ module AWS::SDK::AppStream
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -2492,7 +2492,7 @@ module AWS::SDK::AppStream
     class StartImageBuilder
       def self.default(visited=[])
         {
-          image_builder: Stubs::ImageBuilder.default(visited),
+          image_builder: ImageBuilder.default(visited),
         }
       end
 
@@ -2522,7 +2522,7 @@ module AWS::SDK::AppStream
     class StopImageBuilder
       def self.default(visited=[])
         {
-          image_builder: Stubs::ImageBuilder.default(visited),
+          image_builder: ImageBuilder.default(visited),
         }
       end
 
@@ -2566,7 +2566,7 @@ module AWS::SDK::AppStream
     class UpdateApplication
       def self.default(visited=[])
         {
-          application: Stubs::Application.default(visited),
+          application: Application.default(visited),
         }
       end
 
@@ -2582,7 +2582,7 @@ module AWS::SDK::AppStream
     class UpdateDirectoryConfig
       def self.default(visited=[])
         {
-          directory_config: Stubs::DirectoryConfig.default(visited),
+          directory_config: DirectoryConfig.default(visited),
         }
       end
 
@@ -2598,7 +2598,7 @@ module AWS::SDK::AppStream
     class UpdateEntitlement
       def self.default(visited=[])
         {
-          entitlement: Stubs::Entitlement.default(visited),
+          entitlement: Entitlement.default(visited),
         }
       end
 
@@ -2614,7 +2614,7 @@ module AWS::SDK::AppStream
     class UpdateFleet
       def self.default(visited=[])
         {
-          fleet: Stubs::Fleet.default(visited),
+          fleet: Fleet.default(visited),
         }
       end
 
@@ -2644,7 +2644,7 @@ module AWS::SDK::AppStream
     class UpdateStack
       def self.default(visited=[])
         {
-          stack: Stubs::Stack.default(visited),
+          stack: Stack.default(visited),
         }
       end
 

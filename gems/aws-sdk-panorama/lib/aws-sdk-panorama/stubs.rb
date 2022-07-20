@@ -31,7 +31,7 @@ module AWS::SDK::Panorama
     class CreateJobForDevices
       def self.default(visited=[])
         {
-          jobs: Stubs::JobList.default(visited),
+          jobs: JobList.default(visited),
         }
       end
 
@@ -50,7 +50,7 @@ module AWS::SDK::Panorama
         return nil if visited.include?('JobList')
         visited = visited + ['JobList']
         [
-          Stubs::Job.default(visited)
+          Job.default(visited)
         ]
       end
 
@@ -107,7 +107,7 @@ module AWS::SDK::Panorama
         {
           package_id: 'package_id',
           arn: 'arn',
-          storage_location: Stubs::StorageLocation.default(visited),
+          storage_location: StorageLocation.default(visited),
         }
       end
 
@@ -225,7 +225,7 @@ module AWS::SDK::Panorama
           last_updated_time: Time.now,
           application_instance_id: 'application_instance_id',
           arn: 'arn',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -278,8 +278,8 @@ module AWS::SDK::Panorama
           name: 'name',
           description: 'description',
           default_runtime_context_device: 'default_runtime_context_device',
-          manifest_payload: Stubs::ManifestPayload.default(visited),
-          manifest_overrides_payload: Stubs::ManifestOverridesPayload.default(visited),
+          manifest_payload: ManifestPayload.default(visited),
+          manifest_overrides_payload: ManifestOverridesPayload.default(visited),
           application_instance_id_to_replace: 'application_instance_id_to_replace',
           created_time: Time.now,
           application_instance_id: 'application_instance_id',
@@ -365,11 +365,11 @@ module AWS::SDK::Panorama
           latest_software: 'latest_software',
           current_software: 'current_software',
           serial_number: 'serial_number',
-          tags: Stubs::TagMap.default(visited),
-          networking_configuration: Stubs::NetworkPayload.default(visited),
-          current_networking_status: Stubs::NetworkStatus.default(visited),
+          tags: TagMap.default(visited),
+          networking_configuration: NetworkPayload.default(visited),
+          current_networking_status: NetworkStatus.default(visited),
           lease_expiration_time: Time.now,
-          alternate_softwares: Stubs::AlternateSoftwares.default(visited),
+          alternate_softwares: AlternateSoftwares.default(visited),
           latest_alternate_software: 'latest_alternate_software',
           brand: 'brand',
         }
@@ -407,7 +407,7 @@ module AWS::SDK::Panorama
         return nil if visited.include?('AlternateSoftwares')
         visited = visited + ['AlternateSoftwares']
         [
-          Stubs::AlternateSoftwareMetadata.default(visited)
+          AlternateSoftwareMetadata.default(visited)
         ]
       end
 
@@ -445,9 +445,9 @@ module AWS::SDK::Panorama
         return nil if visited.include?('NetworkStatus')
         visited = visited + ['NetworkStatus']
         {
-          ethernet0_status: Stubs::EthernetStatus.default(visited),
-          ethernet1_status: Stubs::EthernetStatus.default(visited),
-          ntp_status: Stubs::NtpStatus.default(visited),
+          ethernet0_status: EthernetStatus.default(visited),
+          ethernet1_status: EthernetStatus.default(visited),
+          ntp_status: NtpStatus.default(visited),
           last_updated_time: Time.now,
         }
       end
@@ -513,9 +513,9 @@ module AWS::SDK::Panorama
         return nil if visited.include?('NetworkPayload')
         visited = visited + ['NetworkPayload']
         {
-          ethernet0: Stubs::EthernetPayload.default(visited),
-          ethernet1: Stubs::EthernetPayload.default(visited),
-          ntp: Stubs::NtpPayload.default(visited),
+          ethernet0: EthernetPayload.default(visited),
+          ethernet1: EthernetPayload.default(visited),
+          ntp: NtpPayload.default(visited),
         }
       end
 
@@ -535,7 +535,7 @@ module AWS::SDK::Panorama
         return nil if visited.include?('NtpPayload')
         visited = visited + ['NtpPayload']
         {
-          ntp_servers: Stubs::NtpServerList.default(visited),
+          ntp_servers: NtpServerList.default(visited),
         }
       end
 
@@ -574,7 +574,7 @@ module AWS::SDK::Panorama
         visited = visited + ['EthernetPayload']
         {
           connection_type: 'connection_type',
-          static_ip_connection_info: Stubs::StaticIpConnectionInfo.default(visited),
+          static_ip_connection_info: StaticIpConnectionInfo.default(visited),
         }
       end
 
@@ -595,7 +595,7 @@ module AWS::SDK::Panorama
         {
           ip_address: 'ip_address',
           mask: 'mask',
-          dns: Stubs::DnsList.default(visited),
+          dns: DnsList.default(visited),
           default_gateway: 'default_gateway',
         }
       end
@@ -675,7 +675,7 @@ module AWS::SDK::Panorama
           package_arn: 'package_arn',
           package_version: 'package_version',
           patch_version: 'patch_version',
-          node_interface: Stubs::NodeInterface.default(visited),
+          node_interface: NodeInterface.default(visited),
           asset_name: 'asset_name',
           description: 'description',
           created_time: Time.now,
@@ -711,8 +711,8 @@ module AWS::SDK::Panorama
         return nil if visited.include?('NodeInterface')
         visited = visited + ['NodeInterface']
         {
-          inputs: Stubs::InputPortList.default(visited),
-          outputs: Stubs::OutputPortList.default(visited),
+          inputs: InputPortList.default(visited),
+          outputs: OutputPortList.default(visited),
         }
       end
 
@@ -731,7 +731,7 @@ module AWS::SDK::Panorama
         return nil if visited.include?('OutputPortList')
         visited = visited + ['OutputPortList']
         [
-          Stubs::NodeOutputPort.default(visited)
+          NodeOutputPort.default(visited)
         ]
       end
 
@@ -773,7 +773,7 @@ module AWS::SDK::Panorama
         return nil if visited.include?('InputPortList')
         visited = visited + ['InputPortList']
         [
-          Stubs::NodeInputPort.default(visited)
+          NodeInputPort.default(visited)
         ]
       end
 
@@ -827,8 +827,8 @@ module AWS::SDK::Panorama
           node_name: 'node_name',
           node_description: 'node_description',
           template_type: 'template_type',
-          template_parameters: Stubs::TemplateParametersMap.default(visited),
-          job_tags: Stubs::JobTagsList.default(visited),
+          template_parameters: TemplateParametersMap.default(visited),
+          job_tags: JobTagsList.default(visited),
         }
       end
 
@@ -858,7 +858,7 @@ module AWS::SDK::Panorama
         return nil if visited.include?('JobTagsList')
         visited = visited + ['JobTagsList']
         [
-          Stubs::JobResourceTags.default(visited)
+          JobResourceTags.default(visited)
         ]
       end
 
@@ -879,7 +879,7 @@ module AWS::SDK::Panorama
         visited = visited + ['JobResourceTags']
         {
           resource_type: 'resource_type',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -919,11 +919,11 @@ module AWS::SDK::Panorama
           package_id: 'package_id',
           package_name: 'package_name',
           arn: 'arn',
-          storage_location: Stubs::StorageLocation.default(visited),
-          read_access_principal_arns: Stubs::PrincipalArnsList.default(visited),
-          write_access_principal_arns: Stubs::PrincipalArnsList.default(visited),
+          storage_location: StorageLocation.default(visited),
+          read_access_principal_arns: PrincipalArnsList.default(visited),
+          write_access_principal_arns: PrincipalArnsList.default(visited),
           created_time: Time.now,
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -970,14 +970,14 @@ module AWS::SDK::Panorama
           job_id: 'job_id',
           client_token: 'client_token',
           job_type: 'job_type',
-          input_config: Stubs::PackageImportJobInputConfig.default(visited),
-          output_config: Stubs::PackageImportJobOutputConfig.default(visited),
-          output: Stubs::PackageImportJobOutput.default(visited),
+          input_config: PackageImportJobInputConfig.default(visited),
+          output_config: PackageImportJobOutputConfig.default(visited),
+          output: PackageImportJobOutput.default(visited),
           created_time: Time.now,
           last_updated_time: Time.now,
           status: 'status',
           status_message: 'status_message',
-          job_tags: Stubs::JobTagsList.default(visited),
+          job_tags: JobTagsList.default(visited),
         }
       end
 
@@ -1009,7 +1009,7 @@ module AWS::SDK::Panorama
           package_id: 'package_id',
           package_version: 'package_version',
           patch_version: 'patch_version',
-          output_s3_location: Stubs::OutPutS3Location.default(visited),
+          output_s3_location: OutPutS3Location.default(visited),
         }
       end
 
@@ -1050,7 +1050,7 @@ module AWS::SDK::Panorama
         return nil if visited.include?('PackageImportJobOutputConfig')
         visited = visited + ['PackageImportJobOutputConfig']
         {
-          package_version_output_config: Stubs::PackageVersionOutputConfig.default(visited),
+          package_version_output_config: PackageVersionOutputConfig.default(visited),
         }
       end
 
@@ -1090,7 +1090,7 @@ module AWS::SDK::Panorama
         return nil if visited.include?('PackageImportJobInputConfig')
         visited = visited + ['PackageImportJobInputConfig']
         {
-          package_version_input_config: Stubs::PackageVersionInputConfig.default(visited),
+          package_version_input_config: PackageVersionInputConfig.default(visited),
         }
       end
 
@@ -1108,7 +1108,7 @@ module AWS::SDK::Panorama
         return nil if visited.include?('PackageVersionInputConfig')
         visited = visited + ['PackageVersionInputConfig']
         {
-          s3_location: Stubs::S3Location.default(visited),
+          s3_location: S3Location.default(visited),
         }
       end
 
@@ -1181,7 +1181,7 @@ module AWS::SDK::Panorama
     class ListApplicationInstanceDependencies
       def self.default(visited=[])
         {
-          package_objects: Stubs::PackageObjects.default(visited),
+          package_objects: PackageObjects.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1202,7 +1202,7 @@ module AWS::SDK::Panorama
         return nil if visited.include?('PackageObjects')
         visited = visited + ['PackageObjects']
         [
-          Stubs::PackageObject.default(visited)
+          PackageObject.default(visited)
         ]
       end
 
@@ -1242,7 +1242,7 @@ module AWS::SDK::Panorama
     class ListApplicationInstanceNodeInstances
       def self.default(visited=[])
         {
-          node_instances: Stubs::NodeInstances.default(visited),
+          node_instances: NodeInstances.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1263,7 +1263,7 @@ module AWS::SDK::Panorama
         return nil if visited.include?('NodeInstances')
         visited = visited + ['NodeInstances']
         [
-          Stubs::NodeInstance.default(visited)
+          NodeInstance.default(visited)
         ]
       end
 
@@ -1311,7 +1311,7 @@ module AWS::SDK::Panorama
     class ListApplicationInstances
       def self.default(visited=[])
         {
-          application_instances: Stubs::ApplicationInstances.default(visited),
+          application_instances: ApplicationInstances.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1332,7 +1332,7 @@ module AWS::SDK::Panorama
         return nil if visited.include?('ApplicationInstances')
         visited = visited + ['ApplicationInstances']
         [
-          Stubs::ApplicationInstance.default(visited)
+          ApplicationInstance.default(visited)
         ]
       end
 
@@ -1362,7 +1362,7 @@ module AWS::SDK::Panorama
           status_description: 'status_description',
           created_time: Time.now,
           arn: 'arn',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1388,7 +1388,7 @@ module AWS::SDK::Panorama
     class ListDevices
       def self.default(visited=[])
         {
-          devices: Stubs::DeviceList.default(visited),
+          devices: DeviceList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1409,7 +1409,7 @@ module AWS::SDK::Panorama
         return nil if visited.include?('DeviceList')
         visited = visited + ['DeviceList']
         [
-          Stubs::Device.default(visited)
+          Device.default(visited)
         ]
       end
 
@@ -1457,7 +1457,7 @@ module AWS::SDK::Panorama
     class ListDevicesJobs
       def self.default(visited=[])
         {
-          device_jobs: Stubs::DeviceJobList.default(visited),
+          device_jobs: DeviceJobList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1478,7 +1478,7 @@ module AWS::SDK::Panorama
         return nil if visited.include?('DeviceJobList')
         visited = visited + ['DeviceJobList']
         [
-          Stubs::DeviceJob.default(visited)
+          DeviceJob.default(visited)
         ]
       end
 
@@ -1520,7 +1520,7 @@ module AWS::SDK::Panorama
     class ListNodeFromTemplateJobs
       def self.default(visited=[])
         {
-          node_from_template_jobs: Stubs::NodeFromTemplateJobList.default(visited),
+          node_from_template_jobs: NodeFromTemplateJobList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1541,7 +1541,7 @@ module AWS::SDK::Panorama
         return nil if visited.include?('NodeFromTemplateJobList')
         visited = visited + ['NodeFromTemplateJobList']
         [
-          Stubs::NodeFromTemplateJob.default(visited)
+          NodeFromTemplateJob.default(visited)
         ]
       end
 
@@ -1587,7 +1587,7 @@ module AWS::SDK::Panorama
     class ListNodes
       def self.default(visited=[])
         {
-          nodes: Stubs::NodesList.default(visited),
+          nodes: NodesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1608,7 +1608,7 @@ module AWS::SDK::Panorama
         return nil if visited.include?('NodesList')
         visited = visited + ['NodesList']
         [
-          Stubs::Node.default(visited)
+          Node.default(visited)
         ]
       end
 
@@ -1664,7 +1664,7 @@ module AWS::SDK::Panorama
     class ListPackageImportJobs
       def self.default(visited=[])
         {
-          package_import_jobs: Stubs::PackageImportJobList.default(visited),
+          package_import_jobs: PackageImportJobList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1685,7 +1685,7 @@ module AWS::SDK::Panorama
         return nil if visited.include?('PackageImportJobList')
         visited = visited + ['PackageImportJobList']
         [
-          Stubs::PackageImportJob.default(visited)
+          PackageImportJob.default(visited)
         ]
       end
 
@@ -1731,7 +1731,7 @@ module AWS::SDK::Panorama
     class ListPackages
       def self.default(visited=[])
         {
-          packages: Stubs::PackageList.default(visited),
+          packages: PackageList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1752,7 +1752,7 @@ module AWS::SDK::Panorama
         return nil if visited.include?('PackageList')
         visited = visited + ['PackageList']
         [
-          Stubs::PackageListItem.default(visited)
+          PackageListItem.default(visited)
         ]
       end
 
@@ -1776,7 +1776,7 @@ module AWS::SDK::Panorama
           package_name: 'package_name',
           arn: 'arn',
           created_time: Time.now,
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1796,7 +1796,7 @@ module AWS::SDK::Panorama
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 

@@ -20,15 +20,15 @@ module AWS::SDK::ConnectContactLens
     class Categories
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Categories, context: context)
-        Validators::MatchedCategories.validate!(input[:matched_categories], context: "#{context}[:matched_categories]") unless input[:matched_categories].nil?
-        Validators::MatchedDetails.validate!(input[:matched_details], context: "#{context}[:matched_details]") unless input[:matched_details].nil?
+        MatchedCategories.validate!(input[:matched_categories], context: "#{context}[:matched_categories]") unless input[:matched_categories].nil?
+        MatchedDetails.validate!(input[:matched_details], context: "#{context}[:matched_details]") unless input[:matched_details].nil?
       end
     end
 
     class CategoryDetails
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CategoryDetails, context: context)
-        Validators::PointsOfInterest.validate!(input[:points_of_interest], context: "#{context}[:points_of_interest]") unless input[:points_of_interest].nil?
+        PointsOfInterest.validate!(input[:points_of_interest], context: "#{context}[:points_of_interest]") unless input[:points_of_interest].nil?
       end
     end
 
@@ -57,7 +57,7 @@ module AWS::SDK::ConnectContactLens
     class IssueDetected
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::IssueDetected, context: context)
-        Validators::CharacterOffsets.validate!(input[:character_offsets], context: "#{context}[:character_offsets]") unless input[:character_offsets].nil?
+        CharacterOffsets.validate!(input[:character_offsets], context: "#{context}[:character_offsets]") unless input[:character_offsets].nil?
       end
     end
 
@@ -65,7 +65,7 @@ module AWS::SDK::ConnectContactLens
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::IssueDetected.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          IssueDetected.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -83,7 +83,7 @@ module AWS::SDK::ConnectContactLens
     class ListRealtimeContactAnalysisSegmentsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRealtimeContactAnalysisSegmentsOutput, context: context)
-        Validators::RealtimeContactAnalysisSegments.validate!(input[:segments], context: "#{context}[:segments]") unless input[:segments].nil?
+        RealtimeContactAnalysisSegments.validate!(input[:segments], context: "#{context}[:segments]") unless input[:segments].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -102,7 +102,7 @@ module AWS::SDK::ConnectContactLens
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::CategoryDetails.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          CategoryDetails.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -119,7 +119,7 @@ module AWS::SDK::ConnectContactLens
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PointOfInterest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PointOfInterest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -127,8 +127,8 @@ module AWS::SDK::ConnectContactLens
     class RealtimeContactAnalysisSegment
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RealtimeContactAnalysisSegment, context: context)
-        Validators::Transcript.validate!(input[:transcript], context: "#{context}[:transcript]") unless input[:transcript].nil?
-        Validators::Categories.validate!(input[:categories], context: "#{context}[:categories]") unless input[:categories].nil?
+        Transcript.validate!(input[:transcript], context: "#{context}[:transcript]") unless input[:transcript].nil?
+        Categories.validate!(input[:categories], context: "#{context}[:categories]") unless input[:categories].nil?
       end
     end
 
@@ -136,7 +136,7 @@ module AWS::SDK::ConnectContactLens
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RealtimeContactAnalysisSegment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RealtimeContactAnalysisSegment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -165,7 +165,7 @@ module AWS::SDK::ConnectContactLens
         Hearth::Validator.validate!(input[:begin_offset_millis], ::Integer, context: "#{context}[:begin_offset_millis]")
         Hearth::Validator.validate!(input[:end_offset_millis], ::Integer, context: "#{context}[:end_offset_millis]")
         Hearth::Validator.validate!(input[:sentiment], ::String, context: "#{context}[:sentiment]")
-        Validators::IssuesDetected.validate!(input[:issues_detected], context: "#{context}[:issues_detected]") unless input[:issues_detected].nil?
+        IssuesDetected.validate!(input[:issues_detected], context: "#{context}[:issues_detected]") unless input[:issues_detected].nil?
       end
     end
 

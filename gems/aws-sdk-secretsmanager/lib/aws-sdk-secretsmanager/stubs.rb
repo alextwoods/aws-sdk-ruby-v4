@@ -37,7 +37,7 @@ module AWS::SDK::SecretsManager
           arn: 'arn',
           name: 'name',
           version_id: 'version_id',
-          replication_status: Stubs::ReplicationStatusListType.default(visited),
+          replication_status: ReplicationStatusListType.default(visited),
         }
       end
 
@@ -58,7 +58,7 @@ module AWS::SDK::SecretsManager
         return nil if visited.include?('ReplicationStatusListType')
         visited = visited + ['ReplicationStatusListType']
         [
-          Stubs::ReplicationStatusType.default(visited)
+          ReplicationStatusType.default(visited)
         ]
       end
 
@@ -146,17 +146,17 @@ module AWS::SDK::SecretsManager
           kms_key_id: 'kms_key_id',
           rotation_enabled: false,
           rotation_lambda_arn: 'rotation_lambda_arn',
-          rotation_rules: Stubs::RotationRulesType.default(visited),
+          rotation_rules: RotationRulesType.default(visited),
           last_rotated_date: Time.now,
           last_changed_date: Time.now,
           last_accessed_date: Time.now,
           deleted_date: Time.now,
-          tags: Stubs::TagListType.default(visited),
-          version_ids_to_stages: Stubs::SecretVersionsToStagesMapType.default(visited),
+          tags: TagListType.default(visited),
+          version_ids_to_stages: SecretVersionsToStagesMapType.default(visited),
           owning_service: 'owning_service',
           created_date: Time.now,
           primary_region: 'primary_region',
-          replication_status: Stubs::ReplicationStatusListType.default(visited),
+          replication_status: ReplicationStatusListType.default(visited),
         }
       end
 
@@ -190,7 +190,7 @@ module AWS::SDK::SecretsManager
         return nil if visited.include?('SecretVersionsToStagesMapType')
         visited = visited + ['SecretVersionsToStagesMapType']
         {
-          test_key: Stubs::SecretVersionStagesType.default(visited)
+          test_key: SecretVersionStagesType.default(visited)
         }
       end
 
@@ -230,7 +230,7 @@ module AWS::SDK::SecretsManager
         return nil if visited.include?('TagListType')
         visited = visited + ['TagListType']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -331,7 +331,7 @@ module AWS::SDK::SecretsManager
           version_id: 'version_id',
           secret_binary: 'secret_binary',
           secret_string: 'secret_string',
-          version_stages: Stubs::SecretVersionStagesType.default(visited),
+          version_stages: SecretVersionStagesType.default(visited),
           created_date: Time.now,
         }
       end
@@ -354,7 +354,7 @@ module AWS::SDK::SecretsManager
     class ListSecretVersionIds
       def self.default(visited=[])
         {
-          versions: Stubs::SecretVersionsListType.default(visited),
+          versions: SecretVersionsListType.default(visited),
           next_token: 'next_token',
           arn: 'arn',
           name: 'name',
@@ -378,7 +378,7 @@ module AWS::SDK::SecretsManager
         return nil if visited.include?('SecretVersionsListType')
         visited = visited + ['SecretVersionsListType']
         [
-          Stubs::SecretVersionsListEntry.default(visited)
+          SecretVersionsListEntry.default(visited)
         ]
       end
 
@@ -399,10 +399,10 @@ module AWS::SDK::SecretsManager
         visited = visited + ['SecretVersionsListEntry']
         {
           version_id: 'version_id',
-          version_stages: Stubs::SecretVersionStagesType.default(visited),
+          version_stages: SecretVersionStagesType.default(visited),
           last_accessed_date: Time.now,
           created_date: Time.now,
-          kms_key_ids: Stubs::KmsKeyIdListType.default(visited),
+          kms_key_ids: KmsKeyIdListType.default(visited),
         }
       end
 
@@ -442,7 +442,7 @@ module AWS::SDK::SecretsManager
     class ListSecrets
       def self.default(visited=[])
         {
-          secret_list: Stubs::SecretListType.default(visited),
+          secret_list: SecretListType.default(visited),
           next_token: 'next_token',
         }
       end
@@ -462,7 +462,7 @@ module AWS::SDK::SecretsManager
         return nil if visited.include?('SecretListType')
         visited = visited + ['SecretListType']
         [
-          Stubs::SecretListEntry.default(visited)
+          SecretListEntry.default(visited)
         ]
       end
 
@@ -488,13 +488,13 @@ module AWS::SDK::SecretsManager
           kms_key_id: 'kms_key_id',
           rotation_enabled: false,
           rotation_lambda_arn: 'rotation_lambda_arn',
-          rotation_rules: Stubs::RotationRulesType.default(visited),
+          rotation_rules: RotationRulesType.default(visited),
           last_rotated_date: Time.now,
           last_changed_date: Time.now,
           last_accessed_date: Time.now,
           deleted_date: Time.now,
-          tags: Stubs::TagListType.default(visited),
-          secret_versions_to_stages: Stubs::SecretVersionsToStagesMapType.default(visited),
+          tags: TagListType.default(visited),
+          secret_versions_to_stages: SecretVersionsToStagesMapType.default(visited),
           owning_service: 'owning_service',
           created_date: Time.now,
           primary_region: 'primary_region',
@@ -549,7 +549,7 @@ module AWS::SDK::SecretsManager
           arn: 'arn',
           name: 'name',
           version_id: 'version_id',
-          version_stages: Stubs::SecretVersionStagesType.default(visited),
+          version_stages: SecretVersionStagesType.default(visited),
         }
       end
 
@@ -569,7 +569,7 @@ module AWS::SDK::SecretsManager
       def self.default(visited=[])
         {
           arn: 'arn',
-          replication_status: Stubs::ReplicationStatusListType.default(visited),
+          replication_status: ReplicationStatusListType.default(visited),
         }
       end
 
@@ -587,7 +587,7 @@ module AWS::SDK::SecretsManager
       def self.default(visited=[])
         {
           arn: 'arn',
-          replication_status: Stubs::ReplicationStatusListType.default(visited),
+          replication_status: ReplicationStatusListType.default(visited),
         }
       end
 
@@ -725,7 +725,7 @@ module AWS::SDK::SecretsManager
       def self.default(visited=[])
         {
           policy_validation_passed: false,
-          validation_errors: Stubs::ValidationErrorsType.default(visited),
+          validation_errors: ValidationErrorsType.default(visited),
         }
       end
 
@@ -744,7 +744,7 @@ module AWS::SDK::SecretsManager
         return nil if visited.include?('ValidationErrorsType')
         visited = visited + ['ValidationErrorsType']
         [
-          Stubs::ValidationErrorsEntry.default(visited)
+          ValidationErrorsEntry.default(visited)
         ]
       end
 
