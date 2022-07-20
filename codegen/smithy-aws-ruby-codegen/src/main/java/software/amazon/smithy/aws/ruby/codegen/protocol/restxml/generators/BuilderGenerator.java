@@ -89,7 +89,7 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
         writer
                 .write("")
                 .write("http_req.headers['Content-Type'] = 'application/xml'")
-                .write("xml = Hearth::XML::Node.new('$L')", nodeName)
+                .write("xml = $T.new('$L')", Hearth.XML_NODE, nodeName)
                 .call(() -> {
                     XmlNamespaceTrait xmlnsTrait = context.service()
                             .getTrait(XmlNamespaceTrait.class)
@@ -100,14 +100,14 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
                     }
                     renderMemberBuilders(inputShape);
                 })
-                .write("http_req.body = StringIO.new(xml.to_str)");
+                .write("http_req.body = $T.new(xml.to_str)", RubyImportContainer.STRING_IO);
     }
 
     @Override
     protected void renderStructureBuildMethod(StructureShape shape) {
         writer
                 .openBlock("def self.build(node_name, input)")
-                .write("xml = Hearth::XML::Node.new(node_name)")
+                .write("xml = $T.new(node_name)", Hearth.XML_NODE)
                 .call(() -> renderMemberBuilders(shape))
                 .write("xml")
                 .closeBlock("end");
@@ -139,14 +139,14 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
 
         shape.members().forEach((member) -> {
             writer
-                    .write("when Types::$L::$L", shape.getId().getName(), symbolProvider.toMemberName(member))
+                    .write("when $T", context.symbolProvider().toSymbol(member))
                     .indent();
             renderUnionMemberBuilder(shape, member);
             writer.dedent();
         });
         writer.openBlock("else")
-                .write("raise ArgumentError,\n\"Expected input to be one of the subclasses of Types::$L\"",
-                        symbol.getName())
+                .write("raise ArgumentError,\n\"Expected input to be one of the subclasses of $T\"",
+                        context.symbolProvider().toSymbol(shape))
                 .closeBlock("end")
                 .write("")
                 .write("xml")

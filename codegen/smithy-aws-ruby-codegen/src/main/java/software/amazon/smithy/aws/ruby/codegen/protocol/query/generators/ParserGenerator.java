@@ -37,10 +37,11 @@ public class ParserGenerator extends ParserGeneratorBase {
     protected void renderOperationParseMethod(OperationShape operationShape, Shape shape) {
         writer
                 .openBlock("def self.parse(http_resp)")
-                .write("data = Types::$L.new", symbolProvider.toSymbol(shape).getName())
+                .write("data = $T.new", context.symbolProvider().toSymbol(shape))
                 .write("body = http_resp.body.read")
                 .write("return data if body.empty?")
-                .write("xml = Hearth::XML.parse(body).at('$LResult')", symbolProvider.toSymbol(operationShape).getName());
+                .write("xml = $T.parse(body).at('$LResult')",
+                        Hearth.XML, symbolProvider.toSymbol(operationShape).getName());
         renderMemberParsers(shape);
         writer
                 .write("data")
@@ -119,13 +120,12 @@ public class ParserGenerator extends ParserGeneratorBase {
                                     Shape target = model.expectShape(member.getTarget());
                                     target.accept(new MemberDeserializer(member, "value = "));
                                 })
-                                .write("Types::$L::$L.new(value) if value", symbolProvider.toSymbol(s).getName(),
-                                        symbolProvider.toMemberName(member))
+                                .write("$T.new(value) if value", context.symbolProvider().toSymbol(member))
                                 .dedent();
                     });
                 })
                 .openBlock("else")
-                .write("Types::$L::Unknown.new({name: key, value: value})", s.getId().getName())
+                .write("$T::Unknown.new({name: key, value: value})", context.symbolProvider().toSymbol(s))
                 .closeBlock("end") // end of case
                 .closeBlock("end");
     }

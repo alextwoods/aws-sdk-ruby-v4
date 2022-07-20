@@ -119,13 +119,12 @@ public class ParserGenerator extends ParserGeneratorBase {
                                     Shape target = model.expectShape(member.getTarget());
                                     target.accept(new MemberDeserializer(member, "value = "));
                                 })
-                                .write("Types::$L::$L.new(value) if value", symbolProvider.toSymbol(s).getName(),
-                                        symbolProvider.toMemberName(member))
+                                .write("$T.new(value) if value", context.symbolProvider().toSymbol(member))
                                 .dedent();
                     });
                 })
                 .openBlock("else")
-                .write("Types::$L::Unknown.new({name: key, value: value})", s.getId().getName())
+                .write("$T::Unknown.new({name: key, value: value})", context.symbolProvider().toSymbol(s))
                 .closeBlock("end") // end of case
                 .closeBlock("end");
     }

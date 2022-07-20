@@ -87,14 +87,14 @@ public class StubsGenerator extends StubsGeneratorBase {
 
         shape.members().forEach((member) -> {
             writer
-                    .write("when Types::$L::$L", shape.getId().getName(), symbolProvider.toMemberName(member))
+                    .write("when $T", context.symbolProvider().toSymbol(member))
                     .indent();
             renderUnionMemberStubber(shape, member);
             writer.dedent();
         });
         writer.openBlock("else")
-                .write("raise ArgumentError,\n\"Expected input to be one of the subclasses of Types::$L\"",
-                        symbol.getName())
+                .write("raise ArgumentError,\n\"Expected input to be one of the subclasses of $T\"",
+                        context.symbolProvider().toSymbol(shape))
                 .closeBlock("end")
                 .write("")
                 .write("xml")
@@ -245,8 +245,8 @@ public class StubsGenerator extends StubsGeneratorBase {
         }
 
         private void rubyFloat() {
-            writer.write("xml << $T.new($L, Hearth::NumberHelper.serialize($L).to_s$L)$L",
-                    Hearth.XML_NODE, nodeName, inputGetter, xmlnsAttribute(), checkRequired());
+            writer.write("xml << $T.new($L, $T.serialize($L).to_s$L)$L",
+                    Hearth.XML_NODE, nodeName, Hearth.NUMBER_HELPER, inputGetter, xmlnsAttribute(), checkRequired());
         }
 
         @Override

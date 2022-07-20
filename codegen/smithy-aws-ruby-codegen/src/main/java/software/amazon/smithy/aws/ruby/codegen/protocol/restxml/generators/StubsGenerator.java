@@ -172,14 +172,14 @@ public class StubsGenerator extends RestStubsGeneratorBase {
 
         shape.members().forEach((member) -> {
             writer
-                    .write("when Types::$L::$L", shape.getId().getName(), symbolProvider.toMemberName(member))
+                    .write("when $T", context.symbolProvider().toSymbol(member))
                     .indent();
             renderUnionMemberStubber(shape, member);
             writer.dedent();
         });
         writer.openBlock("else")
-                .write("raise ArgumentError,\n\"Expected input to be one of the subclasses of Types::$L\"",
-                        symbol.getName())
+                .write("raise ArgumentError,\n\"Expected input to be one of the subclasses of $T\"",
+                        context.symbolProvider().toSymbol(shape))
                 .closeBlock("end")
                 .write("")
                 .write("xml")
@@ -272,14 +272,14 @@ public class StubsGenerator extends RestStubsGeneratorBase {
 
         @Override
         protected Void getDefault(Shape shape) {
-            writer.write("xml << Hearth::XML::Node.new($L, $L.to_s$L)$L",
-                    nodeName, inputGetter, xmlnsAttribute(), checkRequired());
+            writer.write("xml << $T.new($L, $L.to_s$L)$L",
+                    Hearth.XML_NODE, nodeName, inputGetter, xmlnsAttribute(), checkRequired());
             return null;
         }
 
         private void rubyFloat() {
-            writer.write("xml << Hearth::XML::Node.new($L, Hearth::NumberHelper.serialize($L).to_s$L)$L",
-                    nodeName, inputGetter, xmlnsAttribute(), checkRequired());
+            writer.write("xml << $T.new($L, Hearth::NumberHelper.serialize($L).to_s$L)$L",
+                    Hearth.XML_NODE, nodeName, inputGetter, xmlnsAttribute(), checkRequired());
         }
 
         @Override
@@ -296,14 +296,15 @@ public class StubsGenerator extends RestStubsGeneratorBase {
 
         @Override
         public Void blobShape(BlobShape shape) {
-            writer.write("xml << Hearth::XML::Node.new($L, Base64::encode64($L).strip$L)$L",
-                    nodeName, inputGetter, xmlnsAttribute(), checkRequired());
+            writer.write("xml << $T.new($L, Base64::encode64($L).strip$L)$L",
+                    Hearth.XML_NODE, nodeName, inputGetter, xmlnsAttribute(), checkRequired());
             return null;
         }
 
         @Override
         public Void timestampShape(TimestampShape shape) {
-            writer.write("xml << Hearth::XML::Node.new($L, $L$L)$L",
+            writer.write("xml << $T.new($L, $L$L)$L",
+                    Hearth.XML_NODE,
                     nodeName,
                     TimestampFormat.serializeTimestamp(
                             shape, memberShape, inputGetter, TimestampFormatTrait.Format.DATE_TIME, true),
@@ -345,9 +346,9 @@ public class StubsGenerator extends RestStubsGeneratorBase {
                 if (shape.getMember().hasTrait(XmlNameTrait.class)) {
                     memberName = shape.getMember().getTrait(XmlNameTrait.class).get().getValue();
                 }
-                writer.write("xml << Hearth::XML::Node.new($2L, Stubs::$1L.stub('$4L', $3L)$5L) unless $3L.nil?",
+                writer.write("xml << $6T.new($2L, Stubs::$1L.stub('$4L', $3L)$5L) unless $3L.nil?",
                         symbolProvider.toSymbol(shape).getName(), nodeName,
-                        inputGetter, memberName, xmlnsAttribute());
+                        inputGetter, memberName, xmlnsAttribute(), Hearth.XML_NODE);
             }
             return null;
         }
@@ -357,9 +358,9 @@ public class StubsGenerator extends RestStubsGeneratorBase {
             if (memberShape.hasTrait(XmlFlattenedTrait.class) || shape.hasTrait(XmlFlattenedTrait.class)) {
                 defaultComplexSerializer(shape);
             } else {
-                writer.write("xml << Hearth::XML::Node.new($2L, Stubs::$1L.stub('entry', $3L)$4L) unless $3L.nil?",
+                writer.write("xml << $5T.new($2L, Stubs::$1L.stub('entry', $3L)$4L) unless $3L.nil?",
                         symbolProvider.toSymbol(shape).getName(), nodeName,
-                        inputGetter, xmlnsAttribute());
+                        inputGetter, xmlnsAttribute(), Hearth.XML_NODE);
             }
 
             return null;
